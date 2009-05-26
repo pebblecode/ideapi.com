@@ -6,9 +6,7 @@ class BriefConfig < ActiveRecord::Base
   has_many :sections
   
   def self.current
-    current = find(:first, :order => :created_at)
-    raise 'Please have an admin create a BriefConfig before continuing' if current.blank?
-    return current
+    find(:first, :order => :created_at)
   end
   
 end
