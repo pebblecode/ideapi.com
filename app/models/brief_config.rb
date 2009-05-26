@@ -3,10 +3,12 @@ class BriefConfig < ActiveRecord::Base
   validates_uniqueness_of :title
   
   has_many :briefs
-  has_many :brief_sections
+  has_many :sections
   
   def self.current
-    find(:first, :order => :created_at)
+    current = find(:first, :order => :created_at)
+    raise 'Please have an admin create a BriefConfig before continuing' if current.blank?
+    return current
   end
   
 end

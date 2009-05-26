@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20090526140832) do
     t.string  "title"
     t.text    "strapline"
     t.integer "position"
+    t.integer "brief_config_id"
   end
 
   create_table "users", :force => true do |t|

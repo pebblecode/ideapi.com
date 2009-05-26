@@ -13,6 +13,7 @@ if section = Section.find_by_title("What?")
     Question.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
+      s.assign_section = section
     end
   end
 end
@@ -27,6 +28,7 @@ if section = Section.find_by_title("Why?")
     Question.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
+      s.assign_section = section
     end
   end
 end
@@ -44,6 +46,7 @@ if section = Section.find_by_title("Who?")
     Question.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
+      s.assign_section = section
     end
   end
 end
@@ -62,6 +65,7 @@ if section = Section.find_by_title("How?")
     Question.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
+      s.assign_section = section
     end
   end
 end
@@ -77,6 +81,7 @@ if section = Section.find_by_title("Where?")
     Question.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
+      s.assign_section = section
     end
   end
 end

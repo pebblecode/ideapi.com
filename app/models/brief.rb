@@ -1,13 +1,24 @@
 class Brief < ActiveRecord::Base
-  belongs_to :brief_config
+  # relationships
+  has_brief_config
   belongs_to :user
   
   has_many :answers
   has_many :creative_responses
-    
-  before_validation :assign_brief_config
   
+  # delegations
+  delegate :sections, :to => :brief_config
+  
+  # callbacks
+  
+  # validations
   validates_presence_of :user, :brief_config
+  
+  #instance methods
+  
+  #class methods
+  class << self
+  end
   
   private 
   

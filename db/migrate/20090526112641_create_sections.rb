@@ -4,6 +4,7 @@ class CreateSections < ActiveRecord::Migration
       t.column :title, :string
       t.column :strapline, :text
       t.column :position, :integer
+      t.integer :brief_config_id
     end
   end
 
