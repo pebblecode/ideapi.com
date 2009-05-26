@@ -5,7 +5,7 @@ class BriefConfig < ActiveRecord::Base
   has_many :briefs
   has_many :brief_sections
   
-  def current
+  def self.current
     find(:first, :order => :created_at)
   end
   

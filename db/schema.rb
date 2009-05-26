@@ -9,28 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090526101030) do
+ActiveRecord::Schema.define(:version => 20090526140832) do
 
-  create_table "brief_answers", :force => true do |t|
-    t.text    "answer"
-    t.integer "brief_question_id"
+  create_table "answers", :force => true do |t|
+    t.text    "body"
+    t.integer "question_id"
     t.integer "brief_id"
   end
 
   create_table "brief_configs", :force => true do |t|
-    t.string "title"
-  end
-
-  create_table "brief_questions", :force => true do |t|
-    t.string  "title"
-    t.text    "help_text"
-    t.integer "response_type_id"
-  end
-
-  create_table "brief_sections", :force => true do |t|
-    t.string  "title"
-    t.text    "strapline"
-    t.integer "position"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "briefs", :force => true do |t|
@@ -44,6 +34,31 @@ ActiveRecord::Schema.define(:version => 20090526101030) do
     t.text    "long_description"
     t.integer "brief_id"
     t.integer "user_id"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string  "title"
+    t.text    "help_text"
+    t.integer "response_type_id"
+  end
+
+  create_table "response_types", :force => true do |t|
+    t.string "title"
+    t.string "input_type"
+    t.string "options"
+  end
+
+  create_table "section_questions", :force => true do |t|
+    t.integer  "section_id"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string  "title"
+    t.text    "strapline"
+    t.integer "position"
   end
 
   create_table "users", :force => true do |t|

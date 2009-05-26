@@ -1,6 +1,10 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+require "authlogic/test_case"
+require "webrat"
+
+require File.expand_path(File.dirname(__FILE__) + "/blueprints")
 
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -33,6 +37,11 @@ class ActiveSupport::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
   fixtures :all
+  
+  # Add more helper methods to be used by all tests here...  
+  setup { Sham.reset }
+end
 
-  # Add more helper methods to be used by all tests here...
+Webrat.configure do |config|
+  config.mode = :rails
 end

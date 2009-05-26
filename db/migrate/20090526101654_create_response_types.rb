@@ -2,6 +2,7 @@ class CreateResponseTypes < ActiveRecord::Migration
   def self.up
     create_table :response_types do |t|
       t.string :title
+      t.string :input_type
       t.string :options
     end
   end

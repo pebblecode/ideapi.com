@@ -5,15 +5,6 @@
   %p.email
     %strong Email
     = h user.email
-  %p.crypted_password
-    %strong Crypted password
-    = h user.crypted_password
-  %p.password_salt
-    %strong Password salt
-    = h user.password_salt
-  %p.persistence_token
-    %strong Persistence token
-    = h user.persistence_token
 
   = link_to 'Show', object_path(user)
   |

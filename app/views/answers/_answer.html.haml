@@ -1,0 +1,16 @@
+%div[answer]
+  %p.body
+    %strong Body
+    = h answer.body
+  %p.question_id
+    %strong Question
+    = h answer.question_id
+  %p.brief_id
+    %strong Brief
+    = h answer.brief_id
+
+  = link_to 'Show', object_path(answer)
+  |
+  = link_to 'Edit', edit_object_path(answer)
+  |
+  = link_to 'Destroy', object_path(answer), :confirm => 'Really destroy answer?', :method => :delete

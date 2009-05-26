@@ -7,18 +7,5 @@
   %p.email
     %strong Email
     = h current_object.email
-  %p.crypted_password
-    %strong Crypted password
-    = h current_object.crypted_password
-  %p.password_salt
-    %strong Password salt
-    = h current_object.password_salt
-  %p.persistence_token
-    %strong Persistence token
-    = h current_object.persistence_token
 
 = link_to 'Edit', edit_object_path
-|
-=# link_to 'Destroy', object_path, :confirm => 'Really destroy user?', :method => :delete
-|
-= link_to 'Back', objects_path
