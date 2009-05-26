@@ -1,0 +1,11 @@
+%h1 Editing brief
+
+= error_messages_for :brief
+
+- form_for(:brief, :url => object_url, :html => { :method => :put }) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p= submit_tag "Update"
+
+= link_to 'Show', object_path
+|
+= link_to 'Back', objects_path

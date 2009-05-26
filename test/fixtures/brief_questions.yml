@@ -1,0 +1,10 @@
+one:
+  id: 1
+  title: MyString
+  help_text: MyText
+  response_type_id: 1
+two:
+  id: 2
+  title: MyString
+  help_text: MyText
+  response_type_id: 1

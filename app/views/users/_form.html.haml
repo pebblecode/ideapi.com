@@ -1,0 +1,15 @@
+%p
+  %label{:for => "user_login"} Login:
+  = f.text_field :login
+%p
+  %label{:for => "user_email"} Email:
+  = f.text_field :email
+%p
+  %label{:for => "user_crypted_password"} Crypted password:
+  = f.text_field :crypted_password
+%p
+  %label{:for => "user_password_salt"} Password salt:
+  = f.text_field :password_salt
+%p
+  %label{:for => "user_persistence_token"} Persistence token:
+  = f.text_field :persistence_token

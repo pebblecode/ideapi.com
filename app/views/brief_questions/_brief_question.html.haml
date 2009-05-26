@@ -1,0 +1,16 @@
+%div[brief_question]
+  %p.title
+    %strong Title
+    = h brief_question.title
+  %p.help_text
+    %strong Help text
+    = h brief_question.help_text
+  %p.response_type_id
+    %strong Response type
+    = h brief_question.response_type_id
+
+  = link_to 'Show', object_path(brief_question)
+  |
+  = link_to 'Edit', edit_object_path(brief_question)
+  |
+  = link_to 'Destroy', object_path(brief_question), :confirm => 'Really destroy brief_question?', :method => :delete

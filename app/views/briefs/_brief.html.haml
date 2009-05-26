@@ -1,0 +1,13 @@
+%div[brief]
+  %p.brief_config_id
+    %strong Brief config
+    = h brief.brief_config_id
+  %p.user_id
+    %strong User
+    = h brief.user_id
+
+  = link_to 'Show', object_path(brief)
+  |
+  = link_to 'Edit', edit_object_path(brief)
+  |
+  = link_to 'Destroy', object_path(brief), :confirm => 'Really destroy brief?', :method => :delete

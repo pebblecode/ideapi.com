@@ -1,0 +1,2 @@
+module CreativeResponsesHelper
+end

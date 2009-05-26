@@ -1,0 +1,2 @@
+module BriefConfigsHelper
+end

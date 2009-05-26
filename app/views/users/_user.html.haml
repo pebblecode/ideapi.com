@@ -1,0 +1,22 @@
+%div[user]
+  %p.login
+    %strong Login
+    = h user.login
+  %p.email
+    %strong Email
+    = h user.email
+  %p.crypted_password
+    %strong Crypted password
+    = h user.crypted_password
+  %p.password_salt
+    %strong Password salt
+    = h user.password_salt
+  %p.persistence_token
+    %strong Persistence token
+    = h user.persistence_token
+
+  = link_to 'Show', object_path(user)
+  |
+  = link_to 'Edit', edit_object_path(user)
+  |
+  = link_to 'Destroy', object_path(user), :confirm => 'Really destroy user?', :method => :delete
