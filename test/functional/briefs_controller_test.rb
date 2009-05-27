@@ -50,4 +50,5 @@ class BriefsControllerTest < ActionController::TestCase
   
     assert_redirected_to briefs_path
   end
+  
 end

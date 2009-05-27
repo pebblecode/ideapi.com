@@ -13,7 +13,7 @@ class Brief < ActiveRecord::Base
   after_create :generate_template_answers!
   
   # validations
-  validates_presence_of :user, :brief_config
+  validates_presence_of :user, :brief_config, :title
   
   #instance methods
   def generate_template_answers!
