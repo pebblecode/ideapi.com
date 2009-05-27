@@ -5,7 +5,7 @@ class Answer < ActiveRecord::Base
   class << self
     
     def to_question(question)
-      find(:all, :conditions => ["question_id = ?", question.id || question])
+      find(:all, :conditions => ["question_id = ?", (question.is_a?(Question) ? question.id : question)])
     end
     
   end

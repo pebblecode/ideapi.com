@@ -28,6 +28,7 @@ end
 Question.blueprint do
   title
   help_text { Sham.body }
+  section { Section.make }
 end
 
 CreativeResponse.blueprint do
