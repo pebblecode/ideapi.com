@@ -7,7 +7,13 @@ jQuery(document).ready(function(){
 		return false;
 	}).next().hide();
 	
-	$('.section:first h3').next().toggle();
+	var current_location = document.location.toString();
+  if (current_location.match('#section')) { 
+    $('#' + current_location.split('#')[1] + ' h3').click();
+  } else {
+    $('.section:first h3').next().toggle();
+  }
+	
 	
 	$('.question_help').hide();
 	

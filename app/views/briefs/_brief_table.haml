@@ -1,0 +1,11 @@
+.briefs_list
+  %h3= h title
+  - if briefs.empty?
+    %p There are no briefs here yet, create one?
+  - else
+    %table{:width => "100%"}
+      %tr
+        %th{:width => "50%"} Name
+        %th Responses
+        %th Actions
+      = render :partial => 'brief', :collection => briefs

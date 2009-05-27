@@ -1,7 +1,3 @@
-%h2 Briefs
-= render :partial => 'brief', :collection => current_user_briefs
-
-%h3 All Briefs
-= render :partial => 'brief', :collection => current_objects
-
-= link_to 'New brief', new_object_path 
+%h2=link_to 'Create new brief', new_object_path
+=render :partial => 'brief_table', :locals => {:briefs => current_user_briefs, :title => 'Active Briefs'}
+=render :partial => 'brief_table', :locals => {:briefs => current_objects, :title => 'Popular Briefs'}

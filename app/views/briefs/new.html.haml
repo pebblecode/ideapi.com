@@ -4,6 +4,7 @@
 
 - form_for(:brief, :url => objects_url) do |f|
   = render :partial => "form", :locals => {:f => f}
-  %p= submit_tag "Create"
+  %p= submitter "Create"
+  .clear
 
 = link_to 'Back', objects_path
