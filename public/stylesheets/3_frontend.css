@@ -78,11 +78,18 @@ h2 {
 
 .briefs_list {
   margin-bottom: 2em; }
-  .briefs_list table tr {
+
+table {
+  margin-bottom: 1em; }
+  table tr {
     background: #eee; }
-    .briefs_list table tr td, .briefs_list table tr th {
+    table tr td, table tr th {
       padding: 0.5em 0em 0.5em 1em;
       border-bottom: 1px solid #ddd; }
+    table tr th {
+      background: #ccc; }
+  table tr:hover {
+    background: #ddd; }
 
 input, textarea {
   border: 1px solid #ccc;

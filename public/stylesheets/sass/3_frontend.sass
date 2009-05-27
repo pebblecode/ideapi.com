@@ -96,14 +96,22 @@ h2
 .briefs_list
   :margin-bottom 2em
   
-  table
-    tr
-      :background #eee
+table
+  :margin-bottom 1em
+  
+  tr
+    :background #eee
+          
+    td, th
+      :padding 0.5em 0em 0.5em 1em
+      :border-bottom 1px solid #ddd
       
-      td, th
-        :padding 0.5em 0em 0.5em 1em
-        :border-bottom 1px solid #ddd
-        
+    th
+      :background #ccc
+    
+  tr:hover
+    :background #ddd
+      
    
 input, textarea
   :border 1px solid #ccc

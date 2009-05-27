@@ -1,5 +1,10 @@
-%h1 Listing questions
+%h2 Listing questions
 
-= render :partial => 'question', :collection => current_objects
+%table{:width => "100%"}
+  %tr
+    %th{:width => "50%"} Name
+    %th
+    %th Actions
+  = render :partial => 'question', :collection => current_objects
 
 = link_to 'New question', new_object_path 
