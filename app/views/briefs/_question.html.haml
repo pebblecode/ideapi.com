@@ -1,7 +1,9 @@
 %li
-  .question
-    %h3.question_title=question.title
-    %p.question_help=question.help_text
-  .answer
-    -answer = current_object.answer_for(question, section)
+  %div[question]
+    %h4.question_title=question.title
+    -if !question.help_text.blank?
+      %p.question_help=question.help_text
+  -answer = current_object.answer_for(question, section)
+  %div[answer]
     =text_area_tag "answers[#{answer.id}][body]", answer.body
+  .clear

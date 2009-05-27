@@ -1,0 +1,16 @@
+body {
+  font-size: .75em;
+  text-align: center; }
+  body.fullwidth div#container {
+    width: 900px; }
+
+div#container {
+  width: 700px;
+  margin: 0 auto;
+  text-align: left; }
+div.rcol div.content {
+  margin: 0 20px 0 0; }
+div.rcol div.column {
+  float: right; }
+div.column {
+  width: 200px; }

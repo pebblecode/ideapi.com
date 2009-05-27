@@ -1,6 +1,4 @@
-%h1 
-  Brief:
-  =current_object.title.titlecase
+%h2=current_object.title.titlecase
 
 %div[current_object]
   - form_for(:brief, :url => object_url, :html => { :method => :put }) do |f|
