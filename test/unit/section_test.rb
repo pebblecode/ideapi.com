@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class SectionTest < Test::Unit::TestCase
+class SectionTest < ActiveSupport::TestCase
   def test_truth
     assert true
   end

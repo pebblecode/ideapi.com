@@ -39,14 +39,7 @@ class ActiveSupport::TestCase
   fixtures :all
   
   # Add more helper methods to be used by all tests here...  
-  setup {
-    Sham.reset 
-    if BriefConfig.current.blank?
-      BriefConfig.make
-    end
-    
-    assert(!BriefConfig.current.blank?)
-  }
+  setup { Sham.reset }
 end
 
 Webrat.configure do |config|

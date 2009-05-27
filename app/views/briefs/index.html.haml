@@ -1,5 +1,8 @@
-%h1 Listing briefs
+%h1 Briefs
 
+= render :partial => 'brief', :collection => current_user_briefs
+
+%h3 All Briefs
 = render :partial => 'brief', :collection => current_objects
 
 = link_to 'New brief', new_object_path 

@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class QuestionTest < Test::Unit::TestCase
+class QuestionTest < ActiveSupport::TestCase
   
   context "Questions and sections" do
     setup do

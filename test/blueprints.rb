@@ -7,7 +7,6 @@ Sham.define do
   email { Faker::Internet.email }
   login { Faker::Internet.user_name }
   password { Faker::Lorem.words.join }
-  brief_config { BriefConfig.current }
 end
 
 Answer.blueprint do
@@ -22,8 +21,8 @@ end
 
 Brief.blueprint do
   title
-  user { User.make }
-  brief_config
+  user { User.make }  
+  brief_config { BriefConfig.make } 
 end
 
 Question.blueprint do

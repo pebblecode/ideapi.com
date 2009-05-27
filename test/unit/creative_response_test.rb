@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class CreativeResponseTest < Test::Unit::TestCase
+class CreativeResponseTest < ActiveSupport::TestCase
   def test_truth
     assert true
   end
