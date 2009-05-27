@@ -15,6 +15,17 @@ class Brief < ActiveRecord::Base
   validates_presence_of :user, :brief_config
   
   #instance methods
+  def generate_template_answers!
+    question_count = 0
+    sections.each do |section|
+      section.questions.each do |question|
+        question_count += 1
+        self.answers.create(:question => question, :section => section)
+      end
+    end
+    return self.answers.count == question_count
+  end
+  
   
   #class methods
   class << self
