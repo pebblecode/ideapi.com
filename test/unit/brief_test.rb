@@ -2,8 +2,6 @@ require 'test_helper'
 
 class BriefTest < ActiveSupport::TestCase
   
-  #fixtures :users, :brief_configs
-
   context "Questions and Answer relationship" do
     
     setup do
@@ -33,7 +31,23 @@ class BriefTest < ActiveSupport::TestCase
       assert(@brief.generate_template_answers!, "template answer creation failed")
       assert_equal(@number_of_questions, @brief.answers.count)
     end
+    
+    context "find answer by question and section" do
+      
+      should "respond to answer_for" do 
+        assert @brief.respond_to?(:answer_for) 
+      end
+      
+      should "find the answer" do
+        answer = @brief.answers.first
+        question = answer.question
+        section = answer.section
         
+        assert_equal answer, @brief.answer_for(question, section)
+      end
+
+    end 
+            
   end
   
 end

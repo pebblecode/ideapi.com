@@ -9,7 +9,7 @@ class BriefsController < ApplicationController
   end
   
   def current_object
-    @current_object ||= current_model.find(params[:id], :include => [:answers, {:brief_config => :sections}])
+    @current_object ||= current_model.find(params[:id], :include => [{:answers => :question}, {:brief_config => :sections}])
   end
   
   make_resourceful do
@@ -17,6 +17,11 @@ class BriefsController < ApplicationController
       current_object.user = current_user
       current_object.brief_config = brief_config
     end
+    
+    before :update do
+      current_object.answers.update(params[:answers].keys, params[:answers].values)
+    end
+    
     actions :all
   end
   

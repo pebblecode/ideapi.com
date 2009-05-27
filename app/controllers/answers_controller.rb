@@ -3,4 +3,5 @@ class AnswersController < ApplicationController
     belongs_to :brief
     actions :all
   end
+
 end

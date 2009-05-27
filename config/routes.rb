@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   
   map.resources :briefs do |briefs|
-    briefs.resources :answers
+    briefs.resources :answers, :collection => { :update_all => :put }
   end
   
   # Administration Area

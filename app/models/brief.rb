@@ -27,6 +27,9 @@ class Brief < ActiveRecord::Base
     return self.answers.count == question_count
   end
   
+  def answer_for(question, section)
+    self.answers.find_by_question_id_and_section_id(question.id, section.id)
+  end
   
   #class methods
   class << self

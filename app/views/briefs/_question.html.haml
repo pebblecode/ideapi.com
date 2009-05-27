@@ -3,4 +3,5 @@
     %h3.question_title=question.title
     %p.question_help=question.help_text
   .answer
-    =current_object.answers.new
+    -answer = current_object.answer_for(question, section)
+    =text_area_tag "answers[#{answer.id}][body]", answer.body
