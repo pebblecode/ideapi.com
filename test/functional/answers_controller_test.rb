@@ -2,8 +2,6 @@ require 'test_helper'
 
 class AnswersControllerTest < ActionController::TestCase
   def setup    
-    User.delete_all
-    @user = User.make
     @brief = Brief.make
     @answer = Answer.make(:brief => @brief)
   end

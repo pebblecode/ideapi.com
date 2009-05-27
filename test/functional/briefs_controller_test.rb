@@ -4,6 +4,9 @@ class BriefsControllerTest < ActionController::TestCase
 
   def setup
     @brief = Brief.make
+    activate_authlogic
+    
+    UserSession.create(@brief.user)
   end
 
   def test_should_get_index
@@ -11,7 +14,7 @@ class BriefsControllerTest < ActionController::TestCase
     assert_response :success
     assert assigns(:briefs)
   end
-
+  
   def test_should_get_new
     get :new
     assert_response :success

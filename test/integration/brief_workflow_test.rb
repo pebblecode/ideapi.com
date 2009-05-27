@@ -2,9 +2,11 @@ require 'test_helper'
 
 class BriefWorkflowTest < ActionController::IntegrationTest
   
+  fixtures :users
+  
   context "Creating a brief" do
     setup do
-      @user = User.make(:password => "testing")
+      @user = users(:jason)
       @brief = Brief.plan
       
       visit new_user_session_path  

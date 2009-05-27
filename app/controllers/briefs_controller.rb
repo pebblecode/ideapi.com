@@ -19,7 +19,9 @@ class BriefsController < ApplicationController
     end
     
     before :update do
-      current_object.answers.update(params[:answers].keys, params[:answers].values)
+      if !params[:answers].blank?
+        current_object.answers.update(params[:answers].keys, params[:answers].values)
+      end
     end
     
     actions :all
