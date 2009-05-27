@@ -23,14 +23,12 @@ class BriefTest < ActiveSupport::TestCase
     
     should "have generate template answers for questions" do
       assert(@brief.respond_to?(:generate_template_answers!), "Brief should respond to 'generate_template_answers!'")
-      assert(@brief.answers.blank?)
-      assert(@brief.generate_template_answers!, "template answer creation failed")
+      assert(!@brief.answers.blank?, "answers should not be blank")
       assert_equal(@number_of_questions, @brief.answers.count)
     end
     
     should "not duplicate answers for questions when generator is run" do
-      assert(@brief.answers.blank?)
-      assert(@brief.generate_template_answers!, "template answer creation failed")
+      assert(!@brief.answers.blank?, "answers should not be blank")
       assert_equal(@number_of_questions, @brief.answers.count)
       assert(@brief.generate_template_answers!, "template answer creation failed")
       assert_equal(@number_of_questions, @brief.answers.count)

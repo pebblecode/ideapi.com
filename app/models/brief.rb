@@ -10,6 +10,7 @@ class Brief < ActiveRecord::Base
   delegate :sections, :to => :brief_config
   
   # callbacks
+  after_create :generate_template_answers!
   
   # validations
   validates_presence_of :user, :brief_config
