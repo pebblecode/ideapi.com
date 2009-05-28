@@ -1,13 +1,9 @@
-%div[section]
-  %p.title
-    %strong Title
-    = h section.title
-  %p.strapline
-    %strong Strapline
-    = h section.strapline
-
-  = link_to 'Show', object_path(section)
-  |
-  = link_to 'Edit', edit_object_path(section)
-  |
-  = link_to 'Destroy', object_path(section), :confirm => 'Really destroy section?', :method => :delete
+%tr[section]
+  %td= h section.title
+  %td{:style => "text-align: center"}= h section.questions.count
+  %td
+    = link_to 'Show', object_path(section)
+    |
+    = link_to 'Edit', edit_object_path(section)
+    |
+    = link_to 'Destroy', object_path(section), :confirm => 'Really destroy section?', :method => :delete

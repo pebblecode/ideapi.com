@@ -6,6 +6,8 @@ class Brief < ActiveRecord::Base
   has_many :answers
   has_many :creative_responses
   
+  acts_as_commentable
+  
   # delegations
   delegate :sections, :to => :brief_config
   

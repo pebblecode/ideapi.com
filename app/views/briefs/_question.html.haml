@@ -1,4 +1,4 @@
-%li
+%li.section_question{:class => "#{question.optional ? 'optional_question': ''}"}
   %div[question]
     %h4.question_title=question.title
     -if !question.help_text.blank?

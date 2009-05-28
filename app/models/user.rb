@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
   
   has_many :briefs
   has_many :creative_responses
+  has_many :comments 
   
 end

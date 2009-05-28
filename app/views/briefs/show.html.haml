@@ -5,8 +5,8 @@
     =render :partial => "section", :collection => current_object.sections, :locals => { :f => f }
     %p= submitter "Update"
   
-= link_to 'Edit', edit_object_path
-|
-= link_to 'Destroy', object_path, :confirm => 'Really destroy brief?', :method => :delete
-|
-= link_to 'Back', objects_path
+  .clear
+  
+  %h3 Comments
+  =render :partial => "comment", :collection => current_object.comments
+

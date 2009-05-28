@@ -1,0 +1,31 @@
+!!! Strict
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      Ideapi
+    /
+      Javascript - Fix the flash of unstyled content
+    %script{ :type => "text/javascript" }
+    
+    =stylesheet_link_tag :all, :cache => true
+    =javascript_include_tag :all, :cache => true
+    
+  %body.fullwidth
+    #container
+      #header
+        #header-in
+          %h1 IDEAPI
+
+      #content-wrap.clear.rcol
+        .column
+          .column-in
+            =yield :side_bar
+
+        .content
+          .content-in
+            =yield
+
+      .clear
+      #footer
+        #footer-in
+          footer

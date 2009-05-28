@@ -7,3 +7,6 @@
 %p
   %label{:for => "question_response_type_id"} Response type:
   = f.text_field :response_type_id
+%p
+  = f.label :highlighted, "Highlight?:"
+  = f.check_box :highlighted

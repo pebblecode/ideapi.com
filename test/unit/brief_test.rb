@@ -45,6 +45,13 @@ class BriefTest < ActiveSupport::TestCase
         
         assert_equal answer, @brief.answer_for(question, section)
       end
+      
+      should "create an answer if none exists" do
+        section = Section.make
+        question = Question.make(:section => section)
+        
+        assert_equal answer, @brief.answer_for(question, section)
+      end
 
     end 
             

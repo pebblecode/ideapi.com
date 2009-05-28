@@ -1,6 +1,4 @@
-class Admin::QuestionsController < ApplicationController
-  #before_filter :require_user
-  
+class Admin::QuestionsController < Admin::BaseController  
   make_resourceful do
     actions :all
   end

@@ -1,6 +1,4 @@
-class Admin::BriefConfigsController < ApplicationController
-  #before_filter :require_user
-  
+class Admin::BriefConfigsController < Admin::BaseController
   make_resourceful do
     actions :all
   end

@@ -1,5 +1,12 @@
-%h1 Listing sections
+%h2 Listing sections
 
-= render :partial => 'section', :collection => current_objects
+%table{:width => "100%"}
+  %tr
+    %th{:width => "50%"} Name
+    %th{:style => "text-align: center"} Questions
+    %th Actions
+  = render :partial => 'section', :collection => current_objects
 
-= link_to 'New section', new_object_path 
+
+
+%p=link_to 'New section', new_object_path 
