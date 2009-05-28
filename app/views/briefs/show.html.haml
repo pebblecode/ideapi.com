@@ -6,7 +6,18 @@
     %p= submitter "Update"
   
   .clear
-  
-  %h3 Comments
-  =render :partial => "comment", :collection => current_object.comments
 
+  %hr
+  
+  #comments
+    %h3 Comments
+    
+    =error_messages_for :comment
+    
+    =render :partial => "comments/comment", :collection => current_object.comments
+  
+    .new_comment
+      -form_for(:comment, :url => brief_comments_path(current_object)) do |f|
+        =render :partial => "comments/form", :locals => { :f => f }
+        %p= submitter "Submit"
+        .clear

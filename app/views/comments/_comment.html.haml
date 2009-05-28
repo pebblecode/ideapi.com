@@ -1,0 +1,6 @@
+%div[comment]
+  %p=comment.title
+  %p=comment.comment
+  
+  -if comment.user == current_user
+    =link_to 'Destroy', brief_comment_path(current_object, comment), :confirm => 'Really delete comment?', :method => :delete 

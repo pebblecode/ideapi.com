@@ -11,4 +11,14 @@ class Comment < ActiveRecord::Base
   # NOTE: Comments belong to a user
   belongs_to :user
 
+  validates_uniqueness_of :comment, :if => :protect_flood_post
+  
+  validates_presence_of :comment, :user
+  
+  private
+  
+  def protect_flood_post
+    self.user.commented_recently?
+  end
+  
 end
