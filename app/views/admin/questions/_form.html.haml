@@ -3,10 +3,10 @@
   = f.text_field :title
 %p
   %label{:for => "question_help_text"} Help text:
-  = f.text_area :help_text
+  = f.text_area :help_text, { :rows => 6 }
 %p
   %label{:for => "question_response_type_id"} Response type:
   = f.text_field :response_type_id
 %p
-  = f.label :highlighted, "Highlight?:"
-  = f.check_box :highlighted
+  = f.label :optional
+  = f.check_box :optional

@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
     
     def logged_in?
-      !@current_user.blank?
+      !current_user.blank?
     end
     
     def require_user

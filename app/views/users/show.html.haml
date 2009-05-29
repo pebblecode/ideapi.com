@@ -3,9 +3,9 @@
 %div[current_object]
   %p.login
     %strong Login
-    = h current_object.login
+    = h current_user.login
   %p.email
     %strong Email
-    = h current_object.email
+    = h current_user.email
 
-= link_to 'Edit', edit_object_path
+= link_to 'Edit', edit_user_path(current_user)

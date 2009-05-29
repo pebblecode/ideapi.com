@@ -12,6 +12,13 @@
     
   %body.fullwidth
     #container
+      -if logged_in?
+        %p#user_info
+          Logged in as 
+          %strong
+            =current_user.login
+          =link_to '(logout)', user_session_path, :method => :delete        
+                    
       #header
         #header-in
           %h1 
