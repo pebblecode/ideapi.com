@@ -106,7 +106,8 @@ input.submit:hover {
 
 form p label {
   margin-right: 1em;
-  line-height: 1.1em; }
+  line-height: 1.1em;
+  width: 8em; }
 
 .clear {
   clear: both; }

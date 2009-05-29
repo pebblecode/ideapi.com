@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       current_object.user = current_user
     end
     
-    response_for (:create, :create_fails, :destroy, :destroy_fails) do |format|
+    response_for(:create, :create_fails, :destroy, :destroy_fails) do |format|
       format.html { redirect_to brief_path(parent_object) }
     end
     

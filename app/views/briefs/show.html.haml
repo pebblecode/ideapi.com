@@ -8,16 +8,14 @@
   .clear
 
   %hr
-  
   #comments
     %h3 Comments
-    
-    =error_messages_for :comment
-    
     =render :partial => "comments/comment", :collection => current_object.comments
-  
-    .new_comment
-      -form_for(:comment, :url => brief_comments_path(current_object)) do |f|
-        =render :partial => "comments/form", :locals => { :f => f }
-        %p= submitter "Submit"
-        .clear
+    -if logged_in?    
+      .new_comment
+        -form_for(:comment, :url => brief_comments_path(current_object)) do |f|
+          =render :partial => "comments/form", :locals => { :f => f }
+          %p= submitter "Submit"
+          .clear
+    -else
+      %p Please log in to comment

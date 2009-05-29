@@ -4,7 +4,10 @@ class BriefsController < ApplicationController
   helper_method :current_user_briefs
   
   def current_objects
-    @current_objects ||= current_model.all(:conditions => ["user_id <> ?", current_user.id])
+    @current_objects ||= (
+      options = logged_in? ? {:conditions => ["user_id <> ?", current_user.id]} : {}
+      current_model.all(options)
+    )
   end
   
   def current_object
@@ -33,7 +36,7 @@ class BriefsController < ApplicationController
   private
   
   def current_user_briefs
-    @current_user_briefs ||= current_user.briefs
+    logged_in? ? current_user.briefs : []
   end
   
 end

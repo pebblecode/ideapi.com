@@ -67,6 +67,39 @@ class BriefWorkflowTest < ActionController::IntegrationTest
     
   end
   
+  context "not logged in" do
+    
+    setup do
+      # make sure we have at least a brief in the db
+      @brief = Brief.make
+    end
+    
+    should "be able to view a list of briefs" do
+      visit briefs_path
+      assert_response :success
+      assert_equal briefs_path, path
+      assert_contain @brief.title
+    end
+    
+    context "viewing a brief" do
+      setup do
+        visit brief_path(@brief)
+      end
+
+      should "be able to view a brief" do
+        assert_response :success
+        assert_equal brief_path(@brief), path
+        assert_contain @brief.title.titlecase
+      end
+
+      should "not be able to comment on a brief" do
+        assert_have_no_selector("form", :action => brief_comments_path(@brief))
+      end
+      
+    end
+    
+  end
+  
   context "comments" do
     
     setup do
@@ -80,7 +113,11 @@ class BriefWorkflowTest < ActionController::IntegrationTest
     should "see comment form" do
       visit brief_path(@brief)
       assert_equal brief_path(@brief), path
-      assert_have_selector("form#comment")
+      assert_have_selector("form", :action => brief_comments_path(@brief))
+    end
+    
+    should "be able to comment" do
+      
     end
     
   end

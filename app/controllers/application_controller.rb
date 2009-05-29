@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   filter_parameter_logging :password, :password_confirmation
-  helper_method :current_user_session, :current_user, :brief_config
+  helper_method :current_user_session, :current_user, :brief_config, :logged_in?
 
   private
     
@@ -22,6 +22,10 @@ class ApplicationController < ActionController::Base
     def current_user
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
+    end
+    
+    def logged_in?
+      !@current_user.blank?
     end
     
     def require_user
