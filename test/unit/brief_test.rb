@@ -6,7 +6,7 @@ class BriefTest < ActiveSupport::TestCase
     
     setup do
       @brief_config = BriefConfig.make
-      @section = Section.make(:brief_config => @brief_config)
+      @section = BriefSection.make(:brief_config => @brief_config)
       
       @number_of_questions = 5
       @number_of_questions.times { Question.make(:assign_section => @section) }
@@ -47,7 +47,7 @@ class BriefTest < ActiveSupport::TestCase
       end
       
       should "create an answer if none exists" do
-        section = Section.make
+        section = BriefSection.make
         question = Question.make(:section => section)
         
         assert_equal answer, @brief.answer_for(question, section)

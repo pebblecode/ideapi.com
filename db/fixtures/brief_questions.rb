@@ -1,4 +1,4 @@
-if section = Section.find_by_title("What?")
+if section = BriefSection.find_by_title("What?")
   
   #this is a simple array [question_title, question_help_text]
   
@@ -10,7 +10,7 @@ if section = Section.find_by_title("What?")
   ]
   
   questions.each do |question|
-    Question.seed(:title) do |s|
+    BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
       s.assign_section = section
@@ -19,14 +19,14 @@ if section = Section.find_by_title("What?")
   end
 end
 
-if section = Section.find_by_title("Why?")
+if section = BriefSection.find_by_title("Why?")
   questions = [
     ["What is the problem / opportunity", "To Inform? Explain/Introduce/Provoke/Reassure/Challenge? Persuade/Seduce? Remind? Magnify?", false],
     ["Why are we doing this?", "this? To Grow/Steal/Consolidate market share?  To attack/defend? To Amuse or highlight?", false]
   ]
   
   questions.each do |question|
-    Question.seed(:title) do |s|
+    BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
       s.assign_section = section
@@ -35,7 +35,7 @@ if section = Section.find_by_title("Why?")
   end
 end
 
-if section = Section.find_by_title("Who?")
+if section = BriefSection.find_by_title("Who?")
   questions = [
     ["Who or what are they?", "", false],
     ["How do they feel about life?", "", true],
@@ -45,7 +45,7 @@ if section = Section.find_by_title("Who?")
   ]
   
   questions.each do |question|
-    Question.seed(:title) do |s|
+    BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
       s.assign_section = section
@@ -54,7 +54,7 @@ if section = Section.find_by_title("Who?")
   end
 end
 
-if section = Section.find_by_title("How?")
+if section = BriefSection.find_by_title("How?")
   questions = [
     ["What is the single thing you want to say?", "", false],
     ["Why is this believable?", "", true],
@@ -65,7 +65,7 @@ if section = Section.find_by_title("How?")
   ]
   
   questions.each do |question|
-    Question.seed(:title) do |s|
+    BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
       s.assign_section = section
@@ -74,7 +74,7 @@ if section = Section.find_by_title("How?")
   end
 end
 
-if section = Section.find_by_title("Where?")
+if section = BriefSection.find_by_title("Where?")
   questions = [
     ["What is the media?", "", false],
     ["What is the media context?", "", true],
@@ -82,7 +82,7 @@ if section = Section.find_by_title("Where?")
   ]
   
   questions.each do |question|
-    Question.seed(:title) do |s|
+    BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
       s.assign_section = section

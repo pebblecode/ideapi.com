@@ -1,0 +1,2 @@
+module BriefQuestionsHelper
+end

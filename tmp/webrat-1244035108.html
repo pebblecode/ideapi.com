@@ -1,0 +1,320 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Action Controller: Exception caught</title>
+  <style>
+    body { background-color: #fff; color: #333; }
+
+    body, p, ol, ul, td {
+      font-family: verdana, arial, helvetica, sans-serif;
+      font-size:   13px;
+      line-height: 18px;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      font-size: 11px;
+    }
+
+    a { color: #000; }
+    a:visited { color: #666; }
+    a:hover { color: #fff; background-color:#000; }
+  </style>
+</head>
+<body>
+
+<h1>
+  NameError
+  
+    in BriefsController#create
+  
+</h1>
+<pre>uninitialized constant BriefConfig::Section</pre>
+
+
+
+<p><code>RAILS_ROOT: /Users/jasoncale/Dropbox/Sites/ideapi</code></p>
+
+<div id="traces">
+  
+    
+    <a href="#" onclick="document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';; return false;">Application Trace</a> |
+  
+    
+    <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';; return false;">Framework Trace</a> |
+  
+    
+    <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';; return false;">Full Trace</a> 
+  
+
+  
+    <div id="Application-Trace" style="display: block;">
+      <pre><code>/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:105:in `const_missing'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2204:in `compute_type'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2200:in `compute_type'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `klass'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:187:in `quoted_table_name'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_many_association.rb:96:in `construct_sql'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:21:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `sections'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:221:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:221:in `method_missing'
+(__DELEGATION__):2:in `__send__'
+(__DELEGATION__):2:in `sections'
+/Users/jasoncale/Dropbox/Sites/ideapi/app/models/brief.rb:23:in `generate_template_answers!'</code></pre>
+    </div>
+  
+    <div id="Framework-Trace" style="display: none;">
+      <pre><code>/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:105:in `const_missing'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2204:in `compute_type'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2200:in `compute_type'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `klass'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:187:in `quoted_table_name'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_many_association.rb:96:in `construct_sql'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:21:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `sections'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:221:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:221:in `method_missing'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:178:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:178:in `evaluate_method'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:166:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:93:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:92:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:92:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:92:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:276:in `run_callbacks'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/callbacks.rb:344:in `callback'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/callbacks.rb:267:in `create'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2868:in `create_or_update_without_callbacks'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/callbacks.rb:250:in `create_or_update'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2539:in `save_without_validation'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/validations.rb:1009:in `save_without_dirty'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/dirty.rb:79:in `save_without_transactions'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:229:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:229:in `with_transaction_returning_status'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/database_statements.rb:136:in `transaction'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:182:in `transaction'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:228:in `with_transaction_returning_status'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:196:in `save'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:208:in `rollback_active_record_state!'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:196:in `save'
+/Users/jasoncale/Dropbox/Sites/ideapi/vendor/plugins/make_resourceful/lib/resourceful/default/actions.rb:38:in `create'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `sass_old_process'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/sass/plugin/rails.rb:19:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lint.rb:47:in `_call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lint.rb:35:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:320:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:202:in `post'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:498:in `__send__'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:498:in `post'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:70:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:70:in `do_request'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:39:in `post'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/session.rb:106:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/session.rb:106:in `request_page'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/elements/form.rb:20:in `submit'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/elements/field.rb:203:in `click'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/scope.rb:275:in `click_button'
+/Users/jasoncale/.gem/ruby/1.8/gems/thoughtbot-shoulda-2.10.1/lib/shoulda/context.rb:253:in `call'
+/Users/jasoncale/.gem/ruby/1.8/gems/thoughtbot-shoulda-2.10.1/lib/shoulda/context.rb:253:in `test: Creating a brief should be able to create a brief. '
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/testing/setup_and_teardown.rb:62:in `__send__'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/testing/setup_and_teardown.rb:62:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:652:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/local/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+/usr/local/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+/usr/local/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+/usr/local/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+/usr/local/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+/usr/local/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+/usr/local/lib/ruby/1.8/test/unit.rb:278
+/usr/local/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5</code></pre>
+    </div>
+  
+    <div id="Full-Trace" style="display: none;">
+      <pre><code>/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:105:in `const_missing'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2204:in `compute_type'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/kernel/reporting.rb:11:in `silence_warnings'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2200:in `compute_type'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `klass'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:187:in `quoted_table_name'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/has_many_association.rb:96:in `construct_sql'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_collection.rb:21:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations.rb:1277:in `sections'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:221:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/associations/association_proxy.rb:221:in `method_missing'
+(__DELEGATION__):2:in `__send__'
+(__DELEGATION__):2:in `sections'
+/Users/jasoncale/Dropbox/Sites/ideapi/app/models/brief.rb:23:in `generate_template_answers!'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:178:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:178:in `evaluate_method'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:166:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:93:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:92:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:92:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:92:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/callbacks.rb:276:in `run_callbacks'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/callbacks.rb:344:in `callback'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/callbacks.rb:267:in `create'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2868:in `create_or_update_without_callbacks'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/callbacks.rb:250:in `create_or_update'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/base.rb:2539:in `save_without_validation'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/validations.rb:1009:in `save_without_dirty'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/dirty.rb:79:in `save_without_transactions'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:229:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:229:in `with_transaction_returning_status'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/database_statements.rb:136:in `transaction'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:182:in `transaction'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:228:in `with_transaction_returning_status'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:196:in `save'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:208:in `rollback_active_record_state!'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/transactions.rb:196:in `save'
+/Users/jasoncale/Dropbox/Sites/ideapi/vendor/plugins/make_resourceful/lib/resourceful/default/actions.rb:38:in `create'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `sass_old_process'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/sass/plugin/rails.rb:19:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lint.rb:47:in `_call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lint.rb:35:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:320:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:202:in `post'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:498:in `__send__'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:498:in `post'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:70:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:70:in `do_request'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/rails.rb:39:in `post'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/session.rb:106:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/session.rb:106:in `request_page'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/elements/form.rb:20:in `submit'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/elements/field.rb:203:in `click'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.4/lib/webrat/core/scope.rb:275:in `click_button'
+(__FORWARDABLE__):3:in `__send__'
+(__FORWARDABLE__):3:in `click_button'
+(eval):2:in `click_button'
+test/integration/brief_workflow_test.rb:39:in `__bind_1244035107_779103'
+/Users/jasoncale/.gem/ruby/1.8/gems/thoughtbot-shoulda-2.10.1/lib/shoulda/context.rb:253:in `call'
+/Users/jasoncale/.gem/ruby/1.8/gems/thoughtbot-shoulda-2.10.1/lib/shoulda/context.rb:253:in `test: Creating a brief should be able to create a brief. '
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/testing/setup_and_teardown.rb:62:in `__send__'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/testing/setup_and_teardown.rb:62:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/integration.rb:652:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/local/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+/usr/local/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+/usr/local/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+/usr/local/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+/usr/local/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+/usr/local/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+/usr/local/lib/ruby/1.8/test/unit.rb:278
+/usr/local/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5</code></pre>
+    </div>
+  
+</div>
+
+
+
+
+
+
+<h2 style="margin-top: 30px">Request</h2>
+<p><b>Parameters</b>: <pre>{&quot;commit&quot;=&gt;&quot;Create&quot;,
+ &quot;brief&quot;=&gt;{&quot;title&quot;=&gt;&quot;Vel voluptate aliquid et doloribus sint eum ad sequi.&quot;}}</pre></p>
+
+<p><a href="#" onclick="document.getElementById('session_dump').style.display='block'; return false;">Show session dump</a></p>
+<div id="session_dump" style="display:none"><pre class='debug_dump'>--- 
+</pre></div>
+
+
+<h2 style="margin-top: 30px">Response</h2>
+<p><b>Headers</b>: <pre>{&quot;Content-Type&quot;=&gt;&quot;&quot;,
+ &quot;Cache-Control&quot;=&gt;&quot;no-cache&quot;}</pre></p>
+
+
+
+</body>
+</html>

@@ -9,9 +9,9 @@ Sham.define do
   password { Faker::Lorem.words.join }
 end
 
-Answer.blueprint do
+BriefAnswer.blueprint do
   body
-  question { Question.make }
+  brief_question { BriefQuestion.make }
   brief { Brief.make }
 end
 
@@ -19,13 +19,17 @@ BriefConfig.blueprint do
   title
 end
 
-Brief.blueprint do
-  title
-  user { User.make }  
+BriefTemplate.blueprint do
   brief_config { BriefConfig.make } 
 end
 
-Question.blueprint do
+Brief.blueprint do
+  title
+  user { User.make }
+  brief_template { BriefTemplate.make }
+end
+
+BriefQuestion.blueprint do
   title
   help_text { Sham.body }
 end
@@ -42,7 +46,7 @@ ResponseType.blueprint do
   input_type
 end
 
-Section.blueprint do
+BriefSection.blueprint do
   title
   strapline { Sham.body }
 end

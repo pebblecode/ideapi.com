@@ -1,4 +1,4 @@
-class Admin::SectionsController < Admin::BaseController
+class Admin::BriefSectionsController < Admin::BaseController
   before_filter :question_list, :only => [:edit]
   
   make_resourceful do
@@ -12,6 +12,6 @@ class Admin::SectionsController < Admin::BaseController
   private
   
   def question_list
-    @questions = Question.all
+    @questions = BriefQuestion.all
   end
 end

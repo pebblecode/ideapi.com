@@ -8,8 +8,9 @@ ActionController::Routing::Routes.draw do |map|
   
   # Administration Area
   map.namespace :admin do |admin|
-    admin.resources :sections
-    admin.resources :questions
+    admin.resources :brief_templates
+    admin.resources :brief_sections
+    admin.resources :brief_questions
     admin.resources :brief_configs
   end
   

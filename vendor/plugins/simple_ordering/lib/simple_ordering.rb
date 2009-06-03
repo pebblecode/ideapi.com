@@ -7,18 +7,21 @@ module SimpleOrdering
   module ClassMethods
     def has_simple_ordering
       #send :include, InstanceMethods
-      send :extend, OrderMethods
+      send :extend, ClassMethods
+      
+      send :named_scope, :ordered, :order => :position
+      
     end
   end
   
-  module OrderMethods
+  module ClassMethods
     def order!(*sorted_ids)
       transaction do
         sorted_ids.flatten.each_with_index do |id, pos|
           find(id).update_attributes(:position => (pos + 1)) if find(id)
         end
       end
-    end
+    end    
   end
 
   module InstanceMethods
