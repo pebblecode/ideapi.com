@@ -1,0 +1,2 @@
+class CreativeQuestionsController < ApplicationController
+end

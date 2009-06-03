@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
     #c.my_config_option = my_value # for available options see documentation in: Authlogic::ActsAsAuthentic
   end
   
-  has_many :briefs
-  has_many :creative_responses
   has_many :comments 
   
   @comment_freshness = 5.minutes

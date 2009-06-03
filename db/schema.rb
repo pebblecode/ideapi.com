@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090603134948) do
+ActiveRecord::Schema.define(:version => 20090603202842) do
 
   create_table "brief_answers", :force => true do |t|
     t.text    "body"
@@ -64,25 +64,24 @@ ActiveRecord::Schema.define(:version => 20090603134948) do
     t.integer "brief_template_id"
   end
 
-  create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
-    t.text     "comment",                        :default => ""
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
+  create_table "creative_proposals", :force => true do |t|
+    t.string   "short_description"
+    t.text     "long_description"
+    t.integer  "brief_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
-  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
-  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
-  create_table "creative_responses", :force => true do |t|
-    t.text    "short_description"
-    t.text    "long_description"
-    t.integer "brief_id"
-    t.integer "user_id"
+  create_table "creative_questions", :force => true do |t|
+    t.text     "body"
+    t.integer  "love_count", :default => 0
+    t.integer  "hate_count", :default => 0
+    t.text     "answer"
+    t.integer  "user_id"
+    t.integer  "brief_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "response_types", :force => true do |t|
@@ -97,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20090603134948) do
     t.string "crypted_password"
     t.string "password_salt"
     t.string "persistence_token"
+    t.string "type"
   end
 
 end

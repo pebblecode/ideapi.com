@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :creative_responses
+  map.resources :creative_proposals
+
+  map.resources :creative_questions
   map.resources :users
   
   map.resources :briefs do |briefs|

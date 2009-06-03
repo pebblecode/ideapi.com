@@ -39,11 +39,19 @@ BriefQuestion.blueprint do
   help_text { Sham.body }
 end
 
-CreativeResponse.blueprint do
+CreativeProposal.blueprint do
   short_description { Sham.body }
   long_description { Sham.body }
   brief { Brief.make }
-  user { User.make }
+  creative { Creative.make }
+end
+
+CreativeQuestion.blueprint do
+  body
+  love_count { 0.to_i }
+  hate_count { 0.to_i }
+  creative { Creative.make }
+  brief { Brief.make }
 end
 
 ResponseType.blueprint do
@@ -52,6 +60,20 @@ ResponseType.blueprint do
 end
 
 User.blueprint do
+  login
+  email
+  password
+  password_confirmation { password }
+end
+
+Creative.blueprint do
+  login
+  email
+  password
+  password_confirmation { password }
+end
+
+Author.blueprint do
   login
   email
   password

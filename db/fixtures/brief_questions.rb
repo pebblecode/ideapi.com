@@ -13,7 +13,7 @@ if section = BriefSection.find_by_title("What?")
     BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
-      s.assign_section = section
+      s.assign_brief_section = section
       s.optional = question[2]
     end
   end
@@ -29,7 +29,7 @@ if section = BriefSection.find_by_title("Why?")
     BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
-      s.assign_section = section
+      s.assign_brief_section = section
       s.optional = question[2]
     end
   end
@@ -48,7 +48,7 @@ if section = BriefSection.find_by_title("Who?")
     BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
-      s.assign_section = section
+      s.assign_brief_section = section
       s.optional = question[2]
     end
   end
@@ -68,7 +68,7 @@ if section = BriefSection.find_by_title("How?")
     BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
-      s.assign_section = section
+      s.assign_brief_section = section
       s.optional = question[2]
     end
   end
@@ -85,7 +85,7 @@ if section = BriefSection.find_by_title("Where?")
     BriefQuestion.seed(:title) do |s|
       s.title = question[0]
       s.help_text = question[1]
-      s.assign_section = section
+      s.assign_brief_section = section
       s.optional = question[2]
     end
   end
