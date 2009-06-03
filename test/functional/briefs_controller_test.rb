@@ -6,7 +6,7 @@ class BriefsControllerTest < ActionController::TestCase
     @brief = Brief.make
     activate_authlogic
     
-    UserSession.create(@brief.user)
+    UserSession.create(@brief.author)
   end
 
   def test_should_get_index

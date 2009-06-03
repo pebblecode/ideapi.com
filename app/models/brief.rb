@@ -1,6 +1,6 @@
 class Brief < ActiveRecord::Base
   # relationships
-  belongs_to :user
+  belongs_to :author
   belongs_to :brief_template
   has_many :brief_answers
   has_many :creative_responses
@@ -14,7 +14,7 @@ class Brief < ActiveRecord::Base
   after_create :generate_template_brief_answers!
   
   # validations
-  validates_presence_of :user, :brief_template, :title
+  validates_presence_of :author, :brief_template, :title
   
   #instance methods
   def generate_template_brief_answers!

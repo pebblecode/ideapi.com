@@ -25,7 +25,7 @@ end
 
 Brief.blueprint do
   title
-  user { User.make }
+  author { Author.make }
   brief_template { BriefTemplate.make }
 end
 
@@ -48,8 +48,8 @@ end
 
 CreativeQuestion.blueprint do
   body
-  love_count { 0.to_i }
-  hate_count { 0.to_i }
+  love_count { 0 }
+  hate_count { 0 }
   creative { Creative.make }
   brief { Brief.make }
 end

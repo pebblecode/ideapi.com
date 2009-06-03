@@ -2,17 +2,17 @@ require 'test_helper'
 
 module BriefWorkflowHelper
   
-  def login_as(user)
+  def login_as(author)
     visit new_user_session_path  
     assert_response :success  
-    fill_in "login", :with => user.login
+    fill_in "login", :with => author.login
     fill_in "password", :with => "testing"
     click_button
     assert_equal '/', path
   end
 
-  def brief_for(user)
-    return Brief.make(:user => user)
+  def brief_for(author)
+    return Brief.make(:author => author)
   end
 
 end
@@ -20,14 +20,12 @@ end
 class BriefWorkflowTest < ActionController::IntegrationTest
   include BriefWorkflowHelper
   
-  fixtures :users
-
   context "Creating a brief" do
     
     setup do
-      @user = users(:jason)
+      @author = Author.make(:password => "testing")
       @brief = Brief.plan
-      login_as(@user)
+      login_as(@author)
     end
 
     should "be able to create a brief" do
@@ -49,16 +47,16 @@ class BriefWorkflowTest < ActionController::IntegrationTest
   context "Access to briefs" do
     
     setup do
-      @user = users(:henry)
-      assert @brief = brief_for(users(:jason))
+      @author = Author.make(:password => "testing")
+      assert @brief = brief_for(Author.make(:password => "testing"))
       
-      login_as(@user)      
+      login_as(@author)      
       visit briefs_path
       assert_equal '/briefs', path
     end
     
-    should "see a list of other briefs even when user has none" do
-      assert @user.briefs.empty?
+    should "see a list of other briefs even when author has none" do
+      assert @author.briefs.empty?
       assert_contain @brief.title
     end
     
@@ -106,8 +104,8 @@ class BriefWorkflowTest < ActionController::IntegrationTest
   context "comments" do
     
     setup do
-      @jason = users(:jason)
-      @henry = users(:henry)
+      @jason = Author.make(:password => "testing")
+      @henry = Author.make(:password => "testing")
       @brief = brief_for(@jason)
       
       login_as(@henry)       

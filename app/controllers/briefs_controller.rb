@@ -5,7 +5,7 @@ class BriefsController < ApplicationController
   
   def current_objects
     @current_objects ||= (
-      options = logged_in? ? {:conditions => ["user_id <> ?", current_user.id]} : {}
+      options = logged_in? ? {:conditions => ["author_id <> ?", current_user.id]} : {}
       current_model.all(options)
     )
   end
@@ -16,7 +16,7 @@ class BriefsController < ApplicationController
   
   make_resourceful do
     before :create do
-      current_object.user = current_user
+      current_object.author = current_user
     end
     
     before(:new, :edit) do
