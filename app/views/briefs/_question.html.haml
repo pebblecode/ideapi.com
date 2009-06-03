@@ -5,5 +5,5 @@
       %p.question_help=question.help_text
   -answer = current_object.answer_for(question, section)
   %div[answer]
-    =text_area_tag "answers[#{answer.id}][body]", answer.body
+    =text_area_tag "brief_answers[#{answer.id}][body]", answer.body
   .clear

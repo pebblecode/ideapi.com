@@ -31,10 +31,13 @@ class BriefWorkflowTest < ActionController::IntegrationTest
     end
 
     should "be able to create a brief" do
-      assert_equal '/', path
+      visit briefs_path
+      assert_equal briefs_path, path
       click_link 'new brief'
       assert_response :success
       assert_equal new_brief_path, path
+      assert_contain 'Create new brief'
+      
       fill_in "brief[title]", :with => @brief[:title]
       click_button
       assert_response :success
@@ -85,13 +88,13 @@ class BriefWorkflowTest < ActionController::IntegrationTest
       setup do
         visit brief_path(@brief)
       end
-
+  
       should "be able to view a brief" do
         assert_response :success
         assert_equal brief_path(@brief), path
         assert_contain @brief.title.titlecase
       end
-
+  
       should "not be able to comment on a brief" do
         assert_have_no_selector("form", :action => brief_comments_path(@brief))
       end

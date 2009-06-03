@@ -8,7 +8,7 @@
   %p
     = f.label :sections, 'Questions', {:style => "height: 100%"}
     %span.input{:style => "height: 100%"}
-      =select_tag("section[question_ids][]", options_for_select(@questions.map{|q| [q.title, q.id] }, current_object.question_ids), {:name => "section[question_ids][]",  :multiple => "true"})
+      =select_tag("section[brief_question_ids][]", options_for_select(@questions.map{|q| [q.title, q.id] }, current_object.brief_question_ids), {:name => "section[brief_question_ids][]",  :multiple => "true"})
     .clear
   
   %p= submitter "Update"

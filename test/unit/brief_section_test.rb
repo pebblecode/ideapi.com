@@ -24,5 +24,24 @@ class BriefSectionTest < ActiveSupport::TestCase
     end
   end
   
+  context "brief templates" do
+    setup do
+      @brief_section = BriefSection.make
+      @brief_template = BriefTemplate.make
+    end
+    
+    should "respond_to assign_brief_template" do
+      @brief_section.respond_to?(:assign_brief_template=)
+    end
+    
+    context "add brief template to section" do
+       setup do
+         @brief_section.assign_brief_template = @brief_template        
+       end
+       
+       should_change "BriefSectionBriefTemplate.count", :by => 1    
+     end
+
+  end  
 
 end

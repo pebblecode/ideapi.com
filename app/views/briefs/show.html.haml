@@ -2,7 +2,7 @@
 
 %div[current_object]
   - form_for(:brief, :url => object_url, :html => { :method => :put }) do |f|
-    =render :partial => "section", :collection => current_object.sections, :locals => { :f => f }
+    =render :partial => "section", :collection => current_object.brief_sections, :locals => { :f => f }
     %p= submitter "Update"
   
   .clear

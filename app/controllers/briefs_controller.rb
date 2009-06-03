@@ -11,13 +11,16 @@ class BriefsController < ApplicationController
   end
   
   def current_object
-    @current_object ||= ((action_name == "show") ? current_model : current_user_briefs).find(params[:id], :include => [{:brief_config => :sections}, :comments])
+    @current_object ||= ((action_name == "show") ? current_model : current_user_briefs).find(params[:id], :include => [{:brief_template => :brief_sections}, :comments])
   end
   
   make_resourceful do
     before :create do
       current_object.user = current_user
-      current_object.brief_config = brief_config
+    end
+    
+    before(:new, :edit) do
+      @brief_templates = BriefTemplate.all
     end
     
     before :show do
@@ -26,7 +29,7 @@ class BriefsController < ApplicationController
     
     before :update do
       if !params[:answers].blank?
-        current_object.answers.update(params[:answers].keys, params[:answers].values)
+        current_object.brief_answers.update(params[:answers].keys, params[:answers].values)
       end
     end
     

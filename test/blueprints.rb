@@ -29,6 +29,11 @@ Brief.blueprint do
   brief_template { BriefTemplate.make }
 end
 
+BriefSection.blueprint do
+  title
+  strapline { Sham.body }
+end
+
 BriefQuestion.blueprint do
   title
   help_text { Sham.body }
@@ -44,11 +49,6 @@ end
 ResponseType.blueprint do
   title 
   input_type
-end
-
-BriefSection.blueprint do
-  title
-  strapline { Sham.body }
 end
 
 User.blueprint do

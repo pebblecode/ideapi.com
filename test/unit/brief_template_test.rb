@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class BriefTemplateTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+
+  should_belong_to :brief_config
+  should_have_many :brief_sections, :through => :brief_section_brief_templates
+
 end

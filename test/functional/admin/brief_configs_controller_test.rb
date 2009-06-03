@@ -3,8 +3,6 @@ require 'test_helper'
 class Admin::BriefConfigsControllerTest < ActionController::TestCase
 
   def setup
-    # activate_authlogic
-#    UserSession.create(@user)
     @brief_config = BriefConfig.make
   end
 
