@@ -1,11 +1,14 @@
 class Brief < ActiveRecord::Base
+  # alter ego is the statemachine
+  # gem that is being used to control
+  # brief states ..
   include AlterEgo
   
   # relationships
   belongs_to :author
   belongs_to :brief_template
   has_many :brief_answers
-  has_many :creative_responses
+  has_many :creative_proposals
   
   acts_as_commentable
   

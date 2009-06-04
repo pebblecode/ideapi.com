@@ -1,9 +1,0 @@
-%h1 Creating creative_response
-
-= error_messages_for :creative_response
-
-- form_for(:creative_response, :url => objects_url) do |f|
-  = render :partial => "form", :locals => {:f => f}
-  %p= submit_tag "Create"
-
-= link_to 'Back', objects_path
