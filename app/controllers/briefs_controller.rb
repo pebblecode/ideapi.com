@@ -1,5 +1,7 @@
 class BriefsController < ApplicationController
-  before_filter :require_user, :only => [:new, :create, :edit, :update, :destroy]  
+  before_filter :require_user, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :require_author, :except => [:index, :show]
+  
   before_filter :current_user_briefs, :only => :index
   helper_method :current_user_briefs
   
@@ -23,10 +25,6 @@ class BriefsController < ApplicationController
       @brief_templates = BriefTemplate.all
     end
     
-    before :show do
-      @comment = current_object.comments.new
-    end
-    
     before :update do
       if !params[:answers].blank?
         current_object.brief_answers.update(params[:answers].keys, params[:answers].values)
@@ -39,7 +37,7 @@ class BriefsController < ApplicationController
   private
   
   def current_user_briefs
-    logged_in? ? current_user.briefs : []
+    (logged_in? && current_user.is_a?(Author)) ? current_user.briefs : []
   end
   
 end

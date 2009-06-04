@@ -1,7 +1,0 @@
-.section[section]
-  %h3=section.title 
-  %ul.questions
-    =render :partial => "question", :collection => section.questions, :locals => { :section => section, :f => f }
-    %li
-      =submitter "Update"
-      .clear

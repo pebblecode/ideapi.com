@@ -1,9 +1,0 @@
-%li.section_question{:class => "#{question.optional ? 'optional_question': ''}"}
-  %div[question]
-    %h4.question_title=question.title
-    -if !question.help_text.blank?
-      %p.question_help=question.help_text
-  -answer = current_object.answer_for(question, section)
-  %div[answer]
-    =text_area_tag "brief_answers[#{answer.id}][body]", answer.body
-  .clear

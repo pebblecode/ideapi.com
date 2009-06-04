@@ -1,3 +1,5 @@
-%h2=link_to 'Create new brief', new_object_path
-=render :partial => 'brief_table', :locals => {:briefs => current_user_briefs, :title => 'Active Briefs'}
+-if author?
+  %h2=link_to 'Create new brief', new_object_path
+  =render :partial => 'brief_table', :locals => {:briefs => current_user_briefs, :title => 'Active Briefs'}
+
 =render :partial => 'brief_table', :locals => {:briefs => current_objects, :title => 'Popular Briefs'}

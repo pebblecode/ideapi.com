@@ -1,7 +1,14 @@
 .briefs_list
   %h3= h title
   - if briefs.empty?
-    %p There are no briefs here yet, create one?
+    -if author?
+      %p 
+        There are no briefs here yet, 
+        =link_to 'create one?', new_brief_path
+    -else
+      %p 
+        There are no briefs yet,
+        =link_to 'login and create one?', new_user_session_path
   - else
     %table{:width => "100%"}
       %tr

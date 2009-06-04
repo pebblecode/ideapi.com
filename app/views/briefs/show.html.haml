@@ -2,20 +2,7 @@
 
 %div[current_object]
   - form_for(:brief, :url => object_url, :html => { :method => :put }) do |f|
-    =render :partial => "section", :collection => current_object.brief_sections, :locals => { :f => f }
+    =render :partial => "brief_section", :collection => current_object.brief_sections, :locals => { :f => f }
     %p= submitter "Update"
   
   .clear
-
-  %hr
-  #comments
-    %h3 Comments
-    =render :partial => "comments/comment", :collection => current_object.comments
-    -if logged_in?    
-      .new_comment
-        -form_for(:comment, :url => brief_comments_path(current_object)) do |f|
-          =render :partial => "comments/form", :locals => { :f => f }
-          %p= submitter "Submit"
-          .clear
-    -else
-      %p Please log in to comment

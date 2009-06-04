@@ -45,3 +45,20 @@ end
 Webrat.configure do |config|
   config.mode = :rails
 end
+
+module BriefWorkflowHelper
+  
+  def login_as(author)
+    visit new_user_session_path  
+    assert_response :success  
+    fill_in "login", :with => author.login
+    fill_in "password", :with => "testing"
+    click_button
+    assert_equal '/', path
+  end
+
+  def brief_for(author)
+    return Brief.make(:author => author)
+  end
+
+end
