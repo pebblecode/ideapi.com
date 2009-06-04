@@ -19,6 +19,16 @@ class Brief < ActiveRecord::Base
   validates_presence_of :author, :brief_template, :title
   
   #instance methods
+  
+  # ---------
+  # generate_template_brief_answers!
+  # ---------
+  # this rather ill looking method basically
+  # cycles through the sections in the brief template
+  # and for each question in the section
+  # it mocks out an answer for this brief so
+  # it can be answered inline with the question
+  
   def generate_template_brief_answers!
     brief_question_count = 0
     brief_sections.each do |brief_section|
@@ -30,6 +40,7 @@ class Brief < ActiveRecord::Base
     return self.brief_answers.count == brief_question_count
   end
   
+  # yields an answer object for the associated question and section set
   def brief_answer_for(brief_question, brief_section)
     self.brief_answers.find_by_brief_question_id_and_brief_section_id(brief_question.id, brief_section.id)
   end
@@ -39,9 +50,13 @@ class Brief < ActiveRecord::Base
   end
   
   # State machine
+  
+  # ensure default state is set.
   def before_create
     self.state = self.state if read_attribute(:state).blank?
   end
+  
+  # define states and associated actions
   
   state :draft, :default => true do
     handle :publish! do
@@ -71,6 +86,8 @@ class Brief < ActiveRecord::Base
   
   state :closed
   
+  # overwrite accessors so we can save to the database
+  
   def state=(transition_to)
     write_attribute(:state, transition_to.to_s)
   end
@@ -79,6 +96,7 @@ class Brief < ActiveRecord::Base
     (read_attribute(:state) || Brief.default_state).to_sym
   end
 
+  # create a named scope for all the defined scopes
   class_eval do
     states.each do |state_name, state|
       named_scope state_name, :conditions => ["state = ?", state_name.to_s]
