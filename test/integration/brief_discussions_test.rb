@@ -1,3 +1,5 @@
+require 'test_helper'
+
 class BriefDiscussionsTest < ActionController::IntegrationTest
 
   # context "comments" do

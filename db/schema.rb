@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090603231205) do
+ActiveRecord::Schema.define(:version => 20090604132206) do
 
   create_table "brief_answers", :force => true do |t|
     t.text    "body"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20090603231205) do
     t.string  "title"
     t.integer "author_id"
     t.integer "brief_template_id"
+    t.string  "state"
   end
 
   create_table "comments", :force => true do |t|

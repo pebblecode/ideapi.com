@@ -54,4 +54,71 @@ class BriefTest < ActiveSupport::TestCase
             
   end
   
+  context "state machine" do
+    setup do
+      @brief = Brief.make
+    end
+
+    should "start with draft state" do
+      assert_equal(:draft, @brief.state)
+    end
+    
+    should "be able to be published" do
+      assert(@brief.respond_to?(:publish!), "Should respond to publish!")
+    end
+    
+    context "publishing" do
+      setup do
+        @brief.publish!
+      end
+
+      should "be published" do
+        assert_equal(:published, @brief.state)
+      end
+      
+      should "respond to close!" do
+        assert @brief.respond_to?(:close!)
+      end
+      
+      should "be able to be closed" do
+        @brief.close!
+        assert_equal(:closed, @brief.state)
+      end
+
+      should "respond to review!" do
+        assert @brief.respond_to?(:review!)
+      end
+      
+      context "peer review" do
+        setup do
+          @brief.review!
+        end
+      
+        should "be able to put into review" do
+          assert_equal(:peer_review, @brief.state)
+        end
+
+        should "be able to be closed" do
+          @brief.close!
+        end
+      end
+
+    end
+    
+    context "persistance" do
+      setup do
+        @brief.publish!
+      end
+
+      should "be published when reloaded" do
+        assert_equal(:published, @brief.state)
+        @brief.reload
+        assert_equal(:published, @brief.state)
+      end
+    end
+    
+      
+  end
+  
+  
 end

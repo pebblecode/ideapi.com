@@ -1,4 +1,6 @@
 class Brief < ActiveRecord::Base
+  include AlterEgo
+  
   # relationships
   belongs_to :author
   belongs_to :brief_template
@@ -34,6 +36,53 @@ class Brief < ActiveRecord::Base
   
   # class methods
   class << self
+  end
+  
+  # State machine
+  def before_create
+    self.state = self.state if read_attribute(:state).blank?
+  end
+  
+  state :draft, :default => true do
+    handle :publish! do
+      transition_to :published
+      save!
+    end    
+  end
+  
+  state :published do 
+    handle :close! do
+      transition_to :closed
+      save!
+    end
+    
+    handle :review! do
+      transition_to :peer_review
+      save!
+    end
+  end
+  
+  state :peer_review do
+    handle :close! do
+      transition_to :closed
+      save!
+    end
+  end
+  
+  state :closed
+  
+  def state=(transition_to)
+    write_attribute(:state, transition_to.to_s)
+  end
+
+  def state
+    (read_attribute(:state) || Brief.default_state).to_sym
+  end
+
+  class_eval do
+    states.each do |state_name, state|
+      named_scope state_name, :conditions => ["state = ?", state_name.to_s]
+    end
   end
   
   private 

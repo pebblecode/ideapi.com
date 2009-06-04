@@ -11,3 +11,13 @@ Creative.seed(:login, :email) do |s|
   s.password = "testing"
   s.password_confirmation = "testing"
 end
+
+if jason = Author.find_by_login("jason")
+  
+  brief = Brief.seed(:title) do |s|
+    title = "Jason's test brief"
+    author = jason
+    brief_template = BriefTemplate.first
+  end
+  
+end
