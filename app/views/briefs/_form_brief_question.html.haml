@@ -1,0 +1,9 @@
+%li.brief_section_brief_question{:class => "#{form_brief_question.optional ? 'optional_brief_question': ''}"}
+  %div[form_brief_question]
+    %h4.brief_question_title=form_brief_question.title
+    -if !form_brief_question.help_text.blank?
+      %p.brief_question_help=form_brief_question.help_text
+  -brief_answer = current_object.brief_answer_for(form_brief_question, form_brief_section)
+  %div[brief_answer]
+    =text_area_tag "brief_answers[#{brief_answer.id}][body]", brief_answer.body
+  .clear

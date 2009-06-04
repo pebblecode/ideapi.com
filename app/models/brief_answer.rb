@@ -5,6 +5,8 @@ class BriefAnswer < ActiveRecord::Base
   
   validates_uniqueness_of :brief_question_id, :scope => [:brief_section_id, :brief_id]
   
+  named_scope :answered, :conditions => "body NOT NULL"
+  
   class << self
     
     def to_brief_question(brief_question)

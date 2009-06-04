@@ -1,0 +1,7 @@
+.brief_section[form_brief_section]
+  %h3=form_brief_section.title 
+  %ul.brief_questions
+    =render :partial => "form_brief_question", :collection => form_brief_section.brief_questions, :locals => { :form_brief_section => form_brief_section, :f => f }
+    %li
+      =submitter "Update"
+      .clear

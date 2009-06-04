@@ -4,6 +4,11 @@
 
 - form_for(:brief, :url => object_url, :html => { :method => :put }) do |f|
   = render :partial => "form", :locals => {:f => f}
+  
+  %h3 Section Questions
+  
+  =render :partial => "form_brief_section", :collection => current_object.brief_sections, :locals => { :f => f }
+  
   %p= submitter "Update"
   .clear
   

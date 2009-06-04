@@ -7,7 +7,8 @@ class Brief < ActiveRecord::Base
   # relationships
   belongs_to :author
   belongs_to :brief_template
-  has_many :brief_answers
+  has_many :brief_answers, :order => :brief_section_id
+  
   has_many :creative_proposals
   
   acts_as_commentable
@@ -21,7 +22,10 @@ class Brief < ActiveRecord::Base
   # validations
   validates_presence_of :author, :brief_template, :title
   
-  #instance methods
+  #instance methods  
+  def answered_sections
+    @answered_sections ||= brief_answers.answered.map(&:brief_section).uniq
+  end
   
   # ---------
   # generate_template_brief_answers!
@@ -99,12 +103,20 @@ class Brief < ActiveRecord::Base
     (read_attribute(:state) || Brief.default_state).to_sym
   end
 
-  # create a named scope for all the defined scopes
+  # dynamically create some class level, and instance methods
+  # for use with the statemachine defined states.
   class_eval do
     states.each do |state_name, state|
+      # create a named scope for all the defined scopes
       named_scope state_name, :conditions => ["state = ?", state_name.to_s]
+      
+      # create a state_name? instance method for each state ..
+      # for example @brief.draft? => true
+      define_method("#{state_name}?", lambda { self.state == state_name }) 
     end
   end
+  
+  
   
   private 
   
