@@ -1,11 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.resources :creative_proposals
-
   map.resources :creative_questions
-  map.resources :users
   
   map.resources :briefs do |briefs|
-    briefs.resources :comments
+    briefs.resources :creative_questions, :as => 'questions'
   end
   
   # Administration Area

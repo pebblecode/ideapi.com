@@ -1,4 +1,26 @@
 .brief_section[brief_section]
-  %h3=brief_section.title 
+  .brief_section_title
+    %h3=brief_section.title
+    %p=link_to 'view questions in this section', ''
   %ul.brief_questions
-    
+    -answers.each do |answer|
+      %li
+        %h4=answer.brief_question.title
+        %p=answer.body
+        %p=link_to pluralize(answer.creative_questions.count, "question"), brief_creative_questions_path(current_object) << "?response_to=#{answer.id}"
+        %p=link_to 'ask question', new_brief_creative_question_path(current_object) << "?response_to=#{answer.id}"
+        
+        -answer.creative_questions.answered.each do |response|
+          .creative_question
+            =avatar(response.creative, :small)
+            %h4=response.body
+            %p.time
+              =comment_adjective_for(user_link(response.creative))
+              =distance_of_time_in_words_to_now(response.created_at)
+              ago
+          %p.author_response
+            =user_link(current_object.author)
+            answered:
+            =response.answer
+            =avatar(current_object.author, :medium)
+        

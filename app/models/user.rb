@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   
   has_many :comments 
   
+  has_attached_file :avatar, :styles => { :medium => "48x48>", :small => "32x32>" }
+  
   @comment_freshness = 5.minutes
   class << self; attr_accessor :comment_freshness; end
   

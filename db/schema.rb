@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090604132206) do
+ActiveRecord::Schema.define(:version => 20090605163227) do
 
   create_table "brief_answers", :force => true do |t|
     t.text    "body"
@@ -83,18 +83,18 @@ ActiveRecord::Schema.define(:version => 20090604132206) do
     t.string   "short_description"
     t.text     "long_description"
     t.integer  "brief_id"
-    t.integer  "user_id"
+    t.integer  "creative_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "creative_questions", :force => true do |t|
     t.text     "body"
-    t.integer  "love_count", :default => 0
-    t.integer  "hate_count", :default => 0
+    t.integer  "love_count",      :default => 0
+    t.integer  "hate_count",      :default => 0
     t.text     "answer"
-    t.integer  "user_id"
-    t.integer  "brief_id"
+    t.integer  "creative_id"
+    t.integer  "brief_answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,12 +106,16 @@ ActiveRecord::Schema.define(:version => 20090604132206) do
   end
 
   create_table "users", :force => true do |t|
-    t.string "login"
-    t.string "email"
-    t.string "crypted_password"
-    t.string "password_salt"
-    t.string "persistence_token"
-    t.string "type"
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "type"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end

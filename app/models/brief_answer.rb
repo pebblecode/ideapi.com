@@ -2,6 +2,7 @@ class BriefAnswer < ActiveRecord::Base
   belongs_to :brief_question
   belongs_to :brief_section
   belongs_to :brief
+  has_many :creative_questions
   
   validates_uniqueness_of :brief_question_id, :scope => [:brief_section_id, :brief_id]
   

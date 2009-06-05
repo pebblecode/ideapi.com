@@ -59,12 +59,14 @@ class Brief < ActiveRecord::Base
   # State machine
   
   # ensure default state is set.
-  def before_create
-    self.state = self.state if read_attribute(:state).blank?
+  before_create :ensure_default_state
+  
+  def ensure_default_state
+     (self.state = Brief.default_state) if read_attribute(:state).blank?
   end
   
   # define states and associated actions
-  
+
   state :draft, :default => true do
     handle :publish! do
       transition_to :published
@@ -100,7 +102,8 @@ class Brief < ActiveRecord::Base
   end
 
   def state
-    (read_attribute(:state) || Brief.default_state).to_sym
+    ensure_default_state
+    read_attribute(:state)
   end
 
   # dynamically create some class level, and instance methods

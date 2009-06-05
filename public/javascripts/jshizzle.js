@@ -2,18 +2,18 @@ jQuery(document).ready(function(){
 	
 	// BRIEF CREATION SECTION
 	
-	$('.brief_section h3').click(function() {
-		$(this).next().slideToggle('fade', function (){
+	$('.brief_section .brief_section_title h3').click(function() {
+		$(this).parent().next().slideToggle('fade', function (){
 		  $(this).find('.brief_answer textarea:first').focus();
 		});
 		return false;
-	}).next().hide();
+	}).parent().next().hide();
 	
 	var current_location = document.location.toString();
   if (current_location.match('#section')) { 
-    $('#' + current_location.split('#')[1] + ' h3').click();
+    $('#' + current_location.split('#')[1] + ' .brief_section_title').click();
   } else {
-    $('.brief_section:first h3').next().toggle();
+    $('.brief_section:first .brief_section_title').next().toggle();
   }
 	
 	$('.brief_question_help').hide();
