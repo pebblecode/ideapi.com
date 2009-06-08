@@ -1,0 +1,41 @@
+=content_for :page_title do
+  %h2
+    Question for
+    =link_to brief.title.titlecase, brief_path(brief)
+    %span.author_info="by #{user_link(brief.author)}"
+    Asked by 
+    %span.author_info="#{user_link(current_object.creative)}"
+    
+%div[current_object]
+  .question_asked
+    .creative_avatar
+      =avatar(current_object.creative, :medium)
+      -if current_object.answered?              
+        %span.answered Answered
+    %span.question_body="<strong>#{user_link(current_object.creative)} asked:</strong> #{h current_object.body}"
+    
+  -if current_object.answered?
+    %p.author_response
+      ="<span><strong>#{user_link(brief.author)} answered:</strong> #{h current_object.answer}</span>"
+      =avatar(brief.author, :medium)
+      
+  .recent_comments
+    %h3 Recent Comments
+    -if current_object.comments.blank?
+      %p There are no comments for this question
+    -else
+      %ul.comment_list
+        -current_object.comments.each do |comment|
+          %li.comment
+            =avatar(comment.user, :small)
+            %p
+              =h comment.comment
+              %span.time
+                =comment_adjective_for(user_link(comment.user))
+                =distance_of_time_in_words_to_now(comment.created_at)
+                ago
+
+      
+      .comment_form
+        - form_for(:comment, :url => brief_creative_question_comments_path(brief, current_object)) do |f|
+          = render :partial => "comments/form", :locals => {:f => f}

@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
   private
   
   def protect_flood_post
-    self.user.commented_recently?
+    self.user && self.user.commented_recently?
   end
   
 end

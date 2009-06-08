@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090605163227) do
+ActiveRecord::Schema.define(:version => 20090608145654) do
 
   create_table "brief_answers", :force => true do |t|
     t.text    "body"
@@ -90,8 +90,6 @@ ActiveRecord::Schema.define(:version => 20090605163227) do
 
   create_table "creative_questions", :force => true do |t|
     t.text     "body"
-    t.integer  "love_count",      :default => 0
-    t.integer  "hate_count",      :default => 0
     t.text     "answer"
     t.integer  "creative_id"
     t.integer  "brief_answer_id"
@@ -117,5 +115,19 @@ ActiveRecord::Schema.define(:version => 20090605163227) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  create_table "votes", :force => true do |t|
+    t.boolean  "vote",          :default => false
+    t.integer  "voteable_id",                      :null => false
+    t.string   "voteable_type",                    :null => false
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["voteable_id", "voteable_type"], :name => "fk_voteables"
+  add_index "votes", ["voter_id", "voter_type", "voteable_id", "voteable_type"], :name => "uniq_one_vote_only", :unique => true
+  add_index "votes", ["voter_id", "voter_type"], :name => "fk_voters"
 
 end

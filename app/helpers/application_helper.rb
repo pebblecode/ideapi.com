@@ -17,7 +17,7 @@ module ApplicationHelper
   def avatar(user_object, size)
     filename = user_object.avatar.url(size)
     filename = "/images/avatar/default_#{size}.png" if !File.exists?(filename)
-    image_tag filename
+    image_tag filename, :class => "avatar_#{size}"
   end
   
 end

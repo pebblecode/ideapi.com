@@ -1,26 +1,28 @@
 .brief_section[brief_section]
   .brief_section_title
     %h3=brief_section.title
-    %p=link_to 'view questions in this section', ''
+    
   %ul.brief_questions
     -answers.each do |answer|
       %li
-        %h4=answer.brief_question.title
-        %p=answer.body
-        %p=link_to pluralize(answer.creative_questions.count, "question"), brief_creative_questions_path(current_object) << "?response_to=#{answer.id}"
-        %p=link_to 'ask question', new_brief_creative_question_path(current_object) << "?response_to=#{answer.id}"
-        
+        .brief_question
+          %h4=answer.brief_question.title
+          %p=answer.body
+          
+          %ul.question_links
+            %li.question_count=link_to pluralize("<span>#{answer.creative_questions.count}</span>", "question"), brief_creative_questions_path(current_object) << "?response_to=#{answer.id}"
+            %li.ask_question=link_to '<span>ask</span> question', new_brief_creative_question_path(current_object) << "?response_to=#{answer.id}"
+          
         -answer.creative_questions.answered.each do |response|
           .creative_question
             =avatar(response.creative, :small)
-            %h4=response.body
+            %h4=link_to truncate(response.body, 100), brief_creative_question_path(current_object, response)
             %p.time
               =comment_adjective_for(user_link(response.creative))
               =distance_of_time_in_words_to_now(response.created_at)
               ago
+          
           %p.author_response
-            =user_link(current_object.author)
-            answered:
-            =response.answer
+            ="<span><strong>#{user_link(current_object.author)} answered:</strong> #{h response.answer}</span>"
             =avatar(current_object.author, :medium)
         

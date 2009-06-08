@@ -4,7 +4,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :creative_questions
   
   map.resources :briefs do |briefs|
-    briefs.resources :creative_questions, :as => 'questions'
+    briefs.resources :creative_questions, :as => 'questions', :member => { :love => :put, :hate => :put } do |creative_question|
+      creative_question.resources :comments
+    end
   end
   
   # Administration Area

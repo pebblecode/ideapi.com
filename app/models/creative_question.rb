@@ -2,16 +2,26 @@ class CreativeQuestion < ActiveRecord::Base
   belongs_to :brief_answer
   belongs_to :creative
   
+  delegate :brief_section, :to => :brief_answer
+  delegate :brief_question, :to => :brief_answer
+  
   validates_presence_of :brief_answer, :creative, :body
   
-  def love!
-    update_attribute(:love_count, love_count + 1)
-  end
-  
-  def hate!
-    update_attribute(:hate_count, hate_count + 1)
-  end
+  acts_as_commentable
+  acts_as_voteable
   
   named_scope :answered, :conditions => "answer NOT NULL"
+  
+  def answered?
+    !answer.blank?
+  end
+  
+  def love_count
+    votes_for
+  end
+  
+  def hate_count
+    votes_against
+  end
   
 end

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_filter :require_user
   
   make_resourceful do  
-    belongs_to :brief
+    belongs_to :creative_question
     actions :create, :destroy
     
     before :create do

@@ -1,4 +1,11 @@
-%h2=current_object.title.titlecase
+=content_for :page_title do
+  %h2
+    Overview of
+    =link_to current_object.title.titlecase, brief_path(current_object)
+    %span.author_info="by #{user_link(current_object.author)}"
+    
+    =link_to 'ask a question', new_brief_creative_question_path(current_object), :class => 'ask_question'
+    
 %div[current_object]
   -current_object.brief_answers.answered.group_by(&:brief_section).each do |section, answers|
     =render :partial => "brief_section", :locals => { :brief_section => section, :answers => answers }

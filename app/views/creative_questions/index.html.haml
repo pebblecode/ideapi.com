@@ -1,2 +1,44 @@
--current_objects.each do |question|
-  =question.body
+=content_for :page_title do
+  %h2
+    Questions for
+    =link_to brief.title.titlecase, brief_path(brief)
+    %span.author_info="by #{user_link(brief.author)}"
+    
+%div.brief_questions
+  
+  .ask_question 
+    %h3 Ask a question
+    -if logged_in?  
+      -if creative?  
+        - form_for(@new_question, :url => brief_creative_questions_path(brief)) do |f|
+          = render :partial => "form", :locals => {:f => f}          
+      -else
+        %p Only creatives can ask questions for your brief
+    -else
+      %p 
+        Please 
+        =link_to 'log in', new_user_session_path 
+        to ask a question
+    
+  %h4 Recent Questions
+  
+  -current_objects.group_by(&:brief_answer).each do |brief_answer, questions|
+    %p
+      Relating to
+      %strong=[brief_answer.brief_section.title, brief_answer.brief_question.title].join(" > ")
+    
+    %ul.creative_question_list  
+      -questions.each do |question|
+        %li[question]
+          .question_asked
+            .creative_avatar
+              =avatar(question.creative, :medium)
+              -if question.answered?              
+                %span.answered Answered
+            %span.question_body="<strong>#{user_link(question.creative)} asked:</strong> #{h question.body}"
+          
+          %ul.submit_buttons
+            %li=button_to "Love (#{question.love_count})", love_brief_creative_question_path(brief, question), :method => :put
+            %li=button_to "Hate (#{question.hate_count})", hate_brief_creative_question_path(brief, question), :method => :put
+            %li=link_to "Comments (#{question.comments.count})", brief_creative_question_path(brief, question)
+            
