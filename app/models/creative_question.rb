@@ -4,6 +4,7 @@ class CreativeQuestion < ActiveRecord::Base
   
   delegate :brief_section, :to => :brief_answer
   delegate :brief_question, :to => :brief_answer
+  delegate :brief, :to => :brief_answer
   
   validates_presence_of :brief_answer, :creative, :body
   

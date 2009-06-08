@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     end
     
     response_for(:create, :create_fails, :destroy, :destroy_fails) do |format|
-      format.html { redirect_to brief_path(parent_object) }
+      format.html { redirect_to brief_creative_question_path(parent_object.brief, parent_object) }
     end
     
   end

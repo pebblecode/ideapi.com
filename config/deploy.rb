@@ -15,7 +15,7 @@ set :git_enable_submodules, 1
  
 set(:application) { "ideapi_#{stage}" } # replace with your application name
 set (:deploy_to) { "/home/#{user}/apps/#{application}" }
-set :copy_remote_dir, "/home/#{user}/tmp"
+#set :copy_remote_dir, "/home/#{user}/tmp"
  
 # source: http://tomcopeland.blogs.com/juniordeveloper/2008/05/mod_rails-and-c.html
 namespace :deploy do
@@ -32,6 +32,12 @@ namespace :deploy do
   desc "invoke the db migration"
   task:migrate, :roles => :app do
     send(run_method, "cd #{current_path} && rake db:migrate RAILS_ENV=#{stage} ")     
+  end
+  
+  desc "Link in the production database.yml" 
+  task :after_update_code do
+    run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml" 
+    run "ln -nfs #{deploy_to}/#{shared_dir}/uploads #{release_path}/public/uploads"
   end
   
 end
