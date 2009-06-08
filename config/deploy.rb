@@ -38,6 +38,8 @@ namespace :deploy do
   task :after_update_code do
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml" 
     run "ln -nfs #{deploy_to}/#{shared_dir}/uploads #{release_path}/public/uploads"
+    run "ln -nfs #{deploy_to}/#{shared_dir}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
+    run "ln -nfs #{deploy_to}/#{shared_dir}/db/development.sqlite3 #{release_path}/db/development.sqlite3"
   end
   
 end
