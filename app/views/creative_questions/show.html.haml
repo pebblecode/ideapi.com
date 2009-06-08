@@ -18,6 +18,13 @@
     %p.author_response
       ="<span><strong>#{user_link(brief.author)} answered:</strong> #{h current_object.answer}</span>"
       =avatar(brief.author, :medium)
+  -else
+    -if author?
+      .form_box
+        - form_for(current_object, :url => brief_creative_question_path(brief, current_object), :method => :put) do |f|
+          %p=f.text_area :answer, :rows => 5, :cols => 80, :style => "width: 580px"
+          %p.submit=f.submit "submit answer"
+      
       
   .recent_comments
     %h3 Recent Comments
@@ -35,7 +42,6 @@
                 =distance_of_time_in_words_to_now(comment.created_at)
                 ago
 
-      
-      .comment_form
-        - form_for(:comment, :url => brief_creative_question_comments_path(brief, current_object)) do |f|
-          = render :partial => "comments/form", :locals => {:f => f}
+  .form_box
+    - form_for(:comment, :url => brief_creative_question_comments_path(brief, current_object)) do |f|
+      = render :partial => "comments/form", :locals => {:f => f}

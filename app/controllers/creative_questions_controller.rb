@@ -1,5 +1,5 @@
 class CreativeQuestionsController < ApplicationController
-  before_filter :require_creative, :except => [:index, :show]
+  before_filter :require_creative, :except => [:index, :show, :update]
   
   before_filter :brief
   helper_method :brief
@@ -20,8 +20,12 @@ class CreativeQuestionsController < ApplicationController
       current_object.creative = current_user
     end
     
-    response_for :create do
+    response_for (:create) do
       redirect_to_brief_questions
+    end
+    
+    response_for :update do
+      redirect_to brief_creative_question_path(brief, current_object)
     end
     
     response_for :create_fails do

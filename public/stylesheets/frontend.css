@@ -260,6 +260,8 @@ a:hover {
         right: -65px; }
     #container #content .recent_comments {
       margin-top: 4em; }
+      #container #content .recent_comments p {
+        padding: 0 1em; }
       #container #content .recent_comments h3 {
         border-top: 1px solid black;
         background: #fafafa;
@@ -285,14 +287,14 @@ a:hover {
             padding-left: 45px;
             display: block;
             padding: 0; }
-    #container #content .comment_form {
+    #container #content .form_box {
       border: 1px solid #dfdfdf;
       background: #f8f8f8;
       padding: 1em;
       margin-bottom: 1em; }
-      #container #content .comment_form h3 {
+      #container #content .form_box h3 {
         font-size: 18px; }
-      #container #content .comment_form p.submit {
+      #container #content .form_box p.submit {
         text-align: right; }
 
 input, textarea, select {

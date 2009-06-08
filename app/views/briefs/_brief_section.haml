@@ -11,7 +11,7 @@
           
           %ul.question_links
             %li.question_count=link_to pluralize("<span>#{answer.creative_questions.count}</span>", "question"), brief_creative_questions_path(current_object) << "?response_to=#{answer.id}"
-            %li.ask_question=link_to '<span>ask</span> question', new_brief_creative_question_path(current_object) << "?response_to=#{answer.id}"
+            %li.ask_question=link_to '<span>ask</span> question', brief_creative_questions_path(current_object) << "?response_to=#{answer.id}"
           
         -answer.creative_questions.answered.each do |response|
           .creative_question
