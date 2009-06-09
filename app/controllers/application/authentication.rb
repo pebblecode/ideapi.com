@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+    
+  USER_NAME, PASSWORD = "ideapi", "pen34guin"
+  before_filter :authenticate
   
   helper_method :current_user_session, :current_user, :logged_in?, :author?, :creative?
   
@@ -71,4 +74,10 @@ class ApplicationController < ActionController::Base
     session[:return_to] = nil
   end
   
+  def authenticate
+    authenticate_or_request_with_http_basic do |user_name, password|
+      user_name == USER_NAME && password == PASSWORD
+    end
+  end
+
 end
