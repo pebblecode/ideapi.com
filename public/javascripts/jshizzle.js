@@ -54,6 +54,30 @@ jQuery(document).ready(function(){
     animate: true
   });
 
+
+  // COMMENTS
+  
+  $("a.reply_to_comment").click(function (){
+    $(this).nextAll('div.inline_form_comment').fadeIn();
+    $(this).fadeOut();
+    return false;
+  }).show().nextAll('div.inline_form_comment').hide();
+
+  jQuery('.inline_form_comment textarea').blur(function () {
+    if (!jQuery(this).parents('.inline_form_comment').hasClass('active') && $(this).attr("value") == "") {
+      jQuery(this).parents('.inline_form_comment').fadeOut();
+      jQuery(this).parents('.inline_form_comment').prevAll('a.reply_to_comment').fadeIn();
+    }
+  });
+  
+  jQuery('.inline_form_comment').hover(
+    function(){ 
+      jQuery(this).addClass("active");
+    },
+    function(){
+      jQuery(this).removeClass("active"); 
+    }
+  );
   	
 });
 

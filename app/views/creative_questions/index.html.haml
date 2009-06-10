@@ -6,21 +6,21 @@
     
 %div.brief_questions
   
-  .ask_question 
-    %h3 Ask a question
-    -if logged_in?  
-      -if creative?  
+  -if logged_in?  
+    -if creative?
+      .ask_question       
+        %h3 Ask a question
         - form_for(@new_question, :url => brief_creative_questions_path(brief)) do |f|
           = render :partial => "form", :locals => {:f => f}          
-      -else
-        %p Only creatives can ask questions for your brief
-    -else
+  -else
+    .ask_question       
+      %h3 Ask a question
       %p 
         Please 
         =link_to 'log in', new_user_session_path 
         to ask a question
     
-  %h4 Recent Questions
+  %h3 Recent Questions
   
   -current_objects.group_by(&:brief_answer).each do |brief_answer, questions|
     %p

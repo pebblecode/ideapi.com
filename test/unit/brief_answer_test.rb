@@ -9,7 +9,8 @@ class BriefAnswerTest < ActiveSupport::TestCase
     setup do
       @brief = Brief.make
       @question = BriefQuestion.make
-      @answer = BriefAnswer.make(:brief_question => @question, :brief => @brief)
+      @section = BriefSection.make
+      @answer = BriefAnswer.make(:brief_question => @question, :brief_section => @section, :brief => @brief)
     end
 
     should "provide api for looking up questions for answer" do

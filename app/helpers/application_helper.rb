@@ -7,7 +7,7 @@ module ApplicationHelper
   end
   
   def comment_adjective_for(name)
-    %w(mused asked commented pondered inquired posed quizzed).rand << " #{name}"
+    %w(mused asked pondered inquired posed quizzed).rand << " #{name}"
   end
   
   def user_link(user_object)

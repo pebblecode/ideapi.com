@@ -10,7 +10,11 @@ class BriefSection < ActiveRecord::Base
   def assign_brief_template(brief_template)
     self.brief_templates << brief_template
   end
-  
   alias :assign_brief_template= :assign_brief_template
+  
+  def assign_brief_question(brief_question)
+    self.brief_questions << brief_question
+  end
+  alias :assign_brief_question= :assign_brief_question
   
 end

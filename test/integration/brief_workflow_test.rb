@@ -75,11 +75,7 @@ class BriefWorkflowTest < ActionController::IntegrationTest
         assert_equal brief_path(@brief), path
         assert_contain @brief.title.titlecase
       end
-  
-      should "not be able to comment on a brief" do
-        assert_have_no_selector("form", :action => brief_comments_path(@brief))
-      end
-      
+        
     end
     
   end

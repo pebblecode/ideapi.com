@@ -103,7 +103,7 @@ class Brief < ActiveRecord::Base
 
   def state
     ensure_default_state
-    read_attribute(:state)
+    read_attribute(:state).to_sym
   end
 
   # dynamically create some class level, and instance methods

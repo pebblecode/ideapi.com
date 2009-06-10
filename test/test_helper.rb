@@ -4,6 +4,10 @@ require 'test_help'
 require "authlogic/test_case"
 require "webrat"
 
+require 'machinist/active_record'
+require 'sham'
+require 'faker'
+
 require File.expand_path(File.dirname(__FILE__) + "/blueprints")
 
 class ActiveSupport::TestCase
@@ -62,3 +66,26 @@ module BriefWorkflowHelper
   end
 
 end
+
+def mock_amount
+  @mock_amount ||= 5
+end
+
+def make_brief_template
+  @make_brief_template ||= (
+    template = BriefTemplate.make
+
+    mock_amount.times do
+      section = BriefSection.make
+      
+      mock_amount.times do
+        question = BriefQuestion.make
+        section.brief_questions << question
+      end
+      
+      template.brief_sections << section
+    end
+    template
+  )
+end
+

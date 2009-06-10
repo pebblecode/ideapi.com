@@ -3,5 +3,4 @@ class BriefTemplate < ActiveRecord::Base
   
   has_many :brief_section_brief_templates
   has_many :brief_sections, :through => :brief_section_brief_templates
-
 end

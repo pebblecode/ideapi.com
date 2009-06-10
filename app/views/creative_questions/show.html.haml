@@ -7,6 +7,13 @@
     %span.author_info="#{user_link(current_object.creative)}"
     
 %div[current_object]
+  
+  =#prev_next_for_question(current_object)
+  
+  %p.related_question
+    Question in relation to: 
+    %strong=current_object.related_question
+  
   .question_asked
     .creative_avatar
       =avatar(current_object.creative, :medium)
@@ -32,16 +39,8 @@
       %p There are no comments for this question
     -else
       %ul.comment_list
-        -current_object.comments.each do |comment|
-          %li.comment
-            =avatar(comment.user, :small)
-            %p
-              =h comment.comment
-              %span.time
-                =comment_adjective_for(user_link(comment.user))
-                =distance_of_time_in_words_to_now(comment.created_at)
-                ago
-
+        =render :partial => 'comments/comment', :collection => current_object.comments.top_level, :locals => { :author => brief.author }
   .form_box
+    %h3 Add your comment
     - form_for(:comment, :url => brief_creative_question_comments_path(brief, current_object)) do |f|
       = render :partial => "comments/form", :locals => {:f => f}

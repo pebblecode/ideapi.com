@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :briefs do |briefs|
     briefs.resources :creative_questions, :as => 'questions', :member => { :love => :put, :hate => :put } do |creative_question|
-      creative_question.resources :comments
+      creative_question.resources :comments, :shallow => true
     end
   end
   

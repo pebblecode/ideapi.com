@@ -25,4 +25,8 @@ class CreativeQuestion < ActiveRecord::Base
     votes_against
   end
   
+  def related_question
+    brief_question.title || ""
+  end
+  
 end

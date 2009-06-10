@@ -15,6 +15,14 @@ class Comment < ActiveRecord::Base
   
   validates_presence_of :comment, :user
   
+  acts_as_nested_set
+  
+  def top_level?
+    root? || parent_id.blank?
+  end
+  
+  named_scope :top_level, :conditions => "parent_id IS NULL"
+  
   private
   
   def protect_flood_post

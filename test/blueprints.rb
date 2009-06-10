@@ -20,7 +20,7 @@ BriefConfig.blueprint do
 end
 
 BriefTemplate.blueprint do
-  brief_config { BriefConfig.make } 
+  brief_config { BriefConfig.make }
 end
 
 Brief.blueprint do
@@ -48,10 +48,8 @@ end
 
 CreativeQuestion.blueprint do
   body
-  love_count { 0 }
-  hate_count { 0 }
   creative { Creative.make }
-  brief { Brief.make }
+  brief_answer { BriefAnswer.make }
 end
 
 ResponseType.blueprint do
