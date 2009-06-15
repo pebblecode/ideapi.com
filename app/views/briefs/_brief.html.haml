@@ -1,9 +1,3 @@
 %tr
-  %td= h brief.title
-  %td
-  %td
-    = link_to 'Show', object_path(brief)
-    |
-    = link_to 'Edit', edit_object_path(brief)
-    |
-    = link_to 'Destroy', object_path(brief), :confirm => 'Really destroy brief?', :method => :delete
+  %td= link_to h(brief.title), object_path(brief)
+  %td= h rand(10).to_s

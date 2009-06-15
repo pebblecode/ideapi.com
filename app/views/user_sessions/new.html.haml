@@ -1,17 +1,20 @@
-%h2 Please login
--form_for @user_session, :url => user_session_path do |f|
-  %p
-    =f.label :login
-    =f.text_field :login
-  %p
-    =f.label :password
-    =f.password_field :password
-  %p
-    =f.check_box :remember_me
-    =f.label :remember_me
+=content_for :page_title do
+  %h2 Please login
+  
+.login_form{:style => "margin: 0 1em; width: 28em"}  
+  -form_for @user_session, :url => user_session_path do |f|
+    %p
+      =f.label :login
+      =f.text_field :login
+    %p
+      =f.label :password
+      =f.password_field :password
+    %p
+      =f.check_box :remember_me
+      =f.label :remember_me
     
-  %p
-    =submitter "Login"
-    .clear
+    %p
+      =submitter "Login"
+      .clear
     
     

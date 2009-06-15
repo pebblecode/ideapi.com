@@ -1,5 +1,4 @@
 .briefs_list
-  %h3= h title
   - if briefs.empty?
     -if author?
       %p 
@@ -14,5 +13,4 @@
       %tr
         %th{:width => "50%"} Name
         %th Responses
-        %th Actions
       = render :partial => 'brief', :collection => briefs

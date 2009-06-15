@@ -11,7 +11,7 @@ class BriefAnswer < ActiveRecord::Base
   named_scope :answered, :conditions => "body NOT NULL"
   
   def question
-    brief_question.title
+    [brief_section.title, brief_question.title].join(" > ")
   end
   
   class << self

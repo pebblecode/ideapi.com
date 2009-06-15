@@ -15,13 +15,19 @@
           Logged in as 
           %strong
             =current_user.login
-          =link_to '(logout)', user_session_path, :method => :delete                 
+          =link_to '(logout)', user_session_path, :method => :delete
+      -else
+        %p#user_info
+          Not logged in
+          =link_to '(login)', new_user_session_path
       #header
         %h1
           =link_to "Ideapi", "/"
       #content
         .title_holder=yield :page_title
-        .sidebar=yield :side_bar
+        .sidebar
+          %p{:style => "margin-left: 1em; margin-top: 1em"}=image_tag 'hot.png'
+          =yield :side_bar
         .main=yield
       .clear
       /

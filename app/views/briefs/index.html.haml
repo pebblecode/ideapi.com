@@ -1,5 +1,13 @@
--if author?
-  %h2=link_to 'Create new brief', new_object_path
-  =render :partial => 'brief_table', :locals => {:briefs => current_user_briefs, :title => 'Active Briefs'}
+=content_for :page_title do
+  %h2   
+    -if author?
+      Active Briefs
+      =link_to 'Create new brief', new_object_path
+    -else
+      Popular briefs
 
-=render :partial => 'brief_table', :locals => {:briefs => current_objects, :title => 'Popular Briefs'}
+.brief_list{:style => "margin: 0 1em;"}
+  -if author?
+    =render :partial => 'brief_table', :locals => {:briefs => current_user_briefs}
+  -else
+    =render :partial => 'brief_table', :locals => {:briefs => current_objects}
