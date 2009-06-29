@@ -9,51 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090610122524) do
+ActiveRecord::Schema.define(:version => 20090629114313) do
 
-  create_table "brief_answers", :force => true do |t|
-    t.text    "body"
-    t.integer "brief_question_id"
-    t.integer "brief_id"
-    t.integer "brief_section_id"
-  end
-
-  create_table "brief_configs", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "brief_questions", :force => true do |t|
-    t.string  "title"
-    t.text    "help_text"
-    t.integer "response_type_id"
-    t.boolean "optional",         :default => false
-  end
-
-  create_table "brief_section_brief_questions", :force => true do |t|
-    t.integer  "brief_section_id"
-    t.integer  "brief_question_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "brief_items", :force => true do |t|
+    t.text     "title"
+    t.text     "body"
     t.integer  "position"
-  end
-
-  create_table "brief_section_brief_templates", :force => true do |t|
-    t.integer "brief_section_id"
-    t.integer "brief_template_id"
-  end
-
-  create_table "brief_sections", :force => true do |t|
-    t.string  "title"
-    t.text    "strapline"
-    t.integer "position"
-    t.integer "brief_config_id"
-  end
-
-  create_table "brief_templates", :force => true do |t|
-    t.string   "title"
-    t.integer  "brief_config_id"
+    t.integer  "brief_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,49 +23,44 @@ ActiveRecord::Schema.define(:version => 20090610122524) do
   create_table "briefs", :force => true do |t|
     t.string  "title"
     t.integer "author_id"
-    t.integer "brief_template_id"
     t.string  "state"
+    t.integer "site_id"
+    t.integer "template_brief_id"
   end
 
-  create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
-    t.text     "comment",                        :default => ""
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-  end
-
-  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
-  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
-  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
-  create_table "creative_proposals", :force => true do |t|
-    t.string   "short_description"
-    t.text     "long_description"
+  create_table "creative_questions", :force => true do |t|
+    t.text     "body"
+    t.text     "author_answer"
     t.integer  "brief_id"
     t.integer  "creative_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "creative_questions", :force => true do |t|
-    t.text     "body"
-    t.text     "answer"
-    t.integer  "creative_id"
-    t.integer  "brief_answer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "sites", :force => true do |t|
+    t.string "title"
   end
 
-  create_table "response_types", :force => true do |t|
-    t.string "title"
-    t.string "input_type"
-    t.string "options"
+  create_table "template_brief_questions", :force => true do |t|
+    t.integer "template_brief_id"
+    t.integer "template_question_id"
+  end
+
+  create_table "template_briefs", :force => true do |t|
+    t.string  "title"
+    t.integer "site_id"
+  end
+
+  create_table "template_questions", :force => true do |t|
+    t.text    "body"
+    t.text    "help_message"
+    t.boolean "optional"
+    t.integer "template_section_id"
+  end
+
+  create_table "template_sections", :force => true do |t|
+    t.text    "title"
+    t.integer "position"
   end
 
   create_table "users", :force => true do |t|
@@ -118,19 +75,5 @@ ActiveRecord::Schema.define(:version => 20090610122524) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
-
-  create_table "votes", :force => true do |t|
-    t.boolean  "vote",          :default => false
-    t.integer  "voteable_id",                      :null => false
-    t.string   "voteable_type",                    :null => false
-    t.integer  "voter_id"
-    t.string   "voter_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "votes", ["voteable_id", "voteable_type"], :name => "fk_voteables"
-  add_index "votes", ["voter_id", "voter_type", "voteable_id", "voteable_type"], :name => "uniq_one_vote_only", :unique => true
-  add_index "votes", ["voter_id", "voter_type"], :name => "fk_voters"
 
 end

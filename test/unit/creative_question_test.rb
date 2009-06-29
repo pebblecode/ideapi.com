@@ -1,12 +1,6 @@
 require 'test_helper'
 
 class CreativeQuestionTest < ActiveSupport::TestCase
-
-  context "love and hate" do
-    setup do
-#      @question = CreativeQuestion.make  
-    end
-
-  end
-
+  should_belong_to :creative
+  should_belong_to :brief
 end

@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.column :crypted_password, :string
       t.column :password_salt, :string
       t.column :persistence_token, :string
+      t.string :type
     end
   end
 

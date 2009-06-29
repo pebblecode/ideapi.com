@@ -1,9 +1,0 @@
-%p
-  %label{:for => "brief_title"} Title:
-  = f.text_field :title
-
-%p
-  %label{:for => "brief_template"} Template:
-  = f.select :brief_template_id, @brief_templates.map { |t| [t.title, t.id] }
-
-

@@ -1,13 +1,13 @@
-=content_for :page_title do
-  %h2   
-    -if author?
-      Active Briefs
-      =link_to 'Create new brief', new_object_path
-    -else
-      Popular briefs
+=title_holder do
+  %h2 Dashboard
+  =link_to 'Create Brief', new_brief_path, :class => "button"
 
-.brief_list{:style => "margin: 0 1em;"}
-  -if author?
-    =render :partial => 'brief_table', :locals => {:briefs => current_user_briefs}
-  -else
-    =render :partial => 'brief_table', :locals => {:briefs => current_objects}
+.required_actions
+  %h3 Activity Snapshot
+  -if current_objects.empty?
+    %p Once you have created some briefs, any outstanding actions you need to perform will be listed here.
+    
+.brief_overviews
+  %h3 Brief Overviews
+  -if current_objects.empty?
+    %p You don't have any briefs yet.

@@ -6,26 +6,24 @@ class Brief < ActiveRecord::Base
   
   # relationships
   belongs_to :author
-  belongs_to :brief_template
-  has_many :brief_answers, :order => :brief_section_id
+  belongs_to :template_brief
   
-  has_many :creative_proposals
-  
-  acts_as_commentable
-  
+  has_many :brief_items, :order => :position
+  has_many :creative_questions
+    
   # delegations
-  delegate :brief_sections, :to => :brief_template
+  # delegate :brief_sections, :to => :brief_template
   
   # callbacks
-  after_create :generate_template_brief_answers!
+  # after_create :generate_template_brief_answers!
   
   # validations
-  validates_presence_of :author, :brief_template, :title
+  validates_presence_of :author_id, :template_brief_id, :title
   
   #instance methods  
-  def answered_sections
-    @answered_sections ||= brief_answers.answered.map(&:brief_section).uniq
-  end
+  # def answered_sections
+  #   @answered_sections ||= brief_answers.answered.map(&:brief_section).uniq
+  # end
   
   # ---------
   # generate_template_brief_answers!
@@ -36,21 +34,21 @@ class Brief < ActiveRecord::Base
   # it mocks out an answer for this brief so
   # it can be answered inline with the question
   
-  def generate_template_brief_answers!
-    brief_question_count = 0
-    brief_sections.each do |brief_section|
-      brief_section.brief_questions.each do |brief_question|
-        brief_question_count += 1
-        self.brief_answers.create(:brief_question => brief_question, :brief_section => brief_section)
-      end
-    end
-    return self.brief_answers.count == brief_question_count
-  end
+  # def generate_template_brief_answers!
+  #   brief_question_count = 0
+  #   brief_sections.each do |brief_section|
+  #     brief_section.brief_questions.each do |brief_question|
+  #       brief_question_count += 1
+  #       self.brief_answers.create(:brief_question => brief_question, :brief_section => brief_section)
+  #     end
+  #   end
+  #   return self.brief_answers.count == brief_question_count
+  # end
   
   # yields an answer object for the associated question and section set
-  def brief_answer_for(brief_question, brief_section)
-    self.brief_answers.find_by_brief_question_id_and_brief_section_id(brief_question.id, brief_section.id)
-  end
+  # def brief_answer_for(brief_question, brief_section)
+  #   self.brief_answers.find_by_brief_question_id_and_brief_section_id(brief_question.id, brief_section.id)
+  # end
   
   # class methods
   class << self
@@ -123,8 +121,8 @@ class Brief < ActiveRecord::Base
   
   private 
   
-  def assign_brief_config
-    self.brief_config = BriefConfig.current if self.brief_config.blank?
-  end
+  # def assign_brief_config
+  #   self.brief_config = BriefConfig.current if self.brief_config.blank?
+  # end
   
 end

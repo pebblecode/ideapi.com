@@ -1,9 +1,0 @@
-%h1 Creating section
-
-= error_messages_for :section
-
-- form_for(:section, :url => objects_url) do |f|
-  = render :partial => "form", :locals => {:f => f}
-  %p= submitter "Create"
-
-= link_to 'Back', objects_path

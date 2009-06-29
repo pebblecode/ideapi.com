@@ -1,9 +1,0 @@
-%tr[section]
-  %td= h section.title
-  %td{:style => "text-align: center"}= h section.brief_questions.count
-  %td
-    = link_to 'Show', object_path(section)
-    |
-    = link_to 'Edit', edit_object_path(section)
-    |
-    = link_to 'Destroy', object_path(section), :confirm => 'Really destroy section?', :method => :delete

@@ -20,4 +20,22 @@ module ApplicationHelper
     image_tag filename, :class => "avatar_#{size}"
   end
   
+  def side_bar(&block)
+    capture_content_from_haml :side_bar, &block
+  end
+  
+  def title_holder(&block)
+    capture_content_from_haml :title_holder, &block
+  end
+  
+  private
+  
+  def capture_content_from_haml(title, &block)
+    content_for title.to_sym do
+      content_tag :div, :class => title do
+        capture(&block)
+      end
+    end
+  end
+  
 end

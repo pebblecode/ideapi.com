@@ -6,28 +6,29 @@
     /
       Javascript - Fix the flash of unstyled content
     %script{ :type => "text/javascript" }
-    =stylesheet_link_tag %w(reset default frontend), :cache => true
+    =stylesheet_link_tag %w(reset frontend), :cache => true
     =javascript_include_tag :all, :cache => true
   %body
     #container
-      -if logged_in?
-        %p#user_info
-          Logged in as 
-          %strong
-            =current_user.login
-          =link_to '(logout)', user_session_path, :method => :delete
-      -else
-        %p#user_info
-          Not logged in
-          =link_to '(login)', new_user_session_path
       #header
         %h1
-          =link_to "Ideapi", "/"
+          =link_to "Ideapi", "/"      
+        %ul.navigation        
+          -if logged_in?        
+            -if author?
+              %li=link_to 'my briefs', briefs_path
+            -elsif creative?
+              %li=link_to 'my pitches', ''
+            %li=link_to 'settings', ''
+            %li=link_to 'profile', ''
+            %li=link_to 'logout', user_session_path, :method => :delete
+          -else
+            %li=link_to 'Tour', ''
+            %li=link_to 'Pricing &amp; Signup', ''
+            %li=link_to 'Login', new_user_session_path
       #content
-        .title_holder=yield :page_title
-        .sidebar
-          %p{:style => "margin-left: 1em; margin-top: 1em"}=image_tag 'hot.png'
-          =yield :side_bar
+        =yield :title_holder
+        =yield :side_bar
         .main=yield
       .clear
       /

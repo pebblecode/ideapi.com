@@ -58,7 +58,7 @@ module BriefWorkflowHelper
     fill_in "login", :with => author.login
     fill_in "password", :with => "testing"
     click_button
-    assert_equal '/', path
+    assert_equal briefs_path, path
   end
 
   def brief_for(author)

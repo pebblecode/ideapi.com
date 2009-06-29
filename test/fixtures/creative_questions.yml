@@ -2,16 +2,12 @@
 
 one:
   body: MyText
-  love_count: 1
-  hate_count: 1
-  answer: MyText
-  user_id: 1
+  author_answer: MyText
   brief_id: 1
+  creative_id: 1
 
 two:
   body: MyText
-  love_count: 1
-  hate_count: 1
-  answer: MyText
-  user_id: 1
+  author_answer: MyText
   brief_id: 1
+  creative_id: 1

@@ -1,433 +1,129 @@
-=creative_question_bubble
-  :background white url(/images/avatar/speech_left.png) top left no-repeat
-  :min-height 60px
-  :margin-left 70px
-  :margin-bottom 6px
+/*
+  1. General
+    1.1 Forms
+    1.2 Links
+    1.3 Type
+    
+  2. Masthead
+  3. Content
+  4. Footer
 
-  .creative_avatar
-    :float left
-    :margin-left -70px
-    
-    span
-      :text-transform uppercase
-      :font-size 9px
-      :font-weight bold
-      :text-align center
-      :display block
-      :margin-top 4px
-      :color #666
-    
+/*
+  General
   
-  span.question_body
-    :display block
-    :min-height 60px
-    :border 1px solid #ececec
-    :padding 2px 10px
-    :margin-left 13px
-    :background #f5f5f5
-    :font-family "Georgia", serif
+body
+  :font-size 62.5%
+  :text-align center
+  :background #eee
 
-=time
-  :font-size 11px
-  :color #999999
-  :margin-top -2px
-  :padding-left 45px
+/* Colours
+  
+  link-colour   = #2b3087
+  
+
+!link_colour        = #2b3087
+!link_hover_colour  = #000033
 
 a
   :text-decoration none
-  :color #2b3087
+  :color = !link_colour
   :font-weight bold
   
 a:hover
-  :color #000033
+  :color = !link_hover_colour
   :text-decoration underline
   
 #container
-  :width 1002px
+  :width 96em
   :margin 0 auto
   
   #header
     :background #333333
-    :width 975px
-    :height 87px
-    :padding 20px 0 0 27px
+    :height 8.4em
+    :border-bottom 1px solid #505050
+    :padding 0 2em
     
     h1
       :background url(/images/logo.png) no-repeat
       :width 83px
       :height 33px
+      :position relative
+      :top 30px
       
       a
         :text-indent -3000px
         :display block
-      
+        
+  ul.navigation
+    :float right
     
-  #content
-    :width 960px
-    :margin -27px auto 0 auto
+    li
+      :margin-left 2em
     
-    h2, h3
-      :font-size 24px
-      
       a
-        :color #2b3087
-      
+        :color white
+        :font-size 1.5em
+        :font-weight bold
+        :position relative
+
       a:hover
-        :color #000033
-        :text-decoration underline
-    
-    h4
-      :font-size 14px
-    
+        :color #ff0060
+        :font-size 1.5em
+        :font-weight bold
+        :text-decoration none
+      
+      a:focus, a:active
+        :top 1px
+        :color #9f003c
+        
+
+  #content
+    :background #fffffe
+  
     .title_holder
-      :width 926px
-      :height 34px
       :border-bottom 2px solid #ddd
       :border-top 1px solid #505050
       :background #f9f9f9
-      :padding 17px 17px 7px 17px
-      :margin-bottom 20px
       :position relative
-      
-      h2
-        :font-family "Georgia", serif
-        :font-weight normal
-        
-        a
-          :font-family "Georgia", serif
-          :font-weight normal
-        
-          
-        .author_info
-          :font-size 15px
-          
-          a
-            :font-weight bold
-            :font-family "Helvetica", "Arial", sans-serif
+      :height 4.5em
+      :padding 0.6em 2em
 
-        a.ask_question
-          :font-family "Helvetica", "Arial", sans-serif
-          :font-weight bold
-          :font-size 15px
-          :padding-top 10px
-          :margin-left 440px
-            
-    
-    .sidebar
-      :width 307px
-      :border-left 1px solid #0d18ab
-      :background #f6f6f6
-      :float right
-      :height 1000px
-      
-    .main
-      :width 634px
-      
-      .brief_section
-        :background #f6f6f6
-        :margin-bottom 1em
-        :margin-left 16px
-        
-        .brief_section_title
-          :background #333333
-          :padding 2px 12px 0 12px
-          
-          h3
-            :color white
-            
-          p
-            :float right
-            :margin-top -30px
-            
-            a
-              :text-decoration none
-              :color white
-              
-            a:hover
-              :color #ed1a62
-            
-        .brief_answers
-          :padding 0 12px 1px 12px
-          
-          .brief_answer
-            :background white
-            :border 1px solid #ececec
-            :border-bottom 2px solid #bababa
-            :padding 1em
-            :margin 1em 0
-            :position relative
-            :min-height 100px
-            :width 565px
-            
-            h4
-              :font-size 14px
-              
-            p
-              :font-family "Georgia", serif
-              :font-size 14px
-            
-            ul.question_links
-              :position absolute
-              :top 0
-              :right 0
-              
-              li
-                :background #f6f6f6
-                :border-bottom 1px solid #ececec
-                :width 55px
-                :height 51px
-                :padding 0
-                
-                a
-                  :font-size 10px
-                  :text-decoration none
-                  :line-height 5px
-                  :color #bebebe
-                  :display block
-                  :width 55px
-                  :height 51px
-                  :text-align center
-                  
-                  span
-                    :display block
-                    :text-align center
-                    :color #bebebe
-                
-                a:hover
-                  :color #333333
-                  
-                  span
-                    :color #333333
-                
-              li.question_count
-                :margin-bottom 8px
-                
-                span
-                  :font-size 24px
-                  :line-height 32px
-                    
-              li.ask_question
-                
-                span
-                  :font-size 22px
-        
-        .creative_question
-          :padding 0 10px
-          
-          img
-            :float left
-            
-          h4
-            :font-size 12px
-            :padding-left 45px
-            
-          p.time
-            +time
-            
-            a
-              :font-weight bold
-              
-        .author_response
-          :margin-left 10px
-          :border-right none
-          :background transparent url(/images/avatar/speech_right.png) top right no-repeat
-          :width 488px
-          :position relative
-          
-          span
-            :display block
-            :border 1px solid #ececec
-            :border-bottom 2px solid #ddd
-            :border-right none
-            :padding 8px 10px
-            :margin-right 13px
-            :min-height 40px
-            :background white
-          
-          img
-            :position absolute
-            :top 0
-            :right -65px
-            
-            
-    input[type=submit]
-      :border 4px solid #d7d7d7
-      :background #efefef
-      :color #333333
-      :font-size 11px
-      :font-weight bold
-      :padding 5px 4px
-      :min-width 90px
-      :text-align center
-      
-    input[type=submit]:hover
-      :border 4px solid #d7d7d7
-      :background #ddd
-            
-    ul.creative_question_list
-      li.creative_question
-        :min-height 150px
-      
-        .question_asked
-          +creative_question_bubble
-        
-        ul.submit_buttons
-          :margin 0.5em 0 1em 0
-          :text-align right
-          li
-            :display inline
-            :width 100px
-            
-            div, form
-              :display inline
-            
-            input[type=submit]  
-              :margin-left 7px
-        
-    .avatar_medium
-      :display block
-      :padding 4px
-      :border 1px solid #ececec
-      :background #f6f6f6
-    
-    div.ask_question
-      :border 1px solid #dfdfdf
-      :background #f8f8f8
-      :padding 1em
-      :margin-bottom 1em
-      
-      h3
-        :font-size 18px
-      
-      p.submit
-        :text-align right
-        
-        
-    div.creative_question      
-      
-      p.related_question
-        :text-align center
-    
-      .question_asked
-        +creative_question_bubble
-        :width 480px
-        :margin-bottom 2em
-        
-      .author_response
-        :border-right none
-        :background transparent url(/images/avatar/speech_right.png) top right no-repeat
-        :width 488px
+      h2
+        :float left
+
+      a.button
+        :font-size 1.3em
+        :text-transform uppercase
+        :float right
+        :display block
+        :height 19px
+        :background url(/images/button/bg.png) repeat-x
+        :padding 10px
         :position relative
-        :margin-left 4em
-        
-        span
+        :margin 0.2em 0.5em 0 2.5em
+
+
+        /* applied by javascript
+
+        .btn_left, .btn_right
           :display block
-          :border 1px solid #ececec
-          :border-bottom 2px solid #ddd 
-          :border-right none
-          :padding 8px 10px
-          :margin-right 13px
-          :min-height 40px
-          :background white
-        
-        img
+          :height 39px
+          :width 18px
           :position absolute
           :top 0
-          :right -65px
 
-    .recent_comments
-      :margin-top 4em
-      
-      p
-        :padding 0 1em
-      
-      h3
-        :border-top 1px solid black
-        :background #fafafa
-        :font-size 12px
-        :padding 0.3em 0.8em 0.6em 0.8em
-        :margin-bottom 1em
-      
-      ul.comment_list
-        :padding-bottom 2em
-        
-        li.comment
-          :border-bottom 1px solid #c2c2c2
-          :font-size 12px
-          :padding 1em 1.5em 0.5em 1.5em 
-          :min-height 42px
-          
-          .reply_to_comment
-            :float right
-          
-          .avatar
-            :float left
-            
-            span.author
-              :display block
-              :font-size 8px
-              :text-transform uppercase
-          
-          p.message
-            :padding-left 45px
-            :margin-bottom 0.7em
-            :font-weight bold
-            :margin-top -2px
-            :min-height 40px
-            
-            span.time
-              +time
-              :display block
-              :padding 0
-              
-          ul.sub_comments
-            :min-height 1em
-            li.comment
-              :border none
-        
-          .inline_form_comment
-            :border 1px solid #dfdfdf
-            :background #f8f8f8
-            :padding 0.5em 0 0 0
-            :margin 1em 0 1em 18px
-            :width 332px
-            
-            p
-              :margin 0 0 0.5em 0
-              :font-size 0.9em
-              :font-weight bold
-              
-            p.submit
-              :margin-bottom 1em
-              :text-align right
-            
-            textarea
-              :width 300px
-        
-          .inline_form_comment:hover
-            :background #f3f3f3
-        
-        li.author
-          :min-height 50px
-                  
-      
-    .form_box
-      :border 1px solid #dfdfdf
-      :background #f8f8f8
-      :padding 0.5em 1em 1em 1em
-      :margin-bottom 1em
-      
-      h3
-        :font-size 18px
-        :margin-bottom 1em
-        
-      p.submit
-        :text-align right
-        
-        
-      textarea
-        :width 600px
-        :height 100px
+        .btn_left
+          :left -18px
+          :background url(/images/button/left.png) no-repeat
+
+        .btn_right
+          :right -18px
+          :background url(/images/button/right.png) no-repeat
+  
+    .main
+      :padding 2em
+      :border-bottom 2px solid #ddd
+  
         
 input, textarea, select
   :border 1px solid #ccc
@@ -454,4 +150,10 @@ form
       :line-height 1.1em
       :width 8em       
 
-          
+span.field_with_errors
+  label
+    :color #d81f26
+  
+  input
+    :background #d81f26
+    :color white

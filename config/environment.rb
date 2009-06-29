@@ -43,3 +43,8 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+# override the default rails error wrapper (div) until this patch gets applied
+# https://rails.lighthouseapp.com/projects/8994/tickets/1626
+ActionView::Base.field_error_proc = 
+           Proc.new{ |html_tag, instance| "<span class=\"field_with_errors\">#{html_tag}</span>" }
