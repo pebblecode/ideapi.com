@@ -1,5 +1,5 @@
-set :stages, %w(production staging)
 require 'capistrano/ext/multistage'
+set :stages, %w(production staging)
  
 server "174.143.232.121", :app, :web, :db, :primary => true
  
