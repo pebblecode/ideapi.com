@@ -11,3 +11,9 @@
   %h3 Brief Overviews
   -if current_objects.empty?
     %p You don't have any briefs yet.
+  -else  
+    -%w(published drafts).each do |state|
+      -if !state.empty?
+        %h4=state.capitalize
+        %ul{:class => state}
+          =render :partial => 'brief', :collection => eval(state)

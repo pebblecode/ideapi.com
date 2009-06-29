@@ -51,7 +51,46 @@ class BriefAsAuthorDashboard < ActionController::IntegrationTest
       end
       
     end
+    
+    context "displaying brief lists" do
+      setup do
+        @draft = Brief.make(:author => @author)
+        assert @author.briefs.draft.include?(@draft)
+        
+        reload
+      end
+
+      should "show the list of briefs under heading" do
+        assert_contain("Drafts")
+        within "ul.drafts" do |scope|
+          scope.click_link @draft.title
+          assert_response :success
+          assert_equal brief_path(@draft), path
+        end
+      end
+    
+      context "published briefs" do
+        setup do
+          @published = Brief.make(:author => @author)
+          @published.publish!
+          
+          assert @author.briefs.published.include?(@published)
+          reload
+        end
+
+        should "show published briefs under heading" do
+          assert_contain("Published")
+          within 'ul.published' do |scope|
+            scope.click_link @published.title
+            assert_response :success
+            assert_equal brief_path(@published), path
+          end
+        end
+      end
       
+    end
+    
+    
   end
   
 end

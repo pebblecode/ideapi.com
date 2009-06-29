@@ -10,7 +10,7 @@ Sham.define do
 end
 
 TemplateBrief.blueprint do
-
+  
 end
 
 Brief.blueprint do
