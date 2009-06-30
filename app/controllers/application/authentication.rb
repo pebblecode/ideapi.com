@@ -81,5 +81,11 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
+  def kill_session
+    current_user_session.destroy
+    flash[:notice] = "You don't have access to that.."
+    redirect_back_or_default new_user_session_url
+  end
 
 end

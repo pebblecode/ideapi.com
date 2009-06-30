@@ -10,13 +10,25 @@ Sham.define do
 end
 
 TemplateBrief.blueprint do
-  
+  title
+end
+
+TemplateQuestion.blueprint do
+  body
+  help_message { Sham.body }
+  optional { false }
 end
 
 Brief.blueprint do
   title
   author { Author.make }
   template_brief { TemplateBrief.make }
+  most_important_message { Sham.body }
+end
+
+BriefItem.blueprint do
+  title
+  body
 end
 
 User.blueprint do

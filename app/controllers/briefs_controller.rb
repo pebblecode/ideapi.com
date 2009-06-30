@@ -1,6 +1,7 @@
 class BriefsController < ApplicationController
   
   before_filter :require_user
+#  before_filter :require_author
   
   helper_method :drafts, :published
   
@@ -8,16 +9,28 @@ class BriefsController < ApplicationController
     @current_objects ||= (drafts + published)
   end
   
+  def current_object
+    @current_object ||= (  
+      begin
+        parent_object.briefs.find(params[:id])
+      rescue ActiveRecord::RecordNotFound => e
+        kill_session
+      end
+    )
+  end
+  
   make_resourceful do
     belongs_to :author, :creative
     actions :all
+    
+    before :create do
+      current_object.author = parent_object
+    end
   end
   
   private
   
-  def parent_object
-    current_user
-  end
+  alias :parent_object :current_user
   
   def drafts
     @drafts ||= parent_object.briefs.draft

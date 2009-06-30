@@ -1,0 +1,25 @@
+=title_holder do
+  %h2
+    Edit
+    =current_object.title
+  
+= error_messages_for :brief
+
+- form_for(current_object, :html => { :method => :put }) do |brief_form|
+  = render :partial => "form", :locals => {:f => brief_form}
+  %p
+    = submitter "Update"
+    .clear
+    
+  - brief_form.fields_for :brief_items do |brief_item|
+    
+    %p
+      = brief_item.text_field :title  
+    %p
+      = brief_item.text_area :body
+
+  %p
+    = submitter "Update"
+    .clear
+        
+= link_to 'Back to brief', object_path

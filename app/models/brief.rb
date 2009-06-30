@@ -9,50 +9,17 @@ class Brief < ActiveRecord::Base
   belongs_to :template_brief
   
   has_many :brief_items, :order => :position
+  accepts_nested_attributes_for :brief_items, :allow_destroy => true, :reject_if => :all_blank
+  
   has_many :creative_questions
     
-  # delegations
-  # delegate :brief_sections, :to => :brief_template
-  
   # callbacks
-  # after_create :generate_template_brief_answers!
+  after_create :generate_brief_items_from_template!
+  before_validation_on_create :assign_template
   
   # validations
   validates_presence_of :author_id, :template_brief_id, :title
   
-  #instance methods  
-  # def answered_sections
-  #   @answered_sections ||= brief_answers.answered.map(&:brief_section).uniq
-  # end
-  
-  # ---------
-  # generate_template_brief_answers!
-  # ---------
-  # this rather ill looking method basically
-  # cycles through the sections in the brief template
-  # and for each question in the section
-  # it mocks out an answer for this brief so
-  # it can be answered inline with the question
-  
-  # def generate_template_brief_answers!
-  #   brief_question_count = 0
-  #   brief_sections.each do |brief_section|
-  #     brief_section.brief_questions.each do |brief_question|
-  #       brief_question_count += 1
-  #       self.brief_answers.create(:brief_question => brief_question, :brief_section => brief_section)
-  #     end
-  #   end
-  #   return self.brief_answers.count == brief_question_count
-  # end
-  
-  # yields an answer object for the associated question and section set
-  # def brief_answer_for(brief_question, brief_section)
-  #   self.brief_answers.find_by_brief_question_id_and_brief_section_id(brief_question.id, brief_section.id)
-  # end
-  
-  # class methods
-  class << self
-  end
   
   # State machine
   
@@ -118,11 +85,22 @@ class Brief < ActiveRecord::Base
   end
   
   
-  
   private 
   
-  # def assign_brief_config
-  #   self.brief_config = BriefConfig.current if self.brief_config.blank?
-  # end
+  def assign_template
+    # this is flawed and will be removed!
+    self.template_brief_id = TemplateBrief.last.id if self.template_brief_id.blank?
+  end
+  
+  def generate_brief_items_from_template!
+    raise 'TemplateBriefMissing' if template_brief.blank?
+  
+    template_brief.template_questions.each do |question|
+      self.brief_items.create(:title => question.body)
+    end
+    
+    return (brief_items.count == template_brief.template_questions.count)
+  end
+  
   
 end

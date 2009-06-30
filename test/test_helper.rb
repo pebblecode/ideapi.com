@@ -50,6 +50,18 @@ Webrat.configure do |config|
   config.mode = :rails
 end
 
+module BriefPopulator      
+  def populate_template_brief
+    @default_template_brief ||= TemplateBrief.make(:title => "default")
+
+    rand(10).times do
+      @default_template_brief.template_questions << TemplateQuestion.make
+    end
+    
+    return @default_template_brief
+  end
+end
+
 module BriefWorkflowHelper
   
   def login_as(author)
@@ -63,6 +75,12 @@ module BriefWorkflowHelper
 
   def brief_for(author)
     return Brief.make(:author => author)
+  end
+  
+  def populate_brief(brief)
+    10.times do 
+      BriefItem.make(:brief => brief)
+    end
   end
 
 end

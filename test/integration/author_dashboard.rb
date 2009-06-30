@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BriefAsAuthorDashboard < ActionController::IntegrationTest
+class AuthorDashboard < ActionController::IntegrationTest
   include BriefWorkflowHelper
 
   context "author" do

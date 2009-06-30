@@ -1,0 +1,10 @@
+=title_holder do
+  %h2 Create new brief
+  
+= error_messages_for :brief
+
+- form_for(:brief, :url => objects_url) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p
+    = submitter "Create"
+    .clear
