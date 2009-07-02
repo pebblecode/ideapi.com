@@ -1,9 +1,17 @@
 jQuery(document).ready(function(){
   
   $('a.button').each(function () {
-    $(this).prepend('<span class="btn_left">');
-    $(this).append('<span class="btn_right">');
+    $(this).prepend('<span class="btn_left"></span>');
+    $(this).append('<span class="btn_right"></span>');
   });
+
+  
+  $('input[type=submit]').each(function () {
+    $(this).wrap('<div class="submit_button"></div>');
+    $(this).parent().prepend('<span class="btn_left"></span>');
+    $(this).parent().append('<span class="btn_right"></span>');
+  });
+  
 	
 	// BRIEF CREATION SECTION
 	

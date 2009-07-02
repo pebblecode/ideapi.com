@@ -6,14 +6,15 @@
   %h3 Activity Snapshot
   -if current_objects.empty?
     %p Once you have created some briefs, any outstanding actions you need to perform will be listed here.
-    
+  -else
+    %p Coming soon to an Ideapi near you ..
+  
 .brief_overviews
-  %h3 Brief Overviews
   -if current_objects.empty?
     %p You don't have any briefs yet.
   -else  
     -%w(published drafts).each do |state|
-      -if !state.empty?
-        %h4=state.capitalize
+      -if !send(state).empty?
+        %h4="#{state.capitalize} briefs"
         %ul{:class => state}
-          =render :partial => 'brief', :collection => eval(state)
+          =render :partial => 'brief', :collection => send(state)

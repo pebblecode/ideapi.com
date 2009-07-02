@@ -61,7 +61,9 @@ a:hover {
         top: 1px;
         color: #9f003c; }
   #container #content {
-    background: #fffffe; }
+    background: #fcfcfc; }
+    #container #content p {
+      font-size: 1.2em; }
     #container #content .title_holder {
       border-bottom: 2px solid #ddd;
       border-top: 1px solid #505050;
@@ -71,32 +73,47 @@ a:hover {
       padding: 0.6em 2em; }
       #container #content .title_holder h2 {
         float: left; }
-      #container #content .title_holder a.button {
-        font-size: 1.3em;
-        text-transform: uppercase;
-        float: right;
-        display: block;
-        height: 19px;
-        background: url(/images/button/bg.png) repeat-x;
-        padding: 10px;
-        position: relative;
-        margin: 0.2em 0.5em 0 2.5em;
-        /* applied by javascript */ }
-        #container #content .title_holder a.button .btn_left, #container #content .title_holder a.button .btn_right {
-          display: block;
-          height: 39px;
-          width: 18px;
-          position: absolute;
-          top: 0; }
-        #container #content .title_holder a.button .btn_left {
-          left: -18px;
-          background: url(/images/button/left.png) no-repeat; }
-        #container #content .title_holder a.button .btn_right {
-          right: -18px;
-          background: url(/images/button/right.png) no-repeat; }
     #container #content .main {
-      padding: 2em;
+      padding: 1em 2em;
       border-bottom: 2px solid #ddd; }
+    #container #content .submit_button {
+      position: relative;
+      display: inline;
+      margin-left: 20px; }
+      #container #content .submit_button span {
+        display: block;
+        width: 20px; }
+      #container #content .submit_button input {
+        background: transparent;
+        border: none;
+        height: 39px;
+        background: url(/images/button/bg.png) repeat-x;
+        top: 11px;
+        position: relative; }
+    #container #content a.button {
+      font-size: 1.3em;
+      text-transform: uppercase;
+      float: right;
+      display: block;
+      height: 19px;
+      background: url(/images/button/bg.png) repeat-x;
+      padding: 10px;
+      position: relative;
+      margin: 0.2em 0.5em 0 2.5em; }
+    #container #content a.button, #container #content .submit_button {
+      /* applied by javascript */ }
+      #container #content a.button span.btn_left, #container #content a.button span.btn_right,       #container #content .submit_button span.btn_left, #container #content .submit_button span.btn_right {
+        display: block;
+        height: 39px;
+        width: 18px;
+        position: absolute;
+        top: 0; }
+      #container #content a.button .btn_left,       #container #content .submit_button .btn_left {
+        left: -18px;
+        background: url(/images/button/left.png) no-repeat; }
+      #container #content a.button .btn_right,       #container #content .submit_button .btn_right {
+        right: -18px;
+        background: url(/images/button/right.png) no-repeat; }
 
 input, textarea, select {
   border: 1px solid #ccc;
@@ -106,15 +123,6 @@ input, textarea, select {
 textarea {
   width: 400px;
   height: 50px; }
-
-input.submit {
-  padding: 0.2em 1em;
-  border: 4px solid #ccc;
-  float: right; }
-
-input.submit:hover {
-  background: #333;
-  color: #ddd; }
 
 form p label {
   margin-right: 1em;
@@ -126,3 +134,75 @@ span.field_with_errors label {
 span.field_with_errors input {
   background: #d81f26;
   color: white; }
+
+
+#container #content .col_1 {
+  width: 65em; }
+#container #content p.most_important_thing {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #454545;
+  padding: 1em 2em;
+  background: #ffffe0;
+  border: 4px solid #ffffbe; }
+#container #content ul.tabbed_links {
+  background: #f9f9f9;
+  border: 1px solid #e9e9e9;
+  padding: 1em 1em;
+  margin-bottom: 2em; }
+  #container #content ul.tabbed_links li {
+    display: inline;
+    padding: 0 0.5em; }
+    #container #content ul.tabbed_links li a, #container #content ul.tabbed_links li span {
+      font-size: 1.3em;
+      text-transform: uppercase;
+      padding: 0.5em 1em 0.5em 1em;
+      border: 1px solid #f9f9f9; }
+    #container #content ul.tabbed_links li span.current {
+      border: 1px solid #ccc;
+      background: #eee; }
+    #container #content ul.tabbed_links li a:focus, #container #content ul.tabbed_links li a:active {
+      background: #eee;
+      border: 1px solid #ccc; }
+#container #content .brief {
+  background: #fffffe;
+  padding: 1em 2em;
+  border: 1px solid #f2f2f2;
+  border-right: 2px solid #eee;
+  border-bottom: 4px solid #ddd; }
+  #container #content .brief .brief_item {
+    padding-bottom: 2em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #eee; }
+#container #content .brief_details, #container #content .brief_items {
+  border: 1px solid #eee;
+  padding: 1em;
+  background: #f6f6f6;
+  margin-bottom: 2em; }
+  #container #content .brief_details .submit_button input,   #container #content .brief_items .submit_button input {
+    top: 12px; }
+  #container #content .brief_details label,   #container #content .brief_items label {
+    width: 10em; }
+  #container #content .brief_details .brief_item,   #container #content .brief_items .brief_item {
+    position: relative;
+    margin-bottom: 4em; }
+    #container #content .brief_details .brief_item input[type=text],     #container #content .brief_items .brief_item input[type=text] {
+      width: 40em; }
+    #container #content .brief_details .brief_item textarea,     #container #content .brief_items .brief_item textarea {
+      width: 40em;
+      height: 10em;
+      max-width: 48em; }
+  #container #content .brief_details .help_message,   #container #content .brief_items .help_message {
+    width: 20em;
+    border: 1px solid #eee;
+    background: rgb(252, 252, 252);
+    background: rgba(220, 220, 220, 0.2);
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    left: 45em; }
+#container #content .note {
+  padding: 1em 1em 0.5em 1em;
+  background: #ffffe0;
+  border: 1px solid #ffffbe;
+  margin: 1em 0 2em 0; }

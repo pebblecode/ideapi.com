@@ -17,10 +17,10 @@ template = TemplateBrief.find_by_title("Default")
 creative = Creative.find_by_login("creative")
 
 if client && creative && template
-  draft_brief = Brief.create(:title => "Draft brief", :author => client, :template_brief => template)
+  draft_brief = Brief.create(:title => "Design for a dog biscuit", :author => client, :template_brief => template, :most_important_message => "We are looking for a revolutionary dog biscuit here - we are looking for the iphone of the dog biscuit world.")
   
   puts "\t- creating published brief"
-  to_publish = Brief.create(:title => "Published brief", :author => client, :template_brief => template)
+  to_publish = Brief.create(:title => "Campaign for womens underwear", :author => client, :template_brief => template, :most_important_message => "We want designs for womens underwear that can be made out of renewable sources.")
   
   # puts "\t- stubbling out the answers"
   # print "\t"

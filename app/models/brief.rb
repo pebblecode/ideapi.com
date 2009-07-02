@@ -15,10 +15,9 @@ class Brief < ActiveRecord::Base
     
   # callbacks
   after_create :generate_brief_items_from_template!
-  before_validation_on_create :assign_template
   
   # validations
-  validates_presence_of :author_id, :template_brief_id, :title
+  validates_presence_of :author_id, :template_brief_id, :title, :most_important_message
   
   
   # State machine
@@ -83,20 +82,14 @@ class Brief < ActiveRecord::Base
       define_method("#{state_name}?", lambda { self.state == state_name }) 
     end
   end
-  
-  
+
   private 
-  
-  def assign_template
-    # this is flawed and will be removed!
-    self.template_brief_id = TemplateBrief.last.id if self.template_brief_id.blank?
-  end
   
   def generate_brief_items_from_template!
     raise 'TemplateBriefMissing' if template_brief.blank?
   
     template_brief.template_questions.each do |question|
-      self.brief_items.create(:title => question.body)
+      self.brief_items.create(:title => question.body, :template_question => question)
     end
     
     return (brief_items.count == template_brief.template_questions.count)

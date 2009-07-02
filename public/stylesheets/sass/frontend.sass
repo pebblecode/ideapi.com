@@ -78,8 +78,11 @@ a:hover
         
 
   #content
-    :background #fffffe
-  
+    :background #fcfcfc
+    
+    p
+      :font-size 1.2em
+    
     .title_holder
       :border-bottom 2px solid #ddd
       :border-top 1px solid #505050
@@ -90,40 +93,56 @@ a:hover
 
       h2
         :float left
-
-      a.button
-        :font-size 1.3em
-        :text-transform uppercase
-        :float right
-        :display block
-        :height 19px
-        :background url(/images/button/bg.png) repeat-x
-        :padding 10px
-        :position relative
-        :margin 0.2em 0.5em 0 2.5em
-
-
-        /* applied by javascript
-
-        .btn_left, .btn_right
-          :display block
-          :height 39px
-          :width 18px
-          :position absolute
-          :top 0
-
-        .btn_left
-          :left -18px
-          :background url(/images/button/left.png) no-repeat
-
-        .btn_right
-          :right -18px
-          :background url(/images/button/right.png) no-repeat
   
     .main
-      :padding 2em
+      :padding 1em 2em
       :border-bottom 2px solid #ddd
   
+    .submit_button
+      :position relative
+      :display inline
+      :margin-left 20px
+      
+      span
+        :display block
+        :width 20px
+        
+      input
+        :background transparent
+        :border none
+        :height 39px
+        :background url(/images/button/bg.png) repeat-x
+        :top 11px
+        :position relative
+            
+    a.button
+      :font-size 1.3em
+      :text-transform uppercase
+      :float right
+      :display block
+      :height 19px
+      :background url(/images/button/bg.png) repeat-x
+      :padding 10px
+      :position relative
+      :margin 0.2em 0.5em 0 2.5em
+
+    a.button, .submit_button
+      /* applied by javascript
+
+      span.btn_left, span.btn_right
+        :display block
+        :height 39px
+        :width 18px
+        :position absolute
+        :top 0
+
+      .btn_left
+        :left -18px
+        :background url(/images/button/left.png) no-repeat
+
+      .btn_right
+        :right -18px
+        :background url(/images/button/right.png) no-repeat
         
 input, textarea, select
   :border 1px solid #ccc
@@ -133,15 +152,6 @@ input, textarea, select
 textarea
   :width 400px
   :height 50px
-
-input.submit
-  :padding 0.2em 1em
-  :border 4px solid #ccc
-  :float right
-
-input.submit:hover
-  :background #333
-  :color #ddd
 
 form
   p
@@ -157,3 +167,102 @@ span.field_with_errors
   input
     :background #d81f26
     :color white
+
+
+/ brief_path
+
+#container
+  #content
+  
+    .col_1
+      :width 65em
+    
+    p.most_important_thing
+      :font-size 2.2em
+      :font-weight bold
+      :color #454545
+      :padding 1em 2em
+      :background #ffffe0
+      :border 4px solid #ffffbe
+
+    ul.tabbed_links
+      :background #f9f9f9
+      :border 1px solid #e9e9e9
+      :padding 1em 1em
+      :margin-bottom 2em
+    
+      li
+        :display inline
+        :padding 0 0.5em
+        
+        a, span
+          :font-size 1.3em
+          :text-transform uppercase
+          :padding 0.5em 1em 0.5em 1em
+          :border 1px solid #f9f9f9
+        
+        span.current
+          :border 1px solid #ccc
+          :background #eee
+          
+         
+        a:focus, a:active
+          :background #eee
+          :border 1px solid #ccc
+          
+
+    .brief
+      :background #fffffe
+      :padding 1em 2em
+      :border 1px solid #f2f2f2    
+      :border-right 2px solid #eee
+      :border-bottom 4px solid #ddd
+
+      .brief_item
+        :padding-bottom 2em
+        :margin-bottom 1em
+        :border-bottom 1px solid #eee
+        
+    /edit brief
+    
+    .brief_details, .brief_items
+      :border 1px solid #eee
+      :padding 1em
+      :background #f6f6f6
+      :margin-bottom 2em
+
+      .submit_button
+        input
+          :top 12px
+      
+      label
+        :width 10em
+      
+      .brief_item
+        :position relative
+        :margin-bottom 4em
+        
+        input[type=text]
+          :width 40em
+        
+        textarea
+          :width 40em
+          :height 10em
+          :max-width 48em
+
+      .help_message
+        :width 20em
+        :border 1px solid #eee
+        :background rgb(252, 252, 252)
+        :background rgba(220, 220, 220, 0.2)
+        :padding 1em
+        :position absolute
+        :top 0
+        :left 45em
+        
+    .note
+      :padding 1em 1em 0.5em 1em
+      :background #ffffe0
+      :border 1px solid #ffffbe
+      :margin 1em 0 2em 0
+      

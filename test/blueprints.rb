@@ -16,7 +16,7 @@ end
 TemplateQuestion.blueprint do
   body
   help_message { Sham.body }
-  optional { false }
+  optional { (rand(2) % 2 == 0) ? true : false }
 end
 
 Brief.blueprint do
@@ -29,6 +29,7 @@ end
 BriefItem.blueprint do
   title
   body
+  template_question
 end
 
 User.blueprint do

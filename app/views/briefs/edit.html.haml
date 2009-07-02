@@ -1,25 +1,49 @@
 =title_holder do
   %h2
-    Edit
+    Editing -
     =current_object.title
+
+  =link_to 'back to brief', brief_path(current_object), :class => "button"
+
+.col_1
   
-= error_messages_for :brief
+  = error_messages_for :brief
 
-- form_for(current_object, :html => { :method => :put }) do |brief_form|
-  = render :partial => "form", :locals => {:f => brief_form}
-  %p
-    = submitter "Update"
-    .clear
+  - form_for(current_object, :html => { :method => :put }) do |brief_form|
+    .brief_details
+      = render :partial => "form", :locals => {:f => brief_form}
+      %p=brief_form.submit 'Update'
+  
+    %h3 Brief Document
     
-  - brief_form.fields_for :brief_items do |brief_item|
-    
-    %p
-      = brief_item.text_field :title  
-    %p
-      = brief_item.text_area :body
+    -if current_object.draft?
+      .note
+        %p Before publishing this document you can alter the <strong>wording of the title</strong> of each document item. 
+        %p <strong>Once published you will only be able to update the body</strong> of each item in response to a question from the community. A full audit trail of your amendments will be visible to creative's, so they can see the evolution of the document.    
+  
+    .brief_items
+      - brief_form.fields_for :brief_items do |brief_item|
+        %div[brief_item.object]{:class => (brief_item.object.optional ? "optional" : "")}
+      
+          / titles should only be editable during draft state
+          %p= current_object.published? ? brief_item.object.title : brief_item.text_field(:title)
+      
+          %p= brief_item.text_area :body
+          -if !brief_item.object.help_message.blank?
+            %p.help_message
+              %strong Example:
+              = brief_item.object.help_message 
+
+      /if display different submit buttons depending on state
+      %p=current_object.draft? ? brief_form.submit('Save draft') : brief_form.submit('Update')
+
+  / only present the publish button to draft documents
+  -if current_object.draft?
+    - form_for(current_object, :url => publish_brief_path(current_object), :html => { :method => :put }) do |brief_form|
+      %p=brief_form.submit 'Publish'
 
   %p
-    = submitter "Update"
-    .clear
-        
-= link_to 'Back to brief', object_path
+    -if current_object.draft?
+      = link_to 'delete', delete_brief_path(current_object)
+      |
+  = link_to 'cancel', object_path

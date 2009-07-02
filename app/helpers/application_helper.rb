@@ -28,6 +28,10 @@ module ApplicationHelper
     capture_content_from_haml :title_holder, &block
   end
   
+  def tab_link(text, link)
+    link_to_unless_current(text, link) {|link| content_tag 'span', link, :class => 'current'}
+  end
+  
   private
   
   def capture_content_from_haml(title, &block)
