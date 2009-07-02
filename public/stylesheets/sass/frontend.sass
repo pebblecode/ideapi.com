@@ -93,6 +93,9 @@ a:hover
 
       h2
         :float left
+        
+      a.button
+        :margin-right 0.5em
   
     .main
       :padding 1em 2em
@@ -108,6 +111,7 @@ a:hover
         :width 20px
         
       input
+        :text-transform uppercase
         :background transparent
         :border none
         :height 39px
@@ -124,11 +128,10 @@ a:hover
       :background url(/images/button/bg.png) repeat-x
       :padding 10px
       :position relative
-      :margin 0.2em 0.5em 0 2.5em
+      :margin 0.2em 1em 0 2.5em
 
     a.button, .submit_button
-      /* applied by javascript
-
+      /* applied by javascript 
       span.btn_left, span.btn_right
         :display block
         :height 39px
@@ -169,14 +172,28 @@ span.field_with_errors
     :color white
 
 
-/ brief_path
-
 #container
   #content
-  
     .col_1
       :width 65em
     
+    
+    / briefs_path (dashboard)
+    
+    .required_actions
+      ul
+        :padding 1em 1em
+        :background #ffffe0
+        :border 1px solid #ffffbe
+        :margin 1em
+    
+    .brief_overview
+      :padding 1em 0
+      ul
+        :padding 1em
+    
+    / brief_path
+
     p.most_important_thing
       :font-size 2.2em
       :font-weight bold
@@ -224,42 +241,54 @@ span.field_with_errors
         :border-bottom 1px solid #eee
         
     /edit brief
-    
-    .brief_details, .brief_items
-      :border 1px solid #eee
-      :padding 1em
-      :background #f6f6f6
-      :margin-bottom 2em
-
-      .submit_button
-        input
-          :top 12px
       
-      label
-        :width 10em
+    #edit_brief
       
-      .brief_item
-        :position relative
-        :margin-bottom 4em
-        
-        input[type=text]
-          :width 40em
-        
-        textarea
-          :width 40em
-          :height 10em
-          :max-width 48em
-
-      .help_message
-        :width 20em
+      h3
+        :padding-top 1em
+  
+      .brief_details, .brief_items
         :border 1px solid #eee
-        :background rgb(252, 252, 252)
-        :background rgba(220, 220, 220, 0.2)
         :padding 1em
-        :position absolute
-        :top 0
-        :left 45em
+        :background #f6f6f6
+        :margin-top 1em
+        :margin-bottom 2em
+
+        h3
+          :padding-top 0
+
+        .submit_button
+          input
+            :top 12px
+      
+        label
+          :width 10em
+      
+        .brief_item
+          :position relative
+          :margin-bottom 4em
         
+          input[type=text]
+            :width 40em
+        
+          textarea
+            :width 40em
+            :height 10em
+            :max-width 48em
+
+        .help_message
+          :width 20em
+          :border 1px solid #eee
+          :background rgb(252, 252, 252)
+          :background rgba(220, 220, 220, 0.2)
+          :padding 1em
+          :position absolute
+          :top 0
+          :left 45em
+        
+        a.button
+          :margin 0.2em 11em 1em 2.5em  
+      
     .note
       :padding 1em 1em 0.5em 1em
       :background #ffffe0

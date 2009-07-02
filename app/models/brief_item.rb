@@ -6,6 +6,7 @@ class BriefItem < ActiveRecord::Base
   
   delegate :optional, :to => :template_question
   delegate :help_message, :to => :template_question
+  delegate :section_name, :to => :template_question
   
   named_scope :answered, :conditions => "body IS NULL"
   

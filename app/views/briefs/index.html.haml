@@ -2,19 +2,22 @@
   %h2 Dashboard
   =link_to 'Create Brief', new_brief_path, :class => "button"
 
-.required_actions
-  %h3 Activity Snapshot
-  -if current_objects.empty?
-    %p Once you have created some briefs, any outstanding actions you need to perform will be listed here.
-  -else
-    %p Coming soon to an Ideapi near you ..
+#dashboard.col_1
+  .required_actions
+    %h3 Activity Snapshot  
+    %ul.action_list
+      -if current_objects.empty?
+        %li Once you have created some briefs, any outstanding actions you need to perform will be listed here.
+      -else
+        %li Coming soon to an Ideapi near you ..
   
-.brief_overviews
-  -if current_objects.empty?
-    %p You don't have any briefs yet.
-  -else  
-    -%w(published drafts).each do |state|
-      -if !send(state).empty?
-        %h4="#{state.capitalize} briefs"
-        %ul{:class => state}
-          =render :partial => 'brief', :collection => send(state)
+  .brief_overviews
+    -if current_objects.empty?
+      %p You don't have any briefs yet.
+    -else  
+      -%w(published drafts).each do |state|
+        -if !send(state).empty?
+          .brief_overview
+            %h4="#{state.capitalize} briefs"
+            %ul{:class => state}
+              =render :partial => 'brief', :collection => send(state)

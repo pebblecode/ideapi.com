@@ -5,10 +5,12 @@
 
   =link_to 'back to brief', brief_path(current_object), :class => "button"
 
-.col_1
+#edit_brief.col_1
+  
+  %h3 Brief details
   
   = error_messages_for :brief
-
+  
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
     .brief_details
       = render :partial => "form", :locals => {:f => brief_form}
@@ -22,9 +24,15 @@
         %p <strong>Once published you will only be able to update the body</strong> of each item in response to a question from the community. A full audit trail of your amendments will be visible to creative's, so they can see the evolution of the document.    
   
     .brief_items
+      - current_section = ""
+    
       - brief_form.fields_for :brief_items do |brief_item|
-        %div[brief_item.object]{:class => (brief_item.object.optional ? "optional" : "")}
-      
+        - if (brief_item.object.section_name != current_section) 
+          - current_section = brief_item.object.section_name
+          %h3.section_title= current_section
+        
+        %div[brief_item.object]{:class => (brief_item.object.optional ? "optional_brief_item" : "")}
+
           / titles should only be editable during draft state
           %p= current_object.published? ? brief_item.object.title : brief_item.text_field(:title)
       

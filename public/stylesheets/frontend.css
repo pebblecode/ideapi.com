@@ -73,6 +73,8 @@ a:hover {
       padding: 0.6em 2em; }
       #container #content .title_holder h2 {
         float: left; }
+      #container #content .title_holder a.button {
+        margin-right: 0.5em; }
     #container #content .main {
       padding: 1em 2em;
       border-bottom: 2px solid #ddd; }
@@ -84,6 +86,7 @@ a:hover {
         display: block;
         width: 20px; }
       #container #content .submit_button input {
+        text-transform: uppercase;
         background: transparent;
         border: none;
         height: 39px;
@@ -99,7 +102,7 @@ a:hover {
       background: url(/images/button/bg.png) repeat-x;
       padding: 10px;
       position: relative;
-      margin: 0.2em 0.5em 0 2.5em; }
+      margin: 0.2em 1em 0 2.5em; }
     #container #content a.button, #container #content .submit_button {
       /* applied by javascript */ }
       #container #content a.button span.btn_left, #container #content a.button span.btn_right,       #container #content .submit_button span.btn_left, #container #content .submit_button span.btn_right {
@@ -135,9 +138,17 @@ span.field_with_errors input {
   background: #d81f26;
   color: white; }
 
-
 #container #content .col_1 {
   width: 65em; }
+#container #content .required_actions ul {
+  padding: 1em 1em;
+  background: #ffffe0;
+  border: 1px solid #ffffbe;
+  margin: 1em; }
+#container #content .brief_overview {
+  padding: 1em 0; }
+  #container #content .brief_overview ul {
+    padding: 1em; }
 #container #content p.most_important_thing {
   font-size: 2.2em;
   font-weight: bold;
@@ -174,25 +185,30 @@ span.field_with_errors input {
     padding-bottom: 2em;
     margin-bottom: 1em;
     border-bottom: 1px solid #eee; }
-#container #content .brief_details, #container #content .brief_items {
+#container #content #edit_brief h3 {
+  padding-top: 1em; }
+#container #content #edit_brief .brief_details, #container #content #edit_brief .brief_items {
   border: 1px solid #eee;
   padding: 1em;
   background: #f6f6f6;
+  margin-top: 1em;
   margin-bottom: 2em; }
-  #container #content .brief_details .submit_button input,   #container #content .brief_items .submit_button input {
+  #container #content #edit_brief .brief_details h3,   #container #content #edit_brief .brief_items h3 {
+    padding-top: 0; }
+  #container #content #edit_brief .brief_details .submit_button input,   #container #content #edit_brief .brief_items .submit_button input {
     top: 12px; }
-  #container #content .brief_details label,   #container #content .brief_items label {
+  #container #content #edit_brief .brief_details label,   #container #content #edit_brief .brief_items label {
     width: 10em; }
-  #container #content .brief_details .brief_item,   #container #content .brief_items .brief_item {
+  #container #content #edit_brief .brief_details .brief_item,   #container #content #edit_brief .brief_items .brief_item {
     position: relative;
     margin-bottom: 4em; }
-    #container #content .brief_details .brief_item input[type=text],     #container #content .brief_items .brief_item input[type=text] {
+    #container #content #edit_brief .brief_details .brief_item input[type=text],     #container #content #edit_brief .brief_items .brief_item input[type=text] {
       width: 40em; }
-    #container #content .brief_details .brief_item textarea,     #container #content .brief_items .brief_item textarea {
+    #container #content #edit_brief .brief_details .brief_item textarea,     #container #content #edit_brief .brief_items .brief_item textarea {
       width: 40em;
       height: 10em;
       max-width: 48em; }
-  #container #content .brief_details .help_message,   #container #content .brief_items .help_message {
+  #container #content #edit_brief .brief_details .help_message,   #container #content #edit_brief .brief_items .help_message {
     width: 20em;
     border: 1px solid #eee;
     background: rgb(252, 252, 252);
@@ -201,6 +217,8 @@ span.field_with_errors input {
     position: absolute;
     top: 0;
     left: 45em; }
+  #container #content #edit_brief .brief_details a.button,   #container #content #edit_brief .brief_items a.button {
+    margin: 0.2em 11em 1em 2.5em; }
 #container #content .note {
   padding: 1em 1em 0.5em 1em;
   background: #ffffe0;
