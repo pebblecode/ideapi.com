@@ -31,6 +31,10 @@ Brief.blueprint do
   most_important_message { Sham.body }
 end
 
+Brief.blueprint(:published) do
+  state "published"
+end
+
 BriefItem.blueprint do
   title
   body

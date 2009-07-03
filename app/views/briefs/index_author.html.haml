@@ -15,7 +15,7 @@
     -if current_objects.empty?
       %p You don't have any briefs yet.
     -else  
-      -%w(published drafts).each do |state|
+      -%w(published draft).each do |state|
         -if !send(state).empty?
           .brief_overview
             %h4="#{state.capitalize} briefs"

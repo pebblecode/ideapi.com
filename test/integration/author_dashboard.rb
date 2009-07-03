@@ -60,8 +60,8 @@ class AuthorDashboard < ActionController::IntegrationTest
       end
 
       should "show the list of briefs under heading" do
-        assert_contain("Drafts")
-        within "ul.drafts" do |scope|
+        assert_contain("Draft brief")
+        within "ul.draft" do |scope|
           scope.click_link @draft.title
           assert_response :success
           assert_equal brief_path(@draft), path
@@ -71,14 +71,14 @@ class AuthorDashboard < ActionController::IntegrationTest
       context "published briefs" do
         setup do
           @published = Brief.make(:author => @author)
+          populate_brief(@published)
           @published.publish!
-          
           assert @author.briefs.published.include?(@published)
           reload
         end
 
         should "show published briefs under heading" do
-          assert_contain("Published")
+          assert_contain("Published briefs")
           within 'ul.published' do |scope|
             scope.click_link @published.title
             assert_response :success

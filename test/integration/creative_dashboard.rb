@@ -34,8 +34,10 @@ class CreativeDashboard < ActionController::IntegrationTest
 
     context "watched briefs" do
       setup do
-        @brief = Brief.make
+        @brief = Brief.make(:published)
         @creative.watch(@brief)        
+        
+        reload
       end
 
       should "not show blank text" do
@@ -43,9 +45,9 @@ class CreativeDashboard < ActionController::IntegrationTest
       end
       
       should "display list if any watched briefs exist" do
-        assert_equal assigns['current_objects'], []
         assert !@creative.briefs.empty?
-        # assert_select 'h4', :text => 'watching'
+        assert_equal(@creative.briefs, assigns['current_objects'])
+        assert_select 'h4', :text => 'Watching'
       end
       
     end

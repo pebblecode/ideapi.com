@@ -41,7 +41,7 @@ class AuthorShowBrief < ActionController::IntegrationTest
 
       should "not be able to access other authors briefs" do
         visit brief_path(@brief)
-        assert_equal new_user_session_path, path
+        assert_equal briefs_path, path
       end
     end
     

@@ -77,10 +77,11 @@ module BriefWorkflowHelper
     return Brief.make(:author => author)
   end
   
-  def populate_brief(brief)
-    10.times do 
+  def populate_brief(brief, n = 10)
+    n.times do 
       BriefItem.make(:brief => brief)
     end
+    brief.save
   end
 
 end

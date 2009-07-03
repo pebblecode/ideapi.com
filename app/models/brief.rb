@@ -35,26 +35,34 @@ class Brief < ActiveRecord::Base
     handle :publish! do
       transition_to :published
       save!
-    end    
+    end
+    #transition :to => :published, :on => :publish!, :if => proc { !brief_items.answered.empty? }
   end
   
   state :published do 
-    handle :close! do
-      transition_to :closed
+    handle :complete! do
+      transition_to :complete
       save!
     end
     
     handle :review! do
-      transition_to :peer_review
+      transition_to :under_review
       save!
     end
   end
   
-  state :peer_review do
+  state :under_review do
+    handle :complete! do
+      transition_to :complete
+      save!
+    end
+  end
+  
+  state :complete do
     handle :close! do
       transition_to :closed
       save!
-    end
+    end  
   end
   
   state :closed

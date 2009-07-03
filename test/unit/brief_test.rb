@@ -50,13 +50,13 @@ class BriefTest < ActiveSupport::TestCase
         assert_equal(:published, @brief.state)
       end
       
-      should "respond to close!" do
-        assert @brief.respond_to?(:close!)
+      should "respond to complete!" do
+        assert @brief.respond_to?(:complete!)
       end
       
-      should "be able to be closed" do
-        @brief.close!
-        assert_equal(:closed, @brief.state)
+      should "be able to be complete" do
+        @brief.complete!
+        assert_equal(:complete, @brief.state)
       end
   
       should "respond to review!" do
@@ -69,13 +69,30 @@ class BriefTest < ActiveSupport::TestCase
         end
       
         should "be able to put into review" do
-          assert_equal(:peer_review, @brief.state)
+          assert_equal(:under_review, @brief.state)
         end
   
-        should "be able to be closed" do
-          @brief.close!
+        should "be able to be completed" do
+          @brief.complete!
+          assert_equal(:complete, @brief.state)
         end
       end
+      
+      context "complete" do
+        setup do
+          @brief.complete!
+        end
+
+        should "be complete" do
+          assert_equal(:complete, @brief.state)
+        end
+        
+        should "be able to close" do
+          @brief.close!
+          assert_equal(:closed, @brief.state)
+        end
+      end
+      
   
     end
     
