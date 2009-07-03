@@ -46,7 +46,6 @@ class AuthorDashboard < ActionController::IntegrationTest
       end
       
       should "tell user that they have no briefs yet" do
-        assert_contain "Brief Overviews"
         assert_contain "You don't have any briefs yet"
       end
       

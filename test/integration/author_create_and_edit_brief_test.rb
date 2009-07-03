@@ -96,7 +96,7 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
         
         should "give optional class to questions that are optional" do
           optional_count = @draft.brief_items.select(&:optional).size
-          assert_select "div.brief_item.optional", :count => optional_count
+          assert_select "div.brief_item.optional_brief_item", :count => optional_count
         end
         
         should "gather help text from the question template and display to user" do

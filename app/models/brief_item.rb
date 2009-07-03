@@ -8,6 +8,6 @@ class BriefItem < ActiveRecord::Base
   delegate :help_message, :to => :template_question
   delegate :section_name, :to => :template_question
   
-  named_scope :answered, :conditions => "body IS NULL"
+  named_scope :answered, :conditions => 'body <> ""'
   
 end

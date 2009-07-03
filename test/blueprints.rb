@@ -13,10 +13,15 @@ TemplateBrief.blueprint do
   title
 end
 
+TemplateSection.blueprint do
+  title
+end
+
 TemplateQuestion.blueprint do
   body
   help_message { Sham.body }
   optional { (rand(2) % 2 == 0) ? true : false }
+  template_section { TemplateSection.make }
 end
 
 Brief.blueprint do

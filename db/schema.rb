@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090630180122) do
+ActiveRecord::Schema.define(:version => 20090703105128) do
 
   create_table "brief_items", :force => true do |t|
     t.text     "title"
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(:version => 20090630180122) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "watched_briefs", :force => true do |t|
+    t.integer  "brief_id"
+    t.integer  "creative_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

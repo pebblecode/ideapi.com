@@ -56,7 +56,7 @@ class AuthorShowBrief < ActionController::IntegrationTest
       
       should "have links to overview / questions / inspiration" do
          within '.tabbed_links' do |scope|
-           scope.click_link 'overview'
+           assert_select 'span.current', :text => "Overview"
            scope.click_link 'questions'
            # scope.click_link 'inspiration'
          end

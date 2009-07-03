@@ -8,6 +8,7 @@ CREATE TABLE "template_briefs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 CREATE TABLE "template_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "help_message" text, "optional" boolean, "template_section_id" integer);
 CREATE TABLE "template_sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" text, "position" integer);
 CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "type" varchar(255), "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime);
+CREATE TABLE "watched_briefs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "brief_id" integer, "creative_id" integer, "created_at" datetime, "updated_at" datetime);
 CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
 INSERT INTO schema_migrations (version) VALUES ('20090526100437');
 
@@ -40,3 +41,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090629114313');
 INSERT INTO schema_migrations (version) VALUES ('20090630103741');
 
 INSERT INTO schema_migrations (version) VALUES ('20090630180122');
+
+INSERT INTO schema_migrations (version) VALUES ('20090703105128');

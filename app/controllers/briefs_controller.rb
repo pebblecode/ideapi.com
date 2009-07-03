@@ -6,7 +6,7 @@ class BriefsController < ApplicationController
   helper_method :drafts, :published, :current_brief_items
   
   def current_objects
-    @current_objects ||= (drafts + published)
+    @current_objects ||= author? ? author_briefs : creative_briefs
   end
   
   def current_object
@@ -27,6 +27,11 @@ class BriefsController < ApplicationController
       current_object.template_brief = TemplateBrief.last
       current_object.author = parent_object
     end
+    
+    response_for(:index) do |format|
+      format.html { render :action => "index_#{user_type}" }
+    end
+    
   end
   
   def publish
@@ -38,19 +43,43 @@ class BriefsController < ApplicationController
   
   private
   
+  # parent_object is standard make_resourceful accessor
+  # overwrite with our current logged in user
   alias :parent_object :current_user
   
+  # scoped to a creative
+  def creative_briefs
+    @creative_briefs ||= parent_object.briefs
+  end
+   
+  class_eval do
+    %w(watching pitching under_review complete).each do |action_name|
+      define_method("#{action_name}?", lambda { current_object.briefs.send(action_name) }) 
+    end
+  end
+  
+  # scoped to an author
+  def author_briefs
+    drafts + published
+  end
+  
   def drafts
-    @drafts ||= parent_object.briefs.draft
+    @drafts ||= author? ? parent_object.briefs.draft : []
   end
   
   def published
-    @published ||= parent_object.briefs.published
+    @published ||= author? ? parent_object.briefs.published : []
   end
 
+  # only show answered items on a published brief
   def current_brief_items
-    return false if !current_object
+    return [] if !current_object || !author?
     @current_brief_items ||= (current_object.published? ? current_object.brief_items.answered : current_object.brief_items)
+  end
+  
+  #override make_resouceful
+  def user_type
+    parent_object.class.to_s.downcase
   end
 
 end
