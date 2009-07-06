@@ -6,3 +6,5 @@ config/database.yml
 db/*.sqlite3
 public/uploads/**/*
 public/config.xml
+coverage/*
+coverage.data

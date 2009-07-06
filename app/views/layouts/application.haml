@@ -23,8 +23,8 @@
             %li=link_to 'profile', ''
             %li=link_to 'logout', user_session_path, :method => :delete
           -else
-            %li=link_to 'Tour', ''
-            %li=link_to 'Pricing &amp; Signup', ''
+            /%li=link_to 'Tour', ''
+            /%li=link_to 'Pricing &amp; Signup', ''
             %li=link_to 'Login', new_user_session_path
       #content
         =yield :title_holder

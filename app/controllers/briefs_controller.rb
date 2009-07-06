@@ -1,8 +1,8 @@
 class BriefsController < ApplicationController
   
   before_filter :require_user
-  # before_filter :require_author, :except => [:index, :show]
-  # before_filter :require_owner, :except => [:index, :show]
+  before_filter :require_author, :except => [:index, :show]
+  before_filter :require_owner, :only => [:edit, :update]
   
   helper_method :current_brief_items
   
@@ -15,7 +15,7 @@ class BriefsController < ApplicationController
       begin
         author? ? parent_object.briefs.find(params[:id]) : Brief.published.find(params[:id])
       rescue ActiveRecord::RecordNotFound => e
-        redirect_to briefs_path
+        
       end
     )
   end
