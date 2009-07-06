@@ -224,3 +224,9 @@ span.field_with_errors input {
   background: #ffffe0;
   border: 1px solid #ffffbe;
   margin: 1em 0 2em 0; }
+#container #content .boom_box {
+  border: 1px solid #eee;
+  padding: 1em;
+  background: #f6f6f6;
+  margin-top: 1em;
+  margin-bottom: 2em; }

@@ -9,9 +9,10 @@ class Brief < ActiveRecord::Base
   belongs_to :template_brief
   
   has_many :brief_items, :order => :position
+  
   accepts_nested_attributes_for :brief_items, :allow_destroy => true, :reject_if => :all_blank
   
-  has_many :creative_questions
+  has_many :creative_questions, :order => "updated_at DESC"
     
   # callbacks
   after_create :generate_brief_items_from_template!

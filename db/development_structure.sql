@@ -1,7 +1,7 @@
 CREATE TABLE "brief_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" text, "body" text, "position" integer, "brief_id" integer, "created_at" datetime, "updated_at" datetime, "template_question_id" integer);
 CREATE TABLE "briefs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author_id" integer, "state" varchar(255), "site_id" integer, "template_brief_id" integer, "most_important_message" text);
 CREATE TABLE "creative_proposals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "short_description" text, "long_description" text, "brief_id" integer, "creative_id" integer, "created_at" datetime, "updated_at" datetime);
-CREATE TABLE "creative_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "author_answer" text, "brief_id" integer, "creative_id" integer, "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "creative_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "author_answer" text, "creative_id" integer, "created_at" datetime, "updated_at" datetime, "brief_id" integer, "brief_item_id" integer);
 CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
 CREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255));
 CREATE TABLE "template_brief_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "template_brief_id" integer, "template_question_id" integer);
@@ -46,3 +46,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090630180122');
 INSERT INTO schema_migrations (version) VALUES ('20090703105128');
 
 INSERT INTO schema_migrations (version) VALUES ('20090703132939');
+
+INSERT INTO schema_migrations (version) VALUES ('20090706173356');

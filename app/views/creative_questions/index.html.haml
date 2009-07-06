@@ -1,5 +1,9 @@
 =title_holder do
   %h2="Questions for #{parent_object.title}"
+  
+  -if creative?
+    =link_to 'Ask a question', new_brief_creative_question_path(parent_object), :class => "button"
+    
 %p.most_important_thing=parent_object.most_important_message
 
 .col_1
@@ -8,3 +12,34 @@
     %li=tab_link 'Questions', brief_creative_questions_path(parent_object)
 
   
+  .boom_box
+    -if logged_in?  
+      -if creative?
+        .ask_question       
+          %h3 Ask a question
+          - form_for(:creative_question, :url => brief_creative_questions_path(parent_object)) do |f|
+            = render :partial => "form", :locals => {:f => f}          
+    -else
+      .ask_question       
+        %h3 Ask a question
+        %p 
+          Please 
+          =link_to 'log in', new_user_session_path 
+          to ask a question
+
+  %ul.tabbed_links
+    %li=tab_link 'Recent', brief_creative_questions_path(parent_object)
+    %li=tab_link 'Hot', hot_brief_creative_questions_path(parent_object)  
+    %li=tab_link 'Answered', answered_brief_creative_questions_path(parent_object)  
+
+  %ul.question_list
+    -current_objects.each do |question|
+      %li[question]
+        %p.question_body
+          =question.body
+        %ul.question_actions
+          %li
+            -if question.answered?
+              %p= question.author_answer 
+            -else
+              %p Not answered
