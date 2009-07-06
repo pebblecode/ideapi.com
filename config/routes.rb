@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|  
-  map.resources :briefs, :shallow => true, :member => { :publish => :put, :delete => :get }
+  map.resources :briefs, :shallow => true, :member => { :publish => :put, :delete => :get } do |briefs|
+    briefs.resources :creative_questions, :as => 'questions'
+  end
+  
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users

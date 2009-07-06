@@ -61,3 +61,11 @@ Author.blueprint do
   password
   password_confirmation { password }
 end
+
+CreativeQuestion.blueprint do
+  body
+end
+
+CreativeQuestion.blueprint(:answered) do
+  author_answer { Sham.body }
+end

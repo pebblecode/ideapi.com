@@ -2,9 +2,9 @@
   %h2 Dashboard
 
 #dashboard.col_1
-  .briefs_search
-    %h3 Search
-    =text_field 'q', ''
+  / .briefs_search
+  /   %h3 Search
+  /   =text_field 'q', ''
 
   .required_actions
     %h3 Activity Snapshot  
@@ -26,4 +26,3 @@
             %h4="#{state.capitalize}"
             %ul{:class => state}
               =render :partial => 'brief', :collection => send(state)
-              

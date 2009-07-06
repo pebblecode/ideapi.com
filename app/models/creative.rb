@@ -9,9 +9,21 @@ class Creative < User
   
   def watch(brief)
     if brief.published?
-      watching_briefs << brief
+      watched_briefs.create(:brief => brief)
     else
       errors.add_to_base("You cannot watch a brief which isn't currently published")
+      false
+    end
+  end
+  
+  def respond_to_brief(brief)
+    if brief.published?
+      transaction do
+        watching.delete(brief)
+        creative_proposals.create(:brief => brief)
+      end      
+    else
+      errors.add_to_base("You cannot respond to a brief which isn't currently published")
       false
     end
   end

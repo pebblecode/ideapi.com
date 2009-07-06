@@ -15,7 +15,7 @@ class BriefsController < ApplicationController
       begin
         author? ? parent_object.briefs.find(params[:id]) : Brief.published.find(params[:id])
       rescue ActiveRecord::RecordNotFound => e
-        
+        redirect_to briefs_path
       end
     )
   end

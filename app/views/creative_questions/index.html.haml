@@ -1,0 +1,10 @@
+=title_holder do
+  %h2="Questions for #{parent_object.title}"
+%p.most_important_thing=parent_object.most_important_message
+
+.col_1
+  %ul.tabbed_links
+    %li=tab_link 'Overview', brief_path(parent_object)
+    %li=tab_link 'Questions', brief_creative_questions_path(parent_object)
+
+  

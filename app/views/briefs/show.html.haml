@@ -7,7 +7,7 @@
   
   %ul.tabbed_links
     %li=tab_link 'Overview', brief_path(current_object)
-    %li=tab_link 'Questions', ''
+    %li=tab_link 'Questions', brief_creative_questions_path(current_object)
 
   %div[current_object]  
     -if current_brief_items.empty? && current_object.published?
