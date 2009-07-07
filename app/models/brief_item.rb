@@ -2,6 +2,8 @@ class BriefItem < ActiveRecord::Base
   belongs_to :brief
   belongs_to :template_question
   
+  has_many :creative_questions
+  
   validates_presence_of :brief, :template_question, :on => :create, :message => "can't be blank"
   
   delegate :optional, :to => :template_question

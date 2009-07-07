@@ -83,6 +83,27 @@ module BriefWorkflowHelper
     end
     brief.save
   end
+  
+  def check_for_questions(brief, creative)
+    populate_brief(brief)
+    
+    5.times do
+      brief.creative_questions.make(:answered, {:brief_item => brief.brief_items.first, :creative => creative, :author_answer => "Answered question"})
+    end      
+    
+    visit brief_path(brief)
+        
+    assert !brief.brief_items.blank?          
+    assert !brief.creative_questions.answered.blank?
 
+    brief.creative_questions.answered.each do |q|
+      assert_select 'ul.brief_item_history' do
+        assert_select 'li' do
+          assert_select 'h4', :text => q.body
+          assert_select 'p', :text => q.author_answer
+        end
+      end
+    end
+  end
+  
 end
-

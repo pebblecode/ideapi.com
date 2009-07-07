@@ -42,4 +42,9 @@
             -if question.answered?
               %p= question.author_answer 
             -else
-              %p Not answered
+              -if record_author?
+                -form_for(question, :url => brief_creative_question_path(parent_object, question), :method => :put) do |f|
+                  %p=f.text_area :author_answer, :rows => 5, :cols => 80
+                  %p.submit=f.submit "submit answer"
+              -else
+                %p Not answered

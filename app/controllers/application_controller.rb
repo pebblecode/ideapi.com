@@ -5,10 +5,11 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  filter_parameter_logging :password, :password_confirmation
-  helper_method :brief_config
+  filter_parameter_logging :password, :password_confirmation  
   
   require_dependency 'application/authentication'  
+  
+  helper_method :brief_config
   
   private
     

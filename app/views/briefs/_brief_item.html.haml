@@ -1,7 +1,12 @@
 %div[brief_item]
   %h3=brief_item.title
-  %p
+  %p.body
     -if brief_item.body.blank? && draft
       ="You have yet to #{link_to 'answer', edit_brief_path(current_object)}, the question would disappear if published."
     -else
       =brief_item.body
+  %ul.brief_item_history
+    -brief_item.creative_questions.answered.each do |question|
+      %li
+        %h4=question.body
+        %p=question.author_answer

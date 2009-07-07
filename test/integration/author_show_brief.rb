@@ -24,6 +24,7 @@ class AuthorShowBrief < ActionController::IntegrationTest
       should "have page title with brief title and edit link" do
         within '.title_holder' do |scope|
           assert_contain(@draft.title)
+          assert_select 'a[href=?]', edit_brief_path(@draft), {:text => 'edit brief', :count => 1}
           scope.click_link "edit brief"
           assert_response :success
           assert_equal edit_brief_path(@draft), path
@@ -41,7 +42,7 @@ class AuthorShowBrief < ActionController::IntegrationTest
 
       should "not be able to access other authors briefs" do
         visit brief_path(@brief)
-        assert_equal briefs_path, path
+        assert_select 'a[href=?]', edit_brief_path(@brief), {:text => 'edit brief', :count => 0}
       end
     end
     
@@ -78,10 +79,29 @@ class AuthorShowBrief < ActionController::IntegrationTest
             assert_contain(item.body) 
           end
         end
-        
+                
       end
       
     end
+    
+    context "published document" do
+      setup do
+        @published = Brief.make(:published, { :author => @author })
+        visit brief_path(@published)
+      end
+
+      context "answered questions" do
+        setup do
+          @creative = Creative.make
+        end
+
+        should "appear within the brief document" do          
+          check_for_questions(@published, @creative)
+        end
+      end
+
+    end
+    
     
     
   end
