@@ -91,6 +91,12 @@ class Brief < ActiveRecord::Base
       define_method("#{state_name}?", lambda { self.state == state_name }) 
     end
   end
+  
+  # INDEXING
+  
+  define_index do 
+    indexes title, most_important_message
+  end
 
   private 
   

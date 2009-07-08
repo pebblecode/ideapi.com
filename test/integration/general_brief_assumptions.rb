@@ -30,12 +30,6 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
       assert_equal(briefs_path, path)
     end
     
-    should "not be able to create briefs" do
-      
-    end
-    
-    should "not be able to edit briefs"
-    should "not be able to delete briefs"
   end
   
 end
