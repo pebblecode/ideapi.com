@@ -18,7 +18,7 @@
         - form_for(:creative_question, :url => brief_creative_questions_path(parent_object)) do |f|
           = render :partial => "form", :locals => {:f => f}          
 
-  %ul.tabbed_links
+  %ul#question_filter.tabbed_links
     %li=tab_link 'Recent', brief_creative_questions_path(parent_object)
     %li=tab_link 'Hot', hot_brief_creative_questions_path(parent_object)  
     %li=tab_link 'Answered', answered_brief_creative_questions_path(parent_object)  
@@ -31,15 +31,34 @@
       -current_objects.each do |question|
         %li[question]
           %p.question_body
+            =avatar(:medium)
+            %strong="#{comment_adjective_for given_name(question.creative), :position => :before}:"
             =question.body
+            .clear
           %ul.question_actions
             %li
               -if question.answered?
-                %p= question.author_answer 
+                %p Answer
               -else
                 -if record_author?
-                  -form_for(question, :url => brief_creative_question_path(parent_object, question), :method => :put) do |f|
-                    %p=f.text_area :author_answer, :rows => 5, :cols => 80
-                    %p.submit=f.submit "submit answer"
+                  %p Write answer
                 -else
                   %p Not answered
+            .clear
+          -if question.answered?
+            %p.author_answer
+              =avatar(:medium)
+              %strong
+                =given_name(question.brief.author)
+                answered:
+              = question.author_answer
+              .clear
+          -else
+            - if record_author? 
+              .author_answer    
+              
+                %h4 Answer creative's question          
+                -form_for(question, :url => brief_creative_question_path(parent_object, question), :method => :put) do |f|
+                  %p=f.text_area :author_answer, :rows => 5, :cols => 80
+                  %p.submit=f.submit "submit answer"
+             

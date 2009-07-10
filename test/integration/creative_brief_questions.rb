@@ -112,23 +112,36 @@ class CreativeBriefQuestions < ActionController::IntegrationTest
         setup do
           @brief_item = @brief.brief_items[rand(@brief.brief_items.count)]
           @question = "Sha la la, from you to meeee, oh."
-          
           reload
         end
         
         should "have form inline to add questions" do
-
-          assert_select 'form', :action => brief_creative_questions_path do
+          assert_select 'form[action=?]', brief_creative_questions_path 
+        end
+                    
+        context "submitting the form" do
+          setup do
             select @brief_item.title, :from => 'creative_question[brief_item_id]'
             fill_in 'creative_question_body', :with => @question
             click_button 'submit question'
           end
+
+          should_respond_with :success
           
-          assert_response :success
-          assert_equal(brief_creative_questions_path, path)
+          should "show questions view" do
+            assert_equal(brief_creative_questions_path, path)
+          end
           
-          assert_contain(@question)
+          should "show the asked question on the page" do
+            assert_contain(@question)
+          end
+          
+          should "watch the brief" do
+            assert @creative.watching?(@brief)
+          end
+
         end
+        
       end
             
     end

@@ -12,6 +12,10 @@ class CreativeQuestionsController < ApplicationController
       current_object.creative = current_user
     end
     
+    after :create do
+      current_user.watch(parent_object)
+    end
+    
     response_for(:create, :update) do |format|
        format.html { redirect_to objects_path }
     end
