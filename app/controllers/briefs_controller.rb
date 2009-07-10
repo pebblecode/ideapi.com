@@ -28,12 +28,16 @@ class BriefsController < ApplicationController
       current_object.author = parent_object
     end
     
+    response_for(:create) do |format|
+      format.html { redirect_to edit_object_path }
+    end
+    
     response_for(:index) do |format|
       # display a different view depending on the user type
       format.html { render :action => user_action }
     end
     
-    response_for(:show) do |format|        
+    response_for(:show) do |format|
       format.html { 
         render :action => user_action
       }

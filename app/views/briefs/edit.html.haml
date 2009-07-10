@@ -7,12 +7,11 @@
 
 #edit_brief.col_1
   
-  %h3 Brief details
-  
   = error_messages_for :brief
   
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
-    .brief_details
+    #brief_details.brief_details
+      %h3 Brief details
       = render :partial => "form", :locals => {:f => brief_form}
       %p=brief_form.submit 'Update'
   
@@ -23,25 +22,25 @@
         %p Before publishing this document you can alter the <strong>wording of the title</strong> of each document item. 
         %p <strong>Once published you will only be able to update the body</strong> of each item in response to a question from the community. A full audit trail of your amendments will be visible to creative's, so they can see the evolution of the document.    
   
-    .brief_items
-      - current_section = ""
-    
-      - brief_form.fields_for :brief_items do |brief_item|
-        - if (brief_item.object.section_name != current_section) 
-          - current_section = brief_item.object.section_name
-          %h3.section_title= current_section
+    .brief_items_by_section
+      - current_object.brief_items_grouped_by_section.each do |section_name, brief_items|
+        .brief_item_section
+          %h3.section_title=section_name
+          %ul.brief_items
+            -brief_items.each do |brief_item|
+            
+              %li[brief_item]{:class => (brief_item.optional ? "optional_brief_item" : "")}
+                =hidden_field_tag "brief[brief_items_attributes][#{brief_item.id}][id]", brief_item.id
+                %p=text_field_tag "brief[brief_items_attributes][#{brief_item.id}][title]", brief_item.title
+                %p=text_area_tag "brief[brief_items_attributes][#{brief_item.id}][body]", brief_item.body
+                -if !brief_item.help_message.blank?
+                  %p.help_message
+                    %strong Example:
+                    = brief_item.help_message
         
-        %div[brief_item.object]{:class => (brief_item.object.optional ? "optional_brief_item" : "")}
-
-          / titles should only be editable during draft state
-          %p= current_object.published? ? brief_item.object.title : brief_item.text_field(:title)
-      
-          %p= brief_item.text_area :body
-          -if !brief_item.object.help_message.blank?
-            %p.help_message
-              %strong Example:
-              = brief_item.object.help_message 
-
+            %li
+              %p= current_object.draft? ? brief_form.submit('Save and continue editing') : brief_form.submit('Update and continue editing')
+              
       /if display different submit buttons depending on state
       %p=current_object.draft? ? brief_form.submit('Save draft') : brief_form.submit('Update')
 

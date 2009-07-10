@@ -7,10 +7,11 @@
 %p.most_important_thing=current_object.most_important_message
 
 .col_1
-  
-  %ul.tabbed_links
-    %li=tab_link 'Overview', brief_path(current_object)
-    %li=tab_link 'Questions', brief_creative_questions_path(current_object)
+
+  - if !current_object.draft?  
+    %ul.tabbed_links
+      %li=tab_link 'Overview', brief_path(current_object)
+      %li=tab_link 'Questions', brief_creative_questions_path(current_object)
 
   %div[current_object]  
     -if current_brief_items.empty? && current_object.published?

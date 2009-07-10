@@ -192,7 +192,7 @@ span.field_with_errors input {
     margin-bottom: 1em;
     border-bottom: 1px solid #eee; }
 #container #content #edit_brief h3 {
-  padding-top: 1em; }
+  padding-top: 0.5em; }
 #container #content #edit_brief .brief_details, #container #content #edit_brief .brief_items {
   border: 1px solid #eee;
   padding: 1em;
@@ -236,6 +236,18 @@ span.field_with_errors input {
   background: #f6f6f6;
   margin-top: 1em;
   margin-bottom: 2em; }
+#container #content .brief_items_by_section {
+  position: relative;
+  padding-top: 24px; }
+  #container #content .brief_items_by_section .brief_item_section_tabbed h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #eee;
+    background: #ddd;
+    padding: 0.5em 1em 0.5em 1em;
+    margin: 0;
+    line-height: 0.5em; }
 #container .search_results ul.brief_list li {
   padding: 1em 2em;
   border-top: 1px solid #ddd; }

@@ -57,7 +57,7 @@ class BriefsControllerTest < ActionController::TestCase
         should_change "Brief.count", :by => 1
         should_assign_to :current_object
         should_respond_with :redirect
-        should_redirect_to("viewing the brief") { brief_path(assigns['current_object']) }
+        should_redirect_to("viewing the brief") { edit_brief_path(assigns['current_object']) }
       end
     
     
