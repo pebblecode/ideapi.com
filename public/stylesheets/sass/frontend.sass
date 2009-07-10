@@ -343,7 +343,7 @@ span.field_with_errors
     
   / CREATIVE QUESTIONS
   
-  .question_list
+  .question_list, .brief_item_history
     
     .creative_question
       :border 1px solid #ccc
@@ -351,7 +351,7 @@ span.field_with_errors
       :margin-bottom 0.5em
       :padding 0
   
-      p.question_body, p.author_answer
+      p.question_body
         :padding 0.5em 1em
         
         img
@@ -381,8 +381,15 @@ span.field_with_errors
         :padding 1em
         :background #eee
         :border-top 1px solid #ccc
-        
+  
+  .brief_item_history    
+    .creative_question
+      .author_answer
+        img
+          :float right
+          :margin-right 1em
 
+  
   #content
     #question_filter
       :margin-bottom 0.5em

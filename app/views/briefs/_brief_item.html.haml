@@ -5,8 +5,19 @@
       ="You have yet to #{link_to 'answer', edit_brief_path(current_object)}, the question would disappear if published."
     -else
       =brief_item.body
+      
   %ul.brief_item_history
     -brief_item.creative_questions.answered.each do |question|
-      %li
-        %h4=question.body
-        %p=question.author_answer
+      %li[question]
+        %p.question_body
+          =avatar(:small)
+          %strong="#{comment_adjective_for given_name(question.creative), :position => :before}:"
+          =question.body
+          .clear
+        %p.author_answer
+          =avatar(:medium)
+          %strong
+            =given_name(question.brief.author)
+            answered:
+          = question.author_answer
+          .clear

@@ -255,35 +255,38 @@ span.field_with_errors input {
   border-top: 1px solid #bbb;
   border-bottom: 4px solid #eee;
   margin: 4em 0; }
-#container .question_list .creative_question {
+#container .question_list .creative_question, #container .brief_item_history .creative_question {
   border: 1px solid #ccc;
   background: #eee;
   margin-bottom: 0.5em;
   padding: 0; }
-  #container .question_list .creative_question p.question_body, #container .question_list .creative_question p.author_answer {
+  #container .question_list .creative_question p.question_body,   #container .brief_item_history .creative_question p.question_body {
     padding: 0.5em 1em; }
-    #container .question_list .creative_question p.question_body img,     #container .question_list .creative_question p.author_answer img {
+    #container .question_list .creative_question p.question_body img,     #container .brief_item_history .creative_question p.question_body img {
       float: left;
       margin-right: 1em; }
-  #container .question_list .creative_question .question_actions {
+  #container .question_list .creative_question .question_actions,   #container .brief_item_history .creative_question .question_actions {
     border-top: 1px solid #ddd;
     text-align: right;
     background: #fefefe; }
-    #container .question_list .creative_question .question_actions li {
+    #container .question_list .creative_question .question_actions li,     #container .brief_item_history .creative_question .question_actions li {
       border-left: 1px solid #ccc;
       background: #454545;
       width: 10em;
       padding: 0.5em 1em;
       float: right; }
-      #container .question_list .creative_question .question_actions li p {
+      #container .question_list .creative_question .question_actions li p,       #container .brief_item_history .creative_question .question_actions li p {
         color: white;
         padding: 0;
         margin: 0;
         text-align: center; }
-  #container .question_list .creative_question .author_answer {
+  #container .question_list .creative_question .author_answer,   #container .brief_item_history .creative_question .author_answer {
     margin: 0;
     padding: 1em;
     background: #eee;
     border-top: 1px solid #ccc; }
+#container .brief_item_history .creative_question .author_answer img {
+  float: right;
+  margin-right: 1em; }
 #container #content #question_filter {
   margin-bottom: 0.5em; }
