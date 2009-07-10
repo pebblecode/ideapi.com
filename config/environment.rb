@@ -25,6 +25,11 @@ Rails::Initializer.run do |config|
   config.gem "alter-ego", :lib => "alter_ego"
   config.gem "mislav-will_paginate", :lib => "will_paginate", :source => 'http://gems.github.com'
   
+  # these could be in test.rb but I've used some of the elements for bootstrapping etc
+  config.gem "faker"
+  config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
+  config.gem "notahat-machinist", :lib => "machinist", :source => "http://gems.github.com"
+  
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
