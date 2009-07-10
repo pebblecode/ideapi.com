@@ -8,3 +8,4 @@ public/uploads/**/*
 public/config.xml
 coverage/*
 coverage.data
+db/sphinx/**/*
