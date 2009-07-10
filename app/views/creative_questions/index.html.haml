@@ -11,21 +11,12 @@
     %li=tab_link 'Overview', brief_path(parent_object)
     %li=tab_link 'Questions', brief_creative_questions_path(parent_object)
 
-  
-  .boom_box
-    -if logged_in?  
-      -if creative?
-        .ask_question       
-          %h3 Ask a question
-          - form_for(:creative_question, :url => brief_creative_questions_path(parent_object)) do |f|
-            = render :partial => "form", :locals => {:f => f}          
-    -else
+  -if creative?
+    .boom_box        
       .ask_question       
         %h3 Ask a question
-        %p 
-          Please 
-          =link_to 'log in', new_user_session_path 
-          to ask a question
+        - form_for(:creative_question, :url => brief_creative_questions_path(parent_object)) do |f|
+          = render :partial => "form", :locals => {:f => f}          
 
   %ul.tabbed_links
     %li=tab_link 'Recent', brief_creative_questions_path(parent_object)
@@ -33,18 +24,22 @@
     %li=tab_link 'Answered', answered_brief_creative_questions_path(parent_object)  
 
   %ul.question_list
-    -current_objects.each do |question|
-      %li[question]
-        %p.question_body
-          =question.body
-        %ul.question_actions
-          %li
-            -if question.answered?
-              %p= question.author_answer 
-            -else
-              -if record_author?
-                -form_for(question, :url => brief_creative_question_path(parent_object, question), :method => :put) do |f|
-                  %p=f.text_area :author_answer, :rows => 5, :cols => 80
-                  %p.submit=f.submit "submit answer"
+    -if current_objects.empty?
+      %li
+        %p No-one has asked a question yet
+    -else
+      -current_objects.each do |question|
+        %li[question]
+          %p.question_body
+            =question.body
+          %ul.question_actions
+            %li
+              -if question.answered?
+                %p= question.author_answer 
               -else
-                %p Not answered
+                -if record_author?
+                  -form_for(question, :url => brief_creative_question_path(parent_object, question), :method => :put) do |f|
+                    %p=f.text_area :author_answer, :rows => 5, :cols => 80
+                    %p.submit=f.submit "submit answer"
+                -else
+                  %p Not answered

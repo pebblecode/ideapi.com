@@ -1,11 +1,25 @@
-%h1 Viewing user
+=title_holder do
+  %h2 My Account
 
-%div[current_object]
-  %p.login
-    %strong Login
-    = h current_user.login
-  %p.email
-    %strong Email
-    = h current_user.email
+.col_1
+  .boom_box
 
-= link_to 'Edit', edit_user_path(current_user)
+    %div[current_object]
+      %p=large_avatar
+      %h3= h given_name(current_object)
+
+      %p
+        %strong= h given_name(current_object) 
+        -if current_object.author?
+          has
+          %strong=pluralize(current_object.briefs.published.count, 'active brief')
+        -elsif current_object.creative?
+          =(current_user?(current_object) ? "are" : "is") 
+          involved with 
+          %strong=pluralize(current_object.creative_proposals.count, 'pitches')
+    
+      .clear
+    
+      -if current_object == current_user
+        %p.edit= link_to 'Edit', edit_user_path(current_user)
+      

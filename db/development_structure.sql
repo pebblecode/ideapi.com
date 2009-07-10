@@ -1,16 +1,116 @@
-CREATE TABLE "brief_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" text, "body" text, "position" integer, "brief_id" integer, "created_at" datetime, "updated_at" datetime, "template_question_id" integer);
-CREATE TABLE "briefs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author_id" integer, "state" varchar(255), "site_id" integer, "template_brief_id" integer, "most_important_message" text);
-CREATE TABLE "creative_proposals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "short_description" text, "long_description" text, "brief_id" integer, "creative_id" integer, "created_at" datetime, "updated_at" datetime);
-CREATE TABLE "creative_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "author_answer" text, "creative_id" integer, "created_at" datetime, "updated_at" datetime, "brief_id" integer, "brief_item_id" integer);
-CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
-CREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255));
-CREATE TABLE "template_brief_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "template_brief_id" integer, "template_question_id" integer);
-CREATE TABLE "template_briefs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "site_id" integer);
-CREATE TABLE "template_questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "help_message" text, "optional" boolean, "template_section_id" integer);
-CREATE TABLE "template_sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" text, "position" integer);
-CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "type" varchar(255), "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime);
-CREATE TABLE "watched_briefs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "brief_id" integer, "creative_id" integer, "created_at" datetime, "updated_at" datetime);
-CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
+CREATE TABLE `brief_items` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` text,
+  `body` text,
+  `position` int(11) default NULL,
+  `brief_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `template_question_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `briefs` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) default NULL,
+  `author_id` int(11) default NULL,
+  `state` varchar(255) default NULL,
+  `site_id` int(11) default NULL,
+  `template_brief_id` int(11) default NULL,
+  `most_important_message` text,
+  `delta` tinyint(1) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_briefs_on_delta` (`delta`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `creative_proposals` (
+  `id` int(11) NOT NULL auto_increment,
+  `short_description` text,
+  `long_description` text,
+  `brief_id` int(11) default NULL,
+  `creative_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `creative_questions` (
+  `id` int(11) NOT NULL auto_increment,
+  `body` text,
+  `author_answer` text,
+  `brief_id` int(11) default NULL,
+  `creative_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `brief_item_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `schema_migrations` (
+  `version` varchar(255) NOT NULL,
+  UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sites` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `template_brief_questions` (
+  `id` int(11) NOT NULL auto_increment,
+  `template_brief_id` int(11) default NULL,
+  `template_question_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `template_briefs` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) default NULL,
+  `site_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `template_questions` (
+  `id` int(11) NOT NULL auto_increment,
+  `body` text,
+  `help_message` text,
+  `optional` tinyint(1) default NULL,
+  `template_section_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `template_sections` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` text,
+  `position` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL auto_increment,
+  `login` varchar(255) default NULL,
+  `email` varchar(255) default NULL,
+  `crypted_password` varchar(255) default NULL,
+  `password_salt` varchar(255) default NULL,
+  `persistence_token` varchar(255) default NULL,
+  `type` varchar(255) default NULL,
+  `avatar_file_name` varchar(255) default NULL,
+  `avatar_content_type` varchar(255) default NULL,
+  `avatar_file_size` int(11) default NULL,
+  `avatar_updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `watched_briefs` (
+  `id` int(11) NOT NULL auto_increment,
+  `brief_id` int(11) default NULL,
+  `creative_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 INSERT INTO schema_migrations (version) VALUES ('20090526100437');
 
 INSERT INTO schema_migrations (version) VALUES ('20090526100931');
@@ -48,3 +148,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090703105128');
 INSERT INTO schema_migrations (version) VALUES ('20090703132939');
 
 INSERT INTO schema_migrations (version) VALUES ('20090706173356');
+
+INSERT INTO schema_migrations (version) VALUES ('20090708153039');

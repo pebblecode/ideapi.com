@@ -1,5 +1,5 @@
 class CreativeQuestionsController < ApplicationController
-  
+  before_filter :require_user
   helper_method :brief_items, :record_author?
   
   def parent_object

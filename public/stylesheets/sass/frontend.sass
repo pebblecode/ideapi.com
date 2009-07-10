@@ -10,7 +10,7 @@
 
 /*
   General
-  
+
 body
   :font-size 62.5%
   :text-align center
@@ -34,8 +34,9 @@ a:hover
   :text-decoration underline
   
 #container
-  :width 96em
-  :margin 0 auto
+  :width 94em
+  :margin 1em auto
+  :border 10px solid #ddd
   
   #header
     :background #333333
@@ -60,11 +61,12 @@ a:hover
     li
       :margin-left 2em
     
-      a
+      a, span
         :color white
         :font-size 1.5em
         :font-weight bold
         :position relative
+        :padding 0 0.2em 0.2em 0.2em 
 
       a:hover
         :color #ff0060
@@ -75,8 +77,10 @@ a:hover
       a:focus, a:active
         :top 1px
         :color #9f003c
-        
-
+    
+      span.current
+        :border-bottom 4px solid #ff0060
+    
   #content
     :background #fcfcfc
     
@@ -89,13 +93,18 @@ a:hover
       :background #f9f9f9
       :position relative
       :height 4.5em
-      :padding 0.6em 2em
+      :padding 0.8em 2em 0.3em 2em
 
       h2
         :float left
         
       a.button
         :margin-right 0.5em
+        
+      form
+        /:margin-top -10px
+        :float right      
+
   
     .main
       :padding 1em 2em
@@ -147,6 +156,7 @@ a:hover
         :right -18px
         :background url(/images/button/right.png) no-repeat
         
+        
 input, textarea, select
   :border 1px solid #ccc
   :padding 0.2em 0.3em
@@ -176,7 +186,6 @@ span.field_with_errors
   #content
     .col_1
       :width 65em
-    
     
     / briefs_path (dashboard)
     
@@ -222,7 +231,6 @@ span.field_with_errors
           :border 1px solid #ccc
           :background #eee
           
-         
         a:focus, a:active
           :background #eee
           :border 1px solid #ccc
@@ -301,3 +309,36 @@ span.field_with_errors
       :background #f6f6f6
       :margin-top 1em
       :margin-bottom 2em
+      
+  .search_results
+    ul.brief_list
+      li
+        :padding 1em 2em
+        :border-top 1px solid #ddd
+  
+  / USER PROFILE
+  
+  .avatar
+    :border 6px solid #ddd
+  
+  .creative, .author
+    
+    :padding 0 0 1em 0
+    
+    :position relative
+    
+    p.edit
+      :position absolute
+      :top 0
+      :right 1em
+    
+    .avatar
+      :float left
+      :margin-right 1em
+      
+  .hr
+    :border-top 1px solid #bbb
+    :border-bottom 4px solid #eee
+    :margin 4em 0
+    
+    

@@ -1,0 +1,7 @@
+.briefs_search
+  %h3 Looking for a brief?
+  -form_for :briefs, :url => browse_briefs_path, :html => { :method => :get } do |f|
+    %p
+      =text_field_tag 'q', params[:q]
+      =submit_tag 'Search', :name => ""
+    

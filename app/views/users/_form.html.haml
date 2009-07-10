@@ -4,9 +4,18 @@
 %p
   %label{:for => "user_email"} Email:
   = f.text_field :email
+
+.hr
+
 %p
-  %label{:for => "user_password"} Crypted password:
+  %label{:for => "user_avatar"} Email:
+  =f.file_field :avatar
+
+.hr  
+  
+%p
+  %label{:for => "user_password"} Password:
   = f.password_field :password
 %p
-  %label{:for => "user_password_confirmation"} Password salt:
+  %label{:for => "user_password_confirmation"} Password confirmation:
   = f.password_field :password_confirmation

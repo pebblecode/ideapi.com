@@ -21,9 +21,12 @@ class BriefTest < ActiveSupport::TestCase
       @template = populate_template_brief
       @brief = Brief.make(:template_brief => @template)
     end
+    
+    should "not have any brief_items yet" do
+      assert(!@template.template_questions.empty?)
+    end
 
     should "generate number of brief_items in line for each question" do
-      assert(!@template.template_questions.empty?)
       assert_equal(@template.template_questions.count, @brief.brief_items.count)
     end
   end

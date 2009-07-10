@@ -2,8 +2,8 @@
 
 = error_messages_for :user
 
-- form_for(:user, :url => objects_url) do |f|
+- form_for(:user, :url => objects_url, :html => { :multipart => true }) do |f|
   = render :partial => "form", :locals => {:f => f}
   %p
-    = submitter "Create"
+    = submit_tag "Create"
     .clear

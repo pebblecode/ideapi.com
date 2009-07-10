@@ -1,10 +1,10 @@
 ActionController::Routing::Routes.draw do |map|  
-  map.resources :briefs, :member => { :publish => :put, :delete => :get } do |briefs|
+  map.resources :briefs, :collection => { :browse => :get }, :member => { :publish => :put, :delete => :get, :watch => :post } do |briefs|
     briefs.resources :creative_questions, :as => 'questions', :collection => { :hot => :get, :answered => :get }
   end
   
   map.resource :user_session
-  map.resource :account, :controller => "users"
+  map.resource :profile, :controller => "users"
   map.resources :users
   
   # Administration Area

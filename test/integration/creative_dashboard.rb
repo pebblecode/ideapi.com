@@ -7,8 +7,10 @@ class CreativeDashboard < ActionController::IntegrationTest
     setup do
       @creative = Creative.make(:password => "testing")
       login_as(@creative)
-    
+      
       @brief = Brief.make(:published)
+      
+      Brief.stubs(:search).returns([@brief])
     end
     
     context "general" do
@@ -80,15 +82,42 @@ class CreativeDashboard < ActionController::IntegrationTest
     end
     
     context "search and brief categories" do
-      setup do
-        
-      end
 
-      should "description" do
-        
+      context "page layout" do
+        should "have basic search items" do
+          assert_select 'form[action=?]', browse_briefs_path do
+            assert_select 'input[name=?]', "q"
+            assert_select 'input[type=submit][value=?]', "Search"
+          end
+        end
       end
-    end
-    
+      
+      context "searching" do
+        
+        context "search box" do
+          setup do
+            @search_term = @brief.title.split.rand    
+            fill_in 'q', :with => @search_term
+            click_button 'Search'
+          end
+
+          should "foo" do          
+            assert_contains(assigns['search_results'], @brief)
+          end
+        end
+            
+      end
+         
+      
+        # should_assign_to :current_objects
+        # should_respond_with :success
+        # should_render_template :browse
+        
+        # should "display briefs" do
+        #   assert_contain(@brief.title)
+        # end
+      end
+      
   end
 
 end

@@ -10,11 +10,11 @@ jQuery(document).ready(function(){
   });
 
   
-  $('input[type=submit]').each(function () {
-    $(this).wrap('<div class="submit_button"></div>');
-    $(this).parent().prepend('<span class="btn_left"></span>');
-    $(this).parent().append('<span class="btn_right"></span>');
-  });
+  // $('input[type=submit]').each(function () {
+  //   $(this).wrap('<div class="submit_button"></div>');
+  //   $(this).parent().prepend('<span class="btn_left"></span>');
+  //   $(this).parent().append('<span class="btn_right"></span>');
+  // });
   
 	
 	// BRIEF CREATION SECTION
@@ -50,6 +50,7 @@ jQuery(document).ready(function(){
           
       return false;
     });
-    
+        
 });
+
 

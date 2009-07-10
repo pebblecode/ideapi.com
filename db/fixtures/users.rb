@@ -1,6 +1,15 @@
+require 'Faker'
+
 Author.seed(:login, :email) do |s|  
   s.login = "client"   
   s.email = "client@ideapi.net"
+  s.password = "password"
+  s.password_confirmation = "password"   
+end
+
+Author.seed(:login, :email) do |s|  
+  s.login = "random"   
+  s.email = "random@ideapi.net"
   s.password = "password"
   s.password_confirmation = "password"   
 end
@@ -13,6 +22,7 @@ Creative.seed(:login, :email) do |s|
 end
 
 client = Author.find_by_login("client")
+random = Author.find_by_login("random")
 template = TemplateBrief.find_by_title("Default")
 creative = Creative.find_by_login("creative")
 
@@ -24,14 +34,25 @@ if client && creative && template
   
   # puts "\t- stubbling out the answers"
   # print "\t"
-  # to_publish.brief_answers.each do |answer|
-  #   print "."
-  #   answer.update_attribute(:body, "Stubbed answer to #{answer.brief_question.title}")
-  # end
+  to_publish.brief_items.each do |answer|
+    print "."
+    answer.update_attribute(:body, Faker::Lorem.paragraph)
+  end
   # 
 #   
    puts "\n\t- publishing brief"
    to_publish.publish!
+   
+   puts "\n\t- creating random brief"
+   random_brief = random.briefs.create(:title => "Campaign for womens underwear", :template_brief => template, :most_important_message => Faker::Lorem.paragraph)
+   
+   random_brief.brief_items.each do |answer|
+     print "."
+     answer.update_attribute(:body, Faker::Lorem.paragraph)
+   end
+   
+   random_brief.publish!
+   
 #   
 #   # to_publish.brief_answers.first.creative_questions.create(
 #   #    :creative => creative, 

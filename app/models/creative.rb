@@ -16,6 +16,14 @@ class Creative < User
     end
   end
   
+  def toggle_watch!(brief)
+    watching?(brief) ? watching.delete(brief) : watch(brief)
+  end
+  
+  def watching?(brief)
+    watching.include?(brief)
+  end
+  
   def respond_to_brief(brief)
     if brief.published?
       transaction do
@@ -37,5 +45,4 @@ class Creative < User
   
   delegate :under_review, :to => :responded_briefs
   delegate :complete, :to => :responded_briefs
-  
 end

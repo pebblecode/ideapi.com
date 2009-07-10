@@ -96,6 +96,17 @@ class Brief < ActiveRecord::Base
   
   define_index do 
     indexes title, most_important_message
+    indexes brief_items.body, :as => :brief_items_content
+    
+    where "state = 'published'"
+    
+    set_property :delta => true
+  end
+
+  # OWNERSHIP
+  
+  def belongs_to?(user)
+    author == user
   end
 
   private 

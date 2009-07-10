@@ -16,16 +16,16 @@
         %ul.navigation        
           -if logged_in?        
             -if author?
-              %li=link_to 'my briefs', briefs_path
+              %li=link_unless_current 'my briefs', briefs_path
             -elsif creative?
-              %li=link_to 'my pitches', briefs_path
-            %li=link_to 'settings', ''
-            %li=link_to 'profile', ''
+              %li=link_unless_current 'my pitches', briefs_path
+            %li=link_unless_current 'settings', ''
+            %li=link_unless_current 'my account', profile_path
             %li=link_to 'logout', user_session_path, :method => :delete
           -else
             /%li=link_to 'Tour', ''
             /%li=link_to 'Pricing &amp; Signup', ''
-            %li=link_to 'Login', new_user_session_path
+            %li=link_unless_current 'Login', new_user_session_path
       #content
         =yield :title_holder
         =yield :side_bar

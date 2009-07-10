@@ -48,6 +48,7 @@ end
 
 Webrat.configure do |config|
   config.mode = :rails
+  config.open_error_files = false
 end
 
 module BriefPopulator      
@@ -64,15 +65,6 @@ end
 
 module BriefWorkflowHelper
   
-  def login_as(author)
-    visit new_user_session_path  
-    assert_response :success  
-    fill_in "login", :with => author.login
-    fill_in "password", :with => "testing"
-    click_button
-    assert_equal briefs_path, path
-  end
-
   def brief_for(author)
     return Brief.make(:author => author)
   end
@@ -107,3 +99,67 @@ module BriefWorkflowHelper
   end
   
 end
+
+class ActiveSupport::TestCase
+  
+  def login(user)
+    activate_authlogic
+    UserSession.create(user)
+  end
+  
+  def login_as(user)
+    visit new_user_session_path
+    fill_in "login", :with => user.login
+    fill_in "password", :with => "testing"
+    click_button
+  end
+  
+  def self.should_log_in_as(user, password = "testing")
+    
+    context "logging a user in" do
+      setup do
+        @user = instance_eval("@#{user}")
+        visit new_user_session_path
+      end
+      
+      should_respond_with :success
+      
+      context "filling in the login form" do
+        setup do
+          fill_in "login", :with => @user.login
+          fill_in "password", :with => "testing"
+          click_button
+        end
+        
+        should_respond_with :success
+        
+        should "be showing the dashboard if logged in" do
+          assert_equal(briefs_path, path)
+        end
+        
+      end
+    
+    end
+
+  end
+  
+  # http://giantrobots.thoughtbot.com/2008/6/3/testing-paperclip-with-shoulda
+  def self.should_have_attached_file(attachment)
+    klass = self.name.gsub(/Test$/, '').constantize
+
+    context "To support a paperclip attachment named #{attachment}, #{klass}" do
+      should_have_db_column("#{attachment}_file_name",    :type => :string)
+      should_have_db_column("#{attachment}_content_type", :type => :string)
+      should_have_db_column("#{attachment}_file_size",    :type => :integer)
+    end
+
+    should "have a paperclip attachment named ##{attachment}" do
+      assert klass.new.respond_to?(attachment.to_sym), 
+             "@#{klass.name.underscore} doesn't have a paperclip field named #{attachment}"
+      assert_equal Paperclip::Attachment, klass.new.send(attachment.to_sym).class
+    end
+  end
+
+end
+
+

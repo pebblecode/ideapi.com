@@ -1,10 +1,18 @@
 class BriefsController < ApplicationController
-  
+  # needs login for all actions
   before_filter :require_user
-  before_filter :require_author, :except => [:index, :show]
-  before_filter :require_author_if_draft, :except => [:index]
-  before_filter :require_owner, :only => [:edit, :update]
   
+  # filters for author
+  before_filter :require_author, :except => [:index, :show, :browse, :watch]
+  before_filter :require_author_if_not_published, :only => [:show]
+  
+  # filters for record owners
+  before_filter :require_owner, :only => [:edit, :update, :destroy]
+  
+  # filters for creatives
+  before_filter :require_creative, :only => [:watch]
+  
+  # get the brief items (depending on brief state)
   helper_method :current_brief_items
   
   def current_objects
@@ -22,11 +30,13 @@ class BriefsController < ApplicationController
     
     response_for(:index) do |format|
       # display a different view depending on the user type
-      format.html { render :action => choose_user_action }
+      format.html { render :action => user_action }
     end
     
-    response_for(:show) do |format|
-      format.html { render :action => choose_user_action }
+    response_for(:show) do |format|        
+      format.html { 
+        render :action => user_action
+      }
     end
   end
   
@@ -34,6 +44,24 @@ class BriefsController < ApplicationController
     current_object.publish!
     respond_to do |format|
       format.html { redirect_to brief_path(current_object) }
+    end
+  end
+  
+  def browse
+    @search_results = Brief.search(params[:q])
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def watch
+    # this should be guarded by the filer but just incase
+    if creative?      
+      current_user.toggle_watch!(current_object)
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to object_path }
     end
   end
   
@@ -61,41 +89,30 @@ class BriefsController < ApplicationController
   end
   
   def require_owner
-    record_author?
+    redirect_to briefs_path and return if !record_author?
   end
   
-  def require_author_if_draft
-    if current_object && current_object.draft?
-      redirect_to briefs_path if !record_author?
-    else
-      true
-    end
+  def require_author_if_not_published
+    redirect_to briefs_path and return if (!record_author? && !current_object.published?)
   end
 
   def record_author?
-    if current_object && current_object.respond_to?(:author)
-      current_object.author == current_user 
-    else
-      false
-    end
-  end
-
-  def choose_user_action(action = nil)
-    action = action_name if action.nil?
-    user_action_name(action)
+    current_object.belongs_to?(current_user)
   end
   
-  def user_action_name(action)
-    type = user_type
+  def user_action(action = action_name)
+    @user_action_name ||= (
+      type = user_type
         
-    # are we looking at a record?
-    if action_name != "index"
-      # dont render 'author' template to authors who don't own records
-      type = (user_type == "author" && !record_author?) ? "creative" : user_type
-    end
+      # are we looking at a record?
+      if action_name != "index"
+        # dont render 'author' template to authors who don't own records      
+        type = "creative" if (type == "author" && !record_author?)
+      end
     
-    # join the action with the type => ie index_creative
-    [action, type].join("_")
+      # join the action with the type => ie index_creative
+      [action, type].join("_")
+    )
   end
 
 end

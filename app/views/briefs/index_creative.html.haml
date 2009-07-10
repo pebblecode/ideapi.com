@@ -2,10 +2,9 @@
   %h2 Dashboard
 
 #dashboard.col_1
-  / .briefs_search
-  /   %h3 Search
-  /   =text_field 'q', ''
-
+  .boom_box
+    = render :partial => "search_form"
+    
   .required_actions
     %h3 Activity Snapshot  
     %ul.action_list

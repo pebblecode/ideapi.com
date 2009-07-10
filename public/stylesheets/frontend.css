@@ -27,8 +27,9 @@ a:hover {
   text-decoration: underline; }
 
 #container {
-  width: 96em;
-  margin: 0 auto; }
+  width: 94em;
+  margin: 1em auto;
+  border: 10px solid #ddd; }
   #container #header {
     background: #333333;
     height: 8.4em;
@@ -47,11 +48,12 @@ a:hover {
     float: right; }
     #container ul.navigation li {
       margin-left: 2em; }
-      #container ul.navigation li a {
+      #container ul.navigation li a, #container ul.navigation li span {
         color: white;
         font-size: 1.5em;
         font-weight: bold;
-        position: relative; }
+        position: relative;
+        padding: 0 0.2em 0.2em 0.2em; }
       #container ul.navigation li a:hover {
         color: #ff0060;
         font-size: 1.5em;
@@ -60,6 +62,8 @@ a:hover {
       #container ul.navigation li a:focus, #container ul.navigation li a:active {
         top: 1px;
         color: #9f003c; }
+      #container ul.navigation li span.current {
+        border-bottom: 4px solid #ff0060; }
   #container #content {
     background: #fcfcfc; }
     #container #content p {
@@ -70,11 +74,13 @@ a:hover {
       background: #f9f9f9;
       position: relative;
       height: 4.5em;
-      padding: 0.6em 2em; }
+      padding: 0.8em 2em 0.3em 2em; }
       #container #content .title_holder h2 {
         float: left; }
       #container #content .title_holder a.button {
         margin-right: 0.5em; }
+      #container #content .title_holder form {
+        float: right; }
     #container #content .main {
       padding: 1em 2em;
       border-bottom: 2px solid #ddd; }
@@ -230,3 +236,22 @@ span.field_with_errors input {
   background: #f6f6f6;
   margin-top: 1em;
   margin-bottom: 2em; }
+#container .search_results ul.brief_list li {
+  padding: 1em 2em;
+  border-top: 1px solid #ddd; }
+#container .avatar {
+  border: 6px solid #ddd; }
+#container .creative, #container .author {
+  padding: 0 0 1em 0;
+  position: relative; }
+  #container .creative p.edit,   #container .author p.edit {
+    position: absolute;
+    top: 0;
+    right: 1em; }
+  #container .creative .avatar,   #container .author .avatar {
+    float: left;
+    margin-right: 1em; }
+#container .hr {
+  border-top: 1px solid #bbb;
+  border-bottom: 4px solid #eee;
+  margin: 4em 0; }

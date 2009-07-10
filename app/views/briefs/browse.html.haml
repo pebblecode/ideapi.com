@@ -1,0 +1,12 @@
+=title_holder do
+  %h2 Search results
+  =link_to 'dashboard', briefs_path, :class => "button"
+
+.col_1
+  = render :partial => "search_form"
+
+  .search_results
+    %h3 Your search results
+    
+    %ul.brief_list
+      = render :partial => "search_result", :collection => @search_results

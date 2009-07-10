@@ -1,5 +1,12 @@
 =title_holder do
   %h2=current_object.title
+  
+  -if creative?
+    -form_for current_object, :url => watch_brief_path(current_object), :html => { :method => :post } do |f|
+      -if current_user.watching?(current_object)
+        =f.submit 'stop watching'
+      -else
+        =f.submit 'watch'
     
 %p.most_important_thing=current_object.most_important_message
 
