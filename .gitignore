@@ -10,3 +10,4 @@ public/config.xml
 coverage/*
 coverage.data
 db/sphinx/**/*
+config/*.sphinx.conf
