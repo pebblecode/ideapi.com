@@ -1,5 +1,3 @@
-require 'Faker'
-
 Author.seed(:login, :email) do |s|  
   s.login = "client"   
   s.email = "client@ideapi.net"
