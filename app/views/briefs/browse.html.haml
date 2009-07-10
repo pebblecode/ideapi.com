@@ -3,10 +3,17 @@
   =link_to 'dashboard', briefs_path, :class => "button"
 
 .col_1
-  = render :partial => "search_form"
-
+  
   .search_results
-    %h3 Your search results
     
-    %ul.brief_list
+    -if @search_results.empty?
+      %h3 Your search returned no results
+    -else
+      %h3 Your search results
+      %ul.brief_list
       = render :partial => "search_result", :collection => @search_results
+      
+    .hr
+    %h3 Search again?
+    = render :partial => "search_form"
+      

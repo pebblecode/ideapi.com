@@ -29,6 +29,7 @@ Rails::Initializer.run do |config|
   config.gem "faker"
   config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
   config.gem "notahat-machinist", :lib => "machinist", :source => "http://gems.github.com"
+  config.gem "webrat"
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

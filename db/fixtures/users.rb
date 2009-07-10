@@ -42,7 +42,7 @@ if client && creative && template
    to_publish.publish!
    
    puts "\n\t- creating random brief"
-   random_brief = random.briefs.create(:title => "Campaign for womens underwear", :template_brief => template, :most_important_message => Faker::Lorem.paragraph)
+   random_brief = random.briefs.create(:title => "This is a random brief from someone else", :template_brief => template, :most_important_message => Faker::Lorem.paragraph)
    
    random_brief.brief_items.each do |answer|
      print "."
