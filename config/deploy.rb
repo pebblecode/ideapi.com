@@ -44,4 +44,9 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}/#{shared_dir}/db/development.sqlite3 #{release_path}/db/development.sqlite3"
   end
   
+  desc "Rebuild the db and setup sample data for ideapi"
+  task :bootstrap do
+    send(run_method, "cd #{current_path} && rake ideapi:bootstrap RAILS_ENV=#{stage} ")
+  end
+  
 end
