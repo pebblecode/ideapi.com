@@ -243,11 +243,13 @@ span.field_with_errors input {
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid #eee;
+    border: 1px solid #ccc;
     background: #ddd;
     padding: 0.5em 1em 0.5em 1em;
     margin: 0;
-    line-height: 0.5em; }
+    line-height: 0.5em;
+    width: 4.3em;
+    text-align: center; }
 #container .search_results ul.brief_list li {
   padding: 1em 2em;
   border-top: 1px solid #ddd; }

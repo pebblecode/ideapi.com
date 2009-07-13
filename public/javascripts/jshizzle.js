@@ -58,7 +58,7 @@ jQuery(document).ready(function(){
   $('.brief_item_section').addClass('brief_item_section_tabbed');
   
   $('.brief_item_section_tabbed h3').each(function (i) {
-    $(this).css('left', ((i * 130)) + "px");
+    $(this).css('left', ((i * 136.5)) + "px");
   }).click(function () {
     $(this).siblings('ul').show();
     $(this).parent().siblings().find('ul').hide();
