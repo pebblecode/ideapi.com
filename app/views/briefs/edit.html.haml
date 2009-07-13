@@ -31,7 +31,7 @@
             
               %li[brief_item]{:class => (brief_item.optional ? "optional_brief_item" : "")}
                 =hidden_field_tag "brief[brief_items_attributes][#{brief_item.id}][id]", brief_item.id
-                %p=text_field_tag "brief[brief_items_attributes][#{brief_item.id}][title]", brief_item.title
+                %p=brief_item.title
                 %p=text_area_tag "brief[brief_items_attributes][#{brief_item.id}][body]", brief_item.body
                 -if !brief_item.help_message.blank?
                   %p.help_message
