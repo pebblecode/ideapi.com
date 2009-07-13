@@ -12,7 +12,8 @@
     #container
       #header
         %h1
-          =link_to "Ideapi", "/"      
+          =link_to "ideapi", "/"
+        =yield :what_user_is_doing
         %ul.navigation        
           -if logged_in?        
             -if author?

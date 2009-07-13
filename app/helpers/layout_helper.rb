@@ -8,6 +8,14 @@ module LayoutHelper
     capture_content_from_haml :title_holder, &block
   end
   
+  def what_user_is_doing(&block)
+    capture_content_from_haml :what_user_is_doing, &block
+  end
+  
+  def sub_nav(primary_links = {}, secondary_links = {})
+    
+  end
+  
   def tab_link(text, link)
     link_unless_current(text, link)
   end

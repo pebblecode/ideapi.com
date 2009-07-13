@@ -1,27 +1,33 @@
-=title_holder do
-  %h2
-    Editing -
-    =current_object.title
+=what_user_is_doing do
+  %h3
+    \- you are editing
+    =link_to current_object.title.downcase, object_path
 
-  =link_to 'back to brief', brief_path(current_object), :class => "button"
+=title_holder do
+  %p Write
+  
+%ul.sub_nav
+  %li=link_to 'edit brief details', ''
+  %li=link_to 'preview document', ''
+  %li{:class => "secondary"}=link_to 'help me!', ''
+  %li{:class => "secondary"}=link_to 'delete brief', ''
 
 #edit_brief.col_1
   
+  %h3 
+    Brief Document
+    %span - this is the heart of your proposal, answer as thoroughly as possible
+  
   = error_messages_for :brief
+  
+  %p.note Your document is divided into sections your convience when writing the proposal, once published the document will be displayed as a whole document. Only items that you fill out will be included in the document, so feel free to only fill in what is approriate - however the more detail you provide at this stage the better your responses will be from our creative community.
   
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
     #brief_details.brief_details
       %h3 Brief details
       = render :partial => "form", :locals => {:f => brief_form}
       %p=brief_form.submit 'Update'
-  
-    %h3 Brief Document
-    
-    -if current_object.draft?
-      .note
-        %p Before publishing this document you can alter the <strong>wording of the title</strong> of each document item. 
-        %p <strong>Once published you will only be able to update the body</strong> of each item in response to a question from the community. A full audit trail of your amendments will be visible to creative's, so they can see the evolution of the document.    
-  
+
     .brief_items_by_section
       - current_object.brief_items_grouped_by_section.each do |section_name, brief_items|
         .brief_item_section
@@ -37,20 +43,10 @@
                   %p.help_message
                     %strong Example:
                     = brief_item.help_message
-        
-            %li
-              %p= current_object.draft? ? brief_form.submit('Save and continue editing') : brief_form.submit('Update and continue editing')
               
-      /if display different submit buttons depending on state
-      %p=current_object.draft? ? brief_form.submit('Save draft') : brief_form.submit('Update')
+      %p= current_object.draft? ? brief_form.submit('Save and continue editing') : brief_form.submit('Update and continue editing')
 
   / only present the publish button to draft documents
   -if current_object.draft?
     - form_for(current_object, :url => publish_brief_path(current_object), :html => { :method => :put }) do |brief_form|
       %p=brief_form.submit 'Publish'
-
-  %p
-    -if current_object.draft?
-      = link_to 'delete', delete_brief_path(current_object)
-      |
-  = link_to 'cancel', object_path
