@@ -4,7 +4,19 @@
     =link_to current_object.title.downcase, object_path
 
 =title_holder do
-  %p Write
+  %ul.brief_timeline
+    %li
+      %span.selected Write
+    %li 
+      %span Publish
+    %li 
+      %span Discuss
+    %li 
+      %span Peer Review
+    %li 
+      %span Present
+    %li 
+      %span Complete
   
 %ul.sub_nav
   %li=link_to 'edit brief details', ''
@@ -14,13 +26,13 @@
 
 #edit_brief.col_1
   
-  %h3 
+  %h3.brief_document
     Brief Document
     %span - this is the heart of your proposal, answer as thoroughly as possible
   
   = error_messages_for :brief
   
-  %p.note Your document is divided into sections your convience when writing the proposal, once published the document will be displayed as a whole document. Only items that you fill out will be included in the document, so feel free to only fill in what is approriate - however the more detail you provide at this stage the better your responses will be from our creative community.
+  %p.note Your document is divided into sections your convenience when writing the proposal, once published the document will be displayed as a whole document. Only items that you fill out will be included in the document, so feel free to only fill in what is appropriate - however the more detail you provide at this stage the better your responses will be from our creative community.
   
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
     #brief_details.brief_details
@@ -44,9 +56,11 @@
                     %strong Example:
                     = brief_item.help_message
               
-      %p= current_object.draft? ? brief_form.submit('Save and continue editing') : brief_form.submit('Update and continue editing')
+      %p.submit.left= current_object.draft? ? brief_form.submit('Save and continue editing') : brief_form.submit('Update and continue editing')
 
   / only present the publish button to draft documents
   -if current_object.draft?
     - form_for(current_object, :url => publish_brief_path(current_object), :html => { :method => :put }) do |brief_form|
-      %p=brief_form.submit 'Publish'
+      %p.submit=brief_form.submit 'Publish'
+      
+  .clear

@@ -36,7 +36,7 @@ jQuery(document).ready(function(){
   
   $('.brief_item').each(function() {
     if (!$(this).hasClass('optional_brief_item') && $($(this).nextAll('.brief_item')[0]).hasClass('optional_brief_item')) {         
-      $(this).append('<a href="#" class="show_question_details">click here to add detail</a>');
+      $(this).append('<p><a href="#" class="show_question_details">click here to add detail</a></p>');
       $(this).append('<div class="clear"></div>');
     };
   });
@@ -44,8 +44,7 @@ jQuery(document).ready(function(){
   $('.brief_item a.show_question_details').click(function(){
       ($(this).text() == 'click here to add detail') ? $(this).text('hide details') : $(this).text('click here to add detail');
       
-      
-      var hidden = $(this).parent().nextAll('.brief_item');
+      var hidden = $(this).parent().parent().nextAll('.brief_item');
       
       for (var i=0; i < hidden.length; i++) {
         $(hidden[i]).fadeToggle();
@@ -58,12 +57,16 @@ jQuery(document).ready(function(){
   $('.brief_item_section').addClass('brief_item_section_tabbed');
   
   $('.brief_item_section_tabbed h3').each(function (i) {
-    $(this).css('left', ((i * 136.5)) + "px");
+    $(this).css('left', ((i * 136)) + "px");
   }).click(function () {
     $(this).siblings('ul').show();
     $(this).parent().siblings().find('ul').hide();
+    $(this).parent().siblings().find('h3').removeClass('selected');
+    $(this).addClass('selected');
   }).next().hide();
   
+  $('.brief_item_section_tabbed h3:first').addClass('selected');
+  $('.brief_item_section_tabbed h3:last').css('border-right','1px solid #ccc');
   $('.brief_item_section_tabbed ul:first').show();
   
   // BRIEF EDIT
@@ -73,6 +76,11 @@ jQuery(document).ready(function(){
   
   $('.note').append(' <a href="#" class="hide_message">hide this message</a>');
   $(' .note a.hide_message').click(function () { $(this).parent().fadeOut(); return false; });
+  
+  $(".brief_timeline li span").corners();  
+  
+  $('p.submit').corners();
+
 });
 
 
