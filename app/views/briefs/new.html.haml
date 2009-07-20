@@ -1,10 +1,12 @@
-=title_holder do
+.col_1
+  
   %h2 Create new brief
   
-= error_messages_for :brief
+  .boom_box
+    = error_messages_for :brief
 
-- form_for(:brief, :url => objects_url) do |f|
-  = render :partial => "form", :locals => {:f => f}
-  %p
-    = submit_tag "Create"
-    .clear
+    - form_for(:brief, :url => objects_url) do |f|
+      = render :partial => "form", :locals => {:f => f}
+      %p.submit
+        = submit_tag "Create"
+        .clear
