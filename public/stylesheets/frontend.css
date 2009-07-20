@@ -163,6 +163,8 @@ span.field_with_errors input {
   #container #content .col_1 .sub_nav {
     border: 1px solid #ccc;
     border-top: 0; }
+  #container #content .col_1 h2 {
+    padding-top: 0.5em; }
 #container #content #dashboard {
   padding-top: 2em; }
   #container #content #dashboard .brief_overviews {

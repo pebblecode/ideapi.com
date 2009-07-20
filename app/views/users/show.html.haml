@@ -1,7 +1,7 @@
-=title_holder do
-  %h2 My Account
-
 .col_1
+  
+  %h2 My Account
+  
   .boom_box
 
     %div[current_object]
@@ -11,7 +11,7 @@
       %p
         %strong= h given_name(current_object) 
         -if current_object.author?
-          has
+          =(current_user?(current_object) ? "have" : "has") 
           %strong=pluralize(current_object.briefs.published.count, 'active brief')
         -elsif current_object.creative?
           =(current_user?(current_object) ? "are" : "is") 
