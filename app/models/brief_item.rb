@@ -12,4 +12,8 @@ class BriefItem < ActiveRecord::Base
   
   named_scope :answered, :conditions => 'body <> ""'
   
+  def has_history?
+    !creative_questions.answered.blank?
+  end
+  
 end

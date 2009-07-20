@@ -1,12 +1,15 @@
 class CreativeQuestionsController < ApplicationController
   before_filter :require_user
   helper_method :brief_items, :record_author?
-  
-  def parent_object
-    @parent_object ||= parent_model.nil? ? nil : parent_model.find(params["#{parent_name}_id"], :include => :brief_items)
+
+  def current_objects
+    reset_filter(params[:q])
+    @current_objects ||= parent_object.creative_questions.send(@current_filter)
   end
   
   make_resourceful do
+    
+    belongs_to :brief
     
     before :create do
       current_object.creative = current_user
@@ -24,14 +27,6 @@ class CreativeQuestionsController < ApplicationController
     actions :all
   end
   
-  def hot
-    render :action => :index
-  end
-  
-  def answered
-    render :action => :index    
-  end
-  
   private
   
   def brief_items
@@ -40,6 +35,11 @@ class CreativeQuestionsController < ApplicationController
   
   def record_author?
     parent_object.author == current_user
+  end
+  
+  def reset_filter(question_filter)
+    @current_objects = nil if @current_filter != question_filter
+    @current_filter = question_filter || "recent"
   end
   
 end

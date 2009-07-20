@@ -3,8 +3,9 @@ class CreativeQuestion < ActiveRecord::Base
   belongs_to :brief
   belongs_to :brief_item
 
-  named_scope :hot, :order => "updated_at DESC"
+  named_scope :recent, :order => "updated_at DESC"
   named_scope :answered, :conditions => ["author_answer != ?", ""], :order => "updated_at DESC"
+  named_scope :unanswered, :conditions => ["author_answer IS NULL"], :order => "created_at DESC"
   
   validates_presence_of :brief_item_id, :brief_item, :creative_id
   

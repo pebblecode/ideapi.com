@@ -59,7 +59,7 @@ class BriefsController < ApplicationController
   end
   
   def watch
-    # this should be guarded by the filer but just incase
+    # this should be guarded by the filter but just incase
     if creative?      
       current_user.toggle_watch!(current_object)
     end

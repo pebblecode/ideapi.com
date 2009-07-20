@@ -16,12 +16,13 @@ module LayoutHelper
     
   end
   
-  def tab_link(text, link)
-    link_unless_current(text, link)
+  def tab_link(text, link, options = {})
+    link_unless_current(text, link, options)
   end
   
-  def link_unless_current(text, link)
-    link_to_unless_current(text, link) {|link| content_tag 'span', link, :class => 'current'}
+  def link_unless_current(text, link, options = {})
+    options.reverse_merge!({:class => 'current'})
+    link_to_unless_current(text, link, options) {|link| content_tag 'span', link, options}
   end
   
   private

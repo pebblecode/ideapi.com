@@ -1,4 +1,4 @@
-%div[brief_item]
+%div[brief_item]{:class => (brief_item.has_history? ? "extended" : "")}
   %h3=brief_item.title
   %p.body
     -if brief_item.body.blank? && draft
@@ -6,18 +6,6 @@
     -else
       =brief_item.body
       
-  %ul.brief_item_history
-    -brief_item.creative_questions.answered.each do |question|
-      %li[question]
-        %p.question_body
-          =avatar(:small)
-          %strong="#{comment_adjective_for given_name(question.creative), :position => :before}:"
-          =question.body
-          .clear
-        %p.author_answer
-          =avatar(:medium)
-          %strong
-            =given_name(question.brief.author)
-            answered:
-          = question.author_answer
-          .clear
+  -if brief_item.has_history?      
+    %ul.brief_item_history
+      =render :partial => 'creative_questions/question', :collection => brief_item.creative_questions.answered

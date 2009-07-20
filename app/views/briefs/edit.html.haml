@@ -1,7 +1,7 @@
 =what_user_is_doing do
   %h3
     \- you are editing
-    =link_to current_object.title.downcase, object_path
+    =link_to truncate(current_object.title.downcase, 30), object_path
 
 =title_holder do
   %ul.brief_timeline
@@ -17,7 +17,7 @@
       %span Present
     %li 
       %span Complete
-  
+
 %ul.sub_nav
   %li=link_to 'edit brief details', ''
   %li=link_to 'preview document', ''

@@ -165,7 +165,7 @@ a:hover
         :display inline
         :margin-right 2em
         
-        a
+        a, span
           :font-size 1.2em
           :font-weight bold
           
@@ -210,21 +210,96 @@ span.field_with_errors
   
     .col_1
       :width 65em
-      :padding 1.5em 2em
+      :padding 0 2em
+      
+      .sub_nav
+        :border 1px solid #ccc
+        :border-top 0
     
     / briefs_path (dashboard)
     
+    #dashboard
+      :padding-top 2em
+    
+      .brief_overviews
+        :margin-top 4em
+        :border-top 1px solid #ccc
+        
+        h2
+          :padding 0
+          :font-size 1.1em
+          :font-weight normal
+          :text-transform uppercase
+          :text-align center
+          :margin -0.8em auto 1.5em auto
+          :background white
+          :width 7.5em
+          :color #454545
+          
+          
     .required_actions
+      :border 1px solid #ccc
+      
+      h3
+        :font-size 1.7em
+        :color #f9f9f9
+        :background #21286c
+        :margin 0
+        :padding 0.2em 0.5em
+        :font-weight 100
+        :border-bottom 1px solid #ccc
+    
       ul
-        :padding 1em 1em
-        :background #ffffe0
-        :border 1px solid #ffffbe
-        :margin 1em
+          
+        li
+          :background #f2f2f2
+          :padding 0.5em 1em
+    
+          p
+            :margin 0
+            :padding 0
     
     .brief_overview
-      :padding 1em 0
+      :margin 0 0 2em 0
+      :padding 0
+      :border 1px solid #ccc
+      
+      h3
+        :font-size 1.7em
+        :color #f9f9f9
+        :background #21286c
+        :margin 0
+        :padding 0.2em 0.5em
+        :font-weight 100
+        :border-bottom 1px solid #ccc
+    
       ul
-        :padding 1em
+    
+        li
+          :background #f2f2f2
+          :padding 0.5em 1em
+          
+    
+          p
+            :margin 0
+            :padding 0
+            
+      .brief
+        :border none
+        :margin 0
+        
+    .brief_overview.published
+      
+      h3
+        :background #29c6cb
+        :color #333333
+        
+    .brief_overview.draft
+      
+      h3
+        :background #ddd
+        :color #333
+        
     
     / brief_path
 
@@ -232,46 +307,55 @@ span.field_with_errors
       :font-size 2.2em
       :font-weight bold
       :color #454545
-      :padding 1em 2em
+      :padding 0.5em 1em
       :background #ffffe0
-      :border 4px solid #ffffbe
+      :border 4px solid #dddddd
+      :margin 1em 
 
     ul.tabbed_links
-      :background #f9f9f9
+      :background #fffffe
       :border 1px solid #ccc
-      :padding 1em 1em
-      :margin-bottom 2em
+      :padding 0.5em 0
+      :height 22px
     
       li
-        :display inline
-        :padding 0 0.5em
+        :float left
         
         a, span
           :font-size 1.3em
           :text-transform uppercase
-          :padding 0.5em 1em 0.5em 1em
-          :border 1px solid #f9f9f9
+          :padding 0.6em 2em
+          :background #eeeeee
+          :border 1px solid #ccc
+          :border-left 0
+          :font-weight normal
+          :color #666
+          
+        span.current, a:hover
+          :border 1px solid #21286c
+          :border-left 0
+          :background #21286c
+          :color white
         
-        span.current
-          :border 1px solid #ccc
-          :background #eee
-          
-        a:focus, a:active
-          :background #eee
-          :border 1px solid #ccc
-          
-
+        a:hover
+          :background-color rgba(33, 40, 108, .9)
+        
+        
     .brief
       :background #fffffe
-      :padding 1em 2em
-      :border 1px solid #f2f2f2    
-      :border-right 2px solid #eee
-      :border-bottom 4px solid #ddd
-
+      :margin-bottom 2em
+      :border 1px solid #ccc
+      :border-top 0
+      
       .brief_item
-        :padding-bottom 2em
-        :margin-bottom 1em
+        :padding 1em 2em
         :border-bottom 1px solid #eee
+        
+      .brief_item:hover
+        :background #ffffdf
+        
+      .brief_item.extended:hover
+        :background transparent
         
     /edit brief
       
@@ -401,50 +485,82 @@ span.field_with_errors
   
   .question_list, .brief_item_history
     
+    li
+      :padding 0.5em 1em 0 1em
+    
     .creative_question
-      :border 1px solid #ccc
-      :background #eee
-      :margin-bottom 0.5em
-      :padding 0
-  
-      p.question_body
-        :padding 0.5em 1em
-        
+      :margin-bottom 1em
+      :padding 0 2em
+      
+      .question_body, .author_answer   
+        .speech
+          :background #e9e9e8
+          :padding 1em 1em
+          :margin 0
+          :width 34em
+          :display block
+          :position relative
+          
+      .question_body
+        .speech
+          :margin-left 5em
+          
+          span.bubble
+            :background url(/images/speech.png)
+            :width 7px
+            :height 16px
+            :display block
+            :position absolute
+            :left -7px
+            :top 40%
+                                  
         img
           :float left
-          :margin-right 1em
-          
-      .question_actions
-        :border-top 1px solid #ddd
-        :text-align right
-        :background #fefefe
+          :margin-top 0.3em
         
-        li
-          :border-left 1px solid #ccc
-          :background #454545
-          :width 10em
-          :padding 0.5em 1em
-          :float right
-          
-          p
-            :color white
-            :padding 0
-            :margin 0
-            :text-align center
-            
-      .author_answer
-        :margin 0
-        :padding 1em
-        :background #eee
-        :border-top 1px solid #ccc
-  
-  .brief_item_history    
-    .creative_question
-      .author_answer
+      .author_answer      
+        :padding 0.5em 0 1em 1.5em
+        
         img
           :float right
-          :margin-right 1em
-
+          
+        .speech
+          :margin-left 1.5em
+          :width 42em
+          :margin-bottom 1em
+          :padding 0.5em 1em 0.1em 1em
+          
+          p
+            :padding 0 0.5em
+          
+          textarea
+            :width 41em
+            
+          span.bubble
+            :background transparent url(/images/speech.png) 8px 0
+            :width 8px
+            :height 16px
+            :display block
+            :position absolute
+            :top 40%
+            :right -8px
+        
+        p.submit
+          :margin-right 6em
+            
+  .brief_item_history
+    :margin-top 3em
+    :border-top 1px solid #eee
+    :padding-top 1em
+    
+  .question_list
+    :border 1px solid #ccc
+    :border-top 0
+    :margin-bottom 2em
+    
+    .creative_question
+      :padding 1em 4em
+      :border-bottom 1px solid #eee
   
   #content
     #question_filter

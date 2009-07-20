@@ -1,10 +1,9 @@
-=title_holder do
-  %h2 Dashboard
-  =link_to 'Create Brief', new_brief_path, :class => "button"
-
+%ul.sub_nav
+  %li=link_to 'create brief', new_brief_path
+  
 #dashboard.col_1
   .required_actions
-    %h3 Activity Snapshot  
+    %h3 Recent activity
     %ul.action_list
       -if current_objects.empty?
         %li 
@@ -14,12 +13,15 @@
           %p Coming soon to an Ideapi near you ..
   
   .brief_overviews
+    
+    %h2 Your briefs
+  
     -if current_objects.empty?
       %p You don't have any briefs yet.
     -else  
       -%w(published draft).each do |state|
         -if !send(state).empty?
-          .brief_overview
-            %h4="#{state.capitalize} briefs"
-            %ul{:class => state}
+          .brief_overview{:class => state}
+            %h3="#{state.capitalize} briefs"
+            %ul
               =render :partial => 'brief', :collection => send(state)

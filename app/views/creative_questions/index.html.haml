@@ -1,64 +1,40 @@
-=title_holder do
-  %h2="Questions for #{parent_object.title}"
-  
-  -if creative?
-    =link_to 'Ask a question', new_brief_creative_question_path(parent_object), :class => "button"
+=what_user_is_doing do
+  %h3
+    \- you are discussing
+    =link_to truncate(parent_object.title.downcase, 30), brief_path(parent_object)
     
+=title_holder do
+  %ul.brief_timeline
+    %li
+      %span.selected Write
+    %li 
+      %span Publish
+    %li 
+      %span Discuss
+    %li 
+      %span Peer Review
+    %li 
+      %span Present
+    %li 
+      %span Complete
+
 %p.most_important_thing=parent_object.most_important_message
 
 .col_1
+
   %ul.tabbed_links
-    %li=tab_link 'Overview', brief_path(parent_object)
-    %li=tab_link 'Questions', brief_creative_questions_path(parent_object)
+    %li=tab_link 'Brief document', brief_path(parent_object)
+    %li=tab_link 'Brief discussion', brief_creative_questions_path(parent_object)
 
-  -if creative?
-    .boom_box        
-      .ask_question       
-        %h3 Ask a question
-        - form_for(:creative_question, :url => brief_creative_questions_path(parent_object)) do |f|
-          = render :partial => "form", :locals => {:f => f}          
-
-  %ul#question_filter.tabbed_links
-    %li=tab_link 'Recent', brief_creative_questions_path(parent_object)
-    %li=tab_link 'Hot', hot_brief_creative_questions_path(parent_object)  
-    %li=tab_link 'Answered', answered_brief_creative_questions_path(parent_object)  
-
+  %ul.sub_nav
+    %li=tab_link 'Recent', brief_creative_questions_path(parent_object, :q => 'recent')
+    %li=tab_link 'Answered', brief_creative_questions_path(parent_object, :q => 'answered')
+    %li=tab_link 'Unanswered', brief_creative_questions_path(parent_object, :q => 'unanswered')
+      
   %ul.question_list
     -if current_objects.empty?
       %li
-        %p No-one has asked a question yet
+        %p 
+          No questions found
     -else
-      -current_objects.each do |question|
-        %li[question]
-          %p.question_body
-            =avatar(:medium)
-            %strong="#{comment_adjective_for given_name(question.creative), :position => :before}:"
-            =question.body
-            .clear
-          %ul.question_actions
-            %li
-              -if question.answered?
-                %p Answer
-              -else
-                -if record_author?
-                  %p Write answer
-                -else
-                  %p Not answered
-            .clear
-          -if question.answered?
-            %p.author_answer
-              =avatar(:medium)
-              %strong
-                =given_name(question.brief.author)
-                answered:
-              = question.author_answer
-              .clear
-          -else
-            - if record_author? 
-              .author_answer    
-              
-                %h4 Answer creative's question          
-                -form_for(question, :url => brief_creative_question_path(parent_object, question), :method => :put) do |f|
-                  %p=f.text_area :author_answer, :rows => 5, :cols => 80
-                  %p.submit=f.submit "submit answer"
-             
+      =render :partial => 'question', :collection => current_objects
