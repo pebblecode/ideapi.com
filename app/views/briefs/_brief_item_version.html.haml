@@ -1,0 +1,10 @@
+%li.revision
+  %h5
+    Revision 
+    =brief_item_version.version
+  %p.updated_at
+    =time_ago_in_words(brief_item_version.updated_at) 
+    ago
+  %p.changes
+    %strong changed from:
+    =brief_item_version.body

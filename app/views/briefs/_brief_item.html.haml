@@ -1,5 +1,15 @@
 %div[brief_item]{:class => (brief_item.has_history? ? "extended" : "")}
-  %h3=brief_item.title
+  %h3
+    =brief_item.title
+    -if brief_item.has_history?
+      %span.current_revision
+        %span.revision
+          Revision
+          =brief_item.version
+        %span.updated_at
+          updated
+          =time_ago_in_words(brief_item.updated_at) 
+          ago
   %p.body
     -if brief_item.body.blank? && draft
       ="You have yet to #{link_to 'answer', edit_brief_path(current_object)}, the question would disappear if published."
@@ -8,4 +18,8 @@
       
   -if brief_item.has_history?      
     %ul.brief_item_history
-      =render :partial => 'creative_questions/question', :collection => brief_item.creative_questions.answered
+      -brief_item.history.each do |history_item|
+        -if history_item.is_a?(CreativeQuestion)
+          =render :partial => 'creative_questions/question', :object => history_item
+        -else
+          =render :partial => 'brief_item_version', :object => history_item

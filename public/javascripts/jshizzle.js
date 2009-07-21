@@ -82,6 +82,16 @@ jQuery(document).ready(function(){
     $('p.submit').corners();
     
     $('.speech').append('<span class="bubble" />').corners();
+    
+    $('.revision h5').corners();
+    
+    $('.revision h5').click(function () {
+      $(this).siblings('p.changes').toggle();
+    }).siblings('p.changes').toggle();
+
+    $('.current_revision span.revision').click(function () {
+      $(this).parent().parent().parent().find('.brief_item_history').toggle();
+    }).corners(); 
 
 });
 
