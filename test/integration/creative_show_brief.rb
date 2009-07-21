@@ -18,7 +18,6 @@ class CreativeShowBrief < ActionController::IntegrationTest
       end
 
       should "see brief details" do
-        assert_select 'h2', :text => @brief.title
         assert_contain(@brief.most_important_message)
       end
          

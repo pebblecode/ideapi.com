@@ -89,12 +89,9 @@ module BriefWorkflowHelper
     assert !brief.creative_questions.answered.blank?
 
     brief.creative_questions.answered.each do |q|
-      assert_select 'ul.brief_item_history' do
-        assert_select 'li' do
-          assert_select 'h4', :text => q.body
-          assert_select 'p', :text => q.author_answer
-        end
-      end
+      assert_select 'ul.brief_item_history'
+      assert_contain(q.body)
+      assert_contain(q.author_answer)
     end
   end
   

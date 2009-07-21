@@ -37,6 +37,10 @@ class BriefsController < ApplicationController
       format.html { render :action => user_action }
     end
     
+    response_for(:update) do |format|
+      format.html { redirect_to :action => 'edit' }
+    end
+    
     response_for(:show) do |format|
       format.html { 
         render :action => user_action

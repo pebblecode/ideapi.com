@@ -41,6 +41,23 @@ if client && creative && template
    puts "\n\t- publishing brief"
    to_publish.publish!
    
+   CreativeQuestion.create(
+    :creative => creative, 
+    :body => "Why do we scream at each other?", 
+    :author_answer => "This is what it sounds like when do doves cry",
+    :brief => to_publish,
+    :brief_item => to_publish.brief_items.first
+   )
+   
+   5.times do |i|
+     to_publish.brief_items.first.creative_questions.create(
+        :creative => creative, 
+        :body => Faker::Lorem.paragraph, 
+        :brief => to_publish,
+        :brief_item => to_publish.brief_items.first
+      )
+   end
+   
    puts "\n\t- creating random brief"
    random_brief = random.briefs.create(:title => "This is a random brief from someone else", :template_brief => template, :most_important_message => Faker::Lorem.paragraph)
    
@@ -50,14 +67,7 @@ if client && creative && template
    end
    
    random_brief.publish!
-   
-#   
-#   # to_publish.brief_answers.first.creative_questions.create(
-#   #    :creative => creative, 
-#   #    :body => "Why do we scream at each other?", 
-#   #    :answer => "This is what it sounds like when do doves cry"
-#   #  )
-#   #  
+      
 
 else
   puts "Client, creative or template can't be found"

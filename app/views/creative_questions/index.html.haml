@@ -1,7 +1,7 @@
 =what_user_is_doing do
   %h3
     \- you are discussing
-    =link_to truncate(parent_object.title.downcase, 30), brief_path(parent_object)
+    =link_to truncate(parent_object.title.downcase, :length => 30), brief_path(parent_object)
     
 =title_holder do
   %ul.brief_timeline
@@ -30,7 +30,7 @@
     %li=tab_link 'Recent', brief_creative_questions_path(parent_object, :q => 'recent')
     %li=tab_link 'Answered', brief_creative_questions_path(parent_object, :q => 'answered')
     %li=tab_link 'Unanswered', brief_creative_questions_path(parent_object, :q => 'unanswered')
-      
+
   %ul.question_list
     -if current_objects.empty?
       %li
@@ -38,3 +38,9 @@
           No questions found
     -else
       =render :partial => 'question', :collection => current_objects
+      
+  -if creative?
+    .boom_box
+      %h3 Ask a question
+      - form_for(:creative_question, :url => brief_creative_questions_path(parent_object)) do |f|
+        = render :partial => "form", :locals => {:f => f}

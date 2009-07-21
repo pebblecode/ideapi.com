@@ -2,7 +2,8 @@ require 'test_helper'
 
 class AuthorBriefQuestions < ActionController::IntegrationTest
   include BriefWorkflowHelper
-
+  include ActionView::Helpers::TextHelper
+  
   context "author" do
     
     setup do
@@ -19,9 +20,9 @@ class AuthorBriefQuestions < ActionController::IntegrationTest
       end
 
       should "link to questions page" do
-        click_link 'questions'
+        click_link 'brief discussion'
         assert_response :success
-        assert_equal brief_creative_questions_path(@brief), path
+        assert_equal brief_creative_questions_path(@brief, :q => "recent"), path
       end
     end
     
@@ -39,7 +40,7 @@ class AuthorBriefQuestions < ActionController::IntegrationTest
       end
       
       should "have title" do
-        assert_select 'h2', :text => "Questions for #{@brief.title}"
+        assert_contain truncate(@brief.title.downcase, :length => 30)
       end
       
       should "should display the questions" do
@@ -55,22 +56,25 @@ class AuthorBriefQuestions < ActionController::IntegrationTest
       
       context "question filters" do
         setup do
-          @filters = %w(hot answered)
+          @filters = %w(Answered Unanswered)
         end
       
         should "provide links to each exposed filter" do
           @filters.each do |f|
             click_link f
             assert_response :success
-            assert_equal(eval("#{f}_brief_creative_questions_path(@brief)"), path)
+            assert_equal(eval("brief_creative_questions_path(@brief, :q => '#{f.downcase}')"), path)
           end
         end
         
+        # because the default state would be 'recent'
+        # we test this separately..
+        
         should "provide link to recent questions" do
-          visit hot_brief_creative_questions_path(@brief)
+          visit brief_creative_questions_path(@brief, :q => "unanswered")
           click_link 'recent'
           assert_response :success
-          assert_equal(brief_creative_questions_path(@brief), path)
+          assert_equal(brief_creative_questions_path(@brief, :q => "recent"), path)
         end
         
       end
@@ -87,7 +91,7 @@ class AuthorBriefQuestions < ActionController::IntegrationTest
               
               assert_select "form[action=?]", brief_creative_question_path(@brief, @question) do
                 fill_in 'creative_question_author_answer', :with => @answer
-                click_button 'submit answer'
+                click_button 'submit'
               end
 
               assert_response :success
@@ -107,10 +111,9 @@ class AuthorBriefQuestions < ActionController::IntegrationTest
           end
       
           should "display the answer" do
-            assert_select 'li.creative_question', :id => "creative_question_#{@question}" do
-              assert_select 'p', :text => @question.author_answer
-            end
+            assert_contain @question.author_answer
           end
+          
         end
       
       end

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AuthorShowBrief < ActionController::IntegrationTest
   include BriefWorkflowHelper
+  include ActionView::Helpers::TextHelper
 
   context "author" do
     setup do
@@ -16,19 +17,22 @@ class AuthorShowBrief < ActionController::IntegrationTest
         visit brief_path(@draft)
       end
       
+      should_respond_with :success
+      
       should "access page" do
-        assert_response :success
         assert_equal brief_path(@draft), path
       end
 
-      should "have page title with brief title and edit link" do
-        within '.title_holder' do |scope|
-          assert_contain(@draft.title)
-          assert_select 'a[href=?]', edit_brief_path(@draft), {:text => 'edit brief', :count => 1}
-          scope.click_link "edit brief"
-          assert_response :success
-          assert_equal edit_brief_path(@draft), path
+      context "page title" do
+
+        should "have the brief title" do
+          assert_contain(truncate(@draft.title.downcase, :length => 30))
         end
+        
+        should "have edit link" do
+          assert_select '.what_user_is_doing h3 a[href=?]', edit_brief_path(@draft), :text => '(edit)'
+        end
+        
       end
             
     end
@@ -53,14 +57,6 @@ class AuthorShowBrief < ActionController::IntegrationTest
 
       should "show most important text" do
         assert_contain @draft.most_important_message
-      end
-      
-      should "have links to overview / questions / inspiration" do
-         within '.tabbed_links' do |scope|
-           assert_select 'span.current', :text => "Overview"
-           scope.click_link 'questions'
-           # scope.click_link 'inspiration'
-         end
       end
       
       context "brief document" do
@@ -101,8 +97,6 @@ class AuthorShowBrief < ActionController::IntegrationTest
       end
 
     end
-    
-    
     
   end
   

@@ -10,7 +10,7 @@ class UserProfileTest < ActionController::IntegrationTest
     
     context "account page" do
       setup do
-        visit profile_path
+        click_link 'my account'
       end
       
       should_respond_with :success
@@ -30,7 +30,7 @@ class UserProfileTest < ActionController::IntegrationTest
       should_respond_with :success
       
       should "address current user as you" do
-        assert_contain(@creative_2.login)
+        assert_contain(@creative_2.login.titleize)
       end
       
     end

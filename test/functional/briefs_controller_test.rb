@@ -79,7 +79,7 @@ class BriefsControllerTest < ActionController::TestCase
     
         should_assign_to :current_object
         should_respond_with :redirect
-        should_redirect_to("viewing the brief") { brief_path(@brief) }
+        should_redirect_to("viewing the brief") { edit_brief_path(@brief) }
     
         should "update object" do
           assert_equal(@title_update, assigns['current_object'].title)

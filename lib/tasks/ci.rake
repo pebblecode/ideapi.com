@@ -1,6 +1,6 @@
 namespace :ci do
   task :copy_yml do
-    system("cp #{Rails.root}/config/database.yml.ci #{Rails.root}/config/database.yml")
+    system("cp #{Rails.root}/config/database_ci.yml #{Rails.root}/config/database.yml")
   end
 
   desc "Prepare for CI and run entire test suite"

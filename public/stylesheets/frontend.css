@@ -217,7 +217,7 @@ span.field_with_errors input {
   #container #content .brief_overview .brief {
     border: none;
     margin: 0; }
-#container #content .brief_overview.published h3 {
+#container #content .brief_overview.published h3, #container #content .brief_overview.watching h3 {
   background: #29c6cb;
   color: #333333; }
 #container #content .brief_overview.draft h3 {

@@ -14,11 +14,8 @@ class AuthorDashboard < ActionController::IntegrationTest
         visit briefs_path
       end
 
-      should "have page title" do
-        within '.title_holder' do |scope|
-          assert_contain('Dashboard')
-        end
-      end
+      should_respond_with :success
+      should_render_template :index_author
     end
     
 
@@ -36,7 +33,7 @@ class AuthorDashboard < ActionController::IntegrationTest
       end
       
       should "have link to create a brief" do
-        assert_contain "Create Brief"
+        assert_contain "create brief"
       end
       
       should "explain activity snapshot" do
@@ -61,7 +58,7 @@ class AuthorDashboard < ActionController::IntegrationTest
 
       should "show the list of briefs under heading" do
         assert_contain("Draft brief")
-        within "ul.draft" do |scope|
+        within ".draft" do |scope|
           scope.click_link @draft.title
           assert_response :success
           assert_equal brief_path(@draft), path
@@ -79,7 +76,7 @@ class AuthorDashboard < ActionController::IntegrationTest
 
         should "show published briefs under heading" do
           assert_contain("Published briefs")
-          within 'ul.published' do |scope|
+          within '.published' do |scope|
             scope.click_link @published.title
             assert_response :success
             assert_equal brief_path(@published), path

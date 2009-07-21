@@ -19,7 +19,7 @@
     -else  
       -%w(watching pitching under_review complete).each do |state|
         -if !send(state).empty?
-          .brief_overview
-            %h4="#{state.capitalize}"
-            %ul{:class => state}
+          .brief_overview{:class => state}
+            %h3="#{state.capitalize} briefs"
+            %ul
               =render :partial => 'brief', :collection => send(state)

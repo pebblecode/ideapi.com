@@ -17,18 +17,14 @@ class CreativeDashboard < ActionController::IntegrationTest
       setup do
         visit briefs_path
       end
+      
+      should_assign_to :current_objects
+      should_respond_with :success
+      should_render_template :index_creative
 
-      should "have page title" do
-        within '.title_holder' do |scope|
-          assert_select 'h2', :text => "Dashboard"
-        end
-      end
     end
     
     context "activity snapshot" do
-      setup do
-        
-      end
       
       should "notify when a brief is due to close submissions"
       should "notify of a brief that requires peer review"
@@ -46,17 +42,30 @@ class CreativeDashboard < ActionController::IntegrationTest
         assert_not_contain("You aren't involved with any briefs yet, try searching above.")
       end
       
-      should "display list if any watched briefs exist" do
-        assert !@creative.briefs.empty?
-        assert_equal(@creative.briefs, assigns['current_objects'])
-        assert_select 'h4', :text => 'Watching'
-        assert_select 'ul.watching' do
-          @creative.watching.each do |brief|            
-            assert_select "li#brief_#{brief.id}" do
-              assert_select 'a', :href => brief_path(brief), :text => brief.title
-            end
+      context "displaying list of watched briefs" do
+        
+        should "have have some briefs being watched" do
+          assert !@creative.watching.empty?
+        end
+        
+        should "assign current objects" do
+          @creative.watching.each { |brief| assert(assigns['current_objects'].include?(brief), "current_objects should include #{brief.title}") }
+        end
+        
+        should "have heading for watching" do
+          assert_select 'h3', :text => 'Watching briefs'
+        end
+        
+        should "have section for watched briefs" do
+          assert_select '.watching'
+        end
+
+        should "have list of briefs" do
+          @creative.watching.each do |brief|     
+            assert_select 'a', :href => brief_path(brief), :text => brief.title
           end
         end
+
       end
       
     end
@@ -66,11 +75,15 @@ class CreativeDashboard < ActionController::IntegrationTest
         @creative.respond_to_brief(@brief)
         reload
       end
+      
+      should "have some pitches" do
+        assert !@creative.pitching.empty?
+      end
 
       should "display list of active pitches" do
-        assert_select 'h4', :text => 'Watching', :count => 0
-        assert_select 'h4', :text => 'Pitching'
-        assert_select 'ul.pitching' do
+        assert_select 'h3', :text => 'Watching briefs', :count => 0
+        assert_select 'h3', :text => 'Pitching briefs'
+        assert_select '.pitching' do
           @creative.pitching.each do |brief|            
             assert_select "li#brief_#{brief.id}" do
               assert_select 'a', :href => brief_path(brief), :text => brief.title
@@ -107,16 +120,8 @@ class CreativeDashboard < ActionController::IntegrationTest
         end
             
       end
-         
-      
-        # should_assign_to :current_objects
-        # should_respond_with :success
-        # should_render_template :browse
-        
-        # should "display briefs" do
-        #   assert_contain(@brief.title)
-        # end
-      end
+
+    end
       
   end
 

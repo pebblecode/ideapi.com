@@ -1,7 +1,7 @@
 =what_user_is_doing do
   %h3
     \- you are viewing
-    =link_to truncate(current_object.title.downcase, 30), object_path
+    =link_to truncate(current_object.title.downcase, :length => 30), object_path
     -if current_object.draft?
       \-
       =link_to '(edit)', edit_object_path
