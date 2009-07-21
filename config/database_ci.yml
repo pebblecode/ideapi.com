@@ -1,0 +1,18 @@
+base: &base
+  adapter: mysql
+  username: root
+  password:
+  host: localhost
+  database: ideapi_test
+
+development:
+  <<: *base
+
+test:
+  <<: *base
+  
+staging:
+  <<: *base
+
+production:
+  <<: *base
