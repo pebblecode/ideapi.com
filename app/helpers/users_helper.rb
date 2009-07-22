@@ -24,6 +24,10 @@ module UsersHelper
     user_object == current_user
   end
   
+  def salutation
+    (%w(alright hello welcome hey hi).rand << " " << current_user.login).titleize
+  end
+  
   private
   
   def avatar(user, size)

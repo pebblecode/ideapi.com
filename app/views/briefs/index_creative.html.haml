@@ -1,4 +1,7 @@
 #dashboard.col_1
+  
+  %h2=salutation
+  
   .boom_box
     %h3 Looking for a brief?
     = render :partial => "search_form"
@@ -14,6 +17,9 @@
           %p Coming soon to an Ideapi near you ..
   
   .brief_overviews
+  
+    %h2 Your briefs
+  
     -if current_objects.empty?
       %p You aren't involved with any briefs yet, try searching above.
     -else  
