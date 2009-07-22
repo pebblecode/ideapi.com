@@ -345,9 +345,11 @@ span.field_with_errors input {
 #container .show_question_details {
   background: url(/images/tri-down.png) no-repeat 7px right;
   padding-right: 1em; }
-#container .search_results ul.brief_list li {
-  padding: 1em 2em;
-  border-top: 1px solid #ddd; }
+#container .search_results {
+  padding-top: 1em; }
+  #container .search_results ul.brief_list li {
+    padding: 1em 2em;
+    border-top: 1px solid #ddd; }
 #container .avatar {
   border: 6px solid #ddd; }
 #container .creative, #container .author {
