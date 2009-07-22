@@ -28,7 +28,7 @@
   - if !current_object.draft?  
     %ul.tabbed_links
       %li=tab_link 'Brief document', brief_path(current_object)
-      %li=tab_link 'Brief discussion', brief_creative_questions_path(current_object, :q => 'recent')
+      %li=tab_link 'Brief discussion', brief_creative_questions_path(current_object, :q => 'unanswered')
 
   %div[current_object]  
     -if current_brief_items.empty? && current_object.published?

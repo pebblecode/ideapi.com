@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   USER_NAME, PASSWORD = "ideapi", "pen34guin"
   before_filter :authenticate
   
-  helper_method :current_user_session, :current_user, :logged_in?, :author?, :creative?
+  helper_method :current_user_session, :current_user, :logged_in?, :author?, :creative?, :owner?
   
   private
   
@@ -39,6 +39,10 @@ class ApplicationController < ActionController::Base
   
   def is_user_type?(type)
     current_user && current_user.is_a?(eval(type.to_s.classify))
+  end
+  
+  def owner?(object)
+    object.belongs_to?(current_user)
   end
   
   def require_user_type(type)

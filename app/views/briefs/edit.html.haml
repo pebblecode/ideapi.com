@@ -19,12 +19,17 @@
       %span Complete
 
 %ul.sub_nav
-  %li=link_to 'edit brief details', ''
-  %li=link_to 'preview document', ''
-  %li{:class => "secondary"}=link_to 'help me!', ''
-  %li{:class => "secondary"}=link_to 'delete brief', ''
+  %li=link_to 'edit brief details', '#edit_brief_details'
+  %li=link_to 'preview document', brief_path(current_object), :rel => "facebox"
+  %li{:class => "secondary"}=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
 
 #edit_brief.col_1
+  #edit_brief_details
+    %h3 Edit brief details
+    - form_for(current_object, :html => { :method => :put }) do |brief_form|
+      =render :partial => 'form', :locals => { :f => brief_form }
+      %p.submit=submit_tag 'update'
+      .clear
   
   %h3.brief_document
     Brief Document
@@ -35,11 +40,6 @@
   %p.note Your document is divided into sections your convenience when writing the proposal, once published the document will be displayed as a whole document. Only items that you fill out will be included in the document, so feel free to only fill in what is appropriate - however the more detail you provide at this stage the better your responses will be from our creative community.
   
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
-    #brief_details.brief_details
-      %h3 Brief details
-      = render :partial => "form", :locals => {:f => brief_form}
-      %p=brief_form.submit 'Update'
-
     .brief_items_by_section
       - current_object.brief_items_grouped_by_section.each do |section_name, brief_items|
         .brief_item_section

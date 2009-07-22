@@ -71,16 +71,21 @@ jQuery(document).ready(function(){
     
     // BRIEF EDIT
     
-    $('#edit_brief .brief_details').hide();//.before('<p><a class="show_brief_details" href="#brief_details">toggle brief details</a></p>');
+    //$('#edit_brief .brief_details').hide();//.before('<p><a class="show_brief_details" href="#brief_details">toggle brief details</a></p>');
     //$('#edit_brief a.show_brief_details').click(function () { $('#edit_brief .brief_details').toggle(); return false; })
+    
+    $('#edit_brief #edit_brief_details').hide();
+    
+    $('a[href=#edit_brief_details]').click(function () { 
+      $('#edit_brief #edit_brief_details').slideToggle('slow');
+      return false;
+    });
     
     $('.note').append(' <a href="#" class="hide_message">hide this message</a>');
     $(' .note a.hide_message').click(function () { $(this).parent().fadeOut(); return false; });
     
     $(".brief_timeline li span").corners();  
-    
-    $('p.submit').corners();
-    
+        
     $('.speech').append('<span class="bubble" />').corners();
     
     $('.revision h5').corners();
@@ -91,8 +96,30 @@ jQuery(document).ready(function(){
 
     $('.current_revision span.revision').click(function () {
       $(this).parent().parent().parent().find('.brief_item_history').toggle();
-    }).corners(); 
+    }).corners();
 
+    $('.brief_item_history').hide();
+    
+    $('.author_answer_form').each(function () {      
+      $(this).before('<p class="submit show_author_answer_form"><input type="submit" value="answer"/></p>');
+      
+      //$(this).find('p.submit').before('<p class="submit cancel_form"><input type="submit" value="cancel"/></p>');
+      
+      
+      $('p.show_author_answer_form input').click(function () {
+        $(this).parent().next('.author_answer_form').fadeIn();
+        $(this).parent().fadeOut();
+        return false;
+      });
+      
+      
+    }).hide(); 
+    
+    $('p.submit').corners();
+    
+    $('a[rel*=facebox]').each(function () { $(this).attr("href", $(this).attr("href") + ".js"); }).facebox(
+      {loadingImage: '/images/fb/loading.gif' , closeImage: '/images/fb/closelabel.gif'}
+    );
 });
 
 

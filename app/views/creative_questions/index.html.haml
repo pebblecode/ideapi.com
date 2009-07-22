@@ -27,10 +27,9 @@
     %li=tab_link 'Brief discussion', brief_creative_questions_path(parent_object)
 
   %ul.sub_nav
-    %li=tab_link 'Recent', brief_creative_questions_path(parent_object, :q => 'recent')
-    %li=tab_link 'Answered', brief_creative_questions_path(parent_object, :q => 'answered')
-    %li=tab_link 'Unanswered', brief_creative_questions_path(parent_object, :q => 'unanswered')
-
+    -(owner?(parent_object) ? %w(unanswered recent answered) : %w(recent answered unanswered)).each do |link|
+      %li=tab_link link.titlecase, brief_creative_questions_path(parent_object, :q => link)
+      
   %ul.question_list
     -if current_objects.empty?
       %li

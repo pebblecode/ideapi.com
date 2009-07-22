@@ -364,7 +364,16 @@ span.field_with_errors
     /edit brief
       
     #edit_brief
-      
+    
+      #edit_brief_details
+        :background #eee
+        :padding 1em 2em
+        :border 1px solid #ccc
+        :border-top 0
+        
+        h3
+          :padding-bottom 1em
+        
       h3.brief_document
         :padding-top 0.5em
         :width 35em
@@ -499,7 +508,7 @@ span.field_with_errors
         :margin-bottom 1em
         :padding 0 2em
       
-        .question_body, .author_answer   
+        .question_body, .author_answer, .author_answer_form
           .speech
             :background #e9e9e8
             :padding 1em 1em
@@ -525,7 +534,7 @@ span.field_with_errors
             :float left
             :margin-top 0.3em
         
-        .author_answer      
+        .author_answer, .author_answer_form      
           :padding 0.5em 0 1em 1.5em
         
           img
@@ -542,6 +551,8 @@ span.field_with_errors
           
             textarea
               :width 41em
+              :margin-bottom 0.5em
+              :resize none
             
             span.bubble
               :background transparent url(/images/speech.png) 8px 0
@@ -554,6 +565,11 @@ span.field_with_errors
         
           p.submit
             :margin-right 6em
+            
+        .show_author_answer_form
+          :position absolute
+          :top 2.5em
+          :right 1.5em
             
     .brief_item_history
       :margin-top 3em
@@ -574,6 +590,7 @@ span.field_with_errors
           :text-align center
           :margin-top -1.3em
           :text-transform uppercase
+          :font-size 0.8em
         
         h5:hover
           :background #ccc
@@ -589,22 +606,32 @@ span.field_with_errors
         p.changes
           :border-bottom 1px solid #ccc
           :padding 1em
-        
+          
     .current_revision
-      span.revision
-        :background #e9e9e8
-        :padding 0.5em 0.7em 0.5em 1em
-        :margin 0 1em
-        
-      span.revision:hover
-        :background #ccc
-        :cursor pointer
-        
-      
-      span.updated_at
-        :font-size 0.6em
-        :color #666666
+      :display none
     
+    .brief_item:hover
+      .current_revision
+        :display inline
+        
+        span.revision
+          :background #e9e9e8
+          :padding 0.5em 0.7em 0.5em 1em
+          :margin 0 1em
+
+        span.revision:hover
+          :background #ccc
+          :cursor pointer
+
+
+        span.updated_at
+          :font-size 0.6em
+          :color #666666X
+          
+        span.question_count
+          :padding-left 1em
+          :font-size 0.7em
+        
     .question_list
       :border 1px solid #ccc
       :border-top 0
@@ -613,6 +640,7 @@ span.field_with_errors
       .creative_question
         :padding 1em 4em
         :border-bottom 1px solid #eee
+        :position relative
   
   #content
     #question_filter
@@ -667,7 +695,24 @@ p.submit:hover
   input[type=submit]
     :color white
 
+#facebox
+  .content
+    .fb
+      :width 60em
+      :border 1px solid #ccc
 
-
+      p.message
+        :padding 0.5em 1em 0 1em 
+        :font-size 1.2em
+        :font-weight bold
   
-            
+      .brief_item  
+        :padding 0.5em 1em
+        :border-bottom 1px solid #eee
+
+        p.body
+          :background transparent
+          :font-size 1.2em
+  
+      .brief_item:hover
+        :background #ffffdf

@@ -10,6 +10,9 @@
           updated
           =time_ago_in_words(brief_item.updated_at) 
           ago
+        %span.question_count
+          =brief_item.creative_questions.count
+          Questions answered
   %p.body
     -if brief_item.body.blank? && draft
       ="You have yet to #{link_to 'answer', edit_brief_path(current_object)}, the question would disappear if published."

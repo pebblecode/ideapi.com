@@ -1,13 +1,15 @@
 %li[question]
   %p.question_body
-    =avatar(:small)
+    =small_avatar(question.creative)
     %span.speech
-      %strong="#{comment_adjective_for given_name(question.creative), :position => :before}:"
+      %strong="#{comment_adjective_for given_name(question.creative), :position => :before}"
+      (in relation to
+      %strong="#{question.brief_item.title}):"
       =question.body
     %span.clear    
   -if question.answered?
     .author_answer
-      =avatar(:medium)
+      =medium_avatar(question.brief.author)
       %span.speech
         %p 
           %strong
@@ -17,6 +19,6 @@
       %span.clear
   -else
     -if author?
-      .author_answer
-        =avatar(:medium)
+      .author_answer_form
+        =medium_avatar
         = render :partial => 'answer_form', :locals => {:question => question}

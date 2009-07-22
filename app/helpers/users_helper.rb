@@ -1,15 +1,15 @@
 module UsersHelper
   
-  def large_avatar
-    avatar(:large)
+  def large_avatar(user = nil)
+    avatar(user, :large)
   end
   
-  def medium_avatar
-    avatar(:medium)
+  def medium_avatar(user = nil)
+    avatar(user, :medium)
   end
   
-  def small_avatar
-    avatar(:small)
+  def small_avatar(user = nil)
+    avatar(user, :small)
   end
   
   def user_link(user_object)
@@ -26,8 +26,9 @@ module UsersHelper
   
   private
   
-  def avatar(size)
-    image_tag current_user.avatar.url(size), :class => "avatar_#{size} avatar"
+  def avatar(user, size)
+    user = current_user if user.nil?
+    image_tag user.avatar.url(size), :class => "avatar_#{size} avatar"
   end
   
 end

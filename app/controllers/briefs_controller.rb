@@ -45,6 +45,7 @@ class BriefsController < ApplicationController
       format.html { 
         render :action => user_action
       }
+      format.js { render :layout => false }
     end
   end
   
@@ -88,7 +89,7 @@ class BriefsController < ApplicationController
   
   # only show answered items on a published brief
   def current_brief_items
-    @current_brief_items ||= (current_object.published? ? send(:current_object).brief_items.answered : current_object.brief_items)
+    @current_brief_items ||= current_object.brief_items.answered
   end
   
   #override make_resouceful
