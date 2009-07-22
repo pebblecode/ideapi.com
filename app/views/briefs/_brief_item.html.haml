@@ -19,7 +19,7 @@
     -else
       =brief_item.body
       
-  %p.submit=link_to 'Ask a question', brief_creative_questions_path(current_object), :rel => 'facebox'
+  %p.submit.ask_question=link_to 'Ask a question', brief_creative_questions_path(current_object), :rel => 'facebox'
   .clear
   
   -if brief_item.has_history?      
