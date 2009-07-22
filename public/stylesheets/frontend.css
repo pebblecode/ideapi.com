@@ -517,7 +517,7 @@ p.submit.left {
 
 p.submit:hover {
   background: #21286c; }
-  p.submit:hover input[type=submit] {
+  p.submit:hover input[type=submit], p.submit:hover a {
     color: white; }
 
 #facebox .content .fb {
