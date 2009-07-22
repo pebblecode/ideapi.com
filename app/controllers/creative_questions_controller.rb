@@ -19,6 +19,11 @@ class CreativeQuestionsController < ApplicationController
       current_user.watch(parent_object)
     end
     
+    response_for(:index) do |format|
+      format.html
+      format.js { render :action => 'ask_question', :layout => false }
+    end
+    
     response_for(:create, :update) do |format|
        format.html { redirect_to objects_path }
     end

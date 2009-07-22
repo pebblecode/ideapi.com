@@ -13,11 +13,8 @@
           =link_to "ideapi", "/"
         =yield :what_user_is_doing
         %ul.navigation        
-          -if logged_in?        
-            -if author?
-              %li=link_unless_current 'briefs', briefs_path
-            -elsif creative?
-              %li=link_unless_current 'pitches', briefs_path
+          -if logged_in?
+            %li=link_unless_current 'briefs', briefs_path
             %li=link_unless_current 'settings', ''
             %li=link_unless_current 'my account', profile_path
             %li=link_to 'logout', user_session_path, :method => :delete
