@@ -19,6 +19,15 @@ Creative.seed(:login, :email) do |s|
   s.password_confirmation = "password"
 end
 
+%w(jason alex seb toby fergus).each do |peep|
+  Creative.seed(:login, :email) do |s|
+    s.login peep
+    s.email "#{peep}@ideapi.net"
+    s.password = "password"
+    s.password_confirmation = "password"
+  end
+end
+
 client = Author.find_by_login("client")
 random = Author.find_by_login("random")
 template = TemplateBrief.find_by_title("Default")
