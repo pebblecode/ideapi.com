@@ -5,7 +5,7 @@ class Brief < ActiveRecord::Base
   include AlterEgo
   
   # relationships
-  belongs_to :author
+  belongs_to :user
   belongs_to :template_brief
   
   has_many :brief_items, :order => :position
@@ -16,13 +16,13 @@ class Brief < ActiveRecord::Base
   
   accepts_nested_attributes_for :brief_items, :allow_destroy => true, :reject_if => :all_blank
   
-  has_many :creative_questions, :order => "updated_at DESC"
+  has_many :questions
     
   # callbacks
   after_create :generate_brief_items_from_template!
   
   # validations
-  validates_presence_of :author_id, :template_brief_id, :title, :most_important_message
+  validates_presence_of :user_id, :template_brief_id, :title, :most_important_message
   
   
   # State machine
@@ -109,9 +109,29 @@ class Brief < ActiveRecord::Base
 
   # OWNERSHIP
   
-  def belongs_to?(user)
-    author == user
+  def belongs_to?(a_user)
+    user == a_user
   end
+  
+  class << self
+    def grouped
+      all.group_by(&:state)
+    end
+  end
+  
+  
+  # VIEWING BRIEFS BY USERS
+  
+  has_many :brief_user_views do    
+    def record_view_for_user(user)
+      for_user(user).viewed!
+    end
+    
+    def for_user(user)
+      find_or_create_by_user_id(:user_id => user.id)
+    end
+  end
+  
 
   private 
   

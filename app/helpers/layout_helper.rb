@@ -8,27 +8,38 @@ module LayoutHelper
     capture_content_from_haml :title_holder, &block
   end
   
-  def what_user_is_doing(&block)
-    capture_content_from_haml :what_user_is_doing, &block
-  end
-  
-  def sub_nav(primary_links = {}, secondary_links = {})
-    
+  def sub_nav(&block)
+    capture_haml_into(:sub_nav) do
+      capture(&block)
+    end
   end
   
   def tab_link(text, link, options = {})
     link_unless_current(text, link, options)
   end
   
-  def link_unless_current(text, link, options = {})
+  def link_unless_current(text, link, options = {})    
     options.reverse_merge!({:class => 'current'})
     link_to_unless_current(text, link, options) {|link| content_tag 'span', link, options}
+  end
+    
+  def breadcrumb_list
+    list = content_tag(:span, "You are here:")
+    list << content_tag(:ul, breadcrumbs(:separator => '<li>&gt;</li>'), :class => "breadcrumbs")
+  
+    content_tag :li, list
   end
   
   private
   
+  def capture_haml_into(hook)
+    content_for hook.to_sym do
+      yield
+    end
+  end
+  
   def capture_content_from_haml(title, &block)
-    content_for title.to_sym do
+    capture_haml_into(title) do
       content_tag :div, :class => title do
         capture(&block)
       end

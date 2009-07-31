@@ -1,0 +1,47 @@
+=sub_nav do
+  =breadcrumb_list
+  
+=title_holder do
+  %ul.brief_timeline
+    %li
+      %span.selected Write
+    %li 
+      %span Publish
+    %li 
+      %span Discuss
+    %li 
+      %span Peer Review
+    %li 
+      %span Present
+    %li 
+      %span Complete
+
+.col_1
+
+  %ul.filter_questions
+    -(owner?(parent_object) ? %w(unanswered recent answered) : %w(recent answered unanswered)).each do |link|
+      %li=tab_link link.titlecase, brief_questions_path(parent_object, :q => link)
+      
+  %ul.question_list
+    -if current_objects.empty?
+      %li
+        %p 
+          No questions found
+    -else
+      -current_objects.group_by(&:updated_at).each do |date, questions|
+        %li
+          %p.updated
+            %span
+              ="#{time_ago_in_words(date)} ago"
+          %ul
+            =render :partial => 'question', :collection => questions, :locals => { :dont_relate => false }
+        
+  -if !owner?(parent_object)
+    .boom_box
+      %h3 Ask a question
+      - form_for(:question, :url => brief_questions_path(parent_object)) do |f|
+        = render :partial => "form", :locals => {:f => f}
+        
+.col_2
+  .discussion
+    %p.join_discuss=link_to 'Back to brief »', brief_path(parent_object), :class => "awesome blue large", :style => "text-transform: uppercase"

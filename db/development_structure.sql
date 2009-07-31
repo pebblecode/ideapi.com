@@ -1,3 +1,18 @@
+CREATE TABLE `brief_item_versions` (
+  `id` int(11) NOT NULL auto_increment,
+  `brief_item_id` int(11) default NULL,
+  `version` int(11) default NULL,
+  `title` text,
+  `body` text,
+  `position` int(11) default NULL,
+  `brief_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `template_question_id` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_brief_item_versions_on_brief_item_id` (`brief_item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `brief_items` (
   `id` int(11) NOT NULL auto_increment,
   `title` text,
@@ -7,13 +22,23 @@ CREATE TABLE `brief_items` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   `template_question_id` int(11) default NULL,
+  `version` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `brief_user_views` (
+  `id` int(11) NOT NULL auto_increment,
+  `brief_id` int(11) default NULL,
+  `user_id` int(11) default NULL,
+  `view_count` int(11) default '0',
+  `last_viewed_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `briefs` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(255) default NULL,
-  `author_id` int(11) default NULL,
+  `user_id` int(11) default NULL,
   `state` varchar(255) default NULL,
   `site_id` int(11) default NULL,
   `template_brief_id` int(11) default NULL,
@@ -21,30 +46,30 @@ CREATE TABLE `briefs` (
   `delta` tinyint(1) default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_briefs_on_delta` (`delta`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `creative_proposals` (
+CREATE TABLE `proposals` (
   `id` int(11) NOT NULL auto_increment,
   `short_description` text,
   `long_description` text,
   `brief_id` int(11) default NULL,
-  `creative_id` int(11) default NULL,
+  `user_id` int(11) default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `creative_questions` (
+CREATE TABLE `questions` (
   `id` int(11) NOT NULL auto_increment,
   `body` text,
   `author_answer` text,
   `brief_id` int(11) default NULL,
-  `creative_id` int(11) default NULL,
+  `user_id` int(11) default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   `brief_item_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
@@ -94,22 +119,23 @@ CREATE TABLE `users` (
   `crypted_password` varchar(255) default NULL,
   `password_salt` varchar(255) default NULL,
   `persistence_token` varchar(255) default NULL,
-  `type` varchar(255) default NULL,
   `avatar_file_name` varchar(255) default NULL,
   `avatar_content_type` varchar(255) default NULL,
   `avatar_file_size` int(11) default NULL,
   `avatar_updated_at` datetime default NULL,
+  `last_login_at` datetime default NULL,
+  `last_request_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `watched_briefs` (
   `id` int(11) NOT NULL auto_increment,
   `brief_id` int(11) default NULL,
-  `creative_id` int(11) default NULL,
+  `user_id` int(11) default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20090526100437');
 
@@ -150,3 +176,13 @@ INSERT INTO schema_migrations (version) VALUES ('20090703132939');
 INSERT INTO schema_migrations (version) VALUES ('20090706173356');
 
 INSERT INTO schema_migrations (version) VALUES ('20090708153039');
+
+INSERT INTO schema_migrations (version) VALUES ('20090721164143');
+
+INSERT INTO schema_migrations (version) VALUES ('20090727091635');
+
+INSERT INTO schema_migrations (version) VALUES ('20090727101154');
+
+INSERT INTO schema_migrations (version) VALUES ('20090729115808');
+
+INSERT INTO schema_migrations (version) VALUES ('20090729144931');

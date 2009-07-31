@@ -59,7 +59,7 @@ if client && creative && template
    )
    
    5.times do |i|
-     to_publish.brief_items.first.creative_questions.create(
+     to_publish.brief_items.first.questions.create(
         :creative => creative, 
         :body => Faker::Lorem.paragraph, 
         :brief => to_publish,

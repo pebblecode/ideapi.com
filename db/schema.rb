@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090721164143) do
+ActiveRecord::Schema.define(:version => 20090729144931) do
 
   create_table "brief_item_versions", :force => true do |t|
     t.integer  "brief_item_id"
@@ -36,9 +36,16 @@ ActiveRecord::Schema.define(:version => 20090721164143) do
     t.integer  "version"
   end
 
+  create_table "brief_user_views", :force => true do |t|
+    t.integer  "brief_id"
+    t.integer  "user_id"
+    t.integer  "view_count",     :default => 0
+    t.datetime "last_viewed_at"
+  end
+
   create_table "briefs", :force => true do |t|
     t.string  "title"
-    t.integer "author_id"
+    t.integer "user_id"
     t.string  "state"
     t.integer "site_id"
     t.integer "template_brief_id"
@@ -48,20 +55,20 @@ ActiveRecord::Schema.define(:version => 20090721164143) do
 
   add_index "briefs", ["delta"], :name => "index_briefs_on_delta"
 
-  create_table "creative_proposals", :force => true do |t|
+  create_table "proposals", :force => true do |t|
     t.text     "short_description"
     t.text     "long_description"
     t.integer  "brief_id"
-    t.integer  "creative_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "creative_questions", :force => true do |t|
+  create_table "questions", :force => true do |t|
     t.text     "body"
     t.text     "author_answer"
     t.integer  "brief_id"
-    t.integer  "creative_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "brief_item_id"
@@ -99,16 +106,17 @@ ActiveRecord::Schema.define(:version => 20090721164143) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "type"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.datetime "last_login_at"
+    t.datetime "last_request_at"
   end
 
   create_table "watched_briefs", :force => true do |t|
     t.integer  "brief_id"
-    t.integer  "creative_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

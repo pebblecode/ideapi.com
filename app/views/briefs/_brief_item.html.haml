@@ -1,31 +1,37 @@
 %div[brief_item]{:class => (brief_item.has_history? ? "extended" : "")}
   %h3
     =brief_item.title
-    -if brief_item.has_history?
-      %span.current_revision
-        %span.revision
-          Version
-          =brief_item.version
-        %span.updated_at
-          updated
-          =time_ago_in_words(brief_item.updated_at) 
-          ago
-        %span.question_count
-          =brief_item.creative_questions.count
-          Questions answered
+    %span.updated
+      -if brief_item_updated_for_user?(brief_item)
+        ="- updated"
+  
   %p.body
     -if brief_item.body.blank? && draft
       ="You have yet to #{link_to 'answer', edit_brief_path(current_object)}, the question would disappear if published."
     -else
-      =brief_item.body
+      %span.rest_in_place{:object => "brief[brief_items_attributes][#{brief_item.id}]", :attribute => "body", :extras => "&brief[brief_items_attributes][#{brief_item.id}][id]=#{brief_item.id}"}=brief_item.body    
       
-  %p.submit.ask_question=link_to 'Ask a question', brief_creative_questions_path(current_object), :rel => 'facebox'
-  .clear
+  .buttons
+    -if brief_item.has_history?
+      %button.small.awesome.toggle_history expand
+    -if !owner?(current_object)
+      %button.small.awesome.toggle_ask_question Ask question
   
-  -if brief_item.has_history?      
-    %ul.brief_item_history
-      -brief_item.history.each do |history_item|
-        -if history_item.is_a?(CreativeQuestion)
-          =render :partial => 'creative_questions/question', :object => history_item
-        -else
-          =render :partial => 'brief_item_version', :object => history_item
+  -if !owner?(current_object)
+    .ask_question.boom_box
+      - form_for(:question, :url => brief_questions_path(current_object)) do |f|
+        = render :partial => "questions/form", :locals => {:f => f}
+        =f.hidden_field :brief_item_id, :value => brief_item.id
+        
+  -if brief_item.has_history?
+    .brief_item_history
+      -brief_item.history_grouped_by_fancy_date.each do |date, history_items|
+        %p.updated
+          %span
+            ="#{time_ago_in_words(Time.at(date))} ago"
+        %ul
+          -history_items.each do |history_item|
+            -if history_item.is_a?(Question)
+              =render :partial => 'questions/question', :object => history_item, :locals => { :dont_relate => true }
+            -else
+              =render :partial => 'brief_item_version', :object => history_item

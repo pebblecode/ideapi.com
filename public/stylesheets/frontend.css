@@ -12,7 +12,7 @@
 body {
   font-size: 62.5%;
   text-align: center;
-  background: #eee; }
+  background: #232323; }
 
 /* Colours
  * //
@@ -23,59 +23,92 @@ a {
   font-weight: bold; }
 
 a:hover {
-  color: #21286c; }
+  color: #fcfcfc; }
 
 #container {
   width: 94em;
   margin: 1em auto;
   border: 10px solid #ddd; }
   #container #header {
-    background: #222222;
-    height: 3.4em;
+    background: #04194b;
     border-bottom: 1px solid #505050;
-    padding: 0.6em 2em 0 2em; }
+    border-top: 1px solid #777;
+    padding: 0.6em 0 0 0;
+    position: relative; }
     #container #header h1 {
       float: left;
-      margin-right: 0.8em;
+      padding-left: 1em;
+      padding-bottom: 0.4em;
       font-size: 1.7em;
       line-height: 1em;
       font-weight: 100; }
       #container #header h1 a {
-        color: white; }
+        color: #eeeeee; }
       #container #header h1 a:hover {
-        color: #ed1a62; }
-  #container .what_user_is_doing {
-    float: left; }
-    #container .what_user_is_doing h3 {
-      color: white;
-      font-size: 1.7em;
-      font-weight: 100;
-      line-height: 1em; }
-      #container .what_user_is_doing h3 a {
-        color: #ed1a62; }
-      #container .what_user_is_doing h3 a:hover {
-        color: #ed1a62; }
-  #container ul.navigation {
-    float: right;
-    padding-top: 0.2em; }
-    #container ul.navigation li {
-      margin-left: 2em; }
-      #container ul.navigation li a, #container ul.navigation li span {
-        color: white;
-        font-size: 1.5em;
+        color: #fcfcfc; }
+    #container #header ul.navigation {
+      float: right;
+      padding-top: 1em;
+      padding-right: 2em;
+      padding-bottom: 0.1em; }
+      #container #header ul.navigation li a, #container #header ul.navigation li span {
+        color: #eeeeee;
+        font-size: 1.4em;
         font-weight: 100;
         position: relative;
-        padding: 0 0.2em 0.2em 0.2em; }
-      #container ul.navigation li a:hover {
-        color: #ed1a62;
-        font-size: 1.5em;
-        font-weight: 100;
-        text-decoration: none; }
-      #container ul.navigation li a:focus, #container ul.navigation li a:active {
+        padding: 0.5em 0.8em 0.5em 0.8em; }
+      #container #header ul.navigation li a:hover, #container #header ul.navigation li span.current {
+        font-size: 1.4em;
+        background: black;
+        color: #fcfcfc; }
+      #container #header ul.navigation li a:focus, #container #header ul.navigation li a:active {
         top: 1px;
         color: #9f003c; }
-      #container ul.navigation li span.current {
-        border-bottom: 4px solid #ff0060; }
+    #container #header ul.sub_nav {
+      background: #000;
+      border-top: 2px solid #333;
+      padding: 0.5em 2em 0.8em 2em;
+      height: 20px; }
+      #container #header ul.sub_nav li {
+        display: inline;
+        margin-right: 2em; }
+        #container #header ul.sub_nav li span {
+          font-size: 1.2em;
+          font-weight: bold;
+          color: #aaa; }
+        #container #header ul.sub_nav li span {
+          color: #666; }
+      #container #header ul.sub_nav li.secondary {
+        float: right;
+        margin-left: 2em;
+        margin-right: 0; }
+      #container #header ul.sub_nav .breadcrumbs {
+        display: inline;
+        margin-left: 0.5em; }
+        #container #header ul.sub_nav .breadcrumbs li {
+          margin: 0;
+          padding: 0 0.2em; }
+          #container #header ul.sub_nav .breadcrumbs li span, #container #header ul.sub_nav .breadcrumbs li a {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #aaa; }
+          #container #header ul.sub_nav .breadcrumbs li span {
+            color: #666; }
+    #container #header p.flash {
+      position: absolute;
+      top: 37px;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 8px 20px;
+      height: 17px;
+      width: 918px; }
+    #container #header p.error {
+      background: red;
+      color: white; }
+    #container #header p.notice {
+      background: green;
+      color: white; }
   #container #content {
     background: #fcfcfc; }
     #container #content p {
@@ -95,7 +128,8 @@ a:hover {
         float: right; }
     #container #content .main {
       padding: 0;
-      border-bottom: 2px solid #ddd; }
+      border-bottom: 2px solid #ddd;
+      background: #fcfcfc; }
     #container #content a.button {
       font-size: 1.3em;
       text-transform: uppercase;
@@ -120,20 +154,6 @@ a:hover {
       #container #content a.button .btn_right,       #container #content .submit_button .btn_right {
         right: -18px;
         background: url(/images/button/right.png) no-repeat; }
-    #container #content .sub_nav {
-      background: #e9e9e9;
-      padding: 0.5em 2em;
-      border-bottom: 1px solid #cccccc; }
-      #container #content .sub_nav li {
-        display: inline;
-        margin-right: 2em; }
-        #container #content .sub_nav li a, #container #content .sub_nav li span {
-          font-size: 1.2em;
-          font-weight: bold; }
-      #container #content .sub_nav li.secondary {
-        float: right;
-        margin-left: 2em;
-        margin-right: 0; }
 
 input, textarea, select {
   border: 1px solid #ccc;
@@ -158,13 +178,21 @@ span.field_with_errors input {
 #container #content h3 span {
   font-size: 0.8em; }
 #container #content .col_1 {
-  width: 65em;
-  padding: 0 2em; }
-  #container #content .col_1 .sub_nav {
-    border: 1px solid #ccc;
-    border-top: 0; }
+  width: 63em;
+  padding: 0 0 0 2em;
+  float: left; }
   #container #content .col_1 h2 {
     padding-top: 0.5em; }
+#container #content .col_2 {
+  width: 22em;
+  margin-right: 1em;
+  padding: 1.5em 1em;
+  float: right; }
+  #container #content .col_2 .discussion .join_discuss {
+    border: 1px solid #eee;
+    padding: 0.8em 0.5em;
+    text-align: center;
+    background: white; }
 #container #content #dashboard h2.salu {
   padding-bottom: 1em; }
 #container #content #dashboard .brief_overviews {
@@ -223,14 +251,6 @@ span.field_with_errors input {
 #container #content .brief_overview.draft h3 {
   background: #ddd;
   color: #333; }
-#container #content p.most_important_thing {
-  font-size: 2.2em;
-  font-weight: bold;
-  color: #454545;
-  padding: 0.5em 1em;
-  background: #ffffe0;
-  border: 4px solid #dddddd;
-  margin: 1em; }
 #container #content ul.tabbed_links {
   background: #fffffe;
   border: 1px solid #ccc;
@@ -256,19 +276,55 @@ span.field_with_errors input {
       background-color: rgba(33, 40, 108, .9); }
 #container #content .brief {
   background: #fffffe;
-  margin-bottom: 2em;
-  border: 1px solid #ccc;
-  border-top: 0; }
-  #container #content .brief .brief_item {
+  margin: 2em 0; }
+  #container #content .brief h2 {
+    background: #333;
+    color: white;
+    font-size: 1.2em;
+    padding: 1em 1.8em;
+    -moz-border-radius-topright: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -webkit-border-top-left-radius: 6px; }
+    #container #content .brief h2 a {
+      float: right; }
+  #container #content .brief .brief_item, #container #content .brief .most_important_thing {
     padding: 1em 2em;
+    border: 1px solid #ccc;
     border-bottom: 1px solid #eee;
+    border-top: 0;
     position: relative; }
-    #container #content .brief .brief_item .ask_question {
-      display: none; }
+    #container #content .brief .brief_item h3 span.updated,     #container #content .brief .most_important_thing h3 span.updated {
+      font-size: 0.2em;
+      color: #999;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+      top: -0.4em;
+      left: 0; }
+  #container #content .brief .most_important_thing {
+    padding: 1em 1em 1em 3em; }
+    #container #content .brief .most_important_thing p {
+      font-size: 2.2em;
+      font-weight: bold;
+      color: #333333;
+      padding: 0 2em;
+      position: relative; }
+      #container #content .brief .most_important_thing p span {
+        font-size: 4em;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        height: 0.4em;
+        line-height: 0.8em; }
+      #container #content .brief .most_important_thing p span.left {
+        top: 0;
+        left: 0; }
+      #container #content .brief .most_important_thing p span.right {
+        bottom: -0.2em;
+        padding-right: 0.5em; }
   #container #content .brief .brief_item:hover {
     background: #ffffdf; }
-    #container #content .brief .brief_item:hover .ask_question {
-      display: block; }
   #container #content .brief .brief_item.extended:hover {
     background: transparent; }
 #container #content #edit_brief #edit_brief_details {
@@ -371,47 +427,85 @@ span.field_with_errors input {
   border-bottom: 4px solid #eee;
   margin: 4em 0; }
 
+#container #content .brief_item {
+  position: relative; }
+  #container #content .brief_item .ask_question {
+    width: 50em;
+    margin: 2em auto;
+    padding: 1em; }
+    #container #content .brief_item .ask_question textarea {
+      width: 40.2em; }
+    #container #content .brief_item .ask_question p {
+      margin: 0; }
+    #container #content .brief_item .ask_question p.submit {
+      margin-top: 0.5em; }
+  #container #content .brief_item .buttons {
+    position: absolute;
+    top: 1em;
+    right: 1em; }
+    #container #content .brief_item .buttons button {
+      display: none;
+      margin-left: 0.5em; }
+#container #content .brief_item:hover .buttons button {
+  display: inline; }
 #container #content .question_list li, #container #content .brief_item_history li {
   padding: 0.5em 1em 0 1em; }
-#container #content .question_list .creative_question, #container #content .brief_item_history .creative_question {
+#container #content .question_list p.updated, #container #content .brief_item_history p.updated {
+  text-transform: uppercase;
+  border-top: 1px solid #eee;
+  position: relative;
+  margin: 1em 0; }
+  #container #content .question_list p.updated span,   #container #content .brief_item_history p.updated span {
+    position: absolute;
+    color: #bbb;
+    font-size: 0.8em;
+    top: -0.9em;
+    left: 0;
+    background: white;
+    padding: 0 0.5em; }
+#container #content .question_list .question, #container #content .brief_item_history .question {
   margin-bottom: 1em;
   padding: 0 2em; }
-  #container #content .question_list .creative_question .question_body .speech,   #container #content .question_list .creative_question .author_answer .speech,   #container #content .question_list .creative_question .author_answer_form .speech,   #container #content .brief_item_history .creative_question .question_body .speech,   #container #content .brief_item_history .creative_question .author_answer .speech,   #container #content .brief_item_history .creative_question .author_answer_form .speech {
+  #container #content .question_list .question .question_body .speech,   #container #content .question_list .question .author_answer .speech,   #container #content .question_list .question .author_answer_form .speech,   #container #content .brief_item_history .question .question_body .speech,   #container #content .brief_item_history .question .author_answer .speech,   #container #content .brief_item_history .question .author_answer_form .speech {
     background: #e9e9e8;
     padding: 1em 1em;
     margin: 0;
-    width: 34em;
+    width: 37em;
     display: block;
     position: relative; }
-  #container #content .question_list .creative_question .question_body .speech,   #container #content .brief_item_history .creative_question .question_body .speech {
-    margin-left: 5em; }
-    #container #content .question_list .creative_question .question_body .speech span.bubble,     #container #content .brief_item_history .creative_question .question_body .speech span.bubble {
-      background: url(/images/speech.png);
-      width: 7px;
-      height: 16px;
-      display: block;
-      position: absolute;
-      left: -7px;
-      top: 40%; }
-  #container #content .question_list .creative_question .question_body img,   #container #content .brief_item_history .creative_question .question_body img {
-    float: left;
-    margin-top: 0.3em; }
-  #container #content .question_list .creative_question .author_answer, #container #content .question_list .creative_question .author_answer_form,   #container #content .brief_item_history .creative_question .author_answer, #container #content .brief_item_history .creative_question .author_answer_form {
+  #container #content .question_list .question .question_body,   #container #content .brief_item_history .question .question_body {
+    font-size: 1.1em; }
+    #container #content .question_list .question .question_body .speech,     #container #content .brief_item_history .question .question_body .speech {
+      margin-left: 5em; }
+      #container #content .question_list .question .question_body .speech span.bubble,       #container #content .brief_item_history .question .question_body .speech span.bubble {
+        background: url(/images/speech.png);
+        width: 7px;
+        height: 16px;
+        display: block;
+        position: absolute;
+        left: -7px;
+        top: 40%; }
+    #container #content .question_list .question .question_body img,     #container #content .brief_item_history .question .question_body img {
+      float: left;
+      margin-top: 0.3em; }
+  #container #content .question_list .question .author_answer, #container #content .question_list .question .author_answer_form,   #container #content .brief_item_history .question .author_answer, #container #content .brief_item_history .question .author_answer_form {
     padding: 0.5em 0 1em 1.5em; }
-    #container #content .question_list .creative_question .author_answer img,     #container #content .question_list .creative_question .author_answer_form img,     #container #content .brief_item_history .creative_question .author_answer img,     #container #content .brief_item_history .creative_question .author_answer_form img {
+    #container #content .question_list .question .author_answer img,     #container #content .question_list .question .author_answer_form img,     #container #content .brief_item_history .question .author_answer img,     #container #content .brief_item_history .question .author_answer_form img {
       float: right; }
-    #container #content .question_list .creative_question .author_answer .speech,     #container #content .question_list .creative_question .author_answer_form .speech,     #container #content .brief_item_history .creative_question .author_answer .speech,     #container #content .brief_item_history .creative_question .author_answer_form .speech {
-      margin-left: 1.5em;
-      width: 42em;
+    #container #content .question_list .question .author_answer .speech,     #container #content .question_list .question .author_answer_form .speech,     #container #content .brief_item_history .question .author_answer .speech,     #container #content .brief_item_history .question .author_answer_form .speech {
+      margin-top: 0.5em;
+      margin-right: 1em;
       margin-bottom: 1em;
+      margin-left: 2.4em;
+      width: 40em;
       padding: 0.5em 1em 0.1em 1em; }
-      #container #content .question_list .creative_question .author_answer .speech p,       #container #content .question_list .creative_question .author_answer_form .speech p,       #container #content .brief_item_history .creative_question .author_answer .speech p,       #container #content .brief_item_history .creative_question .author_answer_form .speech p {
-        padding: 0 0.5em; }
-      #container #content .question_list .creative_question .author_answer .speech textarea,       #container #content .question_list .creative_question .author_answer_form .speech textarea,       #container #content .brief_item_history .creative_question .author_answer .speech textarea,       #container #content .brief_item_history .creative_question .author_answer_form .speech textarea {
-        width: 41em;
-        margin-bottom: 0.5em;
-        resize: none; }
-      #container #content .question_list .creative_question .author_answer .speech span.bubble,       #container #content .question_list .creative_question .author_answer_form .speech span.bubble,       #container #content .brief_item_history .creative_question .author_answer .speech span.bubble,       #container #content .brief_item_history .creative_question .author_answer_form .speech span.bubble {
+      #container #content .question_list .question .author_answer .speech p,       #container #content .question_list .question .author_answer_form .speech p,       #container #content .brief_item_history .question .author_answer .speech p,       #container #content .brief_item_history .question .author_answer_form .speech p {
+        padding: 0 0.5em;
+        font-size: 1.1em; }
+      #container #content .question_list .question .author_answer .speech textarea,       #container #content .question_list .question .author_answer_form .speech textarea,       #container #content .brief_item_history .question .author_answer .speech textarea,       #container #content .brief_item_history .question .author_answer_form .speech textarea {
+        width: 39em;
+        margin-bottom: 0.5em; }
+      #container #content .question_list .question .author_answer .speech span.bubble,       #container #content .question_list .question .author_answer_form .speech span.bubble,       #container #content .brief_item_history .question .author_answer .speech span.bubble,       #container #content .brief_item_history .question .author_answer_form .speech span.bubble {
         background: transparent url(/images/speech.png) 8px 0;
         width: 8px;
         height: 16px;
@@ -419,69 +513,66 @@ span.field_with_errors input {
         position: absolute;
         top: 40%;
         right: -8px; }
-    #container #content .question_list .creative_question .author_answer p.submit,     #container #content .question_list .creative_question .author_answer_form p.submit,     #container #content .brief_item_history .creative_question .author_answer p.submit,     #container #content .brief_item_history .creative_question .author_answer_form p.submit {
+    #container #content .question_list .question .author_answer p.submit,     #container #content .question_list .question .author_answer_form p.submit,     #container #content .brief_item_history .question .author_answer p.submit,     #container #content .brief_item_history .question .author_answer_form p.submit {
       margin-right: 6em; }
-  #container #content .question_list .creative_question .show_author_answer_form,   #container #content .brief_item_history .creative_question .show_author_answer_form {
+  #container #content .question_list .question .show_author_answer_form,   #container #content .brief_item_history .question .show_author_answer_form {
     position: absolute;
     top: 2.5em;
-    right: 1.5em; }
+    right: 10px; }
 #container #content .brief_item_history {
-  margin-top: 3em;
-  border-top: 1px solid #eee;
+  margin-top: 1em;
   padding-top: 1em; }
+  #container #content .brief_item_history h4 {
+    font-size: 1.3em;
+    color: #666;
+    padding-bottom: 1em; }
+  #container #content .brief_item_history ul {
+    margin: 3em 0; }
   #container #content .brief_item_history .revision {
-    border-top: 1px solid #eee;
-    margin-top: 2em;
-    padding: 0;
+    padding: 1em 2em;
     position: relative;
-    margin-bottom: 2em; }
-    #container #content .brief_item_history .revision h5 {
-      background: #e9e9e8;
-      max-width: 8em;
-      padding: 0.5em 1em;
-      text-align: center;
-      margin-top: -1.3em;
-      text-transform: uppercase;
-      font-size: 0.8em; }
-    #container #content .brief_item_history .revision h5:hover {
-      background: #ccc;
-      cursor: pointer; }
-    #container #content .brief_item_history .revision p.updated_at {
-      position: absolute;
-      top: -1.3em;
-      right: 0;
-      font-size: 1em;
-      color: #666666; }
-    #container #content .brief_item_history .revision p.changes {
-      border-bottom: 1px solid #ccc;
-      padding: 1em; }
-#container #content .current_revision {
-  display: none; }
-#container #content .brief_item:hover .current_revision {
-  display: inline; }
-  #container #content .brief_item:hover .current_revision span.revision {
-    background: #e9e9e8;
-    padding: 0.5em 0.7em 0.5em 1em;
-    margin: 0 1em; }
-  #container #content .brief_item:hover .current_revision span.revision:hover {
-    background: #ccc;
-    cursor: pointer; }
-  #container #content .brief_item:hover .current_revision span.updated_at {
-    font-size: 0.6em;
-    color: #666666X; }
-  #container #content .brief_item:hover .current_revision span.question_count {
-    padding-left: 1em;
-    font-size: 0.7em; }
+    border: 1px solid #eee;
+    margin: 1em auto;
+    background: #fcfcfc;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    width: 40em; }
+    #container #content .brief_item_history .revision p {
+      padding: 0;
+      margin: 0; }
 #container #content .question_list {
   border: 1px solid #ccc;
   border-top: 0;
   margin-bottom: 2em; }
-  #container #content .question_list .creative_question {
-    padding: 1em 4em;
-    border-bottom: 1px solid #eee;
+  #container #content .question_list .question {
+    padding: 1em 1em;
     position: relative; }
-#container #content #question_filter {
-  margin-bottom: 0.5em; }
+#container #content .filter_questions {
+  margin: 1.7em 0 0 0;
+  background: #333;
+  color: white;
+  font-size: 1.2em;
+  padding: 1em 1.8em;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px; }
+  #container #content .filter_questions li {
+    display: inline;
+    margin-right: 1em; }
+    #container #content .filter_questions li a {
+      color: #cccccc; }
+    #container #content .filter_questions li a:hover {
+      color: #fcfcfc; }
+    #container #content .filter_questions li span.current {
+      font-weight: bold;
+      background: #eee;
+      padding: 0.2em 0.5em 0.3em 0.5em;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      border-top: 1px solid #ccc; }
 #container #content .title_holder .brief_timeline {
   padding: 0.1em 0 0 0.5em;
   margin: 0; }
@@ -502,10 +593,13 @@ span.field_with_errors input {
       background: #e9e9e9;
       color: #555; }
 
+p.subs {
+  float: right; }
+
 p.submit {
   background: #ddd;
   border: none;
-  padding: 0.3em 1em 0.3em 1em;
+  padding: 0.1em 1em 0.3em 1em;
   width: auto;
   display: inline;
   margin: 0 0 1em 1em;
@@ -524,6 +618,9 @@ p.submit:hover {
   p.submit:hover input[type=submit], p.submit:hover a {
     color: white; }
 
+input.awesome {
+  border: none; }
+
 #facebox .content .fb {
   width: 60em;
   border: 1px solid #ccc; }
@@ -539,3 +636,6 @@ p.submit:hover {
       font-size: 1.2em; }
   #facebox .content .fb .brief_item:hover {
     background: #ffffdf; }
+
+textarea {
+  resize: none; }

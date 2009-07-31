@@ -1,9 +1,0 @@
-version_1:
-  title: Website Version 0.1
-  created_at: <%= 10.days.ago %>
-  updated_at: <%= 10.days.ago %>
-  
-version_2:
-  title: Website Version 0.2
-  created_at: <%= 5.days.ago %>
-  updated_at: <%= 5.days.ago %>

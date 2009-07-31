@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => :destroy
+  before_filter :require_user, :only => [:destroy, :delete]
 
   def new
     @user_session = UserSession.new
@@ -14,6 +14,10 @@ class UserSessionsController < ApplicationController
     else
       render :action => :new
     end
+  end
+
+  def delete
+    
   end
 
   def destroy

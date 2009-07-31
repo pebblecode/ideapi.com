@@ -26,7 +26,7 @@ end
 
 Brief.blueprint do
   title
-  author { Author.make }
+  user { User.make }
   template_brief { TemplateBrief.make }
   most_important_message { Sham.body }
 end
@@ -48,24 +48,10 @@ User.blueprint do
   password_confirmation { password }
 end
 
-Creative.blueprint do
-  login
-  email
-  password
-  password_confirmation { password }
-end
-
-Author.blueprint do
-  login
-  email
-  password
-  password_confirmation { password }
-end
-
-CreativeQuestion.blueprint do
+Question.blueprint do
   body
 end
 
-CreativeQuestion.blueprint(:answered) do
+Question.blueprint(:answered) do
   author_answer { Sham.body }
 end

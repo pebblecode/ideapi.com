@@ -80,15 +80,15 @@ module BriefWorkflowHelper
     populate_brief(brief)
     
     5.times do
-      brief.creative_questions.make(:answered, {:brief_item => brief.brief_items.first, :creative => creative, :author_answer => "Answered question"})
+      brief.questions.make(:answered, {:brief_item => brief.brief_items.first, :creative => creative, :author_answer => "Answered question"})
     end      
     
     visit brief_path(brief)
         
     assert !brief.brief_items.blank?          
-    assert !brief.creative_questions.answered.blank?
+    assert !brief.questions.answered.blank?
 
-    brief.creative_questions.answered.each do |q|
+    brief.questions.answered.each do |q|
       assert_select 'ul.brief_item_history'
       assert_contain(q.body)
       assert_contain(q.author_answer)
@@ -101,11 +101,24 @@ class ActiveSupport::TestCase
   
   def login(user)
     activate_authlogic
-    UserSession.create(user)
+    @user_session = UserSession.create(user)
+      
+    return @user_session
   end
   
+  def logout
+    click_link 'logout'
+    assert_equal(delete_user_session_path, path)
+    click_button 'yes log me out'
+    assert_equal(new_user_session_path, path)
+  end
+  
+  # to be used with webrat
   def login_as(user)
     visit new_user_session_path
+    
+    assert_equal(new_user_session_path, path)
+    
     fill_in "login", :with => user.login
     fill_in "password", :with => "testing"
     click_button

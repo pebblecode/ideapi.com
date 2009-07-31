@@ -3,10 +3,51 @@ require 'test_helper'
 class BriefsControllerTest < ActionController::TestCase
   include BriefWorkflowHelper
   
-  context "an author" do
+  context "any logged in user" do
     setup do
-      @author = Author.make  
-      @brief = Brief.make(:published, { :author => @author })        
+      @user = User.make  
+      @brief = Brief.make(:published, { :user => @user })        
+      
+      login(@user)
+    end
+    
+    context "showing brief" do
+      setup do
+        get :show, :id => @brief.id
+      end
+
+      should_assign_to :current_object
+      should_respond_with :success
+      should_render_template :show
+    end
+
+    context "new brief" do
+      setup do
+        get :new
+      end
+  
+      should_assign_to :current_object
+      should_respond_with :success
+      should_render_template :new
+    end
+  
+    context "create brief" do
+      setup do
+        post :create, :brief => Brief.plan
+      end
+  
+      should_change "Brief.count", :by => 1
+      should_assign_to :current_object
+      should_respond_with :redirect
+      should_redirect_to("viewing the brief") { edit_brief_path(assigns['current_object']) }
+    end
+    
+  end
+  
+  context "a brief owner" do
+    setup do
+      @author = User.make  
+      @brief = Brief.make(:published, { :user => @author })        
     end
     
     context "when logged in" do
@@ -21,45 +62,13 @@ class BriefsControllerTest < ActionController::TestCase
 
         should_assign_to :current_objects
         should_respond_with :success
-        should_render_template :index_author
+        should_render_template :index
 
-        should "have authors brief in assigned collection" do
-          assert_contains(assigns['current_objects'], @brief)
+        should "have brief in assigned collection" do
+          assert_contains(assigns['current_objects'][:published], @brief)
         end
 
-      end
-
-      context "showing brief" do
-        setup do
-          get :show, :id => @brief.id
-        end
-
-        should_assign_to :current_object
-        should_respond_with :success
-        should_render_template :show_author
-      end
-
-      context "new brief" do
-        setup do
-          get :new
-        end
-    
-        should_assign_to :current_object
-        should_respond_with :success
-        should_render_template :new
-      end
-    
-      context "create brief" do
-        setup do
-          post :create, :brief => Brief.plan
-        end
-    
-        should_change "Brief.count", :by => 1
-        should_assign_to :current_object
-        should_respond_with :redirect
-        should_redirect_to("viewing the brief") { edit_brief_path(assigns['current_object']) }
-      end
-    
+      end    
     
       context "edit brief" do
         setup do
@@ -89,11 +98,13 @@ class BriefsControllerTest < ActionController::TestCase
       context "deleting brief" do
         setup do
           delete :destroy, :id => @brief.id
+          @brief_count = Brief.count || 1
+          @brief_count_after = @brief_count - 1
         end
     
         should_respond_with :redirect
         should_redirect_to("briefs index") { briefs_path }
-        should_change "Brief.count", :from => 1, :to => 0
+        should_change "Brief.count", :from => @brief_count, :to => @brief_count_after
       end
     
       context "html fallback without js for deleting" do
@@ -107,28 +118,16 @@ class BriefsControllerTest < ActionController::TestCase
         
   end
     
-  context "creative" do
+  context "a user who doesn't own the brief" do
     setup do 
-      @creative = Creative.make(:password => "testing")
+      @user = User.make(:password => "testing")
       @brief = Brief.make(:published)
     end
     
     context "logged in" do
   
       setup do
-        login(@creative)
-      end
-      
-      should "not be able to get new brief" do
-        get :new
-        assert_response :redirect
-      end
-  
-      should "not be able to post create briefs" do
-        assert_no_difference "Brief.count" do
-          post :create, :brief => Brief.plan
-          assert_redirected_to briefs_path        
-        end
+        login(@user)
       end
   
       should "not be able to get edit brief" do

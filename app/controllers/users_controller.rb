@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   #before_filter :require_no_user, :only => [:new, :create]
   
+  add_breadcrumb 'profile', :object_path, :only => [:show]
+  
+  
   before_filter :require_user, :only => [:show, :edit, :update]
     
   def current_object

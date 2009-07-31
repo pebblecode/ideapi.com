@@ -28,6 +28,12 @@ module UsersHelper
     (%w(alright hello welcome hey hi).rand << " " << current_user.login).titleize
   end
   
+  def brief_item_updated_for_user?(brief_item)
+    if !user_last_viewed_brief.blank? && user_last_viewed_brief.last_viewed_at.is_a?(Time)
+      (brief_item.updated_at > user_last_viewed_brief.last_viewed_at)
+    end
+  end
+  
   private
   
   def avatar(user, size)

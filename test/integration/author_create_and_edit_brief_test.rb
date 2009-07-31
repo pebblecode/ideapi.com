@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
+class UserCreateAndEditBriefTest < ActionController::IntegrationTest
   include BriefWorkflowHelper
   include BriefPopulator
   
@@ -8,7 +8,7 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
     setup do
       populate_template_brief
       
-      @author = Author.make(:password => "testing")
+      @author = User.make(:password => "testing")
       login_as(@author)
       
       @brief = Brief.plan(:title => "super_unique_to_this_test_title")
@@ -40,7 +40,7 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
     context "editing a brief" do
       setup do
         @template = populate_template_brief
-        @draft = Brief.make(@brief.merge(:author => @author, :template_brief => @template))
+        @draft = Brief.make(@brief.merge(:user => @author, :template_brief => @template))
         visit edit_brief_path(@draft)
       end
       
@@ -65,7 +65,7 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
         new_message = "boom boom my awesome brief innit"
       
         fill_in "brief[most_important_message]", :with => new_message
-        click_button "save and continue editing"
+        click_button "update"
 
         assert_response :success
         assert_equal edit_brief_path(@draft), path

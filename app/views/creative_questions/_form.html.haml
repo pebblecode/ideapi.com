@@ -1,6 +1,0 @@
-%p
-  =f.label :brief_answer_id, "In response to: "
-  =f.select :brief_item_id, brief_items.map {|ba| [ba.title, ba.id] }
-%p=f.text_area :body, :rows => 10, :cols => 80, :style => "width: 580px"
-%p.submit=f.submit "submit question"
-.clear

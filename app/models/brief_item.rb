@@ -2,7 +2,7 @@ class BriefItem < ActiveRecord::Base
   belongs_to :brief
   belongs_to :template_question
   
-  has_many :creative_questions
+  has_many :questions
   
   validates_presence_of :brief, :template_question, :on => :create, :message => "can't be blank"
   
@@ -16,15 +16,38 @@ class BriefItem < ActiveRecord::Base
   acts_as_versioned :if => :published?, :if_changed => [:body]
   
   def has_history?
-    !creative_questions.answered.blank?
+    !questions.answered.blank? || !revisions.blank?
   end
   
   def history
+    # sort by latest first ..
+    (answered_questions + revisions).sort {|a,b| b.updated_at <=> a.updated_at }
+  end
+  
+  def answered_questions
+    questions.answered
+  end
+  
+  def revisions
     # grab all revisions minus the current one..
     revisions = versions.all(:conditions => ['version < ?', self.version])
-    
-    # sort by latest first ..
-    (creative_questions.answered + revisions).sort {|a,b| b.updated_at <=> a.updated_at }
   end
-
+  
+  def history_grouped_by_fancy_date
+    history.group_by {|item| convert_datetime_into_relevant_precision(item.updated_at) }
+  end
+  
+  private
+  
+  def convert_datetime_into_relevant_precision(datetime)
+    now = Time.now
+    date_as_time = datetime.to_time #ensure its a time object..
+    
+    if ((now - date_as_time) < 1.day && now.day == date_as_time.day)
+      key = date_as_time.to_i
+    else
+      key = date_as_time.to_date.to_time.to_i
+    end
+  end
+  
 end

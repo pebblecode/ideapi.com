@@ -1,7 +1,11 @@
-=what_user_is_doing do
-  %h3
-    \- you are editing
-    =link_to truncate(current_object.title.downcase, :length => 30), object_path
+=sub_nav do
+  =breadcrumb_list
+  %li=link_to 'edit brief details', '#edit_brief_details', :class => "awesome small"
+  -if current_object.draft?
+    %li=link_to 'preview document', brief_path(current_object), :class => "awesome small" #, :rel => "facebox"
+  -else
+    %li=link_to 'back to brief', brief_path(current_object), :class => "awesome small"
+  %li{:class => "secondary"}=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?", :class => "awesome small"
 
 =title_holder do
   %ul.brief_timeline
@@ -17,11 +21,6 @@
       %span Present
     %li 
       %span Complete
-
-%ul.sub_nav
-  %li=link_to 'edit brief details', '#edit_brief_details'
-  %li=link_to 'preview document', brief_path(current_object), :rel => "facebox"
-  %li{:class => "secondary"}=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
 
 #edit_brief.col_1
   #edit_brief_details
@@ -55,12 +54,11 @@
                   %p.help_message
                     %strong Example:
                     = brief_item.help_message
-              
-      %p.submit.left= current_object.draft? ? brief_form.submit('Save and continue editing') : brief_form.submit('Update and continue editing')
-
-  / only present the publish button to draft documents
-  -if current_object.draft?
-    - form_for(current_object, :url => publish_brief_path(current_object), :html => { :method => :put }) do |brief_form|
-      %p.submit=brief_form.submit 'Publish'
+      
+      -if current_object.draft?
+        %p.submit=brief_form.submit 'publish'        
+        %p.submit=brief_form.submit 'save draft'
+      -else 
+        %p.submit=brief_form.submit 'update'
       
   .clear

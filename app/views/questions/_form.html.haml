@@ -1,0 +1,8 @@
+-if defined?(brief_items)
+  %p
+    =f.label :brief_answer_id, "In response to: "
+    =f.select :brief_item_id, brief_items.map {|ba| [ba.title, ba.id] }, {:include_blank => 'Select ...'}
+
+%p=f.text_area :body, :rows => 10, :cols => 80
+%p.submit=f.submit "ask"
+.clear

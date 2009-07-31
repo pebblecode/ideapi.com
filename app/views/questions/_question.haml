@@ -1,0 +1,27 @@
+%li[question]
+  %p.question_body
+    =small_avatar(question.user)
+    %span.speech
+      -if dont_relate
+        %strong="#{comment_adjective_for given_name(question.user), :position => :before}:"
+      -else
+        %strong="#{comment_adjective_for given_name(question.user), :position => :before}"
+        (in relation to
+        %strong="#{question.brief_item.title}):"
+      =question.body
+    %span.clear    
+  -if question.answered?
+    .author_answer
+      =medium_avatar(question.brief.user)
+      %span.speech
+        %p 
+          %strong
+            =given_name(question.brief.user)
+            answered:
+          =question.author_answer
+      %span.clear
+  -else
+    -if owner?(parent_object)
+      .author_answer_form
+        =medium_avatar
+        = render :partial => 'answer_form', :locals => {:question => question}

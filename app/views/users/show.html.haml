@@ -1,3 +1,6 @@
+=sub_nav do
+  =breadcrumb_list
+
 .col_1
   
   %h2 My Account
@@ -9,15 +12,15 @@
       %h3= h salutation
 
       %p
-        %strong= h given_name(current_object) 
+        %strong= h given_name(current_object)
         -if current_object.author?
           =(current_user?(current_object) ? "have" : "has") 
           %strong=pluralize(current_object.briefs.published.count, 'active brief')
-        -elsif current_object.creative?
+        -if !current_object.proposals.empty?
           =(current_user?(current_object) ? "are" : "is") 
           involved with 
-          %strong=pluralize(current_object.creative_proposals.count, 'pitches')
-    
+          %strong=pluralize(current_object.proposals.count, 'pitches')
+          
       .clear
     
       -if current_object == current_user

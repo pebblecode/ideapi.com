@@ -1,10 +1,6 @@
-%li.revision
-  %h5
-    Version 
-    =brief_item_version.version
-  %p.updated_at
-    =time_ago_in_words(brief_item_version.updated_at) 
-    ago
-  %p.changes
-    %strong changed from:
-    =brief_item_version.body
+-if !brief_item_version.body.blank?
+  %li.revision
+    %p
+      %strong 
+        Author updated section:
+      =brief_item_version.body

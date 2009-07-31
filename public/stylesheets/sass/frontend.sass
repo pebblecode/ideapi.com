@@ -14,15 +14,17 @@
 body
   :font-size 62.5%
   :text-align center
-  :background #eee
+  :background #232323
 
 /* Colours
   
   link-colour   = #2b3087
   
 !link_colour        = #454545
-!link_hover_colour  = #21286c
+!link_hover_colour  = #fcfcfc
 !link_pink          = #ed1a62
+!off_white          = #fcfcfc
+!link_header        = #eeeeee
 
 a
   :text-decoration none
@@ -38,66 +40,108 @@ a:hover
   :border 10px solid #ddd
   
   #header
-    :background #222222
-    :height 3.4em
+    :background #04194b
     :border-bottom 1px solid #505050
-    :padding 0.6em 2em 0 2em
+    :border-top 1px solid #777
+    :padding 0.6em 0 0 0
+    :position relative
     
     h1
       :float left
-      :margin-right 0.8em
+      :padding-left 1em
+      :padding-bottom 0.4em
       :font-size 1.7em
       :line-height 1em
       :font-weight 100
-      
-      a
-        :color white
-        
-      a:hover
-        :color = !link_pink 
-  
-  .what_user_is_doing
-    :float left
-    
-    h3
-      :color white
-      :font-size 1.7em
-      :font-weight 100
-      :line-height 1em
-      
-      a
-        :color = !link_pink
-        
-      a:hover
-        :color = !link_pink
-        
-  ul.navigation
-    :float right
-    :padding-top 0.2em
-        
-    li
-      :margin-left 2em
-    
-      a, span
-        :color white
-        :font-size 1.5em
-        :font-weight 100
-        :position relative
-        :padding 0 0.2em 0.2em 0.2em 
 
+      a
+        :color = !link_header
+        
       a:hover
-        :color = !link_pink 
-        :font-size 1.5em
-        :font-weight 100
-        :text-decoration none
+        :color = !link_hover_colour 
+        
+    ul.navigation
+      :float right
+      :padding-top 1em
+      :padding-right 2em
+      :padding-bottom 0.1em
+        
+      li
+    
+        a, span
+          :color = !link_header
+          :font-size 1.4em
+          :font-weight 100
+          :position relative
+          :padding 0.5em 0.8em 0.5em 0.8em 
+
+        a:hover, span.current
+          :font-size 1.4em
+          :background black
+          :color = !off_white
       
-      a:focus, a:active
-        :top 1px
-        :color #9f003c
+        a:focus, a:active
+          :top 1px
+          :color #9f003c
+          
+    ul.sub_nav
+      :background #000
+      :border-top 2px solid #333
+      :padding 0.5em 2em 0.8em 2em
+      :height 20px
     
-      span.current
-        :border-bottom 4px solid #ff0060
+      li
+        :display inline
+        :margin-right 2em
+        
+        span
+          :font-size 1.2em
+          :font-weight bold    
+          :color #aaa
+          
+        span
+          :color #666
+        
+      li.secondary
+        :float right
+        :margin-left 2em
+        :margin-right 0
     
+      .breadcrumbs
+        :display inline
+        :margin-left 0.5em
+             
+        li
+          :margin 0
+          :padding 0 0.2em
+          
+          span, a
+            :font-size 1.2em
+            :font-weight bold    
+            :color #aaa
+
+          span
+            :color #666
+    
+    p.flash
+      :position absolute
+      :top 37px
+      :left 0
+      :font-weight bold
+      :font-size 1.2em
+      :padding 8px 20px
+      :height 17px
+      :width 918px
+      
+    p.error
+      :background red
+      :color white
+      
+    p.notice
+      :background green
+      :color white
+      
+      
   #content
     :background #fcfcfc
     
@@ -126,7 +170,7 @@ a:hover
     .main
       :padding 0
       :border-bottom 2px solid #ddd
-  
+      :background #fcfcfc
 
     a.button
       :font-size 1.3em
@@ -155,26 +199,6 @@ a:hover
       .btn_right
         :right -18px
         :background url(/images/button/right.png) no-repeat
-        
-    .sub_nav
-      :background #e9e9e9
-      :padding 0.5em 2em
-      :border-bottom 1px solid #cccccc
-    
-      li
-        :display inline
-        :margin-right 2em
-        
-        a, span
-          :font-size 1.2em
-          :font-weight bold
-          
-        
-      li.secondary
-        :float right
-        :margin-left 2em
-        :margin-right 0
-        
         
 input, textarea, select
   :border 1px solid #ccc
@@ -209,15 +233,29 @@ span.field_with_errors
         :font-size 0.8em
     
     .col_1
-      :width 65em
-      :padding 0 2em
+      :width 63em
+      :padding 0 0 0 2em 
+      :float left
       
-      .sub_nav
-        :border 1px solid #ccc
-        :border-top 0
-    
       h2
         :padding-top 0.5em
+    
+    .col_2
+      :width 22em
+      :margin-right 1em
+      :padding 1.5em 1em
+      :float right
+      
+      .discussion
+        .join_discuss
+          :border 1px solid #eee
+          :padding 0.8em 0.5em
+          :text-align center
+          :background white
+          
+        
+      
+      
     
     / briefs_path (dashboard)
     
@@ -308,15 +346,6 @@ span.field_with_errors
     
     / brief_path
 
-    p.most_important_thing
-      :font-size 2.2em
-      :font-weight bold
-      :color #454545
-      :padding 0.5em 1em
-      :background #ffffe0
-      :border 4px solid #dddddd
-      :margin 1em 
-
     ul.tabbed_links
       :background #fffffe
       :border 1px solid #ccc
@@ -348,23 +377,68 @@ span.field_with_errors
         
     .brief
       :background #fffffe
-      :margin-bottom 2em
-      :border 1px solid #ccc
-      :border-top 0
+      :margin 2em 0
       
-      .brief_item
+      h2
+        :background #333
+        :color white
+        :font-size 1.2em
+        :padding 1em 1.8em
+        :-moz-border-radius-topright 6px
+        :-webkit-border-top-right-radius 6px
+        :-moz-border-radius-topleft 6px
+        :-webkit-border-top-left-radius 6px
+        
+        a
+          :float right
+      
+      .brief_item, .most_important_thing
         :padding 1em 2em
+        :border 1px solid #ccc
         :border-bottom 1px solid #eee
+        :border-top 0
         :position relative
         
-        .ask_question
-          :display none
+        h3
+          span.updated
+            :font-size 0.2em
+            :color #999
+            :font-weight bold
+            :text-transform uppercase
+            :position relative
+            :top -0.4em
+            :left 0
+            
+      .most_important_thing
+        :padding 1em 1em 1em 3em
+        
+        p
+          :font-size 2.2em
+          :font-weight bold
+          :color #333333
+          :padding 0 2em
+          :position relative
+          
+          span
+            :font-size 4em
+            :position absolute
+            :padding 0
+            :margin 0
+            :height 0.4em
+            :line-height 0.8em
+          
+          span.left
+            :top 0
+            :left 0
+            
+          span.right
+            :bottom -0.2em
+            :padding-right 0.5em
+          
+            
         
       .brief_item:hover
         :background #ffffdf
-        
-        .ask_question
-          :display block
         
       .brief_item.extended:hover
         :background transparent
@@ -508,12 +582,59 @@ span.field_with_errors
 #container
   #content
   
+    .brief_item
+      :position relative
+      
+      .ask_question
+        :width 50em
+        :margin 2em auto
+        :padding 1em
+        
+        textarea
+          :width 40.2em
+          
+        p
+          :margin 0
+          
+        p.submit
+          :margin-top 0.5em
+  
+      .buttons
+        :position absolute
+        :top 1em
+        :right 1em
+        
+        button
+          :display none
+          :margin-left 0.5em
+          
+    .brief_item:hover
+      .buttons
+        button
+          :display inline
+    
+        
     .question_list, .brief_item_history
     
       li
         :padding 0.5em 1em 0 1em
+        
+      p.updated
+        :text-transform uppercase
+        :border-top 1px solid #eee
+        :position relative
+        :margin 1em 0
+
+        span
+          :position absolute
+          :color #bbb
+          :font-size 0.8em
+          :top -0.9em
+          :left 0
+          :background white
+          :padding 0 0.5em
     
-      .creative_question
+      .question
         :margin-bottom 1em
         :padding 0 2em
       
@@ -522,11 +643,13 @@ span.field_with_errors
             :background #e9e9e8
             :padding 1em 1em
             :margin 0
-            :width 34em
+            :width 37em
             :display block
             :position relative
-          
+            
         .question_body
+          :font-size 1.1em
+        
           .speech
             :margin-left 5em
           
@@ -550,18 +673,20 @@ span.field_with_errors
             :float right
           
           .speech
-            :margin-left 1.5em
-            :width 42em
+            :margin-top 0.5em
+            :margin-right 1em
             :margin-bottom 1em
+            :margin-left 2.4em
+            :width 40em
             :padding 0.5em 1em 0.1em 1em
           
             p
               :padding 0 0.5em
+              :font-size 1.1em
           
             textarea
-              :width 41em
+              :width 39em
               :margin-bottom 0.5em
-              :resize none
             
             span.bubble
               :background transparent url(/images/speech.png) 8px 0
@@ -578,82 +703,74 @@ span.field_with_errors
         .show_author_answer_form
           :position absolute
           :top 2.5em
-          :right 1.5em
+          :right 10px
             
     .brief_item_history
-      :margin-top 3em
-      :border-top 1px solid #eee
+      :margin-top 1em
       :padding-top 1em
-    
+      
+      h4
+        :font-size 1.3em
+        :color #666
+        :padding-bottom 1em
+        
+      ul
+        :margin 3em 0
+          
       .revision
-        :border-top 1px solid #eee
-        :margin-top 2em
-        :padding 0
+        :padding 1em 2em
         :position relative
-        :margin-bottom 2em
+        :border 1px solid #eee
+        :margin 1em auto
+        :background #fcfcfc
+        :-moz-border-radius 6px
+        :-webkit-border-radius 6px
+        :width 40em
         
-        h5
-          :background #e9e9e8
-          :max-width 8em
-          :padding 0.5em 1em
-          :text-align center
-          :margin-top -1.3em
-          :text-transform uppercase
-          :font-size 0.8em
-        
-        h5:hover
-          :background #ccc
-          :cursor pointer
-        
-        p.updated_at
-          :position absolute
-          :top -1.3em
-          :right 0
-          :font-size 1em
-          :color #666666
-          
-        p.changes
-          :border-bottom 1px solid #ccc
-          :padding 1em
-          
-    .current_revision
-      :display none
-    
-    .brief_item:hover
-      .current_revision
-        :display inline
-        
-        span.revision
-          :background #e9e9e8
-          :padding 0.5em 0.7em 0.5em 1em
-          :margin 0 1em
-
-        span.revision:hover
-          :background #ccc
-          :cursor pointer
-
-
-        span.updated_at
-          :font-size 0.6em
-          :color #666666X
-          
-        span.question_count
-          :padding-left 1em
-          :font-size 0.7em
+        p
+          :padding 0 
+          :margin 0
         
     .question_list
       :border 1px solid #ccc
       :border-top 0
       :margin-bottom 2em
-    
-      .creative_question
-        :padding 1em 4em
-        :border-bottom 1px solid #eee
+      
+      .question
+        :padding 1em 1em
         :position relative
   
-  #content
-    #question_filter
-      :margin-bottom 0.5em
+    .filter_questions
+      :margin 1.7em 0 0 0
+      :background #333
+      :color white
+      :font-size 1.2em
+      :padding 1em 1.8em
+      :-moz-border-radius-topright 6px
+      :-webkit-border-top-right-radius 6px
+      :-moz-border-radius-topleft 6px
+      :-webkit-border-top-left-radius 6px
+
+      li
+        :display inline
+        :margin-right 1em
+        
+        a
+          :color = #ccc
+        
+        a:hover
+          :color = !off_white
+        
+        span.current
+          :font-weight bold
+          :background #eee
+          :padding 0.2em 0.5em 0.3em 0.5em
+          :-moz-border-radius 6px
+          :-webkit-border-radius 6px
+          :-moz-border-radius 6px
+          :-webkit-border-radius 6px
+          :border-top 1px solid #ccc
+        
   
   #content
     .title_holder
@@ -680,10 +797,13 @@ span.field_with_errors
             :background #e9e9e9
             :color #555
 
+p.subs
+  :float right
+
 p.submit
   :background #ddd
   :border none
-  :padding 0.3em 1em 0.3em 1em
+  :padding 0.1em 1em 0.3em 1em
   :width auto
   :display inline
   :margin 0 0 1em 1em
@@ -703,6 +823,9 @@ p.submit:hover
   
   input[type=submit], a
     :color white
+
+input.awesome
+  :border none
 
 #facebox
   .content
@@ -725,3 +848,7 @@ p.submit:hover
   
       .brief_item:hover
         :background #ffffdf
+
+textarea
+  :resize none
+

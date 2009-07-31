@@ -5,18 +5,15 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
 
   context "general briefs on the website" do
     setup do
-      @published = Brief.make(:published)
+      @author = User.make(:password => "testing")
+      @standard_user = User.make(:password => "testing")
+      @published = Brief.make(:published, :user => @author)
       @draft = Brief.make
     end
 
-    context "creative" do
+    context "standard user" do
       setup do
-        @creative = Creative.make(:password => "testing")
-        login_as(@creative)
-      end
-
-      should "be a creative" do
-        assert assigns['current_user'].creative?
+        login_as(@standard_user)
       end
 
       context "when logged in" do
@@ -26,7 +23,7 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
         end
 
         should_respond_with :success
-        should_render_template :index_creative
+        should_render_template :index
 
         should "be viewing briefs" do        
           assert_equal(briefs_path, path)
@@ -38,7 +35,7 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
           end
 
           should_respond_with :success
-          should_render_template :show_creative
+          should_render_template :show
 
           should "be viewing brief" do        
             assert_equal(brief_path(@published), path)
@@ -51,25 +48,20 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
           end
 
           should_respond_with :success
-          should_render_template :index_creative
+          should_render_template :index
 
           should "be viewing brief" do        
             assert_equal(briefs_path, path)
           end
         end
 
-      end  
+      end
 
     end
 
-    context "author" do
+    context "brief author" do
       setup do
-        @author = Author.make(:password => "testing")
         login_as(@author)
-      end
-
-      should "be a author" do
-        assert assigns['current_user'].author?
       end
 
       context "when logged in" do
@@ -79,23 +71,10 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
         end
 
         should_respond_with :success
-        should_render_template :index_author
+        should_render_template :index
 
         should "be viewing briefs" do        
           assert_equal(briefs_path, path)
-        end
-
-        context "viewing a published brief that isnt their own" do
-          setup do
-            visit brief_path(@published)
-          end
-
-          should_respond_with :success
-          should_render_template :show_creative
-
-          should "be viewing brief" do        
-            assert_equal(brief_path(@published), path)
-          end
         end
 
         context "viewing a draft brief that isnt their own" do
@@ -104,7 +83,7 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
           end
 
           should_respond_with :success
-          should_render_template :index_author
+          should_render_template :index
 
           should "be viewing brief" do        
             assert_equal(briefs_path, path)

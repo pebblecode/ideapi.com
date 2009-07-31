@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   USER_NAME, PASSWORD = "ideapi", "pen34guin"
   before_filter :authenticate
   
-  helper_method :current_user_session, :current_user, :logged_in?, :author?, :creative?, :owner?
+  helper_method :current_user_session, :current_user, :logged_in?, :owner?
   
   private
   
@@ -20,35 +20,9 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !current_user.blank?
   end
-  
-  def require_author
-    require_user_type :author
-  end
-  
-  def require_creative
-    require_user_type :creative
-  end
-  
-  def author?
-    is_user_type? :author
-  end
-  
-  def creative?
-    is_user_type? :creative
-  end
-  
-  def is_user_type?(type)
-    current_user && current_user.is_a?(eval(type.to_s.classify))
-  end
-  
+    
   def owner?(object)
     object.belongs_to?(current_user)
-  end
-  
-  def require_user_type(type)
-    if !is_user_type?(type)
-      redirect_back_or_default(briefs_path)
-    end
   end
   
   def require_user
@@ -64,7 +38,7 @@ class ApplicationController < ActionController::Base
     if current_user
       store_location
       flash[:notice] = "You must be logged out to access this page"
-      redirect_to account_url
+      redirect_to home_url
       return false
     end
   end
