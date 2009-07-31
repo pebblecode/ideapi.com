@@ -52,9 +52,13 @@ jQuery(document).ready(function(){
     $('.optional_brief_item').hide();
     
     $('.brief_item').each(function() {
+      var on_text = "+ more"
+      var off_text = "- hide"
+      
       if (!$(this).hasClass('optional_brief_item') && $($(this).nextAll('.brief_item')[0]).hasClass('optional_brief_item')) {         
-        $(this).append('<p><a href="#" class="show_question_details">click here to add detail</a></p>').parent().find('.brief_item a.show_question_details').click(function(){
-            ($(this).text() == 'click here to add detail') ? $(this).text('hide details') : $(this).text('click here to add detail');
+        
+        $(this).append('<p><a href="#" class="show_question_details">'+on_text+'</a></p>').parent().find('.brief_item a.show_question_details').click(function(){
+            ($(this).text() == on_text) ? $(this).text(off_text) : $(this).text(on_text);
 
             var hidden = $(this).parent().parent().nextAll('.brief_item');
 
@@ -128,7 +132,9 @@ jQuery(document).ready(function(){
     
     }).hide();
     
-    $('.brief h2').append('<a href="#">expand / collapse all</a>').find('a').click(function () { $('.brief_item_history').toggle('400') });
+    if ($('.brief_item_history').length > 0) {
+      $('.brief h2').append('<a href="#">expand / collapse all</a>').find('a').click(function () { $('.brief_item_history').toggle('400') });
+    }
     
     $('p.submit').corners();
     

@@ -1,15 +1,16 @@
 =sub_nav do
   =breadcrumb_list    
-  %li{:class => "secondary"}=link_to 'edit brief', edit_brief_path(current_object), :class => "awesome small"
-  -if current_object.draft?
-    %li{:class => "secondary"}=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?", :class => "awesome small"
+  -if owner?(current_object)    
+    %li.secondary=link_to 'edit brief', edit_brief_path(current_object), :class => "awesome"
+    -if current_object.draft?
+      %li.secondary=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?", :class => "awesome"
   -if !owner?(current_object)    
-    %li
+    %li.secondary.watch_form
       -form_for current_object, :url => watch_brief_path(current_object), :html => { :method => :post } do |f|
         -if current_user.watching?(current_object)
-          =f.submit 'stop watching'
+          =f.submit 'stop watching', :class => "awesome"
         -else
-          =f.submit 'watch' 
+          =f.submit 'watch', :class => "awesome"
           
   .clear 
     

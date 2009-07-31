@@ -93,7 +93,7 @@ a:hover
       li
         :display inline
         :margin-right 2em
-        
+                
         span
           :font-size 1.2em
           :font-weight bold    
@@ -103,9 +103,7 @@ a:hover
           :color #666
         
       li.secondary
-        :float right
-        :margin-left 2em
-        :margin-right 0
+
     
       .breadcrumbs
         :display inline
@@ -122,7 +120,13 @@ a:hover
 
           span
             :color #666
-    
+            
+      li.watch_form
+        form
+          :display inline
+        div
+          :display none
+        
     p.flash
       :position absolute
       :top 37px
@@ -339,11 +343,15 @@ span.field_with_errors
         :border none
         :margin 0
         
+      .brief:hover
+        :background #eee
+        
+        
     .brief_overview.published, .brief_overview.watching
       
       h3
-        :background #29c6cb
-        :color #333333
+        :background #333333
+        :color #fcfcfc
         
     .brief_overview.draft
       
@@ -396,9 +404,16 @@ span.field_with_errors
         :-webkit-border-top-right-radius 6px
         :-moz-border-radius-topleft 6px
         :-webkit-border-top-left-radius 6px
+        :position relative
         
         a
-          :float right
+          :color #666
+          :position absolute
+          :right 1.8em
+          :top 1em
+          
+        a:hover
+          :color #fefefe
       
       .brief_item, .most_important_thing
         :padding 1em 2em

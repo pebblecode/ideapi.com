@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserCreateAndEditBriefTest < ActionController::IntegrationTest
+class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
   include BriefWorkflowHelper
   include BriefPopulator
   
@@ -79,7 +79,7 @@ class UserCreateAndEditBriefTest < ActionController::IntegrationTest
         end
         
         should "have brief_items" do
-          assert !@draft.brief_items.blank?
+          assert !@draft.brief_items.reload.blank?
         end
 
         should "display the question / answer blocks that will become the brief document" do
@@ -115,7 +115,7 @@ class UserCreateAndEditBriefTest < ActionController::IntegrationTest
           end
           
           should "have save draft button" do
-            assert_select 'input[type=submit][value=?]', 'Save and continue editing', :count => 1
+            assert_select 'input[type=submit][value=?]', 'save draft', :count => 1
           end
           
           context "submitting the form" do
@@ -125,7 +125,7 @@ class UserCreateAndEditBriefTest < ActionController::IntegrationTest
 
             context "by clicking save and continue" do
               setup do
-                click_button "save and continue editing"
+                click_button "save draft"
               end
 
               should_respond_with :success                        
@@ -148,10 +148,10 @@ class UserCreateAndEditBriefTest < ActionController::IntegrationTest
         end
         
         should "have publish button" do
-          assert_select 'input[type=submit][value=?]', 'Publish', :count => 1    
+          assert_select 'input[type=submit][value=?]', 'publish', :count => 1    
           
           click_button 'publish'
-          assert_equal brief_path(@draft), path
+          assert_equal edit_brief_path(@draft), path
           assert @draft.reload.published?
         end
       end
@@ -172,8 +172,8 @@ class UserCreateAndEditBriefTest < ActionController::IntegrationTest
         end
         
         should "have update button in place of update button" do
-          assert_select 'input[type=submit][value=?]', 'Publish', :count => 0
-          assert_select 'input[type=submit][value=?]', 'Update and continue editing', :count => 1
+          assert_select 'input[type=submit][value=?]', 'publish', :count => 0
+          assert_select 'input[type=submit][value=?]', 'update'
         end
         
         should "disable changing some of the brief_item attributes once published" do

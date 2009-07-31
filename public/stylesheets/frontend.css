@@ -78,10 +78,6 @@ a:hover {
           color: #aaa; }
         #container #header ul.sub_nav li span {
           color: #666; }
-      #container #header ul.sub_nav li.secondary {
-        float: right;
-        margin-left: 2em;
-        margin-right: 0; }
       #container #header ul.sub_nav .breadcrumbs {
         display: inline;
         margin-left: 0.5em; }
@@ -94,6 +90,10 @@ a:hover {
             color: #aaa; }
           #container #header ul.sub_nav .breadcrumbs li span {
             color: #666; }
+      #container #header ul.sub_nav li.watch_form form {
+        display: inline; }
+      #container #header ul.sub_nav li.watch_form div {
+        display: none; }
     #container #header p.flash {
       position: absolute;
       top: 37px;
@@ -251,9 +251,11 @@ span.field_with_errors input {
   #container #content .brief_overview .brief {
     border: none;
     margin: 0; }
+  #container #content .brief_overview .brief:hover {
+    background: #eee; }
 #container #content .brief_overview.published h3, #container #content .brief_overview.watching h3 {
-  background: #29c6cb;
-  color: #333333; }
+  background: #333333;
+  color: #fcfcfc; }
 #container #content .brief_overview.draft h3 {
   background: #ddd;
   color: #333; }
@@ -291,9 +293,15 @@ span.field_with_errors input {
     -moz-border-radius-topright: 6px;
     -webkit-border-top-right-radius: 6px;
     -moz-border-radius-topleft: 6px;
-    -webkit-border-top-left-radius: 6px; }
+    -webkit-border-top-left-radius: 6px;
+    position: relative; }
     #container #content .brief h2 a {
-      float: right; }
+      color: #666;
+      position: absolute;
+      right: 1.8em;
+      top: 1em; }
+    #container #content .brief h2 a:hover {
+      color: #fefefe; }
   #container #content .brief .brief_item, #container #content .brief .most_important_thing {
     padding: 1em 2em;
     border: 1px solid #ccc;
