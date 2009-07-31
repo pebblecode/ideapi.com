@@ -28,7 +28,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
           should_render_template :show
 
           context "clicking brief discussion link" do
-            setup { click_link 'brief discussion' }
+            setup { click_link 'join the discussion' }
 
             should_respond_with :success
             should_render_template :index
@@ -57,7 +57,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
           should_render_template :show
 
           context "clicking brief discussion link" do
-            setup { click_link 'brief discussion' }
+            setup { click_link 'join the discussion' }
 
             should_respond_with :success
             should_render_template :index
@@ -229,7 +229,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
               setup do
                 select @brief_item.title, :from => 'question[brief_item_id]'
                 fill_in 'question_body', :with => @question
-                click_button 'submit question'
+                click_button 'ask'
               end
             
               should_respond_with :success

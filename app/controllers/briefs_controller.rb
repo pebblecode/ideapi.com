@@ -1,4 +1,6 @@
 class BriefsController < ApplicationController
+  include ActionView::Helpers::TextHelper
+  
   # needs login for all actions
   before_filter :require_user
   
@@ -24,7 +26,7 @@ class BriefsController < ApplicationController
     actions :all
     
     before :show do
-      add_breadcrumb current_object.title.downcase, object_path
+      add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path
       set_user_last_viewed_brief
       
       # record view

@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  include ActionView::Helpers::TextHelper
+  
   before_filter :require_user
   helper_method :brief_items, :record_author?
     
@@ -13,7 +15,7 @@ class QuestionsController < ApplicationController
     
     before :index do
       add_breadcrumb 'briefs', briefs_path
-      add_breadcrumb parent_object.title.downcase, brief_path(parent_object)
+      add_breadcrumb truncate(parent_object.title.downcase, :length => 30), brief_path(parent_object)      
       add_breadcrumb 'discussion', objects_path
     end
     

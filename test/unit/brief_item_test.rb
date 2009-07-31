@@ -5,12 +5,15 @@ class BriefItemTest < ActiveSupport::TestCase
   
   context "revisions" do
     setup do
-      @brief = Brief.make
-      @brief_item = @brief.brief_items.create({:title => "boom", :body => "something about something", :template_question => TemplateQuestion.make})
+      @brief = Brief.make(:published)
+      
+      @init_body = "something about something"
+      
+      @brief_item = @brief.brief_items.create({:title => "boom", :body => @init_body, :template_question => TemplateQuestion.make})
     end
     
     should "be valid" do
-      assert_equal({}, @brief_item)
+      assert_equal(@init_body, @brief_item.body)
     end
     
     context "changing the body" do
@@ -22,10 +25,6 @@ class BriefItemTest < ActiveSupport::TestCase
       
       should "change the body" do
         assert_equal(@new_body, @brief_item.body)
-      end
-      
-      should "revise" do
-        assert_equal({}, @brief_item.versions)
       end
       
       should "update the version number" do
