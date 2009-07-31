@@ -53,7 +53,7 @@ jQuery(document).ready(function(){
     
     $('.brief_item').each(function() {
       if (!$(this).hasClass('optional_brief_item') && $($(this).nextAll('.brief_item')[0]).hasClass('optional_brief_item')) {         
-        $(this).append('<p><a href="#" class="show_question_details">click here to add detail</a></p>').find('.brief_item a.show_question_details').click(function(){
+        $(this).append('<p><a href="#" class="show_question_details">click here to add detail</a></p>').parent().find('.brief_item a.show_question_details').click(function(){
             ($(this).text() == 'click here to add detail') ? $(this).text('hide details') : $(this).text('click here to add detail');
 
             var hidden = $(this).parent().parent().nextAll('.brief_item');
@@ -72,7 +72,7 @@ jQuery(document).ready(function(){
     $('.brief_item_section').addClass('brief_item_section_tabbed');
     
     $('.brief_item_section_tabbed h3').each(function (i) {
-      $(this).css('left', ((i * 136)) + "px");
+      $(this).css('left', ((i * 132)) + "px");
     }).click(function () {
       $(this).siblings('ul').show();
       $(this).parent().siblings().find('ul').hide();

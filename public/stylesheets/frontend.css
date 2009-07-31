@@ -111,6 +111,12 @@ a:hover {
       color: white; }
   #container #content {
     background: #fcfcfc; }
+    #container #content a {
+      text-decoration: none;
+      color: #454545;
+      font-weight: bold; }
+    #container #content a:hover {
+      color: #2b3087; }
     #container #content p {
       font-size: 1.2em; }
     #container #content .title_holder {
@@ -393,7 +399,7 @@ span.field_with_errors input {
     padding: 0.5em 1em 0.5em 1em;
     margin: 0;
     line-height: 0.5em;
-    width: 99px;
+    width: 94px;
     text-align: center;
     font-weight: normal; }
   #container #content .brief_items_by_section .brief_item_section_tabbed h3:hover {
