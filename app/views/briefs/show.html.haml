@@ -30,6 +30,5 @@
 .col_2
   .discussion     
     %p.join_discuss
-      =link_to current_object.questions.empty? ? "Start the discussion »" : "Join the discussion »", brief_questions_path(current_object, :q => "unanswered"), {:class => "awesome blue large", :style => "text-transform: uppercase"}
-  
+      =link_to current_object.questions.empty? ? "Start the discussion »" : "Join the discussion »", brief_questions_path(current_object, :q => "unanswered"), {:class => "awesome blue large", :style => "text-transform: uppercase" }
   =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions }  

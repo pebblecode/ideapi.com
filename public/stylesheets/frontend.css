@@ -515,7 +515,7 @@ span.field_with_errors input {
       margin-right: 1em;
       margin-bottom: 1em;
       margin-left: 2.4em;
-      width: 40em;
+      width: 38em;
       padding: 0.5em 1em 0.1em 1em; }
       #container #content .question_list .question .author_answer .speech p,       #container #content .question_list .question .author_answer_form .speech p,       #container #content .brief_item_history .question .author_answer .speech p,       #container #content .brief_item_history .question .author_answer_form .speech p {
         padding: 0 0.5em;
@@ -565,6 +565,10 @@ span.field_with_errors input {
   #container #content .question_list .question {
     padding: 1em 1em;
     position: relative; }
+    #container #content .question_list .question .author_answer .speech,     #container #content .question_list .question .author_answer_form .speech {
+      width: 42em; }
+      #container #content .question_list .question .author_answer .speech textarea,       #container #content .question_list .question .author_answer_form .speech textarea {
+        width: 41em; }
 #container #content .filter_questions {
   margin: 1.7em 0 0 0;
   background: #333;
