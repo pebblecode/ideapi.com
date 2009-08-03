@@ -205,8 +205,7 @@ span.field_with_errors input {
 #container #content #dashboard h2.salu {
   padding-bottom: 1em; }
 #container #content #dashboard .brief_overviews {
-  margin-top: 4em;
-  border-top: 1px solid #ccc; }
+  margin-top: 4em; }
   #container #content #dashboard .brief_overviews h2 {
     padding: 0;
     font-size: 1.1em;

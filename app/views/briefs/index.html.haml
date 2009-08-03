@@ -9,6 +9,7 @@
   
   %h2.salu=salutation
 
+
   .required_actions
     %h3 Recent activity
     %ul.action_list
@@ -16,9 +17,6 @@
         %p Coming soon to an Ideapi near you ..
   
   .brief_overviews
-    
-    %h2 Your briefs
-  
     -if current_objects.empty?
       %p You don't have any briefs yet.
     -else  
