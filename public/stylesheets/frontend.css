@@ -687,6 +687,8 @@ textarea {
         border: 0;
         float: left;
         margin-right: 1em; }
+      #container #content .col_2 .discussion_stats ul li p.non_found {
+        color: #aaa; }
       #container #content .col_2 .discussion_stats ul li p {
         font-size: 1em;
         font-weight: bold; }

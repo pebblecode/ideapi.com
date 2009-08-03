@@ -9,6 +9,10 @@
   %h2 
     Recent discussion
     %span
-    
+  
   %ul
-    = render :partial => "questions/overview_item", :collection => overview_collection.recent.all(:limit => 5)
+    -if !overview_collection.recent.all(:limit => 5).empty?
+      = render :partial => "questions/overview_item", :collection => overview_collection.recent.all(:limit => 5)
+    -else
+      %li 
+        %p.non_found No recent questions found
