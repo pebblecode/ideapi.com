@@ -15,7 +15,7 @@ $.fn.flashNotice = function () {
 	$(this).fadeIn();
 	
 	var element = $(this);
-	var timeout = setTimeout(function () { element.fadeOut(); }, 5000);
+	var timeout = setTimeout(function () { element.fadeOut(); }, 3000);
 	
 	$(this).click(function () {
 	  clearTimeout(timeout);

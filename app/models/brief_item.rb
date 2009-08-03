@@ -20,8 +20,12 @@ class BriefItem < ActiveRecord::Base
   end
   
   def history
-    # sort by latest first ..
-    (answered_questions + revisions).sort {|a,b| b.updated_at <=> a.updated_at }
+    if has_history?
+      # sort by latest first ..
+      (answered_questions + revisions).sort {|a,b| b.updated_at <=> a.updated_at }
+    else
+      []
+    end
   end
   
   def answered_questions

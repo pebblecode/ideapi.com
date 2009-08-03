@@ -92,6 +92,9 @@ a:hover {
             color: #666; }
       #container #header ul.sub_nav li.watch_form form {
         display: inline; }
+        #container #header ul.sub_nav li.watch_form form input {
+          height: 24px;
+          padding-top: 4px; }
       #container #header ul.sub_nav li.watch_form div {
         display: none; }
     #container #header p.flash {
@@ -459,9 +462,11 @@ span.field_with_errors input {
     right: 1em; }
     #container #content .brief_item .buttons button {
       display: none;
-      margin-left: 0.5em; }
+      margin-left: 0.5em;
+      -webkit-box-shadow: 0; }
 #container #content .brief_item:hover .buttons button {
-  display: inline; }
+  display: inline;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.480469) 0px 1px 3px; }
 #container #content .question_list li, #container #content .brief_item_history li {
   padding: 0.5em 1em 0 1em; }
 #container #content .question_list p.updated, #container #content .brief_item_history p.updated {

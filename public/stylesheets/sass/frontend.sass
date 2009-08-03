@@ -124,8 +124,15 @@ a:hover
       li.watch_form
         form
           :display inline
+        
+          input
+            :height 24px
+            :padding-top 4px
+          
         div
           :display none
+          
+        
         
     p.flash
       :position absolute
@@ -630,12 +637,13 @@ span.field_with_errors
         button
           :display none
           :margin-left 0.5em
+          :-webkit-box-shadow 0
           
     .brief_item:hover
       .buttons
         button
           :display inline
-    
+          :-webkit-box-shadow rgba(0, 0, 0, 0.480469) 0px 1px 3px
         
     .question_list, .brief_item_history
     

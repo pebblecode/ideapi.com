@@ -1,5 +1,5 @@
 .awesome {
-  background: #222 url(http://zurb.com/images/alert-overlay.png) repeat-x;
+  background: #222 url(/images/alert-overlay.png) repeat-x;
   display: inline-block;
   padding: 5px 10px 6px;
   color: #fff;
@@ -17,7 +17,7 @@
   line-height: 1;
   text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
   .awesome:visited {
-    background: #222 url(http://zurb.com/images/alert-overlay.png) repeat-x;
+    background: #222 url(/images/alert-overlay.png) repeat-x;
     display: inline-block;
     padding: 5px 10px 6px;
     color: #fff;
