@@ -12,5 +12,9 @@ class Question < ActiveRecord::Base
   def answered?
     !author_answer.blank?
   end
+  
+  def updated_on
+    updated_at.to_date
+  end
 
 end

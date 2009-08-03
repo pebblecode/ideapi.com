@@ -16,7 +16,7 @@ class Brief < ActiveRecord::Base
   
   accepts_nested_attributes_for :brief_items, :allow_destroy => true, :reject_if => :all_blank
   
-  has_many :questions, :order => :brief_item_id
+  has_many :questions
     
   # callbacks
   after_create :generate_brief_items_from_template!

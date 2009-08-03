@@ -13,7 +13,7 @@
         %p 
           No questions found
     -else
-      -current_objects.group_by(&:updated_at).each do |date, questions|
+      -current_objects.group_by(&:updated_on).each do |date, questions|
         %li
           %p.updated
             %span
@@ -30,3 +30,4 @@
 .col_2
   .discussion
     %p.join_discuss=link_to 'Back to brief »', brief_path(parent_object), :class => "awesome blue large", :style => "text-transform: uppercase"
+  =render :partial => 'questions/overview', :locals => { :overview_collection => current_objects }  
