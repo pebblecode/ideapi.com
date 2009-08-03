@@ -1,0 +1,14 @@
+/ .discussion_stats
+/   %h2 
+/     What&#x27;s hot
+/     %span
+/   %ul
+/     = render :partial => "questions/overview_item", :collection => overview_collection.recent.all(:limit => 5)
+
+.discussion_stats
+  %h2 
+    Recent discussion
+    %span
+    
+  %ul
+    = render :partial => "questions/overview_item", :collection => overview_collection.recent.all(:limit => 5)

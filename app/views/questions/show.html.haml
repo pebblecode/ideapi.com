@@ -1,0 +1,10 @@
+=sub_nav do
+  =#breadcrumb_list
+
+.col_1
+  
+  =render :partial => 'question', :object => current_object, :locals => { :dont_relate => false }
+        
+.col_2
+  .discussion
+    %p.join_discuss=link_to 'Back to discussion »', brief_questions_path(parent_object), :class => "awesome blue large", :style => "text-transform: uppercase"
