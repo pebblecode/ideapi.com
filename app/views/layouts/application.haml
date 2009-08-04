@@ -21,8 +21,8 @@
             %li=link_unless_current 'Login', new_user_session_path
         .clear
         %ul.sub_nav
-          %li{:class => "secondary"}
-            =#render :partial => 'briefs/search_form'
+          %li{:class => "search"}
+            =render :partial => 'briefs/search_form'
           =yield :sub_nav
           
         - if (flash[:error])

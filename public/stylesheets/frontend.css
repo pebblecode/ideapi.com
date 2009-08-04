@@ -68,7 +68,8 @@ a:hover {
       background: #000;
       border-top: 2px solid #333;
       padding: 0.5em 2em 0.8em 2em;
-      height: 20px; }
+      height: 20px;
+      position: relative; }
       #container #header ul.sub_nav li {
         display: inline;
         margin-right: 2em; }
@@ -78,6 +79,15 @@ a:hover {
           color: #aaa; }
         #container #header ul.sub_nav li span {
           color: #666; }
+      #container #header ul.sub_nav li.search {
+        position: absolute;
+        right: 0;
+        top: 0; }
+        #container #header ul.sub_nav li.search form {
+          display: inline; }
+          #container #header ul.sub_nav li.search form input[type=submit] {
+            height: 24px;
+            padding-top: 4px; }
       #container #header ul.sub_nav .breadcrumbs {
         display: inline;
         margin-left: 0.5em; }

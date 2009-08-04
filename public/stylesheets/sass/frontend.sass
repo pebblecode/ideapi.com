@@ -89,6 +89,7 @@ a:hover
       :border-top 2px solid #333
       :padding 0.5em 2em 0.8em 2em
       :height 20px
+      :position relative
     
       li
         :display inline
@@ -102,7 +103,17 @@ a:hover
         span
           :color #666
         
-      li.secondary
+      li.search
+        :position absolute
+        :right 0
+        :top 0
+        
+        form
+          :display inline
+        
+          input[type=submit]
+            :height 24px
+            :padding-top 4px
 
     
       .breadcrumbs
