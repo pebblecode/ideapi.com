@@ -7,7 +7,7 @@ set :weird_symlinks, {
   'uploads' => 'public/uploads'
 }
 
-namespace :symlinks do
+namespace :our_symlinks do
   desc "Make all the damn symlinks"
   task :make, :roles => :app, :except => { :no_release => true } do
     commands = normal_symlinks.map do |path|
@@ -30,4 +30,4 @@ namespace :symlinks do
   end
 end
 
-after "deploy:update_code", "symlinks:make"
+after "deploy:update_code", "our_symlinks:make"
