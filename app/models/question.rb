@@ -16,5 +16,11 @@ class Question < ActiveRecord::Base
   def updated_on
     updated_at.to_date
   end
+  
+  class << self
+    def brief_items
+      all(:group => :brief_item_id, :include => :brief_item).map(&:brief_item)
+    end
+  end
 
 end

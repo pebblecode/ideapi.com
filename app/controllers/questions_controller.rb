@@ -5,8 +5,14 @@ class QuestionsController < ApplicationController
   helper_method :brief_items, :record_author?
     
   def current_objects
-    reset_filter(params[:q])
-    @current_objects ||= parent_object.questions.send(@current_filter)
+    @current_objects ||= (
+      if !params[:brief_item_id].blank?
+        parent_object.questions.find_all_by_brief_item_id(params[:brief_item_id])
+      else
+        reset_filter(params[:q])
+        parent_object.questions.send(@current_filter)
+      end
+    )
   end
   
   make_resourceful do

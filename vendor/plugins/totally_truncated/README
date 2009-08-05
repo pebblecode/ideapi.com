@@ -1,0 +1,37 @@
+TotallyTruncated
+================
+
+Bastard way of getting truncated methods into AR ..
+
+
+Example
+=======
+
+class Boom
+  
+  def explode
+    "BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM"
+  end
+
+  def implode
+    "PPPPPPUUUUUURRRRFFFFFFFFFFFFFFFFFFFFF"
+  end
+
+  def implode_then_explode
+    implode + " THEN " +  explode
+  end
+
+  truncates :explode
+  
+  # options are the same as the truncate method exposed
+  # in ActionView
+  truncates :implode, :implode_then_explode, { :length => 20 }
+
+end
+
+Boom.new.implode => "PPPPPPUUUUUURRRRFFFFFFFFFFFFFFFFFFFFF"
+
+Boom.new.implode_truncated => "PPPPPPUUUUUURRRRFFFF..."
+
+
+Copyright (c) 2009 [Jason cale], released under the MIT license

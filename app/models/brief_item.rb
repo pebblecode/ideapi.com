@@ -15,6 +15,8 @@ class BriefItem < ActiveRecord::Base
   
   acts_as_versioned :if => :published?, :if_changed => [:body]
   
+  truncates :title
+  
   def has_history?
     !questions.answered.blank? || !revisions.blank?
   end

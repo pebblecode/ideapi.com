@@ -136,6 +136,13 @@ jQuery(document).ready(function(){
       $('.brief h2').append('<a href="#">expand / collapse all</a>').find('a').click(function () { $('.brief_item_history').toggle('400') });
     }
     
+    // DISCUSS
+    
+    $('.brief_item_filter').each(function () {
+      $(this).find('select').change(function () { $(this).parent().submit(); })
+      $(this).find('input[type=submit]').hide();
+    });
+    
     $('p.submit').corners();
     
     $('a[rel*=facebox]').each(function () { $(this).attr("href", $(this).attr("href") + ".js"); }).facebox(

@@ -24,6 +24,8 @@ class Brief < ActiveRecord::Base
   # validations
   validates_presence_of :user_id, :template_brief_id, :title, :most_important_message
   
+  # see plugin totally_truncated
+  truncates :title
   
   # State machine
   

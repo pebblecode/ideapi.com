@@ -32,6 +32,6 @@
         %ul
           -history_items.each do |history_item|
             -if history_item.is_a?(Question)
-              =render :partial => 'questions/question', :object => history_item, :locals => { :dont_relate => true }
+              =render :partial => 'questions/question', :object => history_item, :locals => { :show_relation => false }
             -else
               =render :partial => 'brief_item_version', :object => history_item

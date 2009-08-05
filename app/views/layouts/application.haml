@@ -3,9 +3,15 @@
   %head
     %title
       Ideapi
-    %script{ :type => "text/javascript" }
+    %script{ :type => "text/javascript" }  
+    %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=EmulateIE7"}
+
     =stylesheet_link_tag %w(reset frontend facebox buttons), :cache => true
     =javascript_include_tag %w(jquery jqcorners facebox rest_in_place jshizzle), :cache => true
+
+    /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
+    /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
+    
   %body
     #container
       #header
@@ -21,8 +27,9 @@
             %li=link_unless_current 'Login', new_user_session_path
         .clear
         %ul.sub_nav
-          %li{:class => "search"}
-            =render :partial => 'briefs/search_form'
+          -if logged_in?
+            %li{:class => "search"}
+              =render :partial => 'briefs/search_form'
           =yield :sub_nav
           
         - if (flash[:error])

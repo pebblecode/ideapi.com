@@ -6,7 +6,12 @@
   %ul.filter_questions
     -(owner?(parent_object) ? %w(unanswered recent answered) : %w(recent answered unanswered)).each do |link|
       %li=tab_link link.titlecase, brief_questions_path(parent_object, :q => link)
-      
+    %li.brief_item_filter
+      -form_for :briefs, briefs_path, :html => {:method => :get} do |f|
+        %span by response:
+        =select_tag(:brief_item_id, options_from_collection_for_select(parent_object.questions.brief_items, 'id', 'title_truncated', params[:brief_item_id].to_i))
+        =f.submit 'show', :name => ""
+    
   %ul.question_list
     -if current_objects.empty?
       %li
@@ -19,7 +24,7 @@
             %span
               ="#{time_ago_in_words(date)} ago"
           %ul
-            =render :partial => 'question', :collection => questions, :locals => { :dont_relate => false }
+            =render :partial => 'question', :collection => questions, :locals => { :show_relation => params[:brief_item_id].blank? }
         
   -if !owner?(parent_object)
     .boom_box
@@ -30,4 +35,6 @@
 .col_2
   .discussion
     %p.join_discuss=link_to 'Back to brief »', brief_path(parent_object), :class => "awesome blue large", :style => "text-transform: uppercase"
-  =render :partial => 'questions/overview', :locals => { :overview_collection => current_objects }  
+  
+  -if current_objects.respond_to?(:recent)
+    =render :partial => 'questions/overview', :locals => { :overview_collection => current_objects }  
