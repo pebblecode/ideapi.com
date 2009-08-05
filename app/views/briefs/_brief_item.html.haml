@@ -9,7 +9,7 @@
     -if brief_item.body.blank? && draft
       ="You have yet to #{link_to 'answer', edit_brief_path(current_object)}, the question would disappear if published."
     -else
-      %span.rest_in_place{:object => "brief[brief_items_attributes][#{brief_item.id}]", :attribute => "body", :extras => "&brief[brief_items_attributes][#{brief_item.id}][id]=#{brief_item.id}"}=brief_item.body    
+      =brief_item.body    
       
   .buttons
     -if brief_item.has_history?

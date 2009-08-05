@@ -214,18 +214,16 @@ span.field_with_errors input {
     background: white; }
 #container #content #dashboard h2.salu {
   padding-bottom: 1em; }
-#container #content #dashboard .brief_overviews {
-  margin-top: 4em; }
-  #container #content #dashboard .brief_overviews h2 {
-    padding: 0;
-    font-size: 1.1em;
-    font-weight: normal;
-    text-transform: uppercase;
-    text-align: center;
-    margin: -0.8em auto 1.5em auto;
-    background: white;
-    width: 7.5em;
-    color: #454545; }
+#container #content #dashboard .brief_overviews h2 {
+  padding: 0;
+  font-size: 1.1em;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin: -0.8em auto 1.5em auto;
+  background: white;
+  width: 7.5em;
+  color: #454545; }
 #container #content .required_actions {
   border: 1px solid #ccc; }
   #container #content .required_actions h3 {
@@ -262,9 +260,14 @@ span.field_with_errors input {
       padding: 0; }
   #container #content .brief_overview .brief {
     border: none;
+    border-bottom: 1px solid #ccc;
     margin: 0; }
+  #container #content .brief_overview .brief:last-child {
+    border-bottom: none; }
   #container #content .brief_overview .brief:hover {
-    background: #eee; }
+    background: #ffffdf; }
+    #container #content .brief_overview .brief:hover h5 a {
+      display: block; }
 #container #content .brief_overview.published h3, #container #content .brief_overview.watching h3 {
   background: #333333;
   color: #fcfcfc; }

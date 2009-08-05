@@ -15,6 +15,9 @@ class BriefItem < ActiveRecord::Base
   
   acts_as_versioned :if => :published?, :if_changed => [:body]
   
+  self.non_versioned_columns << 'updated_at'
+  self.non_versioned_columns << 'created_at'
+  
   truncates :title
   
   def has_history?

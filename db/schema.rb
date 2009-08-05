@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090729144931) do
+ActiveRecord::Schema.define(:version => 20090805154545) do
 
   create_table "brief_item_versions", :force => true do |t|
     t.integer  "brief_item_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20090729144931) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "template_question_id"
+    t.datetime "revised_at"
   end
 
   add_index "brief_item_versions", ["brief_item_id"], :name => "index_brief_item_versions_on_brief_item_id"
