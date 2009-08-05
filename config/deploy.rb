@@ -1,26 +1,38 @@
 require 'capistrano/ext/multistage'
-set :stages, %w(production staging)
- 
-server "174.143.232.121", :app, :web, :db, :primary => true
- 
-set :user, 'jason'
-set :keep_releases, 3 
-set :repository,  "git@abutcher.sourcerepo.com:abutcher/ideapi.git" 
-set :use_sudo, false
-set :scm, :git
-set :deploy_via, :copy
- 
-# this will make sure that capistrano checks out the submodules if any
-set :git_enable_submodules, 1
- 
-set(:application) { "ideapi_#{stage}" } # replace with your application name
-set(:deploy_to) { "/home/#{user}/apps/#{application}" }
-#set :copy_remote_dir, "/home/#{user}/tmp"
 
-set :default_stage, "staging"
+# basics
+load 'config/deploy/settings'
+ 
+# deployment tasks
+load 'config/deploy/symlinks'
  
 # source: http://tomcopeland.blogs.com/juniordeveloper/2008/05/mod_rails-and-c.html
+# source: http://github.com/blog/470-deployment-script-spring-cleaning
 namespace :deploy do
+  
+  desc "Deploy the MFer"
+  task :default do
+    update
+    restart
+    cleanup
+  end
+ 
+  desc "Setup a GitHub-style deployment."
+  task :setup, :except => { :no_release => true } do
+    run "git clone #{repository} #{current_path}"
+  end
+ 
+  desc "Update the deployed code."
+  task :update_code, :except => { :no_release => true } do
+    run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
+  end
+ 
+  desc "Rollback a single commit."
+  task :rollback, :except => { :no_release => true } do
+    set :branch, "HEAD^"
+    default
+  end
+  
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
@@ -49,3 +61,4 @@ namespace :deploy do
   end
   
 end
+
