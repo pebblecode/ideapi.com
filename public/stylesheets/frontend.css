@@ -609,7 +609,7 @@ span.field_with_errors input {
   #container #content .filter_questions li.brief_item_filter {
     position: absolute;
     top: 1.2em;
-    right: 0;
+    right: 1em;
     font-size: 0.9em; }
     #container #content .filter_questions li.brief_item_filter form {
       display: inline; }
