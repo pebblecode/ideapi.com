@@ -5,7 +5,6 @@
     %li=link_to 'preview document', brief_path(current_object), :class => "awesome small" #, :rel => "facebox"
   -else
     %li=link_to 'back to brief', brief_path(current_object), :class => "awesome small"
-  %li{:class => "secondary"}=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?", :class => "awesome small"
 
 #edit_brief.col_1
   #edit_brief_details
@@ -49,3 +48,7 @@
         %p.submit=brief_form.submit 'update'
               
   .clear
+  
+  .hr
+  %p=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
+  
