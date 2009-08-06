@@ -121,14 +121,18 @@ jQuery(document).ready(function(){
     $('.recent_activity').each(function () {  $(this).attr("over_text", $(this).text()); }).click(function () {
       
       var on_text = $(this).attr("over_text"); 
+      var _parent = $(this).parent();
       
       if ($(this).text() != on_text) {
         $(this).text(on_text);
-      } else {
+        _parent.parent().removeClass('extended');
+      } else {        
+        _parent.parent().addClass('extended');
         $(this).text("hide activity");
       };
       
-      $(this).parent().nextAll('.brief_item_history').toggle();
+      _parent.nextAll('.brief_item_history').toggle();
+      
       return false;
     });
     
