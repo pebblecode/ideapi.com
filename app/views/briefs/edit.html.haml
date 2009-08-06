@@ -3,8 +3,6 @@
   %li=link_to 'edit brief details', '#edit_brief_details', :class => "awesome small"
   -if current_object.draft?
     %li=link_to 'preview document', brief_path(current_object), :class => "awesome small" #, :rel => "facebox"
-  -else
-    %li=link_to 'back to brief', brief_path(current_object), :class => "awesome small"
 
 #edit_brief.col_1
   #edit_brief_details
@@ -51,4 +49,8 @@
   
   .hr
   %p=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
+  
+.col_2
+  .discussion
+    %p.join_discuss=link_to 'Back to brief »', brief_path(parent_object), :class => "awesome blue large", :style => "text-transform: uppercase"
   

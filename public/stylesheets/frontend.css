@@ -364,8 +364,9 @@ span.field_with_errors input {
   #container #content #edit_brief #edit_brief_details h3 {
     padding-bottom: 1em; }
 #container #content #edit_brief h3.brief_document {
-  padding-top: 0.5em;
-  width: 35em; }
+  padding-top: 0.5em; }
+  #container #content #edit_brief h3.brief_document span {
+    font-size: 0.75em; }
 #container #content #edit_brief .brief_details, #container #content #edit_brief .brief_items {
   border: 1px solid #ccc;
   padding: 1em;
