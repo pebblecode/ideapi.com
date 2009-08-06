@@ -23,6 +23,8 @@ class QuestionsController < ApplicationController
       add_breadcrumb 'briefs', briefs_path
       add_breadcrumb truncate(parent_object.title.downcase, :length => 30), brief_path(parent_object)      
       add_breadcrumb 'discussion', objects_path
+      
+      @brief_item = BriefItem.find(params[:brief_item_id]) if !params[:brief_item_id].blank?
     end
     
     before :create do

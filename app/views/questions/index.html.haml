@@ -9,7 +9,7 @@
     %li.brief_item_filter
       -form_for :briefs, briefs_path, :html => {:method => :get} do |f|
         %span by response:
-        =select_tag(:brief_item_id, options_from_collection_for_select(parent_object.questions.brief_items, 'id', 'title_truncated', params[:brief_item_id].to_i))
+        =select_tag(:brief_item_id, options_from_collection_for_select(parent_object.questions.brief_items, 'id', 'title_truncated', params[:brief_item_id]))
         =f.submit 'show', :name => ""
     
   %ul.question_list
@@ -24,13 +24,13 @@
             %span
               ="#{time_ago_in_words(date)} ago"
           %ul
-            =render :partial => 'question', :collection => questions, :locals => { :show_relation => params[:brief_item_id].blank? }
+            =render :partial => 'question', :collection => questions, :locals => { :show_relation => @brief_item.blank? }
         
   -if !owner?(parent_object)
     .boom_box
       %h3 Ask a question
       - form_for(:question, :url => brief_questions_path(parent_object)) do |f|
-        = render :partial => "form", :locals => {:f => f}
+        = render :partial => "form", :locals => {:f => f, :brief_item => @brief_item }
         
 .col_2
   .discussion

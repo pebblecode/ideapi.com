@@ -39,7 +39,7 @@ class BriefItem < ActiveRecord::Base
   
   def revisions
     # grab all revisions minus the current one..
-    revisions = versions.all(:conditions => ['version < ?', self.version])
+    revisions = versions.all(:conditions => ["version < ? AND body <> ''", self.version])
   end
   
   def history_grouped_by_fancy_date

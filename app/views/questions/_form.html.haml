@@ -1,8 +1,11 @@
--if defined?(brief_items)
-  %p
-    =f.label :brief_answer_id, "In response to: "
+%p
+  =f.label :brief_answer_id, "In response to: "
+  -if params[:brief_item_id].blank?
     =f.select :brief_item_id, brief_items.map {|ba| [ba.title, ba.id] }, {:include_blank => 'Select ...'}
+  -elsif defined?(brief_item)
+    %span=brief_item.title
+    =hidden_field_tag 'question[brief_item_id]', brief_item.title
 
 %p=f.text_area :body, :rows => 10, :cols => 80
-%p.submit=f.submit "ask"
+%p=f.submit "ask question", :class => "awesome large blue"
 .clear
