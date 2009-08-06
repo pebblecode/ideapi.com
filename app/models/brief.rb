@@ -9,6 +9,7 @@ class Brief < ActiveRecord::Base
   belongs_to :template_brief
   
   has_many :brief_items, :order => :position
+  has_many :invitations
   
   def brief_items_grouped_by_section
     brief_items.group_by(&:section_name)
