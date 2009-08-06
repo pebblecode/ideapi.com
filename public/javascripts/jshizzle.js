@@ -97,6 +97,11 @@ jQuery(document).ready(function(){
       return false;
     });
     
+    $('#edit_brief_details p.cancel').click(function (){
+      $(this).parent().parent().slideToggle('slow');
+      return false;
+    });
+    
     $('.note').append('<a href="#" class="hide_message">hide this message</a>').find('a.hide_message').click(function () { $(this).parent().fadeOut(); return false; });
     
     $(".brief_timeline li span").corners();  

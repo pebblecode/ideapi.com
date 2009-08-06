@@ -11,8 +11,10 @@
   #edit_brief_details
     %h3 Edit brief details
     - form_for(current_object, :html => { :method => :put }) do |brief_form|
-      =render :partial => 'form', :locals => { :f => brief_form }
-      %p.submit=submit_tag 'update'
+      =render :partial => 'form', :locals => { :f => brief_form }   
+      %p.submit        
+        =submit_tag 'update'
+      %p.cancel=link_to 'cancel', '#'
       .clear
   
   %h3.brief_document
@@ -45,5 +47,5 @@
         %p.submit=brief_form.submit 'save draft'
       -else 
         %p.submit=brief_form.submit 'update'
-      
+              
   .clear

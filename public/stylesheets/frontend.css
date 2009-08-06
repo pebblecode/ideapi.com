@@ -665,6 +665,9 @@ p.submit {
     border: none;
     font-weight: bold; }
 
+p.cancel {
+  float: right; }
+
 p.submit.left {
   float: left;
   margin: 0 1em 1em 0; }

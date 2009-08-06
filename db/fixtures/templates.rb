@@ -65,10 +65,9 @@ if template
       end
     end
   end
-
+  
   if section = TemplateSection.find_by_title("How?")
     questions = [
-      ["What is the single thing you want to say?", "", false],
       ["Why is this believable?", "", true],
       ["Why should people care?", "", true],
       ["How do we want the consumer to feel/think/behave", "", false],
