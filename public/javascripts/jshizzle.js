@@ -113,15 +113,21 @@ jQuery(document).ready(function(){
       $(this).parent().parent().parent().find('.brief_item_history').toggle();
     }).corners();
     
-    $('.toggle_ask_question').click(function () {
-      $(this).parent().next('.ask_question').toggle();
-      return false;
-    }).click();
-    
-    $('.toggle_history').click(function () {
+    $('.recent_activity').each(function () {  $(this).attr("over_text", $(this).text()); }).click(function () {
+      
+      var on_text = $(this).attr("over_text"); 
+      
+      if ($(this).text() != on_text) {
+        $(this).text(on_text);
+      } else {
+        $(this).text("hide activity");
+      };
+      
       $(this).parent().nextAll('.brief_item_history').toggle();
       return false;
-    }).click();
+    });
+    
+    $('.brief_item_history').hide();
     
     $('.author_answer_form').each(function () {      
       $(this).before('<p class="submit show_author_answer_form"><input type="submit" value="answer"/></p>').parent().find('.show_author_answer_form input').click(function () {

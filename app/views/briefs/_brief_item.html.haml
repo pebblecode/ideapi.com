@@ -11,17 +11,11 @@
     -else
       =brief_item.body    
       
-  .buttons
+  .actions
     -if brief_item.has_history?
-      %button.small.awesome.toggle_history expand
+      =link_to "recent activity (#{brief_item.history.size})", brief_questions_path(current_object, :brief_item_id => brief_item.id), :class => "recent_activity"
     -if !owner?(current_object)
-      %button.small.awesome.toggle_ask_question Ask question
-  
-  -if !owner?(current_object)
-    .ask_question.boom_box
-      - form_for(:question, :url => brief_questions_path(current_object)) do |f|
-        = render :partial => "questions/form", :locals => {:f => f}
-        =f.hidden_field :brief_item_id, :value => brief_item.id
+      =link_to 'ask question', brief_questions_path(current_object, :brief_item_id => brief_item.id)
         
   -if brief_item.has_history?
     .brief_item_history

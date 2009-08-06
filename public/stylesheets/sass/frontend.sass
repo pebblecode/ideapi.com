@@ -25,6 +25,7 @@ body
 !link_pink          = #ed1a62
 !off_white          = #fcfcfc
 !link_header        = #eeeeee
+!link_purple        = #2b3087
 
 a
   :text-decoration none
@@ -283,10 +284,7 @@ span.field_with_errors
           :text-align center
           :background white
           
-        
-      
-      
-    
+
     / briefs_path (dashboard)
     
     #dashboard
@@ -645,21 +643,17 @@ span.field_with_errors
         p.submit
           :margin-top 0.5em
   
-      .buttons
+      .actions
         :position absolute
         :top 1em
         :right 1em
         
-        button
-          :display none
-          :margin-left 0.5em
-          :-webkit-box-shadow 0
-          
-    .brief_item:hover
-      .buttons
-        button
-          :display inline
-          :-webkit-box-shadow rgba(0, 0, 0, 0.480469) 0px 1px 3px
+        a
+          :color #ccc
+          :padding-left 1em
+        
+        a:hover
+          :color = !link_purple
         
     .question_list, .brief_item_history
     

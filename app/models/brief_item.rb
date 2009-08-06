@@ -20,14 +20,14 @@ class BriefItem < ActiveRecord::Base
   
   truncates :title
   
-  def has_history?
-    !questions.answered.blank? || !revisions.blank?
+  def has_history?(rehash = false)
+    !brief_item_history(rehash).blank?
   end
   
-  def history
+  def history(rehash = false)
     if has_history?
       # sort by latest first ..
-      (answered_questions + revisions).sort {|a,b| b.updated_at <=> a.updated_at }
+      brief_item_history.sort {|a,b| b.updated_at <=> a.updated_at }
     else
       []
     end
@@ -57,6 +57,12 @@ class BriefItem < ActiveRecord::Base
     else
       key = date_as_time.to_date.to_time.to_i
     end
+  end
+  
+  def brief_item_history(rehash = false)
+    @brief_item_history = nil if rehash
+
+    @brief_item_history ||= (answered_questions + revisions)
   end
   
 end
