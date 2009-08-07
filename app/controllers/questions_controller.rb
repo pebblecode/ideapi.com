@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
         end
         
       else
-        reset_filter(params[:q])
+        reset_filter(params[:f])
         parent_object.questions.send(@current_filter)
       end
     )

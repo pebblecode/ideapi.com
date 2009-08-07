@@ -34,7 +34,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
             should_render_template :index
 
             should "link to unanswered questions as default" do
-              assert_equal(brief_questions_path(@brief, :q => "unanswered"), path)
+              assert_equal(brief_questions_path(@brief, :f => "unanswered"), path)
             end
           end
 
@@ -64,7 +64,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
 
             context "as brief owner" do
               should "link to unanswered questions as default" do
-                assert_equal(brief_questions_path(@brief, :q => "unanswered"), path)
+                assert_equal(brief_questions_path(@brief, :f => "unanswered"), path)
               end
             end
 
@@ -130,10 +130,10 @@ class BriefQuestionsTest < ActionController::IntegrationTest
           # we test this separately..
 
           should "provide link to recent questions" do
-            visit brief_questions_path(@brief, :q => "unanswered")
+            visit brief_questions_path(@brief, :f => "unanswered")
             click_link 'recent'
             assert_response :success
-            assert_equal(brief_questions_path(@brief, :q => "recent"), path)
+            assert_equal(brief_questions_path(@brief, :f => "recent"), path)
           end
 
         end
@@ -149,7 +149,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
               @question.author_answer = @answer
               @question.save
               
-              visit brief_questions_path(@brief, :q => "answered")
+              visit brief_questions_path(@brief, :f => "answered")
             end
 
             should "question should have its state set to answered" do
@@ -168,7 +168,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
         setup { login_as(@author) }
         
         context "visiting questions index" do
-          setup { visit brief_questions_path(@brief, :q => "unanswered") }
+          setup { visit brief_questions_path(@brief, :f => "unanswered") }
         
           should "not provide a link to create a new question" do
             assert_not_contain('Ask a question')
