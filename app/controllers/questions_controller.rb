@@ -6,8 +6,14 @@ class QuestionsController < ApplicationController
     
   def current_objects
     @current_objects ||= (
-      if !params[:brief_item_id].blank?
-        parent_object.questions.find_all_by_brief_item_id(params[:brief_item_id])
+      if params[:brief_item_id]
+        
+        if params[:brief_item_id].blank?
+          redirect_to brief_questions_path(parent_object, :q => 'recent')
+        else
+          parent_object.questions.find_all_by_brief_item_id(params[:brief_item_id])
+        end
+        
       else
         reset_filter(params[:q])
         parent_object.questions.send(@current_filter)

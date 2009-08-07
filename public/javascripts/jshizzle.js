@@ -154,7 +154,9 @@ jQuery(document).ready(function(){
     // DISCUSS
     
     $('.brief_item_filter').each(function () {
-      $(this).find('select').change(function () { $(this).parent().submit(); })
+      $(this).find('select').change(function () { 
+        $(this).parent().submit();
+      });
       $(this).find('input[type=submit]').hide();
     });
     

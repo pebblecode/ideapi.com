@@ -442,6 +442,10 @@ span.field_with_errors input {
   #container .search_results ul.brief_list li {
     padding: 1em 2em;
     border-top: 1px solid #ddd; }
+#container .discussion .brief_item {
+  padding: 1em 2em;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc; }
 #container .avatar {
   border: 6px solid #ddd; }
 #container .creative, #container .author {
@@ -459,6 +463,15 @@ span.field_with_errors input {
   border-bottom: 4px solid #eee;
   margin: 4em 0; }
 
+#container #content .ask_question {
+  padding: 1em; }
+  #container #content .ask_question textarea {
+    width: 48em;
+    height: 10em; }
+  #container #content .ask_question .awesome {
+    position: relative;
+    left: 36.5em;
+    top: 0; }
 #container #content .brief_item {
   position: relative; }
   #container #content .brief_item .ask_question {
