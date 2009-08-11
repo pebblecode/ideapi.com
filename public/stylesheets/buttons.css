@@ -1,4 +1,4 @@
-.awesome {
+.awesome, input[type=submit] {
   background: #222 url(/images/alert-overlay.png) repeat-x;
   display: inline-block;
   padding: 5px 10px 6px;
@@ -16,7 +16,7 @@
   font-weight: bold;
   line-height: 1;
   text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
-  .awesome:visited {
+  .awesome:visited,   input[type=submit]:visited {
     background: #222 url(/images/alert-overlay.png) repeat-x;
     display: inline-block;
     padding: 5px 10px 6px;
@@ -34,10 +34,10 @@
     font-weight: bold;
     line-height: 1;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
-  .awesome:hover {
+  .awesome:hover,   input[type=submit]:hover {
     background-color: #111;
     color: #fff; }
-  .awesome:active {
+  .awesome:active,   input[type=submit]:active {
     top: 1px; }
 
 .small.awesome {

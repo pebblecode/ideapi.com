@@ -174,14 +174,10 @@ a:hover {
         right: -18px;
         background: url(/images/button/right.png) no-repeat; }
 
-input, textarea, select {
+input[type=text], input[type=password], textarea, select {
   border: 1px solid #ccc;
   padding: 0.2em 0.3em;
   background: white; }
-
-textarea {
-  width: 400px;
-  height: 50px; }
 
 form p label {
   margin-right: 1em;
@@ -752,3 +748,21 @@ textarea {
           font-weight: normal; }
           #container #content .col_2 .discussion_stats ul li p span strong {
             color: #aaa; }
+#container #content .col_2 .invite_users {
+  border: 1px solid #ccc;
+  padding: 0.5em 1em 1em 1em;
+  position: relative;
+  background: #eee;
+  margin-top: 6.3em; }
+  #container #content .col_2 .invite_users h4 {
+    font-size: 1.2em;
+    padding-bottom: 0.5em; }
+  #container #content .col_2 .invite_users input[type=submit] {
+    margin: 0.5em 0 0 0;
+    position: relative;
+    left: 12em;
+    top: 0; }
+  #container #content .col_2 .invite_users textarea {
+    font-size: 1em;
+    width: 19em;
+    height: 4em; }

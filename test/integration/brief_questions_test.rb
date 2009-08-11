@@ -28,7 +28,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
           should_render_template :show
 
           context "clicking brief discussion link" do
-            setup { click_link 'join the discussion' }
+            setup { click_link 'start the discussion' }
 
             should_respond_with :success
             should_render_template :index
@@ -57,7 +57,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
           should_render_template :show
 
           context "clicking brief discussion link" do
-            setup { click_link 'join the discussion' }
+            setup { click_link 'start the discussion' }
 
             should_respond_with :success
             should_render_template :index
@@ -122,7 +122,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
             @filters.each do |f|
               click_link f
               assert_response :success
-              assert_equal(eval("brief_questions_path(@brief, :q => '#{f.downcase}')"), path)
+              assert_equal(eval("brief_questions_path(@brief, :f => '#{f.downcase}')"), path)
             end
           end
 
@@ -199,7 +199,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
 
           context "inline ask question form" do
             should "not have form inline to add questions" do
-              assert_select "form[action=?]", brief_questions_path(@brief), :count => 0
+              assert_select "form[action=?][method=?]", brief_questions_path(@brief), 'post', :count => 0
             end
           end
           
@@ -222,7 +222,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
             end
 
             should "have form inline to add questions" do
-              assert_select 'form[action=?]', brief_questions_path 
+              assert_select 'form[action=?][method=?]', brief_questions_path, 'post'
             end
             
             context "submitting the form" do

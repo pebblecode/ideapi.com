@@ -5,7 +5,7 @@
 
   %ul.filter_questions
     -(owner?(parent_object) ? %w(unanswered recent answered) : %w(recent answered unanswered)).each do |link|
-      %li=tab_link link.titlecase, brief_questions_path(parent_object, :q => link)
+      %li=tab_link link.titlecase, brief_questions_path(parent_object, :f => link)
     %li.brief_item_filter
       -form_for :briefs, briefs_path, :html => {:method => :get} do |f|
         %span by response:

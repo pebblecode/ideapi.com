@@ -1,4 +1,6 @@
-ActionController::Routing::Routes.draw do |map|  
+ActionController::Routing::Routes.draw do |map|
+  map.resources :invitations
+  
   map.resources :briefs, :collection => { :browse => :get }, :member => { :delete => :get, :watch => :post } do |briefs|
     briefs.resources :questions
   end
@@ -12,5 +14,5 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resource :home, :controller => "home"
-  map.root :controller => "home", :action => "show" # optional, this just sets the root route
+  map.root :controller => "home", :action => "show"
 end

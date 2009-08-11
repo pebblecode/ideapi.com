@@ -1,6 +1,9 @@
 %p
   %label{:for => "user_login"} Login:
   = f.text_field :login
+  .help
+    This is what you will be known as on the website, so if you want to remain anonymous here is your chance.
+  
 %p
   %label{:for => "user_email"} Email:
   = f.text_field :email
@@ -8,8 +11,11 @@
 .hr
 
 %p
-  %label{:for => "user_avatar"} Email:
+  %label{:for => "user_avatar"} Your picture:
   =f.file_field :avatar
+  .help
+    Upload a square image 100x100
+
 
 .hr  
   

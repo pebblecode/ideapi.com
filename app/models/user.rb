@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   
   # METHODS FOR BRIEF OWNERSHIP
   
-  has_many :briefs
+  has_many :briefs, :dependent => :destroy
+  
   delegate :draft, :to => :briefs
   delegate :published, :to => :briefs
   
@@ -17,12 +18,17 @@ class User < ActiveRecord::Base
   
   has_many :questions
   has_many :proposals
-  has_many :watched_briefs
-  has_many :brief_user_views
+  has_many :watched_briefs, :dependent => :destroy
+  has_many :brief_user_views, :dependent => :destroy
   
   # pathways to the hallowed briefs
   has_many :responded_briefs, :through => :proposals, :source => :brief
   has_many :watching_briefs, :through => :watched_briefs, :source => :brief
+  
+  # beta invite
+  
+  has_many :invitations, :dependent => :destroy
+  
   
   def watch(brief)
     return false if !brief

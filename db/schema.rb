@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090805154545) do
+ActiveRecord::Schema.define(:version => 20090810120457) do
 
   create_table "brief_item_versions", :force => true do |t|
     t.integer  "brief_item_id"
@@ -55,6 +55,35 @@ ActiveRecord::Schema.define(:version => 20090805154545) do
   end
 
   add_index "briefs", ["delta"], :name => "index_briefs_on_delta"
+
+  create_table "coupon_that_expires", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "redeemed_at"
+    t.integer  "redeemed_by_id"
+    t.datetime "expires_on"
+  end
+
+  create_table "free_today_coupons", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "redeemed_at"
+    t.integer  "redeemed_by_id"
+    t.datetime "expires_on"
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.string   "recipient_email"
+    t.integer  "user_id"
+    t.string   "code"
+    t.datetime "redeemed_at"
+    t.integer  "redeemed_by_id"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "proposals", :force => true do |t|
     t.text     "short_description"

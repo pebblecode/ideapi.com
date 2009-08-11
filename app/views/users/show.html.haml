@@ -3,7 +3,7 @@
 
 .col_1
   
-  %h2 My Account
+  %h2 Profile
   
   .boom_box
 
@@ -25,4 +25,19 @@
     
       -if current_object == current_user
         %p.edit= link_to 'Edit', edit_user_path(current_user)
-      
+  
+  -if current_object == current_user
+    .boom_box
+      %h3 Your invitations
+      -if current_object.invitations.blank?
+        %p You have not send any invitations yet.
+      -else
+        %ul
+          -current_object.invitations.each do |invite|
+            %li
+              =invite.recipient_email 
+              ="(#{invite.state})"
+              
+.col_2
+  -if current_object == current_user
+    =render :partial => 'users/invite'

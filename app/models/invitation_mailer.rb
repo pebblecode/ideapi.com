@@ -1,10 +1,9 @@
 class InvitationMailer < ActionMailer::Base
-
-  def invitation(email, invitation, sent_at = Time.now)
+  def invitation(invitation, sent_at = Time.now)
     @subject = 'InvitationMailer#invitation'
     @body[:invitation] = invitation
-    @recipients = email
-    @from = 'mailer@mydomain'
+    @recipients = invitation.recipient_email
+    @from = 'invite@ideapi.net'
     @sent_on = sent_at
   end
 end

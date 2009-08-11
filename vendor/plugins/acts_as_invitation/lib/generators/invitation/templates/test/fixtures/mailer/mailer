@@ -1,3 +1,0 @@
-<%= class_name %>Mailer#<%= file_name %>
-
-Find me in app/views/<%= file_name %>_mailer/<%= file_name %>.rhtml

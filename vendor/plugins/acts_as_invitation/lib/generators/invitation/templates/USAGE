@@ -1,7 +1,0 @@
-script/generate invitation (MailerName)
-
-Example:
-
-script/generate invitation Invitation
-
-This will create two files: an InvitationMailer class, and a invitation.rhtml email view.

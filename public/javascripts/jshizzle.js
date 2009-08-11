@@ -165,6 +165,26 @@ jQuery(document).ready(function(){
     $('a[rel*=facebox]').each(function () { $(this).attr("href", $(this).attr("href") + ".js"); }).facebox(
       {loadingImage: '/images/fb/loading.gif' , closeImage: '/images/fb/closelabel.gif'}
     );
+    
+    $('input, textarea').each(function () {
+      if ($(this).attr('title') != "" && $(this).val() == "") {
+        
+        $(this).val($(this).attr('title'));
+        
+        $(this).focus(function () {
+          if ($(this).val() == $(this).attr('title')) {
+            $(this).addClass('').val('');
+          };
+        });
+
+        $(this).blur(function () {
+          if ($(this).val() == "") {
+            $(this).val($(this).attr('title'));
+          }
+        });
+        
+      };
+    });
 });
 
 
