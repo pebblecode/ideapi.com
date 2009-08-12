@@ -5,7 +5,7 @@ module Ideapi
       base.send(:include, AlterEgo)
       base.send(:include, InstanceMethods)
     
-      base.extend ClassMethods      
+      base.extend(ClassMethods)  
     end
   
     module ClassMethods
@@ -15,7 +15,7 @@ module Ideapi
       # in the class to get some tasty
       # helper methods ..
       
-      def become_schizophrenic  
+      def become_schizophrenic
         class_eval do
           states.each do |state_name, state|
             # create a named scope for all the defined scopes

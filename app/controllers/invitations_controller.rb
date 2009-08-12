@@ -10,6 +10,16 @@ class InvitationsController < ApplicationController
     redirect_back_or_default user_path(current_user)
   end
   
+  def show
+    @invitation = Invitation.find_by_code(params[:id])
+    if @invitation && @invitation.pending?
+      redirect_to new_user_path(:invite => @invitation.code)
+    else
+      flash[:error] = @invitation ? "Invitation is no longer valid" : "Invitation is not valid"
+      redirect_back_or_default '/'
+    end
+  end
+  
   private
   
   def send_invitations_for(invites)
