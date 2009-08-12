@@ -761,8 +761,7 @@ textarea {
   border: 1px solid #ccc;
   padding: 0.5em 1em 1em 1em;
   position: relative;
-  background: #eee;
-  margin-top: 6.3em; }
+  background: #eee; }
   #container #content .col_2 .invite_users h4 {
     font-size: 1.2em;
     padding-bottom: 0.5em; }
@@ -775,3 +774,7 @@ textarea {
     font-size: 1em;
     width: 19em;
     height: 4em; }
+#container #content .invitations {
+  padding: 0.5em 1em; }
+  #container #content .invitations li {
+    font-size: 1.2em; }

@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(:version => 20090810120457) do
     t.text     "body"
     t.integer  "position"
     t.integer  "brief_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "template_question_id"
     t.datetime "revised_at"
   end
@@ -56,24 +54,6 @@ ActiveRecord::Schema.define(:version => 20090810120457) do
 
   add_index "briefs", ["delta"], :name => "index_briefs_on_delta"
 
-  create_table "coupon_that_expires", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "code"
-    t.datetime "created_at"
-    t.datetime "redeemed_at"
-    t.integer  "redeemed_by_id"
-    t.datetime "expires_on"
-  end
-
-  create_table "free_today_coupons", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "code"
-    t.datetime "created_at"
-    t.datetime "redeemed_at"
-    t.integer  "redeemed_by_id"
-    t.datetime "expires_on"
-  end
-
   create_table "invitations", :force => true do |t|
     t.string   "recipient_email"
     t.integer  "user_id"
@@ -81,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20090810120457) do
     t.datetime "redeemed_at"
     t.integer  "redeemed_by_id"
     t.string   "state"
+    t.integer  "redeemable_id"
+    t.string   "redeemable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

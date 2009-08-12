@@ -13,7 +13,11 @@ class InvitationsController < ApplicationController
   def show
     @invitation = Invitation.find_by_code(params[:id])
     if @invitation && @invitation.pending?
-      redirect_to new_user_path(:invite => @invitation.code)
+      if !@invitation.redeemable.blank?
+        redirect_to "#{@invitation.redeemable_type.downcase}_path(#{@invitation.redeemable})"
+      else
+        redirect_to new_user_path(:invite => @invitation.code)
+      end
     else
       flash[:error] = @invitation ? "Invitation is no longer valid" : "Invitation is not valid"
       redirect_back_or_default '/'

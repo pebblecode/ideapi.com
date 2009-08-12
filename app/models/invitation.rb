@@ -3,6 +3,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user_id
   belongs_to :redeemed_by, :class_name => "User", :foreign_key => "redeemed_by_id"
+  belongs_to :redeemable, :polymorphic => true
   
   include Ideapi::Schizo
 
@@ -32,7 +33,7 @@ class Invitation < ActiveRecord::Base
       self.redeem!
     end
   end
-  
+    
   private
   
   def generate_code

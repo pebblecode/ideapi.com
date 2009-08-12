@@ -9,30 +9,17 @@
 
     %div[current_object]
       %p=large_avatar
-      %h3= h salutation
-
-      %p
-        %strong= h given_name(current_object)
-        -if current_object.author?
-          =(current_user?(current_object) ? "have" : "has") 
-          %strong=pluralize(current_object.briefs.published.count, 'active brief')
-        -if !current_object.proposals.empty?
-          =(current_user?(current_object) ? "are" : "is") 
-          involved with 
-          %strong=pluralize(current_object.proposals.count, 'pitches')
-          
-      .clear
     
       -if current_object == current_user
         %p.edit= link_to 'Edit', edit_user_path(current_user)
   
   -if current_object == current_user
     .boom_box
-      %h3 Your invitations
+      %h3 Invitations
       -if current_object.invitations.blank?
-        %p You have not send any invitations yet.
+        %p You have not sent any invitations yet.
       -else
-        %ul
+        %ul.invitations
           -current_object.invitations.each do |invite|
             %li
               =invite.recipient_email 

@@ -30,4 +30,5 @@
   .discussion     
     %p.join_discuss
       =link_to current_object.questions.empty? ? "Start the discussion »" : "Join the discussion »", brief_questions_path(current_object, :f => "unanswered"), {:class => "awesome blue large", :style => "text-transform: uppercase" }
-  =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions }  
+  =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions } 
+  =#render :partial => 'users/invite', :locals => { :title => "Invite people to view brief", :redeemable => current_object }

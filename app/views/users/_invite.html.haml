@@ -1,5 +1,5 @@
 .invite_users
-  %h4 Invite people to join
+  %h4= defined?(title) ? title : "Invite people to join"
   -form_for 'invitation', :url => invitations_path do |f|
-    =f.text_area 'recipient_list', :title => 'Enter email addresses here'
+    =f.text_area 'recipient_list', :title => 'Enter email addresses here'      
     =f.submit 'Invite'

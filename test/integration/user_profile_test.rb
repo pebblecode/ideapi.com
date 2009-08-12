@@ -15,9 +15,9 @@ class UserProfileTest < ActionController::IntegrationTest
       
       should_respond_with :success
       
-      should "address current user as you" do
-        assert_contain("You")
-      end
+      # should "address current user as you" do
+      #   assert_contain("You")
+      # end
       
     end
     
@@ -29,9 +29,9 @@ class UserProfileTest < ActionController::IntegrationTest
       
       should_respond_with :success
       
-      should "address current user as you" do
-        assert_contain(@standard_user_2.login.titleize)
-      end
+      # should "address current user as you" do
+      #   assert_contain(@standard_user_2.login.titleize)
+      # end
       
     end
     

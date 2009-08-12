@@ -11,6 +11,8 @@ class CreateInvitations < ActiveRecord::Migration
       
       t.string :state
       
+      t.references :redeemable, :polymorphic => true
+      
       t.timestamps
     end
   end
