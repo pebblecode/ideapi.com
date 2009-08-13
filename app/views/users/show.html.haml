@@ -19,11 +19,28 @@
       -if current_object.invitations.blank?
         %p You have not sent any invitations yet.
       -else
+        %table.invitations
+          %thead
+            %tr
+              %th
+                Email address
+              %th
+                Date sent
+              %th
+                Status
+          %tbody
+            -current_object.invitations.each do |invite|
+              %tr
+                %td
+                  =invite.recipient_email 
+                %td
+                  =distance_of_time_in_words_to_now(invite.created_at) 
+                  ago
+                %td
+                  =invite.state
+      
         %ul.invitations
-          -current_object.invitations.each do |invite|
-            %li
-              =invite.recipient_email 
-              ="(#{invite.state})"
+          
               
 .col_2
   -if current_object == current_user

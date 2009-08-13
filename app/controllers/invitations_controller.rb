@@ -24,6 +24,13 @@ class InvitationsController < ApplicationController
     end
   end
   
+  def update
+    @invitation = Invitation.find_by_code(params[:id])
+    if @invitation
+      send_invitations_for([@invitation])
+    end
+  end
+  
   private
   
   def send_invitations_for(invites)

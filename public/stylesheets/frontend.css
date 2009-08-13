@@ -775,6 +775,14 @@ textarea {
     width: 19em;
     height: 4em; }
 #container #content .invitations {
-  padding: 0.5em 1em; }
-  #container #content .invitations li {
-    font-size: 1.2em; }
+  padding: 0.5em 0em;
+  width: 100%; }
+  #container #content .invitations td, #container #content .invitations th {
+    padding: 0.5em 1em; }
+  #container #content .invitations th {
+    background: #ddd;
+    border-bottom: 1px solid #ccc; }
+  #container #content .invitations tr:nth-child(even) {
+    background: #e4e4e4; }
+  #container #content .invitations tr:nth-child(odd) {
+    background: #eee; }
