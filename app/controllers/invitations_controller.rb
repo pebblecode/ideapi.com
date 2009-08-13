@@ -24,11 +24,15 @@ class InvitationsController < ApplicationController
     end
   end
   
-  def update
-    @invitation = Invitation.find_by_code(params[:id])
+  def resend
+    @invitation = current_user.invitations.pending.find_by_code(params[:id])
     if @invitation
       send_invitations_for([@invitation])
+      flash[:notice] = "Invitation has been resent to #{@invitation.recipient_email}"
+    else
+      flash[:notice] = "Invitation could not be found or has been accepted"
     end
+    redirect_back_or_default user_path(current_user)
   end
   
   private

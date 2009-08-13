@@ -32,7 +32,9 @@
             -current_object.invitations.each do |invite|
               %tr
                 %td
-                  =invite.recipient_email 
+                  =invite.recipient_email
+                  -if invite.pending?
+                    =link_to '(resend invite)', resend_invitation_path(invite.code), :style => "padding-left: 0.5em"
                 %td
                   =distance_of_time_in_words_to_now(invite.created_at) 
                   ago

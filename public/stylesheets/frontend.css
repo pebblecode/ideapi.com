@@ -775,7 +775,7 @@ textarea {
     width: 19em;
     height: 4em; }
 #container #content .invitations {
-  padding: 0.5em 0em;
+  padding: 1em 0 0 0;
   width: 100%; }
   #container #content .invitations td, #container #content .invitations th {
     padding: 0.5em 1em; }
