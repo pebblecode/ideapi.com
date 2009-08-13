@@ -16,7 +16,7 @@ class Invitation < ActiveRecord::Base
   end
   
   state :accepted
-
+  
   become_schizophrenic
 
   before_save :generate_code

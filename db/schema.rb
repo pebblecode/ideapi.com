@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090810120457) do
+ActiveRecord::Schema.define(:version => 20090813151529) do
 
   create_table "brief_item_versions", :force => true do |t|
     t.integer  "brief_item_id"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20090810120457) do
     t.datetime "avatar_updated_at"
     t.datetime "last_login_at"
     t.datetime "last_request_at"
+    t.integer  "invite_count"
   end
 
   create_table "watched_briefs", :force => true do |t|

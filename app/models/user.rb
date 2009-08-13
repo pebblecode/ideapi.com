@@ -25,9 +25,12 @@ class User < ActiveRecord::Base
   has_many :responded_briefs, :through => :proposals, :source => :brief
   has_many :watching_briefs, :through => :watched_briefs, :source => :brief
   
-  # beta invite
+  # handle invitations ..
+  include Ideapi::HighSociety
+  can_grant_invites_to_others :max_invites => 10
   
-  has_many :invitations, :dependent => :destroy
+  # protect against mass assignment
+  attr_accessible :login, :email, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :last_login_at, :last_request_at
   
   
   def watch(brief)
