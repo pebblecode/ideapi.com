@@ -5,7 +5,7 @@ class InvitationsTest < ActionController::IntegrationTest
   
   context "logged in" do
     setup do
-      @user = User.make(:password => "testing")
+      @user = User.make(:password => "testing", :invite_count => 10)
       login_as(@user)
     end
     
@@ -60,6 +60,43 @@ class InvitationsTest < ActionController::IntegrationTest
 
       end
             
+    end
+    
+    
+    context "profile page" do
+      setup do
+        visit user_path(@user)
+      end
+
+      should "show number of invites" do
+        assert_contain("#{@user.invite_count}")
+      end
+      
+      
+      context "with invites sent" do
+        setup do
+          @invite = @user.invitations.make
+          reload
+        end
+
+        should "show the invite" do
+          assert_contain(@invite.recipient_email)
+        end
+        
+        should "show status" do
+          assert_contain(@invite.state.to_s)
+        end
+        
+        should "have resend link" do
+          assert_select 'a[href=?]', resend_invitation_path(@invite.code), :text => '(resend invite)'
+        end
+        
+        should "have a cancel link" do
+          assert_select 'a[href=?]', cancel_invitation_path(@invite.code), :text => 'cancel'
+        end
+        
+      end
+      
     end
       
   end 
@@ -149,7 +186,6 @@ class InvitationsTest < ActionController::IntegrationTest
         
       end
     end
-    
     
   end 
   

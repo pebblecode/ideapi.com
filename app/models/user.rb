@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   can_grant_invites_to_others :max_invites => 10
   
   # protect against mass assignment
-  attr_accessible :login, :email, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :last_login_at, :last_request_at
+  attr_accessible :login, :email, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :last_login_at, :last_request_at, :password, :password_confirmation
   
   
   def watch(brief)

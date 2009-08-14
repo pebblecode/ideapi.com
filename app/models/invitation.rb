@@ -12,10 +12,16 @@ class Invitation < ActiveRecord::Base
       transition_to :accepted
       save!
     end
-    # transition :to => :published, :on => :publish!, :if => proc { !brief_items.answered.empty? }
+    
+    handle :cancel! do
+      transition_to :cancelled
+      notify_user_of_cancellation
+      save!
+    end    
   end
   
   state :accepted
+  state :cancelled
   
   become_schizophrenic
 
@@ -24,6 +30,10 @@ class Invitation < ActiveRecord::Base
   
   validates_uniqueness_of :recipient_email, :scope => :user_id
   validates_format_of :recipient_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  
+  def notify_user_of_cancellation
+    user.invite_cancelled(self)
+  end
   
   def redeem_for_user(user)
     transaction do

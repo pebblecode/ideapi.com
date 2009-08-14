@@ -60,7 +60,7 @@ CREATE TABLE `invitations` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `proposals` (
   `id` int(11) NOT NULL auto_increment,
@@ -139,6 +139,7 @@ CREATE TABLE `users` (
   `avatar_updated_at` datetime default NULL,
   `last_login_at` datetime default NULL,
   `last_request_at` datetime default NULL,
+  `invite_count` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
@@ -204,3 +205,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090729144931');
 INSERT INTO schema_migrations (version) VALUES ('20090805154545');
 
 INSERT INTO schema_migrations (version) VALUES ('20090810120457');
+
+INSERT INTO schema_migrations (version) VALUES ('20090813151529');

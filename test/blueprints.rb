@@ -46,6 +46,7 @@ User.blueprint do
   email
   password
   password_confirmation { password }
+  invite_count { 0 }
 end
 
 Question.blueprint do

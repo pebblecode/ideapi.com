@@ -13,11 +13,7 @@ class InvitationsController < ApplicationController
   def show
     @invitation = Invitation.find_by_code(params[:id])
     if @invitation && @invitation.pending?
-      if !@invitation.redeemable.blank?
-        redirect_to "#{@invitation.redeemable_type.downcase}_path(#{@invitation.redeemable})"
-      else
-        redirect_to new_user_path(:invite => @invitation.code)
-      end
+      redirect_to new_user_path(:invite => @invitation.code)
     else
       flash[:error] = @invitation ? "Invitation is no longer valid" : "Invitation is not valid"
       redirect_back_or_default '/'
@@ -25,8 +21,9 @@ class InvitationsController < ApplicationController
   end
   
   def resend
-    @invitation = current_user.invitations.pending.find_by_code(params[:id])
-    if @invitation
+    
+
+    if @invitation = find_pending(params[:id])
       send_invitations_for([@invitation])
       flash[:notice] = "Invitation has been resent to #{@invitation.recipient_email}"
     else
@@ -35,7 +32,20 @@ class InvitationsController < ApplicationController
     redirect_back_or_default user_path(current_user)
   end
   
+  def cancel
+    if find_pending(params[:id]).cancel!
+      flash[:notice] = "Invitation has been cancelled"
+    else
+      flash[:notice] = "Invitation could not be found or has been accepted"
+    end
+    redirect_back_or_default user_path(current_user) 
+  end
+  
   private
+  
+  def find_pending(code)
+    current_user.invitations.pending.find_by_code(code)
+  end
   
   def send_invitations_for(invites)
     invites.each {|invite| InvitationMailer.deliver_invitation(invite) }
