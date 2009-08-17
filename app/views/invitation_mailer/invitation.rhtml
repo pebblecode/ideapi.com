@@ -1,5 +1,13 @@
-Yo yo yo,
+You've been invited to join the discussion on a brief at http://www.ideapi.com.  
 
-You are invited:
+Visit <%= pluralize(@invitation.user.login) %>'s profile page on ideapi.com:
+
+<%= user_url(@invitation.user) %> 
+
+### CLICK THE LINK BELOW TO ACCEPT THIS INVITATION ###
 
 <%= invitation_url(@invitation.code, :host => "staging.ideapi.net") %>
+
+After clicking this link, you will be able to create a new ideapi.com profile, or else chose an existing profile for this invitation.
+
+For support: support@ideapi.com
