@@ -21,7 +21,7 @@
           You have 
           %strong=current_object.invite_count
           invites left, you can request more 
-          =link_to "here.", ''
+          =link_to "here.", request_invitations_invitations_path
         -if current_object.invitations.blank?
           %p You have not sent any invitations yet.
         -else

@@ -6,4 +6,13 @@ class InvitationMailer < ActionMailer::Base
     @from = 'invite@ideapi.net'
     @sent_on = sent_at
   end
+
+  def invite_request(requested_by, sent_at = Time.now)
+    @subject = '[IDEAPI] Invitation request'
+    @body[:requested_by] = requested_by
+    @recipients = 'alex@ideapi.net'
+    @from = requested_by.email
+    @sent_on = sent_at
+  end
+
 end

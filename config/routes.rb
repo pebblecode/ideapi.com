@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :invitations, :member => { :resend => :get, :cancel => :get }
+  map.resources :invitations, :collection => { :request_invitations => :get }, :member => { :resend => :get, :cancel => :get }
   
   map.resources :briefs, :collection => { :browse => :get }, :member => { :delete => :get, :watch => :post } do |briefs|
     briefs.resources :questions

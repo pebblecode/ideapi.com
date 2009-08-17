@@ -1,0 +1,15 @@
+Hi Alex,
+
+The following user would like some invite some more people.
+
+login: <%= @requested_by.login %>
+email: <%= @requested_by.email %>
+invite count: <%= @requested_by.invite_count %>
+
+current invitations sent:
+
+<% @requested_by.invitations.each do |invite| %>
+  <%= invite.recipient_email %> (<%= invite.state %>)
+<% end %>
+
+Thanks.

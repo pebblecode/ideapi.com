@@ -21,8 +21,6 @@ class InvitationsController < ApplicationController
   end
   
   def resend
-    
-
     if @invitation = find_pending(params[:id])
       send_invitations_for([@invitation])
       flash[:notice] = "Invitation has been resent to #{@invitation.recipient_email}"
@@ -39,6 +37,12 @@ class InvitationsController < ApplicationController
       flash[:notice] = "Invitation could not be found or has been accepted"
     end
     redirect_back_or_default user_path(current_user) 
+  end
+  
+  def request_invitations
+    InvitationMailer.deliver_invite_request(current_user)
+    flash[:notice] = "Your request has been sent to ideapi support"
+    redirect_to user_path(current_user) 
   end
   
   private
