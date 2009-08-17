@@ -1,17 +1,16 @@
-.login
-  %h3 Please login to your account
-  .login_form{:style => "margin: 0 1em; width: 28em"}  
-    -form_for @user_session, :url => user_session_path do |f|
-      %p
-        =f.label :login
-        =f.text_field :login
-      %p
-        =f.label :password
-        =f.password_field :password
-      %p
-        =f.check_box :remember_me
-        =f.label :remember_me
+%h3 Please login to your account
+.login_form{:style => "margin: 0 1em; width: 28em"}  
+  -form_for @user_session, :url => user_session_path do |f|
+    %p
+      =f.label :login
+      =f.text_field :login
+    %p
+      =f.label :password
+      =f.password_field :password
+    %p
+      =f.check_box :remember_me
+      =f.label :remember_me
 
-      %p.submit
-        =submit_tag "Login"
-        .clear
+    %p.submit
+      =submit_tag "Login"
+      .clear

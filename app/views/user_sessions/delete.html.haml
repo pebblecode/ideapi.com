@@ -1,9 +1,8 @@
-.col_1
-  %h2 Are you sure you want to logout?
+%h3 Are you sure you want to logout?
 
-  .login_form{:style => "margin: 0 1em; width: 10em"}  
-    -form_for current_user_session, :url => user_session_path, :html => {:method => :delete} do |f|
-      %p.submit
-        =submit_tag "Yes log me out"
-        .clear
-
+.login_form  
+  -form_for current_user_session, :url => user_session_path, :html => {:method => :delete} do |f|
+    %p
+      =submit_tag "Yes log me out"
+      or return to 
+      =link_to "dashboard", briefs_path
