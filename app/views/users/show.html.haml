@@ -8,10 +8,18 @@
   .boom_box
 
     %div[current_object]
-      %p=large_avatar
-    
+      =large_avatar
+      %p
+        %strong Login:
+        =current_object.login
+      %p
+        %strong Active briefs:
+        =current_object.briefs.published.count
+          
       -if current_object == current_user
         %p.edit= link_to 'Edit', edit_user_path(current_user)
+        
+      .clear
   
   -if current_object == current_user
     -if current_object.has_invites?  

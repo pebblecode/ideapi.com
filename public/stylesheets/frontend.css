@@ -650,6 +650,9 @@ span.field_with_errors input {
     #container #content .title_holder .brief_timeline li span.selected {
       background: #e9e9e9;
       color: #555; }
+#container #content .user .avatar {
+  float: left;
+  margin-right: 2em; }
 
 p.subs {
   float: right; }
