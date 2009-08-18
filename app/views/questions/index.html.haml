@@ -8,8 +8,8 @@
       %li=tab_link link.titlecase, brief_questions_path(parent_object, :f => link)
     %li.brief_item_filter
       -form_for :briefs, briefs_path, :html => {:method => :get} do |f|
-        %span by response:
-        =select_tag(:brief_item_id, options_from_collection_for_select(parent_object.questions.brief_items.unshift(BriefItem.new(:title => "select ..")), 'id', 'title_truncated', params[:brief_item_id].to_i))
+        %span filter:
+        =select_tag(:brief_item_id, options_from_collection_for_select(parent_object.brief_items.unshift(BriefItem.new(:title => "select ..")), 'id', 'title_truncated', params[:brief_item_id].to_i))
         =f.submit 'show', :name => ""
   
   -if @brief_item
