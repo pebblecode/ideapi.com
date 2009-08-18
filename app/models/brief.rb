@@ -11,6 +11,13 @@ class Brief < ActiveRecord::Base
   has_many :brief_items, :order => :position
   has_many :invitations, :as => :redeemable
   
+  has_many :watched_briefs
+  has_many :watchers, :through => :watched_briefs, :source => :user
+  
+  def all_involved
+    [user] + watchers
+  end
+  
   def brief_items_grouped_by_section
     brief_items.group_by(&:section_name)
   end

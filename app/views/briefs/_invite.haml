@@ -1,10 +1,10 @@
--if current_user.friends_watching(current_object).present?
+-if current_object.all_involved.present?
   .discussion_stats
     %h2 
       People on this brief
       %span
     %ul.watching
-      -current_user.friends_watching(current_object).each do |friend|
+      -current_object.all_involved.each do |friend|
         %li
           =small_avatar(friend)
           %p
@@ -19,14 +19,14 @@
                 
 -if owner?(current_object)
   .invite_users{:style => "margin-bottom: 1em"}
-      %h4 Invite contacts to participate
-      -if current_user.friends_not_watching(current_object).present?
-        -form_for 'invitation', :url => invite_brief_path(current_object) do |f|
-          %p
-            =f.select 'user', current_user.friends_not_watching(current_object).map { |friend| [friend.login, friend.id] }, :include_blank => true
-            =f.submit 'Invite'
-      -else
-        %p No contacts left to add
+    %h4 Invite contacts to participate
+    -if current_user.friends_not_watching(current_object).present?
+      -form_for 'invitation', :url => invite_brief_path(current_object) do |f|
+        %p
+          =f.select 'user', current_user.friends_not_watching(current_object).map { |friend| [friend.login, friend.id] }, :include_blank => true
+          =f.submit 'Invite'
+    -else
+      %p No contacts left to add
 
   .invite_users
     %h4 Or invite others

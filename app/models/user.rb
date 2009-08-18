@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   has_friends
   
   def friends_not_watching(brief)
-    friends - friends_watching(brief)
+    friends - brief.watchers
   end
   
   def friends_watching(brief)
