@@ -40,17 +40,27 @@ class User < ActiveRecord::Base
   end
   
   def invite_accepted(invitation)
-    friendship, status = be_friends_with(invitation.redeemed_by)
 
-    if status == Friendship::STATUS_REQUESTED
-      # the friendship has been requested
-      #Mailer.deliver_friendship_request(friendship)
-      friendship.accept!      
-    elsif status == Friendship::STATUS_ALREADY_FRIENDS
-      # they're already friends
-    else
-      # ...
-    end
+    (friends << self).each { |friend| 
+      
+      if !(invitation.redeemed_by.eql?(friend))
+        friendship, status = be_friends_with(invitation.redeemed_by)
+        
+        if status == Friendship::STATUS_REQUESTED
+          # the friendship has been requested
+          #Mailer.deliver_friendship_request(friendship)
+          friendship.accept!      
+        elsif status == Friendship::STATUS_ALREADY_FRIENDS
+          # they're already friends
+        else
+          # ...
+        end
+      
+      end
+    }
+    
+    f,s = invitation.redeemed_by.be_friends_with(self)
+    f.accept!
   end
   
   # protect against mass assignment

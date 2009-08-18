@@ -202,6 +202,16 @@ class InvitationsTest < ActionController::IntegrationTest
     
     setup do
       @invited_by = User.make
+      # give inviter some friends too
+      
+      @friends = 3.times.map { User.make }
+      
+      @friends.each { |friend| 
+        friendship, status = @invited_by.be_friends_with(friend); 
+        friendship.accept!
+        friend.reload
+      }
+      
       @invite = Invitation.make(:user => @invited_by)
     end
     
@@ -284,6 +294,18 @@ class InvitationsTest < ActionController::IntegrationTest
         
         should "become friends with user who invited them" do
           assert @invited_by.friends?(@invite.reload.redeemed_by)
+        end
+        
+        should "invitor should be friends with user" do
+          assert @invite.reload.redeemed_by.friends?(@invited_by.reload)
+        end
+        
+        should "users friends should be friends with invited" do
+          @friends.each { |friend| friend.friends?(@invite.reload.redeemed_by) }          
+        end
+        
+        should "invited should be friends with inviters friends" do
+          @friends.each { |friend| @invite.reload.redeemed_by.friends?(friend) }
         end
         
       end
