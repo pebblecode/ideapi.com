@@ -12,7 +12,7 @@ class BriefsController < ApplicationController
   helper_method :current_brief_items, :user_last_viewed_brief
   
   add_breadcrumb 'dashboard', :briefs_path, :only => [:index]
-  add_breadcrumb 'briefs', :briefs_path, :except => [:index]
+  add_breadcrumb 'dashboard', :briefs_path, :except => [:index]
   
   add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   add_breadcrumb 'edit your brief', :edit_object_path, :only => [:edit, :update]
