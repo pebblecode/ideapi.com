@@ -744,7 +744,13 @@ textarea {
     font-size: 1.4em;
     text-align: right;
     text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-    position: relative; }
+    position: relative;
+    -moz-border-radius-topright: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -webkit-border-top-left-radius: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    -webkit-border-bottom-left-radius: 6px; }
     #container #content .col_2 .discussion_stats h2 span {
       display: block;
       background: url(/images/stat_speech.png);

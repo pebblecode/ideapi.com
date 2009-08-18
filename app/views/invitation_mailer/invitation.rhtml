@@ -1,8 +1,8 @@
 You've been invited to join the discussion on a brief at http://www.ideapi.com.  
 
-Visit <%= pluralize(@invitation.user.login) %>'s profile page on ideapi.com:
+Visit <%= @invitation.user.login %>'s profile page on ideapi.com:
 
-<%= user_url(@invitation.user) %> 
+<%= user_url(@invitation.user, :host => "staging.ideapi.net") %> 
 
 ### CLICK THE LINK BELOW TO ACCEPT THIS INVITATION ###
 

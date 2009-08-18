@@ -4,8 +4,7 @@ module Ideapi
     
     def self.included(base)
       base.extend(Invites::ClassMethods)
-
-      base.send(:include, Invites::InstanceMethods, Network::InstanceMethods)
+      base.send(:include, Invites::InstanceMethods)
     end
     
     module Invites
@@ -95,20 +94,7 @@ module Ideapi
       end
     
     end
-    
-    module Network
-      
-      module InstanceMethods
         
-        def friends
-#          invitations.accepted.map(&:redeemed_by).map{|f| [f] <<  f.friends }.flatten
-          invitations.accepted(:include => [:redeemed_by]).map(&:redeemed_by)
-        end
-        
-      end
-      
-    end
-    
   end
   
 end

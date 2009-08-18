@@ -93,6 +93,16 @@ class BriefsController < ApplicationController
     end
   end
   
+  def invite
+    if invited = User.find(params[:invitation][:user])
+      invited.watch(current_object)
+      flash[:notice] = "#{invited.login} has been added to this brief"  
+    else
+      flash[:error] = "There was a problem finding user, please try again" 
+    end
+    redirect_to object_path
+  end
+  
   private
   
   # parent_object is standard make_resourceful accessor

@@ -32,6 +32,14 @@ module Ideapi
   
     module InstanceMethods
       
+      attr_accessor :previous_state
+      
+      def stored_transition_to(state)
+        @previous_state = self.state
+        transition_to(state)
+        save!
+      end
+      
       def ensure_default_state
          (self.state = self.class.default_state) if read_attribute(:state).blank?
       end

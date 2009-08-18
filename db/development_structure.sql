@@ -32,7 +32,7 @@ CREATE TABLE `brief_user_views` (
   `view_count` int(11) default '0',
   `last_viewed_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -47,6 +47,19 @@ CREATE TABLE `briefs` (
   KEY `index_briefs_on_delta` (`delta`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `friendships` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) default NULL,
+  `friend_id` int(11) default NULL,
+  `requested_at` datetime default NULL,
+  `accepted_at` datetime default NULL,
+  `status` varchar(255) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_friendships_on_user_id` (`user_id`),
+  KEY `index_friendships_on_friend_id` (`friend_id`),
+  KEY `index_friendships_on_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `invitations` (
   `id` int(11) NOT NULL auto_increment,
   `recipient_email` varchar(255) default NULL,
@@ -60,7 +73,7 @@ CREATE TABLE `invitations` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `proposals` (
   `id` int(11) NOT NULL auto_increment,
@@ -83,7 +96,7 @@ CREATE TABLE `questions` (
   `updated_at` datetime default NULL,
   `brief_item_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
@@ -140,8 +153,9 @@ CREATE TABLE `users` (
   `last_login_at` datetime default NULL,
   `last_request_at` datetime default NULL,
   `invite_count` int(11) default NULL,
+  `friends_count` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `watched_briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -150,7 +164,7 @@ CREATE TABLE `watched_briefs` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20090526100437');
 
@@ -207,3 +221,7 @@ INSERT INTO schema_migrations (version) VALUES ('20090805154545');
 INSERT INTO schema_migrations (version) VALUES ('20090810120457');
 
 INSERT INTO schema_migrations (version) VALUES ('20090813151529');
+
+INSERT INTO schema_migrations (version) VALUES ('20090818112146');
+
+INSERT INTO schema_migrations (version) VALUES ('20090818135917');

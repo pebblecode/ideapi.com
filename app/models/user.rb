@@ -29,9 +29,32 @@ class User < ActiveRecord::Base
   include Ideapi::HighSociety
   can_grant_invites_to_others :max_invites => 10
   
+  has_friends
+  
+  def friends_not_watching(brief)
+    friends - friends_watching(brief)
+  end
+  
+  def friends_watching(brief)
+    friends.find(:all, :include => :watched_briefs, :conditions => ["watched_briefs.brief_id = ?", brief.id])
+  end
+  
+  def invite_accepted(invitation)
+    friendship, status = be_friends_with(invitation.redeemed_by)
+
+    if status == Friendship::STATUS_REQUESTED
+      # the friendship has been requested
+      #Mailer.deliver_friendship_request(friendship)
+      friendship.accept!      
+    elsif status == Friendship::STATUS_ALREADY_FRIENDS
+      # they're already friends
+    else
+      # ...
+    end
+  end
+  
   # protect against mass assignment
   attr_accessible :login, :email, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :last_login_at, :last_request_at, :password, :password_confirmation
-  
   
   def watch(brief)
     return false if !brief

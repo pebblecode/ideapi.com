@@ -75,8 +75,13 @@ class InvitationsTest < ActionController::IntegrationTest
       
       context "with invites sent" do
         setup do
+          @invite_count_before_invite = @user.invite_count
           @invite = @user.invitations.make
           reload
+        end
+        
+        should "reduce invite count" do
+          assert_equal(@invite_count_before_invite - 1, @user.reload.invite_count)
         end
 
         should "show the invite" do
@@ -95,16 +100,109 @@ class InvitationsTest < ActionController::IntegrationTest
           assert_select 'a[href=?]', cancel_invitation_path(@invite.code), :text => 'cancel'
         end
         
+        context "cancelling an invite" do
+          setup do
+            click_link 'cancel'
+          end
+
+          should "should cancel the invitation" do
+            assert @invite.reload.cancelled?
+          end
+          
+          should "grant user an invite back" do
+            assert_equal @user.reload.invite_count, (@invite_count_before_invite) 
+          end
+        end
+        
       end
       
     end
       
+  
+    context "viewing a brief" do
+      setup do
+        @brief = Brief.make(:published, { :user => @user })
+        visit brief_path(@brief)
+      end
+  
+      context "with no friends" do
+        should "contain an invitation form" do
+          assert_select 'form[action=?]', invitations_path 
+        end
+      end
+      
+      context "with friends" do
+        setup do
+          @friends = 3.times.map { User.make }
+          
+          @friends.each { |friend| 
+            friendship, status = @user.be_friends_with(friend); 
+            friendship.accept!
+            friend.reload
+          }
+          
+          @user.reload
+          reload
+        end
+        
+        should "have friendships" do
+          @friends.each { |f| assert @user.friends?(f) }
+        end
+        
+        should "have form for inviting people" do
+          assert_select 'form[action=?][method=post]', invite_brief_path(@brief)
+        end
+        
+        should "have a drop down of friends to invite" do
+          assert_select 'select[name=?]', "invitation[user]" do
+            @friends.each do |friend|
+              assert_select 'option[value=?]', friend.id, :text => friend.login
+            end
+          end
+        end
+        
+        context "clicking invite" do
+          setup do
+            @invited_friend = @friends.first
+            select @invited_friend.login, :from => 'invitation[user]'
+            click_button 'invite'
+          end
+          
+          should_respond_with :success
+          
+          should "not have invited friend in the invite dropdown" do
+            assert_select 'select[name=?]', "invitation[user]" do
+              assert_select 'option[value=?]', @invited_friend.id, :text => @invited_friend.login, :count => 0
+            end
+          end
+          
+          should "take user back to brief" do
+            assert_equal(brief_path(@brief), path)
+          end
+          
+          should "have people on brief section" do
+            assert_contain("People on this brief")
+          end
+          
+          should "have invited username" do
+            assert_select '.watching' do
+              assert_select 'a[href=?]', user_path(@invited_friend) , :text => @invited_friend.login
+            end
+          end
+      
+        end
+        
+        
+      end
+            
+    end
   end 
   
   context "" do
     
     setup do
-      @invite = Invitation.make
+      @invited_by = User.make
+      @invite = Invitation.make(:user => @invited_by)
     end
     
     context "visiting valid invite link" do
@@ -182,6 +280,10 @@ class InvitationsTest < ActionController::IntegrationTest
         
         should "redirect to sign in" do
           assert_equal(briefs_path, path)
+        end
+        
+        should "become friends with user who invited them" do
+          assert @invited_by.friends?(@invite.reload.redeemed_by)
         end
         
       end

@@ -1,12 +1,9 @@
 class InvitationsController < ApplicationController
-
+  
   def create
     @invitations = Invitation.from_list_into_hash(params[:invitation][:recipient_list], current_user)
-    
     send_invitations_for(@invitations[:successful]) if !@invitations[:successful].blank?
-    
     set_flash_notices_for(@invitations)
-    
     redirect_back_or_default user_path(current_user)
   end
   
@@ -56,13 +53,26 @@ class InvitationsController < ApplicationController
   end
 
   def set_flash_notices_for(invitations)
-    if !invitations[:successful].blank? # ignore failed ones for now ..
-      flash[:notice] = "An invite has been sent to #{invitations[:successful].map(&:recipient_email).join(',')}"
-    elsif !invitations[:failed].blank?
-      flash[:error] = "Couldn't send invitation to #{invitations[:failed].map(&:recipient_email).join(',')}"
+    @flash_invitations = invitations
+    if @flash_invitations[:successful].present? # ignore failed ones for now ..
+      flash[:notice] = flash_invite_sent
+    elsif @flash_invitations[:failed].present? 
+      flash[:error] = flash_invite_failed_addresses
     else
-      flash[:error] = "There was a problem sending invitiations, please check and try again."
+      flash[:error] = flash_invite_failed_sending
     end
+  end
+  
+  def flash_invite_sent
+     "An invite has been sent to #{@flash_invitations[:successful].map(&:recipient_email).join(',')}"
+  end
+  
+  def flash_invite_failed_addresses
+    "Couldn't send invitation to #{@flash_invitations[:failed].map(&:recipient_email).join(',')}"
+  end
+
+  def flash_invite_failed_sending
+    "There was a problem sending invitiations, please check and try again."
   end
 
 end
