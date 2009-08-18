@@ -26,7 +26,6 @@
             %li=link_unless_current 'Login', new_user_session_path
         .clear
         %ul.sub_nav
-          -if logged_in?
           =yield :sub_nav
           
         - if (flash[:error])
