@@ -20,7 +20,6 @@
         %ul.navigation        
           -if logged_in?
             %li=link_unless_current 'briefs', briefs_path
-            %li=link_unless_current 'settings', ''
             %li=link_unless_current 'my account', profile_path
             %li=link_to 'logout', delete_user_session_path
           -else
@@ -28,8 +27,6 @@
         .clear
         %ul.sub_nav
           -if logged_in?
-            %li{:class => "search"}
-              =render :partial => 'briefs/search_form'
           =yield :sub_nav
           
         - if (flash[:error])
