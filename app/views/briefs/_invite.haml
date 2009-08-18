@@ -17,19 +17,19 @@
               -else
                 Never logged in
                 
-.invite_users{:style => "margin-bottom: 1em"}
-  -if owner?(current_object)
-    %h4 Invite contacts to participate
-    -if current_user.friends_not_watching(current_object).present?
-      -form_for 'invitation', :url => invite_brief_path(current_object) do |f|
-        %p
-          =f.select 'user', current_user.friends_not_watching(current_object).map { |friend| [friend.login, friend.id] }, :include_blank => true
-          =f.submit 'Invite'
-    -else
-      %p No contacts left to add
+-if owner?(current_object)
+  .invite_users{:style => "margin-bottom: 1em"}
+      %h4 Invite contacts to participate
+      -if current_user.friends_not_watching(current_object).present?
+        -form_for 'invitation', :url => invite_brief_path(current_object) do |f|
+          %p
+            =f.select 'user', current_user.friends_not_watching(current_object).map { |friend| [friend.login, friend.id] }, :include_blank => true
+            =f.submit 'Invite'
+      -else
+        %p No contacts left to add
 
-.invite_users
-  %h4 Or invite others
-  -form_for 'invitation', :url => invitations_path do |f|
-    =f.text_area 'recipient_list', :title => 'Enter email addresses here'      
-    =f.submit 'Invite'
+  .invite_users
+    %h4 Or invite others
+    -form_for 'invitation', :url => invitations_path do |f|
+      =f.text_area 'recipient_list', :title => 'Enter email addresses here'      
+      =f.submit 'Invite'
