@@ -5,7 +5,7 @@ Sham.define do
   input_type { %w(text_field text_area select) } 
   
   email { Faker::Internet.email }
-  login { Faker::Internet.user_name }
+  login { Faker::Internet.user_name.gsub(/\./, '_') }
   password { Faker::Lorem.words.join }
 end
 

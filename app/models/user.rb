@@ -2,9 +2,15 @@ class User < ActiveRecord::Base
 
   acts_as_authentic do |c|
     #c.my_config_option = my_value # for available options see documentation in: Authlogic::ActsAsAuthentic
+    c.login_field = :email 
   end
 
   has_attached_file :avatar, :styles => { :large => "100x100>", :medium => "48x48>", :small => "32x32>" }
+  
+  validates_uniqueness_of :login, :email, :message => "already taken"
+  validates_format_of :login, :with => /^[\w\d]+$/, :message => "must be a single combination of letters (numbers and underscores also allowed)"
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  
   
   # METHODS FOR BRIEF OWNERSHIP
   
@@ -40,27 +46,22 @@ class User < ActiveRecord::Base
   end
   
   def invite_accepted(invitation)
-
-    (friends << self).each { |friend| 
-      
-      if !(invitation.redeemed_by.eql?(friend))
-        friendship, status = be_friends_with(invitation.redeemed_by)
-        
-        if status == Friendship::STATUS_REQUESTED
-          # the friendship has been requested
-          #Mailer.deliver_friendship_request(friendship)
-          friendship.accept!      
-        elsif status == Friendship::STATUS_ALREADY_FRIENDS
-          # they're already friends
-        else
-          # ...
-        end
-      
-      end
-    }
+    become_friends_and_with_network(invitation.redeemed_by) if invitation.redeemed_by.present?
+  end
+  
+  def become_friends_and_with_network(contact)
+    be_friends_with!(contact) if !friends?(contact)
     
-    f,s = invitation.redeemed_by.be_friends_with(self)
-    f.accept!
+    friends.each do |friend|
+      contact.be_friends_with!(friend) if !contact.friends?(friend)
+    end
+  end
+  
+  def be_friends_with!(new_friend)
+    returning([]) do |friendship|
+      friendship << be_friends_with(new_friend)
+      friendship << new_friend.be_friends_with(self)
+    end
   end
   
   # protect against mass assignment

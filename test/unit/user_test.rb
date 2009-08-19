@@ -133,4 +133,58 @@ class UserTest < Test::Unit::TestCase
 
   end
 
+  context "friendships:" do
+    setup do
+      @dave = User.make
+      @john = User.make
+      @henry = User.make
+    end
+
+    context "dave and john become friends" do
+      setup do
+        @dave.be_friends_with!(@john)
+        @john.be_friends_with!(@dave)
+      end
+
+      context "dave" do
+        should "be friends with john" do
+          assert @dave.friends?(@john)
+        end
+      end
+      
+      context "john" do
+        should "be friends with dave" do
+          assert @john.friends?(@dave)
+        end
+      end
+      
+      context "network friendship - between dave and henry" do
+        setup do
+          @dave.become_friends_and_with_network(@henry)
+        end
+        
+        should "make dave and henry friends" do
+          assert @dave.friends?(@henry)
+        end
+        
+        should "make henry and dave friends" do
+          assert @henry.friends?(@dave)
+        end
+        
+        should "also make henry friends with john" do
+          assert @henry.friends?(@john)
+        end
+        
+        should "make john friends with henry" do
+          assert @john.friends?(@henry)
+        end
+
+      end
+      
+    end
+    
+
+  end
+  
+
 end

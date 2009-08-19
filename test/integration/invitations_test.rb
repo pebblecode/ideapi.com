@@ -135,8 +135,7 @@ class InvitationsTest < ActionController::IntegrationTest
           @friends = 3.times.map { User.make }
           
           @friends.each { |friend| 
-            friendship, status = @user.be_friends_with(friend); 
-            friendship.accept!
+            @user.be_friends_with!(friend); 
             friend.reload
           }
           
@@ -230,8 +229,7 @@ class InvitationsTest < ActionController::IntegrationTest
       @friends = 3.times.map { User.make }
       
       @friends.each { |friend| 
-        friendship, status = @invited_by.be_friends_with(friend); 
-        friendship.accept!
+        @invited_by.be_friends_with!(friend); 
         friend.reload
       }
       

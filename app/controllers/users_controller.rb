@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update]
     
   def current_object
-    @current_object ||= (params[:id].blank?) ? current_user : super
+    @current_object ||= (params[:id].blank?) ? current_user : User.find_by_login(params[:id])
   end
   
   make_resourceful do

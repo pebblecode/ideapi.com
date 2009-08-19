@@ -14,10 +14,14 @@ class UserProfileTest < ActionController::IntegrationTest
       end
       
       should_respond_with :success
+
+      should "show email" do
+        assert_contain(@standard_user.email)
+      end
       
-      # should "address current user as you" do
-      #   assert_contain("You")
-      # end
+      should "show login" do
+        assert_contain(@standard_user.login)
+      end
       
     end
     
@@ -28,10 +32,27 @@ class UserProfileTest < ActionController::IntegrationTest
       end
       
       should_respond_with :success
+    
+      should "show not show email" do
+        assert_not_contain(@standard_user_2.email)
+      end
       
-      # should "address current user as you" do
-      #   assert_contain(@standard_user_2.login.titleize)
-      # end
+      should "show login" do
+        assert_contain(@standard_user_2.login)
+      end
+      
+      context "when friends" do
+        setup do
+          @standard_user.be_friends_with!(@standard_user_2)
+          @standard_user.reload
+          reload
+        end
+
+        should "show email" do
+          assert_contain(@standard_user_2.email)
+        end
+      end
+      
       
     end
     

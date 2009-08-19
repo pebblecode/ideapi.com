@@ -13,8 +13,12 @@
         %strong Login:
         =current_object.login
       %p
-        %strong Active briefs:
-        =current_object.briefs.published.count
+        %strong Email:
+        -if (current_object == current_user || current_user.friends?(current_object))
+          =current_object.email
+        -else
+          is only visible to friends
+        
           
       -if current_object == current_user
         %p.edit= link_to 'Edit', edit_user_path(current_user)
