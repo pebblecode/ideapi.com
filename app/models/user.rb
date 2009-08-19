@@ -31,6 +31,11 @@ class User < ActiveRecord::Base
   has_many :responded_briefs, :through => :proposals, :source => :brief
   has_many :watching_briefs, :through => :watched_briefs, :source => :brief
   
+  # users are found by username
+  def to_param
+    return self.login
+  end
+  
   # handle invitations ..
   include Ideapi::HighSociety
   can_grant_invites_to_others :max_invites => 10

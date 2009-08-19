@@ -27,19 +27,19 @@ class UsersControllerTest < ActionController::TestCase
   
   def test_should_show_user
     login
-    get :show, :id => @user.id
+    get :show, :id => @user.login
     assert_response :success
   end
    
   def test_should_get_edit
     login
-    get :edit, :id => @user.id
+    get :edit, :id => @user.login
     assert_response :success
   end
   
   def test_should_update_user
     login
-    put :update, :id => @user.id, :user => { }
+    put :update, :id => @user.login, :user => { }
     assert_redirected_to user_path(assigns(:user))
   end
   

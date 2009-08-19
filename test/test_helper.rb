@@ -119,7 +119,7 @@ class ActiveSupport::TestCase
     
     assert_equal(new_user_session_path, path)
     
-    fill_in "login", :with => user.login
+    fill_in "email", :with => user.email
     fill_in "password", :with => "testing"
     click_button
   end
@@ -136,7 +136,7 @@ class ActiveSupport::TestCase
       
       context "filling in the login form" do
         setup do
-          fill_in "login", :with => @user.login
+          fill_in "email", :with => @user.email
           fill_in "password", :with => "testing"
           click_button
         end

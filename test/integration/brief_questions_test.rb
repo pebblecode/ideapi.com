@@ -181,20 +181,24 @@ class BriefQuestionsTest < ActionController::IntegrationTest
             end
 
             context "unanswered question" do
+              
               should "provide a form to answer the question" do
-                assert_select 'li.question', :id => "question_#{@question}" do
-
-                  assert_select "form[action=?]", brief_question_path(@brief, @question) do
-                    fill_in 'question_author_answer', :with => @answer
-                    click_button 'submit'
-                  end
-
-                  assert_response :success
-                  assert_equal(brief_questions_path, path)
-                  assert_contain(@answer)
-                end
+                assert_select "form[action=?]", brief_question_path(@brief, @question)
               end
+              
+              context "filling in the answer" do
+                setup do
+                  fill_in 'question_author_answer', :with => @answer
+                  click_button 'submit'
+                end
+                
+                assert_response :success
+                assert_equal(brief_questions_path, path)
+                assert_contain(@answer)
+              end
+              
             end
+          
           end
 
           context "inline ask question form" do
@@ -235,7 +239,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
               should_respond_with :success
             
               should "show questions view" do
-                assert_equal(brief_questions_path, path)
+                assert_equal(brief_questions_path(:brief_item_id => @brief_item.id), path)
               end
                           
               should "show the asked question on the page" do
