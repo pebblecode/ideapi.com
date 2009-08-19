@@ -1,6 +1,6 @@
 =sub_nav do
   =breadcrumb_list
-  %li=link_to 'edit brief details', '#edit_brief_details', :class => "awesome small"
+  %li=link_to 'edit title', '#edit_brief_details', :class => "awesome small"
   -if current_object.draft?
     %li=link_to 'preview document', brief_path(current_object), :class => "awesome small" #, :rel => "facebox"
 
