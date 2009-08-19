@@ -808,3 +808,54 @@ textarea {
     background: #e4e4e4; }
   #container #content .invitations tr:nth-child(odd) {
     background: #eee; }
+
+.feedback_form {
+  background: white;
+  background: #fefefe;
+  min-width: 980px;
+  width: 100%; }
+  .feedback_form .title {
+    background: #333;
+    padding: 1em; }
+    .feedback_form .title h2 {
+      color: white;
+      font-size: 1.4em;
+      width: 65em;
+      margin: 0 auto; }
+      .feedback_form .title h2 span {
+        padding-left: 1em;
+        font-size: 0.8em;
+        color: #aaa; }
+        .feedback_form .title h2 span a {
+          color: #eee; }
+        .feedback_form .title h2 span a:hover {
+          color: #ed1a62; }
+  .feedback_form h3 {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1em; }
+  .feedback_form .wrap {
+    width: 92em;
+    margin: 0 auto; }
+  .feedback_form .user_input, .feedback_form .info {
+    padding: 1em 2em;
+    background: #ffffdf;
+    border: 1px solid #ccc;
+    height: 24em; }
+  .feedback_form .user_input {
+    float: left;
+    margin: 2em 0 2em 2em;
+    border-right: none; }
+    .feedback_form .user_input textarea {
+      height: 10em; }
+    .feedback_form .user_input p.submit {
+      text-align: right; }
+  .feedback_form .info {
+    float: left;
+    margin: 2em 2em 2em 0;
+    border-left: none; }
+    .feedback_form .info p {
+      font-size: 1.2em; }
+    .feedback_form .info ul {
+      padding: 0 3em 1em 3em; }
+      .feedback_form .info ul li {
+        list-style: disc; }

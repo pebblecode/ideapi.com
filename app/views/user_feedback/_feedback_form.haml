@@ -1,0 +1,29 @@
+.feedback_form
+  .title
+    %h2 
+      IDEAPI BETA
+      %span
+        Tell us what you think, or report a problem
+        =link_to 'show/hide our feedback form', '#user_input' 
+        and send us an email.
+  .wrap  
+    #user_input.user_input
+      -form_for 'user_feedback', :url => user_feedbacks_path do |f|
+        %h3 Beta feedback
+        %p
+          =f.label 'email', "Your email"
+          =f.text_field 'email', :value => (logged_in? ? current_user.email : '')
+        %p
+          =f.label 'message', "Your message"
+          =f.text_area 'message'
+        %p.submit=f.submit 'submit this feedback'
+    .info
+      %h3 Information
+      %p Thanks for helping make Ideapi better, we really value your comments and time.
+      %ul
+        %li Tell us if you encounter an error, or something isn't quite right
+        %li Don't understand something? Let us know
+        %li We will record your browser, and operating system - so don't worry about that
+        %li Thanks for your time - your comments really help us improve ideapi
+  
+    .clear

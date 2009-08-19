@@ -185,6 +185,19 @@ jQuery(document).ready(function(){
         
       };
     });
+    
+    $('.feedback_form').each(function() {
+      
+      form = $(this).find('.wrap');
+      
+      $(this).find('.title a').click(function () {
+        form.fadeToggle();
+      });
+      
+      form.hide();
+      
+    });
+    
 });
 
 

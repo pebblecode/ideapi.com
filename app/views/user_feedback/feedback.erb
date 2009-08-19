@@ -1,0 +1,34 @@
+Beta feedback.
+------------------------------------------------
+
+Sent by user:
+------------------------------------------------
+
+  Email: <%= @feedback[:email] %>
+  
+<% if @feedback[:user].present? -%>
+  <% User.content_columns.each do |col| %>
+   <%= col.name %>: <%= @feedback[:user].send(col.name) %>
+  <% end %>
+<% else %>
+
+  USER NOT LOGGED IN.
+
+<% end %>
+
+Message
+------------------------------------------------
+
+  <%= @feedback[:message] %>
+
+
+Useful info:
+------------------------------------------------
+
+  Page: <%= @feedback[:page] %>
+
+  Browser: <%= @feedback[:browser] %>
+  
+  Sent At: <%= Time.now %>
+  
+------------------------------------------------

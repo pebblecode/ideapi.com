@@ -72,7 +72,6 @@ class InvitationsTest < ActionController::IntegrationTest
         assert_contain("#{@user.invite_count}")
       end
       
-      
       context "with invites sent" do
         setup do
           @invite_count_before_invite = @user.invite_count
@@ -192,6 +191,30 @@ class InvitationsTest < ActionController::IntegrationTest
       
         end
         
+        context "with friends already watching brief" do
+          
+          setup do
+            @friends.first.watch(@brief)
+            reload
+          end
+
+          context "friend" do
+            should "be watching brief" do
+              assert @friends.first.watching?(@brief)
+            end
+          end
+        
+          should "have a drop down of friends to invite" do
+            assert_select 'select[name=?]', "invitation[user]" do
+              watching_dude, *others = @friends
+              assert_select 'option[value=?]', watching_dude.id, :text => watching_dude.login, :count => 0
+              others.each do |friend|
+                assert_select 'option[value=?]', friend.id, :text => friend.login
+              end
+            end
+          end
+          
+        end
         
       end
             
