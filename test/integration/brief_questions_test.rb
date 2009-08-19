@@ -189,12 +189,19 @@ class BriefQuestionsTest < ActionController::IntegrationTest
               context "filling in the answer" do
                 setup do
                   fill_in 'question_author_answer', :with => @answer
-                  click_button 'submit'
+                  click_button 'question_submit'
                 end
                 
-                assert_response :success
-                assert_equal(brief_questions_path, path)
-                assert_contain(@answer)
+                should_respond_with :success
+                
+                should "redirect properly" do
+                  assert_equal(brief_questions_path, path)
+                end
+                
+                should "contain the answer" do
+                  assert_contain(@answer)
+                end
+
               end
               
             end
@@ -239,7 +246,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
               should_respond_with :success
             
               should "show questions view" do
-                assert_equal(brief_questions_path(:brief_item_id => @brief_item.id), path)
+                assert_equal(brief_questions_path, path)
               end
                           
               should "show the asked question on the page" do

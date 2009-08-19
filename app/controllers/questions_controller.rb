@@ -47,13 +47,7 @@ class QuestionsController < ApplicationController
     end
     
     response_for(:create, :update) do |format|
-      format.html { 
-        if current_object.brief_item_id.present?
-          redirect_to brief_questions_path(parent_object, :brief_item_id => current_object.brief_item_id)
-        else
-          redirect_to brief_questions_path(parent_object, :f => 'recent')
-        end
-      }
+      format.html { redirect_to objects_path }
     end
     
     belongs_to :brief
