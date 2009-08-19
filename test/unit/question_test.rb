@@ -10,4 +10,5 @@ class QuestionTest < ActiveSupport::TestCase
   should_have_named_scope :unanswered, :conditions=>["author_answer IS NULL"], :order => "created_at ASC"
   
   should_have_instance_methods :answered?
+  
 end

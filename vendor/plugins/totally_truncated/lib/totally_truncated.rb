@@ -17,6 +17,7 @@ module TotallyTruncated
         end
       end
     end
+
   end
 
 end

@@ -117,7 +117,7 @@ class BriefTest < ActiveSupport::TestCase
        end
 
     end
-  
+    
   end  
   
 end

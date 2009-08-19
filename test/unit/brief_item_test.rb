@@ -33,6 +33,34 @@ class BriefItemTest < ActiveSupport::TestCase
       
       should_change "BriefItem::Version.count", :by => 1
 
+      context "parsing carriage returns" do
+        setup do
+          @formatted_body = "this is a body\n\nwith some space in it,\n\nand also\nsome links in it great"
+          @parsed_body = "this is a body<br /><br />with some space in it,<br /><br />and also<br />some links in it great"
+          @brief_item.update_attribute(:body, @formatted_body)
+          @brief_item.reload
+        end
+
+        should "turn linebreaks into <br> tags" do
+          assert_equal(@parsed_body, @brief_item.body)
+        end
+      end
+      
+      context "parsing links" do
+        setup do
+          @formatted_body = "come on visit http://jasoncale.com or something maybe http://ideapi.net instead"
+          @parsed_body = "come on visit <a href='http://jasoncale.com' title='visit: http://jasoncale.com'>http://jasoncale.com</a> or something maybe <a href='http://ideapi.net' title='visit: http://ideapi.net'>http://ideapi.net</a> instead"
+          
+          @brief_item.update_attribute(:body, @formatted_body)
+          @brief_item.reload
+        end
+
+        should "turn linebreaks into <br> tags" do
+          assert_equal(@parsed_body, @brief_item.body)
+        end
+      end
+      
+
     end
   end
   

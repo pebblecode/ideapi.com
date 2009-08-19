@@ -17,6 +17,10 @@ class Question < ActiveRecord::Base
     updated_at.to_date
   end
   
+  include Ideapi::GetParsed
+  parse_carriage_returns_on :author_answer, :body
+  parse_links_to_html_on :author_answer, :body
+  
   class << self
     def brief_items
       all(:group => :brief_item_id, :include => :brief_item).map(&:brief_item)
