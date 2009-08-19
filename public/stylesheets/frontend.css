@@ -810,6 +810,8 @@ textarea {
     background: #eee; }
 #container #content .profile .invite_users {
   margin-top: 4.8em; }
+#container #content .dashboard .invite_users {
+  margin-top: 6.2em; }
 
 .feedback_form {
   background: white;
