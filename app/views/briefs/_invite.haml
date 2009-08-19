@@ -9,6 +9,8 @@
           =small_avatar(friend)
           %p
             =link_to truncate(friend.login, :lenght => 10), user_path(friend)
+            -if friend.eql?(current_object.user)
+              %span.author - AUTHOR
             %br
             %span
               -if friend.last_request_at.present?            
