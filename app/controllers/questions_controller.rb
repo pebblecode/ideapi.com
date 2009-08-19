@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
       if params[:brief_item_id]
         
         if params[:brief_item_id].blank?
-          redirect_to brief_questions_path(parent_object, :q => 'recent')
+          redirect_to brief_questions_path(parent_object, :f => 'recent')
         else
           parent_object.questions.find_all_by_brief_item_id(params[:brief_item_id])
         end
@@ -47,7 +47,13 @@ class QuestionsController < ApplicationController
     end
     
     response_for(:create, :update) do |format|
-       format.html { redirect_to objects_path }
+      format.html { 
+        if current_object.brief_item_id.present?
+          redirect_to brief_questions_path(parent_object, :brief_item_id => current_object.brief_item_id)
+        else
+          redirect_to brief_questions_path(parent_object, :f => 'recent')
+        end
+      }
     end
     
     belongs_to :brief
