@@ -73,6 +73,10 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
         assert_equal(new_message, @draft.reload.most_important_message)
       end
       
+      should "have link back to brief" do
+        assert_select 'a[href=?]', brief_path(@draft), :text => 'Back to brief »'
+      end
+      
       context "draft brief document" do
         setup do
           assert_equal(edit_brief_path(@draft), path)
