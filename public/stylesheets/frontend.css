@@ -19,7 +19,7 @@ body {
  * link-colour   = #2b3087 */
 a {
   text-decoration: none;
-  color: #454545;
+  color: #2b3087;
   font-weight: bold; }
 
 a:hover {
@@ -126,10 +126,12 @@ a:hover {
     background: #fcfcfc; }
     #container #content a {
       text-decoration: none;
-      color: #454545;
+      color: #2b3087;
       font-weight: bold; }
     #container #content a:hover {
-      color: #2b3087; }
+      color: #ed1a62; }
+    #container #content a.awesome {
+      color: white; }
     #container #content p {
       font-size: 1.2em; }
     #container #content .title_holder {
@@ -565,8 +567,17 @@ span.field_with_errors input {
       margin-right: 6em; }
   #container #content .question_list .question .show_author_answer_form,   #container #content .brief_item_history .question .show_author_answer_form {
     position: absolute;
-    top: 2.5em;
-    right: 10px; }
+    top: 1.8em;
+    right: 0; }
+  #container #content .question_list .question .author_answer_form .brief_item,   #container #content .brief_item_history .question .author_answer_form .brief_item {
+    border: none;
+    padding: 0;
+    margin: 0 0 0 2.8em;
+    width: 44em; }
+    #container #content .question_list .question .author_answer_form .brief_item h3,     #container #content .brief_item_history .question .author_answer_form .brief_item h3 {
+      font-size: 1.5em; }
+    #container #content .question_list .question .author_answer_form .brief_item p,     #container #content .brief_item_history .question .author_answer_form .brief_item p {
+      font-size: 1.1em; }
 #container #content .brief_item_history {
   margin-top: 1em;
   padding-top: 1em; }
@@ -592,6 +603,16 @@ span.field_with_errors input {
   border: 1px solid #ccc;
   border-top: 0;
   margin-bottom: 2em; }
+  #container #content .question_list p.no_questions {
+    padding: 1em 2em;
+    position: relative;
+    border: 1px solid #eee;
+    margin: 1em auto;
+    background: #eee;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    width: 40em;
+    font-weight: bold; }
   #container #content .question_list .question {
     padding: 1em 1em;
     position: relative; }
@@ -727,7 +748,7 @@ textarea {
   background: #f6f6f6; }
   .login a,   .app_error a {
     text-decoration: none;
-    color: #454545;
+    color: #2b3087;
     font-weight: bold; }
   .login a:hover,   .app_error a:hover {
     color: #2b3087; }

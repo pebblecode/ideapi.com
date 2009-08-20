@@ -23,8 +23,11 @@
   %ul.question_list
     -if current_objects.empty?
       %li
-        %p 
-          No questions found
+        %p.no_questions
+          No
+          -if (params[:f].present?)
+            =params[:f]
+          questions found.
     -else
       -current_objects.group_by(&:updated_on).each do |date, questions|
         %li

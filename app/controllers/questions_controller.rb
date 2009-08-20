@@ -46,10 +46,34 @@ class QuestionsController < ApplicationController
       format.js { render :action => 'ask_question', :layout => false }
     end
     
-    response_for(:create, :update) do |format|
-      format.html { redirect_to objects_path }
+    response_for(:create) do |format|
+      format.html { 
+        flash[:notice] = "Question has been created successfully, thanks for your input."
+        redirect_to brief_questions_path(parent_object, :f => 'unanswered') 
+      }
     end
     
+    response_for(:create_fails) do |format|
+      format.html { 
+        flash[:error] = "We are sorry, but there was a problem asking your question, please try again."
+        redirect_to brief_questions_path(parent_object, :f => 'unanswered') 
+      }
+    end
+    
+    response_for(:update) do |format|
+      format.html {
+        flash[:notice] = "Question has been answered successfully, and moved to answered questions."
+        redirect_to brief_questions_path(parent_object, :f => 'unanswered') 
+      }
+    end
+    
+    response_for(:update_fails) do |format|
+      format.html {
+        flash[:error] = "We are sorry, but there was a problem updating question, please try again."
+        redirect_to brief_questions_path(parent_object, :f => 'unanswered') 
+      }
+    end
+
     belongs_to :brief
     actions :all
   end
