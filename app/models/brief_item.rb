@@ -4,7 +4,7 @@ class BriefItem < ActiveRecord::Base
   
   has_many :questions
   
-  validates_presence_of :brief, :template_question, :on => :create, :message => "can't be blank"
+  validates_presence_of :brief, :template_question, :message => "can't be blank"
   
   delegate :optional, :to => :template_question
   delegate :help_message, :to => :template_question
