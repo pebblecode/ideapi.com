@@ -60,7 +60,6 @@ class BriefsController < ApplicationController
     end
     
     response_for(:index) do |format|
-      # display a different view depending on the user type
       format.html
     end
     
@@ -70,8 +69,21 @@ class BriefsController < ApplicationController
     end
   
     response_for(:show, :show_fails) do |format|
-      format.html { current_object.draft? ? redirect_to(:action => 'edit') : render }
-      format.json { render :json => current_object }  
+    
+      format.html { 
+        
+        if current_object.draft? 
+          redirect_to(:action => 'edit') 
+        else
+          if params[:print_mode].present?
+            render(:action => 'print', :layout => false) 
+          else
+            render 
+          end
+        end
+        
+      }
+      format.json { render :json => current_object }
     end
     
   end

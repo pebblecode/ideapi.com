@@ -12,6 +12,8 @@
     /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
     /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
     
+    =stylesheet_link_tag %w(reset print), :media => "print", :cache => true
+    
   %body
     =render :partial => 'user_feedback/feedback_form'  
     #container

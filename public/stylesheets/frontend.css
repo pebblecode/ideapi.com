@@ -117,7 +117,7 @@ a:hover {
       height: 17px;
       width: 918px; }
     #container #header p.error {
-      background: red;
+      background: #d81f26;
       color: white; }
     #container #header p.notice {
       background: green;
@@ -713,26 +713,34 @@ input.awesome {
 textarea {
   resize: none; }
 
-.login {
+.login, .app_error {
   margin: 15% auto 0 auto;
   width: 45em;
   border: 10px solid #ddd;
   background: #f6f6f6; }
-  .login a {
+  .login a,   .app_error a {
     text-decoration: none;
     color: #454545;
     font-weight: bold; }
-  .login a:hover {
+  .login a:hover,   .app_error a:hover {
     color: #2b3087; }
-  .login h3 {
+  .login h3,   .app_error h3 {
     background: #04194b;
     border-bottom: 4px solid #505050;
     border-top: 1px solid #777;
     color: #ccc;
     padding: 0.2em 1em; }
-  .login .login_form {
+  .login .login_form,   .app_error .login_form {
     padding: 1em 1em;
     font-size: 1.4em; }
+
+.app_error h3 {
+  background: #d81f26;
+  color: white; }
+.app_error p {
+  padding: 0.5em 2em;
+  font-size: 1.2em;
+  font-weight: bold; }
 
 #container #content .col_2 .discussion_stats {
   margin: 2em 0 1em 0; }

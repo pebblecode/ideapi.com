@@ -157,7 +157,7 @@ a:hover
       :width 918px
       
     p.error
-      :background red
+      :background #d81f26
       :color white
       
     p.notice
@@ -953,7 +953,7 @@ input.awesome
 textarea
   :resize none
 
-.login
+.login, .app_error
   :margin 15% auto 0 auto
   :width 45em
   :border 10px solid #ddd
@@ -977,6 +977,17 @@ textarea
   .login_form
     :padding 1em 1em
     :font-size 1.4em
+    
+.app_error
+  h3
+    :background #d81f26
+    :color white
+    
+  p
+    :padding 0.5em 2em
+    :font-size 1.2em
+    :font-weight bold
+    
 
 
 //side bar
