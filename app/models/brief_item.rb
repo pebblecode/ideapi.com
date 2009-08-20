@@ -24,12 +24,12 @@ class BriefItem < ActiveRecord::Base
   parse_carriage_returns_on :body
   parse_links_to_html_on :body
     
-  def has_history?(rehash = false)
-    !brief_item_history(rehash).blank?
+  def has_history?(rehash = false, user = nil)
+    !brief_item_history(rehash, user).blank?
   end
   
-  def history(rehash = false)
-    if has_history?
+  def history(rehash = false, user = nil)
+    if has_history?(rehash, user)
       # sort by latest first ..
       brief_item_history.sort {|a,b| b.updated_at <=> a.updated_at }
     else
@@ -46,8 +46,13 @@ class BriefItem < ActiveRecord::Base
     revisions = versions.all(:conditions => ["version < ? AND body <> ''", self.version])
   end
   
-  def history_grouped_by_fancy_date
-    history.group_by {|item| convert_datetime_into_relevant_precision(item.updated_at) }
+  def history_grouped_by_fancy_date(&block)
+    history_items = block_given? ? yield : history 
+    history_items.group_by {|item| convert_datetime_into_relevant_precision(item.updated_at) }
+  end
+  
+  def history_grouped_by_fancy_date_including_user(user)
+    history_grouped_by_fancy_date { history(true, user) }
   end
   
   private
@@ -63,10 +68,14 @@ class BriefItem < ActiveRecord::Base
     end
   end
   
-  def brief_item_history(rehash = false)
+  def brief_item_history(rehash = false, user = nil)
     @brief_item_history = nil if rehash
 
-    @brief_item_history ||= (answered_questions + revisions)
+    @brief_item_history ||= (answered_questions + revisions + user_questions(user))
+  end
+
+  def user_questions(user = nil)
+    user.present? ? user.questions.unanswered : []
   end
   
 end

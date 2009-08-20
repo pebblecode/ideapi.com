@@ -21,7 +21,7 @@
           =question.author_answer
       %span.clear
   -else
-    -if owner?(parent_object)
+    -if owner?(question.brief)
       .author_answer_form
         =medium_avatar
         = render :partial => 'answer_form', :locals => { :question => question }

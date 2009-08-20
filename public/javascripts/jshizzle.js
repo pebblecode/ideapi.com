@@ -136,7 +136,7 @@ jQuery(document).ready(function(){
       return false;
     });
     
-    $('.brief_item_history').hide();
+    //$('.brief_item_history').hide().addClass('hidden');
     
     $('.author_answer_form').each(function () {      
       $(this).before('<p class="submit show_author_answer_form"><input type="submit" value="answer"/></p>').parent().find('.show_author_answer_form input').click(function () {
@@ -148,7 +148,22 @@ jQuery(document).ready(function(){
     }).hide();
     
     if ($('.brief_item_history').length > 0) {
-      $('.brief h2').append('<a href="#">expand / collapse all</a>').find('a').click(function () { $('.brief_item_history').toggle('400') });
+      $('.brief h2').append('<a href="#" class="expand_brief">expand / collapse all</a>').find('a.expand_brief').click(function () { 
+        $('.brief_item_history').toggle('400');
+        
+       print_mode = 1;
+        
+        if ($('.brief_item_history').hasClass('hidden')) {
+          $('.brief_item_history').removeClass('hidden');
+        } else {
+          print_mode = 2;
+          $('.brief_item_history').addClass('hidden');
+        }
+        
+        print_url = $('.print_brief').attr('href').replace(/print_mode=\d/, ('print_mode=' + print_mode));        
+        $('.print_brief').attr('href', print_url);
+        
+      }).click();
     }
     
     // DISCUSS

@@ -54,7 +54,34 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
             assert_equal(briefs_path, path)
           end
         end
+        
+        context "viewing a published brief with questions" do
+          setup do
+            populate_brief(@published)
+            
+            @published.reload
+            
+            @user_question = @published.questions.make(:brief_item => @published.brief_items.first, :user => @standard_user)
+            @other_answered_question = @published.questions.make(:answered, { :brief_item => @published.brief_items.first, :user => User.make })
+            @other_unanswered_question = @published.questions.make(:brief_item => @published.brief_items.first, :user => User.make)
+            
+            visit brief_path(@published)
+          end
 
+          should "show answered questions" do
+            assert_contain(@other_answered_question.body)
+          end
+          
+          should "show users unanswered questions" do
+            assert_contain(@user_question.body)
+          end
+          
+          should "show users unanswered questions" do
+            assert_not_contain(@other_unanswered_question.body)
+          end
+          
+        end
+        
       end
 
     end

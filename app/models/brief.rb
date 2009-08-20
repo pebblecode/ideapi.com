@@ -155,5 +155,4 @@ class Brief < ActiveRecord::Base
     return (brief_items.count == template_brief.template_questions.count)
   end
   
-  
 end

@@ -76,6 +76,7 @@ class BriefsController < ApplicationController
           redirect_to(:action => 'edit') 
         else
           if params[:print_mode].present?
+            @print_mode = params[:print_mode]
             render(:action => 'print', :layout => false) 
           else
             render 
