@@ -1,52 +1,63 @@
 =sub_nav do
   =breadcrumb_list
-  %li=link_to 'edit title', '#edit_brief_details', :class => "awesome small"
   -if current_object.draft?
-    %li=link_to 'preview document', brief_path(current_object), :class => "awesome small" #, :rel => "facebox"
+    %li=link_to 'preview document', brief_path(current_object), :class => "awesome small" , :rel => "facebox"
 
-#edit_brief.col_1
-  #edit_brief_details
-    %h3 Edit brief details
-    - form_for(current_object, :html => { :method => :put }) do |brief_form|
-      =render :partial => 'form', :locals => { :f => brief_form }   
-      %p.submit        
-        =submit_tag 'update'
-      %p.cancel=link_to 'cancel', '#'
-      .clear
+.col_1
+  / #edit_brief_details
+  /   %h3 Edit brief details
+  /   - form_for(current_object, :html => { :method => :put }) do |brief_form|
+  /     =render :partial => 'form', :locals => { :f => brief_form }   
+  /     %p.submit        
+  /       =submit_tag 'update'
+  /     %p.cancel=link_to 'cancel', '#'
+  /     .clear
   
-  %h3.brief_document
-    Brief Document
-    %span - this is the heart of your proposal, answer as thoroughly as possible
+  / %h3.brief_document
+  /   Brief Document
+  /   %span - this is the heart of your proposal, answer as thoroughly as possible
+  / 
+  / = error_messages_for :brief
+  / 
+  / 
   
-  = error_messages_for :brief
-  
-  %p.note Your document is divided into sections your convenience when writing the proposal, once published the document will be displayed as a whole document. Only items that you fill out will be included in the document, so feel free to only fill in what is appropriate - however the more detail you provide at this stage the better your responses will be from our creative community.
+  .note 
+    %h3 About your brief document
+    %p Your document is divided into sections for your convenience when writing the proposal. The sections that you fill out will be included in the published document, so feel free to only fill in what is appropriate to your brief. Remember the more information you provide now the better your responses are likely to be.
   
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
-    .brief_items_by_section
-      - current_object.brief_items_grouped_by_section.each do |section_name, brief_items|
-        .brief_item_section
-          %h3.section_title=section_name
-          %ul.brief_items
-            -brief_items.each do |brief_item|
-            
-              %li[brief_item]{:class => (brief_item.optional ? "optional_brief_item" : "")}
-                =hidden_field_tag "brief[brief_items_attributes][#{brief_item.id}][id]", brief_item.id
-                %p=brief_item.title
-                %p=text_area_tag "brief[brief_items_attributes][#{brief_item.id}][body]", brief_item.body
-                -if !brief_item.help_message.blank?
-                  %p.help_message
-                    %strong Example:
-                    = brief_item.help_message
-      
-      -if current_object.draft?
-        %p.submit=brief_form.submit 'publish'        
-        %p.submit=brief_form.submit 'save draft'
-      -else 
-        %p.submit=brief_form.submit 'update'
-              
-  .clear
   
+    %div[current_object]
+      %h2 
+        =truncate(current_object.title, :length => 30)
+      .most_important_thing
+        %p
+          %span.left &ldquo;
+          =current_object.most_important_message
+          %span.right &rdquo;
+    
+      -current_object.brief_items.each do |brief_item|
+        =hidden_field_tag "brief[brief_items_attributes][#{brief_item.id}][id]", brief_item.id
+        %div[brief_item]
+          %h3
+            =brief_item.title
+
+          %p.body=text_area_tag "brief[brief_items_attributes][#{brief_item.id}][body]", brief_item.body
+          %p
+          -if !brief_item.help_message.blank?
+            %p.help_message
+              %strong Example:
+              = brief_item.help_message
+            
+
+    -if current_object.draft?
+      %p.submit=brief_form.submit 'publish'        
+      %p.submit=brief_form.submit 'save draft'
+    -else 
+      %p.submit=brief_form.submit 'update'
+ 
+  .clear
+          
   .hr
   %p=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
   

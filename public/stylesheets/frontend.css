@@ -336,6 +336,18 @@ span.field_with_errors input {
       position: relative;
       top: -0.4em;
       left: 0; }
+    #container #content .brief .brief_item textarea,     #container #content .brief .most_important_thing textarea {
+      width: 46em;
+      height: 10em; }
+    #container #content .brief .brief_item .help_message,     #container #content .brief .most_important_thing .help_message {
+      width: 18em;
+      border: 1px solid #ccc;
+      background: rgb(252, 252, 252);
+      background: rgba(220, 220, 220, 0.2);
+      padding: 1em;
+      position: absolute;
+      top: 4em;
+      left: 51.5em; }
   #container #content .brief .most_important_thing {
     padding: 1em 1em 1em 3em; }
     #container #content .brief .most_important_thing p {
@@ -361,53 +373,12 @@ span.field_with_errors input {
     background: #ffffdf; }
   #container #content .brief .brief_item.extended:hover {
     background: transparent; }
-#container #content #edit_brief #edit_brief_details {
-  background: #eee;
-  padding: 1em 2em;
-  border: 1px solid #ccc;
-  border-top: 0; }
-  #container #content #edit_brief #edit_brief_details h3 {
-    padding-bottom: 1em; }
-#container #content #edit_brief h3.brief_document {
-  padding-top: 0.5em; }
-  #container #content #edit_brief h3.brief_document span {
-    font-size: 0.75em; }
-#container #content #edit_brief .brief_details, #container #content #edit_brief .brief_items {
-  border: 1px solid #ccc;
-  padding: 1em;
-  background: #f6f6f6;
-  margin-top: 3em;
-  margin-bottom: 2em; }
-  #container #content #edit_brief .brief_details h3,   #container #content #edit_brief .brief_items h3 {
-    padding-top: 0; }
-  #container #content #edit_brief .brief_details .submit_button input,   #container #content #edit_brief .brief_items .submit_button input {
-    top: 12px; }
-  #container #content #edit_brief .brief_details label,   #container #content #edit_brief .brief_items label {
-    width: 10em; }
-  #container #content #edit_brief .brief_details .brief_item,   #container #content #edit_brief .brief_items .brief_item {
-    position: relative;
-    margin-bottom: 0; }
-    #container #content #edit_brief .brief_details .brief_item input[type=text],     #container #content #edit_brief .brief_items .brief_item input[type=text] {
-      width: 40em; }
-    #container #content #edit_brief .brief_details .brief_item textarea,     #container #content #edit_brief .brief_items .brief_item textarea {
-      width: 40em;
-      height: 10em;
-      max-width: 48em; }
-  #container #content #edit_brief .brief_details .help_message,   #container #content #edit_brief .brief_items .help_message {
-    width: 20em;
-    border: 1px solid #ccc;
-    background: rgb(252, 252, 252);
-    background: rgba(220, 220, 220, 0.2);
-    padding: 1em;
-    position: absolute;
-    top: 2em;
-    left: 45em; }
-  #container #content #edit_brief .brief_details a.button,   #container #content #edit_brief .brief_items a.button {
-    margin: 0.2em 11em 1em 2.5em; }
 #container #content .note {
-  padding: 0 2em 0 2em;
-  margin: 0.5em 0 0.5em 0;
-  line-height: 1.8em; }
+  padding: 0.5em 2em 0.5em 2em;
+  margin: 2em 0 0.5em 0;
+  line-height: 1.8em;
+  background: #ffffdf;
+  border: 1px solid #ddd; }
   #container #content .note a.hide_message {
     padding-left: 2em; }
 #container #content .boom_box {
@@ -416,32 +387,6 @@ span.field_with_errors input {
   background: #f6f6f6;
   margin-top: 1em;
   margin-bottom: 2em; }
-#container #content .brief_items_by_section {
-  position: relative;
-  padding-top: 24px; }
-  #container #content .brief_items_by_section .brief_item_section_tabbed h3 {
-    position: absolute;
-    top: 1.3em;
-    left: 0;
-    font-size: 1.8em;
-    border: 1px solid #ccc;
-    border-right: 0;
-    background: #eee;
-    padding: 0.5em 1em 0.5em 1em;
-    margin: 0;
-    line-height: 0.5em;
-    width: 94px;
-    text-align: center;
-    font-weight: normal; }
-  #container #content .brief_items_by_section .brief_item_section_tabbed h3:hover {
-    background: #ddd;
-    cursor: pointer; }
-  #container #content .brief_items_by_section .brief_item_section_tabbed h3.selected {
-    background: #21286c;
-    color: white; }
-#container .show_question_details {
-  background: url(/images/tri-down.png) no-repeat 7px right;
-  padding-right: 1em; }
 #container .search_results {
   padding-top: 1em; }
   #container .search_results ul.brief_list li {

@@ -460,6 +460,22 @@ span.field_with_errors
             :top -0.4em
             :left 0
             
+        //when editing    
+            
+        textarea
+          :width 46em
+          :height 10em
+          
+        .help_message
+          :width 18em
+          :border 1px solid #ccc
+          :background rgb(252, 252, 252)
+          :background rgba(220, 220, 220, 0.2)
+          :padding 1em
+          :position absolute
+          :top 4em
+          :left 51.5em
+            
       .most_important_thing
         :padding 1em 1em 1em 3em
         
@@ -493,72 +509,13 @@ span.field_with_errors
         
       .brief_item.extended:hover
         :background transparent
-        
-    /edit brief
-      
-    #edit_brief
-    
-      #edit_brief_details
-        :background #eee
-        :padding 1em 2em
-        :border 1px solid #ccc
-        :border-top 0
-        
-        h3
-          :padding-bottom 1em
-        
-      h3.brief_document
-        :padding-top 0.5em
-
-        span
-          :font-size 0.75em
-        
-      .brief_details, .brief_items
-        :border 1px solid #ccc
-        :padding 1em
-        :background #f6f6f6
-        :margin-top 3em
-        :margin-bottom 2em
-
-        h3
-          :padding-top 0
-
-        .submit_button
-          input
-            :top 12px
-      
-        label
-          :width 10em
-      
-        .brief_item
-          :position relative
-          :margin-bottom 0
-        
-          input[type=text]
-            :width 40em
-        
-          textarea
-            :width 40em
-            :height 10em
-            :max-width 48em
-
-        .help_message
-          :width 20em
-          :border 1px solid #ccc
-          :background rgb(252, 252, 252)
-          :background rgba(220, 220, 220, 0.2)
-          :padding 1em
-          :position absolute
-          :top 2em
-          :left 45em
-        
-        a.button
-          :margin 0.2em 11em 1em 2.5em  
-      
+              
     .note
-      :padding 0 2em 0 2em
-      :margin 0.5em 0 0.5em 0
+      :padding 0.5em 2em 0.5em 2em
+      :margin 2em 0 0.5em 0
       :line-height 1.8em
+      :background #ffffdf
+      :border 1px solid #ddd
       
       a.hide_message
         :padding-left 2em
@@ -569,37 +526,6 @@ span.field_with_errors
       :background #f6f6f6
       :margin-top 1em
       :margin-bottom 2em
-    
-    .brief_items_by_section  
-      :position relative
-      :padding-top 24px
-      
-      .brief_item_section_tabbed h3
-        :position absolute
-        :top 1.3em
-        :left 0
-        :font-size 1.8em
-        :border 1px solid #ccc
-        :border-right 0
-        :background #eee
-        :padding 0.5em 1em 0.5em 1em
-        :margin 0
-        :line-height 0.5em
-        :width 94px
-        :text-align center
-        :font-weight normal
-        
-      .brief_item_section_tabbed h3:hover
-        :background #ddd
-        :cursor pointer
-        
-      .brief_item_section_tabbed h3.selected
-        :background #21286c
-        :color white
-        
-  .show_question_details
-    :background url(/images/tri-down.png) no-repeat 7px right
-    :padding-right 1em
       
   .search_results
     :padding-top 1em

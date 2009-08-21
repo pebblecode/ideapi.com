@@ -7,7 +7,9 @@ class Question < ActiveRecord::Base
   named_scope :answered, :conditions => ["author_answer != ?", ""], :order => "updated_at ASC"
   named_scope :unanswered, :conditions => ["author_answer IS NULL"], :order => "created_at ASC"
   
-  validates_presence_of :brief_item_id, :brief_item, :user_id
+  validates_presence_of :brief_item_id, :brief_id, :user_id
+  
+  before_validation :ensure_brief_present
   
   def answered?
     !author_answer.blank?
@@ -24,6 +26,12 @@ class Question < ActiveRecord::Base
     def brief_items
       all(:group => :brief_item_id, :include => :brief_item).map(&:brief_item)
     end
+  end
+  
+  private
+  
+  def ensure_brief_present
+    self.brief = brief_item.brief if brief_item.present? && brief.blank?
   end
 
 end

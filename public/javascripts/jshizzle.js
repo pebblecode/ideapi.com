@@ -51,58 +51,58 @@ jQuery(document).ready(function(){
       
     $('.optional_brief_item').hide();
     
-    $('.brief_item').each(function() {
-      var on_text = "+ more"
-      var off_text = "- hide"
-      
-      if (!$(this).hasClass('optional_brief_item') && $($(this).nextAll('.brief_item')[0]).hasClass('optional_brief_item')) {         
-        
-        $(this).append('<p><a href="#" class="show_question_details">'+on_text+'</a></p>').parent().find('.brief_item a.show_question_details').click(function(){
-            ($(this).text() == on_text) ? $(this).text(off_text) : $(this).text(on_text);
-
-            var hidden = $(this).parent().parent().nextAll('.brief_item');
-
-            for (var i=0; i < hidden.length; i++) {
-              $(hidden[i]).fadeToggle();
-              if (!$(hidden[i+1]).hasClass('optional_brief_item')) { break };
-            };
-
-            return false;
-        });
-        $(this).append('<div class="clear"></div>');
-      };
-    });
+    // $('.brief_item').each(function() {
+    //   var on_text = "+ more"
+    //   var off_text = "- hide"
+    //   
+    //   if (!$(this).hasClass('optional_brief_item') && $($(this).nextAll('.brief_item')[0]).hasClass('optional_brief_item')) {         
+    //     
+    //     $(this).append('<p><a href="#" class="show_question_details">'+on_text+'</a></p>').parent().find('.brief_item a.show_question_details').click(function(){
+    //         ($(this).text() == on_text) ? $(this).text(off_text) : $(this).text(on_text);
+    // 
+    //         var hidden = $(this).parent().parent().nextAll('.brief_item');
+    // 
+    //         for (var i=0; i < hidden.length; i++) {
+    //           $(hidden[i]).fadeToggle();
+    //           if (!$(hidden[i+1]).hasClass('optional_brief_item')) { break };
+    //         };
+    // 
+    //         return false;
+    //     });
+    //     $(this).append('<div class="clear"></div>');
+    //   };
+    // });
     
-    $('.brief_item_section').addClass('brief_item_section_tabbed');
-    
-    $('.brief_item_section_tabbed h3').each(function (i) {
-      $(this).css('left', ((i * 132)) + "px");
-    }).click(function () {
-      $(this).siblings('ul').show();
-      $(this).parent().siblings().find('ul').hide();
-      $(this).parent().siblings().find('h3').removeClass('selected');
-      $(this).addClass('selected');
-    }).next().hide();
-    
-    $('.brief_item_section_tabbed h3:first').addClass('selected');
-    $('.brief_item_section_tabbed h3:last').css('border-right','1px solid #ccc');
-    $('.brief_item_section_tabbed ul:first').show();
+    // $('.brief_item_section').addClass('brief_item_section_tabbed');
+    // 
+    // $('.brief_item_section_tabbed h3').each(function (i) {
+    //   $(this).css('left', ((i * 132)) + "px");
+    // }).click(function () {
+    //   $(this).siblings('ul').show();
+    //   $(this).parent().siblings().find('ul').hide();
+    //   $(this).parent().siblings().find('h3').removeClass('selected');
+    //   $(this).addClass('selected');
+    // }).next().hide();
+    // 
+    // $('.brief_item_section_tabbed h3:first').addClass('selected');
+    // $('.brief_item_section_tabbed h3:last').css('border-right','1px solid #ccc');
+    // $('.brief_item_section_tabbed ul:first').show();
     
     // BRIEF EDIT
     
-    $('#edit_brief #edit_brief_details').hide();
-    
-    $('a[href=#edit_brief_details]').click(function () { 
-      $('#edit_brief #edit_brief_details').slideToggle('slow');
-      return false;
-    });
-    
-    $('#edit_brief_details p.cancel').click(function (){
-      $(this).parent().parent().slideToggle('slow');
-      return false;
-    });
-    
-    $('.note').append('<a href="#" class="hide_message">hide this message</a>').find('a.hide_message').click(function () { $(this).parent().fadeOut(); return false; });
+    // $('#edit_brief #edit_brief_details').hide();
+    // 
+    // $('a[href=#edit_brief_details]').click(function () { 
+    //   $('#edit_brief #edit_brief_details').slideToggle('slow');
+    //   return false;
+    // });
+    // 
+    // $('#edit_brief_details p.cancel').click(function (){
+    //   $(this).parent().parent().slideToggle('slow');
+    //   return false;
+    // });
+    // 
+    // $('.note').append('<a href="#" class="hide_message">hide this message</a>').find('a.hide_message').click(function () { $(this).parent().fadeOut(); return false; });
     
     $(".brief_timeline li span").corners();  
         

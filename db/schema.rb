@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20090818135917) do
     t.text     "body"
     t.integer  "position"
     t.integer  "brief_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "template_question_id"
     t.datetime "revised_at"
   end
