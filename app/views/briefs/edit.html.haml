@@ -20,10 +20,10 @@
   / = error_messages_for :brief
   / 
   / 
-  
-  .note 
-    %h3 About your brief document
-    %p Your document is divided into sections for your convenience when writing the proposal. The sections that you fill out will be included in the published document, so feel free to only fill in what is appropriate to your brief. Remember the more information you provide now the better your responses are likely to be.
+  -if current_object.draft?
+    .note 
+      %h3 About your brief document
+      %p Your document is divided into sections for your convenience when writing the proposal. The sections that you fill out will be included in the published document, so feel free to only fill in what is appropriate to your brief. Remember the more information you provide now the better your responses are likely to be.
   
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
   

@@ -2,10 +2,6 @@ jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
 
-$.sexyButton = function(text, element_class) {  
-  return $('<a href="#" class="button ' + element_class + '">'+ text +'</a>').prepend('<span class="btn_left"></span>').append('<span class="btn_right"></span>');
-}
-
 $.fn.fadeToggle = function(speed, easing, callback) { 
    return this.animate({opacity: 'toggle'}, speed, easing, callback); 
 };
@@ -28,84 +24,41 @@ $.fn.showNotice = function (message) {
 	$(".notice", this).flashNotice();
 }
 
+$.fn.feedback_form = function () {
+  form = $(this).find('.wrap');
+  
+  $(this).find('.title a').click(function () {
+    form.fadeToggle();
+  });
+  
+  form.hide();
+}
+
+
+$.fn.trigger_help_message = function () {
+  $(this).focus(function () {
+    $(this).parent().siblings('.help_message').fadeIn();
+  }).blur(function () {
+    $(this).parent().siblings('.help_message').fadeOut();
+  });
+}
+
+$.fn.hideable_note = function () {
+  $(this).append('<a href="#" class="hide_message">hide</a>').find('a.hide_message').click(function () { $(this).parent().fadeOut(); return false; });
+}
+
 jQuery(document).ready(function(){
   
     $(".notice, .error").flashNotice();  
-  
-    $('a.button').each(function () {
-      $(this).prepend('<span class="btn_left"></span>');
-      $(this).append('<span class="btn_right"></span>');
-    });
-  
-  // BRIEF CREATION SECTION
-  
+    
     $('.help_message').hide();
     
-    $('.brief_item textarea').focus(function () {
-      $(this).parent().siblings('.help_message').fadeIn();
-    });
+    $('.brief_item textarea').trigger_help_message();
     
-    $('.brief_item textarea').blur(function () {
-      $(this).parent().siblings('.help_message').fadeOut();
-    });
-      
-    $('.optional_brief_item').hide();
-    
-    // $('.brief_item').each(function() {
-    //   var on_text = "+ more"
-    //   var off_text = "- hide"
-    //   
-    //   if (!$(this).hasClass('optional_brief_item') && $($(this).nextAll('.brief_item')[0]).hasClass('optional_brief_item')) {         
-    //     
-    //     $(this).append('<p><a href="#" class="show_question_details">'+on_text+'</a></p>').parent().find('.brief_item a.show_question_details').click(function(){
-    //         ($(this).text() == on_text) ? $(this).text(off_text) : $(this).text(on_text);
-    // 
-    //         var hidden = $(this).parent().parent().nextAll('.brief_item');
-    // 
-    //         for (var i=0; i < hidden.length; i++) {
-    //           $(hidden[i]).fadeToggle();
-    //           if (!$(hidden[i+1]).hasClass('optional_brief_item')) { break };
-    //         };
-    // 
-    //         return false;
-    //     });
-    //     $(this).append('<div class="clear"></div>');
-    //   };
-    // });
-    
-    // $('.brief_item_section').addClass('brief_item_section_tabbed');
-    // 
-    // $('.brief_item_section_tabbed h3').each(function (i) {
-    //   $(this).css('left', ((i * 132)) + "px");
-    // }).click(function () {
-    //   $(this).siblings('ul').show();
-    //   $(this).parent().siblings().find('ul').hide();
-    //   $(this).parent().siblings().find('h3').removeClass('selected');
-    //   $(this).addClass('selected');
-    // }).next().hide();
-    // 
-    // $('.brief_item_section_tabbed h3:first').addClass('selected');
-    // $('.brief_item_section_tabbed h3:last').css('border-right','1px solid #ccc');
-    // $('.brief_item_section_tabbed ul:first').show();
-    
-    // BRIEF EDIT
-    
-    // $('#edit_brief #edit_brief_details').hide();
-    // 
-    // $('a[href=#edit_brief_details]').click(function () { 
-    //   $('#edit_brief #edit_brief_details').slideToggle('slow');
-    //   return false;
-    // });
-    // 
-    // $('#edit_brief_details p.cancel').click(function (){
-    //   $(this).parent().parent().slideToggle('slow');
-    //   return false;
-    // });
-    // 
-    // $('.note').append('<a href="#" class="hide_message">hide this message</a>').find('a.hide_message').click(function () { $(this).parent().fadeOut(); return false; });
-    
+    $('.note').hideable_note();
+
     $(".brief_timeline li span").corners();  
-        
+
     $('.speech').append('<span class="bubble" />').corners();
     
     $('.revision h5').corners();
@@ -201,18 +154,7 @@ jQuery(document).ready(function(){
       };
     });
     
-    $('.feedback_form').each(function() {
-      
-      form = $(this).find('.wrap');
-      
-      $(this).find('.title a').click(function () {
-        form.fadeToggle();
-      });
-      
-      form.hide();
-      
-    });
+    $('.feedback_form').feedback_form();
     
 });
-
 
