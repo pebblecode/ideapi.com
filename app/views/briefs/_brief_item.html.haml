@@ -9,7 +9,7 @@
     -if brief_item.body.blank? && draft
       ="You have yet to #{link_to 'answer', edit_brief_path(current_object)}, the question would disappear if published."
     -else
-      =brief_item.body    
+      =brief_item.body_parsed
       
   .actions
     -if brief_item.has_history?

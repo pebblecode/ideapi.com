@@ -8,33 +8,49 @@ module Ideapi
     
     module ClassMethods
     
-      attr_accessor :gp_carriage_return_fields
-      attr_accessor :gp_link_parse_fields
+      attr_reader :gp_attrs_to_parse
     
-      def parse_carriage_returns_on(*args)
-        @gp_carriage_return_fields = args
+      def gp_parse_fields(*args)
+        @gp_attrs_to_parse = args
+                
+        include InstanceMethods
+        before_save :parse_all_attributes
         
-        include CarriageConvertor
-        before_save :parse_carriage_returns
+        gp_attrs_to_parse.each do |m_attr|
+          define_parse_method_for(m_attr)
+        end
       end
       
-      def parse_links_to_html_on(*args)
-        @gp_link_parse_fields = args
-        
-        include LinkParser
-        before_save :parse_all_links
+      def get_parsed_attr_name(original_attr)
+        "#{original_attr}_parsed"
+      end
+      
+      #private
+      
+      def define_parse_method_for(m_attr)
+        instance_eval do
+          parsed_m_attr = get_parsed_attr_name(m_attr)
+          if !self.respond_to?(parsed_m_attr)
+            define_method(parsed_m_attr, lambda { parse_string(self.send(m_attr).to_s) })
+          end            
+        end
       end
       
     end
     
-    module LinkParser
+    module InstanceMethods
       
-      def parse_all_links
-        self.class.gp_link_parse_fields.each do |m_attr|
-          if self.send(m_attr).present?
-            self.send("#{m_attr}=", parse_links(self.send(m_attr)))
+      def parse_all_attributes
+        self.class.gp_attrs_to_parse.each do |m_attr|
+          parsed_m_attr = self.class.get_parsed_attr_name(m_attr)
+          if self.respond_to?("#{parsed_m_attr}=") && self.send(m_attr).present?
+            self.send("#{parsed_m_attr}=", parse_string( self.send(m_attr) ))    
           end
         end
+      end
+      
+      def parse_string(str)
+        line_breaks_into_br_tags( parse_links(str) )
       end
       
       def parse_links(str)
@@ -53,18 +69,12 @@ module Ideapi
         return str
       end
       
-    end
-    
-    module CarriageConvertor
-      def parse_carriage_returns
-        self.class.gp_carriage_return_fields.each do |m_attr|
-          if self.send(m_attr).present?
-            self[m_attr] = self.send(m_attr).gsub(/\n/, '<br />')          
-          end
-        end
+      def line_breaks_into_br_tags(str)
+        str.gsub(/\n/, '<br />')
       end
+      
     end
-    
+     
   end
 
 end

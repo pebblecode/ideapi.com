@@ -7,7 +7,7 @@
         ="(in relation to <strong>#{question.brief_item.title}</strong>):"
       -else
         %strong="#{comment_adjective_for given_name(question.user), :position => :before}:"
-      =question.body
+      =question.body_parsed
     %span.clear    
   -if question.answered?
     .author_answer
@@ -27,7 +27,7 @@
             =question.brief_item.title
 
           %p.body
-            =question.brief_item.body
+            =question.brief_item.body_parsed
         
         =medium_avatar
         = render :partial => 'answer_form', :locals => { :question => question }

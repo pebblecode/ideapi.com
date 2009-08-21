@@ -18,8 +18,7 @@ class Question < ActiveRecord::Base
   end
   
   include Ideapi::GetParsed
-  parse_carriage_returns_on :author_answer, :body
-  parse_links_to_html_on :author_answer, :body
+  gp_parse_fields :author_answer, :body
   
   class << self
     def brief_items

@@ -21,8 +21,7 @@ class BriefItem < ActiveRecord::Base
   truncates :title
   
   include Ideapi::GetParsed
-  parse_carriage_returns_on :body
-  parse_links_to_html_on :body
+  gp_parse_fields :body
     
   def has_history?(rehash = false, user = nil)
     !brief_item_history(rehash, user).blank?

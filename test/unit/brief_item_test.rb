@@ -42,7 +42,7 @@ class BriefItemTest < ActiveSupport::TestCase
         end
 
         should "turn linebreaks into <br> tags" do
-          assert_equal(@parsed_body, @brief_item.body)
+          assert_equal(@parsed_body, @brief_item.body_parsed)
         end
       end
       
@@ -56,7 +56,7 @@ class BriefItemTest < ActiveSupport::TestCase
         end
 
         should "turn linebreaks into <br> tags" do
-          assert_equal(@parsed_body, @brief_item.body)
+          assert_equal(@parsed_body, @brief_item.body_parsed)
         end
       end
       
