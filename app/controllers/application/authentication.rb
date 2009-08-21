@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
   end
   
   def authenticate
-    if RAILS_ENV =~ /production|staging/
+    if RAILS_ENV =~ /staging/
       authenticate_or_request_with_http_basic do |user_name, password|
         user_name == USER_NAME && password == PASSWORD
       end
