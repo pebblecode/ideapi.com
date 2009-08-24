@@ -52,7 +52,10 @@ class User < ActiveRecord::Base
   
   def invite_accepted(invitation)
     become_friends_and_with_network(invitation.redeemed_by) if invitation.redeemed_by.present?
-    if invitation.redeemable.present? && invitation.redeemable.is_a?(Brief)
+  end
+  
+  def invite_redeemed(invitation)
+    if invitation.redeemable.present? && invitation.redeemable.is_a?(Brief)  
       watch(invitation.redeemable)
     end
   end

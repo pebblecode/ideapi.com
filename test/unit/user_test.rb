@@ -183,8 +183,60 @@ class UserTest < Test::Unit::TestCase
       
     end
     
-
   end
+  
+  context "inviting a user" do
+    setup do
+      @starting_invite_count = 5
+      
+      @dave = User.make(:invite_count => @starting_invite_count)
+      @brief = Brief.make(:published, {:user => @dave})
+      
+      @invited = User.plan
+      
+      @invite = @dave.invitations.make(:recipient_email => @invited[:email], :redeemable => @brief)
+    end
+  
+    should "reduce invite count" do
+      assert_equal(@dave.invite_count, (@starting_invite_count - 1))
+    end
+    
+    context "invitee accepts invite" do
+      setup do
+        @henry = User.make(:email => @invited[:email])
+        @invite.redeem_for_user(@henry)
+      end
+
+      context "inviter" do
+        setup do
+          
+        end
+
+        should "be friends with invitee" do
+          assert @dave.friends?(@henry)
+        end
+      end
+      
+      context "invitee" do
+        setup do
+          
+        end
+
+        should "be friends with inviter" do
+          assert @henry.friends?(@dave)
+        end
+        
+        should "be watching brief" do
+          assert @henry.watching?(@brief)
+        end
+      end
+      
+
+    end
+    
+  
+  end
+  
   
 
 end
