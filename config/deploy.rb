@@ -50,7 +50,7 @@ namespace :deploy do
   
   task :prepare_static_cache do
     # SASS -> CSS -> all.css; all.js
-    run "cd #{release_path}; rake RAILS_ENV=#{rails_env} ideapi:build_cache"
+    run "cd #{release_path}; rake RAILS_ENV=#{stage} ideapi:build_cache"
   end
   
 end
