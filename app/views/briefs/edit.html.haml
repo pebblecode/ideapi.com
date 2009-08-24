@@ -3,7 +3,7 @@
   -if current_object.draft?
     %li=link_to 'preview document', brief_path(current_object), :class => "awesome small" , :rel => "facebox"
 
-.col_1
+.col_1.edit_brief
   / #edit_brief_details
   /   %h3 Edit brief details
   /   - form_for(current_object, :html => { :method => :put }) do |brief_form|
