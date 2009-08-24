@@ -63,5 +63,9 @@
   
 .col_2
   .discussion
-    %p.join_discuss=link_to 'Back to brief »', brief_path(current_object), :class => "awesome blue large", :style => "text-transform: uppercase"
-  
+    %p.join_discuss
+      -if current_object.published?
+        =link_to 'Back to brief »', brief_path(current_object), :class => "awesome blue large", :style => "text-transform: uppercase"
+      -else
+        =link_to 'Back to briefs »', briefs_path, :class => "awesome blue large", :style => "text-transform: uppercase"
+        
