@@ -60,7 +60,7 @@ $.fn.edit_brief_item = function () {
       $(this).hide();
 
       $(this).parent().prev('h3').prepend('<a class="toggle_brief_edit awesome small blue" href="#'+$(this).attr("id")+'">'+ link_on_state +'</a>');
-      $(this).parent().prev('h3').addClass('empty');
+      $(this).parent().prev('h3').addClass('empty active');
       
       $(this).parent().prev('h3').find('a.toggle_brief_edit').click(function () {
         
@@ -79,11 +79,26 @@ $.fn.edit_brief_item = function () {
       });
       
       $(this).parent().prev('h3').each(function () { $(this).css("cursor", "pointer"); }).click(function () {
-        $(this).find('a.toggle_brief_edit').click();
+        if ($(this).hasClass('active')) {
+          $(this).find('a.toggle_brief_edit').click();
+          $(this).css("cursor", "pointer");
+        } else {
+          $(this).css("cursor", "auto");
+        }
       });
       
       //.click( function () { $(this).next('textarea').show(); } );
     };
+    
+    $(this).change(function () {
+      if ($(this).val() != "") {
+        $(this).parent().prev('h3').find('a.toggle_brief_edit').hide();
+        $(this).parent().prev('h3').removeClass('active');
+      } else {
+        $(this).parent().prev('h3').find('a.toggle_brief_edit').show();       
+        $(this).parent().prev('h3').addClass('active');
+      }
+    });
   
   });
 }
