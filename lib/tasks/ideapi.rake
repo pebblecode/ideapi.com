@@ -9,4 +9,11 @@ namespace :ideapi do
     #Rake::Task[ "thinking_sphinx:rebuild" ].execute
   end
   
+  task :build_cache => :environment do
+    include ActionView::Helpers::TagHelper
+    include ActionView::Helpers::UrlHelper
+    include ActionView::Helpers::AssetTagHelper
+    stylesheet_link_tag :all, :cache => true
+  end
+  
 end

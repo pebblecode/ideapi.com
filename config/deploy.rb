@@ -48,5 +48,12 @@ namespace :deploy do
     send(run_method, "cd #{current_path} && rake ideapi:bootstrap RAILS_ENV=#{stage} ")
   end
   
+  task :prepare_static_cache do
+    # SASS -> CSS -> all.css; all.js
+    run "cd #{release_path}; rake RAILS_ENV=#{rails_env} build_cache"
+  end
+  
 end
+
+after "deploy:update_code", "deploy:prepare_static_cache"
 
