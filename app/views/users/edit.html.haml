@@ -1,12 +1,11 @@
 .col_1
   %h2 Edit profile
-  .boom_box
-    %div[current_object]
-      = error_messages_for :user
-
-      - form_for(:user, :url => object_url, :html => { :method => :put, :multipart => true }) do |f|
+  %div[current_object]
+    - form_for(:user, :url => object_url, :html => { :method => :put, :multipart => true }) do |f|
+      .boom_box
+        = error_messages_for :user
         = render :partial => "form", :locals => {:f => f}
-        
-        %p.submit= submit_tag "Update"
-        .clear
-      %p.edit= link_to 'cancel', object_path
+      %p.submit= submit_tag "Update"
+      %p= link_to 'cancel', object_path, { :class => "submit" }
+      .clear
+   

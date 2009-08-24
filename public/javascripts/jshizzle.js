@@ -78,6 +78,10 @@ $.fn.edit_brief_item = function () {
         
       });
       
+      $(this).parent().prev('h3').each(function () { $(this).css("cursor", "pointer"); }).click(function () {
+        $(this).find('a.toggle_brief_edit').click();
+      });
+      
       //.click( function () { $(this).next('textarea').show(); } );
     };
   
