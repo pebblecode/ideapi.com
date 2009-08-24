@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
   
   def create
-    @invitations = Invitation.from_list_into_hash(params[:invitation][:recipient_list], current_user)
+    @invitations = Invitation.from_list_into_hash(params[:invitation], current_user)
     send_invitations_for(@invitations[:successful]) if !@invitations[:successful].blank?
     set_flash_notices_for(@invitations)
     redirect_back_or_default user_path(current_user)

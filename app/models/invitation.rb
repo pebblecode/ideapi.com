@@ -6,7 +6,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :redeemable, :polymorphic => true
   
   include Ideapi::Schizo
-
+  
   state :pending, :default => true do
     handle :redeem! do
       stored_transition_to(:accepted)
@@ -25,8 +25,16 @@ class Invitation < ActiveRecord::Base
   before_save :generate_code
   before_save :ensure_default_state
   
+  attr_accessor :recipient_list
+  
   validates_uniqueness_of :recipient_email, :scope => :user_id
   validates_format_of :recipient_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  
+  validate :reedemable_item_must_belong_to_user
+  
+  def reedemable_item_must_belong_to_user
+    errors.add_to_base("Must own the #{redeemable_type} you invite people to view") unless (redeemable.blank? || user.owns?(redeemable))
+  end
   
   def redeem_for_user(user)
     transaction do
@@ -46,9 +54,11 @@ class Invitation < ActiveRecord::Base
 
   class << self
     
-    def from_list_into_hash(list, user)
+    def from_list_into_hash(params, user)
+      list = params.delete(:recipient_list)
+      
       returning ({:successful => [], :failed => []}) do |invites|  
-        from_list(list, user).each do |invite|
+        from_list(list, user, params).each do |invite|
           if invite.valid?
             invites[:successful] << invite
           else
@@ -58,12 +68,12 @@ class Invitation < ActiveRecord::Base
       end
     end
     
-    def from_list(list, user)
+    def from_list(list, user, params)
       emails = list.split(/,|\s/).reject {|email| email.blank? }
       invites = []
       
       emails.each do |email|
-        invites << self.create(:recipient_email => email, :user => user)
+        invites << self.create({:recipient_email => email, :user => user}.reverse_merge(params))
       end
       
       return invites

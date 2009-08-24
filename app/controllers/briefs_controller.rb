@@ -30,7 +30,9 @@ class BriefsController < ApplicationController
       set_user_last_viewed_brief
       
       # record view
-      current_object.brief_user_views.record_view_for_user(current_user)      
+      current_object.brief_user_views.record_view_for_user(current_user)
+      
+      @invitation = Invitation.new(:user => current_user, :redeemable => current_object)
     end
     
     before :create do

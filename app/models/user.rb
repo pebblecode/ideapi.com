@@ -113,6 +113,11 @@ class User < ActiveRecord::Base
     published.empty?
   end
   
+  def owns?(thing)
+    assoc = thing.class.to_s.tableize
+    respond_to?(assoc) && send(assoc).include?(thing)
+  end
+  
   def briefs_grouped_by_state
     returning(BriefCollection.new) do |collection|
       hash = briefs.all.group_by(&:state)
