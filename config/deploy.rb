@@ -37,7 +37,7 @@ namespace :deploy do
   end
   
   desc "Link in the production database.yml" 
-  task :after_update_code do
+  task :link_config_files do
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/#{stage}.sphinx.conf #{release_path}/config/#{stage}.sphinx.conf" 
     run "ln -nfs #{deploy_to}/#{shared_dir}/uploads #{release_path}/public/uploads"
@@ -55,5 +55,5 @@ namespace :deploy do
   
 end
 
-after "deploy:update_code", "deploy:prepare_static_cache"
+after "deploy:update_code", "deploy:link_config_files", "deploy:prepare_static_cache"
 
