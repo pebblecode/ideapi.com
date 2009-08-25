@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   end
   
   # protect against mass assignment
-  attr_accessible :login, :email, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :last_login_at, :last_request_at, :password, :password_confirmation
+  attr_accessible :login, :email, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :last_login_at, :last_request_at, :password, :password_confirmation, :avatar
   
   def watch(brief)
     return false if !brief
