@@ -22,8 +22,8 @@
           =link_to "ideapi", "/"
         %ul.navigation        
           -if logged_in?
-            %li=link_unless_current 'briefs', briefs_path
-            %li=link_unless_current 'my account', profile_path
+            %li=link_unless_current 'dashboard', '/dashboard'
+            %li=link_unless_current 'profile', profile_path
             %li=link_to 'logout', delete_user_session_path
           -else
             %li=link_unless_current 'Login', new_user_session_path

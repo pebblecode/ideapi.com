@@ -10,7 +10,7 @@
       =brief_item.body_parsed
       
   .actions
-    -if brief_item.has_history?
+    -if brief_item.has_history?(current_user)
       =link_to "recent activity (#{brief_item.history.size})", brief_questions_path(current_object, :brief_item_id => brief_item.id), :class => "recent_activity"
     -if !owner?(current_object)
       =link_to 'ask question/comment', brief_questions_path(current_object, :brief_item_id => brief_item.id)

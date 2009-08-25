@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
   end
   
+  map.connect 'dashboard', :controller => "briefs", :action => "index"
   map.resource :home, :controller => "home"
   map.root :controller => "home", :action => "show"
 end

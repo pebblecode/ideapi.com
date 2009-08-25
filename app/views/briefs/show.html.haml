@@ -14,6 +14,10 @@
   .clear 
 
 .col_1
+  -if !owner?(current_object)
+    .note
+      %p has invited you to collaborate on this brief. Click on &ldquo;ask question/comment&rdquo; to have your say on a section. Click the &ldquo;DISCUSSION&rdquo; button to see all of the contributions so far.
+
   %div[current_object]
     %h2 
       =truncate(current_object.title, :length => 30)
@@ -25,7 +29,7 @@
         %span.right &rdquo;
     -if current_object.brief_items.empty? && current_object.published?
       %p This document is empty
-    =render :partial => 'brief_item', :collection => (current_object.draft? ? current_object.brief_items : current_object.brief_items.answered), :locals => { :draft => current_object.draft? }
+    =render :partial => 'brief_item', :collection => (current_object.brief_items.answered), :locals => { :draft => current_object.draft? }
 
 .col_2
   .discussion     

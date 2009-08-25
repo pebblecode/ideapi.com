@@ -1,6 +1,11 @@
 %p
   %label{:for => "title"} Title:
   = f.text_field :title
+  %p.help_message
+    This is how you brief will appear when listed on the system.
+      
 %p
-  %label{:for => "most_important_message"} Most important thing you wish to say:
+  %label{:for => "most_important_message"} One Line Brief:
   = f.text_area :most_important_message, :rows => "5", :cols => 60
+  %p.help_message
+    Simple. Focused. Short. What is the most important thing that you need to communicate?

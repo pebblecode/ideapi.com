@@ -23,12 +23,12 @@ class BriefItem < ActiveRecord::Base
   include Ideapi::GetParsed
   gp_parse_fields :body
     
-  def has_history?(rehash = false, user = nil)
-    !brief_item_history(rehash, user).blank?
+  def has_history?(user = nil)
+    brief_item_history(user).present?
   end
   
-  def history(rehash = false, user = nil)
-    if has_history?(rehash, user)
+  def history(user = nil)
+    if has_history?(user)
       # sort by latest first ..
       brief_item_history.sort {|a,b| b.updated_at <=> a.updated_at }
     else
@@ -51,7 +51,7 @@ class BriefItem < ActiveRecord::Base
   end
   
   def history_grouped_by_fancy_date_including_user(user)
-    history_grouped_by_fancy_date { history(true, user) }
+    history_grouped_by_fancy_date { history(user) }
   end
   
   private
@@ -67,14 +67,13 @@ class BriefItem < ActiveRecord::Base
     end
   end
   
-  def brief_item_history(rehash = false, user = nil)
-    @brief_item_history = nil if rehash
-
+  def brief_item_history(user = nil)
     @brief_item_history ||= (answered_questions + revisions + user_questions(user))
   end
 
   def user_questions(user = nil)
-    user.present? ? user.questions.unanswered : []
+    #user.present? ? user.questions.unanswered(:conditions => ["brief_item_id = ?", self.id]) : []
+    []
   end
   
 end
