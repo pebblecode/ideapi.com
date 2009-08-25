@@ -46,6 +46,7 @@ class BriefsController < ApplicationController
       if (params[:commit] == "publish")
         current_object.publish!
         if current_object.published?
+          @published = true
           flash[:notice] = "Brief has been saved and published."
         else
           flash[:error] = "Brief could not be published, any changes have been saved."
@@ -64,7 +65,7 @@ class BriefsController < ApplicationController
     end
     
     response_for(:update, :update_fails) do |format|
-      format.html { redirect_to :action => 'edit' }
+      format.html { redirect_to :action => @published ? 'show' : 'edit' }
       format.json { render :json => current_object }  
     end
   
