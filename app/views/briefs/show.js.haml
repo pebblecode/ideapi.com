@@ -1,6 +1,13 @@
 %p This is a preview of the document items that will be included in the final document, once published.
 .fb
-  %div[current_object]  
-    -if current_brief_items.empty?
+  %div[current_object]
+    %h2 
+      =truncate(current_object.title, :length => 30)
+    .most_important_thing
+      %p
+        %span.left &ldquo;
+        =current_object.most_important_message
+        %span.right &rdquo;
+    -if current_object.brief_items.empty?
       %p.message This document is empty, answer some of the questions to populate the document.
-    =render :partial => 'brief_item', :collection => current_brief_items, :locals => { :draft => current_object.draft? }
+    =render :partial => 'brief_item', :collection => current_object.brief_items.answered, :locals => { :draft => current_object.draft? }

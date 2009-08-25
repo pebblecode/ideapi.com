@@ -86,6 +86,9 @@ class BriefsController < ApplicationController
         end
         
       }
+      
+      format.js { render :layout => false }
+      
       format.json { render :json => current_object }
     end
     

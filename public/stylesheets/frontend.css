@@ -680,20 +680,80 @@ input.awesome {
   border: none; }
 
 #facebox .content .fb {
-  width: 60em;
-  border: 1px solid #ccc; }
+  width: 60em; }
   #facebox .content .fb p.message {
     padding: 0.5em 1em 0 1em;
     font-size: 1.2em;
     font-weight: bold; }
-  #facebox .content .fb .brief_item {
-    padding: 0.5em 1em;
-    border-bottom: 1px solid #eee; }
-    #facebox .content .fb .brief_item p.body {
+  #facebox .content .fb .brief {
+    border-top: none; }
+    #facebox .content .fb .brief h2 {
+      background: #333;
+      color: white;
+      font-size: 1.2em;
+      padding: 1em 1.8em;
+      -moz-border-radius-topright: 6px;
+      -webkit-border-top-right-radius: 6px;
+      -moz-border-radius-topleft: 6px;
+      -webkit-border-top-left-radius: 6px;
+      position: relative; }
+      #facebox .content .fb .brief h2 a {
+        color: #666;
+        position: absolute;
+        right: 4em;
+        top: 1em; }
+      #facebox .content .fb .brief h2 a:hover {
+        color: #fefefe; }
+      #facebox .content .fb .brief h2 a.print_brief {
+        top: 1.2em;
+        right: 1.8em;
+        background: url(/images/printer_empty.png);
+        width: 16px;
+        height: 16px;
+        text-indent: -3000px; }
+    #facebox .content .fb .brief .brief_item, #facebox .content .fb .brief .most_important_thing {
+      padding: 1em 2em;
+      border: 1px solid #ccc;
+      border-bottom: 1px solid #eee;
+      border-top: 0;
+      position: relative; }
+      #facebox .content .fb .brief .brief_item h3 span.updated,       #facebox .content .fb .brief .most_important_thing h3 span.updated {
+        font-size: 0.2em;
+        color: #999;
+        font-weight: bold;
+        text-transform: uppercase;
+        position: relative;
+        top: -0.4em;
+        left: 0; }
+    #facebox .content .fb .brief .most_important_thing {
+      padding: 1em 1em 1em 3em; }
+      #facebox .content .fb .brief .most_important_thing p {
+        font-size: 2.2em;
+        font-weight: bold;
+        color: #333333;
+        padding: 0 2em;
+        position: relative; }
+        #facebox .content .fb .brief .most_important_thing p span {
+          font-size: 4em;
+          position: absolute;
+          padding: 0;
+          margin: 0;
+          height: 0.4em;
+          line-height: 0.8em; }
+        #facebox .content .fb .brief .most_important_thing p span.left {
+          top: 0;
+          left: 0; }
+        #facebox .content .fb .brief .most_important_thing p span.right {
+          bottom: -0.2em;
+          padding-right: 0.5em; }
+    #facebox .content .fb .brief .brief_item p.body {
       background: transparent;
-      font-size: 1.2em; }
-  #facebox .content .fb .brief_item:hover {
-    background: #ffffdf; }
+      font-size: 1.2em;
+      width: 100%;
+      margin: 0;
+      padding: 0.5em 0; }
+    #facebox .content .fb .brief .brief_item:hover {
+      background: #ffffdf; }
 
 textarea {
   resize: none; }

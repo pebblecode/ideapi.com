@@ -6,9 +6,7 @@
         ="- updated"
   
   %p.body
-    -if brief_item.body.blank? && draft
-      ="You have yet to #{link_to 'answer', edit_brief_path(current_object)}, the question would disappear if published."
-    -else
+    -if brief_item.body.present?
       =brief_item.body_parsed
       
   .actions

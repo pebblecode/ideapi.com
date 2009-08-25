@@ -15,7 +15,7 @@ class Brief < ActiveRecord::Base
   has_many :watchers, :through => :watched_briefs, :source => :user
   
   def all_involved
-    [user] + watchers
+    ([user] + watchers).uniq
   end
   
   def brief_items_grouped_by_section

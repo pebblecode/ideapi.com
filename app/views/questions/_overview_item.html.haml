@@ -1,7 +1,7 @@
 %li
   =small_avatar(overview_item.user)
   %p
-    =link_to truncate(overview_item.body, :lenght => 10), brief_questions_path(overview_item.brief, :q => 'recent') << "#question_#{overview_item.id}"
+    =link_to truncate(overview_item.body, :length => 29), brief_questions_path(overview_item.brief, :q => 'recent') << "#question_#{overview_item.id}"
     %br
     %span
       =comment_adjective_for "<strong>#{given_name(overview_item.user)}</strong>", :position => :before

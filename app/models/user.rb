@@ -82,7 +82,7 @@ class User < ActiveRecord::Base
     return false if !brief
     
     if brief.published?
-      watched_briefs.create(:brief => brief)
+      watched_briefs.create(:brief => brief) unless self.owns?(brief)
     else
       errors.add_to_base("You cannot watch a brief which isn't currently published")
       false
