@@ -29,12 +29,13 @@
     -if current_object.has_invites?  
       .boom_box
         %h3 Invitations
+        
         %p 
           You have 
           %strong=current_object.invite_count
           invites left, you can request more 
           =link_to "here.", request_invitations_invitations_path
-        -if current_object.invitations.blank?
+        -if current_object.invitations.new_users.blank?
           %p You have not sent any invitations yet.
         -else
           %table.invitations
@@ -49,7 +50,7 @@
                 %th
                   Actions
             %tbody
-              -current_object.invitations.each do |invite|
+              -current_object.invitations.new_users.each do |invite|
                 %tr
                   %td
                     =invite.recipient_email
