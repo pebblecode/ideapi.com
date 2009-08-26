@@ -33,6 +33,7 @@ class Invitation < ActiveRecord::Base
   
   validate :reedemable_item_must_belong_to_user
   validate :reedemable_item_must_exist_if_inviting_existing_user
+  validate :ensure_recipient_email_is_different_user_email
   
   def reedemable_item_must_belong_to_user
     errors.add_to_base("Must own the #{redeemable_type} you invite people to view") unless (redeemable.blank? || user.owns?(redeemable))
@@ -40,6 +41,10 @@ class Invitation < ActiveRecord::Base
 
   def reedemable_item_must_exist_if_inviting_existing_user
     errors.add_to_base("User already has a user account, try inviting user to a specific brief") if redeemable.blank? && self.existing_user
+  end
+  
+  def ensure_recipient_email_is_different_user_email
+    errors.add(:recipient_email) if self.recipient_email.eql?(self.user.email)
   end
 
   def redeem_for_user(user)
