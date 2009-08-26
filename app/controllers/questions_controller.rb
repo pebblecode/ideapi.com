@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
     belongs_to :brief
     
     before :index do
-      add_breadcrumb 'briefs', briefs_path
+      add_breadcrumb 'dashboard', "/dashboard"
       add_breadcrumb truncate(parent_object.title.downcase, :length => 30), brief_path(parent_object)      
       add_breadcrumb 'discussion', objects_path
       

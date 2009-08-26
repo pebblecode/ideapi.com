@@ -38,3 +38,23 @@ if RAILS_ENV != "production"
   end
   
 end
+
+if RAILS_ENV == "production"
+  
+  #Tim Purble, tpurble Sanjay Mahindra, sanjay June Withers, JuneW Michael Martin xSpeaker Adrian Mole, amole
+  
+  
+  
+  if alex = User.find_by_login("alex")
+    
+    if brief = alex.briefs.build(:template_brief => TemplateBrief.find_by_title("Default"))
+      
+      brief.title = "ideapi.com logo and branding"
+      brief.most_important_message = "ideapi needs a logo and branding to launch it and make it a success"
+      
+      puts "Created sample ideapi brief" if brief.save
+      
+    end
+    
+  end
+end
