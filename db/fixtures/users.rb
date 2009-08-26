@@ -43,18 +43,36 @@ if RAILS_ENV == "production"
   
   #Tim Purble, tpurble Sanjay Mahindra, sanjay June Withers, JuneW Michael Martin xSpeaker Adrian Mole, amole
   
+  users = [
+    %w(Tim Purble tpurble),
+    %w(Sanjay Mahindra sanjay),
+    %w(June Withers JuneW),
+    %w(Michael Martin xSpeaker),
+    %w(Adrian Mole amole)
+  ]
   
-  
-  if alex = User.find_by_login("alex")
-    
-    if brief = alex.briefs.build(:template_brief => TemplateBrief.find_by_title("Default"))
-      
-      brief.title = "ideapi.com logo and branding"
-      brief.most_important_message = "ideapi needs a logo and branding to launch it and make it a success"
-      
-      puts "Created sample ideapi brief" if brief.save
-      
-    end
-    
+  users.each do |peep|
+    User.seed(:login, :email) do |s|
+      s.first_name = peep[0]
+      s.last_name = peep[1]
+      s.login = peep[2]
+      s.email = "#{peep[2]}@example.com"
+      s.password = "password"
+      s.password_confirmation = "password"
+      #s.invite_count = 9999
+    end    
   end
+  
+  # if alex = User.find_by_login("alex")
+  #   
+  #   if brief = alex.briefs.build(:template_brief => TemplateBrief.find_by_title("Default"))
+  #     
+  #     brief.title = "ideapi.com logo and branding"
+  #     brief.most_important_message = "ideapi needs a logo and branding to launch it and make it a success"
+  #     
+  #     puts "Created sample ideapi brief" if brief.save
+  #     
+  #   end
+  #   
+  # end
 end

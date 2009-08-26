@@ -24,6 +24,7 @@ class Invitation < ActiveRecord::Base
 
   before_save :generate_code
   before_save :ensure_default_state
+  before_create :check_for_existing_system_user
   
   attr_accessor :recipient_list
   
@@ -43,6 +44,8 @@ class Invitation < ActiveRecord::Base
       self.redeemed_by = user
       self.redeem!
     end
+    
+    return self.accepted?
   end
     
   private
@@ -50,6 +53,10 @@ class Invitation < ActiveRecord::Base
   def generate_code
     transform = self.recipient_email.to_s + Time.now.to_s
     self.code = Digest::MD5.hexdigest(transform) if !transform.blank?
+  end
+  
+  def check_for_existing_system_user
+    self.existing_user = User.find_by_email(self.recipient_email).present?
   end
 
   class << self

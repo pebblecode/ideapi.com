@@ -103,7 +103,6 @@ $.fn.edit_brief_item = function () {
   });
 }
 
-
 jQuery(document).ready(function(){
   
     $(".notice, .error").flashNotice();  
@@ -214,7 +213,6 @@ jQuery(document).ready(function(){
     $('.feedback_form').feedback_form();
     
     $('.edit_brief .brief_item').edit_brief_item();
-    
-    
+        
 });
 

@@ -1,8 +1,12 @@
 class InvitationsController < ApplicationController
   
   def create
-    @invitations = Invitation.from_list_into_hash(params[:invitation], current_user)
-    send_invitations_for(@invitations[:successful]) if !@invitations[:successful].blank?
+    store_location
+     
+    @invitations = Invitation.from_list_into_hash(params[:invitation], current_user)    
+
+    send_invitations_for(@invitations[:successful]) if @invitations[:successful].present?
+    
     set_flash_notices_for(@invitations)
     redirect_back_or_default user_path(current_user)
   end
@@ -10,9 +14,19 @@ class InvitationsController < ApplicationController
   def show
     @invitation = Invitation.find_by_code(params[:id])
     if @invitation && @invitation.pending?
-      redirect_to new_user_path(:invite => @invitation.code)
+      if @invitation.existing_user? && @invitation.redeem_for_user(User.find_by_email(@invitation.recipient_email))
+        
+        if @invitation.redeemable.present?
+          redirect_to url_for(@invitation.redeemable)
+        else
+          redirect_back_or_default '/'
+        end
+      
+      else
+        redirect_to new_user_path(:invite => @invitation.code)
+      end
     else
-      flash[:error] = @invitation ? "Invitation is no longer valid" : "Invitation is not valid"
+      flash[:error] = @invitation ? "Invitation is has already been accepted" : "Invitation is not valid"
       redirect_back_or_default '/'
     end
   end
@@ -73,6 +87,10 @@ class InvitationsController < ApplicationController
 
   def flash_invite_failed_sending
     "There was a problem sending invitiations, please check and try again."
+  end
+  
+  def store_location
+    session[:return_to] = request.env['HTTP_REFERER']
   end
 
 end

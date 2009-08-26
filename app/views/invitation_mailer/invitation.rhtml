@@ -1,9 +1,21 @@
-You've been invited to create an account at http://www.ideapi.com.  
+<% if @invitation.existing_user? %>
 
-ideapi.com connects creative industry professional together, providing tools to discuss and manage briefs.
+  You've been invited participate in a brief by <%= @invitation.user.login %>
 
-### CLICK THE LINK BELOW TO ACCEPT THIS INVITATION ###
+  ### CLICK THE LINK BELOW TO ACCEPT THIS INVITATION ###
 
-<%= invitation_url(@invitation.code, :host => "briefs.ideapi.com") %>
+  <%= invitation_url(@invitation.code, :host => "briefs.ideapi.com") %>
+  
+<% else %>  
+  
+  You've been invited to create an account at http://www.ideapi.com.  
+
+  ideapi.com connects creative industry professional together, providing tools to discuss and manage briefs.
+
+  ### CLICK THE LINK BELOW TO ACCEPT THIS INVITATION ###
+
+  <%= invitation_url(@invitation.code, :host => "briefs.ideapi.com") %>
+  
+<% end %>
 
 For support: support@ideapi.com

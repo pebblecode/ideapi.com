@@ -4,22 +4,6 @@
     %li=link_to 'preview document', brief_path(current_object), :class => "awesome small" , :rel => "facebox"
 
 .col_1.edit_brief
-  / #edit_brief_details
-  /   %h3 Edit brief details
-  /   - form_for(current_object, :html => { :method => :put }) do |brief_form|
-  /     =render :partial => 'form', :locals => { :f => brief_form }   
-  /     %p.submit        
-  /       =submit_tag 'update'
-  /     %p.cancel=link_to 'cancel', '#'
-  /     .clear
-  
-  / %h3.brief_document
-  /   Brief Document
-  /   %span - this is the heart of your proposal, answer as thoroughly as possible
-  / 
-  / = error_messages_for :brief
-  / 
-  / 
   -if current_object.draft?
     .note 
       %h3 Writing a brief
@@ -29,11 +13,13 @@
   
     %div[current_object]
       %h2 
-        =truncate(current_object.title, :length => 30)
+        = brief_form.text_field :title, :class => "inplace", :style => "width: 47em"
+        
       .most_important_thing
         %p
           %span.left &ldquo;
-          =current_object.most_important_message
+          -#current_object.most_important_message
+          =brief_form.text_area :most_important_message, :rows => "5", :cols => 60, :style => "width: 20em; height: 6em"
           %span.right &rdquo;
     
       -current_object.brief_items.each do |brief_item|
