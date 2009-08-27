@@ -37,7 +37,7 @@ module Ideapi
         end
       
         def decrement_invites(invite = nil)
-          revoke_invites!(1) if invite && !invite.existing_user?
+          revoke_invites!(1)
         end
       
         def increment_invites(invite = nil)
