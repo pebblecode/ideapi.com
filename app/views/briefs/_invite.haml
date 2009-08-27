@@ -18,7 +18,8 @@
                 ago
               -else
                 Never logged in
-                
+  .hr
+  
 -if owner?(current_object)
   .invite_contacts
     %h4 Invite contacts to participate
@@ -44,4 +45,9 @@
       
 .hr
 
-  %p Know someone who might like ideapi?
+.invite_users 
+  %h4 Know someone who might like ideapi?
+  -form_for 'invitation', :url => request_invitation_for_email_invitations_path do |f|
+    =f.text_field 'recipient_email', :title => 'Enter email address'     
+    =f.submit 'Submit'
+  

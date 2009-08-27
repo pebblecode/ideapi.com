@@ -97,6 +97,14 @@ class Invitation < ActiveRecord::Base
       
       return invites
     end
+    
+    def email_regex
+      @email_regex =  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+    end
+          
+    def valid_email?(email)
+      (email =~ email_regex ? true : false)
+    end
   
   end
 

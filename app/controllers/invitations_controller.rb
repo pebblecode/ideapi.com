@@ -56,6 +56,19 @@ class InvitationsController < ApplicationController
     redirect_to user_path(current_user) 
   end
   
+  def request_invitation_for_email
+    store_location
+    
+    if Invitation.valid_email?(params[:invitation][:recipient_email])
+      InvitationMailer.deliver_invite_request_for_user(current_user, params[:invitation][:recipient_email])
+      flash[:notice] = "Your request has been sent to ideapi support"
+    else
+      flash[:error] = "Please fill in a valid email address you wish to send an invite"
+    end
+    
+    redirect_back_or_default user_path(current_user) 
+  end
+  
   private
   
   def find_pending(code)

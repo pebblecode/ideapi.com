@@ -414,8 +414,7 @@ span.field_with_errors input {
     margin-right: 1em; }
 #container .hr {
   border-top: 1px solid #bbb;
-  border-bottom: 4px solid #eee;
-  margin: 4em 0; }
+  margin: 2em 0; }
 
 #container #content .ask_question {
   padding: 1em; }
