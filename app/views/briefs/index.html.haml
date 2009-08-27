@@ -6,7 +6,7 @@
 #dashboard.col_1
   %h2.salu=salutation
   
-  -if flash[:note]
+  -if flash[:note].present?
     .note
       %h3 Welcome to the dashboard. 
       %p=flash[:note]

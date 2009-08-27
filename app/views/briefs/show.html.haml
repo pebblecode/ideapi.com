@@ -14,8 +14,9 @@
   .clear 
 
 .col_1
-  .note
-    %p=flash[:note]
+  -if flash[:note].present?
+    .note
+      %p=flash[:note]
       
   %div[current_object]
     %h2 
