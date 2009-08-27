@@ -20,7 +20,7 @@
                 Never logged in
                 
 -if owner?(current_object)
-  .invite_users{:style => "margin-bottom: 1em"}
+  .invite_contacts
     %h4 Invite contacts to participate
     -if current_user.friends_not_watching(current_object).present?
       -form_for 'invitation', :url => invite_brief_path(current_object) do |f|
