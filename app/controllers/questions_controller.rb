@@ -48,7 +48,7 @@ class QuestionsController < ApplicationController
     
     response_for(:create) do |format|
       format.html { 
-        flash[:notice] = "Question has been created successfully, thanks for your input."
+        flash[:notice] = "Thanks for joining the discussion."
         redirect_to brief_questions_path(parent_object, :f => 'unanswered') 
       }
     end

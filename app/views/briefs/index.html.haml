@@ -6,9 +6,10 @@
 #dashboard.col_1
   %h2.salu=salutation
   
-  .note
-    %h3 Welcome to the dashboard. 
-    %p Your &lsquo;Watching briefs&rsquo; list already contains one brief. You have been invited to collaborate on this brief by INVITOR. We&rsquo;ve added a sample brief to your &lsquo;Watching Briefs&rsquo; list below. Click on the title to see how ideapi can be used to produce better briefs.
+  -if flash[:note]
+    .note
+      %h3 Welcome to the dashboard. 
+      %p=flash[:note]
       
   .brief_overviews
     -if current_objects.empty?

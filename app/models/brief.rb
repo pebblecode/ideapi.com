@@ -127,6 +127,10 @@ class Brief < ActiveRecord::Base
     def grouped
       all.group_by(&:state)
     end
+    
+    def sample
+      published.find(:first)
+    end
   end
   
   

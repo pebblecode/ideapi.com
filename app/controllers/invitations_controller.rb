@@ -18,6 +18,7 @@ class InvitationsController < ApplicationController
         
         if @invitation.redeemable.present?
           redirect_to url_for(@invitation.redeemable)
+          set_flash_notices_for_redeemable(@invitation.redeemable)
         else
           redirect_back_or_default '/'
         end
@@ -100,6 +101,10 @@ class InvitationsController < ApplicationController
 
   def flash_invite_failed_sending
     "There was a problem sending invitiations, please check and try again."
+  end
+  
+  def set_flash_notices_for_redeemable(redeemable)
+    flash[:note] = "#{redeemable.user.login.titleize} has invited you to collaborate on this brief. Click on &ldquo;ask question/comment&rdquo; to have your say on a section. Click the &ldquo;JOIN THE DISCUSSION&rdquo; button to see all of the contributions so far." 
   end
   
   def store_location

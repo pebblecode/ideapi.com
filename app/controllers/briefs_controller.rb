@@ -33,15 +33,12 @@ class BriefsController < ApplicationController
       @invitation = Invitation.new(:user => current_user, :redeemable => current_object)
     end
     
+    
     before :create do
       current_object.template_brief = TemplateBrief.last
       current_object.user = parent_object
     end
-    
-    after :create do
-      flash[:notice] = "Brief has been created successfully."
-    end
-    
+        
     after :update do
       if (params[:commit] == "publish")
         current_object.publish!
@@ -72,7 +69,7 @@ class BriefsController < ApplicationController
     response_for(:show, :show_fails) do |format|
     
       format.html { 
-        
+                
         if current_object.draft? 
           redirect_to(:action => 'edit') 
         else
@@ -108,16 +105,6 @@ class BriefsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to object_path }
     end
-  end
-  
-  def invite
-    if invited = User.find(params[:invitation][:user])
-      invited.watch(current_object)
-      flash[:notice] = "#{invited.login} has been added to this brief"  
-    else
-      flash[:error] = "There was a problem finding user, please try again" 
-    end
-    redirect_to object_path
   end
   
   private

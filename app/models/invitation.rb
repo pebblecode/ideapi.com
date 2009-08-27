@@ -28,7 +28,7 @@ class Invitation < ActiveRecord::Base
   
   attr_accessor :recipient_list
   
-  validates_uniqueness_of :recipient_email, :scope => :user_id
+  validates_uniqueness_of :recipient_email, :scope => [:user_id, :state, :redeemable_id, :redeemable_type]
   validates_format_of :recipient_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
   validate :reedemable_item_must_belong_to_user

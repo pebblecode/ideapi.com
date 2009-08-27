@@ -14,10 +14,9 @@
   .clear 
 
 .col_1
-  -if !owner?(current_object)
-    .note
-      %p has invited you to collaborate on this brief. Click on &ldquo;ask question/comment&rdquo; to have your say on a section. Click the &ldquo;DISCUSSION&rdquo; button to see all of the contributions so far.
-
+  .note
+    %p=flash[:note]
+      
   %div[current_object]
     %h2 
       =truncate(current_object.title, :length => 30)
@@ -34,7 +33,7 @@
 .col_2
   .discussion     
     %p.join_discuss
-      =link_to "Discussion »", brief_questions_path(current_object, :f => "unanswered"), {:class => "awesome blue large", :style => "text-transform: uppercase" }
+      =link_to owner?(current_object) ? "View discussion" : "Join the discussion", brief_questions_path(current_object, :f => "unanswered"), {:class => "awesome blue large", :style => "text-transform: uppercase" }
   =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions } 
   .hr      
   -if current_object.published?
