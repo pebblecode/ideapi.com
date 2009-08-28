@@ -849,7 +849,10 @@ textarea {
 #container #content .col_2 .invite_contacts {
   margin-bottom: 1em;
   border: none;
-  background: #fff; }
+  background: #fff;
+  border-bottom: 1px solid #eee; }
+  #container #content .col_2 .invite_contacts h4 {
+    padding-bottom: 0; }
   #container #content .col_2 .invite_contacts input[type=submit] {
     margin: 0.5em 0 0 0; }
   #container #content .col_2 .invite_contacts select {
