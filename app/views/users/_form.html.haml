@@ -3,6 +3,15 @@
   = f.text_field :login
   .help
     This is what you will be known as on the website, so if you want to remain anonymous here is your chance.
+
+
+%p
+  %label{:for => "user_first_name"} First name:
+  = f.text_field :first_name
+  
+%p
+  %label{:for => "user_last_name"} Last Name:
+  = f.text_field :last_name
   
 %p
   %label{:for => "user_email"} Email:
