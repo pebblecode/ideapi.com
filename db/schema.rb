@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20090826121647) do
     t.string   "redeemable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "existing_user"
+    t.boolean  "existing_user",   :default => false
   end
 
   create_table "proposals", :force => true do |t|

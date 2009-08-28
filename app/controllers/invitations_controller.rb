@@ -2,12 +2,15 @@ class InvitationsController < ApplicationController
   
   def create
     store_location
-     
+    
     @invitations = Invitation.from_list_into_hash(params[:invitation], current_user)    
 
     send_invitations_for(@invitations[:successful]) if @invitations[:successful].present?
     
+    #puts @invitations.to_yaml
+    
     set_flash_notices_for(@invitations)
+    
     redirect_back_or_default user_path(current_user)
   end
   

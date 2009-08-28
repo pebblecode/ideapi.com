@@ -25,7 +25,7 @@ module Ideapi
           @max_invites = options[:max_invites]
           @init_invite_count = options[:initialise_with]
         
-          has_many :invitations, :dependent => :destroy, :before_add => [:ensure_has_invites, :decrement_invites], :before_remove => :increment_invites
+          has_many :invitations, :dependent => :destroy, :before_add => [:ensure_has_invites], :after_add => :decrement_invites, :after_remove => :increment_invites
         end
       
       end
@@ -36,8 +36,8 @@ module Ideapi
           raise 'NotEnoughInvites' if invite_count.zero?
         end
       
-        def decrement_invites(invite = nil)
-          revoke_invites!(1)
+        def decrement_invites(invite)              
+          revoke_invites!(1) unless invite.existing_user?          
         end
       
         def increment_invites(invite = nil)

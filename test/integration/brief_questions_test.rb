@@ -28,7 +28,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
           should_render_template :show
 
           context "clicking brief discussion link" do
-            setup { click_link 'start the discussion' }
+            setup { click_link 'Join the discussion' }
 
             should_respond_with :success
             should_render_template :index
@@ -57,7 +57,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
           should_render_template :show
 
           context "clicking brief discussion link" do
-            setup { click_link 'start the discussion' }
+            setup { click_link 'View discussion' }
 
             should_respond_with :success
             should_render_template :index
@@ -195,7 +195,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
                 should_respond_with :success
                 
                 should "redirect properly" do
-                  assert_equal(brief_questions_path, path)
+                  assert_equal(brief_questions_path(:f => "unanswered"), path)
                 end
                 
                 should "contain the answer" do
@@ -240,7 +240,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
               setup do
                 select @brief_item.title, :from => 'question[brief_item_id]'
                 fill_in 'question_body', :with => @question
-                click_button 'ask'
+                click_button 'submit'
               end
             
               should_respond_with :success
@@ -254,7 +254,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
               end
                           
               should "watch the brief" do
-                assert @standard_user.watching?(@brief)
+                assert @standard_user.reload.watching?(@brief)
               end
             
             end

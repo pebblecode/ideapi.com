@@ -1,8 +1,13 @@
 require 'md5'
 class Invitation < ActiveRecord::Base
   belongs_to :user
+  
   validates_presence_of :user_id
-  belongs_to :redeemed_by, :class_name => "User", :foreign_key => "redeemed_by_id"
+  
+  belongs_to :redeemed_by, 
+    :class_name => "User", 
+    :foreign_key => "redeemed_by_id"
+  
   belongs_to :redeemable, :polymorphic => true
   
   include Ideapi::Schizo
@@ -24,27 +29,42 @@ class Invitation < ActiveRecord::Base
 
   before_save :generate_code
   before_save :ensure_default_state
-  before_create :check_for_existing_system_user
+  
+  #before_validation_on_create :check_for_existing_system_user
   
   attr_accessor :recipient_list
   
-  validates_uniqueness_of :recipient_email, :scope => [:user_id, :state, :redeemable_id, :redeemable_type]
-  validates_format_of :recipient_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  before_validation :downcase_recipient_email
   
-  validate :reedemable_item_must_belong_to_user
-  validate :reedemable_item_must_exist_if_inviting_existing_user
-  validate :ensure_recipient_email_is_different_user_email
+  validates_uniqueness_of :recipient_email, 
+    :scope => [:user_id, :redeemable_id, :redeemable_type], 
+    :message => "has already been sent an invite"
+    
+  validates_format_of :recipient_email, 
+    :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
+  validate do |invite|
+    invite.reedemable_item_must_belong_to_user
+    invite.reedemable_item_must_exist_if_inviting_existing_user
+    invite.ensure_recipient_email_is_different_user_email
+  end
+
   def reedemable_item_must_belong_to_user
-    errors.add_to_base("Must own the #{redeemable_type} you invite people to view") unless (redeemable.blank? || user.owns?(redeemable))
+    errors.add_to_base(
+      "Must own the #{redeemable_type} you invite people to view"
+    ) unless (redeemable.blank? || user.owns?(redeemable))
   end
   
   def reedemable_item_must_exist_if_inviting_existing_user
-    errors.add_to_base("User already has a user account, try inviting user to a specific brief") if redeemable.blank? && self.existing_user
+    errors.add_to_base(
+          "User already has a user account, try inviting user to a specific brief"
+        ) if redeemable.blank? && self.existing_user
   end
   
   def ensure_recipient_email_is_different_user_email
-   errors.add(:recipient_email, "email cannot equal user") if self.recipient_email.eql?(self.user.email)
+    errors.add(
+      :recipient_email, "email cannot equal user"
+    ) if self.recipient_email.eql?(self.user.email)
   end
 
   def redeem_for_user(user)
@@ -57,9 +77,7 @@ class Invitation < ActiveRecord::Base
     
     return self.accepted?
   end
-  
-  named_scope :new_users, :conditions => ["existing_user = false"] 
-    
+      
   private
   
   def generate_code
@@ -69,6 +87,10 @@ class Invitation < ActiveRecord::Base
   
   def check_for_existing_system_user
     self.existing_user = User.find_by_email(self.recipient_email).present? 
+  end
+
+  def downcase_recipient_email
+    self.recipient_email = self.recipient_email.downcase if recipient_email.present?
   end
 
   class << self
@@ -92,7 +114,9 @@ class Invitation < ActiveRecord::Base
       invites = []
       
       emails.each do |email|
-        invites << self.create({:recipient_email => email, :user => user}.reverse_merge(params))
+        invites << user.invitations.create(
+          {:recipient_email => email}.reverse_merge(params) 
+        )
       end
       
       return invites

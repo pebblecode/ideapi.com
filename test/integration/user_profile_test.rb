@@ -10,7 +10,7 @@ class UserProfileTest < ActionController::IntegrationTest
     
     context "account page" do
       setup do
-        click_link 'my account'
+        click_link 'profile'
       end
       
       should_respond_with :success

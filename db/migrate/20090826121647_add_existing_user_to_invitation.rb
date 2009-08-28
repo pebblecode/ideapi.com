@@ -1,6 +1,6 @@
 class AddExistingUserToInvitation < ActiveRecord::Migration
   def self.up
-    add_column :invitations, :existing_user, :boolean
+    add_column :invitations, :existing_user, :boolean, :default => false
   end
 
   def self.down
