@@ -836,15 +836,20 @@ textarea {
       font-weight: bold; }
 #container #content .col_2 .invite_users, #container #content .col_2 .invite_contacts {
   padding: 0.5em 1em 0.5em 1em;
-  position: relative; }
+  position: relative;
+  border: 1px solid #ccc;
+  background: #eee; }
   #container #content .col_2 .invite_users h4,   #container #content .col_2 .invite_contacts h4 {
-    font-size: 1.2em; }
+    font-size: 1.2em;
+    padding-bottom: 0.5em; }
   #container #content .col_2 .invite_users textarea,   #container #content .col_2 .invite_contacts textarea {
     font-size: 1em;
     width: 19em;
     height: 4em; }
 #container #content .col_2 .invite_contacts {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  border: none;
+  background: #fff; }
   #container #content .col_2 .invite_contacts input[type=submit] {
     margin: 0.5em 0 0 0; }
   #container #content .col_2 .invite_contacts select {
