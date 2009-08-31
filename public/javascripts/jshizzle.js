@@ -44,23 +44,22 @@ $.fn.trigger_help_message = function () {
 }
 
 $.fn.hideable_note = function () {
-  // 
-  // if ($.cookie($(this).attr('id'))) {
-  //   $(this).remove();
-  // };
-  // 
-  // $(this).append('<a href="#" class="hide_message">hide</a>'
-  // ).find('a.hide_message').click(function () {
-  //   
-  //     // if ($(this).parent().attr('id') != "") {
-  //     //       
-  //     //         $.cookie( $(this).parent().attr('id'), 'hidden' );
-  //     //       
-  //     //       };
-  //     //     
-  //     $(this).parent().fadeOut(); return false; 
-  //   
-  // });
+  
+  if ($.cookie($(this).attr('id'))) {
+    $(this).remove();
+  };
+  
+  $(this).append('<a href="#" class="hide_message">hide</a>').find('a.hide_message').click(function () {
+    
+    if ($(this).parent().attr('id') != "") {      
+      $.cookie( $(this).parent().attr('id'), 'hidden' );        
+    };
+          
+    $(this).parent().fadeOut(); 
+  
+    return false; 
+  
+  });
 }
 
 
