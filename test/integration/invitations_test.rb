@@ -57,7 +57,40 @@ class InvitationsTest < ActionController::IntegrationTest
           should_change "Invitation.count", :by => 3
     
         end
+        
+        context "inviting yourself" do
+          
+          setup do
+            fill_in 'invitation_recipient_list', :with => @user.email
+            click_button 'Invite'
+          end
+          
+          should_respond_with :success
+          should_change "Invitation.count", :by => 0
+        
+        end 
+        
+        context "inviting existing users" do
+          setup do
+            @existing_user = User.make(
+              :password => "testing", :invite_count => 10
+            )
+            
+            @invite_count_before = @user.invite_count
+            
+            fill_in 'invitation_recipient_list', :with => @existing_user.email
+            click_button 'Invite'
+          end
 
+          should_respond_with :success
+          should_change "Invitation.count", :by => 1
+          
+          should "not decrease users invite_count" do
+            assert_equal(@invite_count_before, @user.reload.invite_count)
+          end
+          
+        end
+            
       end
             
     end
@@ -136,13 +169,13 @@ class InvitationsTest < ActionController::IntegrationTest
         @brief = Brief.make(:published, { :user => @user })
         visit brief_path(@brief)
       end
-  
-      context "with no friends" do
-        should "contain an invitation form" do
-          assert_select 'form[action=?]', invitations_path 
-        end
-      end
-      
+      #   
+      # context "with no friends" do
+      #   should "contain an invitation form" do
+      #     assert_select 'form[action=?]', invitations_path 
+      #   end
+      # end
+      # 
       context "with friends" do
         setup do
           @friends = 3.times.map { User.make }
@@ -232,50 +265,37 @@ class InvitationsTest < ActionController::IntegrationTest
           end
           
         end
-        
-        context "inviting friends via the email list" do
-          setup do
-            @invite_count = @user.invite_count
-            
-            fill_in 'invitation_recipient_list', :with => @friends.first.email
-            click_button 'invitation_submit'
-          end
-
-          should_respond_with :success
-          should_change "Invitation.count", :by => 1
-          
-          should "not change the invite count" do
-            assert_equal(@invite_count, @user.reload.invite_count)
-          end
-          
-          context "invite" do
-            setup do
-              @invite = @user.invitations.find_by_recipient_email(
-                @friends.first.email
-              )
-            end
-
-            should "be redeemable for brief" do
-              assert_equal(@brief, @invite.redeemable)
-            end
-          end
-          
-        end
-        
+        # 
+        # context "inviting friends via the email list" do
+        #   setup do
+        #     @invite_count = @user.invite_count
+        #     
+        #     fill_in 'invitation_recipient_list', :with => @friends.first.email
+        #     click_button 'invitation_submit'
+        #   end
+        # 
+        #   should_respond_with :success
+        #   should_change "Invitation.count", :by => 1
+        #   
+        #   should "not change the invite count" do
+        #     assert_equal(@invite_count, @user.reload.invite_count)
+        #   end
+        #   
+        #   context "invite" do
+        #     setup do
+        #       @invite = @user.invitations.find_by_recipient_email(
+        #         @friends.first.email
+        #       )
+        #     end
+        # 
+        #     should "be redeemable for brief" do
+        #       assert_equal(@brief, @invite.redeemable)
+        #     end
+        #   end
+        #   
+        # end
+        # 
       end  
-      
-      context "inviting yourself" do
-        
-        setup do
-          fill_in 'invitation_recipient_list', :with => @user.email
-          click_button 'Invite'
-        end
-        
-        should_respond_with :success
-        should_change "Invitation.count", :by => 0
-      
-      end      
-            
     end
   end 
   

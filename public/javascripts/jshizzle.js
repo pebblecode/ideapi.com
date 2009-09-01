@@ -43,16 +43,28 @@ $.fn.trigger_help_message = function () {
   });
 }
 
+$.hideable_cookie_name = function (id) {
+  return "_note_" + id; 
+}
+
 $.fn.hideable_note = function () {
   
-  if ($.cookie($(this).attr('id'))) {
-    $(this).remove();
+  var el_id = $(this).attr('id');
+  
+  if ( !((el_id == "") || (el_id == undefined)) ) {    
+    
+    if ($.cookie($.hideable_cookie_name(el_id)) != null) {
+      
+      console.log("found cookie " + $.cookie($.hideable_cookie_name(el_id)) );
+      
+      $(this).remove();
+    }
   };
   
   $(this).append('<a href="#" class="hide_message">hide</a>').find('a.hide_message').click(function () {
     
     if ($(this).parent().attr('id') != "") {      
-      $.cookie( $(this).parent().attr('id'), 'hidden' );        
+      $.cookie($.hideable_cookie_name($(this).parent().attr('id')), 'hidden');        
     };
           
     $(this).parent().fadeOut(); 

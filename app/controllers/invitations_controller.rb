@@ -7,8 +7,6 @@ class InvitationsController < ApplicationController
 
     send_invitations_for(@invitations[:successful]) if @invitations[:successful].present?
     
-    #puts @invitations.to_yaml
-    
     set_flash_notices_for(@invitations)
     
     redirect_back_or_default user_path(current_user)
