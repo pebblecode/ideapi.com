@@ -20,48 +20,10 @@ class InvitationsController < ApplicationController
     redirect_back_or_default user_path(current_user)
   end
   
-  def make_friends_with_existing_users(users)
-    returning ([]) do |friendships|
-      users.each { |user|
-        friendships << current_user.request_friendship_with(user)
-      }
-    end
-  end
-  
-  # this probably should be delegated to a class
-  # also it wont grab people who aren't friends
-  def extract_existing_users_from(list)
-    existing, to_invite = [], []
-    
-    Invitation.emails_from_string(list).each do |email|
-      if user = User.find_by_email(email)
-        
-        # if they are already friends we don't want to
-        # make friends with them again,
-        # it is likely we are inviting them to 
-        # something .. ie a brief..
-        if current_user.friends?(user)
-          # add them back into the invite list
-          # and we'll deal with later ..
-          to_invite << email
-        else
-          # existing users to make friends with
-          existing << user
-        end
-        
-      else
-        # user with this email doesn't exist..
-        to_invite << email
-      end
-    end
-    
-    return existing, to_invite
-  end
-  
   def show
     @invitation = Invitation.find_by_code(params[:id])
     if @invitation && @invitation.pending?
-      if @invitation.existing_user? && @invitation.redeem_for_user(User.find_by_email(@invitation.recipient_email))
+      if User.find_by_email(@invitation.recipient_email) && @invitation.redeem_for_user(User.find_by_email(@invitation.recipient_email))
         
         if @invitation.redeemable.present?
           redirect_to url_for(@invitation.redeemable)
@@ -158,6 +120,44 @@ class InvitationsController < ApplicationController
   
   def store_location
     session[:return_to] = request.env['HTTP_REFERER']
+  end
+  
+  def make_friends_with_existing_users(users)
+    returning ([]) do |friendships|
+      users.each { |user|
+        friendships << current_user.request_friendship_with(user)
+      }
+    end
+  end
+  
+  # this probably should be delegated to a class
+  # also it wont grab people who aren't friends
+  def extract_existing_users_from(list)
+    existing, to_invite = [], []
+    
+    Invitation.emails_from_string(list).each do |email|
+      if user = User.find_by_email(email)
+        
+        # if they are already friends we don't want to
+        # make friends with them again,
+        # it is likely we are inviting them to 
+        # something .. ie a brief..
+        if current_user.friends?(user)
+          # add them back into the invite list
+          # and we'll deal with later ..
+          to_invite << email
+        else
+          # existing users to make friends with
+          existing << user
+        end
+        
+      else
+        # user with this email doesn't exist..
+        to_invite << email
+      end
+    end
+    
+    return existing, to_invite
   end
 
 end

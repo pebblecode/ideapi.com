@@ -58,7 +58,7 @@ class Invitation < ActiveRecord::Base
   def reedemable_item_must_exist_if_inviting_existing_user
     errors.add_to_base(
           "User already has a user account, try inviting user to a specific brief"
-        ) if redeemable.blank? && self.existing_user
+        ) if redeemable.blank? && existing_system_user
   end
   
   def ensure_recipient_email_is_different_user_email
@@ -85,8 +85,8 @@ class Invitation < ActiveRecord::Base
     self.code = Digest::MD5.hexdigest(transform) if !transform.blank?
   end
   
-  def check_for_existing_system_user
-    self.existing_user = User.find_by_email(self.recipient_email).present? 
+  def existing_system_user
+    User.find_by_email(self.recipient_email).present? 
   end
 
   def downcase_recipient_email
