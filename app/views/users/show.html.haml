@@ -68,6 +68,14 @@
                     -if invite.pending?
                       =link_to 'cancel', cancel_invitation_path(invite.code)          
     
+    
+    .boom_box
+      %h3 Contacts
+      -if current_user.friendships.present?
+        =render :partial => 'friends'
+      -else
+        %p You currently don't have any friends
+      
     %p 
       Know someone who might like an ideapi account? 
       = link_to 'Send us an email', "#user_input" 

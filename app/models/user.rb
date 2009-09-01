@@ -1,3 +1,5 @@
+require 'friendship'
+
 class User < ActiveRecord::Base
 
   acts_as_authentic do |c|
@@ -73,6 +75,21 @@ class User < ActiveRecord::Base
       friendship << be_friends_with(new_friend)
       friendship << new_friend.be_friends_with(self)
     end
+  end
+  
+  def request_friendship_with(user)
+    friendship, status = self.be_friends_with(user)
+    
+    if status == Friendship::STATUS_REQUESTED
+      # the friendship has been requested
+      FriendshipMailer.deliver_friendship_request(friendship)
+    elsif status == Friendship::STATUS_ALREADY_FRIENDS
+      # they're already friends
+    else
+      # ...
+    end
+    
+    return friendship, status
   end
   
   # protect against mass assignment

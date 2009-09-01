@@ -36,8 +36,10 @@ module Ideapi
           raise 'NotEnoughInvites' if invite_count.zero?
         end
       
-        def decrement_invites(invite)              
-          revoke_invites!(1) unless invite.existing_user?          
+        def decrement_invites(invite)
+          if !User.find_by_email(invite.recipient_email)
+            revoke_invites!(1)
+          end            
         end
       
         def increment_invites(invite = nil)

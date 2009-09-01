@@ -5,12 +5,13 @@ ActionController::Routing::Routes.draw do |map|
     briefs.resources :questions
   end
   
+  map.resources :friendships
+  
   map.resource :user_session, :member => { :delete => :get }
   map.resource :profile, :controller => "users"
-  map.resources :users
-  
+
+  map.resources :users  
   map.resources :user_feedbacks
-  
   
   # Administration Area
   map.namespace :admin do |admin|

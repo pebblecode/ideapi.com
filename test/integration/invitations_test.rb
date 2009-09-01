@@ -17,7 +17,6 @@ class InvitationsTest < ActionController::IntegrationTest
       should "contain an invitation form" do
         assert_select 'form[action=?]', invitations_path 
       end
-    
       
       context "filling in invitations" do
         
@@ -75,22 +74,55 @@ class InvitationsTest < ActionController::IntegrationTest
             @existing_user = User.make(
               :password => "testing", :invite_count => 10
             )
+            @invite_count_before = @user.invite_count
+          end
+          
+          context "current_user" do
+            should "not be friends with existing user" do
+              assert !(@user.friends?(@existing_user))
+            end
+          end
+        
+          context "filling in existing users email" do
+            
+            setup do
+              fill_in 'invitation_recipient_list', :with => @existing_user.email
+              click_button 'Invite'
+            end
+
+            should_respond_with :success
+            should_change "Invitation.count", :by => 0
+            should_change "Friendship.count", :by => 2
+
+            should "not decrease users invite_count" do
+              assert_equal(@invite_count_before, @user.reload.invite_count)
+            end
+            
+          end
+          
+        end
+                    
+        context "inviting friends without a brief" do
+          
+          setup do
+            @friend = User.make
+            
+            @user.be_friends_with!(@friend)
             
             @invite_count_before = @user.invite_count
             
-            fill_in 'invitation_recipient_list', :with => @existing_user.email
+            fill_in 'invitation_recipient_list', :with => @friend.email
             click_button 'Invite'
           end
 
           should_respond_with :success
-          should_change "Invitation.count", :by => 1
           
-          should "not decrease users invite_count" do
+          should "not change user brief count" do
             assert_equal(@invite_count_before, @user.reload.invite_count)
           end
-          
+                      
         end
-            
+        
       end
             
     end

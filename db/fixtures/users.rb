@@ -27,8 +27,10 @@ if RAILS_ENV != "production"
     user.briefs.reload.each do |b|
       10.times { 
         
-        asker = User.all(:conditions => ["id <> ?", user.id]).rand  
+        asker = User.all(:conditions => ["id <> ?", user.id]).rand
         b.brief_items.reload.rand.questions.make(:user => asker) 
+        
+        user.become_friends_and_with_network(asker)
         
         asker.watch(b) if !asker.watching?(b)
       

@@ -1,0 +1,11 @@
+%table.friends
+  %thead
+    %tr
+      %th Login
+      %th Email address
+  %tbody
+    -current_user.friends.each do |friend|
+      %tr
+        %td=link_to friend.login, user_path(friend)
+        %td=friend.email
+    
