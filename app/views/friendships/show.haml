@@ -1,0 +1,16 @@
+%h3 Contact request
+
+.friendship_form  
+  -if current_object.requested?  
+    -form_for current_object, :url => friendship_path(current_object), :html => {:method => :put} do |f|
+      %p
+        =link_to @requested_by.login.capitalize, user_path(@requested_by)
+        would like to add you as a contact.
+      %p  
+        =f.submit "Accept"
+        or return to your
+        =link_to "profile", user_path(current_user)
+  -else
+    %p 
+      This friendship request has been 
+      =current_object.status

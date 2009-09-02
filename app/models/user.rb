@@ -77,19 +77,17 @@ class User < ActiveRecord::Base
     end
   end
   
-  def request_friendship_with(user)
-    friendship, status = self.be_friends_with(user)
+  def request_friendship_with(new_friend)
+    user_friendship, requested_friendship = self.be_friends_with!(new_friend)
     
+    frienship, status = requested_friendship
+      
     if status == Friendship::STATUS_REQUESTED
       # the friendship has been requested
       FriendshipMailer.deliver_friendship_request(friendship)
-    elsif status == Friendship::STATUS_ALREADY_FRIENDS
-      # they're already friends
-    else
-      # ...
     end
-    
-    return friendship, status
+      
+    return user_friendship, requested_friendship
   end
   
   # protect against mass assignment
