@@ -2,6 +2,50 @@ require 'test_helper'
 
 class FriendshipRequestTest < ActionController::IntegrationTest
   
+  context "creating a friendship request" do
+    setup do
+      @user = User.make(
+        :login => "dave_hall", 
+        :password => "testing", 
+        :invite_count => 10
+      )
+      @friend = User.make(:password => "testing")
+      
+      login_as(@user)
+    end
+    
+    context "from profile page" do
+      setup do
+        visit profile_path
+      end
+
+      should_respond_with :success
+      
+      should "show profile page" do
+        assert_equal(profile_path, path)
+      end
+
+      context "filling in invite to another user" do
+        setup do
+          fill_in 'invitation_recipient_list', :with => @friend.email
+          click_button 'invite'
+        end
+
+        should_respond_with :success
+        should_change "Friendship.count", :by => 2
+        
+        should_set_the_flash_to(
+          {:notice => "Invitations and contact requests succesfully sent"}
+        )
+        
+      end
+      
+    
+    end
+    
+  end
+  
+  
   context "responding to a friend request" do
     setup do
       @user = User.make(:login => "frank_longe", :password => "testing")

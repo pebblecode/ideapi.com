@@ -15,7 +15,7 @@ class InvitationsController < ApplicationController
     
     send_invitations_for(@invitations[:successful])
     
-    set_flash_notices_for(@invitations)
+    set_flash_notices_for(@invitations, @friendships)
     
     redirect_back_or_default user_path(current_user)
   end
@@ -91,15 +91,26 @@ class InvitationsController < ApplicationController
     end
   end
 
-  def set_flash_notices_for(invitations)
-    @flash_invitations = invitations
-    if @flash_invitations[:successful].present? # ignore failed ones for now ..
-      flash[:notice] = flash_invite_sent
-    elsif @flash_invitations[:failed].present? 
-      flash[:error] = flash_invite_failed_addresses
+  def set_flash_notices_for(invitations, friendships)
+    
+    if invitations[:successful].present? && friendships.present?
+      flash[:notice] = flash_generic_success
     else
-      flash[:error] = flash_invite_failed_sending
+      @flash_invitations = invitations
+      if @flash_invitations[:successful].present? 
+        # ignore failed ones for now ..
+        flash[:notice] = flash_invite_sent
+      elsif @flash_invitations[:failed].present? 
+        flash[:error] = flash_invite_failed_addresses
+      else
+        flash[:error] = flash_invite_failed_sending
+      end
     end
+    
+  end
+  
+  def flash_generic_success
+    "Invitations and contact requests succesfully sent"
   end
   
   def flash_invite_sent
