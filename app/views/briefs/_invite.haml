@@ -30,16 +30,3 @@
         =f.submit 'Invite', :id => "contact_submit"
     -else
       %p No contacts left to add
-
-  / .invite_users
-  /   %h4 
-  /     Or invite others
-  /     ="(#{current_user.invite_count} remaining)"
-  /   -if current_user.has_invites?  
-  /     -form_for @invitation, :url => invitations_path do |f|
-  /       =f.text_area 'recipient_list', :title => 'Enter email addresses here'     
-  /       =f.hidden_field 'redeemable_id'
-  /       =f.hidden_field 'redeemable_type'
-  /       =f.submit 'Invite'
-  /   -else
-  /     %p You don't have any invites to give.

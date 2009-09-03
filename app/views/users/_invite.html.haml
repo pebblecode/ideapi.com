@@ -1,8 +1,13 @@
 .invite_users
-  %h4= defined?(title) ? title : "Invite people to join"
+  %h4= defined?(title) ? title : "Invite people to join ideapi"
+  %p{:style => "font-size: 1em"} 
+    Once accepted they will be added to your 
+    =link_to 'contacts list', profile_path 
+    and you can then add them to your briefs.
   -if current_user.has_invites?
     -form_for 'invitation', :url => invitations_path do |f|
       =f.text_area 'recipient_list', :title => 'Enter email addresses here'      
       =f.submit 'Invite'
+    
   -else
     %p You don't have any invites to give.

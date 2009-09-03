@@ -3,7 +3,7 @@ class InvitationMailer < ActionMailer::Base
     @subject = 'You have been invited to ideapi.com'
     @body[:invitation] = invitation
     @recipients = invitation.recipient_email
-    @from = 'donotreply@ideapi.net'
+    @from = 'support@ideapi.com'
     @sent_on = sent_at
   end
 
