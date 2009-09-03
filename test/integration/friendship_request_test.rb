@@ -32,14 +32,14 @@ class FriendshipRequestTest < ActionController::IntegrationTest
         end
 
         should_respond_with :success
-        should_change "Friendship.count", :by => 2
+        should_change "Friendship.count", :by => 1
         
         should_set_the_flash_to(
           {:notice => "Invitations and contact requests succesfully sent"}
         )
         
         should "not yet be friends" do
-          assert !@user.friends?(@friend)
+          assert !@user.is_friends_with?(@friend)
         end
         
       end
@@ -47,6 +47,9 @@ class FriendshipRequestTest < ActionController::IntegrationTest
       context "inviting a user who you have already requested friendship" do
         setup do
           @user.request_friendship_with(@friend)
+          
+          visit profile_path
+          
           fill_in 'invitation_recipient_list', :with => @friend.email
           click_button 'invite'
         end
@@ -70,7 +73,7 @@ class FriendshipRequestTest < ActionController::IntegrationTest
       @user = User.make(:login => "frank_longe", :password => "testing")
       @friend = User.make(:password => "testing")
             
-      @friendship, @status = @user.be_friends_with(@friend)      
+      @friendship = @user.request_friendship_with(@friend)      
     
       visit(friendship_path(@friendship))
     end
@@ -112,13 +115,13 @@ class FriendshipRequestTest < ActionController::IntegrationTest
           
           context "user" do
             should "be friends with friend" do
-              assert @friend.reload.friends?(@user)
+              assert @friend.reload.is_friends_with?(@user)
             end
           end
           
           context "friend" do
             should "be friends with user" do
-              assert @user.reload.friends?(@friend)
+              assert @user.reload.is_friends_with?(@friend)
             end
           end
           

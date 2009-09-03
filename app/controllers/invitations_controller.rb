@@ -153,7 +153,7 @@ class InvitationsController < ApplicationController
         # make friends with them again,
         # it is likely we are inviting them to 
         # something .. ie a brief..
-        if current_user.friends?(user)
+        if current_user.is_friends_with?(user)
           # add them back into the invite list
           # and we'll deal with later ..
           to_invite << email

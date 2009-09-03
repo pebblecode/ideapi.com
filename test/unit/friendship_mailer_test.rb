@@ -7,7 +7,7 @@ class FriendshipMailerTest < ActionMailer::TestCase
     setup do
       @user = User.make
       @friend = User.make
-      @friendship, @status = @user.be_friends_with(@friend)
+      @friendship, @status = @user.become_friends_with(@friend)
       
       # Send the email, then test that it got queued
       @email = FriendshipMailer.deliver_friendship_request(@friendship)

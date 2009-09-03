@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090826121647) do
+ActiveRecord::Schema.define(:version => 20090903141325) do
 
   create_table "brief_item_versions", :force => true do |t|
     t.integer  "brief_item_id"
@@ -55,16 +55,11 @@ ActiveRecord::Schema.define(:version => 20090826121647) do
   add_index "briefs", ["delta"], :name => "index_briefs_on_delta"
 
   create_table "friendships", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
-    t.datetime "requested_at"
+    t.integer  "user_id",     :null => false
+    t.integer  "friend_id",   :null => false
+    t.datetime "created_at"
     t.datetime "accepted_at"
-    t.string   "status"
   end
-
-  add_index "friendships", ["friend_id"], :name => "index_friendships_on_friend_id"
-  add_index "friendships", ["status"], :name => "index_friendships_on_status"
-  add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
 
   create_table "invitations", :force => true do |t|
     t.string   "recipient_email"

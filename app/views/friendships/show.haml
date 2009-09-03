@@ -4,7 +4,7 @@
   -if current_object.requested?  
     -form_for current_object, :url => friendship_path(current_object), :html => {:method => :put} do |f|
       %p
-        =link_to @requested_by.login.capitalize, user_path(@requested_by)
+        =link_to current_object.friendshipped_by_me.login.capitalize, user_path(current_object.friendshipped_by_me)
         would like to add you as a contact.
       %p  
         =f.submit "Accept"
@@ -12,5 +12,4 @@
         =link_to "profile", user_path(current_user)
   -else
     %p 
-      This friendship request has been 
-      =current_object.status
+      This friendship request has already been accepted or cancelled.

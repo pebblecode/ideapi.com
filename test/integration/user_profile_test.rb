@@ -43,7 +43,7 @@ class UserProfileTest < ActionController::IntegrationTest
       
       context "when friends" do
         setup do
-          @standard_user.be_friends_with!(@standard_user_2)
+          @standard_user.become_friends_with(@standard_user_2)
           @standard_user.reload
           reload
         end

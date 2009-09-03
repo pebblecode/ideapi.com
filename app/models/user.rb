@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   include Ideapi::HighSociety
   can_grant_invites_to_others :max_invites => 10
   
-  has_friends
+  has_many_friends
   
   def friends_not_watching(brief)
     friends - brief.watchers
@@ -53,7 +53,11 @@ class User < ActiveRecord::Base
   end
   
   def invite_accepted(invitation)
-    become_friends_and_with_network(invitation.redeemed_by) if invitation.redeemed_by.present?
+    if invitation.respond_to?(:redeemed_by) && invitation.redeemed_by.present?
+      unless is_friends_or_pending_with?(invitation.redeemed_by)
+        become_friends_with(invitation.redeemed_by) 
+      end
+    end
   end
   
   def invite_redeemed(invitation)
@@ -63,33 +67,15 @@ class User < ActiveRecord::Base
   end
   
   def become_friends_and_with_network(contact)
-    be_friends_with!(contact) if !friends?(contact)
+    become_friends_with(contact) unless is_friends_or_pending_with?(contact)
     
     friends.each do |friend|
-      contact.be_friends_with!(friend) if !contact.friends?(friend)
+      unless friend.is_friends_or_pending_with?(contact)
+        friend.become_friends_with(contact)
+      end
     end
   end
-  
-  def be_friends_with!(new_friend)
-    returning([]) do |friendship|
-      friendship << be_friends_with(new_friend)
-      friendship << new_friend.be_friends_with(self)
-    end
-  end
-  
-  def request_friendship_with(new_friend)
-    user_friendship, requested_friendship = self.be_friends_with!(new_friend)
     
-    frienship, status = requested_friendship
-      
-    if status == Friendship::STATUS_REQUESTED
-      # the friendship has been requested
-      FriendshipMailer.deliver_friendship_request(friendship)
-    end
-      
-    return user_friendship, requested_friendship
-  end
-  
   # protect against mass assignment
   attr_accessible :login, :email, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :last_login_at, :last_request_at, :password, :password_confirmation, :avatar
   

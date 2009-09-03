@@ -14,7 +14,7 @@
         =current_object.login
       %p
         %strong Email:
-        -if (current_object == current_user || current_user.friends?(current_object))
+        -if (current_object == current_user || current_user.is_friends_with?(current_object))
           =current_object.email
         -else
           is only visible to friends
@@ -71,7 +71,7 @@
     
     .boom_box
       %h3 Contacts
-      -if current_user.friendships.present?
+      -if current_user.friends.present?
         =render :partial => 'friends'
       -else
         %p You currently don't have any friends

@@ -79,7 +79,7 @@ class InvitationsTest < ActionController::IntegrationTest
           
           context "current_user" do
             should "not be friends with existing user" do
-              assert !(@user.friends?(@existing_user))
+              assert !(@user.is_friends_with?(@existing_user))
             end
           end
         
@@ -92,7 +92,7 @@ class InvitationsTest < ActionController::IntegrationTest
 
             should_respond_with :success
             should_change "Invitation.count", :by => 0
-            should_change "Friendship.count", :by => 2
+            should_change "Friendship.count", :by => 1
 
             should "not decrease users invite_count" do
               assert_equal(@invite_count_before, @user.reload.invite_count)
@@ -107,7 +107,7 @@ class InvitationsTest < ActionController::IntegrationTest
           setup do
             @friend = User.make
             
-            @user.be_friends_with!(@friend)
+            @user.become_friends_with(@friend)
             
             @invite_count_before = @user.invite_count
             
@@ -213,7 +213,7 @@ class InvitationsTest < ActionController::IntegrationTest
           @friends = 3.times.map { User.make }
           
           @friends.each { |friend| 
-            @user.be_friends_with!(friend); 
+            @user.become_friends_with(friend); 
             friend.reload
           }
           
@@ -222,7 +222,7 @@ class InvitationsTest < ActionController::IntegrationTest
         end
         
         should "have friendships" do
-          @friends.each { |f| assert @user.friends?(f) }
+          @friends.each { |f| assert @user.is_friends_with?(f) }
         end
         
         should "have form for inviting people" do
@@ -340,7 +340,7 @@ class InvitationsTest < ActionController::IntegrationTest
       @friends = 3.times.map { User.make }
       
       @friends.each { |friend| 
-        @invited_by.be_friends_with!(friend); 
+        @invited_by.become_friends_with(friend); 
         friend.reload
       }
       
@@ -425,21 +425,21 @@ class InvitationsTest < ActionController::IntegrationTest
         end
         
         should "become friends with user who invited them" do
-          assert @invited_by.friends?(@invite.reload.redeemed_by)
+          assert @invited_by.reload.is_friends_with?(@invite.reload.redeemed_by)
         end
         
         should "invitor should be friends with user" do
-          assert @invite.reload.redeemed_by.friends?(@invited_by.reload)
+          assert @invite.reload.redeemed_by.is_friends_with?(@invited_by.reload)
         end
         
         should "users friends should be friends with invited" do
           @friends.each { |friend| 
-            friend.friends?(@invite.reload.redeemed_by) }          
+            friend.is_friends_with?(@invite.reload.redeemed_by) }          
         end
         
         should "invited should be friends with inviters friends" do
           @friends.each { |friend| 
-            @invite.reload.redeemed_by.friends?(friend) }
+            @invite.reload.redeemed_by.is_friends_with?(friend) }
         end
         
       end

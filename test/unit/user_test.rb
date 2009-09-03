@@ -142,45 +142,21 @@ class UserTest < Test::Unit::TestCase
 
     context "dave and john become friends" do
       setup do
-        @dave.be_friends_with!(@john)
-        @john.be_friends_with!(@dave)
+        @dave.become_friends_with(@john)
       end
 
       context "dave" do
         should "be friends with john" do
-          assert @dave.friends?(@john)
+          assert @dave.reload.is_friends_with?(@john.reload)
         end
       end
       
       context "john" do
         should "be friends with dave" do
-          assert @john.friends?(@dave)
+          assert @john.reload.is_friends_with?(@dave.reload)
         end
       end
-      
-      context "network friendship - between dave and henry" do
-        setup do
-          @dave.become_friends_and_with_network(@henry)
-        end
-        
-        should "make dave and henry friends" do
-          assert @dave.friends?(@henry)
-        end
-        
-        should "make henry and dave friends" do
-          assert @henry.friends?(@dave)
-        end
-        
-        should "also make henry friends with john" do
-          assert @henry.friends?(@john)
-        end
-        
-        should "make john friends with henry" do
-          assert @john.friends?(@henry)
-        end
-
-      end
-      
+            
     end
     
   end
@@ -213,7 +189,7 @@ class UserTest < Test::Unit::TestCase
         end
 
         should "be friends with invitee" do
-          assert @dave.friends?(@henry)
+          assert @dave.is_friends_with?(@henry)
         end
       end
       
@@ -223,7 +199,7 @@ class UserTest < Test::Unit::TestCase
         end
 
         should "be friends with inviter" do
-          assert @henry.friends?(@dave)
+          assert @henry.is_friends_with?(@dave)
         end
         
         should "be watching brief" do
