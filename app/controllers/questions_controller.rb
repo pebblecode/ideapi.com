@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
     response_for(:create) do |format|
       format.html { 
         flash[:notice] = "Thanks for joining the discussion."
-        redirect_to brief_questions_path(parent_object, :f => 'unanswered') 
+        redirect_to brief_questions_path(parent_object, :f => 'recent') 
       }
     end
     

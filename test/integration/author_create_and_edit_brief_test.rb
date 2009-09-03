@@ -49,32 +49,39 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
         assert_equal(edit_brief_path(@draft), path)
       end
       
-      should "have form for editing" do
-        assert_select "form[action=?]", brief_path(@draft) do
-          assert_select "input[type=hidden][name=_method][value=?]", "put"
-          assert_select "input[type=text][name=?][value=?]", "brief[title]", @draft.title
-          
-          assert_select "textarea#brief_most_important_message" do |e|
-            # bit weird this, and maybe the is an eaiser way,
-            # but it essentially just picks out the content on the
-            # text area .. raise e.first.to_yaml to see all the shizzle
-            assert_equal @draft.most_important_message, e.first.children.first.content
-          end
+      context "edit form" do
+        should "have form" do
+          assert_select "form[action=?]", brief_path(@draft)
         end
-      
-        new_message = "boom boom my awesome brief innit"
-      
-        fill_in "brief[most_important_message]", :with => new_message
-        click_button "update"
+        
+        should "have title edit" do
+          assert_select "input[type=text][name=?][value=?]", "brief[title]", @draft.title
+        end
+        
+        should "have most important message edit" do
+          assert_select "textarea#brief_most_important_message"
+        end
+        
+        context "updating most important message" do
+          setup do
+            @new_message = "boom boom my awesome brief innit"
+            fill_in "brief[most_important_message]", :with => @new_message
+            click_button "save draft"
+          end
 
-        assert_response :success
-        assert_equal edit_brief_path(@draft), path
-        assert_contain(new_message)
-        assert_equal(new_message, @draft.reload.most_important_message)
+          should_respond_with :success
+          
+          should "contain new message" do
+            assert_contain(@new_message)
+          end
+          
+        end
+        
+        
       end
-      
-      should "have link back to brief" do
-        assert_select 'a[href=?]', brief_path(@draft), :text => 'Back to brief »'
+        
+      should "have link back to briefs" do
+        assert_select 'a[href=?]', briefs_path, :text => 'Back to dashboard'
       end
       
       context "draft brief document" do
@@ -90,18 +97,10 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
           assert_select("form") do
             @draft.brief_items.each do |item|
               assert_select "input[type=hidden][name=?][value=?]", "brief[brief_items_attributes][#{item.id}][id]", item.id 
-              #assert_select "#brief_brief_items_attributes_#{index}_title[value=?]", item.title     
-              # assert_select "textarea[name=?]", "brief[brief_items_attributes][#{item.id}][body]" do |e|
-              #   assert_equal "#{item.body}", e.first.children.first.content
-              # end
             end
           end
         end
-        
-        should "give optional class to questions that are optional" do
-          optional_count = @draft.brief_items.select(&:optional).size
-          assert_select "li.brief_item.optional_brief_item", :count => optional_count
-        end
+
         
         should "gather help text from the question template and display to user" do
           message_count = @draft.brief_items.select { |i| !i.help_message.blank?  }.size
@@ -151,23 +150,36 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
           end
         end
         
-        should "have publish button" do
-          assert_select 'input[type=submit][value=?]', 'publish', :count => 1    
+        context "publishing" do
+          should "have publish button" do
+            assert_select 'input[type=submit][value=?]', 'publish', :count => 1 
+          end
           
-          click_button 'publish'
-          assert_equal edit_brief_path(@draft), path
-          assert @draft.reload.published?
+          context "clicking publish button" do
+            setup do
+              click_button 'publish'
+            end
+
+            should "redirect to brief" do
+              assert_equal brief_path(@draft), path
+            end
+            
+            should "publish the brief" do
+              assert @draft.reload.published?
+            end
+            
+          end
+          
         end
+        
       end
       
       context "published document" do
         setup do
          @draft.publish!
-         @published = @draft.reload
-         assert @published.published?
-         
+         @published = @draft.reload         
          # reload page to update changes
-         reload
+         visit edit_brief_path(@published)
         end
 
         should "not have save draft button" do
@@ -179,23 +191,7 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
           assert_select 'input[type=submit][value=?]', 'publish', :count => 0
           assert_select 'input[type=submit][value=?]', 'update'
         end
-        
-        should "disable changing some of the brief_item attributes once published" do
-          assert_select("form") do
-            @draft.brief_items.each do |item|              
-              assert_select "#brief_brief_items_attributes_#{item.id}_id[value=?]", item.id 
-              
-              # titles should not be editable
-              assert_select "input[value=?]", item.title, :count => 0
-              assert_select 'p', :text => item.title
-              
-              assert_select "textarea[name=?]", "brief[brief_items_attributes][#{item.id}][body]" do |e|
-                assert_equal "#{item.body}", e.first.children.first.content
-              end
-            end
-          end
-        end
-        
+
         should "update record" do
           new_message = "changing the published document"
 

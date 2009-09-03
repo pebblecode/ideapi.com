@@ -198,8 +198,8 @@ class BriefQuestionsTest < ActionController::IntegrationTest
                   assert_equal(brief_questions_path(:f => "unanswered"), path)
                 end
                 
-                should "contain the answer" do
-                  assert_contain(@answer)
+                should "question should be answered" do
+                  assert @question.reload.answered?
                 end
 
               end
@@ -240,15 +240,15 @@ class BriefQuestionsTest < ActionController::IntegrationTest
               setup do
                 select @brief_item.title, :from => 'question[brief_item_id]'
                 fill_in 'question_body', :with => @question
-                click_button 'submit'
+                click_button 'question_submit'
               end
             
               should_respond_with :success
             
               should "show questions view" do
-                assert_equal(brief_questions_path, path)
+                assert_equal(brief_questions_path(@brief, :f => "recent"), path)
               end
-                          
+
               should "show the asked question on the page" do
                 assert_contain(@question)
               end

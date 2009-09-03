@@ -38,9 +38,28 @@ class FriendshipRequestTest < ActionController::IntegrationTest
           {:notice => "Invitations and contact requests succesfully sent"}
         )
         
+        should "not yet be friends" do
+          assert !@user.friends?(@friend)
+        end
+        
       end
       
-    
+      context "inviting a user who you have already requested friendship" do
+        setup do
+          @user.request_friendship_with(@friend)
+          fill_in 'invitation_recipient_list', :with => @friend.email
+          click_button 'invite'
+        end
+
+        should_respond_with :success
+        should_change "Friendship.count", :by => 0
+
+        should_set_the_flash_to(
+          {:notice => "Invitations and contact requests succesfully sent"}
+        )
+
+      end
+        
     end
     
   end
