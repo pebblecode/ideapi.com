@@ -17,7 +17,11 @@ module UsersHelper
   end
   
   def given_name(user_object)
-    current_user?(user_object) ? "You" : user_object.login.titleize
+    current_user?(user_object) ? "You" : name_or_login(user_object).titleize
+  end
+  
+  def name_or_login(user_object)
+    user_object.name.present? ? user_object.name : user_object.login
   end
   
   def current_user?(user_object)

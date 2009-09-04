@@ -3,21 +3,32 @@
 
 .col_1
   
-  %h2 Profile
+  %h2=name_or_login(current_object).titleize
   
   .boom_box
 
     %div[current_object]
       =large_avatar
+
       %p
-        %strong Login:
+        %strong Login
         =current_object.login
+
+      %p
+        %strong Name:
+        -if current_object.name.present?
+          =current_object.name
+        -else
+          unknown
+      
       %p
         %strong Email:
         -if (current_object == current_user || current_user.is_friends_with?(current_object))
           =current_object.email
         -else
           is only visible to friends
+          
+
         
           
       -if current_object == current_user
