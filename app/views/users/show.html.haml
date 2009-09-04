@@ -77,9 +77,9 @@
                     -if invite.pending?
                       =link_to 'cancel', cancel_invitation_path(invite.code)    
         .hr
-
+        
+        %h4 Contact Requests Sent
         -if current_user.pending_friends_by_me.present?
-          %h4 Contact Requests Sent
           =render :partial => 'friends_by_me'
         -else
           %p You don't have any pending contact requests
