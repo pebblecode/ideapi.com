@@ -32,14 +32,20 @@ module Ideapi
     
       module InstanceMethods
       
-        def ensure_has_invites(invite = nil)
-          raise 'NotEnoughInvites' if invite_count.zero?
+        def ensure_has_invites(invite)
+          if invite_count.zero? && !user_exists?(invite)
+            raise 'NotEnoughInvites' 
+          end
         end
       
         def decrement_invites(invite)
-          if !User.find_by_email(invite.recipient_email)
+          if !user_exists?(invite)
             revoke_invites!(1)
           end            
+        end
+        
+        def user_exists?(invite)
+          User.find_by_email(invite.recipient_email).present?
         end
       
         def increment_invites(invite = nil)
