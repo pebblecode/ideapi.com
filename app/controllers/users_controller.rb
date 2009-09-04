@@ -14,9 +14,9 @@ class UsersController < ApplicationController
     
     after :create do
       if @invite
-        flash[:note] = "Your &lsquo;Watching briefs&rsquo; list already contains one brief. We&rsquo;ve added a sample brief to your &lsquo;Watching Briefs&rsquo; list below. Click on the title to see how ideapi can be used to produce better briefs."
+        #flash[:note] = "Your &lsquo;Watching briefs&rsquo; list already contains one brief. We&rsquo;ve added a sample brief to your &lsquo;Watching Briefs&rsquo; list below. Click on the title to see how ideapi can be used to produce better briefs."
         @invite.redeem_for_user(current_object)
-        current_object.watch(Brief.sample) if Brief.sample.present?
+        #current_object.watch(Brief.sample) if Brief.sample.present?
       end
     end
     

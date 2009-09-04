@@ -38,15 +38,15 @@ class Invitation < ActiveRecord::Base
   
   validates_uniqueness_of :recipient_email, 
     :scope => [:user_id, :redeemable_id, :redeemable_type], 
-    :message => "has already been sent an invite"
+    :message => "has already been sent an invite", :on => :create
     
   validates_format_of :recipient_email, 
     :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
-  validate do |invite|
+  validate_on_create do |invite|
     invite.reedemable_item_must_belong_to_user
-    invite.reedemable_item_must_exist_if_inviting_existing_user
     invite.ensure_recipient_email_is_different_user_email
+    invite.reedemable_item_must_exist_if_inviting_existing_user
   end
 
   def reedemable_item_must_belong_to_user

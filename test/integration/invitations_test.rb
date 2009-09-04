@@ -357,6 +357,24 @@ class InvitationsTest < ActionController::IntegrationTest
       should "take user to sign up page" do
         assert_equal(new_user_path(:invite => @invite.code), path)
       end
+      
+      context "signing up" do
+        setup do
+          @user = User.plan
+          fill_in 'user_login', :with => @user[:login]
+          fill_in 'First name', :with => @user[:first_name]
+          fill_in 'Last name', :with => @user[:last_name]
+          fill_in 'Email', :with => @user[:email]
+          fill_in 'Password', :with => "testing"
+          fill_in 'Password confirmation', :with => "testing"
+          click_button 'Sign up'
+        end
+        
+        should_respond_with :success
+        should_change "User.count", :by => 1
+
+      end
+      
     
     end
     
