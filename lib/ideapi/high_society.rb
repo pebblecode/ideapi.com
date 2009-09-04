@@ -32,7 +32,7 @@ module Ideapi
     
       module InstanceMethods
       
-        def ensure_has_invites(invite)
+        def ensure_has_invites(invite)          
           if invite_count.zero? && !user_exists?(invite)
             raise 'NotEnoughInvites' 
           end
@@ -45,7 +45,7 @@ module Ideapi
         end
         
         def user_exists?(invite)
-          User.find_by_email(invite.recipient_email).present?
+          return User.find_by_email(invite.recipient_email).present?
         end
       
         def increment_invites(invite = nil)

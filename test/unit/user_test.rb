@@ -213,6 +213,18 @@ class UserTest < Test::Unit::TestCase
   
   end
   
+  context "inviting existing user when user has no invites to give" do
+    setup do
+      @dave = User.make(:invite_count => 0)
+      @brief = Brief.make(:published, {:user => @dave})
+      @invited = User.make
+      @invitations = Invitation.from_list_into_hash(
+        {:recipient_list => @invited.email, :redeemable => @brief}, @dave
+      )
+    end
+
+    should_change "Invitation.count", :by => 1
+  end
   
 
 end
