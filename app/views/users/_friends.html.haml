@@ -3,9 +3,12 @@
     %tr
       %th Login
       %th Email address
+      %th Status
+      %th Accepted on
   %tbody
-    -current_user.friends.each do |friend|
+    -friendships_collection.each do |friendship|
       %tr
-        %td=link_to friend.login, user_path(friend)
-        %td=friend.email
-    
+        %td=link_to friendship.friend.login, user_path(friendship.friend)
+        %td=friendship.friend.email
+        %td=friendship.accepted? ? "Accepted" : "Pending"
+        %td=friendship.accepted? ? "#{time_ago_in_words(friendship.accepted_at)} ago" : "n/a"

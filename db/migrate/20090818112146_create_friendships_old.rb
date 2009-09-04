@@ -1,4 +1,4 @@
-class CreateFriendships < ActiveRecord::Migration
+class CreateFriendshipsOld < ActiveRecord::Migration
   def self.up
     create_table :friendships do |t|
       t.references :user, :friend

@@ -93,7 +93,7 @@ class InvitationsController < ApplicationController
 
   def set_flash_notices_for(invitations, friendships)
     
-    if invitations[:successful].present? && friendships.present?
+    if friendships.present?
       flash[:notice] = flash_generic_success
     else
       @flash_invitations = invitations

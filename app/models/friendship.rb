@@ -11,6 +11,7 @@ class Friendship < ActiveRecord::Base
   # TODO: Add some friendly accessor methods here
   
   named_scope :pending, :conditions => "accepted_at IS NULL"
+  named_scope :accepted, :conditions => "accepted_at IS NOT NULL"
 
   validates_uniqueness_of :friend_id, 
     :on => :create,  
@@ -19,8 +20,14 @@ class Friendship < ActiveRecord::Base
   def pending?
     accepted_at.blank?
   end
+  
+  def accepted?
+    accepted_at.present?
+  end
 
   alias :requested? :pending?
+  alias :friend :friendshipped_for_me
+  alias :user :friendshipped_by_me
 
 
 end

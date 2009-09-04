@@ -43,6 +43,8 @@ class User < ActiveRecord::Base
   can_grant_invites_to_others :max_invites => 10
   
   has_many_friends
+  has_many :friendships
+  
   
   def friends_not_watching(brief)
     friends - brief.watchers
