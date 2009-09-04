@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   has_many_friends
   
   def name
-    "#{first_name}" + "#{last_name}"
+    [first_name, last_name].reject(&:blank?).join(" ")
   end
   
   def friends_not_watching(brief)
