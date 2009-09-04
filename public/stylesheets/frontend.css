@@ -842,8 +842,7 @@ textarea {
   border: 1px solid #ccc;
   background: #eee; }
   #container #content .col_2 .invite_users h4,   #container #content .col_2 .invite_contacts h4 {
-    font-size: 1.2em;
-    padding-bottom: 0.5em; }
+    font-size: 1.2em; }
   #container #content .col_2 .invite_users textarea,   #container #content .col_2 .invite_contacts textarea {
     font-size: 1em;
     width: 19em;

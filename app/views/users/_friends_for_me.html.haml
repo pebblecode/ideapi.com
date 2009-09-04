@@ -1,0 +1,15 @@
+%table.friends
+  %thead
+    %tr
+      %th Login
+      %th Email address
+      %th Status
+      %th Actions
+  %tbody
+    -current_user.pending_friends_for_me.each do |friend|
+      %tr
+        %td=link_to friend.login, user_path(friend)
+        %td=friend.email
+        %td Pending
+        %td 
+          =link_to "accept", friendship_path(current_user.friendship(friend)) 

@@ -125,6 +125,15 @@ class FriendshipRequestTest < ActionController::IntegrationTest
             end
           end
           
+          context "profile page" do
+            
+            should "have added user to friend's list of contacts" do
+              save_and_open_page
+              assert_contain(@user.email)
+            end
+          end
+          
+        
         end
         
         
