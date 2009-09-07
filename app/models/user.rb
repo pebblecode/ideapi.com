@@ -7,14 +7,22 @@ class User < ActiveRecord::Base
     c.login_field = :email 
   end
 
-  has_attached_file :avatar, :styles => { :large => "100x100>", :medium => "48x48>", :small => "32x32>" }
+  has_attached_file :avatar, :styles => { 
+    :large => "100x100>", :medium => "48x48>", :small => "32x32>" 
+  }
   
   validates_uniqueness_of :login, :email, :message => "already taken"
-  validates_format_of :login, :with => /^[\w\d]+$/, :message => "must be a single combination of letters (numbers and underscores also allowed)"
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_format_of :login, 
+    :with => /^[\w\d]+$/, 
+    :message => "must be a single combination of letters (numbers and underscores also allowed)"
   
-  validates_presence_of :first_name, :on => :create, :message => "needed if you give your last name", :if => Proc.new { |u| u.last_name.present? }
+  validates_format_of :email, 
+    :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
+  validates_presence_of :first_name, 
+    :on => :create, 
+    :message => "needed if you give your last name", 
+    :if => Proc.new { |u| u.last_name.present? }
   
   # METHODS FOR BRIEF OWNERSHIP
   
@@ -42,7 +50,7 @@ class User < ActiveRecord::Base
   
   # handle invitations ..
   include Ideapi::HighSociety
-  can_grant_invites_to_others :max_invites => 10
+  can_grant_invites_to_others :max_invites => 10, :initialise_with => 10
   
   has_many_friends
   

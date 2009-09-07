@@ -25,7 +25,11 @@ module Ideapi
           @max_invites = options[:max_invites]
           @init_invite_count = options[:initialise_with]
         
-          has_many :invitations, :dependent => :destroy, :before_add => [:ensure_has_invites], :after_add => :decrement_invites, :after_remove => :increment_invites
+          has_many :invitations, 
+            :dependent => :destroy, 
+            :before_add => [:ensure_has_invites], 
+            :after_add => :decrement_invites, 
+            :after_remove => :increment_invites
         end
       
       end
@@ -77,7 +81,7 @@ module Ideapi
       
         def invite_count=(number)
           # ensure its positive
-          number = 0 if number < 0
+          number =  self.class.initial_invite_count if (number.blank? || number < 0)
         
           # ensure doesnt exceed max invite level
           number = self.class.max_invites if number > self.class.max_invites

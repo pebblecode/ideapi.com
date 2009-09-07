@@ -226,5 +226,16 @@ class UserTest < Test::Unit::TestCase
     should_change "Invitation.count", :by => 1
   end
   
+  context "beta" do
+    setup do
+      @user = User.make(:invite_count => nil)
+    end
+
+    should "set invite count to 10" do
+      assert_equal(10, @user.invite_count)
+    end
+
+  end
+  
 
 end
