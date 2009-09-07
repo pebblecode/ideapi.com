@@ -240,6 +240,10 @@ jQuery(document).ready(function(){
     $('.feedback_form').feedback_form();
     
     $('.edit_brief .brief_item').edit_brief_item();
+    
+    $('a[href=#beta_feedback]').click(function () {
+      $('.feedback_form').find('.wrap').fadeIn();
+    })
         
 });
 

@@ -22,7 +22,9 @@ class Brief < ActiveRecord::Base
     brief_items.group_by(&:section_name)
   end
   
-  accepts_nested_attributes_for :brief_items, :allow_destroy => true, :reject_if => :all_blank
+  accepts_nested_attributes_for :brief_items, 
+    :allow_destroy => true, 
+    :reject_if => :all_blank
   
   has_many :questions
     

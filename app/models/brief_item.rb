@@ -4,7 +4,7 @@ class BriefItem < ActiveRecord::Base
   
   has_many :questions
   
-  validates_presence_of :brief, :template_question, :message => "can't be blank"
+  validates_presence_of :brief, :template_question
   
   delegate :optional, :to => :template_question
   delegate :help_message, :to => :template_question
@@ -47,7 +47,9 @@ class BriefItem < ActiveRecord::Base
   
   def history_grouped_by_fancy_date(&block)
     history_items = block_given? ? yield : history 
-    history_items.group_by {|item| convert_datetime_into_relevant_precision(item.updated_at) }
+    history_items.group_by do |item| 
+      convert_datetime_into_relevant_precision(item.updated_at) 
+    end
   end
   
   def history_grouped_by_fancy_date_including_user(user)
@@ -68,7 +70,9 @@ class BriefItem < ActiveRecord::Base
   end
   
   def brief_item_history(user = nil)
-    @brief_item_history ||= (answered_questions + revisions + user_questions(user))
+    @brief_item_history ||= (
+      answered_questions + revisions + user_questions(user)
+    )
   end
 
   def user_questions(user = nil)
