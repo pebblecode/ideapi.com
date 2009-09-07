@@ -92,15 +92,12 @@
         -else
           %p You don't have any pending contact requests
     
-        
-    
     .boom_box
       %h3 Contacts
       -if current_user.friends.present?
         =render :partial => 'friends'
       -else
-        %p You currently don't have any contacts
-      
+        %p You currently don't have any contacts  
     
     %p 
       Know someone who might like an ideapi account? 
