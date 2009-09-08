@@ -1,0 +1,11 @@
+=sub_nav do
+  =breadcrumb_list
+
+.col_1
+  
+  %h2=current_object.title
+  %p=current_object.long_description
+
+.col_2
+  %p=link_to 'back to brief', brief_path(parent_object), {:class => "awesome blue large", :style => "text-transform: uppercase" }
+  

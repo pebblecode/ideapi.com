@@ -55,7 +55,6 @@ class FriendshipRequestTest < ActionController::IntegrationTest
         end
 
         should_respond_with :success
-        should_change "Friendship.count", :by => 0
 
         should_set_the_flash_to(
           {:notice => "Invitations and contact requests succesfully sent"}
@@ -128,7 +127,6 @@ class FriendshipRequestTest < ActionController::IntegrationTest
           context "profile page" do
             
             should "have added user to friend's list of contacts" do
-              save_and_open_page
               assert_contain(@user.email)
             end
           end

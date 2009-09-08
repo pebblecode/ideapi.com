@@ -32,6 +32,10 @@
     =render :partial => 'brief_item', :collection => (current_object.brief_items.answered), :locals => { :draft => current_object.draft? }
 
 .col_2
+  -unless owner?(current_object)
+    %p.create_response
+      =link_to 'Draft response', new_brief_proposal_path(current_object), {:class => "awesome blue large", :style => "text-transform: uppercase" }
+
   .discussion     
     %p.join_discuss
       =link_to owner?(current_object) ? "View discussion" : "Join the discussion", brief_questions_path(current_object, :f => "unanswered"), {:class => "awesome blue large", :style => "text-transform: uppercase" }

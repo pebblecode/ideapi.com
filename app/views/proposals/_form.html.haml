@@ -1,0 +1,23 @@
+%p
+  = f.label :title
+  = f.text_field :title
+  %p.help_message
+    This is how you response will appear when listed on the system.
+
+%p
+  = f.label :long_description, 'Your idea'
+  = f.text_area :long_description, :rows => "5", :cols => 60
+  %p.help_message
+    Simple. Focused. Short. Sell it.
+    
+%p
+  = f.label :attachment  
+  = f.file_field :attachment
+
+- if current_object.attachment.present?
+  %p
+    %label Current attachment
+    -if current_object.attachment.content_type =~ /image/
+      =link_to image_tag(current_object.attachment.url, :width => "100"), current_object.attachment.url
+    -else
+      =link_to current_object.attachment.original_filename, current_object.attachment.url

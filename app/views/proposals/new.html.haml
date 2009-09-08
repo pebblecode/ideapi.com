@@ -1,0 +1,20 @@
+.col_1
+  
+  %h2 Submit your response
+  
+  #write_new_proposal.note
+    %h3 Drafting your response
+    %p Write info here
+  
+  .boom_box
+    = error_messages_for :proposal
+
+    - form_for(:proposal, :url => objects_url, :html => { :multipart => true }) do |f|
+      = render :partial => "form", :locals => {:f => f}
+      
+      %p.submit
+        = submit_tag "Submit proposal"
+        
+      %p.submit
+        = submit_tag "Save draft"
+        .clear

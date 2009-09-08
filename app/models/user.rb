@@ -116,7 +116,7 @@ class User < ActiveRecord::Base
     if brief.published?
       transaction do
         watching.delete(brief)
-        proposals.create(:brief => brief)
+        proposals.create(:brief => brief, :title => "Your response to #{brief.title}", :long_description => "Enter your response here")
       end      
     else
       errors.add_to_base("You cannot respond to a brief which isn't currently published")

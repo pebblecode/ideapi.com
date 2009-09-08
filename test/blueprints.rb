@@ -61,3 +61,12 @@ Invitation.blueprint do
   user
   recipient_email { Sham.email }
 end
+
+Proposal.blueprint do
+  title
+  long_description { Sham.body }
+end
+
+Proposal.blueprint(:published) do
+  published_at { 1.day.ago }
+end

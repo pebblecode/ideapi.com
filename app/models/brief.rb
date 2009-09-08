@@ -14,6 +14,8 @@ class Brief < ActiveRecord::Base
   has_many :watched_briefs
   has_many :watchers, :through => :watched_briefs, :source => :user
   
+  has_many :proposals
+  
   def all_involved
     ([user] + watchers).uniq
   end

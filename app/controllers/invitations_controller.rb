@@ -1,5 +1,9 @@
 class InvitationsController < ApplicationController
   
+  # needs login for all actions
+  before_filter :require_user, :except => [:show]
+  
+  
   def create
     store_location
     
