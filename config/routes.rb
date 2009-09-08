@@ -1,10 +1,21 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :invitations, :collection => { :request_invitations => :get, :request_invitation_for_email => :post }, :member => { :resend => :get, :cancel => :get }
+
+  map.resources :invitations, 
+    :collection => { 
+      :request_invitations => :get, 
+      :request_invitation_for_email => :post }, 
+    :member => { 
+      :resend => :get, 
+      :cancel => :get 
+    }
   
-  map.resources :briefs, :collection => { :browse => :get }, :member => { :delete => :get, :watch => :post } do |briefs|
-    briefs.resources :questions
+  map.resources :briefs, 
+    :collection => { :browse => :get }, 
+    :member => { :delete => :get, :watch => :post } do |briefs|
+      briefs.resources :questions
+      briefs.resources :proposals
   end
-  
+    
   map.resources :friendships
   
   map.resource :user_session, :member => { :delete => :get }
@@ -20,4 +31,5 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'dashboard', :controller => "briefs", :action => "index"
   map.resource :home, :controller => "home"
   map.root :controller => "home", :action => "show"
+  
 end
