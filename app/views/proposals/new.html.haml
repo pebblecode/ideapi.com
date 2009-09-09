@@ -1,3 +1,7 @@
+=sub_nav do
+  =breadcrumb_list
+
+
 .col_1
   
   %h2 Submit your response
@@ -18,3 +22,7 @@
       %p.submit
         = submit_tag "Save draft"
         .clear
+        
+
+.col_2
+  %p=link_to 'back to brief', brief_path(parent_object), {:class => "awesome blue large", :style => "text-transform: uppercase" }
