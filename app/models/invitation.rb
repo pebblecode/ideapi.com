@@ -77,6 +77,10 @@ class Invitation < ActiveRecord::Base
     
     return self.accepted?
   end
+  
+  def existing_user?
+    User.find_by_email(self.recipient_email).present?
+  end
       
   private
   
