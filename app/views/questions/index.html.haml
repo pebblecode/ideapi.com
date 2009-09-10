@@ -40,7 +40,13 @@
   -if !owner?(parent_object)
     .boom_box.ask_question
       %h3 Ask a question / comment
-      - form_for(:question, :url => brief_questions_path(parent_object)) do |f|
+      -if @user_question.errors.present?
+        .error_info
+          %h4 Could not ask the question because: 
+          %ul
+            - @user_question.errors.each do |attr, message|
+              %li=message
+      - form_for(@user_question, :url => brief_questions_path(parent_object)) do |f|
         = render :partial => "form", :locals => {:f => f, :brief_item => @brief_item }
         
 .col_2

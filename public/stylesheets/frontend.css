@@ -186,6 +186,18 @@ form p label {
   line-height: 1.1em;
   width: 8em; }
 
+.error_info {
+  padding: 0.5em 1em;
+  border: 1px solid #990007;
+  margin: 1em 0 2em 0;
+  background: #FAE6E6; }
+  .error_info ul {
+    padding: 0.5em 1em; }
+    .error_info ul li {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #990007; }
+
 span.field_with_errors label {
   color: #d81f26; }
 span.field_with_errors input {

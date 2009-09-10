@@ -31,6 +31,9 @@ class QuestionsController < ApplicationController
       add_breadcrumb 'discussion', objects_path
       
       @brief_item = BriefItem.find(params[:brief_item_id]) if !params[:brief_item_id].blank?
+      @user_question ||= parent_object.questions.build(session[:previous_question])
+      
+      @user_question.valid?
     end
     
     before :create do
@@ -52,9 +55,11 @@ class QuestionsController < ApplicationController
         redirect_to brief_questions_path(parent_object, :f => 'recent') 
       }
     end
-    
+  
     response_for(:create_fails) do |format|
       format.html { 
+        session[:previous_question] = current_object.attributes
+              
         flash[:error] = "We are sorry, but there was a problem asking your question, please try again."
         redirect_to brief_questions_path(parent_object, :f => 'unanswered') 
       }

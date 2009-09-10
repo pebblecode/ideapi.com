@@ -1,5 +1,5 @@
 %p
-  =f.label :brief_answer_id, "In response to: "
+  =f.label :brief_item_id, "In response to: "
   -if params[:brief_item_id].blank?
     =f.select :brief_item_id, brief_items.map {|ba| [ba.title, ba.id] }, {:include_blank => 'Select ...'}
   -elsif defined?(brief_item)
