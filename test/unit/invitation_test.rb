@@ -18,6 +18,5 @@ class InvitationTest < ActiveSupport::TestCase
     end
 
   end
-  
-  
+    
 end
