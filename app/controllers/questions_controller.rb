@@ -31,9 +31,13 @@ class QuestionsController < ApplicationController
       add_breadcrumb 'discussion', objects_path
       
       @brief_item = BriefItem.find(params[:brief_item_id]) if !params[:brief_item_id].blank?
+
       @user_question ||= parent_object.questions.build(session[:previous_question])
       
-      @user_question.valid?
+      if session[:previous_question].present?
+        @user_question.valid? 
+        session[:previous_question] = nil
+      end
     end
     
     before :create do
