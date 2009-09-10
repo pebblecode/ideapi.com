@@ -112,6 +112,10 @@ class User < ActiveRecord::Base
     watching.include?(brief)
   end
   
+  def pitching?(brief)
+    responded_briefs.include?(brief)
+  end
+  
   def respond_to_brief(brief)
     if brief.published?
       transaction do
