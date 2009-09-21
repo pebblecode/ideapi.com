@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
     :collection => { :browse => :get }, 
     :member => { :delete => :get, :watch => :post } do |briefs|
       briefs.resources :questions
-      briefs.resources :proposals
+      briefs.resources :proposals, :member => { :delete_asset => :delete }
   end
     
   map.resources :friendships
@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session, :member => { :delete => :get }
   map.resource :profile, :controller => "users"
 
-  map.resources :users  
+  map.resources :users
   map.resources :user_feedbacks
   
   # Administration Area

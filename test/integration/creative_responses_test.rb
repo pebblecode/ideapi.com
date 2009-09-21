@@ -104,7 +104,147 @@ class CreativeResponsesTest < ActionController::IntegrationTest
       end
     
     end
+
+  
+    context "visiting brief with draft response" do
+      
+      setup do
+        @proposal = @user.proposals.make(:brief => @brief)
+        visit brief_path(@brief)
+      end
+      
+      should "be a draft" do
+        assert @proposal.draft?
+      end
+      
+      context "response button" do
+        should "have link to existing response" do
+          assert_select 'a[href=?]', edit_brief_proposal_path(@brief, @proposal), 
+            :text => 'Edit your response'
+        end
+      
+        context "clicking edit" do
+          setup do
+            click_link 'Edit your response'
+          end
+
+          should_respond_with :success
+          should_render_a_form
+          should_render_template :edit
+
+        end
+        
+      
+      end
+      
+      
+    end
+  
     
+    context "editing draft response" do
+      setup do
+        @proposal = @user.proposals.make(:brief => @brief)
+        visit edit_brief_proposal_path(@brief, @proposal)
+      end
+
+      context "clicking preview" do
+        setup do
+          @new_title = "Some other title"
+          fill_in 'title', :with => @new_title
+          click_button 'Preview'
+        end
+
+        should "save any changes" do
+          assert_equal(@new_title, @proposal.reload.title)
+        end
+        
+        should "redirect to show page" do
+          assert_equal(brief_proposal_path(@brief, @proposal), path)
+        end
+        
+      end
+      
+      context "clicking save draft" do
+        setup do
+          click_button 'Save draft'
+        end
+        
+        should "redirect to edit page" do
+          assert_equal(edit_brief_proposal_path(@brief, @proposal), path)
+        end
+      end
+
+
+      context "uploading asset" do
+        setup do
+          attach_file 'attachment', File.join(Rails.root, 'test', 'fixtures', 'asset.jpg')
+          click_button 'Save draft'
+        end
+
+        should "have an attachment" do
+          assert @proposal.reload.attachment.file?
+        end
+        
+        should "match filename to fixture uploaded" do
+          assert_equal(@proposal.reload.attachment_file_name, "asset.jpg")
+        end
+        
+        context "removing uploaded asset" do
+
+          should "have checkbox to remove image" do
+            assert_select 'input#remove_image'
+          end
+          
+          context "by clicking checkbox and submitting" do
+            setup do
+              reload
+              check 'remove_image'
+              click_button 'Save draft'
+            end
+
+            should "have no attachment" do
+              assert !@proposal.reload.attachment.file?
+            end
+          end
+          
+        end
+                
+      end
+
+    end
+    
+    
+    context "dashboard" do
+      setup do
+        @user.watch(@brief)
+        visit briefs_path
+      end
+
+      should "list brief in watching list" do
+        assert_select '.watching li.brief', :text => @brief.title, :count => 1
+      end
+      
+      should "not list brief in pitching list" do
+        assert_select '.pitching li.brief', :count => 0
+      end
+      
+      context "when pitching" do
+        setup do
+          @proposal = @user.proposals.make(:published, {:brief => @brief})
+          reload
+        end
+
+        should "not list brief in watching list" do
+          assert_select '.watching li.brief', :count => 0
+        end
+
+        should "list brief in pitching list" do
+          assert_select '.pitching li.brief', :count => 1
+        end
+      end
+        
+    end
+  
   end
 
 end

@@ -244,6 +244,8 @@ jQuery(document).ready(function(){
     $('a[href=#beta_feedback]').click(function () {
       $('.feedback_form').find('.wrap').fadeIn();
     })
+    
+    $('#proposal_long_description').wysiwyg();
         
 });
 

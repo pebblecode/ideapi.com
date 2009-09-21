@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   # METHODS FOR WATCHING AND INTERACTING WITH A BRIEF
   
   has_many :questions
-  has_many :proposals
+  has_many :proposals, :after_add => :stop_watching_brief
   has_many :watched_briefs, :dependent => :destroy
   has_many :brief_user_views, :dependent => :destroy
   
@@ -116,6 +116,10 @@ class User < ActiveRecord::Base
     responded_briefs.include?(brief)
   end
   
+  def proposal_for(brief)
+    proposals.find_by_brief_id(brief)
+  end
+  
   def respond_to_brief(brief)
     if brief.published?
       transaction do
@@ -153,4 +157,15 @@ class User < ActiveRecord::Base
     end
   end
   
+  # called from proposal_observer
+  def proposal_created(proposal)
+    stop_watching_brief(proposal)
+  end
+  
+  private
+  
+  def stop_watching_brief(proposal)
+    toggle_watch!(proposal.brief) if watching?(proposal.brief)
+  end
+
 end

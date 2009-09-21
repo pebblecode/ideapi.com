@@ -32,7 +32,7 @@ CREATE TABLE `brief_user_views` (
   `view_count` int(11) default '0',
   `last_viewed_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -99,7 +99,7 @@ CREATE TABLE `questions` (
   `updated_at` datetime default NULL,
   `brief_item_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,

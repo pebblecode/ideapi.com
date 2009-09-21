@@ -1,2 +1,5 @@
 %li[brief]
-  %h5=link_to brief.title, (brief.published? ? brief_path(brief) : edit_brief_path(brief))
+  %p
+    =link_to brief.title, (brief.published? ? brief_path(brief) : edit_brief_path(brief))
+    -if current_user.proposal_for(brief).present?
+      ="(#{creative_response_link(brief, current_user.proposal_for(brief))})"

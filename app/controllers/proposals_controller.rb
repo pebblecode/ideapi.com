@@ -21,6 +21,10 @@ class ProposalsController < ApplicationController
     before :create do
       current_object.user = current_user
     end
+
+    before :update do
+      params[:proposal][:attachment] = nil if params[:remove_image] == "1" 
+    end
     
     after :create, :update do
       if params[:commit] == "Submit proposal"
@@ -29,8 +33,13 @@ class ProposalsController < ApplicationController
     end
     
     response_for :show, :show_fails do |format|
+      format.html { }
+      format.js { render :layout => false }
+    end
+    
+    response_for :update do |format|
       format.html {
-        redirect_to :action => 'edit' if current_object.draft?
+        redirect_to (params[:commit] == "Preview" ? object_path : edit_object_path)
       }
     end
     

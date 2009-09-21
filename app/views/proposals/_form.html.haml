@@ -14,10 +14,14 @@
   = f.label :attachment  
   = f.file_field :attachment
 
-- if current_object.attachment.present?
+- if current_object.attachment.file?
   %p
     %label Current attachment
     -if current_object.attachment.content_type =~ /image/
       =link_to image_tag(current_object.attachment.url, :width => "100"), current_object.attachment.url
     -else
       =link_to current_object.attachment.original_filename, current_object.attachment.url
+    
+  %p
+    %label Remove?
+    =check_box_tag 'remove_image'
