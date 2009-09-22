@@ -53,7 +53,7 @@ a:hover
       :padding-bottom 0.4em
       :font-size 1.7em
       :line-height 1em
-      :font-weight 100
+      :font-weight normal
 
       a
         :color = !link_header
@@ -62,19 +62,23 @@ a:hover
         :color = !link_hover_colour 
         
     ul.navigation
-      :float right
       :padding-top 1em
       :padding-right 2em
       :padding-bottom 0.1em
-        
+      :width 23em  
+      :position absolute
+      :top 6px
+      :right 0
+      :z-index 100
+      :text-align right
+
       li
-    
+        
         a, span
           :color = !link_header
           :font-size 1.4em
-          :font-weight 100
-          :position relative
-          :padding 0.5em 0.8em 0.5em 0.8em 
+          :font-weight normal
+          :padding 0.5em 0.8em 0.5em 0.8em
 
         a:hover, span.current
           :font-size 1.4em
@@ -310,8 +314,6 @@ span.field_with_errors
         :text-align center
         :background white
           
-          
-
     / briefs_path (dashboard)
     
     #dashboard
@@ -342,7 +344,7 @@ span.field_with_errors
         :background #21286c
         :margin 0
         :padding 0.2em 0.5em
-        :font-weight 100
+        :font-weight normal
         :border-bottom 1px solid #ccc
     
       ul
@@ -366,7 +368,7 @@ span.field_with_errors
         :background #21286c
         :margin 0
         :padding 0.2em 0.5em
-        :font-weight 100
+        :font-weight normal
         :border-bottom 1px solid #ccc
     
       ul
@@ -439,7 +441,7 @@ span.field_with_errors
         a:hover
           :background-color rgba(33, 40, 108, .9)
         
-    .brief
+    .brief, .proposal
       :background #fffffe
       :margin 2em 0
       
@@ -471,7 +473,7 @@ span.field_with_errors
           :height 16px
           :text-indent -3000px
       
-      .brief_item, .most_important_thing
+      .brief_item, .most_important_thing, .proposal_item
         :padding 1em 2em
         :border 1px solid #ccc
         :border-bottom 1px solid #eee
@@ -487,6 +489,9 @@ span.field_with_errors
             :position relative
             :top -0.4em
             :left 0
+        
+      .brief_item:last-child, .proposal_item:last-child
+        :border-bottom 1px solid #ccc
             
         //when editing    
             
@@ -654,8 +659,19 @@ span.field_with_errors
       
       h3.empty
         :color #ccc
+    
+    .comments_area
+      :padding 0 2em
+      :margin 1em 0 2em 0
+      
+      h4
+        :padding 0.5em 0
+    
+      .comments
+        :padding 0
+        :margin 0
         
-    .question_list, .brief_item_history
+    .question_list, .brief_item_history, .comments
     
       li
         :padding 0.5em 1em 0 1em
@@ -675,11 +691,11 @@ span.field_with_errors
           :background white
           :padding 0 0.5em
     
-      .question
+      .question, .comment
         :margin-bottom 1em
         :padding 0 2em
       
-        .question_body, .author_answer, .author_answer_form
+        .question_body, .author_answer, .author_answer_form, .comment_body, .comment_form
           .speech
             :background #e9e9e8
             :padding 1em 1em
@@ -688,7 +704,7 @@ span.field_with_errors
             :display block
             :position relative
             
-        .question_body
+        .question_body, .comment_body
           :font-size 1.1em
         
           .speech
@@ -706,8 +722,8 @@ span.field_with_errors
           img
             :float left
             :margin-top 0.3em
-        
-        .author_answer, .author_answer_form      
+            
+        .author_answer, .author_answer_form, .comment_form
           :padding 0.5em 0 1em 1.5em
         
           img
@@ -740,7 +756,17 @@ span.field_with_errors
         
           p.submit
             :margin-right 6em
-            
+        
+        #comment_form
+          :width 50.5em
+          
+          img
+            :margin-top 2em
+          
+          textarea
+            :width 37em
+            :margin-bottom 0.5em
+        
         .show_author_answer_form
           :position absolute
           :top 1.8em
@@ -879,7 +905,7 @@ span.field_with_errors
             :margin 0 2px
             :padding 4px 8px
             :color #ccc
-            :font-weight 100
+            :font-weight normal
             :font-size 1.8em
             
           span.selected

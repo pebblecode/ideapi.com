@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090908153925) do
+ActiveRecord::Schema.define(:version => 20090922170252) do
+
+  create_table "assets", :force => true do |t|
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+  end
+
+  add_index "assets", ["attachable_id"], :name => "index_assets_on_attachable_id"
 
   create_table "brief_item_versions", :force => true do |t|
     t.integer  "brief_item_id"
@@ -54,6 +67,20 @@ ActiveRecord::Schema.define(:version => 20090908153925) do
 
   add_index "briefs", ["delta"], :name => "index_briefs_on_delta"
 
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "friendships", :force => true do |t|
     t.integer  "user_id",     :null => false
     t.integer  "friend_id",   :null => false
@@ -84,10 +111,7 @@ ActiveRecord::Schema.define(:version => 20090908153925) do
     t.datetime "updated_at"
     t.datetime "published_at"
     t.string   "title"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "attachment_updated_at"
+    t.string   "state"
   end
 
   create_table "questions", :force => true do |t|

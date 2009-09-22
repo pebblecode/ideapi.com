@@ -49,17 +49,17 @@ class CreativeResponsesTest < ActionController::IntegrationTest
               fill_in 'Your idea', :with => @proposal[:long_description]              
             end
             
-            context "clicking save draft" do
+            context "" do
               setup do
                 click_button 'save draft'
               end
               
               should_respond_with :success
-              should_render_template :edit
+              should_render_template :show
               should_change "Proposal.count", :by => 1
               
               should "contain title" do
-                assert_select 'input[type=text][value=?]', @proposal[:title]
+                assert_contain(@proposal[:title])
               end
 
               should "contain body" do
@@ -158,6 +158,8 @@ class CreativeResponsesTest < ActionController::IntegrationTest
           assert_equal(@new_title, @proposal.reload.title)
         end
         
+        should_respond_with :success
+        
         should "redirect to show page" do
           assert_equal(brief_proposal_path(@brief, @proposal), path)
         end
@@ -169,8 +171,10 @@ class CreativeResponsesTest < ActionController::IntegrationTest
           click_button 'Save draft'
         end
         
-        should "redirect to edit page" do
-          assert_equal(edit_brief_proposal_path(@brief, @proposal), path)
+        should_respond_with :success
+        
+        should "redirect to show page" do
+          assert_equal(brief_proposal_path(@brief, @proposal), path)
         end
       end
 
@@ -190,7 +194,11 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         end
         
         context "removing uploaded asset" do
-
+          
+          setup do
+            visit edit_brief_proposal_path(@brief, @proposal)
+          end
+          
           should "have checkbox to remove image" do
             assert_select 'input#remove_image'
           end

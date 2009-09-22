@@ -3,20 +3,47 @@
 
 .col_1
   
-  -if current_object.draft?
+  -if current_user.owns?(current_object) && current_object.draft?
     %p.fixed_notice 
       This proposal is currently a DRAFT for preview purposes, 
       =link_to 'continue editing your response.', edit_brief_proposal_path(parent_object, current_object)
   
-  %h2=current_object.title
-  %p=current_object.long_description
+  .proposal
+    %h2=current_object.title
+    .proposal_item
+      %p=current_object.long_description
+    
+    - current_object.assets.each do |asset|
+      .proposal_item
+        %p
+          -if asset.data.content_type =~ /image/
+            =link_to image_tag(asset.data.url, :width => "120"), asset.data.url
+          -else
+            =link_to asset.data.original_filename, asset.data.url
   
-  %p
-    -if current_object.attachment.content_type =~ /image/
-      =link_to image_tag(current_object.attachment.url, :width => "600"), current_object.attachment.url
-    -else
-      =link_to current_object.attachment.original_filename, current_object.attachment.url
+  .comments_area
   
+    %h4 Comments
+  
+    %ul.comments  
+      -current_object.comments.each do |comment|
+        %li[comment]        
+          %p.comment_body
+            =small_avatar(comment.user)
+            %span.speech
+              %strong="#{comment_adjective_for given_name(comment.user), :position => :before}:"
+              =comment.comment
+            %span.clear      
+      .comment
+        #comment_form.comment_form
+          =medium_avatar            
+          - form_for :comment, :url => comments_path do |f|
+            =hidden_field_tag :proposal_id, current_object.id
+            .speech=f.text_area :comment, :rows => 5, :cols => 80
+            %p.submit=f.submit "submit"
+            .clear        
+        
+        
 .col_2
-  %p=link_to 'back to brief', brief_path(parent_object), {:class => "awesome blue large", :style => "text-transform: uppercase" }
+  %p.emphasise=link_to 'back to brief', brief_path(parent_object), {:class => "awesome blue large", :style => "text-transform: uppercase" }
   

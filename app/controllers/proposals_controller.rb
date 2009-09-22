@@ -11,7 +11,11 @@ class ProposalsController < ApplicationController
     actions :all
     
     before :new, :create, :edit, :show, :update do
-      add_breadcrumb truncate(parent_object.title.downcase, :length => 30), ''
+      add_breadcrumb truncate(parent_object.title.downcase, :length => 30), brief_path(parent_object)
+    end
+    
+    before :new, :edit do 
+      current_object.assets.build
     end
     
     before :edit, :show, :update do

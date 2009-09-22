@@ -1,3 +1,17 @@
+CREATE TABLE `assets` (
+  `id` int(11) NOT NULL auto_increment,
+  `attachable_id` int(11) default NULL,
+  `attachable_type` varchar(255) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `data_file_name` varchar(255) default NULL,
+  `data_content_type` varchar(255) default NULL,
+  `data_file_size` int(11) default NULL,
+  `data_updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_assets_on_attachable_id` (`attachable_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `brief_item_versions` (
   `id` int(11) NOT NULL auto_increment,
   `brief_item_id` int(11) default NULL,
@@ -47,6 +61,21 @@ CREATE TABLE `briefs` (
   KEY `index_briefs_on_delta` (`delta`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(50) default '',
+  `comment` text,
+  `commentable_id` int(11) default NULL,
+  `commentable_type` varchar(255) default NULL,
+  `user_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_comments_on_commentable_type` (`commentable_type`),
+  KEY `index_comments_on_commentable_id` (`commentable_id`),
+  KEY `index_comments_on_user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `friendships` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
@@ -82,12 +111,9 @@ CREATE TABLE `proposals` (
   `updated_at` datetime default NULL,
   `published_at` datetime default NULL,
   `title` varchar(255) default NULL,
-  `attachment_file_name` varchar(255) default NULL,
-  `attachment_content_type` varchar(255) default NULL,
-  `attachment_file_size` int(11) default NULL,
-  `attachment_updated_at` datetime default NULL,
+  `state` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL auto_increment,
@@ -240,3 +266,13 @@ INSERT INTO schema_migrations (version) VALUES ('20090903141325');
 INSERT INTO schema_migrations (version) VALUES ('20090908125624');
 
 INSERT INTO schema_migrations (version) VALUES ('20090908153925');
+
+INSERT INTO schema_migrations (version) VALUES ('20090922114803');
+
+INSERT INTO schema_migrations (version) VALUES ('20090922114922');
+
+INSERT INTO schema_migrations (version) VALUES ('20090922142556');
+
+INSERT INTO schema_migrations (version) VALUES ('20090922170223');
+
+INSERT INTO schema_migrations (version) VALUES ('20090922170252');

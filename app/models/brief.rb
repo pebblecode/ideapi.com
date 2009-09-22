@@ -29,7 +29,9 @@ class Brief < ActiveRecord::Base
     :reject_if => :all_blank
   
   has_many :questions
-    
+  
+  acts_as_commentable
+  
   # callbacks
   after_create :generate_brief_items_from_template!
   

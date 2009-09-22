@@ -8,19 +8,68 @@ class Proposal < ActiveRecord::Base
 
   validates_presence_of :title, :long_description
   
-  has_attached_file :attachment
+  has_many :assets, :as => :attachable
   
-  def published?
-    published_at.present?
+  accepts_nested_attributes_for :assets, :allow_destroy => true
+  
+  acts_as_commentable
+  
+  include Ideapi::Schizo
+  
+  state :draft, :default => true do
+    handle :publish! do
+      self.published_at = Time.now
+      stored_transition_to(:published)
+    end  
   end
   
-  def draft?
-    !published?
+  state :published do
+    handle :needs_work! do
+      stored_transition_to(:needs_work)
+    end
+    
+    handle :approve! do
+      stored_transition_to(:approved)
+    end
+    
+    handle :drop! do
+      stored_transition_to(:dropped)
+    end
   end
   
-  def publish!
-    update_attribute(:published_at, Time.now) unless published?
-    return published?
+  state :needs_work do
+    handle :approve! do
+      stored_transition_to(:approved)
+    end
+    
+    handle :drop! do
+      stored_transition_to(:dropped)
+    end
   end
+  
+  state :approved do
+    handle :needs_work! do
+      stored_transition_to(:needs_work)
+    end
+    
+    handle :drop! do
+      stored_transition_to(:dropped)
+    end
+  end
+  
+  state :dropped do
+    handle :needs_work! do
+      stored_transition_to(:needs_work)
+    end
+    
+    handle :approve! do
+      stored_transition_to(:approved)
+    end
+  end
+  
+  become_schizophrenic
+
+  before_save :ensure_default_state
+  
   
 end

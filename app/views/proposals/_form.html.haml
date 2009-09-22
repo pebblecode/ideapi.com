@@ -10,18 +10,21 @@
   %p.help_message
     Simple. Focused. Short. Sell it.
     
-%p
-  = f.label :attachment  
-  = f.file_field :attachment
+- f.fields_for :assets do |asset_form|
 
-- if current_object.attachment.file?
-  %p
-    %label Current attachment
-    -if current_object.attachment.content_type =~ /image/
-      =link_to image_tag(current_object.attachment.url, :width => "100"), current_object.attachment.url
-    -else
-      =link_to current_object.attachment.original_filename, current_object.attachment.url
-    
-  %p
-    %label Remove?
-    =check_box_tag 'remove_image'
+  -if asset_form.object.new_record?
+    %p
+      = asset_form.label :data, 'Upload file'
+      = asset_form.file_field :data
+  -else
+    - if asset_form.object.data.file?
+      %p
+        %label Current attachment
+        -if asset_form.object.data.content_type =~ /image/
+          =link_to image_tag(asset_form.object.data.url, :width => "100"), asset_form.object.data.url
+        -else
+          =link_to asset_form.object.data.original_filename, asset_form.object.data.url
+      %p
+        = asset_form.check_box '_delete'
+        = asset_form.label '_delete', 'Remove'
+      .hr
