@@ -7,6 +7,7 @@ class Brief < ActiveRecord::Base
   # relationships
   belongs_to :user
   belongs_to :template_brief
+  belongs_to :approver, :class_name => 'User'
   
   has_many :brief_items, :order => :position
   has_many :invitations, :as => :redeemable
@@ -54,6 +55,7 @@ class Brief < ActiveRecord::Base
 
   state :draft, :default => true do
     handle :publish! do
+      ensure_approver_set
       transition_to :published
       save!
     end
@@ -154,6 +156,10 @@ class Brief < ActiveRecord::Base
   
 
   private 
+  
+  def ensure_approver_set
+    self.approver_id = self.user_id if self.approver_id.blank?
+  end
   
   def generate_brief_items_from_template!
     raise 'TemplateBriefMissing' if template_brief.blank?

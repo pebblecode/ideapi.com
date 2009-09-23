@@ -686,6 +686,32 @@ span.field_with_errors input {
 p.subs {
   float: right; }
 
+p.submit_comment {
+  width: auto;
+  display: inline;
+  margin: 0 6em 2em 1em;
+  float: right; }
+  p.submit_comment label {
+    width: auto; }
+  p.submit_comment input[type=submit] {
+    margin-left: 1em;
+    background: #ddd;
+    border: none;
+    padding: 0.5em 1em 0.6em 1em;
+    color: #333;
+    text-decoration: none;
+    -moz-border-radius: none;
+    -webkit-border-radius: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    text-shadow: 0;
+    border-bottom: none;
+    cursor: pointer;
+    text-shadow: none; }
+  p.submit_comment input[type=submit]:hover {
+    background: #21286c;
+    color: white; }
+
 p.submit {
   background: #ddd;
   border: none;

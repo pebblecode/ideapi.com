@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090922170252) do
+ActiveRecord::Schema.define(:version => 20090923115903) do
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20090922170252) do
     t.datetime "published_at"
     t.string   "title"
     t.string   "state"
+    t.integer  "approver_id"
   end
 
   create_table "questions", :force => true do |t|

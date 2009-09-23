@@ -10,8 +10,8 @@ class CommentsController < ApplicationController
     before :create do
       current_object.user = current_user
     end
-    
-    response_for :create, :update do |format|
+
+    response_for (:create, :update, :create_fails, :update_fails) do |format|
       format.html { redirect_to parent_path }
     end
     

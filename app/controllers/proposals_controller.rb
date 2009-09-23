@@ -43,7 +43,12 @@ class ProposalsController < ApplicationController
     
     response_for :update do |format|
       format.html {
-        redirect_to (params[:commit] == "Preview" ? object_path : edit_object_path)
+        flash[:notice] = "Proposal successfully updated"
+        if current_object.draft?
+          redirect_to (params[:commit] == "Preview" ? object_path : edit_object_path)
+        else
+          redirect_to object_path
+        end
       }
     end
     

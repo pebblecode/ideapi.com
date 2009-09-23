@@ -1,0 +1,20 @@
+.discussion_stats
+  %h2 
+    Creative Responses
+    %span
+  - if current_object.proposals.published.present?
+    %ul.watching
+      -current_object.proposals.published.each do |proposal|
+        %li
+          =small_avatar(proposal.user)
+          %p
+            =link_to truncate(proposal.title, :lenght => 10), brief_proposal_path(current_object, proposal)
+            by 
+            =given_name(proposal.user)
+            %br
+            %span
+              updated
+              =distance_of_time_in_words_to_now(proposal.updated_at)
+              ago
+  - else
+    %p No proposals have been submitted

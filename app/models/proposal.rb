@@ -2,6 +2,8 @@ class Proposal < ActiveRecord::Base
   belongs_to :brief
   belongs_to :user
   
+  delegate :approver, :to => :brief
+  
   validates_uniqueness_of :brief_id, 
     :scope => :user_id, 
     :message => "You are already pitching for this brief"
@@ -67,9 +69,20 @@ class Proposal < ActiveRecord::Base
     end
   end
   
+
   become_schizophrenic
 
   before_save :ensure_default_state
   
+  
+  class << self
+    def approval_states
+      states.reject{|state_name,state_object| state_name.to_s =~ /draft|published/ }
+    end
+
+    def approval_state_names
+      approval_states.collect{|state_name,state_object| state_name.to_s }
+    end
+  end
   
 end

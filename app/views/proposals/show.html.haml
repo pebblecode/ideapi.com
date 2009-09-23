@@ -21,28 +21,45 @@
           -else
             =link_to asset.data.original_filename, asset.data.url
   
-  .comments_area
+  - if current_user.owns?(current_object) && current_object.draft?
+    .hr
+    - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
+      %p.submit
+        = submit_tag "Submit proposal"
+      .clear
   
-    %h4 Comments
-  
-    %ul.comments  
-      -current_object.comments.each do |comment|
-        %li[comment]        
-          %p.comment_body
-            =small_avatar(comment.user)
-            %span.speech
-              %strong="#{comment_adjective_for given_name(comment.user), :position => :before}:"
-              =comment.comment
-            %span.clear      
-      .comment
-        #comment_form.comment_form
-          =medium_avatar            
-          - form_for :comment, :url => comments_path do |f|
-            =hidden_field_tag :proposal_id, current_object.id
-            .speech=f.text_area :comment, :rows => 5, :cols => 80
-            %p.submit=f.submit "submit"
-            .clear        
+  - unless current_object.draft?    
+    .comments_area
+      %h4 Comments
+      
+      - if current_object.comments.blank?
         
+        %p There have been no comments
+        
+      - else
+
+        %ul.comments  
+          -current_object.comments.each do |comment|
+            %li[comment]        
+              %p.comment_body
+                =small_avatar(comment.user)
+                %span.speech
+                  %strong="#{comment_adjective_for given_name(comment.user), :position => :before}:"
+                  =comment.comment
+                %span.clear      
+          .comment
+            #comment_form.comment_form
+              =medium_avatar            
+              - form_for :comment, :url => comments_path do |f|
+                =hidden_field_tag :proposal_id, current_object.id
+                .speech=f.text_area :comment, :rows => 5, :cols => 80
+
+                %p.submit_comment
+                  - if current_user.owns?(parent_object)
+                    =label 'proposal[state]', 'Mark as:'
+                    =select_tag 'commment[proposal][assign_state]', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] })
+                  =f.submit "submit"
+  
         
 .col_2
   %p.emphasise=link_to 'back to brief', brief_path(parent_object), {:class => "awesome blue large", :style => "text-transform: uppercase" }

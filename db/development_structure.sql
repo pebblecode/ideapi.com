@@ -46,7 +46,7 @@ CREATE TABLE `brief_user_views` (
   `view_count` int(11) default '0',
   `last_viewed_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -112,6 +112,7 @@ CREATE TABLE `proposals` (
   `published_at` datetime default NULL,
   `title` varchar(255) default NULL,
   `state` varchar(255) default NULL,
+  `approver_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -276,3 +277,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090922142556');
 INSERT INTO schema_migrations (version) VALUES ('20090922170223');
 
 INSERT INTO schema_migrations (version) VALUES ('20090922170252');
+
+INSERT INTO schema_migrations (version) VALUES ('20090923115903');
