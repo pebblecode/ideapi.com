@@ -31,6 +31,32 @@
       %p This document is empty
     =render :partial => 'brief_item', :collection => (current_object.brief_items.answered), :locals => { :draft => current_object.draft? }
 
+
+  - unless current_object.draft?    
+    .comments_area
+      %h4 Comments
+      %ul.comments
+        - if current_object.comments.blank?
+          %li
+            %p There have been no comments
+        -current_object.comments.each do |comment|
+          %li[comment]        
+            %p.comment_body
+              =small_avatar(comment.user)
+              %span.speech
+                %strong="#{comment_adjective_for given_name(comment.user), :position => :before}:"
+                =comment.comment
+              %span.clear      
+        .comment
+          #comment_form.comment_form
+            =medium_avatar            
+            - form_for :comment, :url => comments_path do |f|
+              =hidden_field_tag :brief_id, current_object.id
+              .speech=f.text_area :comment, :rows => 5, :cols => 80
+
+              %p.submit_comment
+                =f.submit "submit"
+                    
 .col_2
   -unless owner?(current_object)
     %p.emphasise=creative_response_button(current_object, current_user.proposal_for(current_object))

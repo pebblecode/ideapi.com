@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     if parent_object.is_a?(Proposal)
       brief_proposal_path(parent_object.brief, parent_object)
     else
-      super
+      brief_path(parent_object)
     end
   end
 
