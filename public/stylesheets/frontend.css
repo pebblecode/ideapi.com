@@ -323,6 +323,12 @@ span.field_with_errors input {
       color: white; }
     #container #content ul.tabbed_links li a:hover {
       background-color: rgba(33, 40, 108, .9); }
+#container #content .proposal h2 .update_proposal {
+  position: absolute;
+  right: 15px;
+  top: 9px; }
+  #container #content .proposal h2 .update_proposal span {
+    color: white; }
 #container #content .brief, #container #content .proposal {
   background: #fffffe;
   margin: 2em 0; }

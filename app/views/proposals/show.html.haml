@@ -9,9 +9,19 @@
       =link_to 'continue editing your response.', edit_brief_proposal_path(parent_object, current_object)
   
   .proposal
-    %h2=current_object.title
+    %h2
+      =current_object.title
+      - if current_user.owns?(parent_object)
+        .update_proposal
+          - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
+            %span mark brief as
+            =f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
+            =f.submit "update"
+        
     .proposal_item
       %p=current_object.long_description
+      
+      
     
     - current_object.assets.each do |asset|
       .proposal_item
@@ -49,12 +59,7 @@
             - form_for :comment, :url => comments_path do |f|
               =hidden_field_tag :proposal_id, current_object.id
               .speech=f.text_area :comment, :rows => 5, :cols => 80
-
-              %p.submit_comment
-                - if current_user.owns?(parent_object)
-                  =label 'proposal[state]', 'Mark as:'
-                  =select_tag 'commment[proposal][assign_state]', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] })
-                =f.submit "submit"
+              %p.submit_comment=f.submit "submit"
   
         
 .col_2
