@@ -114,7 +114,7 @@ class Invitation < ActiveRecord::Base
     end
     
     def from_list(list, user, params)
-      emails = emails_from_string(list)
+      emails = User.emails_from_string(list)
       invites = []
       
       emails.each do |email|
@@ -124,18 +124,6 @@ class Invitation < ActiveRecord::Base
       end
       
       return invites
-    end
-    
-    def emails_from_string(str)
-      str.split(/,|\s/).reject {|email| email.blank? || !valid_email?(email) }
-    end
-    
-    def email_regex
-      @email_regex =  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-    end
-          
-    def valid_email?(email)
-      (email =~ email_regex ? true : false)
     end
   
   end

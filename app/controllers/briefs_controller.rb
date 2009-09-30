@@ -15,10 +15,6 @@ class BriefsController < ApplicationController
   add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   add_breadcrumb 'edit your brief', :edit_object_path, :only => [:edit, :update]
   
-  def current_objects
-    @current_objects ||= parent_object.briefs_grouped_by_state
-  end
-    
   make_resourceful do
     belongs_to :user
     actions :all
@@ -27,10 +23,12 @@ class BriefsController < ApplicationController
       add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path
       set_user_last_viewed_brief
       
+      current_object.watched_briefs.build
+      
       # record view
       current_object.brief_user_views.record_view_for_user(current_user)
       
-      @invitation = Invitation.new(:user => current_user, :redeemable => current_object)
+      #@invitation = Invitation.new(:user => current_user, :redeemable => current_object)
     end
     
     
@@ -48,8 +46,6 @@ class BriefsController < ApplicationController
         else
           flash[:error] = "Brief could not be published, any changes have been saved."
         end
-      else
-        flash[:notice] = "Brief has been updated."
       end
     end
     
@@ -62,7 +58,7 @@ class BriefsController < ApplicationController
     end
     
     response_for(:update, :update_fails) do |format|
-      format.html { redirect_to :action => @published ? 'show' : 'edit' }
+      format.html { redirect_to :action => current_object.published? ? 'show' : 'edit' }
       format.json { render :json => current_object }  
     end
   
@@ -90,12 +86,12 @@ class BriefsController < ApplicationController
     
   end
   
-  def browse
-    @search_results = Brief.search(params[:q])
-    respond_to do |format|
-      format.html
-    end
-  end
+  # def browse
+  #   @search_results = Brief.search(params[:q])
+  #   respond_to do |format|
+  #     format.html
+  #   end
+  # end
   
   def watch
     if !record_owner?      

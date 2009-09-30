@@ -11,6 +11,7 @@
   .proposal
     %h2
       =current_object.title
+      %span.status=current_object.state
       - if current_user.owns?(parent_object)
         .update_proposal
           - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|

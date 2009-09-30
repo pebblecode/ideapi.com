@@ -4,17 +4,22 @@ class InvitationsController < ApplicationController
   before_filter :require_user, :except => [:show]
   
   
+  
   def create
     store_location
     
-    existing_users, to_invite = extract_existing_users_from(
+    friends, existing_users, to_invite = current_user.extract_existing_users_and_friendships(
       params[:invitation].delete(:recipient_list)
     )
     
-    @friendships = make_friends_with_existing_users(existing_users)
-        
+    # Create friendships with existing users
+    @friendships = current_user.make_friends_with(existing_users)
+    
+    # Create invitations for users not using the system
     @invitations = Invitation.from_list_into_hash(
-      {:recipient_list => to_invite.join(", ")}.merge!(params[:invitation]), current_user
+      {
+        :recipient_list => to_invite.join(", ")
+      }.merge!(params[:invitation]), current_user
     )
     
     send_invitations_for(@invitations[:successful])
@@ -135,44 +140,6 @@ class InvitationsController < ApplicationController
   
   def store_location
     session[:return_to] = request.env['HTTP_REFERER']
-  end
-  
-  def make_friends_with_existing_users(users)
-    returning ([]) do |friendships|
-      users.each { |user|
-        friendships << current_user.request_friendship_with(user)
-      }
-    end
-  end
-  
-  # this probably should be delegated to a class
-  # also it wont grab people who aren't friends
-  def extract_existing_users_from(list)
-    existing, to_invite = [], []
-    
-    Invitation.emails_from_string(list).each do |email|
-      if user = User.find_by_email(email)
-        
-        # if they are already friends we don't want to
-        # make friends with them again,
-        # it is likely we are inviting them to 
-        # something .. ie a brief..
-        if current_user.is_friends_with?(user)
-          # add them back into the invite list
-          # and we'll deal with later ..
-          to_invite << email
-        else
-          # existing users to make friends with
-          existing << user
-        end
-        
-      else
-        # user with this email doesn't exist..
-        to_invite << email
-      end
-    end
-    
-    return existing, to_invite
   end
 
 end

@@ -24,6 +24,8 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "alter-ego", :lib => "alter_ego"
   config.gem "mislav-will_paginate", :lib => "will_paginate", :source => 'http://gems.github.com'
+  config.gem "giraffesoft-timeline_fu", :lib => "timeline_fu", :source => "http://gems.github.com"
+  
   
   # these could be in test.rb but I've used some of the elements for bootstrapping etc
   config.gem "faker"

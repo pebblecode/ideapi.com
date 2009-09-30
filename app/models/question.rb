@@ -2,7 +2,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :brief
   belongs_to :brief_item
-
+  
   named_scope :recent, :order => "updated_at DESC"
   named_scope :answered, :conditions => ["author_answer != ?", ""], :order => "updated_at ASC"
   named_scope :unanswered, :conditions => ["author_answer IS NULL"], :order => "created_at ASC"
@@ -17,6 +17,17 @@ class Question < ActiveRecord::Base
     !author_answer.blank?
   end
   
+  def answer_author
+    brief.user if answered? && brief.present?
+  end
+  
+  attr_reader :recently_answered
+  
+  def author_answer=(answer)
+    @recently_answered = true
+    self['author_answer'] = answer
+  end
+  
   def updated_on
     updated_at.to_date
   end
@@ -29,6 +40,15 @@ class Question < ActiveRecord::Base
       all(:group => :brief_item_id, :include => :brief_item).map(&:brief_item)
     end
   end
+  
+  fires :new_question, :on => :create,
+                       :actor => :user,
+                       :secondary_subject  => 'brief'
+  
+  fires :question_answered, :on => :update,
+                            :actor => 'answer_author',
+                            :secondary_subject  => 'brief',
+                            :if => lambda { |question| (question.answered? && question.recently_answered) }
   
   private
   

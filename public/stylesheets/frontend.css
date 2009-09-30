@@ -238,8 +238,6 @@ span.field_with_errors input {
     padding: 0.8em 0.5em;
     text-align: center;
     background: white; }
-#container #content #dashboard h2.salu {
-  padding-bottom: 1em; }
 #container #content #dashboard .brief_overviews h2 {
   padding: 0;
   font-size: 1.1em;
@@ -323,16 +321,23 @@ span.field_with_errors input {
       color: white; }
     #container #content ul.tabbed_links li a:hover {
       background-color: rgba(33, 40, 108, .9); }
+#container #content .proposal h2 span.status {
+  background: yellow;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: black;
+  padding: 0.5em;
+  margin-left: 0.5em; }
 #container #content .proposal h2 .update_proposal {
   position: absolute;
   right: 15px;
   top: 9px; }
   #container #content .proposal h2 .update_proposal span {
     color: white; }
-#container #content .brief, #container #content .proposal {
+#container #content .brief, #container #content .proposal, #container #content .brief_list {
   background: #fffffe;
   margin: 2em 0; }
-  #container #content .brief h2,   #container #content .proposal h2 {
+  #container #content .brief h2,   #container #content .proposal h2,   #container #content .brief_list h2 {
     background: #333;
     color: white;
     font-size: 1.2em;
@@ -342,27 +347,27 @@ span.field_with_errors input {
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
     position: relative; }
-    #container #content .brief h2 a,     #container #content .proposal h2 a {
+    #container #content .brief h2 a,     #container #content .proposal h2 a,     #container #content .brief_list h2 a {
       color: #666;
       position: absolute;
       right: 4em;
       top: 1em; }
-    #container #content .brief h2 a:hover,     #container #content .proposal h2 a:hover {
+    #container #content .brief h2 a:hover,     #container #content .proposal h2 a:hover,     #container #content .brief_list h2 a:hover {
       color: #fefefe; }
-    #container #content .brief h2 a.print_brief,     #container #content .proposal h2 a.print_brief {
+    #container #content .brief h2 a.print_brief,     #container #content .proposal h2 a.print_brief,     #container #content .brief_list h2 a.print_brief {
       top: 1.2em;
       right: 1.8em;
       background: url(/images/printer_empty.png);
       width: 16px;
       height: 16px;
       text-indent: -3000px; }
-  #container #content .brief .brief_item, #container #content .brief .most_important_thing, #container #content .brief .proposal_item,   #container #content .proposal .brief_item, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item {
+  #container #content .brief .brief_item, #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief,   #container #content .proposal .brief_item, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief,   #container #content .brief_list .brief_item, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
     padding: 1em 2em;
     border: 1px solid #ccc;
     border-bottom: 1px solid #eee;
     border-top: 0;
     position: relative; }
-    #container #content .brief .brief_item h3 span.updated,     #container #content .brief .most_important_thing h3 span.updated,     #container #content .brief .proposal_item h3 span.updated,     #container #content .proposal .brief_item h3 span.updated,     #container #content .proposal .most_important_thing h3 span.updated,     #container #content .proposal .proposal_item h3 span.updated {
+    #container #content .brief .brief_item h3 span.updated,     #container #content .brief .most_important_thing h3 span.updated,     #container #content .brief .proposal_item h3 span.updated,     #container #content .brief .brief h3 span.updated,     #container #content .proposal .brief_item h3 span.updated,     #container #content .proposal .most_important_thing h3 span.updated,     #container #content .proposal .proposal_item h3 span.updated,     #container #content .proposal .brief h3 span.updated,     #container #content .brief_list .brief_item h3 span.updated,     #container #content .brief_list .most_important_thing h3 span.updated,     #container #content .brief_list .proposal_item h3 span.updated,     #container #content .brief_list .brief h3 span.updated {
       font-size: 0.2em;
       color: #999;
       font-weight: bold;
@@ -370,12 +375,12 @@ span.field_with_errors input {
       position: relative;
       top: -0.4em;
       left: 0; }
-  #container #content .brief .brief_item:last-child, #container #content .brief .proposal_item:last-child,   #container #content .proposal .brief_item:last-child, #container #content .proposal .proposal_item:last-child {
+  #container #content .brief .brief_item:last-child, #container #content .brief .proposal_item:last-child,   #container #content .proposal .brief_item:last-child, #container #content .proposal .proposal_item:last-child,   #container #content .brief_list .brief_item:last-child, #container #content .brief_list .proposal_item:last-child {
     border-bottom: 1px solid #ccc; }
-    #container #content .brief .brief_item:last-child textarea,     #container #content .brief .proposal_item:last-child textarea,     #container #content .proposal .brief_item:last-child textarea,     #container #content .proposal .proposal_item:last-child textarea {
+    #container #content .brief .brief_item:last-child textarea,     #container #content .brief .proposal_item:last-child textarea,     #container #content .proposal .brief_item:last-child textarea,     #container #content .proposal .proposal_item:last-child textarea,     #container #content .brief_list .brief_item:last-child textarea,     #container #content .brief_list .proposal_item:last-child textarea {
       width: 46em;
       height: 10em; }
-    #container #content .brief .brief_item:last-child .help_message,     #container #content .brief .proposal_item:last-child .help_message,     #container #content .proposal .brief_item:last-child .help_message,     #container #content .proposal .proposal_item:last-child .help_message {
+    #container #content .brief .brief_item:last-child .help_message,     #container #content .brief .proposal_item:last-child .help_message,     #container #content .proposal .brief_item:last-child .help_message,     #container #content .proposal .proposal_item:last-child .help_message,     #container #content .brief_list .brief_item:last-child .help_message,     #container #content .brief_list .proposal_item:last-child .help_message {
       width: 18em;
       border: 1px solid #ccc;
       background: rgb(252, 252, 252);
@@ -384,30 +389,30 @@ span.field_with_errors input {
       position: absolute;
       top: 4em;
       left: 51.5em; }
-  #container #content .brief .most_important_thing,   #container #content .proposal .most_important_thing {
+  #container #content .brief .most_important_thing,   #container #content .proposal .most_important_thing,   #container #content .brief_list .most_important_thing {
     padding: 1em 1em 1em 3em; }
-    #container #content .brief .most_important_thing p,     #container #content .proposal .most_important_thing p {
+    #container #content .brief .most_important_thing p,     #container #content .proposal .most_important_thing p,     #container #content .brief_list .most_important_thing p {
       font-size: 2.2em;
       font-weight: bold;
       color: #333333;
       padding: 0 2em;
       position: relative; }
-      #container #content .brief .most_important_thing p span,       #container #content .proposal .most_important_thing p span {
+      #container #content .brief .most_important_thing p span,       #container #content .proposal .most_important_thing p span,       #container #content .brief_list .most_important_thing p span {
         font-size: 4em;
         position: absolute;
         padding: 0;
         margin: 0;
         height: 0.4em;
         line-height: 0.8em; }
-      #container #content .brief .most_important_thing p span.left,       #container #content .proposal .most_important_thing p span.left {
+      #container #content .brief .most_important_thing p span.left,       #container #content .proposal .most_important_thing p span.left,       #container #content .brief_list .most_important_thing p span.left {
         top: 0;
         left: 0; }
-      #container #content .brief .most_important_thing p span.right,       #container #content .proposal .most_important_thing p span.right {
+      #container #content .brief .most_important_thing p span.right,       #container #content .proposal .most_important_thing p span.right,       #container #content .brief_list .most_important_thing p span.right {
         bottom: -0.2em;
         padding-right: 0.5em; }
-  #container #content .brief .brief_item:hover,   #container #content .proposal .brief_item:hover {
+  #container #content .brief .brief_item:hover,   #container #content .proposal .brief_item:hover,   #container #content .brief_list .brief_item:hover {
     background: #ffffdf; }
-  #container #content .brief .brief_item.extended:hover,   #container #content .proposal .brief_item.extended:hover {
+  #container #content .brief .brief_item.extended:hover,   #container #content .proposal .brief_item.extended:hover,   #container #content .brief_list .brief_item.extended:hover {
     background: transparent; }
 #container #content .note {
   padding: 0.5em 2em 0.5em 2em;
@@ -913,23 +918,24 @@ textarea {
     #container #content .col_2 .discussion_stats ul span.author {
       color: #0099CC;
       font-weight: bold; }
-#container #content .col_2 .invite_users, #container #content .col_2 .invite_contacts {
+#container #content .col_2 .invite_users {
   padding: 0.5em 1em 0.5em 1em;
   position: relative;
   border: 1px solid #ccc;
   background: #eee; }
-  #container #content .col_2 .invite_users h4,   #container #content .col_2 .invite_contacts h4 {
+  #container #content .col_2 .invite_users h4 {
     font-size: 1.2em; }
-  #container #content .col_2 .invite_users textarea,   #container #content .col_2 .invite_contacts textarea {
+  #container #content .col_2 .invite_users textarea {
     font-size: 1em;
     width: 19em;
     height: 4em; }
 #container #content .col_2 .invite_contacts {
-  margin-bottom: 1em;
+  margin-top: 2em;
   border: none;
   background: #fff;
   border-bottom: 1px solid #eee; }
   #container #content .col_2 .invite_contacts h4 {
+    font-size: 1.2em;
     padding-bottom: 0; }
   #container #content .col_2 .invite_contacts input[type=submit] {
     margin: 0.5em 0 0 0; }

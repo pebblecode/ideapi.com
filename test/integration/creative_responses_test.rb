@@ -72,30 +72,6 @@ class CreativeResponsesTest < ActionController::IntegrationTest
               
             end
             
-            context "clicking publish" do
-              setup do
-                click_button 'Submit proposal'
-              end
-              
-              should_respond_with :success
-              should_render_template :show
-              should_change "Proposal.count", :by => 1
-              
-              should "contain title" do
-                assert_contain(@proposal[:title])
-              end
-
-              should "contain body" do
-                assert_contain(@proposal[:long_description])
-              end
-
-              should "be published" do
-                assert assigns(:current_object).published?
-              end
-              
-            end
-            
-            
           end
           
           
@@ -173,45 +149,40 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         
         should_respond_with :success
         
-        should "redirect to show page" do
-          assert_equal(brief_proposal_path(@brief, @proposal), path)
+        should "redirect to edit page" do
+          assert_equal(edit_brief_proposal_path(@brief, @proposal), path)
         end
       end
 
-
       context "uploading asset" do
         setup do
-          attach_file 'attachment', File.join(Rails.root, 'test', 'fixtures', 'asset.jpg')
+          attach_file 'Upload file', File.join(Rails.root, 'test', 'fixtures', 'asset.jpg')
           click_button 'Save draft'
         end
 
         should "have an attachment" do
-          assert @proposal.reload.attachment.file?
+          assert @proposal.reload.assets.first.data.file?
         end
         
         should "match filename to fixture uploaded" do
-          assert_equal(@proposal.reload.attachment_file_name, "asset.jpg")
+          assert_equal(@proposal.reload.assets.first.data_file_name, "asset.jpg")
         end
         
         context "removing uploaded asset" do
           
-          setup do
-            visit edit_brief_proposal_path(@brief, @proposal)
-          end
-          
           should "have checkbox to remove image" do
-            assert_select 'input#remove_image'
+            assert_select 'input#proposal_assets_attributes_0__delete'
           end
           
           context "by clicking checkbox and submitting" do
             setup do
               reload
-              check 'remove_image'
+              check 'proposal_assets_attributes_0__delete'
               click_button 'Save draft'
             end
 
             should "have no attachment" do
-              assert !@proposal.reload.attachment.file?
+              assert !@proposal.reload.assets.first.data.file?
             end
           end
           
@@ -219,40 +190,34 @@ class CreativeResponsesTest < ActionController::IntegrationTest
                 
       end
 
-    end
-    
-    
-    context "dashboard" do
-      setup do
-        @user.watch(@brief)
-        visit briefs_path
-      end
-
-      should "list brief in watching list" do
-        assert_select '.watching li.brief', :text => @brief.title, :count => 1
-      end
-      
-      should "not list brief in pitching list" do
-        assert_select '.pitching li.brief', :count => 0
-      end
-      
-      context "when pitching" do
-        setup do
-          @proposal = @user.proposals.make(:published, {:brief => @brief})
-          reload
-        end
-
-        should "not list brief in watching list" do
-          assert_select '.watching li.brief', :count => 0
-        end
-
-        should "list brief in pitching list" do
-          assert_select '.pitching li.brief', :count => 1
-        end
-      end
+      context "clicking publish" do
         
+        setup do
+          visit brief_proposal_path(@brief, @proposal)
+          click_button 'Submit proposal'
+        end
+
+        should_respond_with :success
+        should_render_template :show
+        should_change "Proposal.published.count", :by => 1
+
+        should "contain title" do
+          assert_contain(@proposal[:title])
+        end
+
+        should "contain body" do
+          assert_contain(@proposal[:long_description])
+        end
+
+        should "be published" do
+          assert assigns(:current_object).published?
+        end
+
+      end
+      
+    
     end
-  
+    
   end
 
 end

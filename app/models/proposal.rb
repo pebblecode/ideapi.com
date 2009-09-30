@@ -74,6 +74,16 @@ class Proposal < ActiveRecord::Base
 
   before_save :ensure_default_state
   
+  named_scope :active, :conditions => ["state <> 'draft'"]
+  
+  fires :new_proposal, :on => :create,
+                       :actor => :user,
+                       :secondary_subject  => 'brief'
+                       
+  fires :proposal_marked, :on => :update,
+                          :actor => 'approver',
+                          :secondary_subject  => 'brief',
+                          :if => lambda { |proposal| (proposal.previous_state != proposal.state) && (Proposal.approval_states.include?(proposal.state)) }
   
   class << self
     def approval_states

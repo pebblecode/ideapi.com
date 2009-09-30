@@ -1,32 +1,49 @@
--if current_object.all_involved.present?
-  .discussion_stats
-    %h2 
-      Brief Collaborators
-      %span
+.discussion_stats
+  %h2 
+    Brief Collaborators
+    %span
+  
+  -form_for current_object do |brief_form|  
     %ul.watching
-      -current_object.all_involved.each do |friend|
+      %li
+        =small_avatar(current_object.user)
+        %p
+          =link_to truncate(current_object.user.login, :lenght => 10), user_path(current_object.user)
+          %span.author - AUTHOR
+          %br
+          %span
+            -if current_object.user.last_request_at.present?            
+              =distance_of_time_in_words_to_now(current_object.user.last_request_at)
+              ago
+            -else
+              Never logged in
+    
+      -brief_form.fields_for :watched_briefs do |watcher|
         %li
-          =small_avatar(friend)
-          %p
-            =link_to truncate(friend.login, :lenght => 10), user_path(friend)
-            -if friend.eql?(current_object.user)
-              %span.author - AUTHOR
-            %br
-            %span
-              -if friend.last_request_at.present?            
-                =distance_of_time_in_words_to_now(friend.last_request_at)
-                ago
+          -if watcher.object.new_record? && owner?(current_object)
+            .invite_contacts
+              %h4 Invite contacts to participate
+              -if current_user.friends_not_watching(current_object).present?
+                =watcher.select 'user_id', current_user.friends_not_watching(current_object).map { |friend| [friend.login, friend.id] }, {:include_blank => true}, {:id => "contact_recipient_list"}
+                =brief_form.submit 'Invite', :id => "contact_submit" 
               -else
-                Never logged in
-                
--if owner?(current_object)
-  .invite_contacts
-    %h4 Invite contacts to participate
-    -if current_user.friends_not_watching(current_object).present?
-      -form_for @invitation, :url => invitations_path do |f|
-        =f.select 'recipient_list', current_user.friends_not_watching(current_object).map { |friend| [friend.login, friend.email] }, {:include_blank => true}, {:id => "contact_recipient_list"}
-        =f.hidden_field 'redeemable_id', :id => "contact_redeemable_id"
-        =f.hidden_field 'redeemable_type', :id => "contact_redeemable_type"
-        =f.submit 'Invite', :id => "contact_submit"
-    -else
-      %p No contacts left to add
+                %p No contacts left to add
+          -else
+            -if watcher.object.user.present?
+              =small_avatar(watcher.object.user)
+              %p
+                =link_to truncate(watcher.object.user.login, :lenght => 10), user_path(watcher.object.user)
+                -if watcher.object.user.eql?(current_object.approver)
+                  %span.author - APPROVER
+                -if owner?(current_object)
+                  = watcher.check_box '_delete'
+                %br
+                %span
+                  -if watcher.object.user.last_request_at.present?            
+                    =distance_of_time_in_words_to_now(watcher.object.user.last_request_at)
+                    ago
+                  -else
+                    Never logged in
+              
+    -if owner?(current_object)
+      =brief_form.submit 'Remove selected'

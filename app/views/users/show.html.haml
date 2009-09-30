@@ -62,12 +62,7 @@
                     -if invite.pending?
                       =link_to '(resend invite)', resend_invitation_path(invite.code), :style => "padding-left: 0.5em"
                   %td
-                    -if invite.redeemable_type.present?
-                      -case invite.redeemable_type
-                      -when 'Brief'  
-                        =link_to "brief collaboration", url_for(invite.redeemable)
-                    -else
-                      account
+                    account
                   %td
                     =distance_of_time_in_words_to_now(invite.created_at) 
                     ago

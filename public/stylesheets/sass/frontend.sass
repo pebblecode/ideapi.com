@@ -319,7 +319,6 @@ span.field_with_errors
     #dashboard
       
       h2.salu
-        :padding-bottom 1em
       
       .brief_overviews
   
@@ -440,9 +439,17 @@ span.field_with_errors
         
         a:hover
           :background-color rgba(33, 40, 108, .9)
-        
+            
     .proposal
       h2
+        span.status
+          :background yellow
+          :font-size 0.8em
+          :text-transform uppercase
+          :color black
+          :padding 0.5em
+          :margin-left 0.5em
+          
         .update_proposal
           :position absolute
           :right 15px
@@ -451,7 +458,7 @@ span.field_with_errors
           span
             :color white
     
-    .brief, .proposal
+    .brief, .proposal, .brief_list
       :background #fffffe
       :margin 2em 0
       
@@ -483,7 +490,7 @@ span.field_with_errors
           :height 16px
           :text-indent -3000px
       
-      .brief_item, .most_important_thing, .proposal_item
+      .brief_item, .most_important_thing, .proposal_item, .brief
         :padding 1em 2em
         :border 1px solid #ccc
         :border-bottom 1px solid #eee
@@ -1204,7 +1211,7 @@ textarea
             :color #0099CC
             :font-weight bold
       
-      .invite_users, .invite_contacts
+      .invite_users
         :padding 0.5em 1em 0.5em 1em
         :position relative
         :border 1px solid #ccc
@@ -1219,12 +1226,13 @@ textarea
           :height 4em
         
       .invite_contacts
-        :margin-bottom 1em
+        :margin-top 2em
         :border none
         :background #fff
         :border-bottom 1px solid #eee
         
         h4
+          :font-size 1.2em
           :padding-bottom 0
         
         input[type=submit]

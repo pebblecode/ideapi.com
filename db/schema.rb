@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090923115903) do
+ActiveRecord::Schema.define(:version => 20090930152121) do
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20090923115903) do
     t.integer "template_brief_id"
     t.text    "most_important_message"
     t.boolean "delta"
+    t.integer "approver_id"
   end
 
   add_index "briefs", ["delta"], :name => "index_briefs_on_delta"
@@ -99,7 +100,6 @@ ActiveRecord::Schema.define(:version => 20090923115903) do
     t.string   "redeemable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "existing_user",   :default => false
   end
 
   create_table "proposals", :force => true do |t|
@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(:version => 20090923115903) do
     t.datetime "published_at"
     t.string   "title"
     t.string   "state"
-    t.integer  "approver_id"
   end
 
   create_table "questions", :force => true do |t|
@@ -149,6 +148,18 @@ ActiveRecord::Schema.define(:version => 20090923115903) do
   create_table "template_sections", :force => true do |t|
     t.text    "title"
     t.integer "position"
+  end
+
+  create_table "timeline_events", :force => true do |t|
+    t.string   "event_type"
+    t.string   "subject_type"
+    t.string   "actor_type"
+    t.string   "secondary_subject_type"
+    t.integer  "subject_id"
+    t.integer  "actor_id"
+    t.integer  "secondary_subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

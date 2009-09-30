@@ -199,7 +199,7 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
           click_button "Update"
           
           assert_response :success
-          assert_equal edit_brief_path(@published), path
+          assert_equal brief_path(@published), path
           assert_contain(new_message)
           assert_equal(new_message, @published.reload.most_important_message)
         end

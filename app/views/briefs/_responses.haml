@@ -2,9 +2,9 @@
   %h2 
     Creative Responses
     %span
-  - if current_object.proposals.published.present?
+  - if current_object.proposals.active.present?
     %ul.watching
-      -current_object.proposals.published.each do |proposal|
+      -current_object.proposals.active.each do |proposal|
         %li
           =small_avatar(proposal.user)
           %p

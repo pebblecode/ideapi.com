@@ -11,16 +11,13 @@
       %h3 Welcome to the dashboard. 
       %p=flash[:note]
       
-  .brief_overviews
+  .brief_list
+    %h2 
+      dashboard
     -if current_objects.empty?
       %p You don't have any briefs yet.
     -else  
-      -current_objects.each do |state, briefs|
-        -if !briefs.empty?
-          .brief_overview{:class => state.to_s}
-            %h3="#{state.to_s.capitalize} briefs"
-            %ul
-              =render :partial => 'brief', :collection => briefs
-              
+      =render :partial => 'brief', :collection => current_objects
+      
 .col_2.dashboard
   =render :partial => 'users/invite'

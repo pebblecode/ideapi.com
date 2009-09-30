@@ -201,13 +201,7 @@ class InvitationsTest < ActionController::IntegrationTest
         @brief = Brief.make(:published, { :user => @user })
         visit brief_path(@brief)
       end
-      #   
-      # context "with no friends" do
-      #   should "contain an invitation form" do
-      #     assert_select 'form[action=?]', invitations_path 
-      #   end
-      # end
-      # 
+
       context "with friends" do
         setup do
           @friends = 3.times.map { User.make }
@@ -225,14 +219,10 @@ class InvitationsTest < ActionController::IntegrationTest
           @friends.each { |f| assert @user.is_friends_with?(f) }
         end
         
-        should "have form for inviting people" do
-          assert_select 'form[action=?][method=post]', invitations_path
-        end
-        
         should "have a drop down of friends to invite" do
-          assert_select 'select[name=?]', "invitation[recipient_list]" do
+          assert_select 'select#contact_recipient_list' do
             @friends.each do |friend|
-              assert_select 'option[value=?]', friend.email, :text => friend.login
+              assert_select 'option[value=?]', friend.id, :text => friend.login
             end
           end
         end
@@ -240,9 +230,11 @@ class InvitationsTest < ActionController::IntegrationTest
         context "clicking invite" do
           setup do
             @invited_friend = @friends.first
-            select @invited_friend.login, :from => 'invitation[recipient_list]'
+            select @invited_friend.login, :from => 'contact_recipient_list'
             click_button 'invite'
           end
+          
+          should_not_change "Invitation.count"
           
           should_respond_with :success
           
@@ -250,27 +242,18 @@ class InvitationsTest < ActionController::IntegrationTest
             assert_equal(brief_path(@brief), path)
           end
         
-          context "when invited user accepts" do
-            setup do
-              @invitation = @user.invitations.find_by_recipient_email(@invited_friend.email)
-              @invitation.redeem_for_user(@invited_friend)
-              reload
+          should "automatically add user to watching list" do
+            assert_select '.watching' do
+              assert_select 'a[href=?]', user_path(@invited_friend) , :text => @invited_friend.login
             end
-            
-            should "have invited username" do
-              assert_select '.watching' do
-                assert_select 'a[href=?]', user_path(@invited_friend) , :text => @invited_friend.login
-              end
-            end
-            
-            should "not have invited friend in the invite dropdown" do
-              assert_select 'select[name=?]', "invitation[recipient_list]" do
-                assert_select 'option[value=?]', @invited_friend.email, :text => @invited_friend.login, :count => 0
-              end
-            end
-          
           end
           
+          should "not have invited friend in the add collaboration dropdown" do
+            assert_select 'select#contact_recipient_list' do
+              assert_select 'option[value=?]', @invited_friend.id, :text => @invited_friend.login, :count => 0
+            end
+          end
+        
         end
         
          context "with friends already watching brief" do
@@ -287,11 +270,11 @@ class InvitationsTest < ActionController::IntegrationTest
           end
         
           should "have a drop down of friends to invite" do
-            assert_select 'select[name=?]', "invitation[recipient_list]" do
+            assert_select 'select#contact_recipient_list' do
               watching_dude, *others = @friends
-              assert_select 'option[value=?]', watching_dude.email, :text => watching_dude.login, :count => 0
+              assert_select 'option[value=?]', watching_dude.id, :text => watching_dude.login, :count => 0
               others.each do |friend|
-                assert_select 'option[value=?]', friend.email, :text => friend.login
+                assert_select 'option[value=?]', friend.id, :text => friend.login
               end
             end
           end
