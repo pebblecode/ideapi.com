@@ -30,7 +30,7 @@ if RAILS_ENV != "production"
         asker = User.all(:conditions => ["id <> ?", user.id]).rand
         b.brief_items.reload.rand.questions.make(:user => asker) 
         
-        user.become_friends_with(asker) unless user.is_friends_with?(asker)
+        user.become_friends_with(asker)
         
         asker.watch(b) if !asker.watching?(b)
       

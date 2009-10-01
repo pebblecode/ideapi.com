@@ -506,12 +506,20 @@ span.field_with_errors
             :position relative
             :top -0.4em
             :left 0
+            
+        .activity_stream
+          :border-top 1px solid #ccc
+          :margin-top 1em
+          li
+            :padding 1em
+            
+            span.date
+              :float right
+              :color #aaa
         
       .brief_item:last-child, .proposal_item:last-child
         :border-bottom 1px solid #ccc
-            
-        //when editing    
-            
+                
         textarea
           :width 46em
           :height 10em
@@ -550,9 +558,7 @@ span.field_with_errors
             
           span.right
             :bottom -0.2em
-            :padding-right 0.5em
-          
-            
+            :padding-right 0.5em          
         
       .brief_item:hover
         :background #ffffdf
@@ -560,6 +566,26 @@ span.field_with_errors
       .brief_item.extended:hover
         :background transparent
               
+    .brief_list
+      .brief_item:hover
+        :background transparent
+        
+      .toggle_activity_stream
+        :position absolute
+        :top 0.8em
+        :right 1em
+        :width 28px
+        :height 28px
+        :background url(/images/ico_circle.png) no-repeat
+        :color white
+        :text-align center
+        :font-size 1.4em
+        :padding-top 2px
+        
+      .toggle_activity_stream.active
+        :background url(/images/ico_minus.png) no-repeat
+        :text-indent -3000px
+    
     .note
       :padding 0.5em 2em 0.5em 2em
       :margin 2em 0 0.5em 0

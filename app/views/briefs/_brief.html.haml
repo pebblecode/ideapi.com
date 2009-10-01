@@ -1,2 +1,10 @@
 .brief_item
   %h3=link_to truncate(brief.title, :length => 30), (brief.published? ? brief_path(brief) : edit_brief_path(brief))
+  
+  %ul.activity_stream
+    -brief.activity_stream.each do |activity|
+      %li
+        %span=stream_item(activity)
+        %span.date="#{time_ago_in_words(activity.created_at)} ago"
+        
+  =link_to brief.activity_stream.count, "#", :class => "toggle_activity_stream"

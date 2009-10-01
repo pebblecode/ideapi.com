@@ -85,7 +85,17 @@ class Brief < ActiveRecord::Base
   
   
   # ACTIVITY STREAM
+  fires :brief_created, :on => :create, :actor => :user
   fires :brief_updated, :on => :update, :actor => :user
+  
+  def activity_stream
+    TimelineEvent.find(:all,
+      :conditions => [
+        '(subject_type = ? AND subject_id = ?) OR (secondary_subject_type = ? AND secondary_subject_id = ?)',
+        "Brief", self.id, "Brief", self.id
+      ], :order => "created_at DESC"
+    )
+  end
   
   # INDEXING
   

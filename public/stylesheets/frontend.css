@@ -375,6 +375,14 @@ span.field_with_errors input {
       position: relative;
       top: -0.4em;
       left: 0; }
+    #container #content .brief .brief_item .activity_stream,     #container #content .brief .most_important_thing .activity_stream,     #container #content .brief .proposal_item .activity_stream,     #container #content .brief .brief .activity_stream,     #container #content .proposal .brief_item .activity_stream,     #container #content .proposal .most_important_thing .activity_stream,     #container #content .proposal .proposal_item .activity_stream,     #container #content .proposal .brief .activity_stream,     #container #content .brief_list .brief_item .activity_stream,     #container #content .brief_list .most_important_thing .activity_stream,     #container #content .brief_list .proposal_item .activity_stream,     #container #content .brief_list .brief .activity_stream {
+      border-top: 1px solid #ccc;
+      margin-top: 1em; }
+      #container #content .brief .brief_item .activity_stream li,       #container #content .brief .most_important_thing .activity_stream li,       #container #content .brief .proposal_item .activity_stream li,       #container #content .brief .brief .activity_stream li,       #container #content .proposal .brief_item .activity_stream li,       #container #content .proposal .most_important_thing .activity_stream li,       #container #content .proposal .proposal_item .activity_stream li,       #container #content .proposal .brief .activity_stream li,       #container #content .brief_list .brief_item .activity_stream li,       #container #content .brief_list .most_important_thing .activity_stream li,       #container #content .brief_list .proposal_item .activity_stream li,       #container #content .brief_list .brief .activity_stream li {
+        padding: 1em; }
+        #container #content .brief .brief_item .activity_stream li span.date,         #container #content .brief .most_important_thing .activity_stream li span.date,         #container #content .brief .proposal_item .activity_stream li span.date,         #container #content .brief .brief .activity_stream li span.date,         #container #content .proposal .brief_item .activity_stream li span.date,         #container #content .proposal .most_important_thing .activity_stream li span.date,         #container #content .proposal .proposal_item .activity_stream li span.date,         #container #content .proposal .brief .activity_stream li span.date,         #container #content .brief_list .brief_item .activity_stream li span.date,         #container #content .brief_list .most_important_thing .activity_stream li span.date,         #container #content .brief_list .proposal_item .activity_stream li span.date,         #container #content .brief_list .brief .activity_stream li span.date {
+          float: right;
+          color: #aaa; }
   #container #content .brief .brief_item:last-child, #container #content .brief .proposal_item:last-child,   #container #content .proposal .brief_item:last-child, #container #content .proposal .proposal_item:last-child,   #container #content .brief_list .brief_item:last-child, #container #content .brief_list .proposal_item:last-child {
     border-bottom: 1px solid #ccc; }
     #container #content .brief .brief_item:last-child textarea,     #container #content .brief .proposal_item:last-child textarea,     #container #content .proposal .brief_item:last-child textarea,     #container #content .proposal .proposal_item:last-child textarea,     #container #content .brief_list .brief_item:last-child textarea,     #container #content .brief_list .proposal_item:last-child textarea {
@@ -414,6 +422,22 @@ span.field_with_errors input {
     background: #ffffdf; }
   #container #content .brief .brief_item.extended:hover,   #container #content .proposal .brief_item.extended:hover,   #container #content .brief_list .brief_item.extended:hover {
     background: transparent; }
+#container #content .brief_list .brief_item:hover {
+  background: transparent; }
+#container #content .brief_list .toggle_activity_stream {
+  position: absolute;
+  top: 0.8em;
+  right: 1em;
+  width: 28px;
+  height: 28px;
+  background: url(/images/ico_circle.png) no-repeat;
+  color: white;
+  text-align: center;
+  font-size: 1.4em;
+  padding-top: 2px; }
+#container #content .brief_list .toggle_activity_stream.active {
+  background: url(/images/ico_minus.png) no-repeat;
+  text-indent: -3000px; }
 #container #content .note {
   padding: 0.5em 2em 0.5em 2em;
   margin: 2em 0 0.5em 0;

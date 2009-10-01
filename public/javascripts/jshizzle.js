@@ -77,7 +77,6 @@ $.fn.hideable_note = function () {
 
 $.fn.edit_brief_item = function () {
   
-  
   var link_on_state = "+";
   var link_off_state = "-";
   
@@ -127,6 +126,23 @@ $.fn.edit_brief_item = function () {
       }
     });
   
+  });
+}
+
+$.fn.fold_activity_stream = function () {
+  $(this).hide();
+  
+  $('a.toggle_activity_stream').click(function () {
+    
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+    } else {
+      $(this).addClass('active');
+    };
+    
+    $(this).prev().toggle();
+    
+    return false;
   });
 }
 
@@ -246,6 +262,8 @@ jQuery(document).ready(function(){
     })
     
     $('#proposal_long_description').wysiwyg();
+    
+    $('.activity_stream').fold_activity_stream();
         
 });
 
