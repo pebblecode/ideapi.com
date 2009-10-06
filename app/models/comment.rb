@@ -6,7 +6,8 @@ class Comment < ActiveRecord::Base
   
   fires :new_comment, :on => :create,
                       :actor => :user,
-                      :secondary_subject  => 'commentable'
+                      :secondary_subject  => 'commentable', 
+                      :log_level => 1
 
   # NOTE: install the acts_as_votable plugin if you
   # want user to vote on the quality of comments.

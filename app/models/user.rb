@@ -165,6 +165,14 @@ class User < ActiveRecord::Base
     end
   end
   
+  def last_viewed_brief(brief)
+    if view = brief_user_views.find_by_brief_id(brief)
+      view.last_viewed_at
+    else
+     1.year.ago
+   end
+  end
+  
   # called from proposal_observer
   def proposal_created(proposal)
     stop_watching_brief(proposal)

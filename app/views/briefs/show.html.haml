@@ -60,17 +60,12 @@
 .col_2
   -unless owner?(current_object)
     %p.emphasise=creative_response_button(current_object, current_user.proposal_for(current_object))
-        
-  .discussion     
-    %p.emphasise
-      =link_to owner?(current_object) ? "View discussion" : "Join the discussion", brief_questions_path(current_object, :f => "unanswered"), {:class => "awesome blue large", :style => "text-transform: uppercase" }
-  -unless owner?(current_object)
-    =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions } 
-    .hr
   
   -if owner?(current_object)
     =render :partial => 'responses'
-    .hr
+    
+  .discussion     
+    =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions } 
         
   -if current_object.published?
     =render :partial => 'invite'

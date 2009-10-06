@@ -15,6 +15,10 @@ class BriefsController < ApplicationController
   add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   add_breadcrumb 'edit your brief', :edit_object_path, :only => [:edit, :update]
   
+  def current_objects
+    @current_objects ||= current_user.briefs
+  end
+  
   make_resourceful do
     belongs_to :user
     actions :all

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090930152121) do
+ActiveRecord::Schema.define(:version => 20091002132543) do
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20090930152121) do
     t.integer  "secondary_subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "log_level",              :default => 1
   end
 
   create_table "users", :force => true do |t|

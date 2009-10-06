@@ -30,6 +30,14 @@ module LayoutHelper
     content_tag :li, list
   end
   
+  def distance_in_time_with_today(date, word = "ago")
+    if date.today?
+      "Today"
+    else
+      "#{time_ago_in_words(date)} #{word}"
+    end
+  end
+  
   private
   
   def capture_haml_into(hook)

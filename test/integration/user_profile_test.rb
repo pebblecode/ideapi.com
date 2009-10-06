@@ -5,11 +5,11 @@ class UserProfileTest < ActionController::IntegrationTest
   context "creative or author" do
     setup do
       @standard_user = User.make(:password => "testing")
-      login_as(@standard_user)
+      login_as(@standard_user)      
     end
     
     context "account page" do
-      setup do
+      setup do        
         click_link 'profile'
       end
       

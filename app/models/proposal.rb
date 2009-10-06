@@ -69,7 +69,6 @@ class Proposal < ActiveRecord::Base
     end
   end
   
-
   become_schizophrenic
 
   before_save :ensure_default_state
@@ -78,12 +77,14 @@ class Proposal < ActiveRecord::Base
   
   fires :new_proposal, :on => :create,
                        :actor => :user,
-                       :secondary_subject  => 'brief'
+                       :secondary_subject  => 'brief',
+                       :log_level => 1
                        
   fires :proposal_marked, :on => :update,
                           :actor => 'approver',
                           :secondary_subject  => 'brief',
-                          :if => lambda { |proposal| (proposal.previous_state != proposal.state) && (Proposal.approval_states.include?(proposal.state)) }
+                          :if => lambda { |proposal| (proposal.previous_state != proposal.state) && (Proposal.approval_states.include?(proposal.state)) },
+                          :log_level => 1
   
   class << self
     def approval_states

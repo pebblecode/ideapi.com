@@ -15,7 +15,11 @@
     %h2 
       dashboard
     -if current_objects.empty?
-      %p You don't have any briefs yet.
+      .brief_item
+        %h3 
+          You have no briefs -
+          =link_to 'create a brief', new_brief_path
+          to get started.
     -else  
       =render :partial => 'brief', :collection => current_objects
       

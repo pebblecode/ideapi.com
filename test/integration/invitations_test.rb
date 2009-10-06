@@ -8,126 +8,7 @@ class InvitationsTest < ActionController::IntegrationTest
       @user = User.make(:password => "testing", :invite_count => 10)
       login_as(@user)
     end
-    
-    context "the dashboard" do
-      setup do
-        visit briefs_path
-      end
-  
-      should "contain an invitation form" do
-        assert_select 'form[action=?]', invitations_path 
-      end
-      
-      context "filling in invitations" do
         
-        setup do
-          @valid_emails = 3.times.map { Faker::Internet::email }
-        end
-        
-        context "with valid email addresses" do
-          setup do
-            fill_in 'invitation_recipient_list', :with => @valid_emails.join(", ")
-            click_button 'Invite'
-          end
-  
-          should_respond_with :success          
-          should_change "Invitation.count", :by => 3
-          
-        end
-        
-        context "with invalid email addresses" do
-          setup do
-            fill_in 'invitation_recipient_list', :with => "bads.food.com, dsadsa@dasda"
-            click_button 'Invite'
-          end
-          
-          should_respond_with :success
-          should_change "Invitation.count", :by => 0
-    
-        end
-        
-        context "with mix of valid/invalid email addresses" do
-          setup do
-            fill_in 'invitation_recipient_list', :with => "bads.food.com, dsadsa@dasda, #{@valid_emails.join(", ")}"
-            click_button 'Invite'
-          end
-          
-          should_respond_with :success
-          should_change "Invitation.count", :by => 3
-    
-        end
-        
-        context "inviting yourself" do
-          
-          setup do
-            fill_in 'invitation_recipient_list', :with => @user.email
-            click_button 'Invite'
-          end
-          
-          should_respond_with :success
-          should_change "Invitation.count", :by => 0
-        
-        end 
-        
-        context "inviting existing users" do
-          setup do
-            @existing_user = User.make(
-              :password => "testing", :invite_count => 10
-            )
-            @invite_count_before = @user.invite_count
-          end
-          
-          context "current_user" do
-            should "not be friends with existing user" do
-              assert !(@user.is_friends_with?(@existing_user))
-            end
-          end
-        
-          context "filling in existing users email" do
-            
-            setup do
-              fill_in 'invitation_recipient_list', :with => @existing_user.email
-              click_button 'Invite'
-            end
-
-            should_respond_with :success
-            should_change "Invitation.count", :by => 0
-            should_change "Friendship.count", :by => 1
-
-            should "not decrease users invite_count" do
-              assert_equal(@invite_count_before, @user.reload.invite_count)
-            end
-            
-          end
-          
-        end
-                    
-        context "inviting friends without a brief" do
-          
-          setup do
-            @friend = User.make
-            
-            @user.become_friends_with(@friend)
-            
-            @invite_count_before = @user.invite_count
-            
-            fill_in 'invitation_recipient_list', :with => @friend.email
-            click_button 'Invite'
-          end
-
-          should_respond_with :success
-          
-          should "not change user brief count" do
-            assert_equal(@invite_count_before, @user.reload.invite_count)
-          end
-                      
-        end
-        
-      end
-            
-    end
-    
-    
     context "profile page" do
       setup do
         visit user_path(@user)
@@ -138,6 +19,11 @@ class InvitationsTest < ActionController::IntegrationTest
       should "show number of invites" do
         assert_contain(@invite_count_before_invite.to_s)
       end
+      
+      context "sending invites" do
+        
+      end
+      
       
       context "with invites sent" do
         setup do

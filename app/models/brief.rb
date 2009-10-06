@@ -72,12 +72,12 @@ class Brief < ActiveRecord::Base
   end
   
   state :complete do
-    handle :close! do
-      stored_transition_to(:closed)
+    handle :archive! do
+      stored_transition_to(:archived)
     end  
   end
   
-  state :closed
+  state :archived
 
   become_schizophrenic
 
@@ -85,16 +85,54 @@ class Brief < ActiveRecord::Base
   
   
   # ACTIVITY STREAM
-  fires :brief_created, :on => :create, :actor => :user
-  fires :brief_updated, :on => :update, :actor => :user
+  fires :brief_created, :on => :create, :actor => :user, :log_level => 1
+  fires :brief_updated, :on => :update, :actor => :user, :log_level => 1
   
-  def activity_stream
-    TimelineEvent.find(:all,
-      :conditions => [
-        '(subject_type = ? AND subject_id = ?) OR (secondary_subject_type = ? AND secondary_subject_id = ?)',
-        "Brief", self.id, "Brief", self.id
-      ], :order => "created_at DESC"
-    )
+  def activity_stream(user, options = {})
+    options.reverse_merge! :conditions => activity_stream_conditions(user), 
+      :order => "created_at DESC"
+    
+    TimelineEvent.find(:all, options)
+  end
+  
+  def activity_stream_conditions(user)
+    [
+      '((subject_type = ? AND subject_id = ?) OR (secondary_subject_type = ? AND secondary_subject_id = ?)) AND log_level <= ? AND created_at >= ?',
+      "Brief", self.id, "Brief", self.id, role_for_user?(user)[:log_level], user.last_viewed_brief(self)
+    ]
+  end
+  
+  # find questions and proposals etc
+  # that need answerings, approving ..
+  def activity_to_view(user)
+    if author?(user) || approver?(user)
+      activity = {
+        :question => questions.unanswered,
+        :proposal => proposals.published
+      }.reject {|k,v| v.blank? }
+    else 
+      return {}
+    end
+  end
+  
+  def author?(user)
+    self.belongs_to?(user)
+  end
+  
+  def role_for_user?(user)
+    if author?(user)
+      Roles::AUTHOR
+    elsif self.approver?(user)
+      Roles::APPROVER
+    else
+      Roles::COLLABORATOR
+    end
+  end
+  
+  module Roles
+    AUTHOR = {:log_level => 3, :label => 'author'}
+    APPROVER = {:log_level => 2, :label => 'approver'}
+    COLLABORATOR = {:log_level => 1, :label => 'collaborator'}
   end
   
   # INDEXING
@@ -112,6 +150,10 @@ class Brief < ActiveRecord::Base
   
   def belongs_to?(a_user)
     user == a_user
+  end
+  
+  def approver?(a_user)
+    a_user == approver
   end
   
   class << self

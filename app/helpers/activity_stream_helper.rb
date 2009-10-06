@@ -1,11 +1,28 @@
 module ActivityStreamHelper
   
-  def stream_item(event)
-    #<TimelineEvent id: 1, event_type: "brief_created", subject_type: "Brief", actor_type: "User", secondary_subject_type: nil, subject_id: 1, actor_id: 1, secondary_subject_id: nil, created_at: "2009-10-01 11:25:47", updated_at: "2009-10-01 11:25:47">
+  def activity_snapshot(activity_hash_from_brief)
+    activity_hash_from_brief.collect do |activity_type, collection| 
+      activity_action(activity_type, collection) 
+    end.join(", ")
+  end
+  
+  def activity_action(activity_type, collection)     
+    action_parts = []
+    action_parts << pluralize(collection.count, activity_type.to_s)
+    action_parts << ((collection.count > 1) ? 'need' : 'needs')
     
-    item = "
-      #{link_to given_name(event.actor), user_path(event.actor)} #{action_description(event)}
-    "
+    case activity_type
+    when :question
+      action_parts << "answering"
+    when :proposal
+      action_parts << "approving"
+    end
+    
+    action_parts.join(" ")
+  end
+  
+  def stream_item(event)
+    "#{link_to given_name(event.actor), user_path(event.actor)} #{action_description(event)}"
   end
   
   def action_description(event)

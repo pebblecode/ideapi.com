@@ -12,9 +12,7 @@ class BriefTest < ActiveSupport::TestCase
   should_validate_presence_of :user_id, :title
   
   should_have_instance_methods :most_important_message
-  
-  should "not set the brief template on create - this should be handled by the app"
-  
+    
   context "with a user" do
     setup do
       User.delete_all
@@ -95,9 +93,9 @@ class BriefTest < ActiveSupport::TestCase
             assert_equal(:complete, @brief.state)
           end
 
-          should "be able to close" do
-            @brief.close!
-            assert_equal(:closed, @brief.state)
+          should "be able to archive" do
+            @brief.archive!
+            assert_equal(:archived, @brief.state)
           end
         end
 

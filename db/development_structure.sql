@@ -10,7 +10,7 @@ CREATE TABLE `assets` (
   `data_updated_at` datetime default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_assets_on_attachable_id` (`attachable_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `brief_item_versions` (
   `id` int(11) NOT NULL auto_increment,
@@ -46,7 +46,7 @@ CREATE TABLE `brief_user_views` (
   `view_count` int(11) default '0',
   `last_viewed_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -75,7 +75,7 @@ CREATE TABLE `comments` (
   KEY `index_comments_on_commentable_type` (`commentable_type`),
   KEY `index_comments_on_commentable_id` (`commentable_id`),
   KEY `index_comments_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `friendships` (
   `id` int(11) NOT NULL auto_increment,
@@ -99,7 +99,7 @@ CREATE TABLE `invitations` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `proposals` (
   `id` int(11) NOT NULL auto_increment,
@@ -113,7 +113,7 @@ CREATE TABLE `proposals` (
   `title` varchar(255) default NULL,
   `state` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL auto_increment,
@@ -125,7 +125,7 @@ CREATE TABLE `questions` (
   `updated_at` datetime default NULL,
   `brief_item_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
@@ -179,8 +179,9 @@ CREATE TABLE `timeline_events` (
   `secondary_subject_id` int(11) default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
+  `log_level` int(11) default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
@@ -209,7 +210,7 @@ CREATE TABLE `watched_briefs` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20090526100437');
 
@@ -296,3 +297,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090923115903');
 INSERT INTO schema_migrations (version) VALUES ('20090929100720');
 
 INSERT INTO schema_migrations (version) VALUES ('20090930152121');
+
+INSERT INTO schema_migrations (version) VALUES ('20091002132543');
