@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :briefs, 
     :collection => { :browse => :get }, 
-    :member => { :delete => :get, :watch => :post } do |briefs|
+    :member => { :delete => :get, :watch => :post, :collaborators => :get } do |briefs|
       briefs.resources :questions
       briefs.resources :proposals, :member => { :delete_asset => :delete }
     end

@@ -5,11 +5,26 @@ class Brief < ActiveRecord::Base
   include AlterEgo
   
   # relationships
-  belongs_to :user
   belongs_to :template_brief
   belongs_to :approver, :class_name => 'User'
   
   has_many :brief_items, :order => :position
+  
+  has_many :user_briefs
+  has_many :users, :through => :user_briefs do
+    def author=(user)
+      proxy_owner.user_briefs.build(:user => user, :brief => proxy_owner, :author => true)
+    end
+    
+    def author
+      first :conditions => ["user_briefs.author = true"], :order => :created_at
+    end
+    
+    def authors
+      all :conditions => ['user_briefs.author = ?', true]
+    end
+  end
+  
   has_many :invitations, :as => :redeemable
   has_many :watched_briefs
   has_many :watchers, :through => :watched_briefs, :source => :user
@@ -33,13 +48,13 @@ class Brief < ActiveRecord::Base
     :allow_destroy => true, 
     :reject_if => :all_blank
   
-  accepts_nested_attributes_for :watched_briefs, :allow_destroy => true
+  accepts_nested_attributes_for :user_briefs, :allow_destroy => true
   
   # callbacks
   after_create :generate_brief_items_from_template!
   
   # validations
-  validates_presence_of :user_id, :template_brief_id, :title, :most_important_message
+  validates_presence_of :template_brief_id, :title, :most_important_message
   
   # see plugin totally_truncated
   truncates :title
@@ -85,8 +100,8 @@ class Brief < ActiveRecord::Base
   
   
   # ACTIVITY STREAM
-  fires :brief_created, :on => :create, :actor => :user, :log_level => 1
-  fires :brief_updated, :on => :update, :actor => :user, :log_level => 1
+  fires :brief_created, :on => :create, :actor => "user", :log_level => 1
+  fires :brief_updated, :on => :update, :actor => "user", :log_level => 1
   
   def activity_stream(user, options = {})
     options.reverse_merge! :conditions => activity_stream_conditions(user), 
@@ -102,13 +117,16 @@ class Brief < ActiveRecord::Base
     ]
   end
   
+  #has_many :timeline_events, :as => [:subject, :secondary_subject]
+  #has_many :timeline_events, :as => :secondary_subject
+      
   # find questions and proposals etc
   # that need answerings, approving ..
   def activity_to_view(user)
     if author?(user) || approver?(user)
       activity = {
         :question => questions.unanswered,
-        :proposal => proposals.published
+        :idea => proposals.published
       }.reject {|k,v| v.blank? }
     else 
       return {}
@@ -116,7 +134,7 @@ class Brief < ActiveRecord::Base
   end
   
   def author?(user)
-    self.belongs_to?(user)
+    self.belongs_to?(user) && user_briefs.find_by_user_id(user).author?
   end
   
   def role_for_user?(user)
@@ -137,23 +155,47 @@ class Brief < ActiveRecord::Base
   
   # INDEXING
   
-  define_index do 
-    indexes title, most_important_message
-    indexes brief_items.body, :as => :brief_items_content
-    
-    where "state = 'published'"
-    
-    set_property :delta => true
-  end
+  # define_index do 
+  #   indexes title, most_important_message
+  #   indexes brief_items.body, :as => :brief_items_content
+  #   
+  #   where "state = 'published'"
+  #   
+  #   set_property :delta => true
+  # end
 
   # OWNERSHIP
   
+  def proposal_list_for_user(a_user)
+    if author_or_approver?(a_user)
+      proposals.active
+    else
+      proposals.for_user(a_user)
+    end
+  end
+  
+  def author_or_approver?(a_user)
+    belongs_to?(a_user) || approver?(a_user)
+  end
+  
   def belongs_to?(a_user)
-    user == a_user
+    users.authors.include?(a_user)
   end
   
   def approver?(a_user)
     a_user == approver
+  end
+  
+  def collaborator?(a_user)
+    users.include?(a_user)
+  end
+  
+  def user=(user)
+    self.users.author = user
+  end
+  
+  def user
+    self.users.author
   end
   
   class << self
@@ -169,7 +211,7 @@ class Brief < ActiveRecord::Base
   private 
   
   def ensure_approver_set
-    self.approver_id = self.user_id if self.approver_id.blank?
+    self.approver_id = self.user if self.approver_id.blank?
   end
   
   def generate_brief_items_from_template!

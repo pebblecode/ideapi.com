@@ -18,23 +18,30 @@ if RAILS_ENV != "production"
   users.each do |user|
     
     3.times do
-      brief = Brief.make(:published, { :user => user, :template_brief => TemplateBrief.find_by_title('Default') })
-      
+      brief = Brief.make({:template_brief => TemplateBrief.find_by_title('Default') })
       brief.brief_items.each { |b_i| b_i.update_attribute(:body, Sham.body) }
       
+      brief.user = user
+      
+      brief.publish!
     end
     
     user.briefs.reload.each do |b|
       10.times { 
-        
         asker = User.all(:conditions => ["id <> ?", user.id]).rand
+        
+        unless b.users.include?(asker)
+          b.users << asker
+        end
+        
         b.brief_items.reload.rand.questions.make(:user => asker) 
-        
-        user.become_friends_with(asker)
-        
-        asker.watch(b) if !asker.watching?(b)
-      
       }
+    end
+    
+    users.each do |other|
+      unless other.eql?(user)
+        user.become_friends_with(other)
+      end
     end
   
   end

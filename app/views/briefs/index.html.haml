@@ -1,11 +1,10 @@
 =sub_nav do
   =breadcrumb_list
   %li{:class => "secondary"}
-    =link_to 'create brief', new_brief_path, :class => "awesome small"
+    =link_to 'Create brief', new_brief_path
 
 #dashboard.col_1
-  %h2.salu=salutation
-  
+
   -if flash[:note].present?
     .note
       %h3 Welcome to the dashboard. 

@@ -16,6 +16,7 @@
 
     - form_for(:brief, :url => objects_url) do |f|
       = render :partial => "form", :locals => {:f => f}
+
       %p.submit
         = submit_tag "Create"
         .clear

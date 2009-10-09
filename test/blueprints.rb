@@ -26,7 +26,6 @@ end
 
 Brief.blueprint do
   title
-  user { User.make }
   template_brief { TemplateBrief.make }
   most_important_message { Sham.body }
 end

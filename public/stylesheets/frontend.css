@@ -12,7 +12,7 @@
 body {
   font-size: 62.5%;
   text-align: center;
-  background: #232323; }
+  background: #ddd; }
 
 /* Colours
  * //
@@ -28,9 +28,10 @@ a:hover {
 #container {
   width: 94em;
   margin: 1em auto;
-  border: 10px solid #ddd; }
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc; }
   #container #header {
-    background: #04194b;
+    background: #0c033b;
     border-bottom: 1px solid #505050;
     border-top: 1px solid #777;
     padding: 0.6em 0 0 0;
@@ -427,9 +428,9 @@ span.field_with_errors input {
       #container #content .brief .most_important_thing p span.right,       #container #content .proposal .most_important_thing p span.right,       #container #content .brief_list .most_important_thing p span.right {
         bottom: -0.2em;
         padding-right: 0.5em; }
-  #container #content .brief .brief_item:hover,   #container #content .proposal .brief_item:hover,   #container #content .brief_list .brief_item:hover {
+  #container #content .brief .brief_item.updated,   #container #content .proposal .brief_item.updated,   #container #content .brief_list .brief_item.updated {
     background: #ffffdf; }
-  #container #content .brief .brief_item.extended:hover,   #container #content .proposal .brief_item.extended:hover,   #container #content .brief_list .brief_item.extended:hover {
+  #container #content .brief .brief_item.extended,   #container #content .proposal .brief_item.extended,   #container #content .brief_list .brief_item.extended {
     background: transparent; }
 #container #content .brief_list .brief_item:hover {
   background: transparent; }
@@ -742,24 +743,6 @@ p.submit_comment {
   float: right; }
   p.submit_comment label {
     width: auto; }
-  p.submit_comment input[type=submit] {
-    margin-left: 1em;
-    background: #ddd;
-    border: none;
-    padding: 0.5em 1em 0.6em 1em;
-    color: #333;
-    text-decoration: none;
-    -moz-border-radius: none;
-    -webkit-border-radius: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    text-shadow: 0;
-    border-bottom: none;
-    cursor: pointer;
-    text-shadow: none; }
-  p.submit_comment input[type=submit]:hover {
-    background: #21286c;
-    color: white; }
 
 p.submit {
   background: #ddd;
@@ -769,19 +752,6 @@ p.submit {
   display: inline;
   margin: 0 0 1em 1em;
   float: right; }
-  p.submit input[type=submit] {
-    background: transparent;
-    border: none;
-    color: #333;
-    text-decoration: none;
-    -moz-border-radius: none;
-    -webkit-border-radius: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    text-shadow: 0;
-    border-bottom: none;
-    cursor: pointer;
-    text-shadow: none; }
 
 p.cancel {
   float: right; }
@@ -908,42 +878,84 @@ textarea {
   font-size: 1.2em;
   font-weight: bold; }
 
+table.collaborators {
+  width: 30em;
+  margin: 1em 0 2em 0em; }
+  table.collaborators td, table.collaborators th {
+    padding: 0.5em 1em;
+    text-align: center; }
+  table.collaborators th.user, table.collaborators td.user {
+    text-align: left; }
+
 #container #content .col_2 .side_box {
   margin: 0.5em 0 2em 0; }
   #container #content .col_2 .side_box h2 {
-    background: #333;
+    background: #666;
     color: white;
     font-size: 1.2em;
-    padding: 1em 1em;
+    padding: 0.5em 1em;
     -moz-border-radius-topright: 6px;
     -webkit-border-top-right-radius: 6px;
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
     margin-bottom: 0; }
-  #container #content .col_2 .side_box ul {
-    border: 1px solid #eee;
-    padding: 1em;
+  #container #content .col_2 .side_box .contents {
+    border: 1px solid #ccc;
+    border-top: 0;
     background: #fefefe; }
-    #container #content .col_2 .side_box ul li {
-      margin: 0 0 1.5em 0; }
-      #container #content .col_2 .side_box ul li img.avatar {
-        border: 0;
-        float: left;
-        margin-right: 1em; }
-      #container #content .col_2 .side_box ul li p.non_found {
-        color: #aaa; }
-      #container #content .col_2 .side_box ul li p {
-        font-size: 1em;
+    #container #content .col_2 .side_box .contents h3 {
+      padding: 0.5em 1em 0 1em;
+      margin: 0;
+      font-size: 1em; }
+    #container #content .col_2 .side_box .contents ul {
+      padding: 0.5em 1em; }
+      #container #content .col_2 .side_box .contents ul li {
+        margin: 0 0 0 0;
+        padding: 0; }
+        #container #content .col_2 .side_box .contents ul li img.avatar {
+          border: 0;
+          float: left;
+          margin-right: 1em; }
+        #container #content .col_2 .side_box .contents ul li p.non_found {
+          color: #aaa; }
+        #container #content .col_2 .side_box .contents ul li p {
+          font-size: 1em;
+          font-weight: bold; }
+          #container #content .col_2 .side_box .contents ul li p span {
+            font-size: 0.9em;
+            color: #aaa;
+            font-weight: normal; }
+            #container #content .col_2 .side_box .contents ul li p span strong {
+              color: #aaa; }
+      #container #content .col_2 .side_box .contents ul span.author {
+        color: #0099CC;
         font-weight: bold; }
-        #container #content .col_2 .side_box ul li p span {
-          font-size: 0.9em;
-          color: #aaa;
-          font-weight: normal; }
-          #container #content .col_2 .side_box ul li p span strong {
-            color: #aaa; }
-    #container #content .col_2 .side_box ul span.author {
-      color: #0099CC;
-      font-weight: bold; }
+    #container #content .col_2 .side_box .contents a.action {
+      text-align: center;
+      display: block;
+      border-top: 1px solid #ccc;
+      line-height: 1em;
+      padding: 0.6em 1em 1em 1em;
+      background: #f6f6f6; }
+#container #content .col_2 .ideas .user_idea {
+  position: relative;
+  padding-left: 2em; }
+  #container #content .col_2 .ideas .user_idea span.draft, #container #content .col_2 .ideas .user_idea span.published, #container #content .col_2 .ideas .user_idea span.needs_work, #container #content .col_2 .ideas .user_idea span.approved, #container #content .col_2 .ideas .user_idea span.dropped {
+    font-size: 30px;
+    line-height: 1em;
+    position: absolute;
+    top: -4px;
+    left: 0; }
+  #container #content .col_2 .ideas .user_idea span.draft {
+    color: #aaa; }
+  #container #content .col_2 .ideas .user_idea span.published {
+    color: #ebde0a; }
+  #container #content .col_2 .ideas .user_idea span.approved {
+    color: #63bb46; }
+  #container #content .col_2 .ideas .user_idea span.needs_work {
+    color: #e77b29; }
+  #container #content .col_2 .ideas .user_idea span.dropped {
+    color: #ed1c24; }
 #container #content .col_2 .invite_users {
   padding: 0.5em 1em 0.5em 1em;
   position: relative;

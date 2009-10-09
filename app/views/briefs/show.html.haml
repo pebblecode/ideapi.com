@@ -1,17 +1,10 @@
 =sub_nav do
   =breadcrumb_list    
   -if owner?(current_object)    
-    %li.secondary=link_to 'edit brief', edit_brief_path(current_object), :class => "awesome small"
+    %li.secondary=link_to 'edit brief', edit_brief_path(current_object)
     -if current_object.draft?
-      %li.secondary=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?", :class => "awesome"
-  -if !owner?(current_object)    
-    %li.secondary.watch_form
-      -form_for current_object, :url => watch_brief_path(current_object), :html => { :method => :post } do |f|
-        -if current_user.watching?(current_object)
-          =f.submit 'stop watching', :class => "awesome small"
-        -else
-          =f.submit 'watch', :class => "awesome small" 
-  .clear 
+      %li.secondary=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
+  .clear
 
 .col_1
   -if flash[:note].present?
@@ -54,18 +47,13 @@
               =hidden_field_tag :brief_id, current_object.id
               .speech=f.text_area :comment, :rows => 5, :cols => 80
 
-              %p.submit_comment
+              %p.submit
                 =f.submit "submit"
                     
-.col_2
-  -unless owner?(current_object)
-    %p.emphasise=creative_response_button(current_object, current_user.proposal_for(current_object))
+.col_2  
+  =render :partial => 'responses'
   
-  -if owner?(current_object)
-    =render :partial => 'responses'
-    
+  =render :partial => 'collaborators'
+  
   .discussion     
     =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions } 
-        
-  -if current_object.published?
-    =render :partial => 'invite'

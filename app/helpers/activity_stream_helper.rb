@@ -14,7 +14,7 @@ module ActivityStreamHelper
     case activity_type
     when :question
       action_parts << "answering"
-    when :proposal
+    when :idea
       action_parts << "approving"
     end
     

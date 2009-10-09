@@ -25,15 +25,13 @@ class User < ActiveRecord::Base
     :if => Proc.new { |u| u.last_name.present? }
   
   # METHODS FOR BRIEF OWNERSHIP
-  
-  has_many :briefs, :dependent => :destroy
+  has_many :user_briefs
+  has_many :briefs, :through => :user_briefs
   
   delegate :draft, :to => :briefs
   delegate :published, :to => :briefs
   
-  
   # METHODS FOR WATCHING AND INTERACTING WITH A BRIEF
-  
   has_many :questions
   has_many :proposals, :after_add => :stop_watching_brief
   has_many :watched_briefs, :dependent => :destroy
@@ -42,7 +40,7 @@ class User < ActiveRecord::Base
   # pathways to the hallowed briefs
   has_many :responded_briefs, :through => :proposals, :source => :brief
   has_many :watching_briefs, :through => :watched_briefs, :source => :brief
-  
+    
   # users are found by username
   def to_param
     return self.login
@@ -58,8 +56,8 @@ class User < ActiveRecord::Base
     [first_name, last_name].reject(&:blank?).join(" ")
   end
   
-  def friends_not_watching(brief)
-    friends - brief.watchers
+  def friends_not_collaborating(brief)
+    friends - brief.users
   end
   
   def friends_watching(brief)

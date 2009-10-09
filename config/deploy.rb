@@ -1,8 +1,6 @@
 require 'capistrano/ext/multistage'
 set :stages, %w(production staging)
- 
-server "174.143.232.121", :app, :web, :db, :primary => true
- 
+  
 set :user, 'jason'
 set :keep_releases, 3 
 set :repository,  "git@abutcher.sourcerepo.com:abutcher/ideapi.git" 

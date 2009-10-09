@@ -12,7 +12,7 @@
     %h2
       =current_object.title
       %span.status=current_object.state
-      - if current_user.owns?(parent_object)
+      - if parent_object.approver?(current_user)
         .update_proposal
           - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
             %span mark brief as
@@ -28,7 +28,7 @@
       .proposal_item
         %p
           -if asset.data.content_type =~ /image/
-            =link_to image_tag(asset.data.url, :width => "120"), asset.data.url
+            =link_to image_tag(asset.data.url, :width => "120"), asset.data.url, :rel => "img_facebox"
           -else
             =link_to asset.data.original_filename, asset.data.url
   

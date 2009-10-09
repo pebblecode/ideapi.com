@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091002132543) do
+ActiveRecord::Schema.define(:version => 20091006103048) do
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.datetime "data_updated_at"
   end
 
+  add_index "assets", ["attachable_id", "attachable_type"], :name => "index_assets_on_attachable_id_and_attachable_type"
   add_index "assets", ["attachable_id"], :name => "index_assets_on_attachable_id"
 
   create_table "brief_item_versions", :force => true do |t|
@@ -35,7 +36,9 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.datetime "revised_at"
   end
 
+  add_index "brief_item_versions", ["brief_id"], :name => "index_brief_item_versions_on_brief_id"
   add_index "brief_item_versions", ["brief_item_id"], :name => "index_brief_item_versions_on_brief_item_id"
+  add_index "brief_item_versions", ["template_question_id"], :name => "index_brief_item_versions_on_template_question_id"
 
   create_table "brief_items", :force => true do |t|
     t.text     "title"
@@ -48,6 +51,9 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.integer  "version"
   end
 
+  add_index "brief_items", ["brief_id"], :name => "index_brief_items_on_brief_id"
+  add_index "brief_items", ["template_question_id"], :name => "index_brief_items_on_template_question_id"
+
   create_table "brief_user_views", :force => true do |t|
     t.integer  "brief_id"
     t.integer  "user_id"
@@ -55,9 +61,11 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.datetime "last_viewed_at"
   end
 
+  add_index "brief_user_views", ["brief_id"], :name => "index_brief_user_views_on_brief_id"
+  add_index "brief_user_views", ["user_id"], :name => "index_brief_user_views_on_user_id"
+
   create_table "briefs", :force => true do |t|
     t.string  "title"
-    t.integer "user_id"
     t.string  "state"
     t.integer "site_id"
     t.integer "template_brief_id"
@@ -66,7 +74,10 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.integer "approver_id"
   end
 
+  add_index "briefs", ["approver_id"], :name => "index_briefs_on_approver_id"
   add_index "briefs", ["delta"], :name => "index_briefs_on_delta"
+  add_index "briefs", ["site_id"], :name => "index_briefs_on_site_id"
+  add_index "briefs", ["template_brief_id"], :name => "index_briefs_on_template_brief_id"
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -89,6 +100,9 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.datetime "accepted_at"
   end
 
+  add_index "friendships", ["friend_id"], :name => "index_friendships_on_friend_id"
+  add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
+
   create_table "invitations", :force => true do |t|
     t.string   "recipient_email"
     t.integer  "user_id"
@@ -102,6 +116,11 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.datetime "updated_at"
   end
 
+  add_index "invitations", ["redeemable_id", "redeemable_type"], :name => "index_invitations_on_redeemable_id_and_redeemable_type"
+  add_index "invitations", ["redeemable_id"], :name => "index_invitations_on_redeemable_id"
+  add_index "invitations", ["redeemed_by_id"], :name => "index_invitations_on_redeemed_by_id"
+  add_index "invitations", ["user_id"], :name => "index_invitations_on_user_id"
+
   create_table "proposals", :force => true do |t|
     t.text     "short_description"
     t.text     "long_description"
@@ -114,6 +133,9 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.string   "state"
   end
 
+  add_index "proposals", ["brief_id"], :name => "index_proposals_on_brief_id"
+  add_index "proposals", ["user_id"], :name => "index_proposals_on_user_id"
+
   create_table "questions", :force => true do |t|
     t.text     "body"
     t.text     "author_answer"
@@ -124,6 +146,10 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.integer  "brief_item_id"
   end
 
+  add_index "questions", ["brief_id"], :name => "index_questions_on_brief_id"
+  add_index "questions", ["brief_item_id"], :name => "index_questions_on_brief_item_id"
+  add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
+
   create_table "sites", :force => true do |t|
     t.string "title"
   end
@@ -133,10 +159,15 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.integer "template_question_id"
   end
 
+  add_index "template_brief_questions", ["template_brief_id"], :name => "index_template_brief_questions_on_template_brief_id"
+  add_index "template_brief_questions", ["template_question_id"], :name => "index_template_brief_questions_on_template_question_id"
+
   create_table "template_briefs", :force => true do |t|
     t.string  "title"
     t.integer "site_id"
   end
+
+  add_index "template_briefs", ["site_id"], :name => "index_template_briefs_on_site_id"
 
   create_table "template_questions", :force => true do |t|
     t.text    "body"
@@ -144,6 +175,8 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.boolean "optional"
     t.integer "template_section_id"
   end
+
+  add_index "template_questions", ["template_section_id"], :name => "index_template_questions_on_template_section_id"
 
   create_table "template_sections", :force => true do |t|
     t.text    "title"
@@ -162,6 +195,21 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.datetime "updated_at"
     t.integer  "log_level",              :default => 1
   end
+
+  add_index "timeline_events", ["actor_id", "actor_type"], :name => "index_timeline_events_on_actor_id_and_actor_type"
+  add_index "timeline_events", ["secondary_subject_id", "secondary_subject_type"], :name => "index_timeline_events_ssubs"
+  add_index "timeline_events", ["subject_id", "subject_type"], :name => "index_timeline_events_on_subject_id_and_subject_type"
+
+  create_table "user_briefs", :force => true do |t|
+    t.integer  "brief_id"
+    t.integer  "user_id"
+    t.boolean  "author",     :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_briefs", ["brief_id"], :name => "index_user_briefs_on_brief_id"
+  add_index "user_briefs", ["user_id"], :name => "index_user_briefs_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "login"
@@ -187,5 +235,8 @@ ActiveRecord::Schema.define(:version => 20091002132543) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "watched_briefs", ["brief_id"], :name => "index_watched_briefs_on_brief_id"
+  add_index "watched_briefs", ["user_id"], :name => "index_watched_briefs_on_user_id"
 
 end

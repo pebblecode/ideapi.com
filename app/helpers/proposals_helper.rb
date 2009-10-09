@@ -13,6 +13,19 @@ module ProposalsHelper
     end
   end
   
+  def proposal_state_heading(state)
+    case state
+    when :published
+      "Awaiting approval"
+    when :needs_work
+      "Needs work"
+    when :approved
+      "Approved"
+    when :draft
+      "Not yet submitted"
+    end
+  end
+  
   private
   
   def show_response(brief, proposal)

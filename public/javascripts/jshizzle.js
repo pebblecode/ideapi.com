@@ -233,6 +233,8 @@ jQuery(document).ready(function(){
       {loadingImage: '/images/fb/loading.gif' , closeImage: '/images/fb/closelabel.gif'}
     );
     
+    $('a[rel*=img_facebox]').facebox();
+    
     $('input, textarea').each(function () {
       if ($(this).attr('title') != "" && $(this).val() == "") {
         

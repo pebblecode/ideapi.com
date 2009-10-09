@@ -8,15 +8,18 @@ class BriefsController < ApplicationController
   before_filter :require_owner_if_not_published, :only => [:show]
   before_filter :require_owner, :only => [:edit, :update, :destroy]
   
+  # ensure user has access to brief
+  before_filter :require_collaborator, :only => [:show]
+  
   # get the brief items (depending on brief state)
-  helper_method :current_brief_items, :user_last_viewed_brief
+  helper_method :user_last_viewed_brief
   
   add_breadcrumb 'dashboard', "/dashboard"
   add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   add_breadcrumb 'edit your brief', :edit_object_path, :only => [:edit, :update]
   
   def current_objects
-    @current_objects ||= current_user.briefs
+    @current_objects ||= current_user.briefs(:include => 'timeline_events')
   end
   
   make_resourceful do
@@ -33,12 +36,15 @@ class BriefsController < ApplicationController
       current_object.brief_user_views.record_view_for_user(current_user)
       
       #@invitation = Invitation.new(:user => current_user, :redeemable => current_object)
+      
+      @brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
+      
     end
     
     
     before :create do
-      current_object.template_brief = TemplateBrief.last
-      current_object.user = parent_object
+      params[:brief][:user] = current_user
+      current_object.template_brief = TemplateBrief.last      
     end
         
     after :update do
@@ -107,14 +113,19 @@ class BriefsController < ApplicationController
     end
   end
   
-  private
+  def collaborators
+    current_object.user_briefs.build
+    
+    respond_to do |format|
+      format.html
+      format.js { render :layout => false }
+    end
+  end
   
-  # parent_object is standard make_resourceful accessor
-  # overwrite with our current logged in user
-  alias :parent_object :current_user
+  private
      
   def require_owner
-    redirect_to briefs_path and return if !record_owner?
+    redirect_to briefs_path and return unless record_owner?
   end
   
   def require_owner_if_not_published
@@ -131,6 +142,10 @@ class BriefsController < ApplicationController
   
   def set_user_last_viewed_brief
     @user_last_viewed_brief = current_object.brief_user_views.for_user(current_user)
+  end
+  
+  def require_collaborator
+    redirect_to briefs_path and return unless current_object.collaborator?(current_user)
   end
   
 end

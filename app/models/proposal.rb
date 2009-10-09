@@ -3,10 +3,6 @@ class Proposal < ActiveRecord::Base
   belongs_to :user
   
   delegate :approver, :to => :brief
-  
-  validates_uniqueness_of :brief_id, 
-    :scope => :user_id, 
-    :message => "You are already pitching for this brief"
 
   validates_presence_of :title, :long_description
   
@@ -74,6 +70,10 @@ class Proposal < ActiveRecord::Base
   before_save :ensure_default_state
   
   named_scope :active, :conditions => ["state <> 'draft'"]
+  
+  named_scope :for_user, lambda { |user|
+        { :conditions => { :user_id => user.id } }
+      }
   
   fires :new_proposal, :on => :create,
                        :actor => :user,
