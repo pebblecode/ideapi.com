@@ -57,7 +57,7 @@ class UserTest < Test::Unit::TestCase
         
         should_change "WatchedBrief.count", :by => 1
         
-        context "attempting to pitch on a brief twice" do
+        context "attempting to watch a brief twice" do
           setup do
             @user.watch(@published)
           end
@@ -118,15 +118,6 @@ class UserTest < Test::Unit::TestCase
         
         should_change "Proposal.count", :by => 1
         
-        context "attempting to pitch on a brief twice" do
-          setup do
-            @user.respond_to_brief(@published)
-          end
-          
-          should_not_change "Proposal.count"
-          
-        end
-        
       end
 
     end
@@ -166,7 +157,7 @@ class UserTest < Test::Unit::TestCase
       @starting_invite_count = 5
       
       @dave = User.make(:invite_count => @starting_invite_count)
-      @brief = Brief.make(:published, {:user => @dave})
+      @brief = Brief.make(:published, {:author => @dave})
       
       @invited = User.plan
       
@@ -216,7 +207,7 @@ class UserTest < Test::Unit::TestCase
   context "inviting existing user when user has no invites to give" do
     setup do
       @dave = User.make(:invite_count => 0)
-      @brief = Brief.make(:published, {:user => @dave})
+      @brief = Brief.make(:published, {:author => @dave})
       @invited = User.make
       @invitations = Invitation.from_list_into_hash(
         {:recipient_list => @invited.email, :redeemable => @brief}, @dave

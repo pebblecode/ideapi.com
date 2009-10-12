@@ -94,7 +94,7 @@ class QuestionsController < ApplicationController
   end
   
   def record_author?
-    parent_object.user == current_user
+    parent_object.author == current_user
   end
   
   def reset_filter(question_filter)

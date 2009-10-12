@@ -84,11 +84,11 @@ class InvitationsTest < ActionController::IntegrationTest
       
     context "viewing a brief" do
       setup do
-        @brief = Brief.make(:published, { :user => @user })
+        @brief = Brief.make(:published, { :author => @user })
         visit brief_path(@brief)
       end
 
-      context "with friends" do
+      context "with friends, updating collaborators" do
         setup do
           @friends = 3.times.map { User.make }
           
@@ -98,26 +98,23 @@ class InvitationsTest < ActionController::IntegrationTest
           }
           
           @user.reload
-          reload
+          
+          visit collaborators_brief_path(@brief)
         end
         
-        should "have friendships" do
-          @friends.each { |f| assert @user.is_friends_with?(f) }
-        end
-        
-        should "have a drop down of friends to invite" do
-          assert_select 'select#contact_recipient_list' do
+        should "have a drop down of friends to add to brief" do          
+          assert_select 'select#brief_user_briefs_attributes_1_user_id' do
             @friends.each do |friend|
               assert_select 'option[value=?]', friend.id, :text => friend.login
             end
           end
         end
         
-        context "clicking invite" do
+        context "adding them to the brief" do
           setup do
             @invited_friend = @friends.first
-            select @invited_friend.login, :from => 'contact_recipient_list'
-            click_button 'invite'
+            select @invited_friend.login, :from => 'brief_user_briefs_attributes_1_user_id'
+            click_button 'Add to brief'
           end
           
           should_not_change "Invitation.count"
@@ -128,74 +125,26 @@ class InvitationsTest < ActionController::IntegrationTest
             assert_equal(brief_path(@brief), path)
           end
         
-          should "automatically add user to watching list" do
-            assert_select '.watching' do
-              assert_select 'a[href=?]', user_path(@invited_friend) , :text => @invited_friend.login
+          should "automatically add user to collaborators list" do
+            assert_select '.collaborators' do
+              assert_select 'a[href=?]', user_path(@invited_friend)
             end
           end
           
-          should "not have invited friend in the add collaboration dropdown" do
-            assert_select 'select#contact_recipient_list' do
-              assert_select 'option[value=?]', @invited_friend.id, :text => @invited_friend.login, :count => 0
+          context "after adding user, editing collaborators" do
+            setup do
+              visit collaborators_brief_path(@brief)
             end
-          end
-        
-        end
-        
-         context "with friends already watching brief" do
-          
-          setup do
-            @friends.first.watch(@brief)
-            reload
-          end
-        
-          context "friend" do
-            should "be watching brief" do
-              assert @friends.first.watching?(@brief)
-            end
-          end
-        
-          should "have a drop down of friends to invite" do
-            assert_select 'select#contact_recipient_list' do
-              watching_dude, *others = @friends
-              assert_select 'option[value=?]', watching_dude.id, :text => watching_dude.login, :count => 0
-              others.each do |friend|
-                assert_select 'option[value=?]', friend.id, :text => friend.login
+
+            should "not have invited friend in the add collaboration dropdown" do
+              assert_select "select#brief_user_briefs_attributes_2_user_id" do
+                assert_select 'option[value=?]', @invited_friend.id, :text => @invited_friend.login, :count => 0
               end
             end
           end
           
         end
-        # 
-        # context "inviting friends via the email list" do
-        #   setup do
-        #     @invite_count = @user.invite_count
-        #     
-        #     fill_in 'invitation_recipient_list', :with => @friends.first.email
-        #     click_button 'invitation_submit'
-        #   end
-        # 
-        #   should_respond_with :success
-        #   should_change "Invitation.count", :by => 1
-        #   
-        #   should "not change the invite count" do
-        #     assert_equal(@invite_count, @user.reload.invite_count)
-        #   end
-        #   
-        #   context "invite" do
-        #     setup do
-        #       @invite = @user.invitations.find_by_recipient_email(
-        #         @friends.first.email
-        #       )
-        #     end
-        # 
-        #     should "be redeemable for brief" do
-        #       assert_equal(@brief, @invite.redeemable)
-        #     end
-        #   end
-        #   
-        # end
-        # 
+
       end  
     end
   end 

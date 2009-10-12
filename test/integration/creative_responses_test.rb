@@ -8,7 +8,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
     setup do
       @author = User.make(:password => "testing")
       @user = User.make(:password => "testing")      
-      @brief = Brief.make(:published, :user => @author)
+      @brief = Brief.make(:published, :author => @author)
       populate_brief(@brief)
       
       login_as(@user)

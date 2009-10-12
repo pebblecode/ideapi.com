@@ -28,6 +28,7 @@ Brief.blueprint do
   title
   template_brief { TemplateBrief.make }
   most_important_message { Sham.body }
+  author { User.make }
 end
 
 Brief.blueprint(:published) do

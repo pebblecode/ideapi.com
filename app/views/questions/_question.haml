@@ -11,11 +11,11 @@
     %span.clear    
   -if question.answered?
     .author_answer
-      =medium_avatar(question.brief.user)
+      =medium_avatar(question.brief.author)
       %span.speech
         %p 
           %strong
-            =given_name(question.brief.user)
+            =given_name(question.brief.author)
             answered:
           =question.author_answer
       %span.clear

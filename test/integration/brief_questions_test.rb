@@ -7,7 +7,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
   context "" do
     setup do
       @author = User.make(:password => "testing")    
-      @brief = Brief.make(:published, { :user => @author })
+      @brief = Brief.make(:published, { :author => @author })
       @standard_user = User.make(:password => "testing")
     end
     

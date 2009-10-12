@@ -18,7 +18,7 @@ class Question < ActiveRecord::Base
   end
   
   def answer_author
-    brief.user if answered? && brief.present?
+    brief.author if answered? && brief.present?
   end
   
   attr_reader :recently_answered

@@ -5,29 +5,17 @@ class Brief < ActiveRecord::Base
   include AlterEgo
   
   # relationships
-  belongs_to :template_brief
+  belongs_to :template_brief  
+  has_many :brief_items, :order => :position
+
+  belongs_to :author, :class_name => 'User'
   belongs_to :approver, :class_name => 'User'
   
-  has_many :brief_items, :order => :position
-  
-  has_many :user_briefs
-  has_many :users, :through => :user_briefs do
-    def author=(user)
-      proxy_owner.user_briefs.build(:user => user, :brief => proxy_owner, :author => true)
-    end
-    
-    def author
-      first :conditions => ["user_briefs.author = true"], :order => :created_at
-    end
-    
-    def authors
-      all :conditions => ['user_briefs.author = ?', true]
-    end
-  end
-  
+  has_many :user_briefs  
+  has_many :users, :through => :user_briefs
+
   has_many :invitations, :as => :redeemable
-  has_many :watched_briefs
-  has_many :watchers, :through => :watched_briefs, :source => :user
+
   has_many :proposals
   has_many :questions
   
@@ -42,6 +30,8 @@ class Brief < ActiveRecord::Base
     end
   end
   
+  delegate :authors, :to => :users
+  
   acts_as_commentable
   
   accepts_nested_attributes_for :brief_items, 
@@ -51,10 +41,10 @@ class Brief < ActiveRecord::Base
   accepts_nested_attributes_for :user_briefs, :allow_destroy => true
   
   # callbacks
-  after_create :generate_brief_items_from_template!
+  after_create :generate_brief_items_from_template!, :add_author_to_authors
   
   # validations
-  validates_presence_of :template_brief_id, :title, :most_important_message
+  validates_presence_of :template_brief_id, :title, :most_important_message, :author_id
   
   # see plugin totally_truncated
   truncates :title
@@ -100,8 +90,8 @@ class Brief < ActiveRecord::Base
   
   
   # ACTIVITY STREAM
-  fires :brief_created, :on => :create, :actor => "user", :log_level => 1
-  fires :brief_updated, :on => :update, :actor => "user", :log_level => 1
+  fires :brief_created, :on => :create, :actor => "author", :log_level => 1
+  fires :brief_updated, :on => :update, :actor => "author", :log_level => 1
   
   def activity_stream(user, options = {})
     options.reverse_merge! :conditions => activity_stream_conditions(user), 
@@ -190,14 +180,6 @@ class Brief < ActiveRecord::Base
     users.include?(a_user)
   end
   
-  def user=(user)
-    self.users.author = user
-  end
-  
-  def user
-    self.users.author
-  end
-  
   class << self
     def grouped
       all.group_by(&:state)
@@ -211,7 +193,11 @@ class Brief < ActiveRecord::Base
   private 
   
   def ensure_approver_set
-    self.approver_id = self.user if self.approver_id.blank?
+    self.approver_id = self.author if self.approver_id.blank?
+  end
+  
+  def add_author_to_authors
+    user_briefs.create(:user => author, :author => true)
   end
   
   def generate_brief_items_from_template!

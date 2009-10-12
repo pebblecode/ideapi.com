@@ -21,7 +21,7 @@ if RAILS_ENV != "production"
       brief = Brief.make({:template_brief => TemplateBrief.find_by_title('Default') })
       brief.brief_items.each { |b_i| b_i.update_attribute(:body, Sham.body) }
       
-      brief.user = user
+      brief.author = user
       
       brief.publish!
     end

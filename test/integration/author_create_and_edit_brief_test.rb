@@ -40,7 +40,7 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
     context "editing a brief" do
       setup do
         @template = populate_template_brief
-        @draft = Brief.make(@brief.merge(:user => @author, :template_brief => @template))
+        @draft = Brief.make(@brief.merge(:author => @author, :template_brief => @template))
         visit edit_brief_path(@draft)
       end
       

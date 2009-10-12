@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091006103048) do
+ActiveRecord::Schema.define(:version => 20091009145658) do
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20091006103048) do
     t.text    "most_important_message"
     t.boolean "delta"
     t.integer "approver_id"
+    t.integer "author_id"
   end
 
   add_index "briefs", ["approver_id"], :name => "index_briefs_on_approver_id"

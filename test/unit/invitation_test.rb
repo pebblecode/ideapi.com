@@ -6,7 +6,7 @@ class InvitationTest < ActiveSupport::TestCase
     setup do
       @user = User.make
       @invited = User.make
-      @brief = Brief.make(:published, { :user => @user })
+      @brief = Brief.make(:published, { :author => @user })
       
       @invite = @user.invitations.create(
         {:recipient_email => @invited.email, :redeemable => @brief}

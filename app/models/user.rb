@@ -40,7 +40,9 @@ class User < ActiveRecord::Base
   # pathways to the hallowed briefs
   has_many :responded_briefs, :through => :proposals, :source => :brief
   has_many :watching_briefs, :through => :watched_briefs, :source => :brief
-    
+  
+  named_scope :authors, :conditions => 'user_briefs.author = true'
+  
   # users are found by username
   def to_param
     return self.login
@@ -97,7 +99,19 @@ class User < ActiveRecord::Base
   end
     
   # protect against mass assignment
-  attr_accessible :login, :email, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :last_login_at, :last_request_at, :password, :password_confirmation, :avatar, :first_name, :last_name
+  attr_accessible :login, 
+    :email, 
+    :avatar_file_name, 
+    :avatar_content_type, 
+    :avatar_file_size, 
+    :avatar_updated_at, 
+    :last_login_at, 
+    :last_request_at, 
+    :password, 
+    :password_confirmation, 
+    :avatar, 
+    :first_name, 
+    :last_name
   
   def watch(brief)
     return false if !brief
@@ -145,7 +159,7 @@ class User < ActiveRecord::Base
   delegate :complete, :to => :responded_briefs
   
   def author?
-    published.empty?
+    published.present?
   end
   
   def owns?(thing)
@@ -215,10 +229,10 @@ class User < ActiveRecord::Base
     
     def emails_from_string(str)
       str.split(/,|\s/).reject {|email| email.blank? || !valid_email?(email) }
-    end
+    end  
     
     def email_regex
-      @email_regex =  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+      @email_regex ||= /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
     end
           
     def valid_email?(email)

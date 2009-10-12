@@ -3,13 +3,13 @@ require 'test_helper'
 class BriefTest < ActiveSupport::TestCase
   include BriefPopulator
 
-  should_belong_to :user
+  should_belong_to :author
   should_belong_to :template_brief
   
   should_have_many :brief_items
   should_have_many :questions
   
-  should_validate_presence_of :user_id, :title
+  should_validate_presence_of :author_id, :title
   
   should_have_instance_methods :most_important_message
     
@@ -22,7 +22,7 @@ class BriefTest < ActiveSupport::TestCase
     context "generate brief items from template" do
       setup do
         @template = populate_template_brief
-        @brief = Brief.make(:template_brief => @template, :user => @user)
+        @brief = Brief.make(:template_brief => @template, :author => @user)
       end
 
       should "have brief items generated" do
@@ -36,7 +36,7 @@ class BriefTest < ActiveSupport::TestCase
 
     context "state machine" do
       setup do
-        @brief = Brief.make(:user => @user)
+        @brief = Brief.make(:author => @user)
       end
 
       should "start with draft state" do

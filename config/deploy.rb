@@ -53,5 +53,5 @@ namespace :deploy do
   
 end
 
-after "deploy:update_code", "deploy:link_config_files", "deploy:prepare_static_cache"
+after "deploy:update_code", "deploy:link_config_files"
 

@@ -7,7 +7,7 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
     setup do
       @author = User.make(:password => "testing")
       @standard_user = User.make(:password => "testing")
-      @published = Brief.make(:published, :user => @author)
+      @published = Brief.make(:published, :author => @author)
       @draft = Brief.make
     end
 
@@ -29,16 +29,16 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
           assert_equal(briefs_path, path)
         end
 
-        context "viewing a published brief" do
+        context "viewing a published brief without being a collaborator" do
           setup do
             visit brief_path(@published)
           end
 
           should_respond_with :success
-          should_render_template :show
+          should_render_template :index
 
           should "be viewing brief" do        
-            assert_equal(brief_path(@published), path)
+            assert_equal(briefs_path, path)
           end
         end
 
@@ -55,32 +55,54 @@ class GeneralBriefAssumptions < ActionController::IntegrationTest
           end
         end
         
-        context "viewing a published brief with questions" do
+        context "when a collaborator" do
+          
           setup do
-            populate_brief(@published)
-            
-            @published.reload
-            
-            @user_question = @published.questions.make(:brief_item => @published.brief_items.first, :user => @standard_user)
-            @other_answered_question = @published.questions.make(:answered, { :brief_item => @published.brief_items.first, :user => User.make })
-            @other_unanswered_question = @published.questions.make(:brief_item => @published.brief_items.first, :user => User.make)
-            
-            visit brief_path(@published)
+            @published.users << @standard_user
+          end
+          
+          context "viewing a published brief" do
+            setup do
+              visit brief_path(@published)
+            end
+
+            should_respond_with :success
+            should_render_template :show
+
+            should "be viewing brief" do        
+              assert_equal(brief_path(@published), path)
+            end
           end
 
-          should "show answered questions" do
-            assert_contain(@other_answered_question.body)
+          context "viewing a published brief with questions" do
+            setup do            
+              populate_brief(@published)
+
+              @published.reload
+
+              @user_question = @published.questions.make(:brief_item => @published.brief_items.first, :user => @standard_user)
+              @other_answered_question = @published.questions.make(:answered, { :brief_item => @published.brief_items.first, :user => User.make })
+              @other_unanswered_question = @published.questions.make(:brief_item => @published.brief_items.first, :user => User.make)
+
+              visit brief_path(@published)
+            end
+
+            should "show answered questions" do
+              assert_contain(@other_answered_question.body)
+            end
+
+            should "show users unanswered questions" do
+              assert_contain(@user_question.body)
+            end
+
+            should "show users unanswered questions" do
+              assert_not_contain(@other_unanswered_question.body)
+            end
+
           end
-          
-          should "show users unanswered questions" do
-            assert_contain(@user_question.body)
-          end
-          
-          should "show users unanswered questions" do
-            assert_not_contain(@other_unanswered_question.body)
-          end
-          
+
         end
+        
         
       end
 

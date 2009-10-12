@@ -43,7 +43,7 @@ class BriefsController < ApplicationController
     
     
     before :create do
-      params[:brief][:user] = current_user
+      current_object.author = current_user
       current_object.template_brief = TemplateBrief.last      
     end
         
