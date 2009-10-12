@@ -29,6 +29,8 @@ module ActivityStreamHelper
     case event.event_type
     when "brief_created"
       "created this brief"
+    when "brief_updated"
+      "updated this brief"
     when "new_question"
       "asked a #{link_to 'question', brief_questions_path(event.secondary_subject)} on the brief"
     when "question_answered"

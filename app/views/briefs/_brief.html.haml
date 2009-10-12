@@ -1,16 +1,15 @@
 .brief_item
   %h3
     =link_to truncate(brief.title, :length => 30), (brief.published? ? brief_path(brief) : edit_brief_path(brief))
-    %span.user_context="- #{brief.role_for_user?(current_user)[:label]}"
+    %span.user_context=brief.role_for_user?(current_user)[:label]
     
   %h4.activity_snapshot
-    =activity_snapshot(brief.activity_to_view(current_user))
+    =#activity_snapshot(brief.activity_to_view(current_user))
     
   %ul.activity_stream
-    -brief.activity_stream(current_user).group_by(&:created_on).each do |day, activities|
-      %li.date=distance_in_time_with_today(day)
-      -activities.each do |activity|
-        %li
-          %span=stream_item(activity)
+    -brief.timeline_events(:include_brief_items => true).each do |activity|
+      %li
+        .date=time_ago_in_words_with_word(activity.created_at)
+        %span=stream_item(activity)
         
-  =link_to brief.activity_stream(current_user).count, "#", :class => "toggle_activity_stream"
+  =link_to brief.timeline_events(:include_brief_items => true).count, "#", :class => "toggle_activity_stream"

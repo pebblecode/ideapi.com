@@ -43,12 +43,12 @@ class Question < ActiveRecord::Base
   
   fires :new_question, :on => :create,
                        :actor => :user,
-                       :secondary_subject  => 'brief', 
+                       :secondary_subject  => 'brief_item', 
                        :log_level => 1
   
   fires :question_answered, :on => :update,
                             :actor => 'answer_author',
-                            :secondary_subject  => 'brief',
+                            :secondary_subject  => 'brief_item',
                             :if => lambda { |question| (question.answered? && question.recently_answered) }, 
                             :log_level => 1
   

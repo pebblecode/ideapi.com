@@ -5,21 +5,28 @@ class BriefsController < ApplicationController
   before_filter :require_user
   
   # filters for record owners
-  before_filter :require_owner_if_not_published, :only => [:show]
   before_filter :require_owner, :only => [:edit, :update, :destroy]
-  
-  # ensure user has access to brief
-  before_filter :require_collaborator, :only => [:show]
-  
-  # get the brief items (depending on brief state)
-  helper_method :user_last_viewed_brief
   
   add_breadcrumb 'dashboard', "/dashboard"
   add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   add_breadcrumb 'edit your brief', :edit_object_path, :only => [:edit, :update]
   
   def current_objects
-    @current_objects ||= current_user.briefs(:include => 'timeline_events')
+    @current_objects ||= current_user.briefs
+  end
+  
+  def current_object
+    @current_object ||= current_user.briefs.find(params[:id], 
+      :include => [
+        :comments, 
+        { 
+          :brief_items_answered => [
+            :questions, 
+            :versions
+          ] 
+        }
+      ]
+    )
   end
   
   make_resourceful do
@@ -27,20 +34,15 @@ class BriefsController < ApplicationController
     actions :all
     
     before :show do
-      add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path
-      set_user_last_viewed_brief
-      
-      current_object.watched_briefs.build
-      
-      # record view
-      current_object.brief_user_views.record_view_for_user(current_user)
-      
+      add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path      
       #@invitation = Invitation.new(:user => current_user, :redeemable => current_object)
-      
-      @brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
-      
+      #@brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
     end
     
+    after :show do
+      
+      current_object.brief_user_views.record_view_for_user(current_user)
+    end
     
     before :create do
       current_object.author = current_user
@@ -69,7 +71,10 @@ class BriefsController < ApplicationController
     
     response_for(:update, :update_fails) do |format|
       format.html { redirect_to :action => current_object.published? ? 'show' : 'edit' }
-      format.json { render :json => current_object }  
+      format.json { render :json => current_object }
+      format.js { 
+        render :js => 'alert("cock");'
+      }
     end
   
     response_for(:show, :show_fails) do |format|
@@ -134,18 +139,6 @@ class BriefsController < ApplicationController
 
   def record_owner?
     current_object.belongs_to?(current_user)
-  end
-  
-  def user_last_viewed_brief
-    @user_last_viewed_brief ||= set_user_last_viewed_brief
-  end
-  
-  def set_user_last_viewed_brief
-    @user_last_viewed_brief = current_object.brief_user_views.for_user(current_user)
-  end
-  
-  def require_collaborator
-    redirect_to briefs_path and return unless current_object.collaborator?(current_user)
   end
   
 end

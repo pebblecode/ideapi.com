@@ -2,6 +2,29 @@ jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
 
+function _ajax_request(url, data, callback, type, method) {
+    if (jQuery.isFunction(data)) {
+        callback = data;
+        data = {};
+    }
+    return jQuery.ajax({
+        type: method,
+        url: url,
+        data: data,
+        success: callback,
+        dataType: type
+        });
+}
+
+jQuery.extend({
+    put: function(url, data, callback, type) {
+        return _ajax_request(url, data, callback, type, 'PUT');
+    },
+    delete_: function(url, data, callback, type) {
+        return _ajax_request(url, data, callback, type, 'DELETE');
+    }
+});
+
 $.fn.fadeToggle = function(speed, easing, callback) { 
    return this.animate({opacity: 'toggle'}, speed, easing, callback); 
 };
@@ -48,15 +71,10 @@ $.hideable_cookie_name = function (id) {
 }
 
 $.fn.hideable_note = function () {
-  
   var el_id = $(this).attr('id');
   
   if ( !((el_id == "") || (el_id == undefined)) ) {    
-    
-    if ($.cookie($.hideable_cookie_name(el_id)) != null) {
-      
-      console.log("found cookie " + $.cookie($.hideable_cookie_name(el_id)) );
-      
+    if ($.cookie($.hideable_cookie_name(el_id)) != null) {      
       $(this).remove();
     }
   };
@@ -144,6 +162,21 @@ $.fn.fold_activity_stream = function () {
     
     return false;
   });
+}
+
+$.fn.delete_item = function (remove_item_class) {
+  $(this).after('<a href="#" class="trash">Remove</a>');
+  
+  $(this).next('.trash').click(function () {
+    data = {}
+    data[$(this).prev(remove_item_class).attr('name')] = 1;
+    $.put($(this).parents().filter('form').attr('action'), data, function (e) {
+      
+    }, 'js');
+    return false;
+  });
+  
+  $(this).hide();
 }
 
 jQuery(document).ready(function(){
@@ -266,6 +299,10 @@ jQuery(document).ready(function(){
     $('#proposal_long_description').wysiwyg();
     
     $('.activity_stream').fold_activity_stream();
-        
+    
+    $('.remove_item').delete_item('.remove_item');
+    
+    $('.remove_with_js').hide();  
+    
 });
 

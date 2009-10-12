@@ -34,8 +34,12 @@ module LayoutHelper
     if date.today?
       "Today"
     else
-      "#{time_ago_in_words(date)} #{word}"
+      time_ago_in_words_with_word(date, word)
     end
+  end
+  
+  def time_ago_in_words_with_word(date, word = "ago")
+    "#{time_ago_in_words(date)} #{word}"
   end
   
   private
