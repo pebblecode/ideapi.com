@@ -23,11 +23,11 @@
       %p This document is empty
     -else
       =render :partial => 'brief_item', :collection => (current_object.brief_items_answered)
-
-  =#render :partial => 'comments'
+      
+  =render :partial => 'comments'
   
 .col_2  
-  =#render :partial => 'responses'
-  =#render :partial => 'collaborators'
+  =render :partial => 'responses'
+  =render :partial => 'collaborators'
   .discussion     
-    =#render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions } 
+    =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions } 

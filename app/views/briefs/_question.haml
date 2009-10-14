@@ -22,12 +22,6 @@
   -else
     -if owner?(question.brief)
       .author_answer_form
-        %div[question.brief_item]
-          %h3
-            =question.brief_item.title
-
-          %p.body
-            =question.brief_item.body_parsed
-        
         =medium_avatar
-        =# render :partial => 'answer_form', :locals => { :question => question }
+        =render :partial => 'question_answer_form', :locals => { :question => question }
+ 

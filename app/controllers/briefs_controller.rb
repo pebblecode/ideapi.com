@@ -18,7 +18,7 @@ class BriefsController < ApplicationController
   def current_object
     @current_object ||= current_user.briefs.find(params[:id], 
       :include => [
-        :comments, 
+        :comments, :questions,
         { 
           :brief_items_answered => [
             :questions, 
@@ -35,13 +35,12 @@ class BriefsController < ApplicationController
     
     before :show do
       add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path      
-      #@invitation = Invitation.new(:user => current_user, :redeemable => current_object)
-      #@brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
+      @brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
+      @user_question ||= current_object.questions.build(session[:previous_question])
     end
     
     after :show do
-      
-      current_object.brief_user_views.record_view_for_user(current_user)
+      current_object.brief_user_views.record_view_for_user(current_user)      
     end
     
     before :create do
@@ -100,13 +99,6 @@ class BriefsController < ApplicationController
     end
     
   end
-  
-  # def browse
-  #   @search_results = Brief.search(params[:q])
-  #   respond_to do |format|
-  #     format.html
-  #   end
-  # end
   
   def watch
     if !record_owner?      

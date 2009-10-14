@@ -2,13 +2,12 @@ require 'friendship'
 
 class User < ActiveRecord::Base
   
-  concerned_with :validations, 
-    :relationships, 
-    :states, 
-    :invitations, 
-    :briefs, 
+  concerned_with :briefs,
     :class_methods,
-    :friendships
+    :friendships,
+    :invitations, 
+    :relationships,  
+    :validations
     
   # users are found by username
   def to_param

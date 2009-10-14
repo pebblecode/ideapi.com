@@ -501,41 +501,32 @@ span.field_with_errors input {
   margin: 2em 0; }
 
 #container #content .ask_question {
-  padding: 0.5em 2em 0.5em 2em;
-  margin: 0;
-  background: #F6F6F6;
-  border-top: 1px solid #ccc;
-  width: 57em;
-  position: relative;
-  bottom: -10px;
-  left: -2em; }
-#container #content .question_body {
-  width: 49em;
-  margin: 0 auto;
-  padding-top: 1em; }
-  #container #content .question_body .submit {
-    margin-right: 6em;
+  padding: 1em 2em 0 2em; }
+  #container #content .ask_question .submit {
+    margin-right: 3em;
     margin-top: 0.5em; }
-  #container #content .question_body .speech {
+  #container #content .ask_question .speech {
     background: #e9e9e8;
     padding: 0.5em 0.8em;
     margin: 0;
-    width: 33em;
+    width: 32em;
     display: block;
     position: relative; }
-    #container #content .question_body .speech span.bubble {
-      background: url(/images/speech.png) 8px 0;
-      width: 7px;
-      height: 16px;
-      display: block;
-      position: absolute;
-      right: -7px;
-      top: 40%; }
-    #container #content .question_body .speech textarea {
+    #container #content .ask_question .speech textarea {
       font-size: 1em;
-      width: 32.5em;
+      width: 31em;
       height: 6em; }
-  #container #content .question_body img {
+#container #content .question_body, #container #content .comment_body {
+  font-size: 1.1em; }
+  #container #content .question_body .speech span.bubble,   #container #content .comment_body .speech span.bubble {
+    background: url(/images/speech.png) 8px 0;
+    width: 7px;
+    height: 16px;
+    display: block;
+    position: absolute;
+    right: -7px;
+    top: 40%; }
+  #container #content .question_body img,   #container #content .comment_body img {
     float: right;
     margin-top: 1em; }
 #container #content .brief_item {
@@ -582,13 +573,7 @@ span.field_with_errors input {
     padding: 0 0.5em; }
 #container #content .question_list .question, #container #content .question_list .comment, #container #content .brief_item_history .question, #container #content .brief_item_history .comment, #container #content .comments .question, #container #content .comments .comment {
   margin-bottom: 1em;
-  padding: 0 2em;
-  position: relative; }
-  #container #content .question_list .question p.show_author_answer_form,   #container #content .question_list .comment p.show_author_answer_form,   #container #content .brief_item_history .question p.show_author_answer_form,   #container #content .brief_item_history .comment p.show_author_answer_form,   #container #content .comments .question p.show_author_answer_form,   #container #content .comments .comment p.show_author_answer_form {
-    position: absolute;
-    right: -8px;
-    top: 1.5em;
-    font-size: 1.1em; }
+  padding: 0 2em; }
   #container #content .question_list .question .question_body .speech,   #container #content .question_list .question .author_answer .speech,   #container #content .question_list .question .author_answer_form .speech,   #container #content .question_list .question .comment_body .speech,   #container #content .question_list .question .comment_form .speech,   #container #content .question_list .comment .question_body .speech,   #container #content .question_list .comment .author_answer .speech,   #container #content .question_list .comment .author_answer_form .speech,   #container #content .question_list .comment .comment_body .speech,   #container #content .question_list .comment .comment_form .speech,   #container #content .brief_item_history .question .question_body .speech,   #container #content .brief_item_history .question .author_answer .speech,   #container #content .brief_item_history .question .author_answer_form .speech,   #container #content .brief_item_history .question .comment_body .speech,   #container #content .brief_item_history .question .comment_form .speech,   #container #content .brief_item_history .comment .question_body .speech,   #container #content .brief_item_history .comment .author_answer .speech,   #container #content .brief_item_history .comment .author_answer_form .speech,   #container #content .brief_item_history .comment .comment_body .speech,   #container #content .brief_item_history .comment .comment_form .speech,   #container #content .comments .question .question_body .speech,   #container #content .comments .question .author_answer .speech,   #container #content .comments .question .author_answer_form .speech,   #container #content .comments .question .comment_body .speech,   #container #content .comments .question .comment_form .speech,   #container #content .comments .comment .question_body .speech,   #container #content .comments .comment .author_answer .speech,   #container #content .comments .comment .author_answer_form .speech,   #container #content .comments .comment .comment_body .speech,   #container #content .comments .comment .comment_form .speech {
     background: #e9e9e8;
     padding: 1em 1em;
@@ -599,8 +584,7 @@ span.field_with_errors input {
   #container #content .question_list .question .question_body, #container #content .question_list .question .comment_body,   #container #content .question_list .comment .question_body, #container #content .question_list .comment .comment_body,   #container #content .brief_item_history .question .question_body, #container #content .brief_item_history .question .comment_body,   #container #content .brief_item_history .comment .question_body, #container #content .brief_item_history .comment .comment_body,   #container #content .comments .question .question_body, #container #content .comments .question .comment_body,   #container #content .comments .comment .question_body, #container #content .comments .comment .comment_body {
     font-size: 1.1em; }
     #container #content .question_list .question .question_body .speech,     #container #content .question_list .question .comment_body .speech,     #container #content .question_list .comment .question_body .speech,     #container #content .question_list .comment .comment_body .speech,     #container #content .brief_item_history .question .question_body .speech,     #container #content .brief_item_history .question .comment_body .speech,     #container #content .brief_item_history .comment .question_body .speech,     #container #content .brief_item_history .comment .comment_body .speech,     #container #content .comments .question .question_body .speech,     #container #content .comments .question .comment_body .speech,     #container #content .comments .comment .question_body .speech,     #container #content .comments .comment .comment_body .speech {
-      margin-left: 5em;
-      width: 36em; }
+      margin-left: 5em; }
       #container #content .question_list .question .question_body .speech span.bubble,       #container #content .question_list .question .comment_body .speech span.bubble,       #container #content .question_list .comment .question_body .speech span.bubble,       #container #content .question_list .comment .comment_body .speech span.bubble,       #container #content .brief_item_history .question .question_body .speech span.bubble,       #container #content .brief_item_history .question .comment_body .speech span.bubble,       #container #content .brief_item_history .comment .question_body .speech span.bubble,       #container #content .brief_item_history .comment .comment_body .speech span.bubble,       #container #content .comments .question .question_body .speech span.bubble,       #container #content .comments .question .comment_body .speech span.bubble,       #container #content .comments .comment .question_body .speech span.bubble,       #container #content .comments .comment .comment_body .speech span.bubble {
         background: url(/images/speech.png);
         width: 7px;
@@ -613,10 +597,9 @@ span.field_with_errors input {
       float: left;
       margin-top: 0.3em; }
   #container #content .question_list .question .author_answer, #container #content .question_list .question .author_answer_form, #container #content .question_list .question .comment_form,   #container #content .question_list .comment .author_answer, #container #content .question_list .comment .author_answer_form, #container #content .question_list .comment .comment_form,   #container #content .brief_item_history .question .author_answer, #container #content .brief_item_history .question .author_answer_form, #container #content .brief_item_history .question .comment_form,   #container #content .brief_item_history .comment .author_answer, #container #content .brief_item_history .comment .author_answer_form, #container #content .brief_item_history .comment .comment_form,   #container #content .comments .question .author_answer, #container #content .comments .question .author_answer_form, #container #content .comments .question .comment_form,   #container #content .comments .comment .author_answer, #container #content .comments .comment .author_answer_form, #container #content .comments .comment .comment_form {
-    padding: 1em 0 1em 1.5em; }
+    padding: 0.5em 0 1em 1.5em; }
     #container #content .question_list .question .author_answer img,     #container #content .question_list .question .author_answer_form img,     #container #content .question_list .question .comment_form img,     #container #content .question_list .comment .author_answer img,     #container #content .question_list .comment .author_answer_form img,     #container #content .question_list .comment .comment_form img,     #container #content .brief_item_history .question .author_answer img,     #container #content .brief_item_history .question .author_answer_form img,     #container #content .brief_item_history .question .comment_form img,     #container #content .brief_item_history .comment .author_answer img,     #container #content .brief_item_history .comment .author_answer_form img,     #container #content .brief_item_history .comment .comment_form img,     #container #content .comments .question .author_answer img,     #container #content .comments .question .author_answer_form img,     #container #content .comments .question .comment_form img,     #container #content .comments .comment .author_answer img,     #container #content .comments .comment .author_answer_form img,     #container #content .comments .comment .comment_form img {
-      float: right;
-      margin-top: 1em; }
+      float: right; }
     #container #content .question_list .question .author_answer .speech,     #container #content .question_list .question .author_answer_form .speech,     #container #content .question_list .question .comment_form .speech,     #container #content .question_list .comment .author_answer .speech,     #container #content .question_list .comment .author_answer_form .speech,     #container #content .question_list .comment .comment_form .speech,     #container #content .brief_item_history .question .author_answer .speech,     #container #content .brief_item_history .question .author_answer_form .speech,     #container #content .brief_item_history .question .comment_form .speech,     #container #content .brief_item_history .comment .author_answer .speech,     #container #content .brief_item_history .comment .author_answer_form .speech,     #container #content .brief_item_history .comment .comment_form .speech,     #container #content .comments .question .author_answer .speech,     #container #content .comments .question .author_answer_form .speech,     #container #content .comments .question .comment_form .speech,     #container #content .comments .comment .author_answer .speech,     #container #content .comments .comment .author_answer_form .speech,     #container #content .comments .comment .comment_form .speech {
       margin-top: 0.5em;
       margin-right: 1em;
@@ -647,6 +630,19 @@ span.field_with_errors input {
     #container #content .question_list .question #comment_form textarea,     #container #content .question_list .comment #comment_form textarea,     #container #content .brief_item_history .question #comment_form textarea,     #container #content .brief_item_history .comment #comment_form textarea,     #container #content .comments .question #comment_form textarea,     #container #content .comments .comment #comment_form textarea {
       width: 37em;
       margin-bottom: 0.5em; }
+  #container #content .question_list .question .show_author_answer_form,   #container #content .question_list .comment .show_author_answer_form,   #container #content .brief_item_history .question .show_author_answer_form,   #container #content .brief_item_history .comment .show_author_answer_form,   #container #content .comments .question .show_author_answer_form,   #container #content .comments .comment .show_author_answer_form {
+    position: absolute;
+    top: 1.8em;
+    right: 0; }
+  #container #content .question_list .question .author_answer_form .brief_item,   #container #content .question_list .comment .author_answer_form .brief_item,   #container #content .brief_item_history .question .author_answer_form .brief_item,   #container #content .brief_item_history .comment .author_answer_form .brief_item,   #container #content .comments .question .author_answer_form .brief_item,   #container #content .comments .comment .author_answer_form .brief_item {
+    border: none;
+    padding: 0;
+    margin: 0 0 0 2.8em;
+    width: 44em; }
+    #container #content .question_list .question .author_answer_form .brief_item h3,     #container #content .question_list .comment .author_answer_form .brief_item h3,     #container #content .brief_item_history .question .author_answer_form .brief_item h3,     #container #content .brief_item_history .comment .author_answer_form .brief_item h3,     #container #content .comments .question .author_answer_form .brief_item h3,     #container #content .comments .comment .author_answer_form .brief_item h3 {
+      font-size: 1.5em; }
+    #container #content .question_list .question .author_answer_form .brief_item p,     #container #content .question_list .comment .author_answer_form .brief_item p,     #container #content .brief_item_history .question .author_answer_form .brief_item p,     #container #content .brief_item_history .comment .author_answer_form .brief_item p,     #container #content .comments .question .author_answer_form .brief_item p,     #container #content .comments .comment .author_answer_form .brief_item p {
+      font-size: 1.1em; }
 #container #content .brief_item_history {
   margin-top: 1em;
   padding-top: 1em; }
@@ -821,7 +817,7 @@ input.awesome {
     #facebox .content .fb .brief .brief_item, #facebox .content .fb .brief .most_important_thing {
       padding: 1em 2em;
       border: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #eee;
       border-top: 0;
       position: relative; }
       #facebox .content .fb .brief .brief_item h3 span.updated,       #facebox .content .fb .brief .most_important_thing h3 span.updated {

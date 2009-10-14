@@ -26,4 +26,10 @@ class User < ActiveRecord::Base
   has_many :responded_briefs, :through => :proposals, :source => :brief
   has_many :watching_briefs, :through => :watched_briefs, :source => :brief
   
+  alias :watching :watching_briefs
+  alias :pitching :responded_briefs
+
+  delegate :under_review, :to => :responded_briefs
+  delegate :complete, :to => :responded_briefs
+  
 end

@@ -8,23 +8,21 @@
   %p.body
     -if brief_item.body.present?
       =brief_item.body_parsed
-      
-  / .actions
-  /   -if brief_item.has_history?(current_user)
-  /     =link_to "recent activity (#{brief_item.history.size})", brief_questions_path(current_object, :brief_item_id => brief_item.id), :class => "recent_activity"
-  /   -if !owner?(current_object)
-  /     =link_to 'ask question/comment', brief_questions_path(current_object, :brief_item_id => brief_item.id)
   
-  / -if (!defined?(@print_mode)) || (defined?(@print_mode) && @print_mode.to_i == 1)
-  /   -if brief_item.has_history?
-  /     .brief_item_history
-  /       -brief_item.history_grouped_by_fancy_date_including_user(current_user).each do |date, history_items|
-  /         %p.updated
-  /           %span
-  /             ="#{time_ago_in_words(Time.at(date))} ago"
-  /         %ul
-  /           -history_items.each do |history_item|
-  /             -if history_item.is_a?(Question)
-  /               =render :partial => 'questions/question', :object => history_item, :locals => { :show_relation => false }
-  /             -else
-  /               =render :partial => 'brief_item_version', :object => history_item
+  -if brief_item.timeline_events.present?
+    .brief_item_history
+      %ul
+        -brief_item.timeline_events.each do |event|
+          -if event.subject.is_a?(Question)
+            =render :partial => 'question', :object => event.subject, :locals => { :show_relation => false }
+          -elsif event.subject.is_a?(BriefItem::Version)
+            =render :partial => 'brief_item_version', :object => event.subject
+  
+  .ask_question
+    .question_body
+      =medium_avatar
+      - form_for(@user_question, :url => brief_questions_path(current_object)) do |f|
+        = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item }
+      %span.clear
+  
+    

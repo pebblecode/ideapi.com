@@ -40,12 +40,6 @@ class User < ActiveRecord::Base
       false
     end
   end
-    
-  alias :watching :watching_briefs
-  alias :pitching :responded_briefs
-  
-  delegate :under_review, :to => :responded_briefs
-  delegate :complete, :to => :responded_briefs
   
   def author?
     published.present?
