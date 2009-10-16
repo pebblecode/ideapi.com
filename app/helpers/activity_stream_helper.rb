@@ -22,7 +22,9 @@ module ActivityStreamHelper
   end
   
   def stream_item(event)
-    "#{link_to given_name(event.actor), user_path(event.actor)} #{action_description(event)}"
+    if event.present? && event.actor.present?
+      "#{link_to given_name(event.actor), user_path(event.actor)} #{action_description(event)}"
+    end
   end
   
   def action_description(event)
