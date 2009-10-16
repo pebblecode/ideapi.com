@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     
   USER_NAME, PASSWORD = "ideapi", "pen34guin"
-  before_filter :authenticate
+  #before_filter :authenticate
   
   helper_method :current_user_session, :current_user, :logged_in?, :owner?
   
