@@ -32,9 +32,9 @@ module ActivityStreamHelper
     when "brief_updated"
       "updated this brief"
     when "new_question"
-      "asked a #{link_to 'question', brief_questions_path(event.secondary_subject)} on the brief"
+      "asked a #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)} on the brief"
     when "question_answered"
-      "answered #{given_name(event.subject.user)} #{link_to 'question', brief_questions_path(event.secondary_subject)}"
+      "answered #{given_name(event.subject.user)} #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)}"
     when "new_proposal"
       "submitted an idea"
     when "proposal_marked"
@@ -48,6 +48,10 @@ module ActivityStreamHelper
     else
       event.event_type.humanize
     end
+  end
+  
+  def link_to_brief_item_on_brief(brief_item)
+    brief_path(brief_item.brief, :anchor => dom_id(brief_item))
   end
   
 end

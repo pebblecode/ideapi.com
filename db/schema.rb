@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091009145658) do
+ActiveRecord::Schema.define(:version => 20091015101445) do
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -53,16 +53,6 @@ ActiveRecord::Schema.define(:version => 20091009145658) do
 
   add_index "brief_items", ["brief_id"], :name => "index_brief_items_on_brief_id"
   add_index "brief_items", ["template_question_id"], :name => "index_brief_items_on_template_question_id"
-
-  create_table "brief_user_views", :force => true do |t|
-    t.integer  "brief_id"
-    t.integer  "user_id"
-    t.integer  "view_count",     :default => 0
-    t.datetime "last_viewed_at"
-  end
-
-  add_index "brief_user_views", ["brief_id"], :name => "index_brief_user_views_on_brief_id"
-  add_index "brief_user_views", ["user_id"], :name => "index_brief_user_views_on_user_id"
 
   create_table "briefs", :force => true do |t|
     t.string  "title"
@@ -204,9 +194,11 @@ ActiveRecord::Schema.define(:version => 20091009145658) do
   create_table "user_briefs", :force => true do |t|
     t.integer  "brief_id"
     t.integer  "user_id"
-    t.boolean  "author",     :default => false
+    t.boolean  "author",         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "view_count",     :default => 0
+    t.datetime "last_viewed_at"
   end
 
   add_index "user_briefs", ["brief_id"], :name => "index_user_briefs_on_brief_id"

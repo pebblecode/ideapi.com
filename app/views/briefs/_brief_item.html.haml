@@ -1,22 +1,13 @@
-%div[brief_item]
+%div[brief_item]{:class => (brief_item_updated_for_user?(brief_item) ? "updated" : "")}
   %h3
     =brief_item.title
-    %span.updated
-      / -if brief_item_updated_for_user?(brief_item)
-      /   ="- updated"
-  
   %p.body
     -if brief_item.body.present?
       =brief_item.body_parsed
-  
-  -if brief_item.timeline_events.present?
-    .brief_item_history
-      %ul
-        -brief_item.timeline_events.each do |event|
-          -if event.subject.is_a?(Question)
-            =render :partial => 'question', :object => event.subject, :locals => { :show_relation => false }
-          -elsif event.subject.is_a?(BriefItem::Version)
-            =render :partial => 'brief_item_version', :object => event.subject
+
+  %ul.actions{:style => "visible: none;"}
+    %li=link_to 'Comment', '', {:class => 'toggle_ask_question'}
+    %li=link_to 'History', '', {:class => 'toggle_brief_item_history'}
   
   .ask_question
     .question_body
@@ -25,4 +16,15 @@
         = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item }
       %span.clear
   
-    
+  .clear
+  
+  -if brief_item.timeline_events.present?    
+    %ul.brief_item_history
+      -brief_item.timeline_events.each do |event|
+        -if event.subject.is_a?(Question)
+          =render :partial => 'question', :object => event.subject, :locals => { :show_relation => false }
+        -elsif event.subject.is_a?(BriefItem::Version)
+          =render :partial => 'brief_item_version', :object => event.subject
+  
+
+     

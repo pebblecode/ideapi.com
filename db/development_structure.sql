@@ -27,7 +27,7 @@ CREATE TABLE `brief_item_versions` (
   KEY `index_brief_item_versions_on_brief_item_id` (`brief_item_id`),
   KEY `index_brief_item_versions_on_brief_id` (`brief_id`),
   KEY `index_brief_item_versions_on_template_question_id` (`template_question_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `brief_items` (
   `id` int(11) NOT NULL auto_increment,
@@ -43,17 +43,6 @@ CREATE TABLE `brief_items` (
   KEY `index_brief_items_on_brief_id` (`brief_id`),
   KEY `index_brief_items_on_template_question_id` (`template_question_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `brief_user_views` (
-  `id` int(11) NOT NULL auto_increment,
-  `brief_id` int(11) default NULL,
-  `user_id` int(11) default NULL,
-  `view_count` int(11) default '0',
-  `last_viewed_at` datetime default NULL,
-  PRIMARY KEY  (`id`),
-  KEY `index_brief_user_views_on_brief_id` (`brief_id`),
-  KEY `index_brief_user_views_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -131,7 +120,7 @@ CREATE TABLE `proposals` (
   PRIMARY KEY  (`id`),
   KEY `index_proposals_on_brief_id` (`brief_id`),
   KEY `index_proposals_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL auto_increment,
@@ -146,7 +135,7 @@ CREATE TABLE `questions` (
   KEY `index_questions_on_brief_id` (`brief_id`),
   KEY `index_questions_on_user_id` (`user_id`),
   KEY `index_questions_on_brief_item_id` (`brief_item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=441 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=448 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) collate utf8_unicode_ci NOT NULL,
@@ -209,7 +198,7 @@ CREATE TABLE `timeline_events` (
   KEY `index_timeline_events_ssubs` (`secondary_subject_id`,`secondary_subject_type`),
   KEY `index_timeline_events_on_subject_id_and_subject_type` (`subject_id`,`subject_type`),
   KEY `index_timeline_events_on_actor_id_and_actor_type` (`actor_id`,`actor_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=445 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=485 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `user_briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -218,10 +207,12 @@ CREATE TABLE `user_briefs` (
   `author` tinyint(1) default '0',
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
+  `view_count` int(11) default '0',
+  `last_viewed_at` datetime default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_user_briefs_on_brief_id` (`brief_id`),
   KEY `index_user_briefs_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
@@ -349,3 +340,5 @@ INSERT INTO schema_migrations (version) VALUES ('20091006095715');
 INSERT INTO schema_migrations (version) VALUES ('20091006103048');
 
 INSERT INTO schema_migrations (version) VALUES ('20091009145658');
+
+INSERT INTO schema_migrations (version) VALUES ('20091015101445');

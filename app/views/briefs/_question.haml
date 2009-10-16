@@ -2,11 +2,7 @@
   %p.question_body
     =small_avatar(question.user)
     %span.speech
-      -if show_relation
-        %strong="#{comment_adjective_for given_name(question.user), :position => :before}"
-        ="(in relation to <strong>#{question.brief_item.title}</strong>):"
-      -else
-        %strong="#{comment_adjective_for given_name(question.user), :position => :before}:"
+      %strong="#{given_name(question.user)}:"
       =question.body_parsed
     %span.clear    
   -if question.answered?
@@ -20,7 +16,7 @@
           =question.author_answer
       %span.clear
   -else
-    -if owner?(question.brief)
+    -if owner?(question.brief) && (question.user != current_user)
       .author_answer_form
         =medium_avatar
         =render :partial => 'question_answer_form', :locals => { :question => question }

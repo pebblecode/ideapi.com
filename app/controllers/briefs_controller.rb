@@ -7,6 +7,8 @@ class BriefsController < ApplicationController
   # filters for record owners
   before_filter :require_owner, :only => [:edit, :update, :destroy]
   
+  after_filter :record_user_view, :only => [:show]
+  
   add_breadcrumb 'dashboard', "/dashboard"
   add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   add_breadcrumb 'edit your brief', :edit_object_path, :only => [:edit, :update]
@@ -21,8 +23,7 @@ class BriefsController < ApplicationController
         :comments, :questions,
         { 
           :brief_items_answered => [
-            :questions, 
-            :versions
+            :timeline_events
           ] 
         }
       ]
@@ -37,10 +38,6 @@ class BriefsController < ApplicationController
       add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path      
       @brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
       @user_question ||= current_object.questions.build(session[:previous_question])
-    end
-    
-    after :show do
-      current_object.brief_user_views.record_view_for_user(current_user)      
     end
     
     before :create do
@@ -131,6 +128,10 @@ class BriefsController < ApplicationController
 
   def record_owner?
     current_object.belongs_to?(current_user)
+  end
+  
+  def record_user_view
+    current_object.user_briefs.for_user(current_user).touch(:last_viewed_at)
   end
   
 end

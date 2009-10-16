@@ -488,9 +488,11 @@ span.field_with_errors
           :width 16px
           :height 16px
           :text-indent -3000px
-      
-      .brief_item, .most_important_thing, .proposal_item, .brief
+
+      .most_important_thing, .proposal_item, .brief
         :padding 1em 2em
+
+      .brief_item, .most_important_thing, .proposal_item, .brief
         :border 1px solid #ccc
         :border-bottom 1px solid #eee
         :border-top 0
@@ -671,18 +673,13 @@ span.field_with_errors
 
 #container
   #content
-  
     .ask_question
-      :padding 0.5em 2em 0.5em 2em
       :margin 0
-      :background #F6F6F6
-      :border-top 1px solid #ccc
-      :width 57em
+      :width 658px
       :position relative
-      :bottom -10px
-      :left -2em
         
     .question_body
+      :margin 0.5em auto 0.5em auto
       :width 49em
       :margin 0 auto
       :padding-top 1em
@@ -719,18 +716,25 @@ span.field_with_errors
       
     .brief_item
       :position relative
+      :border 1px solid red
+      :padding 1em 2em 0 2em
       
-      .actions
-        :position absolute
-        :top 1em
-        :right 1em
+      ul.actions
+        :text-align right
         
-        a
-          :color #ccc
-          :padding-left 1em
-        
-        a:hover
-          :color = !link_purple
+        li
+          :border 1px solid #ddd
+          :border-bottom 1px solid #eee
+          :background #eee
+          :display inline
+          :padding 0.2em 1em
+          
+          span
+            :color #ccc
+            :padding-left 1em
+      
+      ul.actions.active
+        :border-bottom 1px solid #eee
         
       h3
         
@@ -800,7 +804,7 @@ span.field_with_errors
         
           .speech
             :margin-left 5em
-            :width 36em
+            :width 35em
           
             span.bubble
               :background url(/images/speech.png)
@@ -861,8 +865,6 @@ span.field_with_errors
             :margin-bottom 0.5em            
             
     .brief_item_history
-      :margin-top 1em
-      :padding-top 1em
       
       h4
         :font-size 1.3em
@@ -1070,7 +1072,6 @@ input.awesome
             :text-indent -3000px
 
         .brief_item, .most_important_thing
-          :padding 1em 2em
           :border 1px solid #ccc
           :border-bottom 1px solid #ccc
           :border-top 0

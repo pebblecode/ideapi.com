@@ -1,3 +1,4 @@
-server "ralph.local", :app, :web, :db, :primary => true
-set(:deploy_to) { "/Users/#{user}/apps/#{application}" }
+server "192.168.3.4", :app, :web, :db, :primary => true
+set :user, "developer"
+set(:deploy_to) { "/Users/#{user}/Sites/#{application}" }
 set :branch, "master"

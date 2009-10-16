@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :proposals, :after_add => :stop_watching_brief
   has_many :watched_briefs, :dependent => :destroy
-  has_many :brief_user_views, :dependent => :destroy
   
   # pathways to the hallowed briefs
   has_many :responded_briefs, :through => :proposals, :source => :brief

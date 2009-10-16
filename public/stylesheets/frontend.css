@@ -362,8 +362,9 @@ span.field_with_errors input {
       width: 16px;
       height: 16px;
       text-indent: -3000px; }
+  #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief,   #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief,   #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
+    padding: 1em 2em; }
   #container #content .brief .brief_item, #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief,   #container #content .proposal .brief_item, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief,   #container #content .brief_list .brief_item, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
-    padding: 1em 2em;
     border: 1px solid #ccc;
     border-bottom: 1px solid #eee;
     border-top: 0;
@@ -501,15 +502,11 @@ span.field_with_errors input {
   margin: 2em 0; }
 
 #container #content .ask_question {
-  padding: 0.5em 2em 0.5em 2em;
   margin: 0;
-  background: #F6F6F6;
-  border-top: 1px solid #ccc;
-  width: 57em;
-  position: relative;
-  bottom: -10px;
-  left: -2em; }
+  width: 658px;
+  position: relative; }
 #container #content .question_body {
+  margin: 0.5em auto 0.5em auto;
   width: 49em;
   margin: 0 auto;
   padding-top: 1em; }
@@ -539,16 +536,22 @@ span.field_with_errors input {
     float: right;
     margin-top: 1em; }
 #container #content .brief_item {
-  position: relative; }
-  #container #content .brief_item .actions {
-    position: absolute;
-    top: 1em;
-    right: 1em; }
-    #container #content .brief_item .actions a {
-      color: #ccc;
-      padding-left: 1em; }
-    #container #content .brief_item .actions a:hover {
-      color: #2b3087; }
+  position: relative;
+  border: 1px solid red;
+  padding: 1em 2em 0 2em; }
+  #container #content .brief_item ul.actions {
+    text-align: right; }
+    #container #content .brief_item ul.actions li {
+      border: 1px solid #ddd;
+      border-bottom: 1px solid #eee;
+      background: #eee;
+      display: inline;
+      padding: 0.2em 1em; }
+      #container #content .brief_item ul.actions li span {
+        color: #ccc;
+        padding-left: 1em; }
+  #container #content .brief_item ul.actions.active {
+    border-bottom: 1px solid #eee; }
   #container #content .brief_item h3 a.toggle_brief_edit {
     margin-right: 0.5em;
     position: relative;
@@ -600,7 +603,7 @@ span.field_with_errors input {
     font-size: 1.1em; }
     #container #content .question_list .question .question_body .speech,     #container #content .question_list .question .comment_body .speech,     #container #content .question_list .comment .question_body .speech,     #container #content .question_list .comment .comment_body .speech,     #container #content .brief_item_history .question .question_body .speech,     #container #content .brief_item_history .question .comment_body .speech,     #container #content .brief_item_history .comment .question_body .speech,     #container #content .brief_item_history .comment .comment_body .speech,     #container #content .comments .question .question_body .speech,     #container #content .comments .question .comment_body .speech,     #container #content .comments .comment .question_body .speech,     #container #content .comments .comment .comment_body .speech {
       margin-left: 5em;
-      width: 36em; }
+      width: 35em; }
       #container #content .question_list .question .question_body .speech span.bubble,       #container #content .question_list .question .comment_body .speech span.bubble,       #container #content .question_list .comment .question_body .speech span.bubble,       #container #content .question_list .comment .comment_body .speech span.bubble,       #container #content .brief_item_history .question .question_body .speech span.bubble,       #container #content .brief_item_history .question .comment_body .speech span.bubble,       #container #content .brief_item_history .comment .question_body .speech span.bubble,       #container #content .brief_item_history .comment .comment_body .speech span.bubble,       #container #content .comments .question .question_body .speech span.bubble,       #container #content .comments .question .comment_body .speech span.bubble,       #container #content .comments .comment .question_body .speech span.bubble,       #container #content .comments .comment .comment_body .speech span.bubble {
         background: url(/images/speech.png);
         width: 7px;
@@ -647,27 +650,24 @@ span.field_with_errors input {
     #container #content .question_list .question #comment_form textarea,     #container #content .question_list .comment #comment_form textarea,     #container #content .brief_item_history .question #comment_form textarea,     #container #content .brief_item_history .comment #comment_form textarea,     #container #content .comments .question #comment_form textarea,     #container #content .comments .comment #comment_form textarea {
       width: 37em;
       margin-bottom: 0.5em; }
-#container #content .brief_item_history {
-  margin-top: 1em;
-  padding-top: 1em; }
-  #container #content .brief_item_history h4 {
-    font-size: 1.3em;
-    color: #666;
-    padding-bottom: 1em; }
-  #container #content .brief_item_history ul {
-    margin: 0 0; }
-  #container #content .brief_item_history .revision {
-    padding: 1em 2em;
-    position: relative;
-    border: 1px solid #eee;
-    margin: 1em auto;
-    background: #fcfcfc;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    width: 40em; }
-    #container #content .brief_item_history .revision p {
-      padding: 0;
-      margin: 0; }
+#container #content .brief_item_history h4 {
+  font-size: 1.3em;
+  color: #666;
+  padding-bottom: 1em; }
+#container #content .brief_item_history ul {
+  margin: 0 0; }
+#container #content .brief_item_history .revision {
+  padding: 1em 2em;
+  position: relative;
+  border: 1px solid #eee;
+  margin: 1em auto;
+  background: #fcfcfc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  width: 40em; }
+  #container #content .brief_item_history .revision p {
+    padding: 0;
+    margin: 0; }
 #container #content .question_list {
   border: 1px solid #ccc;
   border-top: 0;
@@ -819,7 +819,6 @@ input.awesome {
         height: 16px;
         text-indent: -3000px; }
     #facebox .content .fb .brief .brief_item, #facebox .content .fb .brief .most_important_thing {
-      padding: 1em 2em;
       border: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       border-top: 0;

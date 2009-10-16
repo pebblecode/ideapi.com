@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :brief
-  belongs_to :brief_item
+  belongs_to :brief_item, :touch => true
   
   named_scope :recent, :order => "updated_at DESC"
   named_scope :answered, :conditions => ["author_answer != ?", ""], :order => "updated_at ASC"

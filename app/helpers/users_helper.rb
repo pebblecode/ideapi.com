@@ -33,8 +33,11 @@ module UsersHelper
   end
   
   def brief_item_updated_for_user?(brief_item)
-    if !user_last_viewed_brief.blank? && user_last_viewed_brief.last_viewed_at.is_a?(Time)
-      (brief_item.updated_at > user_last_viewed_brief.last_viewed_at)
+    user_brief = brief_item.brief.user_briefs.for_user(current_user)
+    if user_brief.present? && user_brief.last_viewed_at.present? && brief_item.updated_at.present?
+      user_brief.last_viewed_at < brief_item.updated_at
+    else
+      false
     end
   end
   

@@ -23,7 +23,12 @@ class Brief < ActiveRecord::Base
     :order => :position
     
   # RELATIONSHIP WITH USERS
-  has_many :user_briefs 
+  has_many :user_briefs do
+    def for_user(user)
+      first :conditions => ['user_id = ?', user]
+    end
+  end
+  
   accepts_nested_attributes_for :user_briefs, 
     :allow_destroy => true
   
@@ -41,17 +46,6 @@ class Brief < ActiveRecord::Base
 
   has_many :proposals
   has_many :questions
-
-  # VIEWING BRIEFS BY USERS
-  has_many :brief_user_views do    
-    def record_view_for_user(user)
-      for_user(user).viewed!
-    end
-  
-    def for_user(user)
-      find_or_create_by_user_id(:user_id => user.id)
-    end
-  end
   
   # COMMENTS
   acts_as_commentable  

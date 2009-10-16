@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
     response_for(:create) do |format|
       format.html { 
         flash[:notice] = "Thanks for joining the discussion."
-        redirect_to brief_path(parent_object, :anchor => "brief_item_#{current_object.brief_item.id}") 
+        redirect_to brief_path(parent_object, :anchor => dom_id(current_object.brief_item)) 
       }
     end
   
@@ -28,14 +28,14 @@ class QuestionsController < ApplicationController
     response_for(:update) do |format|
       format.html {
         flash[:notice] = "Question has been answered successfully, and moved to answered questions."
-        redirect_to brief_path(parent_object) 
+        redirect_to brief_path(parent_object, :anchor => dom_id(current_object.brief_item)) 
       }
     end
     
     response_for(:update_fails) do |format|
       format.html {
         flash[:error] = "We are sorry, but there was a problem answering question, please try again."
-        redirect_to brief_path(parent_object) 
+        redirect_to brief_path(parent_object, :anchor => dom_id(current_object.brief_item)) 
       }
     end
 
