@@ -5,7 +5,7 @@ class BriefsController < ApplicationController
   before_filter :require_user
   
   # filters for record owners
-  before_filter :require_owner, :only => [:edit, :update, :destroy]
+  before_filter :require_owner, :only => [:edit, :update, :destroy, :collaborators]
   
   after_filter :record_user_view, :only => [:show]
   
@@ -66,11 +66,8 @@ class BriefsController < ApplicationController
     end
     
     response_for(:update, :update_fails) do |format|
-      format.html { redirect_to :action => current_object.published? ? 'show' : 'edit' }
-      format.json { render :json => current_object }
-      format.js { 
-        render :js => 'alert("cock");'
-      }
+      format.html { redirect_back_or_default :action => current_object.published? ? 'show' : 'edit' }
+      format.json { render :json => current_object.reload.to_json(:include => :user_briefs, :methods => :errors) }
     end
   
     response_for(:show, :show_fails) do |format|
@@ -91,7 +88,6 @@ class BriefsController < ApplicationController
       }
       
       format.js { render :layout => false }
-      
       format.json { render :json => current_object }
     end
     

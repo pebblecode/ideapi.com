@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   filter_parameter_logging :password, :password_confirmation  
   
+  require_dependency 'application/redirection'  
   require_dependency 'application/authentication'  
   
   helper_method :brief_config

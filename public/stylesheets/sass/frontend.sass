@@ -572,7 +572,8 @@ span.field_with_errors
             :padding-right 0.5em          
         
       .brief_item.updated
-        :background #ffffdf
+        h3
+          :background #ffffdf
         
       .brief_item.extended
         :background transparent
@@ -1175,9 +1176,27 @@ table.collaborators
     :padding 0.5em 1em
     :text-align center
     
+    a.trash
+      :background url(/images/trash.png) no-repeat
+      :width 16px
+      :height 17px
+      :display block
+      :text-indent -3000px
+      
+    a.trash:hover
+      :background url(/images/trash.png) no-repeat 0 -17px
+    
+    img.spinner
+      :display block
+    
   th.user, td.user
     :text-align left
-
+    
+ul.error_messages
+  li
+    p
+      :color #d81f26
+      
 //side bar
 #container
   #content

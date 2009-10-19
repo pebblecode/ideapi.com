@@ -1,7 +1,3 @@
-jQuery.ajaxSetup({ 
-  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-})
-
 function _ajax_request(url, data, callback, type, method) {
     if (jQuery.isFunction(data)) {
         callback = data;
@@ -24,6 +20,29 @@ jQuery.extend({
         return _ajax_request(url, data, callback, type, 'DELETE');
     }
 });
+
+$.fn.triggerFaceboxOnloadEvents = function () {
+  
+}
+
+////
+// $('element').scrollTo()
+// $('element').scrollTo(speed)
+$.fn.scrollTo = function(speed) {
+  var offset = $(this).offset().top - 30
+  $('html,body').animate({scrollTop: offset}, speed || 1000)
+  return this
+}
+
+////
+// $('element').spin()
+$.fn.spin = function(append) {
+  if (append)
+    $(this).append('<img src="/images/spinner.gif" class="spinner" />')
+  else
+    $(this).after('<img src="/images/spinner.gif" class="spinner" />')
+}
+
 
 $.fn.fadeToggle = function(speed, easing, callback) { 
    return this.animate({opacity: 'toggle'}, speed, easing, callback); 
@@ -164,22 +183,60 @@ $.fn.fold_activity_stream = function () {
   });
 }
 
+$.fn.update_collab_list = function (data) {
+  
+  error_messages = []
+  
+  jQuery.each(data.brief.errors, function () {
+    error_messages.push("<li><p>" + this[1] + "</p></li>");
+  });
+  
+  $('ul.error_messages').html(error_messages.join("\n")).flashNotice();
+  
+  $('.collaborators tr.user_brief').hide();
+  jQuery.each(data.brief.user_briefs, function () { 
+    user_brief = this;
+        
+    $("#user_brief_"+ this.id).show().each(function () {
+      
+      $(this).find('input[type=checkbox].remove_item').attr('checked', false);
+      
+      $(this).find('.trash').show();
+      
+      $(this).find('.spinner').remove();      
+      
+      if (data.brief.approver_id == user_brief.user_id) {
+        $(this).find('input[type=checkbox].approver').attr('checked', true);
+      }
+      
+      $(this).find('input[type=checkbox].author').attr('checked', user_brief.author);
+    });
+  });
+}
+
 $.fn.delete_item = function (remove_item_class) {
   $(this).after('<a href="#" class="trash">Remove</a>');
   
   $(this).next('.trash').click(function () {
-    data = {}
-    data[$(this).prev(remove_item_class).attr('name')] = 1;
-    $.put($(this).parents().filter('form').attr('action'), data, function (e) {
-      
-    }, 'js');
+    $(this).prev('input[type=checkbox].remove_item').attr('checked', true);
+    
+    //disable this action
+    $(this).hide().spin();
+    
+    $.put(
+      $(this).parents().filter('form').attr('action'), 
+      $(this).parents().filter('form').serialize(), 
+      $.fn.update_collab_list, 
+      'json'
+    );
+    
     return false;
   });
   
   $(this).hide();
 }
 
-jQuery(document).ready(function(){
+$.fn.document_ready = function() {
   
     $(".notice, .error").flashNotice();  
     
@@ -294,5 +351,10 @@ jQuery(document).ready(function(){
     
     $('.remove_with_js').hide();  
     
-});
+    $(document).unbind('afterReveal.facebox');
+    $(document).bind('afterReveal.facebox', $.fn.document_ready);
+    
+}
+
+jQuery(document).ready($.fn.document_ready);
 
