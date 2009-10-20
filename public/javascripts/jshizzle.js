@@ -77,11 +77,11 @@ $.fn.feedback_form = function () {
 }
 
 
-$.fn.trigger_help_message = function () {
+$.fn.trigger_help_message = function (parent_class) {
   $(this).focus(function () {
-    $(this).parent().siblings('.help_message').fadeIn();
+    $(this).parents().filter(parent_class).find('.help_message').fadeIn();
   }).blur(function () {
-    $(this).parent().siblings('.help_message').fadeOut();
+    $(this).parents().filter(parent_class).find('.help_message').fadeOut();
   });
 }
 
@@ -122,7 +122,7 @@ $.fn.edit_brief_item = function () {
     if ($(this).val() == "") {
       $(this).hide();
 
-      $(this).parent().prev('h3').prepend('<a class="toggle_brief_edit awesome small blue" href="#'+$(this).attr("id")+'">'+ link_on_state +'</a>');
+      $(this).parent().prev('h3').prepend('<a class="toggle_brief_edit" href="#'+$(this).attr("id")+'">'+ link_on_state +'</a>');
       $(this).parent().prev('h3').addClass('empty active');
       
       $(this).parent().prev('h3').find('a.toggle_brief_edit').click(function () {
@@ -242,7 +242,7 @@ $.fn.document_ready = function() {
     
     $('.help_message').hide();
     
-    $('.brief_item textarea').trigger_help_message();
+    $('.brief_item textarea').trigger_help_message('.brief_item');
     
     $('.note').hideable_note();
 

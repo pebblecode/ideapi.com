@@ -530,20 +530,20 @@ span.field_with_errors
             :text-transform uppercase
             :margin-top 1em 
             :padding 0
+        
+      .help_message
+        :width 18em
+        :border 1px solid #ccc
+        :background rgb(252, 252, 252)
+        :background rgba(220, 220, 220, 0.2)
+        :padding 1em
+        :position absolute
+        :top 4em
+        :left 51.5em
 
         
       .brief_item:last-child, .proposal_item:last-child
         :border-bottom 1px solid #ccc
-        
-        .help_message
-          :width 18em
-          :border 1px solid #ccc
-          :background rgb(252, 252, 252)
-          :background rgba(220, 220, 220, 0.2)
-          :padding 1em
-          :position absolute
-          :top 4em
-          :left 51.5em
             
       .most_important_thing
         :padding 1em 1em 1em 3em
@@ -578,6 +578,19 @@ span.field_with_errors
       .brief_item.extended
         :background transparent
               
+    
+    .edit_brief
+      h2
+        input#brief_title
+          :font-size 1.5em
+          :width 31em
+          
+      p.body
+        textarea
+          :width 45em
+          :height 10em
+    
+    
     .brief_list
       .brief_item:hover
         :background transparent
@@ -740,14 +753,28 @@ span.field_with_errors
       h3
         
         a.toggle_brief_edit
+          :float left
           :margin-right 0.5em
-          :position relative
-          :top -5px
-          :width 0.6em
+          :margin-top 0.2em
+          :width 28px
+          :height 28px
           :text-align center
-      
+          :display block
+          :text-indent -3000px
+          :background url(/images/edit_plus_minus.png) no-repeat -30px -28px
+          
+        a.toggle_brief_edit:hover
+          :background url(/images/edit_plus_minus.png) no-repeat -30px 0
+        
       h3.empty
         :color #ccc
+        
+        a.toggle_brief_edit
+          :background url(/images/edit_plus_minus.png) no-repeat 0 -28px
+          
+        a.toggle_brief_edit:hover
+          :background url(/images/edit_plus_minus.png) no-repeat 0 0
+
     
     .comments_area
       :padding 0 2em
