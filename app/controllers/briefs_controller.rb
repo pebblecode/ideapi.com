@@ -67,7 +67,7 @@ class BriefsController < ApplicationController
     
     response_for(:update, :update_fails) do |format|
       format.html { redirect_back_or_default :action => current_object.published? ? 'show' : 'edit' }
-      format.json { render :json => current_object.reload.to_json(:include => :user_briefs, :methods => :errors) }
+      format.json { render :json => current_object.reload.to_json(:include => :user_briefs, :methods => :json_errors) }
     end
   
     response_for(:show, :show_fails) do |format|

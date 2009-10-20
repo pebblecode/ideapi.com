@@ -5,5 +5,7 @@ class UserBrief < ActiveRecord::Base
   named_scope :authored, :conditions => ['author = true']
   named_scope :collaborating, :conditions => ['author = false']
   
-  validates_presence_of :user_id, :brief_id
+  validates_presence_of :user, :on => :create, :message => "can't be blank"
+  validates_presence_of :brief, :on => :create, :message => "can't be blank"
+  
 end

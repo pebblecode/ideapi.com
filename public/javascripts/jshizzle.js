@@ -187,13 +187,14 @@ $.fn.update_collab_list = function (data) {
   
   error_messages = []
   
-  jQuery.each(data.brief.errors, function () {
-    error_messages.push("<li><p>" + this[1] + "</p></li>");
+  jQuery.each(data.brief.json_errors, function () {
+    error_messages.push("<li><p>" + this + "</p></li>");
   });
   
   $('ul.error_messages').html(error_messages.join("\n")).flashNotice();
   
   $('.collaborators tr.user_brief').hide();
+  
   jQuery.each(data.brief.user_briefs, function () { 
     user_brief = this;
         
@@ -211,7 +212,15 @@ $.fn.update_collab_list = function (data) {
       
       $(this).find('input[type=checkbox].author').attr('checked', user_brief.author);
     });
+    
+    if (!$("#user_brief_"+ this.id)) {
+      //new_el = $('.collaborators tr.user_brief:last').clone();
+    }
+    
   });
+  
+  $('form.edit_brief_collaborators input[type=submit]').show();
+  $('form.edit_brief_collaborators input[type=submit]').next('.spinner').remove();
 }
 
 $.fn.delete_item = function (remove_item_class) {
@@ -306,9 +315,7 @@ $.fn.document_ready = function() {
       });
 
     }).hide();
-    
-    $('p.submit').corners();
-    
+
     $('a[rel*=facebox]').each(function () { $(this).attr("href", $(this).attr("href") + ".js"); }).facebox(
       {loadingImage: '/images/fb/loading.gif' , closeImage: '/images/fb/closelabel.gif'}
     );
@@ -349,10 +356,28 @@ $.fn.document_ready = function() {
     
     $('.remove_item').delete_item('.remove_item');
     
+    $('form.edit_brief_collaborators input[type=submit]').click(function () {
+      //disable this action
+      $(this).hide().spin();
+
+      $.put(
+        $(this).parents().filter('form').attr('action'), 
+        $(this).parents().filter('form').serialize(), 
+        $.fn.update_collab_list, 
+        'json'
+      );
+
+      return false;
+    });
+    
     $('.remove_with_js').hide();  
     
     $(document).unbind('afterReveal.facebox');
     $(document).bind('afterReveal.facebox', $.fn.document_ready);
+    
+    $('a.just_to_question').click(function () {
+      $("#" + $(this).attr('href').split('#')[1]).find('.brief_item_history').show();
+    });
     
 }
 

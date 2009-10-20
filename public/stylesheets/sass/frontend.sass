@@ -1034,30 +1034,30 @@ p.submit_comment
     :width auto
 
 p.submit
-  :background #ddd
-  :border none
-  :padding 0.1em 1em 0.3em 1em
-  :width auto
-  :display inline
-  :margin 0 0 1em 1em
   :float right
 
 p.cancel
   :float right
 
+input[type=submit]
+  :background #ccc
+  :color #333
+  :cursor pointer
+  :-moz-border-radius 6px
+  :-webkit-border-radius 6px
+  :padding 0.3em 1em 0.5em 1em
+
+  
+input[type=submit]:hover
+  :background #21286c
+  :color white
+  :cursor pointer
+
 p.submit.left
   :float left
   :margin 0 1em 1em 0
     
-p.submit:hover
-  :background #21286c
   
-  input[type=submit], a
-    :color white
-
-input.awesome
-  :border none
-
 #facebox
   .content
     .fb
