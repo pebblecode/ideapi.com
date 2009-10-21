@@ -7,6 +7,10 @@ class Brief < ActiveRecord::Base
     :roles, 
     :states, 
     :validation
+
+  def account_name
+    "pebble"
+  end
   
   # INDEXING
   
