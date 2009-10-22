@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091015101445) do
+ActiveRecord::Schema.define(:version => 20091022134100) do
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20091015101445) do
     t.string   "data_content_type"
     t.integer  "data_file_size"
     t.datetime "data_updated_at"
+    t.text     "description"
   end
 
   add_index "assets", ["attachable_id", "attachable_type"], :name => "index_assets_on_attachable_id_and_attachable_type"

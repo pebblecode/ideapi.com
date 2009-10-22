@@ -22,8 +22,7 @@
     -if current_object.brief_items_answered.empty?
       %p This document is empty
     -else
-      =render :partial => 'brief_item', :collection => (current_object.brief_items_answered)
-      
+      =render :partial => 'brief_item', :collection => (current_object.brief_items_answered)  
   =render :partial => 'comments'
   
 .col_2  

@@ -21,55 +21,55 @@ jQuery.extend({
     }
 });
 
-$.fn.triggerFaceboxOnloadEvents = function () {
+jQuery.fn.triggerFaceboxOnloadEvents = function () {
   
 }
 
 ////
-// $('element').scrollTo()
-// $('element').scrollTo(speed)
-$.fn.scrollTo = function(speed) {
-  var offset = $(this).offset().top - 30
-  $('html,body').animate({scrollTop: offset}, speed || 1000)
+// jQuery('element').scrollTo()
+// jQuery('element').scrollTo(speed)
+jQuery.fn.scrollTo = function(speed) {
+  var offset = jQuery(this).offset().top - 30
+  jQuery('html,body').animate({scrollTop: offset}, speed || 1000)
   return this
 }
 
 ////
-// $('element').spin()
-$.fn.spin = function(append) {
+// jQuery('element').spin()
+jQuery.fn.spin = function(append) {
   if (append)
-    $(this).append('<img src="/images/spinner.gif" class="spinner" />')
+    jQuery(this).append('<img src="/images/spinner.gif" class="spinner" />')
   else
-    $(this).after('<img src="/images/spinner.gif" class="spinner" />')
+    jQuery(this).after('<img src="/images/spinner.gif" class="spinner" />')
 }
 
 
-$.fn.fadeToggle = function(speed, easing, callback) { 
+jQuery.fn.fadeToggle = function(speed, easing, callback) { 
    return this.animate({opacity: 'toggle'}, speed, easing, callback); 
 };
 
-$.fn.flashNotice = function () {
-	$(this).hide();
-	$(this).fadeIn();
+jQuery.fn.flashNotice = function () {
+	jQuery(this).hide();
+	jQuery(this).fadeIn();
 	
-	var element = $(this);
+	var element = jQuery(this);
 	var timeout = setTimeout(function () { element.fadeOut(); }, 3000);
 	
-	$(this).click(function () {
+	jQuery(this).click(function () {
 	  clearTimeout(timeout);
-	  $(this).fadeOut();
+	  jQuery(this).fadeOut();
 	});
 }
 
-$.fn.showNotice = function (message) {	 
-	$(this).html("<p class='notice'>"+message+"</p>")
-	$(".notice", this).flashNotice();
+jQuery.fn.showNotice = function (message) {	 
+	jQuery(this).html("<p class='notice'>"+message+"</p>")
+	jQuery(".notice", this).flashNotice();
 }
 
-$.fn.feedback_form = function () {
-  form = $(this).find('.wrap');
+jQuery.fn.feedback_form = function () {
+  form = jQuery(this).find('.wrap');
   
-  $(this).find('.title a').click(function () {
+  jQuery(this).find('.title a').click(function () {
     form.fadeToggle();
   });
   
@@ -77,34 +77,34 @@ $.fn.feedback_form = function () {
 }
 
 
-$.fn.trigger_help_message = function (parent_class) {
-  $(this).focus(function () {
-    $(this).parents().filter(parent_class).find('.help_message').fadeIn();
+jQuery.fn.trigger_help_message = function (parent_class) {
+  jQuery(this).focus(function () {
+    jQuery(this).parents().filter(parent_class).find('.help_message').fadeIn();
   }).blur(function () {
-    $(this).parents().filter(parent_class).find('.help_message').fadeOut();
+    jQuery(this).parents().filter(parent_class).find('.help_message').fadeOut();
   });
 }
 
-$.hideable_cookie_name = function (id) {
+jQuery.hideable_cookie_name = function (id) {
   return "_note_" + id; 
 }
 
-$.fn.hideable_note = function () {
-  var el_id = $(this).attr('id');
+jQuery.fn.hideable_note = function () {
+  var el_id = jQuery(this).attr('id');
   
   if ( !((el_id == "") || (el_id == undefined)) ) {    
-    if ($.cookie($.hideable_cookie_name(el_id)) != null) {      
-      $(this).remove();
+    if (jQuery.cookie(jQuery.hideable_cookie_name(el_id)) != null) {      
+      jQuery(this).remove();
     }
   };
   
-  $(this).append('<a href="#" class="hide_message">hide</a>').find('a.hide_message').click(function () {
+  jQuery(this).append('<a href="#" class="hide_message">hide</a>').find('a.hide_message').click(function () {
     
-    if ($(this).parent().attr('id') != "") {      
-      $.cookie($.hideable_cookie_name($(this).parent().attr('id')), 'hidden');        
+    if (jQuery(this).parent().attr('id') != "") {      
+      jQuery.cookie(jQuery.hideable_cookie_name(jQuery(this).parent().attr('id')), 'hidden');        
     };
           
-    $(this).parent().fadeOut(); 
+    jQuery(this).parent().fadeOut(); 
   
     return false; 
   
@@ -112,78 +112,78 @@ $.fn.hideable_note = function () {
 }
 
 
-$.fn.edit_brief_item = function () {
+jQuery.fn.edit_brief_item = function () {
   
   var link_on_state = "+";
   var link_off_state = "-";
   
-  $(this).find('textarea').each( function () { 
+  jQuery(this).find('textarea').each( function () { 
     
-    if ($(this).val() == "") {
-      $(this).hide();
+    if (jQuery(this).val() == "") {
+      jQuery(this).hide();
 
-      $(this).parent().prev('h3').prepend('<a class="toggle_brief_edit" href="#'+$(this).attr("id")+'">'+ link_on_state +'</a>');
-      $(this).parent().prev('h3').addClass('empty active');
+      jQuery(this).parent().prev('h3').prepend('<a class="toggle_brief_edit" href="#'+jQuery(this).attr("id")+'">'+ link_on_state +'</a>');
+      jQuery(this).parent().prev('h3').addClass('empty active');
       
-      $(this).parent().prev('h3').find('a.toggle_brief_edit').click(function () {
+      jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').click(function () {
         
-        $(this).parent().parent().find('textarea').toggle();
+        jQuery(this).parent().parent().find('textarea').toggle();
         
-        if ($(this).text() == link_on_state) {
-          $(this).text(link_off_state);
-          $(this).parent().removeClass('empty');
+        if (jQuery(this).text() == link_on_state) {
+          jQuery(this).text(link_off_state);
+          jQuery(this).parent().removeClass('empty');
         } else {
-          $(this).text(link_on_state);
-          $(this).parent().addClass('empty');
+          jQuery(this).text(link_on_state);
+          jQuery(this).parent().addClass('empty');
         };
         
         return false;
         
       });
       
-      $(this).parent().prev('h3').each(function () { $(this).css("cursor", "pointer"); }).click(function () {
-        if ($(this).hasClass('active')) {
-          $(this).find('a.toggle_brief_edit').click();
-          $(this).css("cursor", "pointer");
+      jQuery(this).parent().prev('h3').each(function () { jQuery(this).css("cursor", "pointer"); }).click(function () {
+        if (jQuery(this).hasClass('active')) {
+          jQuery(this).find('a.toggle_brief_edit').click();
+          jQuery(this).css("cursor", "pointer");
         } else {
-          $(this).css("cursor", "auto");
+          jQuery(this).css("cursor", "auto");
         }
       });
       
-      //.click( function () { $(this).next('textarea').show(); } );
+      //.click( function () { jQuery(this).next('textarea').show(); } );
     };
     
-    $(this).change(function () {
-      if ($(this).val() != "") {
-        $(this).parent().prev('h3').find('a.toggle_brief_edit').hide();
-        $(this).parent().prev('h3').removeClass('active');
+    jQuery(this).change(function () {
+      if (jQuery(this).val() != "") {
+        jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').hide();
+        jQuery(this).parent().prev('h3').removeClass('active');
       } else {
-        $(this).parent().prev('h3').find('a.toggle_brief_edit').show();       
-        $(this).parent().prev('h3').addClass('active');
+        jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').show();       
+        jQuery(this).parent().prev('h3').addClass('active');
       }
     });
   
   });
 }
 
-$.fn.fold_activity_stream = function () {
-  $(this).hide();
+jQuery.fn.fold_activity_stream = function () {
+  jQuery(this).hide();
   
-  $('a.toggle_activity_stream').click(function () {
+  jQuery('a.toggle_activity_stream').click(function () {
     
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
+    if (jQuery(this).hasClass('active')) {
+      jQuery(this).removeClass('active');
     } else {
-      $(this).addClass('active');
+      jQuery(this).addClass('active');
     };
     
-    $(this).prev().toggle();
+    jQuery(this).prev().toggle();
     
     return false;
   });
 }
 
-$.fn.update_collab_list = function (data) {
+jQuery.fn.update_collab_list = function (data) {
   
   error_messages = []
   
@@ -191,195 +191,214 @@ $.fn.update_collab_list = function (data) {
     error_messages.push("<li><p>" + this + "</p></li>");
   });
   
-  $('ul.error_messages').html(error_messages.join("\n")).flashNotice();
+  jQuery('ul.error_messages').html(error_messages.join("\n")).flashNotice();
   
-  $('.collaborators tr.user_brief').hide();
+  jQuery('.collaborators tr.user_brief').hide();
   
   jQuery.each(data.brief.user_briefs, function () { 
     user_brief = this;
         
-    $("#user_brief_"+ this.id).show().each(function () {
+    jQuery("#user_brief_"+ this.id).show().each(function () {
       
-      $(this).find('input[type=checkbox].remove_item').attr('checked', false);
+      jQuery(this).find('input[type=checkbox].remove_item').attr('checked', false);
       
-      $(this).find('.trash').show();
+      jQuery(this).find('.trash').show();
       
-      $(this).find('.spinner').remove();      
+      jQuery(this).find('.spinner').remove();      
       
       if (data.brief.approver_id == user_brief.user_id) {
-        $(this).find('input[type=checkbox].approver').attr('checked', true);
+        jQuery(this).find('input[type=checkbox].approver').attr('checked', true);
       }
       
-      $(this).find('input[type=checkbox].author').attr('checked', user_brief.author);
+      jQuery(this).find('input[type=checkbox].author').attr('checked', user_brief.author);
     });
     
-    if (!$("#user_brief_"+ this.id)) {
-      //new_el = $('.collaborators tr.user_brief:last').clone();
+    if (!jQuery("#user_brief_"+ this.id)) {
+      //new_el = jQuery('.collaborators tr.user_brief:last').clone();
     }
     
   });
   
-  $('form.edit_brief_collaborators input[type=submit]').show();
-  $('form.edit_brief_collaborators input[type=submit]').next('.spinner').remove();
+  jQuery('form.edit_brief_collaborators input[type=submit]').show();
+  jQuery('form.edit_brief_collaborators input[type=submit]').next('.spinner').remove();
 }
 
-$.fn.delete_item = function (remove_item_class) {
-  $(this).after('<a href="#" class="trash">Remove</a>');
+jQuery.fn.delete_item = function (remove_item_class) {
+  jQuery(this).after('<a href="#" class="trash">Remove</a>');
   
-  $(this).next('.trash').click(function () {
-    $(this).prev('input[type=checkbox].remove_item').attr('checked', true);
+  jQuery(this).next('.trash').click(function () {
+    jQuery(this).prev('input[type=checkbox].remove_item').attr('checked', true);
     
     //disable this action
-    $(this).hide().spin();
+    jQuery(this).hide().spin();
     
-    $.put(
-      $(this).parents().filter('form').attr('action'), 
-      $(this).parents().filter('form').serialize(), 
-      $.fn.update_collab_list, 
+    jQuery.put(
+      jQuery(this).parents().filter('form').attr('action'), 
+      jQuery(this).parents().filter('form').serialize(), 
+      jQuery.fn.update_collab_list, 
       'json'
     );
     
     return false;
   });
   
-  $(this).hide();
+  jQuery(this).hide();
 }
 
-$.fn.document_ready = function() {
+jQuery.fn.document_ready = function() {
   
-    $(".notice, .error").flashNotice();  
+    jQuery(".notice, .error").flashNotice();  
     
-    $('.help_message').hide();
+    jQuery('.help_message').hide();
     
-    $('.brief_item textarea').trigger_help_message('.brief_item');
+    jQuery('.brief_item textarea').trigger_help_message('.brief_item');
     
-    $('.note').hideable_note();
+    jQuery('.note').hideable_note();
 
-    $(".brief_timeline li span").corners();  
+    jQuery(".brief_timeline li span").corners();  
 
-    $('.speech').append('<span class="bubble" />').corners();
+    jQuery('.speech').append('<span class="bubble" />').corners();
     
-    $('.revision h5').corners();
+    jQuery('.revision h5').corners();
     
-    $('.revision h5').click(function () {
-      $(this).siblings('p.changes').toggle();
+    jQuery('.revision h5').click(function () {
+      jQuery(this).siblings('p.changes').toggle();
     }).siblings('p.changes').toggle();
     
-    $('.brief_item_history').each(function () {            
+    jQuery('.brief_item_history').each(function () {            
       var selected_item = document.URL.split('#')[1];
       
-      if ((selected_item == undefined) || $(this).parents().filter('.brief_item').attr('id') != selected_item) {
-        $(this).hide();
+      if ((selected_item == undefined) || jQuery(this).parents().filter('.brief_item').attr('id') != selected_item) {
+        jQuery(this).hide();
       }
     });
     
-    $('.question .author_answer_form').each(function () { 
+    jQuery('.question .author_answer_form').each(function () { 
        
-      $(this).before('<p class="submit show_author_answer_form"><input type="submit" value="respond"/></p>');
+      jQuery(this).before('<p class="submit show_author_answer_form"><input type="submit" value="respond"/></p>');
       
-      $(this).prev('.submit').find('input[type=submit]').click(function () {
-        $(this).parent().next('.author_answer_form').fadeIn();
-        $(this).parent().fadeOut();
+      jQuery(this).prev('.submit').find('input[type=submit]').click(function () {
+        jQuery(this).parent().next('.author_answer_form').fadeIn();
+        jQuery(this).parent().fadeOut();
         return false;
       });
       
-      $(this).mouseover(function () { $(this).addClass('active'); });
-      $(this).mouseout(function () { $(this).removeClass('active'); });
+      jQuery(this).mouseover(function () { jQuery(this).addClass('active'); });
+      jQuery(this).mouseout(function () { jQuery(this).removeClass('active'); });
 
-      $(this).find('textarea').blur(function () {
-        if (!$(this).parents().filter('.author_answer_form').hasClass('active')) {
-          $(this).parents().filter('.author_answer_form').fadeOut().prev('.submit').fadeIn();
+      jQuery(this).find('textarea').blur(function () {
+        if (!jQuery(this).parents().filter('.author_answer_form').hasClass('active')) {
+          jQuery(this).parents().filter('.author_answer_form').fadeOut().prev('.submit').fadeIn();
         }
       });
       
     }).hide();
     
-    $('ul.actions').show();
+    jQuery('ul.actions').show();
     
-    $('ul.actions li a').click(function () {
-      $(this).parents().filter('.brief_item').find(this.className.replace("toggle_", ".")).toggle();  
+    jQuery('ul.actions li a').click(function () {
+      jQuery(this).parents().filter('.brief_item').find(this.className.replace("toggle_", ".")).toggle();  
       return false;
     });
     
     // DISCUSS
     
-    $('.ask_question').each(function () {
+    jQuery('.ask_question').each(function () {
       
-      $(this).mouseover(function () { $(this).addClass('active'); });
-      $(this).mouseout(function () { $(this).removeClass('active'); });
+      jQuery(this).mouseover(function () { jQuery(this).addClass('active'); });
+      jQuery(this).mouseout(function () { jQuery(this).removeClass('active'); });
 
-      $(this).find('textarea').blur(function () {
-        if (!$(this).parents().filter('.ask_question').hasClass('active')) {
-          $(this).parents().filter('.ask_question').toggle();
+      jQuery(this).find('textarea').blur(function () {
+        if (!jQuery(this).parents().filter('.ask_question').hasClass('active')) {
+          jQuery(this).parents().filter('.ask_question').toggle();
         }
       });
 
     }).hide();
 
-    $('a[rel*=facebox]').each(function () { $(this).attr("href", $(this).attr("href") + ".js"); }).facebox(
+    jQuery('a[rel*=facebox]').each(function () { jQuery(this).attr("href", jQuery(this).attr("href") + ".js"); }).facebox(
       {loadingImage: '/images/fb/loading.gif' , closeImage: '/images/fb/closelabel.gif'}
     );
     
-    $('a[rel*=img_facebox]').facebox();
+    jQuery('a[rel*=img_facebox]').facebox();
     
-    $('input, textarea').each(function () {
-      if ($(this).attr('title') != "" && $(this).val() == "") {
+    jQuery('input, textarea').each(function () {
+      if (jQuery(this).attr('title') != "" && jQuery(this).val() == "") {
         
-        $(this).val($(this).attr('title'));
+        jQuery(this).val(jQuery(this).attr('title'));
         
-        $(this).focus(function () {
-          if ($(this).val() == $(this).attr('title')) {
-            $(this).addClass('').val('');
+        jQuery(this).focus(function () {
+          if (jQuery(this).val() == jQuery(this).attr('title')) {
+            jQuery(this).addClass('').val('');
           };
         });
 
-        $(this).blur(function () {
-          if ($(this).val() == "") {
-            $(this).val($(this).attr('title'));
+        jQuery(this).blur(function () {
+          if (jQuery(this).val() == "") {
+            jQuery(this).val(jQuery(this).attr('title'));
           }
         });
         
       };
     });
     
-    $('.feedback_form').feedback_form();
+    jQuery('.feedback_form').feedback_form();
     
-    $('.edit_brief .brief_item').edit_brief_item();
+    jQuery('.edit_brief .brief_item').edit_brief_item();
     
-    $('a[href=#beta_feedback]').click(function () {
-      $('.feedback_form').find('.wrap').fadeIn();
+    jQuery('a[href=#beta_feedback]').click(function () {
+      jQuery('.feedback_form').find('.wrap').fadeIn();
     })
     
-    $('#proposal_long_description').wysiwyg();
+    //jQuery('#proposal_long_description')
     
-    $('.activity_stream').fold_activity_stream();
+    jQuery('.activity_stream').fold_activity_stream();
     
-    $('.remove_item').delete_item('.remove_item');
+    jQuery('.remove_item').delete_item('.remove_item');
     
-    $('form.edit_brief_collaborators input[type=submit]').click(function () {
+    jQuery('form.edit_brief_collaborators input[type=submit]').click(function () {
       //disable this action
-      $(this).hide().spin();
+      jQuery(this).hide().spin();
 
-      $.put(
-        $(this).parents().filter('form').attr('action'), 
-        $(this).parents().filter('form').serialize(), 
-        $.fn.update_collab_list, 
+      jQuery.put(
+        jQuery(this).parents().filter('form').attr('action'), 
+        jQuery(this).parents().filter('form').serialize(), 
+        jQuery.fn.update_collab_list, 
         'json'
       );
 
       return false;
     });
     
-    $('.remove_with_js').hide();  
+    jQuery('.remove_with_js').hide();  
     
-    $(document).unbind('afterReveal.facebox');
-    $(document).bind('afterReveal.facebox', $.fn.document_ready);
+    jQuery(document).unbind('afterReveal.facebox');
+    jQuery(document).bind('afterReveal.facebox', jQuery.fn.document_ready);
     
-    $('a.just_to_question').click(function () {
-      $("#" + $(this).attr('href').split('#')[1]).find('.brief_item_history').show();
+    jQuery('a.just_to_question').click(function () {
+      jQuery("#" + jQuery(this).attr('href').split('#')[1]).find('.brief_item_history').show();
     });
+    
+    // /* Handle links inside editable area. */
+    // $('.editable > a').bind('click', function() {
+    //   $(this).parent().trigger('click');
+    //   return false; 
+    // });
+    // 
+    // $('#wysiwyg_1').editable('http://www.appelsiini.net/projects/jeditable/wysiwyg/php/save.php', { 
+    //   indicator : '<img src="../img/indicator.gif">',
+    //   type      : 'wysiwyg',
+    //   width     : 640,
+    //   height    : 'auto',
+    //   onblur    : 'ignore',
+    //   submit    : 'OK',
+    //   cancel    : 'Cancel'
+    // });
+
+    $('#proposal_long_description').wysiwyg();
     
 }
 
-jQuery(document).ready($.fn.document_ready);
+jQuery(document).ready(jQuery.fn.document_ready);
+
 

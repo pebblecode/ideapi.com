@@ -1,7 +1,7 @@
 /**
- * WYSIWYG - jQuery plugin 0.5
+ * WYSIWYG - jQuery plugin 0.3
  *
- * Copyright (c) 2008-2009 Juan M Martinez
+ * Copyright (c) 2008 Juan M Martinez
  * http://plugins.jquery.com/project/jWYSIWYG
  *
  * Dual licensed under the MIT and GPL licenses:
@@ -15,8 +15,7 @@
     $.fn.document = function()
     {
         var element = this[0];
-
-        if ( element.nodeName.toLowerCase() == 'iframe' )
+        if ( element.nodeName.toLowerCase() == 'iframe')
             return element.contentWindow.document;
             /*
             return ( $.browser.msie )
@@ -80,14 +79,13 @@
 
             autoSave     : true,  // http://code.google.com/p/jwysiwyg/issues/detail?id=11
             rmUnwantedBr : true,  // http://code.google.com/p/jwysiwyg/issues/detail?id=15
-            brIE         : true,
 
             controls : {},
             messages : {}
         }, options);
 
-        options.messages = $.extend(true, options.messages, Wysiwyg.MSGS_EN);
-        options.controls = $.extend(true, options.controls, Wysiwyg.TOOLBAR);
+        $.extend(options.messages, Wysiwyg.MSGS_EN);
+        $.extend(options.controls, Wysiwyg.TOOLBAR);
 
         for ( var control in controls )
         {
@@ -112,32 +110,12 @@
     }
 
     $.extend(Wysiwyg, {
-        insertImage : function( szURL, attributes )
+        insertImage : function( szURL )
         {
             var self = $.data(this, 'wysiwyg');
 
             if ( self.constructor == Wysiwyg && szURL && szURL.length > 0 )
-            {
-                if ( attributes )
-                {
-                    self.editorDoc.execCommand('insertImage', false, '#jwysiwyg#');
-                    var img = self.getElementByAttributeValue('img', 'src', '#jwysiwyg#');
-
-                    if ( img )
-                    {
-                        img.src = szURL;
-
-                        for ( var attribute in attributes )
-                        {
-                            img.setAttribute(attribute, attributes[attribute]);
-                        }
-                    }
-                }
-                else
-                {
-                    self.editorDoc.execCommand('insertImage', false, szURL);
-                }
-            }
+                self.editorDoc.execCommand('insertImage', false, szURL);
         },
 
         createLink : function( szURL )
@@ -156,13 +134,6 @@
                 else if ( self.options.messages.nonSelection )
                     alert(self.options.messages.nonSelection);
             }
-        },
-
-        setContent : function( newContent )
-        {
-            var self = $.data(this, 'wysiwyg');
-                self.setContent( newContent );
-                self.saveContent();
         },
 
         clear : function()
@@ -264,9 +235,9 @@
             h2mozilla : { visible : true && $.browser.mozilla, className : 'h2', command : 'heading', arguments : ['h2'], tags : ['h2'] },
             h3mozilla : { visible : true && $.browser.mozilla, className : 'h3', command : 'heading', arguments : ['h3'], tags : ['h3'] },
 
-            h1 : { visible : true && !( $.browser.mozilla ), className : 'h1', command : 'formatBlock', arguments : ['Heading 1'], tags : ['h1'] },
-            h2 : { visible : true && !( $.browser.mozilla ), className : 'h2', command : 'formatBlock', arguments : ['Heading 2'], tags : ['h2'] },
-            h3 : { visible : true && !( $.browser.mozilla ), className : 'h3', command : 'formatBlock', arguments : ['Heading 3'], tags : ['h3'] },
+            h1 : { visible : true && !( $.browser.mozilla ), className : 'h1', command : 'formatBlock', arguments : ['h1'], tags : ['h1'] },
+            h2 : { visible : true && !( $.browser.mozilla ), className : 'h2', command : 'formatBlock', arguments : ['h2'], tags : ['h2'] },
+            h3 : { visible : true && !( $.browser.mozilla ), className : 'h3', command : 'formatBlock', arguments : ['h3'], tags : ['h3'] },
 
             separator07 : { visible : false, separator : true },
 
@@ -322,7 +293,6 @@
         init : function( element, options )
         {
             var self = this;
-
             this.editor = element;
             this.options = options || {};
 
@@ -380,12 +350,7 @@
             this.viewHTML = false;
 
             this.initialHeight = newY - 8;
-
-            /**
-             * @link http://code.google.com/p/jwysiwyg/issues/detail?id=52
-             */
-            this.initialContent = $(element).val();
-
+            this.initialContent = $(element).text();
             this.initFrame();
 
             if ( this.initialContent.length == 0 )
@@ -393,12 +358,6 @@
 
             if ( this.options.autoSave )
                 $('form').submit(function() { self.saveContent(); });
-
-            $('form').bind('reset', function()
-            {
-                self.setContent( self.initialContent );
-                self.saveContent();
-            });
         },
 
         initFrame : function()
@@ -413,6 +372,15 @@
                 style = '<link rel="stylesheet" type="text/css" media="screen" href="' + this.options.css + '" />';
 
             this.editorDoc = $(this.editor).document();
+            this.editorDoc.open();
+            this.editorDoc.write(
+                this.options.html
+                    .replace(/INITIAL_CONTENT/, this.initialContent)
+                    .replace(/STYLE_SHEET/, style)
+            );
+            this.editorDoc.close();
+            this.editorDoc.contentEditable = 'true';
+
             this.editorDoc_designMode = false;
 
             try {
@@ -427,15 +395,6 @@
                     self.designMode();
                 });
             }
-
-            this.editorDoc.open();
-            this.editorDoc.write(
-                this.options.html
-                    .replace(/INITIAL_CONTENT/, this.initialContent)
-                    .replace(/STYLE_SHEET/, style)
-            );
-            this.editorDoc.close();
-            this.editorDoc.contentEditable = 'true';
 
             if ( $.browser.msie )
             {
@@ -464,7 +423,6 @@
                  * @link http://code.google.com/p/jwysiwyg/issues/detail?id=11
                  */
                 $(this.editorDoc).keydown(function() { self.saveContent(); })
-                                 .keyup(function() { self.saveContent(); })
                                  .mousedown(function() { self.saveContent(); });
             }
 
@@ -487,19 +445,6 @@
                         $(self.editorDoc).find('body').css(self.options.css);
                 }, 0);
             }
-
-            $(this.editorDoc).keydown(function( event )
-            {
-                if ( $.browser.msie && self.options.brIE && event.keyCode == 13 )
-                {
-                    var rng = self.getRange();
-                        rng.pasteHTML('<br />');
-                        rng.collapse(false);
-                        rng.select();
-
-    				return false;
-                }
-            });
         },
 
         designMode : function()
@@ -511,21 +456,6 @@
                     this.editorDoc_designMode = true;
                 } catch ( e ) {}
             }
-        },
-
-        getSelection : function()
-        {
-            return ( window.getSelection ) ? window.getSelection() : document.selection;
-        },
-
-        getRange : function()
-        {
-            var selection = this.getSelection();
-
-            if ( !( selection ) )
-                return null;
-
-            return ( selection.rangeCount > 0 ) ? selection.getRangeAt(0) : selection.createRange();
         },
 
         getContent : function()
@@ -626,27 +556,6 @@
                     } while ( elm = elm.parent() );
                 }
             }
-        },
-
-        getElementByAttributeValue : function( tagName, attributeName, attributeValue )
-        {
-            var elements = this.editorDoc.getElementsByTagName(tagName);
-
-            for ( var i = 0; i < elements.length; i++ )
-            {
-                var value = elements[i].getAttribute(attributeName);
-
-                if ( $.browser.msie )
-                {
-                    /** IE add full path, so I check by the last chars. */
-                    value = value.substr(value.length - attributeValue.length);
-                }
-
-                if ( value == attributeValue )
-                    return elements[i];
-            }
-
-            return false;
         }
     });
 })(jQuery);

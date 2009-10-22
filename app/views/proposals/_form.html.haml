@@ -9,7 +9,8 @@
   = f.text_area :long_description, :rows => "5", :cols => 60
   %p.help_message
     Simple. Focused. Short. Sell it.
-    
+  
+-attachment_count = 0  
 - f.fields_for :assets do |asset_form|
 
   -if asset_form.object.new_record?
@@ -19,7 +20,7 @@
   -else
     - if asset_form.object.data.file?
       %p
-        %label Current attachment
+        %label="Attachment #{attachment_count+=1}"
         -if asset_form.object.data.content_type =~ /image/
           =link_to image_tag(asset_form.object.data.url, :width => "100"), asset_form.object.data.url
         -else
