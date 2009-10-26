@@ -5,12 +5,12 @@ class UserDashboardTest < ActionController::IntegrationTest
   
   context "" do
     setup do
-      @standard_user = User.make(:password => "testing")
+      @user = User.make(:password => "testing")
     end
     
     context "as any type of user" do
       setup do
-        login_as(@standard_user)
+        login_as(@user)
         visit briefs_path
       end
 
@@ -28,69 +28,26 @@ class UserDashboardTest < ActionController::IntegrationTest
         end
         
         should "have link to create a brief" do
-          assert_contain "create brief"
+          assert_select 'a[href=?]', new_brief_path, :text => 'Create brief'
         end
       end
       
       context "session data" do
         setup do
-          @standard_user.reload
+          @user.reload
         end
 
         should "set last_request_at when logging in" do
-          assert(!@standard_user.last_request_at.blank?)
+          assert(!@user.last_request_at.blank?)
         end
         
         should "have recent last_request_at after logging in" do
-          assert((Time.now - @standard_user.last_request_at) < 1.minute)
+          assert((Time.now - @user.last_request_at) < 1.minute)
         end
       end
-      
-       
+             
     end
-
-    context "briefs user has created" do
-      setup do
-        
-      end
-
-      should "description" do
-        
-      end
-    end
-    
-    context "briefs user is marked as approver" do
-      setup do
-        
-      end
-
-      should "description" do
-        
-      end
-    end
-    
-    context "briefs user is a collaborator" do
-      setup do
-        
-      end
-
-      should "description" do
-        
-      end
-    end
-    
-    context "accessing briefs when user isn't a collaborator" do
-      setup do
-        
-      end
-
-      should "description" do
-        
-      end
-    end
-    
-    
-  
+     
   end
   
 end

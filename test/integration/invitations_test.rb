@@ -24,7 +24,6 @@ class InvitationsTest < ActionController::IntegrationTest
         
       end
       
-      
       context "with invites sent" do
         setup do
           @email = Faker::Internet.email
@@ -121,13 +120,19 @@ class InvitationsTest < ActionController::IntegrationTest
           
           should_respond_with :success
           
-          should "take user back to brief" do
-            assert_equal(brief_path(@brief), path)
+          should "take user back to brief collaborators" do
+            assert_equal(collaborators_brief_path(@brief), path)
           end
-        
-          should "automatically add user to collaborators list" do
-            assert_select '.collaborators' do
-              assert_select 'a[href=?]', user_path(@invited_friend)
+
+          context "brief page" do
+            setup do
+              visit brief_path(@brief)
+            end
+
+            should "automatically add user to collaborators list" do
+              assert_select '.collaborators' do
+                assert_select 'a[href=?]', user_path(@invited_friend)
+              end
             end
           end
           

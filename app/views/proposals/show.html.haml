@@ -3,11 +3,6 @@
 
 .col_1
   
-  -if current_user.owns?(current_object) && current_object.draft?
-    %p.fixed_notice 
-      This proposal is currently a DRAFT for preview purposes, 
-      =link_to 'continue editing your response.', edit_brief_proposal_path(parent_object, current_object)
-  
   .proposal
     %h2
       =current_object.title
@@ -18,17 +13,19 @@
             %span mark brief as
             =f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
             =f.submit "update"
+            
+      -if current_user.owns?(current_object) && current_object.draft?
+        =link_to 'edit proposal', edit_brief_proposal_path(parent_object, current_object)
+        
         
     .proposal_item
       %p=current_object.long_description
       
-      
-    
     - current_object.assets.each do |asset|
       .proposal_item
         %p
           -if asset.data.content_type =~ /image/
-            =link_to image_tag(asset.data.url, :width => "120"), asset.data.url, :rel => "img_facebox"
+            =link_to image_tag(asset.data.url, :width => "120"), asset.data.url, :rel => "img_fb"
           -else
             =link_to asset.data.original_filename, asset.data.url
   
@@ -63,6 +60,6 @@
               %p.submit_comment=f.submit "submit"
   
         
-.col_2
-  %p.emphasise=link_to 'back to brief', brief_path(parent_object), {:class => "awesome blue large", :style => "text-transform: uppercase" }
+.col_2  
+  %p=link_to 'back to brief', brief_path(parent_object)
   

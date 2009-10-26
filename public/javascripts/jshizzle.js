@@ -271,8 +271,10 @@ jQuery.fn.document_ready = function() {
       if ((selected_item == undefined) || jQuery(this).parents().filter('.brief_item').attr('id') != selected_item) {
         jQuery(this).hide();
       }
+      
+      
     });
-    
+        
     jQuery('.question .author_answer_form').each(function () { 
        
       jQuery(this).before('<p class="submit show_author_answer_form"><input type="submit" value="respond"/></p>');
@@ -315,12 +317,14 @@ jQuery.fn.document_ready = function() {
       });
 
     }).hide();
-
-    jQuery('a[rel*=facebox]').each(function () { jQuery(this).attr("href", jQuery(this).attr("href") + ".js"); }).facebox(
-      {loadingImage: '/images/fb/loading.gif' , closeImage: '/images/fb/closelabel.gif'}
-    );
     
-    jQuery('a[rel*=img_facebox]').facebox();
+    
+    jQuery.facebox.settings.closeImage = '/images/fb/closelabel.gif';
+    jQuery.facebox.settings.loadingImage = '/images/fb/loading.gif';
+
+    jQuery('a[rel*=facebox]').each(function () { jQuery(this).attr("href", jQuery(this).attr("href") + ".js"); }).facebox();
+    
+    jQuery('a[rel*=img_fb]').each(function () { jQuery(this).attr("href", jQuery(this).attr("href").split('?')[0]) }).facebox();
     
     jQuery('input, textarea').each(function () {
       if (jQuery(this).attr('title') != "" && jQuery(this).val() == "") {
@@ -349,54 +353,44 @@ jQuery.fn.document_ready = function() {
     jQuery('a[href=#beta_feedback]').click(function () {
       jQuery('.feedback_form').find('.wrap').fadeIn();
     })
-    
-    //jQuery('#proposal_long_description')
-    
+        
     jQuery('.activity_stream').fold_activity_stream();
     
-    jQuery('.remove_item').delete_item('.remove_item');
-    
-    jQuery('form.edit_brief_collaborators input[type=submit]').click(function () {
-      //disable this action
-      jQuery(this).hide().spin();
-
-      jQuery.put(
-        jQuery(this).parents().filter('form').attr('action'), 
-        jQuery(this).parents().filter('form').serialize(), 
-        jQuery.fn.update_collab_list, 
-        'json'
-      );
-
-      return false;
-    });
-    
-    jQuery('.remove_with_js').hide();  
-    
     jQuery(document).unbind('afterReveal.facebox');
-    jQuery(document).bind('afterReveal.facebox', jQuery.fn.document_ready);
+    jQuery(document).bind('afterReveal.facebox', jQuery.fn.document_ready_extras);
     
     jQuery('a.just_to_question').click(function () {
       jQuery("#" + jQuery(this).attr('href').split('#')[1]).find('.brief_item_history').show();
     });
-    
-    // /* Handle links inside editable area. */
-    // $('.editable > a').bind('click', function() {
-    //   $(this).parent().trigger('click');
-    //   return false; 
-    // });
-    // 
-    // $('#wysiwyg_1').editable('http://www.appelsiini.net/projects/jeditable/wysiwyg/php/save.php', { 
-    //   indicator : '<img src="../img/indicator.gif">',
-    //   type      : 'wysiwyg',
-    //   width     : 640,
-    //   height    : 'auto',
-    //   onblur    : 'ignore',
-    //   submit    : 'OK',
-    //   cancel    : 'Cancel'
-    // });
 
-    $('#proposal_long_description').wysiwyg();
+    $('#proposal_long_description').wysiwyg({ css: '/stylesheets/wysiwyg_body.css' });
     
+    if (document.URL.split('#')[1] != "") {
+      jQuery("#" + document.URL.split('#')[1]).scrollTo();
+    }
+    
+    jQuery.fn.document_ready_extras();
+}
+
+jQuery.fn.document_ready_extras = function () {
+  jQuery('.remove_item').delete_item('.remove_item');
+   
+   jQuery('form.edit_brief_collaborators input[type=submit]').click(function () {
+     //disable this action
+     jQuery(this).hide().spin();
+
+     jQuery.put(
+       jQuery(this).parents().filter('form').attr('action'), 
+       jQuery(this).parents().filter('form').serialize(), 
+       jQuery.fn.update_collab_list, 
+       'json'
+     );
+
+     return false;
+   });
+   
+   jQuery('.remove_with_js').hide();  
+  
 }
 
 jQuery(document).ready(jQuery.fn.document_ready);
