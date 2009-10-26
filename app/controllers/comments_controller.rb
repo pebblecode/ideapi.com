@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     end
 
     response_for(:create, :update, :create_fails, :update_fails) do |format|
-      format.html { redirect_to parent_path }
+      format.html { redirect_to parent_path(:anchor => dom_id(current_object)) }
     end
     
   end
