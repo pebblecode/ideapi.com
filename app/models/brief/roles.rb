@@ -21,11 +21,10 @@ class Brief < ActiveRecord::Base
   end
   
   def proposal_list_for_user(a_user)
-    if author_or_approver?(a_user)
-      proposals.active
-    else
-      proposals.for_user(a_user)
-    end
+    returning ([]) do |user_proposals|
+      user_proposals << proposals.active if author_or_approver?(a_user)
+      user_proposals << proposals.for_user(a_user)
+    end.flatten.uniq
   end
   
   def author_or_approver?(a_user)

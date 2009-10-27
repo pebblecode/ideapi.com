@@ -1,7 +1,6 @@
 class AddDescriptionToProposals < ActiveRecord::Migration
   def self.up
     add_column :assets, :description, :text
-
   end
 
   def self.down

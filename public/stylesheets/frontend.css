@@ -320,12 +320,8 @@ span.field_with_errors input {
   color: black;
   padding: 0.1em 0.5em;
   margin-left: 0.5em; }
-#container #content .proposal h2 .update_proposal {
-  position: absolute;
-  right: 15px;
-  top: 9px; }
-  #container #content .proposal h2 .update_proposal span {
-    color: white; }
+#container #content .update_proposal {
+  padding: 1em 0.5em; }
 #container #content .brief, #container #content .proposal, #container #content .brief_list {
   background: #fffffe;
   margin: 2em 0; }

@@ -41,6 +41,10 @@ class ProposalsController < ApplicationController
       format.js { render :layout => false }
     end
     
+    response_for :create do |format|
+      format.html { redirect_to edit_object_path }
+    end
+    
     response_for :update do |format|
       format.html {
         flash[:notice] = "Proposal successfully updated"

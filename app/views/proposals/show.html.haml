@@ -7,12 +7,6 @@
     %h2
       =current_object.title
       %span.status=current_object.state
-      - if parent_object.approver?(current_user)
-        .update_proposal
-          - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
-            %span mark brief as
-            =f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
-            =f.submit "update"
             
       -if current_user.owns?(current_object) && current_object.draft?
         =link_to 'edit proposal', edit_brief_proposal_path(parent_object, current_object)
@@ -60,6 +54,17 @@
               %p.submit_comment=f.submit "submit"
   
         
-.col_2  
+.col_2
+  - unless current_object.draft?    
+    .side_box
+      %h2 Approve ideas
+      .contents          
+        - if parent_object.approver?(current_user)
+          .update_proposal
+            - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
+              %span mark brief as
+              =f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
+              =f.submit "update"  
+  
   %p=link_to 'back to brief', brief_path(parent_object)
   

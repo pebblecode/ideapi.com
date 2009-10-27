@@ -8,7 +8,10 @@ class Proposal < ActiveRecord::Base
   
   has_many :assets, :as => :attachable
   
-  accepts_nested_attributes_for :assets, :allow_destroy => true
+  accepts_nested_attributes_for :assets, 
+    :allow_destroy => true,
+    :reject_if => proc { |attributes| attributes['data'].blank? }
+    
   
   acts_as_commentable
   
