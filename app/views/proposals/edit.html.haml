@@ -17,20 +17,21 @@
       = submit_tag "Preview"
       .clear
     
-.col_2  
-  %p=link_to 'back to brief', brief_path(parent_object)
-  
-  .side_box
+.col_2    
+  #brief_reference.side_box
     %h2 Brief reference
     .contents
       %ul
         %li
-          %p=parent_object.most_important_message
-        
+          %p.most_important_thing
+            %span.left &ldquo;
+            =parent_object.most_important_message
+            %span.right &rdquo;
+          
         -parent_object.brief_items.each do |brief_item|
           %li
             %h3=brief_item.title
             %p=brief_item.body
-            
-      =link_to 'View whole brief', brief_path(parent_object), :class => 'action', :rel => "facebox"
+              
+  %p=link_to 'back to brief', brief_path(parent_object)
   

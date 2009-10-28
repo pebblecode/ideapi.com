@@ -1014,6 +1014,46 @@ ul.error_messages li p {
     margin-right: 0.5em; }
 #container #content .col_2 .invite_users input[type=submit] {
   margin: 0.5em 0 0 0; }
+#container #content .col_2 #brief_reference .most_important_thing {
+  font-size: 1.1em;
+  position: relative;
+  padding: 0 0 0 0.5em;
+  font-weight: bold; }
+  #container #content .col_2 #brief_reference .most_important_thing span {
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+    height: 0.4em; }
+  #container #content .col_2 #brief_reference .most_important_thing span.left {
+    float: left;
+    position: relative;
+    top: -0.4em;
+    left: -0.1em; }
+  #container #content .col_2 #brief_reference .most_important_thing span.right {
+    position: absolute;
+    line-height: 0.8em;
+    bottom: -0.1em;
+    padding-right: 0.2em;
+    padding-left: 0.1em; }
+#container #content .col_2 #brief_reference ul {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0; }
+  #container #content .col_2 #brief_reference ul li {
+    border-bottom: 1px solid #ccc;
+    padding: 0 1em; }
+    #container #content .col_2 #brief_reference ul li h3 {
+      padding: 0.5em 0 0 0;
+      font-size: 1.2em;
+      color: inherit; }
+    #container #content .col_2 #brief_reference ul li h3.js {
+      padding-bottom: 0.5em; }
+    #container #content .col_2 #brief_reference ul li h3.active {
+      padding-bottom: 0; }
+    #container #content .col_2 #brief_reference ul li p {
+      font-weight: normal; }
+  #container #content .col_2 #brief_reference ul li:last-child {
+    border-bottom: 0; }
 #container #content .invitations, #container #content .friends {
   padding: 1em 0 0 0;
   width: 100%; }

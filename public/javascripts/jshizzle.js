@@ -369,6 +369,12 @@ jQuery.fn.document_ready = function() {
       jQuery("#" + document.URL.split('#')[1]).scrollTo();
     }
     
+    jQuery('#brief_reference h3').wrap('<a href="#"></a>').click(function () {
+      $(this).parent().next('p').toggle();
+      $(this).toggleClass('active');
+      return false;
+    }).addClass('js').parent().next('p').hide();
+    
     jQuery.fn.document_ready_extras();
 }
 
