@@ -423,10 +423,12 @@ span.field_with_errors input {
 #container #content .edit_brief p.body textarea {
   width: 45em;
   height: 10em; }
+#container #content .brief_list .brief_item {
+  padding-bottom: 1em; }
 #container #content .brief_list .brief_item:hover {
   background: transparent; }
 #container #content .brief_list h3 {
-  width: 22em;
+  width: 23em;
   position: relative; }
   #container #content .brief_list h3 .user_context {
     margin-left: 1em;
