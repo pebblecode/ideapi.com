@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   
   require_dependency 'application/redirection'  
   require_dependency 'application/authentication'  
+  require_dependency 'application/subscription'  
   
   helper_method :brief_config
   

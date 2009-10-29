@@ -1,3 +1,14 @@
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `full_domain` varchar(255) collate utf8_unicode_ci default NULL,
+  `deleted_at` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_accounts_on_full_domain` (`full_domain`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 CREATE TABLE `assets` (
   `id` int(11) NOT NULL auto_increment,
   `attachable_id` int(11) default NULL,
@@ -12,7 +23,7 @@ CREATE TABLE `assets` (
   PRIMARY KEY  (`id`),
   KEY `index_assets_on_attachable_id` (`attachable_id`),
   KEY `index_assets_on_attachable_id_and_attachable_type` (`attachable_id`,`attachable_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `brief_item_versions` (
   `id` int(11) NOT NULL auto_increment,
@@ -28,7 +39,7 @@ CREATE TABLE `brief_item_versions` (
   KEY `index_brief_item_versions_on_brief_item_id` (`brief_item_id`),
   KEY `index_brief_item_versions_on_brief_id` (`brief_id`),
   KEY `index_brief_item_versions_on_template_question_id` (`template_question_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `brief_items` (
   `id` int(11) NOT NULL auto_increment,
@@ -43,7 +54,7 @@ CREATE TABLE `brief_items` (
   PRIMARY KEY  (`id`),
   KEY `index_brief_items_on_brief_id` (`brief_id`),
   KEY `index_brief_items_on_template_question_id` (`template_question_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -60,7 +71,7 @@ CREATE TABLE `briefs` (
   KEY `index_briefs_on_site_id` (`site_id`),
   KEY `index_briefs_on_template_brief_id` (`template_brief_id`),
   KEY `index_briefs_on_approver_id` (`approver_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL auto_increment,
@@ -107,6 +118,16 @@ CREATE TABLE `invitations` (
   KEY `index_invitations_on_redeemable_id` (`redeemable_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL auto_increment,
+  `email` varchar(255) collate utf8_unicode_ci default NULL,
+  `user_id` int(11) default NULL,
+  `remote_ip` varchar(255) collate utf8_unicode_ci default NULL,
+  `token` varchar(255) collate utf8_unicode_ci default NULL,
+  `created_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 CREATE TABLE `proposals` (
   `id` int(11) NOT NULL auto_increment,
   `short_description` text collate utf8_unicode_ci,
@@ -121,7 +142,7 @@ CREATE TABLE `proposals` (
   PRIMARY KEY  (`id`),
   KEY `index_proposals_on_brief_id` (`brief_id`),
   KEY `index_proposals_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL auto_increment,
@@ -136,7 +157,7 @@ CREATE TABLE `questions` (
   KEY `index_questions_on_brief_id` (`brief_id`),
   KEY `index_questions_on_user_id` (`user_id`),
   KEY `index_questions_on_brief_item_id` (`brief_item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=450 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=454 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) collate utf8_unicode_ci NOT NULL,
@@ -147,6 +168,83 @@ CREATE TABLE `sites` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(255) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `subscription_affiliates` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `rate` decimal(6,4) default '0.0000',
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `token` varchar(255) collate utf8_unicode_ci default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_subscription_affiliates_on_token` (`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `subscription_discounts` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `code` varchar(255) collate utf8_unicode_ci default NULL,
+  `amount` decimal(6,2) default '0.00',
+  `percent` tinyint(1) default NULL,
+  `start_on` date default NULL,
+  `end_on` date default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `apply_to_setup` tinyint(1) default '1',
+  `apply_to_recurring` tinyint(1) default '1',
+  `trial_period_extension` int(11) default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `subscription_payments` (
+  `id` int(11) NOT NULL auto_increment,
+  `account_id` int(11) default NULL,
+  `subscription_id` int(11) default NULL,
+  `amount` decimal(10,2) default '0.00',
+  `transaction_id` varchar(255) collate utf8_unicode_ci default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `setup` tinyint(1) default NULL,
+  `misc` tinyint(1) default NULL,
+  `subscription_affiliate_id` int(11) default NULL,
+  `affiliate_amount` decimal(6,2) default '0.00',
+  PRIMARY KEY  (`id`),
+  KEY `index_subscription_payments_on_account_id` (`account_id`),
+  KEY `index_subscription_payments_on_subscription_id` (`subscription_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `subscription_plans` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci default NULL,
+  `amount` decimal(10,2) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `user_limit` int(11) default NULL,
+  `renewal_period` int(11) default '1',
+  `setup_amount` decimal(10,2) default NULL,
+  `trial_period` int(11) default '1',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `subscriptions` (
+  `id` int(11) NOT NULL auto_increment,
+  `amount` decimal(10,2) default NULL,
+  `next_renewal_at` datetime default NULL,
+  `card_number` varchar(255) collate utf8_unicode_ci default NULL,
+  `card_expiration` varchar(255) collate utf8_unicode_ci default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `state` varchar(255) collate utf8_unicode_ci default 'trial',
+  `subscription_plan_id` int(11) default NULL,
+  `account_id` int(11) default NULL,
+  `user_limit` int(11) default NULL,
+  `renewal_period` int(11) default '1',
+  `billing_id` varchar(255) collate utf8_unicode_ci default NULL,
+  `subscription_discount_id` int(11) default NULL,
+  `subscription_affiliate_id` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_subscriptions_on_account_id` (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `template_brief_questions` (
@@ -199,7 +297,7 @@ CREATE TABLE `timeline_events` (
   KEY `index_timeline_events_ssubs` (`secondary_subject_id`,`secondary_subject_type`),
   KEY `index_timeline_events_on_subject_id_and_subject_type` (`subject_id`,`subject_type`),
   KEY `index_timeline_events_on_actor_id_and_actor_type` (`actor_id`,`actor_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=567 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=578 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `user_briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -213,7 +311,7 @@ CREATE TABLE `user_briefs` (
   PRIMARY KEY  (`id`),
   KEY `index_user_briefs_on_brief_id` (`brief_id`),
   KEY `index_user_briefs_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
@@ -232,7 +330,10 @@ CREATE TABLE `users` (
   `friends_count` int(11) NOT NULL default '0',
   `first_name` varchar(255) collate utf8_unicode_ci default NULL,
   `last_name` varchar(255) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`id`)
+  `admin` tinyint(1) default '1',
+  `account_id` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `index_users_on_account_id` (`account_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `watched_briefs` (
@@ -345,3 +446,7 @@ INSERT INTO schema_migrations (version) VALUES ('20091009145658');
 INSERT INTO schema_migrations (version) VALUES ('20091015101445');
 
 INSERT INTO schema_migrations (version) VALUES ('20091022134100');
+
+INSERT INTO schema_migrations (version) VALUES ('20091029170330');
+
+INSERT INTO schema_migrations (version) VALUES ('20091029170354');

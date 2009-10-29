@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091022134100) do
+ActiveRecord::Schema.define(:version => 20091029170354) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "full_domain"
+    t.datetime "deleted_at"
+  end
+
+  add_index "accounts", ["full_domain"], :name => "index_accounts_on_full_domain"
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -113,6 +123,14 @@ ActiveRecord::Schema.define(:version => 20091022134100) do
   add_index "invitations", ["redeemed_by_id"], :name => "index_invitations_on_redeemed_by_id"
   add_index "invitations", ["user_id"], :name => "index_invitations_on_user_id"
 
+  create_table "password_resets", :force => true do |t|
+    t.string   "email"
+    t.integer  "user_id"
+    t.string   "remote_ip"
+    t.string   "token"
+    t.datetime "created_at"
+  end
+
   create_table "proposals", :force => true do |t|
     t.text     "short_description"
     t.text     "long_description"
@@ -145,6 +163,76 @@ ActiveRecord::Schema.define(:version => 20091022134100) do
   create_table "sites", :force => true do |t|
     t.string "title"
   end
+
+  create_table "subscription_affiliates", :force => true do |t|
+    t.string   "name"
+    t.decimal  "rate",       :precision => 6, :scale => 4, :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
+
+  add_index "subscription_affiliates", ["token"], :name => "index_subscription_affiliates_on_token"
+
+  create_table "subscription_discounts", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.decimal  "amount",                 :precision => 6, :scale => 2, :default => 0.0
+    t.boolean  "percent"
+    t.date     "start_on"
+    t.date     "end_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "apply_to_setup",                                       :default => true
+    t.boolean  "apply_to_recurring",                                   :default => true
+    t.integer  "trial_period_extension",                               :default => 0
+  end
+
+  create_table "subscription_payments", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "subscription_id"
+    t.decimal  "amount",                    :precision => 10, :scale => 2, :default => 0.0
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "setup"
+    t.boolean  "misc"
+    t.integer  "subscription_affiliate_id"
+    t.decimal  "affiliate_amount",          :precision => 6,  :scale => 2, :default => 0.0
+  end
+
+  add_index "subscription_payments", ["account_id"], :name => "index_subscription_payments_on_account_id"
+  add_index "subscription_payments", ["subscription_id"], :name => "index_subscription_payments_on_subscription_id"
+
+  create_table "subscription_plans", :force => true do |t|
+    t.string   "name"
+    t.decimal  "amount",         :precision => 10, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_limit"
+    t.integer  "renewal_period",                                :default => 1
+    t.decimal  "setup_amount",   :precision => 10, :scale => 2
+    t.integer  "trial_period",                                  :default => 1
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.decimal  "amount",                    :precision => 10, :scale => 2
+    t.datetime "next_renewal_at"
+    t.string   "card_number"
+    t.string   "card_expiration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "state",                                                    :default => "trial"
+    t.integer  "subscription_plan_id"
+    t.integer  "account_id"
+    t.integer  "user_limit"
+    t.integer  "renewal_period",                                           :default => 1
+    t.string   "billing_id"
+    t.integer  "subscription_discount_id"
+    t.integer  "subscription_affiliate_id"
+  end
+
+  add_index "subscriptions", ["account_id"], :name => "index_subscriptions_on_account_id"
 
   create_table "template_brief_questions", :force => true do |t|
     t.integer "template_brief_id"
@@ -218,10 +306,14 @@ ActiveRecord::Schema.define(:version => 20091022134100) do
     t.datetime "last_login_at"
     t.datetime "last_request_at"
     t.integer  "invite_count"
-    t.integer  "friends_count",       :default => 0, :null => false
+    t.integer  "friends_count",       :default => 0,    :null => false
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "admin",               :default => true
+    t.integer  "account_id"
   end
+
+  add_index "users", ["account_id"], :name => "index_users_on_account_id"
 
   create_table "watched_briefs", :force => true do |t|
     t.integer  "brief_id"
