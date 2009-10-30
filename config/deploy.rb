@@ -41,13 +41,12 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/gateway.yml #{release_path}/config/gateway.yml"
     #run "ln -nfs #{deploy_to}/#{shared_dir}/config/paypal.yml #{release_path}/config/paypal.yml"
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/config.yml #{release_path}/config/config.yml"
-    
     run "ln -nfs #{deploy_to}/#{shared_dir}/uploads #{release_path}/public/uploads"
   end
   
   desc "Rebuild the db and setup sample data for ideapi"
   task :bootstrap do
-    send(run_method, "cd #{current_path} && rake ideapi:bootstrap RAILS_ENV=#{stage} ")
+    send(run_method, "cd #{current_path} && rake ideapi:bootstrap RAILS_ENV=#{stage} && rake db:bootstrap")
   end
   
   task :prepare_static_cache do
