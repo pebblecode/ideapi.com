@@ -38,6 +38,10 @@ namespace :deploy do
   task :link_config_files do
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/#{stage}.sphinx.conf #{release_path}/config/#{stage}.sphinx.conf" 
+    run "ln -nfs #{deploy_to}/#{shared_dir}/config/gateway.yml #{release_path}/config/gateway.yml"
+    #run "ln -nfs #{deploy_to}/#{shared_dir}/config/paypal.yml #{release_path}/config/paypal.yml"
+    run "ln -nfs #{deploy_to}/#{shared_dir}/config/config.yml #{release_path}/config/config.yml"
+    
     run "ln -nfs #{deploy_to}/#{shared_dir}/uploads #{release_path}/public/uploads"
   end
   
