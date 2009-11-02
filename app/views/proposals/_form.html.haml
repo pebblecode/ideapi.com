@@ -25,23 +25,24 @@
       =asset_form.text_area :description, :rows => "3", :cols => "45"
     
   -else
-    - if asset_form.object.data.file?
-      %p
-        %label="Attachment #{attachment_count+=1}"
-        -if asset_form.object.data.content_type =~ /image/
-          =link_to image_tag(asset_form.object.data.url, :width => "100"), asset_form.object.data.url, :rel => "img_fb"
-        -else
-          =link_to asset_form.object.data.original_filename, asset_form.object.data.url
-    -else
-      %p
-        = asset_form.label :data, 'Upload file'
-        = asset_form.file_field :data
+    .proposal_asset    
+      - if asset_form.object.data.file?
+        %p
+          %label="Attachment #{attachment_count+=1}"
+          -if asset_form.object.data.content_type =~ /image/
+            =link_to image_tag(asset_form.object.data.url, :width => "100"), asset_form.object.data.url, :rel => "img_fb"
+          -else
+            =link_to asset_form.object.data.original_filename, asset_form.object.data.url
+      -else
+        %p
+          = asset_form.label :data, 'Upload file'
+          = asset_form.file_field :data
     
-    %p
-      =asset_form.label :description
-      =asset_form.text_area :description, :rows => "3", :cols => "45"
+      %p
+        =asset_form.label :description
+        =asset_form.text_area :description, :rows => "3", :cols => "45"
     
-    %p
-      = asset_form.check_box '_delete'
-      = asset_form.label '_delete', 'Remove'
-    .hr
+      %p.remove_asset
+        = asset_form.check_box '_delete', :class => "remove_item"
+        = asset_form.label '_delete', 'Remove', :class => "remove_with_js"
+    

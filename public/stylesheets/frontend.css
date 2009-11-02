@@ -392,6 +392,14 @@ span.field_with_errors input {
     left: 51.5em; }
   #container #content .brief .brief_item:last-child, #container #content .brief .proposal_item:last-child,   #container #content .proposal .brief_item:last-child, #container #content .proposal .proposal_item:last-child,   #container #content .brief_list .brief_item:last-child, #container #content .brief_list .proposal_item:last-child {
     border-bottom: 1px solid #ccc; }
+  #container #content .brief .proposal_item p.asset,   #container #content .proposal .proposal_item p.asset,   #container #content .brief_list .proposal_item p.asset {
+    width: 120px; }
+  #container #content .brief .proposal_item p.asset, #container #content .brief .proposal_item p.description,   #container #content .proposal .proposal_item p.asset, #container #content .proposal .proposal_item p.description,   #container #content .brief_list .proposal_item p.asset, #container #content .brief_list .proposal_item p.description {
+    float: left; }
+  #container #content .brief .proposal_item p.description,   #container #content .proposal .proposal_item p.description,   #container #content .brief_list .proposal_item p.description {
+    width: 36em;
+    padding: 0 0 0 2em;
+    margin: 1px 0 0 0; }
   #container #content .brief .most_important_thing,   #container #content .proposal .most_important_thing,   #container #content .brief_list .most_important_thing {
     padding: 1em 1em 1em 3em; }
     #container #content .brief .most_important_thing p,     #container #content .proposal .most_important_thing p,     #container #content .brief_list .most_important_thing p {
@@ -480,6 +488,16 @@ span.field_with_errors input {
   padding: 1em 2em;
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc; }
+#container .edit_proposal .proposal_asset {
+  border-bottom: 1px solid #ccc;
+  margin: 1em 0 2em 0;
+  position: relative; }
+  #container .edit_proposal .proposal_asset .remove_asset {
+    position: absolute;
+    top: 0;
+    right: 1em; }
+#container .edit_proposal p textarea {
+  width: 35em; }
 #container .avatar {
   border: 6px solid #ddd; }
 #container .creative, #container .author {
@@ -905,18 +923,21 @@ table.collaborators {
   table.collaborators td, table.collaborators th {
     padding: 0.5em 1em;
     text-align: center; }
-    table.collaborators td a.trash,     table.collaborators th a.trash {
-      background: url(/images/trash.png) no-repeat;
-      width: 16px;
-      height: 17px;
-      display: block;
-      text-indent: -3000px; }
-    table.collaborators td a.trash:hover,     table.collaborators th a.trash:hover {
-      background: url(/images/trash.png) no-repeat 0 -17px; }
-    table.collaborators td img.spinner,     table.collaborators th img.spinner {
-      display: block; }
   table.collaborators th.user, table.collaborators td.user {
     text-align: left; }
+
+a.trash {
+  background: url(/images/trash.png) no-repeat;
+  width: 16px;
+  height: 17px;
+  display: block;
+  text-indent: -3000px; }
+
+a.trash:hover {
+  background: url(/images/trash.png) no-repeat 0 -17px; }
+
+img.spinner {
+  display: block; }
 
 ul.error_messages li p {
   color: #d81f26; }

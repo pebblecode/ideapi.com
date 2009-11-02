@@ -8,7 +8,7 @@
           =parent_object.most_important_message
           %span.right &rdquo;
         
-      -parent_object.brief_items.each do |brief_item|
+      -parent_object.brief_items.answered.each do |brief_item|
         %li
           %h3=brief_item.title
           %p=brief_item.body

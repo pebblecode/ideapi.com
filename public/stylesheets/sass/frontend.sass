@@ -531,6 +531,19 @@ span.field_with_errors
       .brief_item:last-child, .proposal_item:last-child
         :border-bottom 1px solid #ccc
             
+      .proposal_item
+        
+        p.asset
+          :width 120px
+      
+        p.asset, p.description
+          :float left
+          
+        p.description   
+          :width 36em
+          :padding 0 0 0 2em
+          :margin 1px 0 0 0
+          
       .most_important_thing
         :padding 1em 1em 1em 3em
         
@@ -648,6 +661,24 @@ span.field_with_errors
       :padding 1em 2em
       :border-right 1px solid #ccc
       :border-left 1px solid #ccc
+      
+      
+  .edit_proposal
+    .proposal_asset
+      :border-bottom 1px solid #ccc
+      :margin 1em 0 2em 0
+      :position relative
+      
+      .remove_asset
+        :position absolute
+        :top 0
+        :right 1em
+    
+    p
+      textarea
+        :width 35em
+        
+    
   
   / USER PROFILE
   
@@ -1193,22 +1224,22 @@ table.collaborators
     :padding 0.5em 1em
     :text-align center
     
-    a.trash
-      :background url(/images/trash.png) no-repeat
-      :width 16px
-      :height 17px
-      :display block
-      :text-indent -3000px
-      
-    a.trash:hover
-      :background url(/images/trash.png) no-repeat 0 -17px
-    
-    img.spinner
-      :display block
-    
   th.user, td.user
     :text-align left
-    
+
+a.trash
+  :background url(/images/trash.png) no-repeat
+  :width 16px
+  :height 17px
+  :display block
+  :text-indent -3000px
+  
+a.trash:hover
+  :background url(/images/trash.png) no-repeat 0 -17px
+
+img.spinner
+  :display block
+  
 ul.error_messages
   li
     p

@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091029170354) do
+ActiveRecord::Schema.define(:version => 20091030163139) do
+
+  create_table "account_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.string   "code"
+    t.string   "state"
+    t.datetime "redeemed_at"
+    t.boolean  "brief_creation", :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "account_users", ["account_id"], :name => "index_account_users_on_account_id"
+  add_index "account_users", ["user_id"], :name => "index_account_users_on_user_id"
 
   create_table "accounts", :force => true do |t|
     t.string   "name"

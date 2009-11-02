@@ -17,11 +17,14 @@
       
     - current_object.assets.each do |asset|
       .proposal_item
-        %p
+        %p.asset
           -if asset.data.content_type =~ /image/
             =link_to image_tag(asset.data.url, :width => "120"), asset.data.url, :rel => "img_fb"
           -else
             =link_to asset.data.original_filename, asset.data.url
+          
+        %p.description=asset.description if asset.description.present?
+        .clear
   
   - if current_user.owns?(current_object) && current_object.draft?
     .hr

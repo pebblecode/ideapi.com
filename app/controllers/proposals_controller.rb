@@ -19,7 +19,7 @@ class ProposalsController < ApplicationController
     end
     
     before :edit, :show, :update do
-      add_breadcrumb 'your proposal', object_path
+      add_breadcrumb current_object.title, object_path
     end
     
     before :create do
@@ -54,6 +54,8 @@ class ProposalsController < ApplicationController
           redirect_to object_path
         end
       }
+      format.json { render :json => current_object }
+      
     end
     
   end

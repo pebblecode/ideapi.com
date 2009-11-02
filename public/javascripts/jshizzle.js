@@ -223,7 +223,7 @@ jQuery.fn.update_collab_list = function (data) {
   jQuery('form.edit_brief_collaborators input[type=submit]').next('.spinner').remove();
 }
 
-jQuery.fn.delete_item = function (remove_item_class) {
+jQuery.fn.delete_item = function (remove_item_class, action) {
   jQuery(this).after('<a href="#" class="trash">Remove</a>');
   
   jQuery(this).next('.trash').click(function () {
@@ -232,12 +232,7 @@ jQuery.fn.delete_item = function (remove_item_class) {
     //disable this action
     jQuery(this).hide().spin();
     
-    jQuery.put(
-      jQuery(this).parents().filter('form').attr('action'), 
-      jQuery(this).parents().filter('form').serialize(), 
-      jQuery.fn.update_collab_list, 
-      'json'
-    );
+    action.apply(jQuery(this));
     
     return false;
   });
@@ -379,23 +374,48 @@ jQuery.fn.document_ready = function() {
 }
 
 jQuery.fn.document_ready_extras = function () {
-  jQuery('.remove_item').delete_item('.remove_item');
+  
+  jQuery('.collaborators .remove_item').delete_item('.remove_item', function () { 
+    jQuery.put(
+      jQuery(this).parents().filter('form').attr('action'), 
+      jQuery(this).parents().filter('form').serialize(), 
+      jQuery.fn.update_collab_list, 
+      'json'
+    )}
+  );
    
-   jQuery('form.edit_brief_collaborators input[type=submit]').click(function () {
-     //disable this action
-     jQuery(this).hide().spin();
+  jQuery('form.edit_brief_collaborators input[type=submit]').click(function () {
+    //disable this action
+    jQuery(this).hide().spin();
 
-     jQuery.put(
-       jQuery(this).parents().filter('form').attr('action'), 
-       jQuery(this).parents().filter('form').serialize(), 
-       jQuery.fn.update_collab_list, 
-       'json'
-     );
+    jQuery.put(
+     jQuery(this).parents().filter('form').attr('action'), 
+     jQuery(this).parents().filter('form').serialize(), 
+     jQuery.fn.update_collab_list, 
+     'json'
+    );
 
-     return false;
-   });
-   
-   jQuery('.remove_with_js').hide();  
+    return false;
+  });
+
+  jQuery('.remove_with_js').hide();  
+
+  jQuery('.edit_proposal .remove_item').delete_item('.remove_item', function () { 
+      
+      //move the id input inside of the .proposal_asset
+      jQuery(this).parents().filter('.proposal_asset').append(jQuery(this).parents().filter('.proposal_asset').prev('input'));
+      
+      var proposal_asset = jQuery(this).parents().filter('.proposal_asset');
+      
+      jQuery.put(
+        jQuery(this).parents().filter('form').attr('action'), 
+        jQuery(this).parents().filter('.proposal_asset').wrap('<form class="remove_asset_form"></form>').parents().filter('form.remove_asset_form').serialize(), 
+        function () { proposal_asset.remove() }, 
+        'json'
+      );
+    }
+  );
+  
   
 }
 
