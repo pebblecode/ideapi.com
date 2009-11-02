@@ -1,0 +1,69 @@
+.col_1
+
+  %h2 Create an account
+
+  -form_tag :action => 'create' do
+    = hidden_field_tag 'plan', params[:plan]
+    %p Enter the name of your business and the subdomain you'd like to use for your site.
+
+    -if @account.errors.any?
+      .errorExplanation
+        %h2 Errors encountered with your account information:
+        %ul
+          =@account.errors.full_messages.map {|m| content_tag('li', m)}
+      
+    %fieldset
+      -fields_for :account do |f|
+        %p
+          = f.label :name
+          = f.text_field :name
+        
+        %p
+          = f.label :domain
+          = f.text_field :domain
+          = "." << AppConfig['base_domain']
+  
+    %p Enter info for the administrator account.
+
+    %fieldset
+      -fields_for :user do |f|
+        %p
+          = f.label :login
+          = f.text_field :login
+        
+        %p
+          = f.label :email
+          = f.text_field :email
+        
+        %p
+          = f.label :password
+          = f.password_field :password
+        
+        %p
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation
+  
+      
+    - if @account.needs_payment_info?
+      %p Enter your payment info
+      = render :partial => "shared/credit_card_form"
+  
+    %br
+  
+    %fieldset
+      %p
+        = label :discount, "Discount code"
+        = text_field_tag :discount, params[:discount]
+  
+    %br
+  
+    %fieldset
+      - if @account.needs_payment_info?
+        - content_tag(:p) do
+          Your card will be charged 
+          - if  @account.plan.setup_amount? && !@account.plan.trial_period?
+            = number_to_currency(@account.plan.setup_amount) + ' now and ' 
+          = number_to_currency(@account.plan.amount) 
+          = @account.plan.renewal_period == 1 ? 'every month' : "every #{@account.plan.renewal_period} months."
+        
+      %p= submit_tag 'Create my account'

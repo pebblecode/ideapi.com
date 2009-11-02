@@ -217,7 +217,8 @@ span.field_with_errors input {
 #container #content .col_1 {
   width: 63em;
   padding: 0 0 0 2em;
-  float: left; }
+  float: left;
+  padding-bottom: 2em; }
   #container #content .col_1 h2 {
     padding-top: 0.5em; }
 #container #content .col_2 {
