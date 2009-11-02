@@ -132,6 +132,7 @@ jQuery.fn.edit_brief_item = function () {
         if (jQuery(this).text() == link_on_state) {
           jQuery(this).text(link_off_state);
           jQuery(this).parent().removeClass('empty');
+          jQuery(this).parent().parent().find('textarea').focus();
         } else {
           jQuery(this).text(link_on_state);
           jQuery(this).parent().addClass('empty');
