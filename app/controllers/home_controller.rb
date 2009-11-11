@@ -14,7 +14,9 @@ class HomeController < ApplicationController
   # whilst redirecting any other not found domains to error page
   
   def account_not_found
-    unless Account.excluded_subdomains.include?(request.subdomains.first)
+    if request.subdomains.blank? || Account.excluded_subdomains.include?(request.subdomains.first)
+      render
+    else
       redirect_to "/account_not_found" and return
     end
   end
