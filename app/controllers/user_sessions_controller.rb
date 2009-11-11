@@ -5,12 +5,11 @@ class UserSessionsController < ApplicationController
   layout 'login'
 
   def new
-    @user_session = UserSession.new
+    @user_session = current_account.user_sessions.new
   end
 
   def create
-    @user_session = UserSession.new(params[:user_session])
-    if @user_session.save
+    if @user_session = current_account.user_sessions.create(params[:user_session])
       redirect_back_or_default '/'
     else
       render :action => :new

@@ -1,5 +1,9 @@
 # Methods added to this helper will be available to all templates in the application.
 module SubscriptionsHelper
+  
+  # change default currency formatting to pounds..
+  include Ideapi::CurrencyHelper
+  
   def flash_notices
     [:notice, :error].collect {|type| content_tag('div', flash[type], :id => type) if flash[type] }
   end

@@ -24,6 +24,36 @@ TemplateQuestion.blueprint do
   template_section { TemplateSection.make }
 end
 
+Account.blueprint do
+  name
+  domain { Faker::Internet.domain_word }
+  plan { SubscriptionPlan.make(:free) }
+end
+
+SubscriptionPlan.blueprint do
+  name
+  amount 0
+  user_limit nil
+end
+
+SubscriptionPlan.blueprint(:free) do
+  name "Free"
+  amount 0
+  user_limit nil
+end
+
+SubscriptionPlan.blueprint(:basic) do
+  name "Basic"
+  amount 10
+  user_limit nil
+end
+
+SubscriptionPlan.blueprint(:premium) do
+  name "Premium"
+  amount 30
+  user_limit nil
+end
+
 Brief.blueprint do
   title
   template_brief { TemplateBrief.make }

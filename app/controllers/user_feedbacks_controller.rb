@@ -1,7 +1,7 @@
 class UserFeedbacksController < ApplicationController
   
   # needs login for all actions
-  before_filter :require_user
+  # before_filter :require_user
   
   def create
     @info = { 

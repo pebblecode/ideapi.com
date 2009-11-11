@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091030163139) do
+ActiveRecord::Schema.define(:version => 20091110215425) do
 
   create_table "account_users", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20091030163139) do
     t.boolean  "brief_creation", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",          :default => false
   end
 
   add_index "account_users", ["account_id"], :name => "index_account_users_on_account_id"
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20091030163139) do
     t.boolean "delta"
     t.integer "approver_id"
     t.integer "author_id"
+    t.integer "account_id"
   end
 
   add_index "briefs", ["approver_id"], :name => "index_briefs_on_approver_id"
@@ -168,6 +170,7 @@ ActiveRecord::Schema.define(:version => 20091030163139) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "brief_item_id"
+    t.integer  "answered_by_id"
   end
 
   add_index "questions", ["brief_id"], :name => "index_questions_on_brief_id"
@@ -320,14 +323,10 @@ ActiveRecord::Schema.define(:version => 20091030163139) do
     t.datetime "last_login_at"
     t.datetime "last_request_at"
     t.integer  "invite_count"
-    t.integer  "friends_count",       :default => 0,    :null => false
+    t.integer  "friends_count",       :default => 0, :null => false
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "admin",               :default => true
-    t.integer  "account_id"
   end
-
-  add_index "users", ["account_id"], :name => "index_users_on_account_id"
 
   create_table "watched_briefs", :force => true do |t|
     t.integer  "brief_id"

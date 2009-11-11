@@ -37,15 +37,31 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
-  map.plans '/signup', :controller => 'accounts', :action => 'plans'
-  map.connect '/signup/d/:discount', :controller => 'accounts', :action => 'plans'
+  # map.plans '/signup', :controller => 'accounts', :action => 'plans'
+  # map.connect '/signup/d/:discount', :controller => 'accounts', :action => 'plans'
+  
+  map.plans '/signup', :controller => 'accounts', :action => 'new'
+  
   map.thanks '/signup/thanks', :controller => 'accounts', :action => 'thanks'
   map.create '/signup/create/:discount', :controller => 'accounts', :action => 'create', :discount => nil
-  map.resource :account, :collection => { :dashboard => :get, :thanks => :get, :plans => :get, :billing => :any, :paypal => :any, :plan => :any, :plan_paypal => :any, :cancel => :any, :canceled => :get }
+  
+  map.resource :account, :collection => { 
+      :dashboard => :get, 
+      :thanks => :get, 
+      :plans => :get, 
+      :billing => :any, 
+      :paypal => :any, 
+      :plan => :any, 
+      :plan_paypal => :any, 
+      :cancel => :any, 
+      :canceled => :get
+    }
+  
   map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
   
-  map.connect 'dashboard', :controller => "briefs", :action => "index"
-  map.resource :home, :controller => "home"
+  map.dashboard 'dashboard', :controller => "briefs", :action => "index"
+  
+  map.resource :home, :controller => "home", :only => [:show]
   map.root :controller => "home", :action => "show"
   
 end

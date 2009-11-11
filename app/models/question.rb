@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
   belongs_to :user
+  belongs_to :answered_by, :class_name => "User"
+  
   belongs_to :brief
   belongs_to :brief_item, :touch => true
   
@@ -14,11 +16,7 @@ class Question < ActiveRecord::Base
   before_validation :ensure_brief_present
   
   def answered?
-    !author_answer.blank?
-  end
-  
-  def answer_author
-    brief.author if answered? && brief.present?
+    author_answer.present?
   end
   
   attr_reader :recently_answered
@@ -47,8 +45,8 @@ class Question < ActiveRecord::Base
                        :log_level => 1
   
   fires :question_answered, :on => :update,
-                            :actor => 'answer_author',
-                            :secondary_subject  => 'brief_item',
+                            :actor => :answered_by,
+                            :secondary_subject => :brief_item,
                             :if => lambda { |question| (question.answered? && question.recently_answered) }, 
                             :log_level => 1
   

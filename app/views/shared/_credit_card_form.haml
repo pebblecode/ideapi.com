@@ -18,67 +18,67 @@
       Errors encountered with your payment:
     %ul
       = @subscription.errors.full_messages.map {|m| content_tag('li', m)}
-  
-%fieldset
-  - if @subscription
-    %h3
-      = radio_button :paypal, " ", :checked => @subscription.paypal?
-      > Pay with a credit card
-  
-  %p 
-    = label :creditcard, :first_name, 'Name on card'
-    = text_field :creditcard, :first_name, :size => 20
-    = text_field :creditcard, :last_name, :size => 20 
-
-  %p
-    = label :creditcard, :number, 'Card Number'
-    = text_field :creditcard, :number, :size => 20
-  
-  %p
-    = label :creditcard, :type
-    = select :creditcard, :type, [['Visa', 'visa'], ['MasterCard', 'master'], ['American Express', 'american_express']]
-
-  %p
-    = label :creditcard, :expiration
-    = select :creditcard, :month, (1 .. 12)
-    = select :creditcard, :year, (Time.now.year .. 10.years.from_now.year)
-  
-  %p
-    = label :creditcard, :verification_value
-    = text_field :creditcard, :verification_value, :size => 4
-    = image_tag('cvv.gif', :size => '51x31', :align => 'top')
-  
-  %p
-    = label :address, :address1
-    = text_field :address, :address1
-    
-  %p
-    = label :address, :address2
-    = text_field :address, :address2
-  
-  %p
-    = label :address, :city
-    = text_field :address, :city
-
-  %p
-    = label :address, :state
-    = text_field :address, :state  
-
-  %p
-    = label :address, :zip
-    = text_field :address, :zip
-  
-  %p
-    = label :address, :country
-    = country_select :address, :country, ['United Kingdom'] 
-  
-  %p
-    = label :address, :phone
-    = text_field :address, :phone      
-
-
+      
 - if @subscription
-  %fieldset
-    %h3
-      = radio_button :paypal, "true", :checked => @subscription.paypal?
-      > Pay with PayPal
+  .boom_box
+    %fieldset
+      %h3
+        = radio_button :paypal, "", "false", :checked => @subscription.paypal?
+        Pay with a credit card
+
+      %p 
+        = label :creditcard, :first_name, 'Name on card'
+        = text_field :creditcard, :first_name, :size => 20
+        = text_field :creditcard, :last_name, :size => 20 
+
+      %p
+        = label :creditcard, :number, 'Card Number'
+        = text_field :creditcard, :number, :size => 20
+
+      %p
+        = label :creditcard, :type
+        = select :creditcard, :type, [['Visa', 'visa'], ['MasterCard', 'master'], ['American Express', 'american_express']]
+
+      %p
+        = label :creditcard, :expiration
+        = select :creditcard, :month, (1 .. 12)
+        = select :creditcard, :year, (Time.now.year .. 10.years.from_now.year)
+
+      %p
+        = label :creditcard, :verification_value
+        = text_field :creditcard, :verification_value, :size => 4
+        = image_tag('cvv.gif', :size => '51x31', :align => 'top')
+
+      %p
+        = label :address, :address1
+        = text_field :address, :address1
+  
+      %p
+        = label :address, :address2
+        = text_field :address, :address2
+
+      %p
+        = label :address, :city
+        = text_field :address, :city
+
+      %p
+        = label :address, :state
+        = text_field :address, :state  
+
+      %p
+        = label :address, :zip
+        = text_field :address, :zip
+
+      %p
+        = label :address, :country
+        = country_select :address, :country, ['United Kingdom'] 
+
+      %p
+        = label :address, :phone
+        = text_field :address, :phone      
+
+  .boom_box
+    %fieldset
+      %h3
+        = radio_button :paypal, "", "true", :checked => @subscription.paypal?
+        Pay with PayPal

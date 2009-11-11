@@ -7,6 +7,7 @@ class Brief < ActiveRecord::Base
   # that the brief author is presented 
   # with when creating the brief
   
+  belongs_to :account
   belongs_to :template_brief
   after_create :generate_brief_items_from_template!
 

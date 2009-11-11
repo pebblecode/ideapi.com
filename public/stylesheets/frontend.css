@@ -1,21 +1,19 @@
-/* 
- * 1. General
- * 1.1 Forms
- * 1.2 Links
- * 1.3 Type
- * //
+/* 1. General
+ *   1.1 Forms
+ *   1.2 Links
+ *   1.3 Type
+ *
  * 2. Masthead
  * 3. Content
  * 4. Footer */
-/* 
- * General */
+/* General */
 body {
   font-size: 62.5%;
   text-align: center;
   background: #ddd; }
 
 /* Colours
- * //
+ *
  * link-colour   = #2b3087 */
 a {
   text-decoration: none;
@@ -51,7 +49,7 @@ a:hover {
       padding-top: 1em;
       padding-right: 2em;
       padding-bottom: 0.1em;
-      width: 23em;
+      width: 30em;
       position: absolute;
       top: 6px;
       right: 0;
@@ -168,16 +166,16 @@ a:hover {
       margin: 0.2em 1em 0 2.5em; }
     #container #content a.button, #container #content .submit_button {
       /* applied by javascript */ }
-      #container #content a.button span.btn_left, #container #content a.button span.btn_right,       #container #content .submit_button span.btn_left, #container #content .submit_button span.btn_right {
+      #container #content a.button span.btn_left, #container #content a.button span.btn_right, #container #content .submit_button span.btn_left, #container #content .submit_button span.btn_right {
         display: block;
         height: 39px;
         width: 18px;
         position: absolute;
         top: 0; }
-      #container #content a.button .btn_left,       #container #content .submit_button .btn_left {
+      #container #content a.button .btn_left, #container #content .submit_button .btn_left {
         left: -18px;
         background: url(/images/button/left.png) no-repeat; }
-      #container #content a.button .btn_right,       #container #content .submit_button .btn_right {
+      #container #content a.button .btn_right, #container #content .submit_button .btn_right {
         right: -18px;
         background: url(/images/button/right.png) no-repeat; }
 
@@ -231,6 +229,10 @@ span.field_with_errors input {
     padding: 0.8em 0.5em;
     text-align: center;
     background: white; }
+#container #content legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 2em; }
 #container #content #dashboard .brief_overviews h2 {
   padding: 0;
   font-size: 1.1em;
@@ -326,7 +328,7 @@ span.field_with_errors input {
 #container #content .brief, #container #content .proposal, #container #content .brief_list {
   background: #fffffe;
   margin: 2em 0; }
-  #container #content .brief h2,   #container #content .proposal h2,   #container #content .brief_list h2 {
+  #container #content .brief h2, #container #content .proposal h2, #container #content .brief_list h2 {
     background: #333;
     color: white;
     font-size: 1.2em;
@@ -336,28 +338,28 @@ span.field_with_errors input {
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
     position: relative; }
-    #container #content .brief h2 a,     #container #content .proposal h2 a,     #container #content .brief_list h2 a {
+    #container #content .brief h2 a, #container #content .proposal h2 a, #container #content .brief_list h2 a {
       color: #666;
       position: absolute;
       right: 4em;
       top: 1em; }
-    #container #content .brief h2 a:hover,     #container #content .proposal h2 a:hover,     #container #content .brief_list h2 a:hover {
+    #container #content .brief h2 a:hover, #container #content .proposal h2 a:hover, #container #content .brief_list h2 a:hover {
       color: #fefefe; }
-    #container #content .brief h2 a.print_brief,     #container #content .proposal h2 a.print_brief,     #container #content .brief_list h2 a.print_brief {
+    #container #content .brief h2 a.print_brief, #container #content .proposal h2 a.print_brief, #container #content .brief_list h2 a.print_brief {
       top: 1.2em;
       right: 1.8em;
       background: url(/images/printer_empty.png);
       width: 16px;
       height: 16px;
       text-indent: -3000px; }
-  #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief,   #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief,   #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
+  #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
     padding: 1em 2em; }
-  #container #content .brief .brief_item, #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief,   #container #content .proposal .brief_item, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief,   #container #content .brief_list .brief_item, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
+  #container #content .brief .brief_item, #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .proposal .brief_item, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .brief_list .brief_item, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
     border: 1px solid #ccc;
     border-bottom: 1px solid #eee;
     border-top: 0;
     position: relative; }
-    #container #content .brief .brief_item h3 span.updated,     #container #content .brief .most_important_thing h3 span.updated,     #container #content .brief .proposal_item h3 span.updated,     #container #content .brief .brief h3 span.updated,     #container #content .proposal .brief_item h3 span.updated,     #container #content .proposal .most_important_thing h3 span.updated,     #container #content .proposal .proposal_item h3 span.updated,     #container #content .proposal .brief h3 span.updated,     #container #content .brief_list .brief_item h3 span.updated,     #container #content .brief_list .most_important_thing h3 span.updated,     #container #content .brief_list .proposal_item h3 span.updated,     #container #content .brief_list .brief h3 span.updated {
+    #container #content .brief .brief_item h3 span.updated, #container #content .brief .most_important_thing h3 span.updated, #container #content .brief .proposal_item h3 span.updated, #container #content .brief .brief h3 span.updated, #container #content .proposal .brief_item h3 span.updated, #container #content .proposal .most_important_thing h3 span.updated, #container #content .proposal .proposal_item h3 span.updated, #container #content .proposal .brief h3 span.updated, #container #content .brief_list .brief_item h3 span.updated, #container #content .brief_list .most_important_thing h3 span.updated, #container #content .brief_list .proposal_item h3 span.updated, #container #content .brief_list .brief h3 span.updated {
       font-size: 0.2em;
       color: #999;
       font-weight: bold;
@@ -365,24 +367,24 @@ span.field_with_errors input {
       position: relative;
       top: -0.4em;
       left: 0; }
-    #container #content .brief .brief_item h4.activity_snapshot,     #container #content .brief .most_important_thing h4.activity_snapshot,     #container #content .brief .proposal_item h4.activity_snapshot,     #container #content .brief .brief h4.activity_snapshot,     #container #content .proposal .brief_item h4.activity_snapshot,     #container #content .proposal .most_important_thing h4.activity_snapshot,     #container #content .proposal .proposal_item h4.activity_snapshot,     #container #content .proposal .brief h4.activity_snapshot,     #container #content .brief_list .brief_item h4.activity_snapshot,     #container #content .brief_list .most_important_thing h4.activity_snapshot,     #container #content .brief_list .proposal_item h4.activity_snapshot,     #container #content .brief_list .brief h4.activity_snapshot {
+    #container #content .brief .brief_item h4.activity_snapshot, #container #content .brief .most_important_thing h4.activity_snapshot, #container #content .brief .proposal_item h4.activity_snapshot, #container #content .brief .brief h4.activity_snapshot, #container #content .proposal .brief_item h4.activity_snapshot, #container #content .proposal .most_important_thing h4.activity_snapshot, #container #content .proposal .proposal_item h4.activity_snapshot, #container #content .proposal .brief h4.activity_snapshot, #container #content .brief_list .brief_item h4.activity_snapshot, #container #content .brief_list .most_important_thing h4.activity_snapshot, #container #content .brief_list .proposal_item h4.activity_snapshot, #container #content .brief_list .brief h4.activity_snapshot {
       font-size: 1.1em;
       padding: 0;
       margin: 0;
       line-height: 1.2em;
       color: #666; }
-    #container #content .brief .brief_item .activity_stream,     #container #content .brief .most_important_thing .activity_stream,     #container #content .brief .proposal_item .activity_stream,     #container #content .brief .brief .activity_stream,     #container #content .proposal .brief_item .activity_stream,     #container #content .proposal .most_important_thing .activity_stream,     #container #content .proposal .proposal_item .activity_stream,     #container #content .proposal .brief .activity_stream,     #container #content .brief_list .brief_item .activity_stream,     #container #content .brief_list .most_important_thing .activity_stream,     #container #content .brief_list .proposal_item .activity_stream,     #container #content .brief_list .brief .activity_stream {
+    #container #content .brief .brief_item .activity_stream, #container #content .brief .most_important_thing .activity_stream, #container #content .brief .proposal_item .activity_stream, #container #content .brief .brief .activity_stream, #container #content .proposal .brief_item .activity_stream, #container #content .proposal .most_important_thing .activity_stream, #container #content .proposal .proposal_item .activity_stream, #container #content .proposal .brief .activity_stream, #container #content .brief_list .brief_item .activity_stream, #container #content .brief_list .most_important_thing .activity_stream, #container #content .brief_list .proposal_item .activity_stream, #container #content .brief_list .brief .activity_stream {
       border-top: 1px solid #ccc;
       margin-top: 1em;
       padding: 1em; }
-      #container #content .brief .brief_item .activity_stream li,       #container #content .brief .most_important_thing .activity_stream li,       #container #content .brief .proposal_item .activity_stream li,       #container #content .brief .brief .activity_stream li,       #container #content .proposal .brief_item .activity_stream li,       #container #content .proposal .most_important_thing .activity_stream li,       #container #content .proposal .proposal_item .activity_stream li,       #container #content .proposal .brief .activity_stream li,       #container #content .brief_list .brief_item .activity_stream li,       #container #content .brief_list .most_important_thing .activity_stream li,       #container #content .brief_list .proposal_item .activity_stream li,       #container #content .brief_list .brief .activity_stream li {
+      #container #content .brief .brief_item .activity_stream li, #container #content .brief .most_important_thing .activity_stream li, #container #content .brief .proposal_item .activity_stream li, #container #content .brief .brief .activity_stream li, #container #content .proposal .brief_item .activity_stream li, #container #content .proposal .most_important_thing .activity_stream li, #container #content .proposal .proposal_item .activity_stream li, #container #content .proposal .brief .activity_stream li, #container #content .brief_list .brief_item .activity_stream li, #container #content .brief_list .most_important_thing .activity_stream li, #container #content .brief_list .proposal_item .activity_stream li, #container #content .brief_list .brief .activity_stream li {
         padding: 1em; }
-      #container #content .brief .brief_item .activity_stream li.date,       #container #content .brief .most_important_thing .activity_stream li.date,       #container #content .brief .proposal_item .activity_stream li.date,       #container #content .brief .brief .activity_stream li.date,       #container #content .proposal .brief_item .activity_stream li.date,       #container #content .proposal .most_important_thing .activity_stream li.date,       #container #content .proposal .proposal_item .activity_stream li.date,       #container #content .proposal .brief .activity_stream li.date,       #container #content .brief_list .brief_item .activity_stream li.date,       #container #content .brief_list .most_important_thing .activity_stream li.date,       #container #content .brief_list .proposal_item .activity_stream li.date,       #container #content .brief_list .brief .activity_stream li.date {
+      #container #content .brief .brief_item .activity_stream li.date, #container #content .brief .most_important_thing .activity_stream li.date, #container #content .brief .proposal_item .activity_stream li.date, #container #content .brief .brief .activity_stream li.date, #container #content .proposal .brief_item .activity_stream li.date, #container #content .proposal .most_important_thing .activity_stream li.date, #container #content .proposal .proposal_item .activity_stream li.date, #container #content .proposal .brief .activity_stream li.date, #container #content .brief_list .brief_item .activity_stream li.date, #container #content .brief_list .most_important_thing .activity_stream li.date, #container #content .brief_list .proposal_item .activity_stream li.date, #container #content .brief_list .brief .activity_stream li.date {
         color: #aaa;
         text-transform: uppercase;
         margin-top: 1em;
         padding: 0; }
-  #container #content .brief .help_message,   #container #content .proposal .help_message,   #container #content .brief_list .help_message {
+  #container #content .brief .help_message, #container #content .proposal .help_message, #container #content .brief_list .help_message {
     width: 18em;
     border: 1px solid #ccc;
     background: rgb(252, 252, 252);
@@ -391,40 +393,40 @@ span.field_with_errors input {
     position: absolute;
     top: 4em;
     left: 51.5em; }
-  #container #content .brief .brief_item:last-child, #container #content .brief .proposal_item:last-child,   #container #content .proposal .brief_item:last-child, #container #content .proposal .proposal_item:last-child,   #container #content .brief_list .brief_item:last-child, #container #content .brief_list .proposal_item:last-child {
+  #container #content .brief .brief_item:last-child, #container #content .brief .proposal_item:last-child, #container #content .proposal .brief_item:last-child, #container #content .proposal .proposal_item:last-child, #container #content .brief_list .brief_item:last-child, #container #content .brief_list .proposal_item:last-child {
     border-bottom: 1px solid #ccc; }
-  #container #content .brief .proposal_item p.asset,   #container #content .proposal .proposal_item p.asset,   #container #content .brief_list .proposal_item p.asset {
+  #container #content .brief .proposal_item p.asset, #container #content .proposal .proposal_item p.asset, #container #content .brief_list .proposal_item p.asset {
     width: 120px; }
-  #container #content .brief .proposal_item p.asset, #container #content .brief .proposal_item p.description,   #container #content .proposal .proposal_item p.asset, #container #content .proposal .proposal_item p.description,   #container #content .brief_list .proposal_item p.asset, #container #content .brief_list .proposal_item p.description {
+  #container #content .brief .proposal_item p.asset, #container #content .brief .proposal_item p.description, #container #content .proposal .proposal_item p.asset, #container #content .proposal .proposal_item p.description, #container #content .brief_list .proposal_item p.asset, #container #content .brief_list .proposal_item p.description {
     float: left; }
-  #container #content .brief .proposal_item p.description,   #container #content .proposal .proposal_item p.description,   #container #content .brief_list .proposal_item p.description {
+  #container #content .brief .proposal_item p.description, #container #content .proposal .proposal_item p.description, #container #content .brief_list .proposal_item p.description {
     width: 36em;
     padding: 0 0 0 2em;
     margin: 1px 0 0 0; }
-  #container #content .brief .most_important_thing,   #container #content .proposal .most_important_thing,   #container #content .brief_list .most_important_thing {
+  #container #content .brief .most_important_thing, #container #content .proposal .most_important_thing, #container #content .brief_list .most_important_thing {
     padding: 1em 1em 1em 3em; }
-    #container #content .brief .most_important_thing p,     #container #content .proposal .most_important_thing p,     #container #content .brief_list .most_important_thing p {
+    #container #content .brief .most_important_thing p, #container #content .proposal .most_important_thing p, #container #content .brief_list .most_important_thing p {
       font-size: 2.2em;
       font-weight: bold;
       color: #333333;
       padding: 0 2em;
       position: relative; }
-      #container #content .brief .most_important_thing p span,       #container #content .proposal .most_important_thing p span,       #container #content .brief_list .most_important_thing p span {
+      #container #content .brief .most_important_thing p span, #container #content .proposal .most_important_thing p span, #container #content .brief_list .most_important_thing p span {
         font-size: 4em;
         position: absolute;
         padding: 0;
         margin: 0;
         height: 0.4em;
         line-height: 0.8em; }
-      #container #content .brief .most_important_thing p span.left,       #container #content .proposal .most_important_thing p span.left,       #container #content .brief_list .most_important_thing p span.left {
+      #container #content .brief .most_important_thing p span.left, #container #content .proposal .most_important_thing p span.left, #container #content .brief_list .most_important_thing p span.left {
         top: 0;
         left: 0; }
-      #container #content .brief .most_important_thing p span.right,       #container #content .proposal .most_important_thing p span.right,       #container #content .brief_list .most_important_thing p span.right {
+      #container #content .brief .most_important_thing p span.right, #container #content .proposal .most_important_thing p span.right, #container #content .brief_list .most_important_thing p span.right {
         bottom: -0.2em;
         padding-right: 0.5em; }
-  #container #content .brief .brief_item.updated h3,   #container #content .proposal .brief_item.updated h3,   #container #content .brief_list .brief_item.updated h3 {
+  #container #content .brief .brief_item.updated h3, #container #content .proposal .brief_item.updated h3, #container #content .brief_list .brief_item.updated h3 {
     background: #ffffdf; }
-  #container #content .brief .brief_item.extended,   #container #content .proposal .brief_item.extended,   #container #content .brief_list .brief_item.extended {
+  #container #content .brief .brief_item.extended, #container #content .proposal .brief_item.extended, #container #content .brief_list .brief_item.extended {
     background: transparent; }
 #container #content .edit_brief h2 input#brief_title {
   font-size: 1.5em;
@@ -504,11 +506,11 @@ span.field_with_errors input {
 #container .creative, #container .author {
   padding: 0 0 1em 0;
   position: relative; }
-  #container .creative p.edit,   #container .author p.edit {
+  #container .creative p.edit, #container .author p.edit {
     position: absolute;
     top: 0;
     right: 1em; }
-  #container .creative .avatar,   #container .author .avatar {
+  #container .creative .avatar, #container .author .avatar {
     float: left;
     margin-right: 1em; }
 #container .hr {
@@ -599,7 +601,7 @@ span.field_with_errors input {
   border-top: 1px solid #eee;
   position: relative;
   margin: 1em 0; }
-  #container #content .question_list p.updated span,   #container #content .brief_item_history p.updated span,   #container #content .comments p.updated span {
+  #container #content .question_list p.updated span, #container #content .brief_item_history p.updated span, #container #content .comments p.updated span {
     position: absolute;
     color: #bbb;
     font-size: 0.8em;
@@ -611,24 +613,24 @@ span.field_with_errors input {
   margin-bottom: 1em;
   padding: 0 2em;
   position: relative; }
-  #container #content .question_list .question p.show_author_answer_form,   #container #content .question_list .comment p.show_author_answer_form,   #container #content .brief_item_history .question p.show_author_answer_form,   #container #content .brief_item_history .comment p.show_author_answer_form,   #container #content .comments .question p.show_author_answer_form,   #container #content .comments .comment p.show_author_answer_form {
+  #container #content .question_list .question p.show_author_answer_form, #container #content .question_list .comment p.show_author_answer_form, #container #content .brief_item_history .question p.show_author_answer_form, #container #content .brief_item_history .comment p.show_author_answer_form, #container #content .comments .question p.show_author_answer_form, #container #content .comments .comment p.show_author_answer_form {
     position: absolute;
     right: -8px;
     top: 1.5em;
     font-size: 1.1em; }
-  #container #content .question_list .question .question_body .speech,   #container #content .question_list .question .author_answer .speech,   #container #content .question_list .question .author_answer_form .speech,   #container #content .question_list .question .comment_body .speech,   #container #content .question_list .question .comment_form .speech,   #container #content .question_list .comment .question_body .speech,   #container #content .question_list .comment .author_answer .speech,   #container #content .question_list .comment .author_answer_form .speech,   #container #content .question_list .comment .comment_body .speech,   #container #content .question_list .comment .comment_form .speech,   #container #content .brief_item_history .question .question_body .speech,   #container #content .brief_item_history .question .author_answer .speech,   #container #content .brief_item_history .question .author_answer_form .speech,   #container #content .brief_item_history .question .comment_body .speech,   #container #content .brief_item_history .question .comment_form .speech,   #container #content .brief_item_history .comment .question_body .speech,   #container #content .brief_item_history .comment .author_answer .speech,   #container #content .brief_item_history .comment .author_answer_form .speech,   #container #content .brief_item_history .comment .comment_body .speech,   #container #content .brief_item_history .comment .comment_form .speech,   #container #content .comments .question .question_body .speech,   #container #content .comments .question .author_answer .speech,   #container #content .comments .question .author_answer_form .speech,   #container #content .comments .question .comment_body .speech,   #container #content .comments .question .comment_form .speech,   #container #content .comments .comment .question_body .speech,   #container #content .comments .comment .author_answer .speech,   #container #content .comments .comment .author_answer_form .speech,   #container #content .comments .comment .comment_body .speech,   #container #content .comments .comment .comment_form .speech {
+  #container #content .question_list .question .question_body .speech, #container #content .question_list .question .author_answer .speech, #container #content .question_list .question .author_answer_form .speech, #container #content .question_list .question .comment_body .speech, #container #content .question_list .question .comment_form .speech, #container #content .question_list .comment .question_body .speech, #container #content .question_list .comment .author_answer .speech, #container #content .question_list .comment .author_answer_form .speech, #container #content .question_list .comment .comment_body .speech, #container #content .question_list .comment .comment_form .speech, #container #content .brief_item_history .question .question_body .speech, #container #content .brief_item_history .question .author_answer .speech, #container #content .brief_item_history .question .author_answer_form .speech, #container #content .brief_item_history .question .comment_body .speech, #container #content .brief_item_history .question .comment_form .speech, #container #content .brief_item_history .comment .question_body .speech, #container #content .brief_item_history .comment .author_answer .speech, #container #content .brief_item_history .comment .author_answer_form .speech, #container #content .brief_item_history .comment .comment_body .speech, #container #content .brief_item_history .comment .comment_form .speech, #container #content .comments .question .question_body .speech, #container #content .comments .question .author_answer .speech, #container #content .comments .question .author_answer_form .speech, #container #content .comments .question .comment_body .speech, #container #content .comments .question .comment_form .speech, #container #content .comments .comment .question_body .speech, #container #content .comments .comment .author_answer .speech, #container #content .comments .comment .author_answer_form .speech, #container #content .comments .comment .comment_body .speech, #container #content .comments .comment .comment_form .speech {
     background: #e9e9e8;
     padding: 1em 1em;
     margin: 0;
     width: 37em;
     display: block;
     position: relative; }
-  #container #content .question_list .question .question_body, #container #content .question_list .question .comment_body,   #container #content .question_list .comment .question_body, #container #content .question_list .comment .comment_body,   #container #content .brief_item_history .question .question_body, #container #content .brief_item_history .question .comment_body,   #container #content .brief_item_history .comment .question_body, #container #content .brief_item_history .comment .comment_body,   #container #content .comments .question .question_body, #container #content .comments .question .comment_body,   #container #content .comments .comment .question_body, #container #content .comments .comment .comment_body {
+  #container #content .question_list .question .question_body, #container #content .question_list .question .comment_body, #container #content .question_list .comment .question_body, #container #content .question_list .comment .comment_body, #container #content .brief_item_history .question .question_body, #container #content .brief_item_history .question .comment_body, #container #content .brief_item_history .comment .question_body, #container #content .brief_item_history .comment .comment_body, #container #content .comments .question .question_body, #container #content .comments .question .comment_body, #container #content .comments .comment .question_body, #container #content .comments .comment .comment_body {
     font-size: 1.1em; }
-    #container #content .question_list .question .question_body .speech,     #container #content .question_list .question .comment_body .speech,     #container #content .question_list .comment .question_body .speech,     #container #content .question_list .comment .comment_body .speech,     #container #content .brief_item_history .question .question_body .speech,     #container #content .brief_item_history .question .comment_body .speech,     #container #content .brief_item_history .comment .question_body .speech,     #container #content .brief_item_history .comment .comment_body .speech,     #container #content .comments .question .question_body .speech,     #container #content .comments .question .comment_body .speech,     #container #content .comments .comment .question_body .speech,     #container #content .comments .comment .comment_body .speech {
+    #container #content .question_list .question .question_body .speech, #container #content .question_list .question .comment_body .speech, #container #content .question_list .comment .question_body .speech, #container #content .question_list .comment .comment_body .speech, #container #content .brief_item_history .question .question_body .speech, #container #content .brief_item_history .question .comment_body .speech, #container #content .brief_item_history .comment .question_body .speech, #container #content .brief_item_history .comment .comment_body .speech, #container #content .comments .question .question_body .speech, #container #content .comments .question .comment_body .speech, #container #content .comments .comment .question_body .speech, #container #content .comments .comment .comment_body .speech {
       margin-left: 5em;
       width: 35em; }
-      #container #content .question_list .question .question_body .speech span.bubble,       #container #content .question_list .question .comment_body .speech span.bubble,       #container #content .question_list .comment .question_body .speech span.bubble,       #container #content .question_list .comment .comment_body .speech span.bubble,       #container #content .brief_item_history .question .question_body .speech span.bubble,       #container #content .brief_item_history .question .comment_body .speech span.bubble,       #container #content .brief_item_history .comment .question_body .speech span.bubble,       #container #content .brief_item_history .comment .comment_body .speech span.bubble,       #container #content .comments .question .question_body .speech span.bubble,       #container #content .comments .question .comment_body .speech span.bubble,       #container #content .comments .comment .question_body .speech span.bubble,       #container #content .comments .comment .comment_body .speech span.bubble {
+      #container #content .question_list .question .question_body .speech span.bubble, #container #content .question_list .question .comment_body .speech span.bubble, #container #content .question_list .comment .question_body .speech span.bubble, #container #content .question_list .comment .comment_body .speech span.bubble, #container #content .brief_item_history .question .question_body .speech span.bubble, #container #content .brief_item_history .question .comment_body .speech span.bubble, #container #content .brief_item_history .comment .question_body .speech span.bubble, #container #content .brief_item_history .comment .comment_body .speech span.bubble, #container #content .comments .question .question_body .speech span.bubble, #container #content .comments .question .comment_body .speech span.bubble, #container #content .comments .comment .question_body .speech span.bubble, #container #content .comments .comment .comment_body .speech span.bubble {
         background: url(/images/speech.png);
         width: 7px;
         height: 16px;
@@ -636,28 +638,28 @@ span.field_with_errors input {
         position: absolute;
         left: -7px;
         top: 40%; }
-    #container #content .question_list .question .question_body img,     #container #content .question_list .question .comment_body img,     #container #content .question_list .comment .question_body img,     #container #content .question_list .comment .comment_body img,     #container #content .brief_item_history .question .question_body img,     #container #content .brief_item_history .question .comment_body img,     #container #content .brief_item_history .comment .question_body img,     #container #content .brief_item_history .comment .comment_body img,     #container #content .comments .question .question_body img,     #container #content .comments .question .comment_body img,     #container #content .comments .comment .question_body img,     #container #content .comments .comment .comment_body img {
+    #container #content .question_list .question .question_body img, #container #content .question_list .question .comment_body img, #container #content .question_list .comment .question_body img, #container #content .question_list .comment .comment_body img, #container #content .brief_item_history .question .question_body img, #container #content .brief_item_history .question .comment_body img, #container #content .brief_item_history .comment .question_body img, #container #content .brief_item_history .comment .comment_body img, #container #content .comments .question .question_body img, #container #content .comments .question .comment_body img, #container #content .comments .comment .question_body img, #container #content .comments .comment .comment_body img {
       float: left;
       margin-top: 0.3em; }
-  #container #content .question_list .question .author_answer, #container #content .question_list .question .author_answer_form, #container #content .question_list .question .comment_form,   #container #content .question_list .comment .author_answer, #container #content .question_list .comment .author_answer_form, #container #content .question_list .comment .comment_form,   #container #content .brief_item_history .question .author_answer, #container #content .brief_item_history .question .author_answer_form, #container #content .brief_item_history .question .comment_form,   #container #content .brief_item_history .comment .author_answer, #container #content .brief_item_history .comment .author_answer_form, #container #content .brief_item_history .comment .comment_form,   #container #content .comments .question .author_answer, #container #content .comments .question .author_answer_form, #container #content .comments .question .comment_form,   #container #content .comments .comment .author_answer, #container #content .comments .comment .author_answer_form, #container #content .comments .comment .comment_form {
+  #container #content .question_list .question .author_answer, #container #content .question_list .question .author_answer_form, #container #content .question_list .question .comment_form, #container #content .question_list .comment .author_answer, #container #content .question_list .comment .author_answer_form, #container #content .question_list .comment .comment_form, #container #content .brief_item_history .question .author_answer, #container #content .brief_item_history .question .author_answer_form, #container #content .brief_item_history .question .comment_form, #container #content .brief_item_history .comment .author_answer, #container #content .brief_item_history .comment .author_answer_form, #container #content .brief_item_history .comment .comment_form, #container #content .comments .question .author_answer, #container #content .comments .question .author_answer_form, #container #content .comments .question .comment_form, #container #content .comments .comment .author_answer, #container #content .comments .comment .author_answer_form, #container #content .comments .comment .comment_form {
     padding: 1em 0 1em 1.5em; }
-    #container #content .question_list .question .author_answer img,     #container #content .question_list .question .author_answer_form img,     #container #content .question_list .question .comment_form img,     #container #content .question_list .comment .author_answer img,     #container #content .question_list .comment .author_answer_form img,     #container #content .question_list .comment .comment_form img,     #container #content .brief_item_history .question .author_answer img,     #container #content .brief_item_history .question .author_answer_form img,     #container #content .brief_item_history .question .comment_form img,     #container #content .brief_item_history .comment .author_answer img,     #container #content .brief_item_history .comment .author_answer_form img,     #container #content .brief_item_history .comment .comment_form img,     #container #content .comments .question .author_answer img,     #container #content .comments .question .author_answer_form img,     #container #content .comments .question .comment_form img,     #container #content .comments .comment .author_answer img,     #container #content .comments .comment .author_answer_form img,     #container #content .comments .comment .comment_form img {
+    #container #content .question_list .question .author_answer img, #container #content .question_list .question .author_answer_form img, #container #content .question_list .question .comment_form img, #container #content .question_list .comment .author_answer img, #container #content .question_list .comment .author_answer_form img, #container #content .question_list .comment .comment_form img, #container #content .brief_item_history .question .author_answer img, #container #content .brief_item_history .question .author_answer_form img, #container #content .brief_item_history .question .comment_form img, #container #content .brief_item_history .comment .author_answer img, #container #content .brief_item_history .comment .author_answer_form img, #container #content .brief_item_history .comment .comment_form img, #container #content .comments .question .author_answer img, #container #content .comments .question .author_answer_form img, #container #content .comments .question .comment_form img, #container #content .comments .comment .author_answer img, #container #content .comments .comment .author_answer_form img, #container #content .comments .comment .comment_form img {
       float: right;
       margin-top: 1em; }
-    #container #content .question_list .question .author_answer .speech,     #container #content .question_list .question .author_answer_form .speech,     #container #content .question_list .question .comment_form .speech,     #container #content .question_list .comment .author_answer .speech,     #container #content .question_list .comment .author_answer_form .speech,     #container #content .question_list .comment .comment_form .speech,     #container #content .brief_item_history .question .author_answer .speech,     #container #content .brief_item_history .question .author_answer_form .speech,     #container #content .brief_item_history .question .comment_form .speech,     #container #content .brief_item_history .comment .author_answer .speech,     #container #content .brief_item_history .comment .author_answer_form .speech,     #container #content .brief_item_history .comment .comment_form .speech,     #container #content .comments .question .author_answer .speech,     #container #content .comments .question .author_answer_form .speech,     #container #content .comments .question .comment_form .speech,     #container #content .comments .comment .author_answer .speech,     #container #content .comments .comment .author_answer_form .speech,     #container #content .comments .comment .comment_form .speech {
+    #container #content .question_list .question .author_answer .speech, #container #content .question_list .question .author_answer_form .speech, #container #content .question_list .question .comment_form .speech, #container #content .question_list .comment .author_answer .speech, #container #content .question_list .comment .author_answer_form .speech, #container #content .question_list .comment .comment_form .speech, #container #content .brief_item_history .question .author_answer .speech, #container #content .brief_item_history .question .author_answer_form .speech, #container #content .brief_item_history .question .comment_form .speech, #container #content .brief_item_history .comment .author_answer .speech, #container #content .brief_item_history .comment .author_answer_form .speech, #container #content .brief_item_history .comment .comment_form .speech, #container #content .comments .question .author_answer .speech, #container #content .comments .question .author_answer_form .speech, #container #content .comments .question .comment_form .speech, #container #content .comments .comment .author_answer .speech, #container #content .comments .comment .author_answer_form .speech, #container #content .comments .comment .comment_form .speech {
       margin-top: 0.5em;
       margin-right: 1em;
       margin-bottom: 1em;
       margin-left: 2.4em;
       width: 38em;
       padding: 0.5em 1em 0.1em 1em; }
-      #container #content .question_list .question .author_answer .speech p,       #container #content .question_list .question .author_answer_form .speech p,       #container #content .question_list .question .comment_form .speech p,       #container #content .question_list .comment .author_answer .speech p,       #container #content .question_list .comment .author_answer_form .speech p,       #container #content .question_list .comment .comment_form .speech p,       #container #content .brief_item_history .question .author_answer .speech p,       #container #content .brief_item_history .question .author_answer_form .speech p,       #container #content .brief_item_history .question .comment_form .speech p,       #container #content .brief_item_history .comment .author_answer .speech p,       #container #content .brief_item_history .comment .author_answer_form .speech p,       #container #content .brief_item_history .comment .comment_form .speech p,       #container #content .comments .question .author_answer .speech p,       #container #content .comments .question .author_answer_form .speech p,       #container #content .comments .question .comment_form .speech p,       #container #content .comments .comment .author_answer .speech p,       #container #content .comments .comment .author_answer_form .speech p,       #container #content .comments .comment .comment_form .speech p {
+      #container #content .question_list .question .author_answer .speech p, #container #content .question_list .question .author_answer_form .speech p, #container #content .question_list .question .comment_form .speech p, #container #content .question_list .comment .author_answer .speech p, #container #content .question_list .comment .author_answer_form .speech p, #container #content .question_list .comment .comment_form .speech p, #container #content .brief_item_history .question .author_answer .speech p, #container #content .brief_item_history .question .author_answer_form .speech p, #container #content .brief_item_history .question .comment_form .speech p, #container #content .brief_item_history .comment .author_answer .speech p, #container #content .brief_item_history .comment .author_answer_form .speech p, #container #content .brief_item_history .comment .comment_form .speech p, #container #content .comments .question .author_answer .speech p, #container #content .comments .question .author_answer_form .speech p, #container #content .comments .question .comment_form .speech p, #container #content .comments .comment .author_answer .speech p, #container #content .comments .comment .author_answer_form .speech p, #container #content .comments .comment .comment_form .speech p {
         padding: 0 0.5em;
         font-size: 1.1em; }
-      #container #content .question_list .question .author_answer .speech textarea,       #container #content .question_list .question .author_answer_form .speech textarea,       #container #content .question_list .question .comment_form .speech textarea,       #container #content .question_list .comment .author_answer .speech textarea,       #container #content .question_list .comment .author_answer_form .speech textarea,       #container #content .question_list .comment .comment_form .speech textarea,       #container #content .brief_item_history .question .author_answer .speech textarea,       #container #content .brief_item_history .question .author_answer_form .speech textarea,       #container #content .brief_item_history .question .comment_form .speech textarea,       #container #content .brief_item_history .comment .author_answer .speech textarea,       #container #content .brief_item_history .comment .author_answer_form .speech textarea,       #container #content .brief_item_history .comment .comment_form .speech textarea,       #container #content .comments .question .author_answer .speech textarea,       #container #content .comments .question .author_answer_form .speech textarea,       #container #content .comments .question .comment_form .speech textarea,       #container #content .comments .comment .author_answer .speech textarea,       #container #content .comments .comment .author_answer_form .speech textarea,       #container #content .comments .comment .comment_form .speech textarea {
+      #container #content .question_list .question .author_answer .speech textarea, #container #content .question_list .question .author_answer_form .speech textarea, #container #content .question_list .question .comment_form .speech textarea, #container #content .question_list .comment .author_answer .speech textarea, #container #content .question_list .comment .author_answer_form .speech textarea, #container #content .question_list .comment .comment_form .speech textarea, #container #content .brief_item_history .question .author_answer .speech textarea, #container #content .brief_item_history .question .author_answer_form .speech textarea, #container #content .brief_item_history .question .comment_form .speech textarea, #container #content .brief_item_history .comment .author_answer .speech textarea, #container #content .brief_item_history .comment .author_answer_form .speech textarea, #container #content .brief_item_history .comment .comment_form .speech textarea, #container #content .comments .question .author_answer .speech textarea, #container #content .comments .question .author_answer_form .speech textarea, #container #content .comments .question .comment_form .speech textarea, #container #content .comments .comment .author_answer .speech textarea, #container #content .comments .comment .author_answer_form .speech textarea, #container #content .comments .comment .comment_form .speech textarea {
         width: 37em;
         margin-bottom: 0.5em; }
-      #container #content .question_list .question .author_answer .speech span.bubble,       #container #content .question_list .question .author_answer_form .speech span.bubble,       #container #content .question_list .question .comment_form .speech span.bubble,       #container #content .question_list .comment .author_answer .speech span.bubble,       #container #content .question_list .comment .author_answer_form .speech span.bubble,       #container #content .question_list .comment .comment_form .speech span.bubble,       #container #content .brief_item_history .question .author_answer .speech span.bubble,       #container #content .brief_item_history .question .author_answer_form .speech span.bubble,       #container #content .brief_item_history .question .comment_form .speech span.bubble,       #container #content .brief_item_history .comment .author_answer .speech span.bubble,       #container #content .brief_item_history .comment .author_answer_form .speech span.bubble,       #container #content .brief_item_history .comment .comment_form .speech span.bubble,       #container #content .comments .question .author_answer .speech span.bubble,       #container #content .comments .question .author_answer_form .speech span.bubble,       #container #content .comments .question .comment_form .speech span.bubble,       #container #content .comments .comment .author_answer .speech span.bubble,       #container #content .comments .comment .author_answer_form .speech span.bubble,       #container #content .comments .comment .comment_form .speech span.bubble {
+      #container #content .question_list .question .author_answer .speech span.bubble, #container #content .question_list .question .author_answer_form .speech span.bubble, #container #content .question_list .question .comment_form .speech span.bubble, #container #content .question_list .comment .author_answer .speech span.bubble, #container #content .question_list .comment .author_answer_form .speech span.bubble, #container #content .question_list .comment .comment_form .speech span.bubble, #container #content .brief_item_history .question .author_answer .speech span.bubble, #container #content .brief_item_history .question .author_answer_form .speech span.bubble, #container #content .brief_item_history .question .comment_form .speech span.bubble, #container #content .brief_item_history .comment .author_answer .speech span.bubble, #container #content .brief_item_history .comment .author_answer_form .speech span.bubble, #container #content .brief_item_history .comment .comment_form .speech span.bubble, #container #content .comments .question .author_answer .speech span.bubble, #container #content .comments .question .author_answer_form .speech span.bubble, #container #content .comments .question .comment_form .speech span.bubble, #container #content .comments .comment .author_answer .speech span.bubble, #container #content .comments .comment .author_answer_form .speech span.bubble, #container #content .comments .comment .comment_form .speech span.bubble {
         background: transparent url(/images/speech.png) 8px 0;
         width: 8px;
         height: 16px;
@@ -665,13 +667,13 @@ span.field_with_errors input {
         position: absolute;
         top: 40%;
         right: -8px; }
-    #container #content .question_list .question .author_answer p.submit,     #container #content .question_list .question .author_answer_form p.submit,     #container #content .question_list .question .comment_form p.submit,     #container #content .question_list .comment .author_answer p.submit,     #container #content .question_list .comment .author_answer_form p.submit,     #container #content .question_list .comment .comment_form p.submit,     #container #content .brief_item_history .question .author_answer p.submit,     #container #content .brief_item_history .question .author_answer_form p.submit,     #container #content .brief_item_history .question .comment_form p.submit,     #container #content .brief_item_history .comment .author_answer p.submit,     #container #content .brief_item_history .comment .author_answer_form p.submit,     #container #content .brief_item_history .comment .comment_form p.submit,     #container #content .comments .question .author_answer p.submit,     #container #content .comments .question .author_answer_form p.submit,     #container #content .comments .question .comment_form p.submit,     #container #content .comments .comment .author_answer p.submit,     #container #content .comments .comment .author_answer_form p.submit,     #container #content .comments .comment .comment_form p.submit {
+    #container #content .question_list .question .author_answer p.submit, #container #content .question_list .question .author_answer_form p.submit, #container #content .question_list .question .comment_form p.submit, #container #content .question_list .comment .author_answer p.submit, #container #content .question_list .comment .author_answer_form p.submit, #container #content .question_list .comment .comment_form p.submit, #container #content .brief_item_history .question .author_answer p.submit, #container #content .brief_item_history .question .author_answer_form p.submit, #container #content .brief_item_history .question .comment_form p.submit, #container #content .brief_item_history .comment .author_answer p.submit, #container #content .brief_item_history .comment .author_answer_form p.submit, #container #content .brief_item_history .comment .comment_form p.submit, #container #content .comments .question .author_answer p.submit, #container #content .comments .question .author_answer_form p.submit, #container #content .comments .question .comment_form p.submit, #container #content .comments .comment .author_answer p.submit, #container #content .comments .comment .author_answer_form p.submit, #container #content .comments .comment .comment_form p.submit {
       margin-right: 6em; }
-  #container #content .question_list .question #comment_form,   #container #content .question_list .comment #comment_form,   #container #content .brief_item_history .question #comment_form,   #container #content .brief_item_history .comment #comment_form,   #container #content .comments .question #comment_form,   #container #content .comments .comment #comment_form {
+  #container #content .question_list .question #comment_form, #container #content .question_list .comment #comment_form, #container #content .brief_item_history .question #comment_form, #container #content .brief_item_history .comment #comment_form, #container #content .comments .question #comment_form, #container #content .comments .comment #comment_form {
     width: 50.5em; }
-    #container #content .question_list .question #comment_form img,     #container #content .question_list .comment #comment_form img,     #container #content .brief_item_history .question #comment_form img,     #container #content .brief_item_history .comment #comment_form img,     #container #content .comments .question #comment_form img,     #container #content .comments .comment #comment_form img {
+    #container #content .question_list .question #comment_form img, #container #content .question_list .comment #comment_form img, #container #content .brief_item_history .question #comment_form img, #container #content .brief_item_history .comment #comment_form img, #container #content .comments .question #comment_form img, #container #content .comments .comment #comment_form img {
       margin-top: 2em; }
-    #container #content .question_list .question #comment_form textarea,     #container #content .question_list .comment #comment_form textarea,     #container #content .brief_item_history .question #comment_form textarea,     #container #content .brief_item_history .comment #comment_form textarea,     #container #content .comments .question #comment_form textarea,     #container #content .comments .comment #comment_form textarea {
+    #container #content .question_list .question #comment_form textarea, #container #content .question_list .comment #comment_form textarea, #container #content .brief_item_history .question #comment_form textarea, #container #content .brief_item_history .comment #comment_form textarea, #container #content .comments .question #comment_form textarea, #container #content .comments .comment #comment_form textarea {
       width: 37em;
       margin-bottom: 0.5em; }
 #container #content .brief_item_history h4 {
@@ -709,9 +711,9 @@ span.field_with_errors input {
   #container #content .question_list .question {
     padding: 1em 1em;
     position: relative; }
-    #container #content .question_list .question .author_answer .speech,     #container #content .question_list .question .author_answer_form .speech {
+    #container #content .question_list .question .author_answer .speech, #container #content .question_list .question .author_answer_form .speech {
       width: 42em; }
-      #container #content .question_list .question .author_answer .speech textarea,       #container #content .question_list .question .author_answer_form .speech textarea {
+      #container #content .question_list .question .author_answer .speech textarea, #container #content .question_list .question .author_answer_form .speech textarea {
         width: 41em; }
 #container #content .filter_questions {
   margin: 1.7em 0 0 0;
@@ -777,6 +779,10 @@ span.field_with_errors input {
 
 p.subs {
   float: right; }
+
+div.submit {
+  padding: 1em 0;
+  font-size: 1.2em; }
 
 p.submit_comment {
   width: auto;
@@ -846,7 +852,7 @@ p.submit.left {
       border-bottom: 1px solid #ccc;
       border-top: 0;
       position: relative; }
-      #facebox .content .fb .brief .brief_item h3 span.updated,       #facebox .content .fb .brief .most_important_thing h3 span.updated {
+      #facebox .content .fb .brief .brief_item h3 span.updated, #facebox .content .fb .brief .most_important_thing h3 span.updated {
         font-size: 0.2em;
         color: #999;
         font-weight: bold;
@@ -892,22 +898,22 @@ textarea {
   width: 45em;
   border: 10px solid #ddd;
   background: #f6f6f6; }
-  .login a,   .app_error a {
+  .login a, .app_error a {
     text-decoration: none;
     color: #2b3087;
     font-weight: bold; }
-  .login a:hover,   .app_error a:hover {
+  .login a:hover, .app_error a:hover {
     color: #2b3087; }
-  .login h3,   .app_error h3 {
+  .login h3, .app_error h3 {
     background: #04194b;
     border-bottom: 4px solid #505050;
     border-top: 1px solid #777;
     color: #ccc;
     padding: 0.2em 1em; }
-  .login .login_form, .login .friendship_form,   .app_error .login_form, .app_error .friendship_form {
+  .login .login_form, .login .friendship_form, .app_error .login_form, .app_error .friendship_form {
     padding: 1em 1em;
     font-size: 1.4em; }
-  .login .friendship_form p,   .app_error .friendship_form p {
+  .login .friendship_form p, .app_error .friendship_form p {
     text-align: center; }
 
 .app_error h3 {
@@ -1081,14 +1087,14 @@ ul.error_messages li p {
 #container #content .invitations, #container #content .friends {
   padding: 1em 0 0 0;
   width: 100%; }
-  #container #content .invitations td, #container #content .invitations th,   #container #content .friends td, #container #content .friends th {
+  #container #content .invitations td, #container #content .invitations th, #container #content .friends td, #container #content .friends th {
     padding: 0.5em 1em; }
-  #container #content .invitations th,   #container #content .friends th {
+  #container #content .invitations th, #container #content .friends th {
     background: #ddd;
     border-bottom: 1px solid #ccc; }
-  #container #content .invitations tr:nth-child(even),   #container #content .friends tr:nth-child(even) {
+  #container #content .invitations tr:nth-child(even), #container #content .friends tr:nth-child(even) {
     background: #e4e4e4; }
-  #container #content .invitations tr:nth-child(odd),   #container #content .friends tr:nth-child(odd) {
+  #container #content .invitations tr:nth-child(odd), #container #content .friends tr:nth-child(odd) {
     background: #eee; }
 #container #content .profile .invite_users {
   margin-top: 4.8em; }

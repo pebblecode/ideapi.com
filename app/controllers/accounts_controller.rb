@@ -1,17 +1,22 @@
 class AccountsController < ApplicationController
   include ModelControllerMethods
+    
+  skip_before_filter :account_required, :only => [ :new, :create, :plans, :canceled, :thanks ]
+  before_filter :admin_required, :except => [ :new, :create, :plans, :canceled, :thanks ]
+  before_filter :build_user, :only => [ :new, :create ]
+  before_filter :load_subscription, :only => [ :show, :billing, :plan, :paypal, :plan_paypal ]
+  before_filter :load_plans, :only => [ :new, :create, :show ]
   
-  before_filter :build_user, :only => [:new, :create]
-  before_filter :load_billing, :only => [ :new, :create, :billing, :paypal ]
-  before_filter :load_subscription, :only => [ :billing, :plan, :paypal, :plan_paypal ]
-  before_filter :load_discount, :only => [ :plans, :plan, :new, :create ]
-  before_filter :build_plan, :only => [:new, :create]
+  before_filter :load_billing, :only => [ :show, :new, :create, :billing, :paypal ]
+  before_filter :load_discount, :only => [ :show, :plans, :plan, :new, :create ]
+  before_filter :build_plan, :only => [:create]
   
   ssl_required :billing, :cancel, :new, :create
   ssl_allowed :plans, :thanks, :canceled, :paypal
   
+
   def new
-    # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
+    render :layout => 'public'
   end
   
   def create
@@ -28,15 +33,10 @@ class AccountsController < ApplicationController
       flash[:domain] = @account.domain
       redirect_to :action => 'thanks'
     else
-      render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
+      render :action => 'new', :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
     end
   end
-  
-  def plans
-    @plans = SubscriptionPlan.find(:all, :order => 'amount desc').collect {|p| p.discount = @discount; p }
-    # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
-  end
-  
+
   def billing
     if request.post?
       if params[:paypal].blank?
@@ -88,13 +88,13 @@ class AccountsController < ApplicationController
           else
             flash[:error] = "Error deleting PayPal profile: #{@subscription.errors.full_messages.to_sentence}"
           end
-          redirect_to :action => "plan" and return
+          redirect_to :action => "show" and return
         else
           if redirect_url = @subscription.start_paypal(plan_paypal_account_url(:plan_id => params[:plan_id]), plan_account_url)
             redirect_to redirect_url and return
           else
             flash[:error] = @subscription.errors.full_messages.to_sentence
-            redirect_to :action => "plan" and return
+            redirect_to :action => "show" and return
           end
         end
       end
@@ -105,9 +105,7 @@ class AccountsController < ApplicationController
       else
         flash[:error] = "Error updating your plan: #{@subscription.errors.full_messages.to_sentence}"
       end
-      redirect_to :action => "plan"
-    else
-      @plans = SubscriptionPlan.find(:all, :conditions => ['id <> ?', @subscription.subscription_plan_id], :order => 'amount desc').collect {|p| p.discount = @subscription.discount; p }
+      redirect_to :action => "show"
     end
   end
   
@@ -139,11 +137,7 @@ class AccountsController < ApplicationController
   
   def thanks
     redirect_to :action => "plans" and return unless flash[:domain]
-    # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
-  end
-  
-  def dashboard
-    render :text => 'Dashboard action, engage!', :layout => true
+    render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
   end
 
   protected
@@ -157,7 +151,7 @@ class AccountsController < ApplicationController
     end
     
     def build_plan
-      redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan])
+      redirect_to :action => "new" unless @plan = SubscriptionPlan.find(params[:plan])
       @plan.discount = @discount
       @account.plan = @plan
     end
@@ -182,10 +176,22 @@ class AccountsController < ApplicationController
       end
     end
     
+    def load_plans
+      @plans = SubscriptionPlan.find(:all, :order => 'amount desc').collect {|p| p.discount = @discount; p }
+    end
+    
+    
+    def admin_required
+      unless admin?
+        flash[:error] = "You don't have access to that .."
+        redirect_to dashboard_path and return
+      end
+    end
+    
     def authorized?
       %w(new create plans canceled thanks).include?(self.action_name) || 
       (self.action_name == 'dashboard' && logged_in?) ||
       admin?
-    end 
+    end
     
 end

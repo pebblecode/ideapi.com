@@ -23,32 +23,33 @@ module ActivityStreamHelper
   
   def stream_item(event)
     if event.present? && event.actor.present?
-      "#{link_to given_name(event.actor), user_path(event.actor)} #{action_description(event)}"
+      action_description(event).gsub!(/ACTOR_NAME/, link_to(given_name(event.actor), user_path(event.actor)))
     end
   end
   
   def action_description(event)
     case event.event_type
     when "brief_created"
-      "created this brief"
-    when "brief_updated"
-      "updated this brief"
+      "ACTOR_NAME created this brief"      
+    when "brief_item_changed"
+      "Updated by ACTOR_NAME: #{event.subject.body}"
     when "new_question"
-      "asked a #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)} on the brief"
+      "ACTOR_NAME asked a #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)} on the brief"
     when "question_answered"
-      "answered #{given_name(event.subject.user)} #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)}"
+      "ACTOR_NAME answered #{given_name(event.subject.user)} #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)}"
     when "new_proposal"
-      "submitted an idea"
+      "ACTOR_NAME submitted an idea"
     when "proposal_marked"
-      "idea was marked as #{event.subject.state} by #{given_name(event.subject.approver)}"
+      "ACTOR_NAME idea was marked as #{event.subject.state} by #{given_name(event.subject.approver)}"
     when "new_comment"
       if event.secondary_subject.is_a?(Proposal)
-        "commented on #{given_name(event.subject.user)} idea"
+        "ACTOR_NAME commented on #{given_name(event.subject.user)} idea"
       else
-        "commented on the brief"
+        "ACTOR_NAME commented on the brief"
       end
     else
-      event.event_type.humanize
+      "CXOKS"
+      #event.event_type.humanize
     end
   end
   

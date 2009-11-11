@@ -15,18 +15,12 @@
     =stylesheet_link_tag %w(reset print), :media => "print"
     
   %body
-    =#render :partial => 'user_feedback/feedback_form'  
     #container
       #header
         %h1
           =link_to "ideapi", "/"
         %ul.navigation        
-          -if logged_in?
-            %li=link_unless_current 'dashboard', '/dashboard'
-            %li=link_unless_current 'profile', profile_path
-            -if admin?
-              %li=link_unless_current 'account', account_path
-            %li=link_to 'logout', delete_user_session_path
+          %li=link_unless_current 'Signup', plans_path
         .clear
         %ul.sub_nav
           =yield :sub_nav
@@ -43,4 +37,3 @@
           =yield
           .clear
       .clear
-  

@@ -1,0 +1,11 @@
+.col_1
+
+  %h2 Change account settings
+
+  -form_for :account, @account, :url => { :action => 'update' }, :html => { :method => :put } do |f|
+    = f.error_messages
+    %p
+      = f.label :name
+      = f.text_field :name
+    %p
+      = submit_or_cancel :action => 'show'

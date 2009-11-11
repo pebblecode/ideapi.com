@@ -15,7 +15,7 @@
     %fieldset
       -fields_for :account do |f|
         %p
-          = f.label :name
+          = f.label :name, "Company"
           = f.text_field :name
         
         %p
@@ -23,7 +23,7 @@
           = f.text_field :domain
           = "." << AppConfig['base_domain']
   
-    %p Enter info for the administrator account.
+    %h3 Account owner
 
     %fieldset
       -fields_for :user do |f|
@@ -43,9 +43,19 @@
           = f.label :password_confirmation
           = f.password_field :password_confirmation
   
-      
+    
+    %h3 Choose a plan
+    
+    %fieldset
+      %ul
+        - @plans.each do |plan| 
+          %li
+            = radio_button_tag :plan, plan.id
+            = plan
+            
+              
     - if @account.needs_payment_info?
-      %p Enter your payment info
+      %h3 Payment details
       = render :partial => "shared/credit_card_form"
   
     %br

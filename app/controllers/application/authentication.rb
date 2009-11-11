@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     
-  USER_NAME, PASSWORD = "ideapi", "pen34guin"
-  #before_filter :authenticate
+  # USER_NAME, PASSWORD = "ideapi", "pen34guin"
+  # before_filter :authenticate
   
   helper_method :current_user_session, :current_user, :logged_in?, :owner?
   
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
-    @current_user_session = UserSession.find
+    @current_user_session = current_account.user_sessions.find
   end
 
   def current_user
@@ -43,13 +43,13 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def authenticate
-    if RAILS_ENV =~ /staging/
-      authenticate_or_request_with_http_basic do |user_name, password|
-        user_name == USER_NAME && password == PASSWORD
-      end
-    end
-  end
+  # def authenticate
+  #   if RAILS_ENV =~ /staging/
+  #     authenticate_or_request_with_http_basic do |user_name, password|
+  #       user_name == USER_NAME && password == PASSWORD
+  #     end
+  #   end
+  # end
   
   def kill_session
     current_user_session.destroy

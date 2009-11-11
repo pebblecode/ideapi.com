@@ -1,16 +1,27 @@
 class Account < ActiveRecord::Base
   
   has_many :account_users, :dependent => :destroy
-  has_many :users, :through => :account_users
+  has_many :users, :through => :account_users do    
+    def admins
+      all(:conditions => "account_users.admin = true")
+    end
+  end
     
-  has_one :admin, :class_name => "User", :conditions => { :admin => true }
+  authenticates_many :user_sessions
+  
+  has_many :briefs
+  
+  #has_one :admin, :class_name => "User", :conditions => { :admin => true }
   
   has_one :subscription, :dependent => :destroy
   has_many :subscription_payments
   
+  class << self; attr_accessor :excluded_subdomains; end
+  @excluded_subdomains =  %W( support blog www billing help api #{AppConfig['admin_subdomain']} )
+  
   validates_format_of :domain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/
   validates_exclusion_of :domain, 
-    :in => %W( support blog www billing help api #{AppConfig['admin_subdomain']} ), 
+    :in => excluded_subdomains, 
     :message => "The domain <strong>{{value}}</strong> is not available."
   
   validate :valid_domain?
@@ -69,6 +80,16 @@ class Account < ActiveRecord::Base
     name.blank? ? full_domain : "#{name} (#{full_domain})"
   end
   
+  delegate :admins, :to => :users
+  
+  def admin
+    self.users.admins.first
+  end
+  
+  def admin?(a_user)
+    self.users.admins.include?(a_user)
+  end
+  
   protected
   
     def valid_domain?
@@ -113,9 +134,7 @@ class Account < ActiveRecord::Base
     end
     
     def create_admin
-      self.user.admin = true
-      self.user.account = self
-      self.user.save
+      account_users.create(:user => self.user, :admin => true)
     end
     
     def send_welcome_email

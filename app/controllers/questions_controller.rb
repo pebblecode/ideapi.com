@@ -10,6 +10,12 @@ class QuestionsController < ApplicationController
       current_object.user = current_user
     end
     
+    before :update do
+      if params[:question][:author_answer].present?
+        current_object.answered_by = current_user
+      end
+    end
+    
     response_for(:create) do |format|
       format.html { 
         flash[:notice] = "Thanks for joining the discussion."

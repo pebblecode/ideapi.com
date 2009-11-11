@@ -1,5 +1,5 @@
 class SubscriptionPlan < ActiveRecord::Base
-  include ActionView::Helpers::NumberHelper
+  include Ideapi::CurrencyHelper
   
   has_many :subscriptions
   

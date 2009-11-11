@@ -1,0 +1,29 @@
+.col_1
+  .note
+    - if @subscription.state == 'trial'
+      %h3
+        Thank you for trying 
+        = succeed "!" do
+          = AppConfig['app_name']
+   
+      - if @subscription.next_renewal_at > Time.now
+        %p 
+          Your trial account will expire in 
+          = succeed "," do
+            %strong= pluralize(@subscription.trial_days, 'day', 'days') 
+          at which time you will no longer have access to your account.  
+          To maintain access to your account, enter your credit card information below. 
+        %p 
+          Your first charge will happen on 
+          = succeed "." do
+            %strong= @subscription.next_renewal_at.to_s(:long_day)
+      - else
+        %p Your trial account has expired. To regain access to your account, enter your credit card information below.  Your first charge will happen immediately, and you will be billed monthly thereafter.
+  
+  = render :partial => 'plan'
+  
+  = render :partial => 'billing'
+  
+  .hr
+  
+  %p= link_to('Cancel plan', cancel_account_url)

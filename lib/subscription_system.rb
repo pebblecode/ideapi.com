@@ -17,7 +17,7 @@ module SubscriptionSystem
     end
     
     def admin?
-      logged_in? && current_user.admin?
+      logged_in? && current_account.admin?(current_user)
     end
     
     def admin_subdomain?

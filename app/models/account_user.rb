@@ -17,6 +17,8 @@ class AccountUser < ActiveRecord::Base
     end    
   end
   
+  named_scope :admin, :conditions => ["admin = ?", true]
+  
   state :accepted
   state :cancelled
   
@@ -27,12 +29,12 @@ class AccountUser < ActiveRecord::Base
   
   validates_presence_of :account
   validates_presence_of :user_id, :if => :accepted?
-  validates_presence_of :code, :if => Proc.new { |account_user| account_user.pending? && user.blank? }
+  validates_presence_of :code, :if => Proc.new { |account_user| account_user.pending? && account_user.user.blank? }
     
   private
   
   def generate_code
-    transform = self.recipient_email.to_s + Time.now.to_s
+    transform = Time.now.to_s
     self.code = Digest::MD5.hexdigest(transform) if !transform.blank?
   end
   

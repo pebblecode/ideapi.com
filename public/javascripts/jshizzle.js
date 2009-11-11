@@ -371,6 +371,22 @@ jQuery.fn.document_ready = function() {
       return false;
     }).addClass('js').parent().next('p').hide();
     
+    jQuery('.edit_proposal .remove_item').delete_item('.remove_item', function () { 
+
+        //move the id input inside of the .proposal_asset
+        jQuery(this).parents().filter('.proposal_asset').append(jQuery(this).parents().filter('.proposal_asset').prev('input'));
+
+        var proposal_asset = jQuery(this).parents().filter('.proposal_asset');
+
+        jQuery.put(
+          jQuery(this).parents().filter('form').attr('action'), 
+          jQuery(this).parents().filter('.proposal_asset').wrap('<form class="remove_asset_form"></form>').parents().filter('form.remove_asset_form').serialize(), 
+          function () { proposal_asset.remove() }, 
+          'json'
+        );
+      }
+    );
+    
     jQuery.fn.document_ready_extras();
 }
 
@@ -399,24 +415,7 @@ jQuery.fn.document_ready_extras = function () {
     return false;
   });
 
-  jQuery('.remove_with_js').hide();  
-
-  jQuery('.edit_proposal .remove_item').delete_item('.remove_item', function () { 
-      
-      //move the id input inside of the .proposal_asset
-      jQuery(this).parents().filter('.proposal_asset').append(jQuery(this).parents().filter('.proposal_asset').prev('input'));
-      
-      var proposal_asset = jQuery(this).parents().filter('.proposal_asset');
-      
-      jQuery.put(
-        jQuery(this).parents().filter('form').attr('action'), 
-        jQuery(this).parents().filter('.proposal_asset').wrap('<form class="remove_asset_form"></form>').parents().filter('form.remove_asset_form').serialize(), 
-        function () { proposal_asset.remove() }, 
-        'json'
-      );
-    }
-  );
-  
+  jQuery('.remove_with_js').hide();    
   
 }
 
