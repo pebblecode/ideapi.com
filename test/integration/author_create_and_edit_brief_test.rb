@@ -8,39 +8,43 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
     setup do
       populate_template_brief
       
-      @author = User.make(:password => "testing")
-      login_as(@author)
+      @account, @author = user_with_account
+      login_to_account_as(@account, @author)
       
       @brief = Brief.plan(:title => "super_unique_to_this_test_title")
     end
     
     context "creating a brief" do
       setup do
-        assert_equal briefs_path, path
+        # assert_equal dashboard_path, path
         click_link 'create brief'
       end
 
+      should_respond_with :success
+
       should "be able to access new brief form" do
-        assert_response :success
         assert_equal new_brief_path, path
       end
-
-      should "create form layout" do
-        assert_difference "Brief.count", 1 do
-          assert_select("form")          
+      
+      context "form layout" do
+        setup do
           fill_in 'brief[title]', :with => @brief[:title]
           fill_in 'brief[most_important_message]', :with => @brief[:most_important_message]
           click_button "Create"
-          assert_response :success
-          assert_equal edit_brief_path(Brief.find_by_title(@brief[:title])), path
         end
+        
+        should_respond_with :success
+        should_render_template :edit
+        
+        should_change "Brief.count", :by => 1
       end
+      
     end
 
     context "editing a brief" do
       setup do
         @template = populate_template_brief
-        @draft = Brief.make(@brief.merge(:author => @author, :template_brief => @template))
+        @draft = Brief.make(@brief.merge(:author => @author, :template_brief => @template, :account => @account))
         visit edit_brief_path(@draft)
       end
       

@@ -6,11 +6,11 @@ class ShowBriefTest < ActionController::IntegrationTest
 
   context "" do
     setup do
-      @author = User.make(:password => "testing")
+      @account, @author = user_with_account
       @standard_user = User.make(:password => "testing")
       
-      @draft = Brief.make(:author => @author)
-      @published = Brief.make(:published, :author => @author)
+      @draft = Brief.make(:author => @author, :account => @account)
+      @published = Brief.make(:published, :author => @author, :account => @account)
       
       populate_brief(@published)
     end
@@ -19,7 +19,8 @@ class ShowBriefTest < ActionController::IntegrationTest
       
       context "as a brief author" do
         setup do
-          login_as(@author)
+          login_to_account_as(@account, @author)
+          
           visit brief_path(@published)
         end
         
@@ -38,7 +39,9 @@ class ShowBriefTest < ActionController::IntegrationTest
       
       context "viewing the brief" do
         setup do
-          @user_session = login_as(@standard_user)
+          @account.users << @standard_user
+          login_to_account_as(@account, @standard_user)
+          
           @published.users << @standard_user
           visit brief_path(@published)
         end
@@ -80,13 +83,13 @@ class ShowBriefTest < ActionController::IntegrationTest
   context "access control: " do
     
     setup do
-      @user = User.make(:password => "testing")
-      login_as(@user)
+      @account, @user = user_with_account    
+      login_to_account_as(@account, @user)
     end
 
     context "briefs user has created" do
       setup do
-        @brief = Brief.make(:published, :author => @user)
+        @brief = Brief.make(:published, :author => @user, :account => @account)
         visit brief_path(@brief)
       end
 
@@ -99,7 +102,7 @@ class ShowBriefTest < ActionController::IntegrationTest
   
     context "briefs user is a collaborator" do
       setup do
-        @brief = Brief.make(:published)
+        @brief = Brief.make(:published, :account => @account)
         @brief.users << @user
         visit brief_path(@brief)        
       end
@@ -110,19 +113,13 @@ class ShowBriefTest < ActionController::IntegrationTest
         assert_equal(brief_path(@brief), path)
       end
       
-      context "when user is marked as approver" do
-        setup do
-          # @brief = Brief.make
-          # visit brief_path(@brief)
-        end
-
-      end
+      #context "when user is marked as approver"
       
     end
   
     context "accessing briefs when user isn't a collaborator" do
       setup do
-        @brief = Brief.make(:published)
+        @brief = Brief.make(:published, :account => @account)
         visit brief_path(@brief)        
       end
       

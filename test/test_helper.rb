@@ -124,6 +124,19 @@ class ActiveSupport::TestCase
     click_button
   end
   
+  def login_to_account_as(account, user)
+    visit "http://" + @account.full_domain
+    
+    login_as(user)
+  end
+  
+  def user_with_account(password = "testing")
+    user = User.make(:password => password)
+    account = Account.make(:user => user)
+    
+    return account, user
+  end
+  
   def self.should_log_in_as(user, password = "testing")
     
     context "logging a user in" do

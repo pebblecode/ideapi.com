@@ -28,7 +28,15 @@
     %fieldset
       -fields_for :user do |f|
         %p
-          = f.label :login
+          = f.label :first_name
+          = f.text_field :first_name
+        
+        %p
+          = f.label :last_name
+          = f.text_field :last_name
+        
+        %p
+          = f.label :login, 'Screename'
           = f.text_field :login
         
         %p

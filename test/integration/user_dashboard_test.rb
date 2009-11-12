@@ -5,12 +5,12 @@ class UserDashboardTest < ActionController::IntegrationTest
   
   context "" do
     setup do
-      @user = User.make(:password => "testing")
+      @account, @user = user_with_account    
     end
     
     context "as any type of user" do
       setup do
-        login_as(@user)
+        login_to_account_as(@account, @user)
         visit briefs_path
       end
 

@@ -4,8 +4,8 @@ class UserProfileTest < ActionController::IntegrationTest
   
   context "creative or author" do
     setup do
-      @standard_user = User.make(:password => "testing")
-      login_as(@standard_user)      
+      @account, @standard_user = user_with_account    
+      login_to_account_as(@account, @standard_user)
     end
     
     context "account page" do
@@ -27,7 +27,7 @@ class UserProfileTest < ActionController::IntegrationTest
     
     context "another users profile" do
       setup do
-        @standard_user_2 = User.make(:password => "testing")
+        @standard_user_2 = @account.users.make(:password => "testing")
         visit user_path(@standard_user_2)
       end
       

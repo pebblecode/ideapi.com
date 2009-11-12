@@ -27,7 +27,9 @@ class AccountSignupTest < ActionController::IntegrationTest
                     
           fill_in 'Company', :with => @account[:name]
           fill_in 'Domain', :with => @account[:domain]
-          fill_in 'Login', :with => @user[:login]
+          fill_in 'First name', :with => @user[:first_name]
+          fill_in 'Last name', :with => @user[:last_name]
+          fill_in 'Screename', :with => @user[:login]
           fill_in 'Email', :with => @user[:email]
           fill_in 'Password', :with => @user[:password]
           fill_in 'Password confirmation', :with => @user[:password]
