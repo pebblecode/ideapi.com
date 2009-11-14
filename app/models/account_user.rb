@@ -30,12 +30,27 @@ class AccountUser < ActiveRecord::Base
   validates_presence_of :account
   validates_presence_of :user_id, :if => :accepted?
   validates_presence_of :code, :if => Proc.new { |account_user| account_user.pending? && account_user.user.blank? }
+  
+  #before_create :another_user_allowed?
     
-  private
+  #private
   
   def generate_code
     transform = Time.now.to_s
     self.code = Digest::MD5.hexdigest(transform) if !transform.blank?
+  end
+  
+  def another_user_allowed?
+    if self.account && self.account.respond_to?(:user_limit) && self.account.respond_to?(:users)
+      if (self.account.user_limit && self.account.users.count < self.account.user_limit) 
+        return true
+      else
+        errors.add(:account, "User limit has been reached for this account")
+        return false
+      end
+    else
+      return true
+    end
   end
   
 end

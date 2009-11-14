@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091110215425) do
+ActiveRecord::Schema.define(:version => 20091112205750) do
 
   create_table "account_users", :force => true do |t|
     t.integer  "user_id"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(:version => 20091110215425) do
     t.integer  "renewal_period",                                :default => 1
     t.decimal  "setup_amount",   :precision => 10, :scale => 2
     t.integer  "trial_period",                                  :default => 1
+    t.integer  "brief_limit"
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -247,6 +248,7 @@ ActiveRecord::Schema.define(:version => 20091110215425) do
     t.string   "billing_id"
     t.integer  "subscription_discount_id"
     t.integer  "subscription_affiliate_id"
+    t.integer  "brief_limit"
   end
 
   add_index "subscriptions", ["account_id"], :name => "index_subscriptions_on_account_id"

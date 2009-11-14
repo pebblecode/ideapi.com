@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     session[:return_to] = nil
   end
   
+  def not_found
+    redirect_to '/404' and return
+  end
+  
 end

@@ -23,11 +23,7 @@
       
       %p
         %strong Email:
-        -if (current_object == current_user || current_user.is_friends_with?(current_object))
-          =current_object.email
-        -else
-          is only visible to friends
-        
+        =current_object.email        
           
       -if current_object == current_user
         %p.edit= link_to 'Edit', edit_user_path(current_user)
@@ -35,69 +31,8 @@
       .clear
   
   -if current_object == current_user
-    -if current_object.has_invites?  
-      .boom_box
-        %h3 Invitations
-        %p 
-          You have 
-          %strong=current_object.invite_count
-          invites left, you can request more 
-          =link_to "here.", request_invitations_invitations_path
-        -if current_object.invitations.blank?
-          %p You have not sent any invitations yet.
-        -else
-          %table.invitations
-            %thead
-              %tr
-                %th Email address
-                %th Invite type
-                %th Date sent
-                %th Status
-                %th Actions
-            %tbody
-              -current_object.invitations.each do |invite|
-                %tr
-                  %td
-                    =invite.recipient_email
-                    -if invite.pending?
-                      =link_to '(resend invite)', resend_invitation_path(invite.code), :style => "padding-left: 0.5em"
-                  %td
-                    account
-                  %td
-                    =distance_of_time_in_words_to_now(invite.created_at) 
-                    ago
-                  %td
-                    =invite.state
-                  %td
-                    -if invite.pending?
-                      =link_to 'cancel', cancel_invitation_path(invite.code)    
-        .hr
-        
-        %h4 Contact Requests Sent
-        -if current_user.pending_friends_by_me.present?
-          =render :partial => 'friends_by_me'
-        -else
-          %p You don't have any pending contact requests
-        
-        .hr
-        
-        %h4 Contact Requests Received
-        -if current_user.pending_friends_for_me.present?
-          =render :partial => 'friends_for_me'
-        -else
-          %p You don't have any pending contact requests
-    
-    .boom_box
-      %h3 Contacts
-      -if current_user.friends.present?
-        =render :partial => 'friends'
-      -else
-        %p You currently don't have any contacts  
-    
     %p 
       Know someone who might like an ideapi account? 
       = link_to 'Send us an email', "#beta_feedback" 
               
 .col_2.profile
-  -if current_object == current_user
-    =render :partial => 'users/invite'

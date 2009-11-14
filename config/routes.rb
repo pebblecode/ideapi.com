@@ -1,13 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :invitations, 
-    :collection => { 
-      :request_invitations => :get, 
-      :request_invitation_for_email => :post }, 
-    :member => { 
-      :resend => :get, 
-      :cancel => :get 
-    }
+  # map.resources :invitations, 
+  #   :collection => { 
+  #     :request_invitations => :get, 
+  #     :request_invitation_for_email => :post }, 
+  #   :member => { 
+  #     :resend => :get, 
+  #     :cancel => :get 
+  #   }
   
   map.resources :briefs, 
     :collection => { :browse => :get }, 
@@ -18,12 +18,12 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :comments
     
-  map.resources :friendships
+  #map.resources :friendships
   
   map.resource :user_session, :member => { :delete => :get }
   map.resource :profile, :controller => "users"
 
-  map.resources :users
+  map.resources :users, :collection => { :invite => :post, :signup => [:get, :post] }
   map.resources :user_feedbacks
   
   map.with_options(:conditions => {:subdomain => AppConfig['admin_subdomain']}) do |subdom|
@@ -54,7 +54,7 @@ ActionController::Routing::Routes.draw do |map|
       :plan => :any, 
       :plan_paypal => :any, 
       :cancel => :any, 
-      :canceled => :get
+      :cancelled => :get
     }
   
   map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil

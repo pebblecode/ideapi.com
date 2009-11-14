@@ -162,7 +162,6 @@ class AccountSignupTest < ActionController::IntegrationTest
       
     end
       
-    
     context "visiting account subdomain that doesnt exist" do
       
       setup do

@@ -87,10 +87,10 @@ Question.blueprint(:answered) do
   author_answer { Sham.body }
 end
 
-Invitation.blueprint do
-  user
-  recipient_email { Sham.email }
-end
+# Invitation.blueprint do
+#   user
+#   recipient_email { Sham.email }
+# end
 
 Proposal.blueprint do
   title

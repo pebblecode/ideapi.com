@@ -1,0 +1,24 @@
+.col_1
+  %h2 Contacts
+  
+  %table.friends
+    
+    %tr
+      %th Name
+      %th Title
+      %th Telephone
+      %th Ext
+      %th Last login
+      %th # Briefs created
+       
+    -current_objects.each do |user|
+      %tr
+        %td= link_to given_name(user), user_path(user)
+        %td 
+        %td 
+        %td 
+        %td= user.last_login_at
+        %td= user.briefs.count
+        
+  -if admin?
+    =render :partial => 'invite'

@@ -1,6 +1,7 @@
 class Account < ActiveRecord::Base
   
   has_many :account_users, :dependent => :destroy
+  
   has_many :users, :through => :account_users do    
     def admins
       all(:conditions => "account_users.admin = true")
@@ -39,7 +40,8 @@ class Account < ActiveRecord::Base
   acts_as_paranoid
   
   Limits = {
-    'user_limit' => Proc.new {|a| a.users.count }
+    'user_limit' => Proc.new {|a| a.users.count },
+    'brief_limit' => Proc.new {|a| a.briefs.count }
   }
   
   Limits.each do |name, meth|
@@ -47,6 +49,8 @@ class Account < ActiveRecord::Base
       return false unless self.subscription
       self.subscription.send(name) && self.subscription.send(name) <= meth.call(self)
     end
+    
+    delegate name.to_sym, :to => :subscription
   end
   
   def needs_payment_info?

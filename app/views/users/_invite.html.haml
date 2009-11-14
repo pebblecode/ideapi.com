@@ -1,13 +1,24 @@
-.invite_users
-  %h4= defined?(title) ? title : "Invite people to join ideapi"
-  %p{:style => "font-size: 1em"} 
-    Once accepted they will be added to your 
-    =link_to 'contacts list', profile_path 
-    and you can then add them to your briefs.
-  -if current_user.has_invites?
-    -form_for 'invitation', :url => invitations_path do |f|
-      =f.text_area 'recipient_list', :title => 'Enter email addresses here'      
-      =f.submit 'Invite'
-    
+.add_users
+  %h3 Add user to your account
+
+  -if current_account.reached_user_limit? 
+    %p 
+      You have reached your user limit for this plan, please 
+      =link_to 'upgrade', account_path
+      to add more.
   -else
-    %p You don't have any invites to give.
+    
+    -form_for current_object, :url => users_path do |f|
+      %p
+        = f.label :first_name
+        = f.text_field :first_name
+
+      %p
+        = f.label :last_name
+        = f.text_field :last_name
+
+      %p
+        = f.label :email
+        = f.text_field :email
+      
+      %p=f.submit 'Invite'

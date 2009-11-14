@@ -9,6 +9,6 @@
       = render :partial => "form", :locals => {:f => f}
       .hr
       
-      =hidden_field_tag 'invite', @invite.code
+      =#hidden_field_tag 'invite', @invite.code
       
       = f.submit "Sign up"

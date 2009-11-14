@@ -37,6 +37,6 @@
             = radio_button_tag :plan_id, plan.id, @subscription.subscription_plan.eql?(plan), :disabled => !current_account.qualifies_for?(plan)
             = plan
     %p
-      %input#commit{ :name => "commit", :type => "submit", :value => "Save" }
+      %input#commit{ :name => "commit", :type => "submit", :value => "Change plan subscription" }
 
 

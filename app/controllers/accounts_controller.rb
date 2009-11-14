@@ -1,8 +1,10 @@
 class AccountsController < ApplicationController
   include ModelControllerMethods
     
-  skip_before_filter :account_required, :only => [ :new, :create, :plans, :canceled, :thanks ]
-  before_filter :admin_required, :except => [ :new, :create, :plans, :canceled, :thanks ]
+  skip_before_filter :account_required, :only => [ :new, :create, :plans, :cancelled, :thanks ]
+  
+  before_filter :admin_required, :except => [ :new, :create, :plans, :cancelled, :thanks ]
+  
   before_filter :build_user, :only => [ :new, :create ]
   before_filter :load_subscription, :only => [ :show, :billing, :plan, :paypal, :plan_paypal ]
   before_filter :load_plans, :only => [ :new, :create, :show ]
@@ -12,7 +14,7 @@ class AccountsController < ApplicationController
   before_filter :build_plan, :only => [:create]
   
   ssl_required :billing, :cancel, :new, :create
-  ssl_allowed :plans, :thanks, :canceled, :paypal
+  ssl_allowed :plans, :thanks, :cancelled, :paypal
   
 
   def new
@@ -125,13 +127,20 @@ class AccountsController < ApplicationController
       redirect_to :action => "plan"
     end
   end
+  
+  def cancelled
+    render :layout => 'public'
+  end
 
   def cancel
-    if request.post? and !params[:confirm].blank?
-      current_account.destroy
-      self.current_user = nil
-      reset_session
-      redirect_to :action => "canceled"
+    if request.post?
+      if params[:confirm].present?
+        current_account.destroy
+        current_user_session.destroy
+        redirect_to :action => "cancelled"
+      else
+        flash[:error] = "You need to agree to cancelling your account, tick the box below and try again."
+      end
     end
   end
   
@@ -189,7 +198,7 @@ class AccountsController < ApplicationController
     end
     
     def authorized?
-      %w(new create plans canceled thanks).include?(self.action_name) || 
+      %w(new create plans cancelled thanks).include?(self.action_name) || 
       (self.action_name == 'dashboard' && logged_in?) ||
       admin?
     end

@@ -1,11 +1,9 @@
-require 'friendship'
+#require 'friendship'
 
 class User < ActiveRecord::Base
   
   concerned_with :briefs,
     :class_methods,
-    :friendships,
-    :invitations, 
     :relationships,  
     :validations
     
@@ -26,7 +24,7 @@ class User < ActiveRecord::Base
   def extract_existing_users_and_friendships(list)
     User.extract_existing_users_and_friendships(self, list)
   end
-  
+    
   private
   
   def stop_watching_brief(proposal)
