@@ -30,6 +30,8 @@ class AccountUser < ActiveRecord::Base
   validates_presence_of :account
   validates_presence_of :user_id, :if => :accepted?
   validates_presence_of :code, :if => Proc.new { |account_user| account_user.pending? && account_user.user.blank? }
+  validates_uniqueness_of :user_id, :scope => :account_id
+  validates_uniqueness_of :account_id, :scope => :user_id
   
   #before_create :another_user_allowed?
     

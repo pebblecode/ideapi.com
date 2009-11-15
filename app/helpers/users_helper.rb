@@ -13,7 +13,11 @@ module UsersHelper
   end
   
   def user_link(user_object)
-    link_to(user_object.login, user_path(user_object))
+    if user_object.pending?
+      given_name(user_object)
+    else
+      link_to(given_name(user_object), user_path(user_object))
+    end
   end
   
   def given_name(user_object)
@@ -21,7 +25,7 @@ module UsersHelper
   end
   
   def name_or_login(user_object)
-    user_object.name.present? ? user_object.name : user_object.login
+    user_object.full_name.present? ? user_object.full_name : user_object.login
   end
   
   def current_user?(user_object)

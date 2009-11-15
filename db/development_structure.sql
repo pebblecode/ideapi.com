@@ -12,7 +12,7 @@ CREATE TABLE `account_users` (
   PRIMARY KEY  (`id`),
   KEY `index_account_users_on_user_id` (`user_id`),
   KEY `index_account_users_on_account_id` (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL auto_increment,
@@ -23,7 +23,7 @@ CREATE TABLE `accounts` (
   `deleted_at` datetime default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_accounts_on_full_domain` (`full_domain`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `assets` (
   `id` int(11) NOT NULL auto_increment,
@@ -265,7 +265,7 @@ CREATE TABLE `subscriptions` (
   `brief_limit` int(11) default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_subscriptions_on_account_id` (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `template_brief_questions` (
   `id` int(11) NOT NULL auto_increment,
@@ -350,8 +350,9 @@ CREATE TABLE `users` (
   `friends_count` int(11) NOT NULL default '0',
   `first_name` varchar(255) collate utf8_unicode_ci default NULL,
   `last_name` varchar(255) collate utf8_unicode_ci default NULL,
+  `state` varchar(255) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `watched_briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -477,3 +478,5 @@ INSERT INTO schema_migrations (version) VALUES ('20091110184312');
 INSERT INTO schema_migrations (version) VALUES ('20091110215425');
 
 INSERT INTO schema_migrations (version) VALUES ('20091112205750');
+
+INSERT INTO schema_migrations (version) VALUES ('20091114223659');

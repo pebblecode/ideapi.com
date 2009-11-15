@@ -73,10 +73,20 @@ end
 
 User.blueprint do
   login
+  first_name { Faker::Name.first_name }
+  last_name { Faker::Name.last_name }
   email
   password
   password_confirmation { password }
   invite_count { 0 }
+  state { "active" }
+end
+
+User.blueprint(:stubbed) do
+  login { nil }
+  password { nil }
+  password_confirmation { password }
+  state { "pending" }
 end
 
 Question.blueprint do

@@ -13,14 +13,6 @@ class User < ActiveRecord::Base
     def valid_email?(email)
       (email =~ email_regex ? true : false)
     end
-  
-    def stub(args)
-      new(args.reverse_merge(:password => generate_password))
-    end
-    
-    def generate_password
-      
-    end
     
   end
 

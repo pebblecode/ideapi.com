@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
     :large => "100x100>", :medium => "48x48>", :small => "32x32>" 
   }
   
-  belongs_to :account
+  has_many :account_users, :dependent => :destroy
+  has_many :accounts, :through => :account_users
   
   # METHODS FOR BRIEF OWNERSHIP
   has_many :user_briefs

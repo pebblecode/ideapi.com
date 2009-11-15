@@ -21,27 +21,51 @@ class AccountUserManagementTest < ActionController::IntegrationTest
       should_render_template :index
       
       should "have form to invite users" do
-        assert_select 'form[action=?]', invite_users_path
+        assert_select 'form[action=?]', users_path
       end
       
       context "inviting a user that doesnt have an account" do
         setup do
           @invite = User.plan
-          fill_in 'First name', :with => @user[:first_name]
-          fill_in 'Last name', :with => @user[:last_name]
-          fill_in 'Email', :with => @user[:email]
+          fill_in 'First name', :with => @invite[:first_name]
+          fill_in 'Last name', :with => @invite[:last_name]
+          fill_in 'Email', :with => @invite[:email]
+          
           click_button 'Invite'
         end
-
+        
         should_respond_with :success
         
-        
+        should_change "User.pending.count", :by => 1
+        should_change "AccountUser.count", :by => 1
         
       end
       
+      context "adding an existing user to the account" do
+        setup do
+          @invite = User.make
+          fill_in 'First name', :with => @invite[:first_name]
+          fill_in 'Last name', :with => @invite[:last_name]
+          fill_in 'Email', :with => @invite[:email]
+          click_button 'Invite'
+        end
+        
+        should_change "AccountUser.count", :by => 1
+        
+        context "adding them again" do
+          setup do
+            fill_in 'First name', :with => @invite[:first_name]
+            fill_in 'Last name', :with => @invite[:last_name]
+            fill_in 'Email', :with => @invite[:email]
+            click_button 'Invite'            
+          end
+          
+          should_not_change "AccountUser.count"
+        end        
+      
+      end  
       
     end
-    
     
   end
   

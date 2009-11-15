@@ -1,18 +1,25 @@
 class User < ActiveRecord::Base
   
-  validates_uniqueness_of :login, :email, :message => "already taken"
+  validates_uniqueness_of :email, :message => "already taken"
+  
+  validates_uniqueness_of :login, :if => Proc.new { |u| !u.pending? }
   
   validates_format_of :login, 
     :with => /^[\w\d]+$/, 
-    :message => "must be a single combination of letters (numbers and underscores also allowed)"
+    :message => "must be a single combination of letters (numbers and underscores also allowed)",
+    :if => Proc.new { |u| !u.pending? }
+    
   
   validates_format_of :email, 
     :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
-  validates_presence_of :first_name, 
-    :on => :create, 
-    :message => "needed if you give your last name", 
-    :if => Proc.new { |u| u.last_name.present? }
+  validates_presence_of :first_name, :last_name
+    
+  before_validation do |user|
+    if user.password.blank? && user.pending?
+      user.password = user.password_confirmation = "bitch"
+    end
+  end
   
   # protect against mass assignment
   attr_accessible :login, 
