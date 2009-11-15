@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
     #c.my_config_option = my_value # for available options see documentation in: Authlogic::ActsAsAuthentic
     c.login_field = :email 
+    #c.validate_password_field = false
+    c.merge_validates_confirmation_of_password_field_options(:unless => :pending?)
+    c.merge_validates_length_of_password_confirmation_field_options(:unless => :pending?)
+    c.merge_validates_length_of_password_field_options(:unless => :pending?)
   end
 
   has_attached_file :avatar, :styles => { 

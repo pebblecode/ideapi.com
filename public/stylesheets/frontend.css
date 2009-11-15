@@ -184,6 +184,9 @@ input[type=text], input[type=password], textarea, select {
   padding: 0.2em 0.3em;
   background: white; }
 
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  background: #efefef; }
+
 form p label {
   margin-right: 1em;
   line-height: 1.1em;
@@ -206,7 +209,7 @@ form p label {
 
 span.field_with_errors label {
   color: #d81f26; }
-span.field_with_errors input {
+span.field_with_errors input, span.field_with_errors input:focus {
   background: #d81f26;
   color: white; }
 

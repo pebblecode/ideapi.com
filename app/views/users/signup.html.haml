@@ -1,0 +1,11 @@
+.col_1
+  %h2 Signup
+  %div[current_object]
+    - form_for(current_object, :url => user_signup_path, :html => { :multipart => true }) do |f|
+      .boom_box
+        = error_messages_for :user
+        = render :partial => "form", :locals => {:f => f}
+        = hidden_field_tag :invite_code, params[:invite_code]
+      %p.submit= submit_tag "Complete registration"
+      .clear
+   

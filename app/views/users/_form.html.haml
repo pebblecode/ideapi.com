@@ -1,4 +1,8 @@
 %p
+  = f.label :login, "Screename"
+  = f.text_field :login
+  
+%p
   %label{:for => "user_first_name"} First name:
   = f.text_field :first_name
   
@@ -22,8 +26,7 @@
 %p
   %label{:for => "user_password"} Password:
   = f.password_field :password
-  .help
-    You must fill in both password and password confirmation to change passwords.
+
 %p
   %label{:for => "user_password_confirmation"} Password confirmation:
   = f.password_field :password_confirmation

@@ -14,12 +14,6 @@ class User < ActiveRecord::Base
     :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
   validates_presence_of :first_name, :last_name
-    
-  before_validation do |user|
-    if user.password.blank? && user.pending?
-      user.password = user.password_confirmation = "bitch"
-    end
-  end
   
   # protect against mass assignment
   attr_accessible :login, 

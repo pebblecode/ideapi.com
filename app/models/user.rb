@@ -1,4 +1,5 @@
 #require 'friendship'
+require 'md5'
 
 class User < ActiveRecord::Base
   
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
     
   # users are found by username
   def to_param
-    return self.login
+    self.login || self.id.to_s
   end
   
   # called from proposal_observer
@@ -29,6 +30,7 @@ class User < ActiveRecord::Base
   
   state :pending, :default => true do
     handle :activate! do
+      invite_code = nil
       stored_transition_to(:active)
     end
   
@@ -48,10 +50,19 @@ class User < ActiveRecord::Base
     %w(first_name last_name).map { |m| send(m) }.reject(&:blank?).join(" ")
   end
   
+  before_create :create_invite_code
+  
   private
   
   def stop_watching_brief(proposal)
     toggle_watch!(proposal.brief) if watching?(proposal.brief)
+  end
+  
+  def create_invite_code
+    if pending?
+      transform = self.email.to_s + Time.now.to_s
+      self.invite_code = Digest::MD5.hexdigest(transform) 
+    end
   end
 
 end

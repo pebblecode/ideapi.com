@@ -3,20 +3,21 @@ class UsersController < ApplicationController
   add_breadcrumb 'profile', :object_path, :only => [:show]
   
   before_filter :require_no_user, :only => :signup
-  before_filter :require_user, :except => :signup
+  before_filter :require_user, :except => [:signup, :update]
+  before_filter :require_user_unless_pending, :only => :update
   
   before_filter :check_user_limit, :only => :create
   before_filter :require_record_owner, :only => [:edit, :update, :destroy]
-      # 
-      # def current_object
-      #   @current_object ||= (
-      #     if params[:id].present?
-      #       current_account.users.find_by_login(params[:id])
-      #     else
-      #       current_user
-      #     end
-      #   )
-      # end
+      
+  # def current_object
+  #   @current_object ||= (
+  #     if params[:id].present?
+  #       current_account.users.active.find_by_login(params[:id]) || current_account.users.pending.find_by_id(params[:id])
+  #     else
+  #       current_user
+  #     end
+  #   )
+  # end
   
   def current_objects
     @current_objects ||= current_account.users
@@ -34,11 +35,18 @@ class UsersController < ApplicationController
         current_account.users << current_object
       end
     end
-    
+        
   end
   
   def signup
-    
+    if @current_object = current_account.users.pending.find_by_invite_code(params[:invite_code])
+      if request.put?
+        current_object.state = :active
+        current_object.update_attributes(params[:user])
+      end
+    else
+      not_found
+    end
   end
  
   private
@@ -56,6 +64,10 @@ class UsersController < ApplicationController
       flash[:error] = "The user that invited you needs to upgrade their account to add you, please contact them and try again."
       redirect_to '/'
     end
+  end
+  
+  def require_user_unless_pending
+    require_user unless current_object.pending?
   end
  
 end

@@ -23,8 +23,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session, :member => { :delete => :get }
   map.resource :profile, :controller => "users"
 
-  map.resources :users, :collection => { :signup => [:get, :post] }
+  map.resources :users
   map.resources :user_feedbacks
+  
+  map.user_signup '/users/signup/:invite_code', :controller => 'users', :action => 'signup'
   
   map.with_options(:conditions => {:subdomain => AppConfig['admin_subdomain']}) do |subdom|
     subdom.root :controller => 'subscription_admin/subscriptions', :action => 'index'

@@ -19,7 +19,7 @@ module Ideapi
         class_eval do
           states.each do |state_name, state|
             # create a named scope for all the defined scopes
-            named_scope state_name, :conditions => ["state = ?", state_name.to_s]
+            named_scope state_name, :conditions => ["#{self.to_s.tableize}.state = ?", state_name.to_s]
 
             # create a state_name? instance method for each state ..
             # for example @brief.draft? => true
