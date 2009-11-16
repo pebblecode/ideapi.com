@@ -18,7 +18,10 @@
       
       - f.fields_for :account_users do |account_user|
         %tr
-          %td=user_link(account_user.object.user)
+          %td
+            =user_link(account_user.object.user)
+            -if account_user.object.user.pending?
+              =link_to "(invite_link)", user_signup_url(:invite_code => account_user.object.user.invite_code, :host => current_account.full_domain)    
           %td= value_or_symbol(account_user.object.user.job_title)
           %td= value_or_symbol(account_user.object.user.telephone)
           %td= value_or_symbol(account_user.object.user.telephone_ext)
