@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   before_filter :check_user_limit, :only => :create
   before_filter :require_record_owner, :only => [:edit, :update, :destroy]
   
-  before_filter :account_admin_required, :except => [:signup, :update, :index]
+  before_filter :account_admin_required, :except => [:signup, :update, :index, :show, :edit, :update]
   
   def current_object
     @current_object ||= (params[:id].blank?) ? current_user : User.find_by_login(params[:id])

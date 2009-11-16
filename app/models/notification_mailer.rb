@@ -25,23 +25,38 @@ class NotificationMailer < ActionMailer::Base
     @sent_on = sent_at
   end
 
-
-
-  def user_added_to_brief(brief, user, sent_at = Time.now)
+  
+  def user_added_to_account(brief, user, sent_at = Time.now)
+    from        "notifications@#{brief.account.full_domain}"
+    recipients  user.email
+    reply_to    "no-reply@#{brief.account.full_domain}"
     
-    from        "notifications@#{brief.account_name}.ideapi.com"
-    recipients  user.email  
-    reply_to    "no-reply@#{brief.account_name}.ideapi.com"
-    
-    
-    subject     "[#{brief.account_name} ideapi] You have been added to a brief"
-    
+    subject     "[#{brief.account.name} ideapi] You have been added to a brief"
     body        :brief => brief, :user => user
     
+    sent_on sent_at    
+  end
+
+  def user_invited_to_account(brief, user, sent_at = Time.now)
+    from        "notifications@#{brief.account.full_domain}"
+    recipients  user.email
+    reply_to    "no-reply@#{brief.account.full_domain}"
     
-    @recipients = 
-    @from = 'alex@abutcher.co.uk'
-    @sent_on = sent_at    
+    subject     "[#{brief.account.name} ideapi] You have been added to a brief"
+    body        :brief => brief, :user => user
+    
+    sent_on sent_at    
+  end
+  
+  def user_added_to_brief(brief, user, sent_at = Time.now)
+    from        "notifications@#{brief.account.full_domain}"
+    recipients  user.email
+    reply_to    "no-reply@#{brief.account.full_domain}"
+    
+    subject     "[#{brief.account.name} ideapi] You have been added to a brief"
+    body        :brief => brief, :user => user
+    
+    sent_on sent_at    
   end
   
   private
