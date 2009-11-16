@@ -51,6 +51,10 @@ class ApplicationController < ActionController::Base
   #   end
   # end
   
+  def attempt_signin(user_params)
+    current_account.user_sessions.create(user_params)
+  end
+  
   def kill_session
     current_user_session.destroy
     flash[:notice] = "You don't have access to that.."

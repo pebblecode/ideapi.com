@@ -9,15 +9,9 @@ class UsersController < ApplicationController
   before_filter :check_user_limit, :only => :create
   before_filter :require_record_owner, :only => [:edit, :update, :destroy]
       
-  # def current_object
-  #   @current_object ||= (
-  #     if params[:id].present?
-  #       current_account.users.active.find_by_login(params[:id]) || current_account.users.pending.find_by_id(params[:id])
-  #     else
-  #       current_user
-  #     end
-  #   )
-  # end
+  def current_object
+    @current_object ||= (params[:id].blank?) ? current_user : User.find_by_login(params[:id])
+  end
   
   def current_objects
     @current_objects ||= current_account.users
@@ -41,8 +35,12 @@ class UsersController < ApplicationController
   def signup
     if @current_object = current_account.users.pending.find_by_invite_code(params[:invite_code])
       if request.put?
-        current_object.state = :active
-        current_object.update_attributes(params[:user])
+        current_object.attributes = params[:user]
+        if current_object.activate!      
+          if @user_session = attempt_signin(current_object)
+            redirect_back_or_default '/'
+          end
+        end
       end
     else
       not_found

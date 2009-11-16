@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   
   state :pending, :default => true do
     handle :activate! do
-      invite_code = nil
+      self.invite_code = nil
       stored_transition_to(:active)
     end
   

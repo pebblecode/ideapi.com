@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    if @user_session = current_account.user_sessions.create(params[:user_session])
+    if @user_session = attempt_signin(params[:user_session])
       redirect_back_or_default '/'
     else
       render :action => :new

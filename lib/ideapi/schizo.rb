@@ -37,7 +37,7 @@ module Ideapi
       def stored_transition_to(state)
         @previous_state = self.state
         transition_to(state)
-        save!
+        save
       end
       
       def ensure_default_state

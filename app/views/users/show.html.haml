@@ -16,8 +16,8 @@
 
       %p
         %strong Name:
-        -if current_object.name.present?
-          =current_object.name
+        -if current_object.full_name.present?
+          =current_object.full_name
         -else
           unknown
       
