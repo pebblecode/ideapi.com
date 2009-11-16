@@ -6,7 +6,14 @@ class Account < ActiveRecord::Base
     def admins
       all(:conditions => "account_users.admin = true")
     end
+    
+    def brief_authors
+      all(:conditions => "account_users.can_create_briefs = true")
+    end
   end
+  
+  accepts_nested_attributes_for :account_users, 
+    :allow_destroy => true  
     
   authenticates_many :user_sessions
   
@@ -31,7 +38,7 @@ class Account < ActiveRecord::Base
   validate_on_create :valid_payment_info?
   validate_on_create :valid_subscription?
   
-  attr_accessible :name, :domain, :user, :plan, :plan_start, :creditcard, :address
+  attr_accessible :name, :domain, :user, :plan, :plan_start, :creditcard, :address, :account_users_attributes
   attr_accessor :user, :plan, :plan_start, :creditcard, :address, :affiliate
   
   after_create :create_admin
@@ -85,6 +92,7 @@ class Account < ActiveRecord::Base
   end
   
   delegate :admins, :to => :users
+  delegate :brief_authors, :to => :users
   
   def admin
     self.users.admins.first
@@ -138,7 +146,7 @@ class Account < ActiveRecord::Base
     end
     
     def create_admin
-      account_users.create(:user => self.user, :admin => true)
+      account_users.create(:user => self.user, :admin => true, :can_create_briefs => true)
     end
     
     def send_welcome_email

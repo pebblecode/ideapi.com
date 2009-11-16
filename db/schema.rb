@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091115194955) do
+ActiveRecord::Schema.define(:version => 20091116140053) do
 
   create_table "account_users", :force => true do |t|
     t.integer  "user_id"
@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(:version => 20091115194955) do
     t.string   "code"
     t.string   "state"
     t.datetime "redeemed_at"
-    t.boolean  "brief_creation", :default => false
+    t.boolean  "brief_creation",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",          :default => false
+    t.boolean  "admin",             :default => false
+    t.boolean  "can_create_briefs", :default => false
   end
 
   add_index "account_users", ["account_id"], :name => "index_account_users_on_account_id"
@@ -110,34 +111,6 @@ ActiveRecord::Schema.define(:version => 20091115194955) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
-  create_table "friendships", :force => true do |t|
-    t.integer  "user_id",     :null => false
-    t.integer  "friend_id",   :null => false
-    t.datetime "created_at"
-    t.datetime "accepted_at"
-  end
-
-  add_index "friendships", ["friend_id"], :name => "index_friendships_on_friend_id"
-  add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
-
-  create_table "invitations", :force => true do |t|
-    t.string   "recipient_email"
-    t.integer  "user_id"
-    t.string   "code"
-    t.datetime "redeemed_at"
-    t.integer  "redeemed_by_id"
-    t.string   "state"
-    t.integer  "redeemable_id"
-    t.string   "redeemable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "invitations", ["redeemable_id", "redeemable_type"], :name => "index_invitations_on_redeemable_id_and_redeemable_type"
-  add_index "invitations", ["redeemable_id"], :name => "index_invitations_on_redeemable_id"
-  add_index "invitations", ["redeemed_by_id"], :name => "index_invitations_on_redeemed_by_id"
-  add_index "invitations", ["user_id"], :name => "index_invitations_on_user_id"
 
   create_table "password_resets", :force => true do |t|
     t.string   "email"
@@ -330,6 +303,10 @@ ActiveRecord::Schema.define(:version => 20091115194955) do
     t.string   "last_name"
     t.string   "state"
     t.string   "invite_code"
+    t.string   "job_title"
+    t.string   "telephone"
+    t.string   "telephone_ext"
+    t.datetime "current_login_at"
   end
 
   create_table "watched_briefs", :force => true do |t|

@@ -24,10 +24,14 @@ class User < ActiveRecord::Base
     :avatar_updated_at, 
     :last_login_at, 
     :last_request_at, 
+    :current_login_at,
     :password, 
     :password_confirmation, 
     :avatar, 
     :first_name, 
-    :last_name
+    :last_name,
+    :job_title,
+    :telephone,
+    :telephone_ext
   
 end

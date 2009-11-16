@@ -9,10 +9,11 @@ CREATE TABLE `account_users` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   `admin` tinyint(1) default '0',
+  `can_create_briefs` tinyint(1) default '0',
   PRIMARY KEY  (`id`),
   KEY `index_account_users_on_user_id` (`user_id`),
   KEY `index_account_users_on_account_id` (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL auto_increment,
@@ -104,36 +105,6 @@ CREATE TABLE `comments` (
   KEY `index_comments_on_commentable_id` (`commentable_id`),
   KEY `index_comments_on_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `friendships` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) NOT NULL,
-  `friend_id` int(11) NOT NULL,
-  `created_at` datetime default NULL,
-  `accepted_at` datetime default NULL,
-  PRIMARY KEY  (`id`),
-  KEY `index_friendships_on_user_id` (`user_id`),
-  KEY `index_friendships_on_friend_id` (`friend_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `invitations` (
-  `id` int(11) NOT NULL auto_increment,
-  `recipient_email` varchar(255) collate utf8_unicode_ci default NULL,
-  `user_id` int(11) default NULL,
-  `code` varchar(255) collate utf8_unicode_ci default NULL,
-  `redeemed_at` datetime default NULL,
-  `redeemed_by_id` int(11) default NULL,
-  `state` varchar(255) collate utf8_unicode_ci default NULL,
-  `redeemable_id` int(11) default NULL,
-  `redeemable_type` varchar(255) collate utf8_unicode_ci default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`),
-  KEY `index_invitations_on_redeemable_id_and_redeemable_type` (`redeemable_id`,`redeemable_type`),
-  KEY `index_invitations_on_user_id` (`user_id`),
-  KEY `index_invitations_on_redeemed_by_id` (`redeemed_by_id`),
-  KEY `index_invitations_on_redeemable_id` (`redeemable_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `password_resets` (
   `id` int(11) NOT NULL auto_increment,
@@ -352,8 +323,12 @@ CREATE TABLE `users` (
   `last_name` varchar(255) collate utf8_unicode_ci default NULL,
   `state` varchar(255) collate utf8_unicode_ci default NULL,
   `invite_code` varchar(255) collate utf8_unicode_ci default NULL,
+  `job_title` varchar(255) collate utf8_unicode_ci default NULL,
+  `telephone` varchar(255) collate utf8_unicode_ci default NULL,
+  `telephone_ext` varchar(255) collate utf8_unicode_ci default NULL,
+  `current_login_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `watched_briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -483,3 +458,9 @@ INSERT INTO schema_migrations (version) VALUES ('20091112205750');
 INSERT INTO schema_migrations (version) VALUES ('20091114223659');
 
 INSERT INTO schema_migrations (version) VALUES ('20091115194955');
+
+INSERT INTO schema_migrations (version) VALUES ('20091116115958');
+
+INSERT INTO schema_migrations (version) VALUES ('20091116132517');
+
+INSERT INTO schema_migrations (version) VALUES ('20091116140053');

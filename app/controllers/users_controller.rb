@@ -8,13 +8,15 @@ class UsersController < ApplicationController
   
   before_filter :check_user_limit, :only => :create
   before_filter :require_record_owner, :only => [:edit, :update, :destroy]
-      
+  
+  before_filter :account_admin_required, :except => [:signup, :update, :index]
+  
   def current_object
     @current_object ||= (params[:id].blank?) ? current_user : User.find_by_login(params[:id])
   end
   
   def current_objects
-    @current_objects ||= current_account.users
+    @current_objects ||= current_account.account_users(:include => :user)
   end
   
   make_resourceful do      

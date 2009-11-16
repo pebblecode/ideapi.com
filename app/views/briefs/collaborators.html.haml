@@ -39,11 +39,10 @@
     - add_contact_form.fields_for :user_briefs do |add_collab_form|
       -if add_collab_form.object.new_record?
         %p
-          -if current_user.friends_not_collaborating(current_object).present?       
+          -if @users_available_to_add.present?       
             %label{:style => "width: 10em"} Add collaborator
             %p
-              =add_collab_form.select "user_id", current_user.friends_not_collaborating(current_object).map {|u| [u.login, u.id] }, { :include_blank => true }
-              =#collaboration_form.check_box :author
+              =add_collab_form.select "user_id",  @users_available_to_add.map {|u| [given_name(u), u.id] }, { :include_blank => true }
               =add_contact_form.submit 'Add to brief'
           -else
             All your contacts are collaborating on this brief

@@ -1,24 +1,45 @@
 .col_1
   %h2 Contacts
   
-  %table.friends
+  -form_for current_account, :url => account_path do |f|
     
-    %tr
-      %th Name
-      %th Title
-      %th Telephone
-      %th Ext
-      %th Last login
-      %th # Briefs created
-       
-    -current_objects.each do |user|
+    %table.friends
+    
       %tr
-        %td=user_link(user)
-        %td 
-        %td 
-        %td 
-        %td= user.last_login_at
-        %td= user.briefs.count
+        %th Name
+        %th Title
+        %th Telephone
+        %th Ext
+        %th Last login
+        -if admin?
+          %th Can create briefs
+        %th Briefs
+        %th Remove
+      
+      - f.fields_for :account_users do |account_user|
+        %tr
+          %td=user_link(account_user.object.user)
+          %td= value_or_symbol(account_user.object.user.job_title)
+          %td= value_or_symbol(account_user.object.user.telephone)
+          %td= value_or_symbol(account_user.object.user.telephone_ext)
+          %td
+            -if account_user.object.user.last_login_at.present?
+              = time_ago_in_words_with_word(account_user.object.user.last_login_at)
+            -else
+              Never
+          
+          -if admin?
+            %td
+              = account_user.check_box :can_create_briefs
+
+          %td= account_user.object.user.briefs.by_account(account_user.object).count
+          %td= account_user.check_box :_delete
+    
+    =hidden_field_tag :return_to, users_path
         
+    %p.submit=f.submit 'Update privileges' 
+    .clear
+    
   -if admin?
+    .hr
     =render :partial => 'invite'

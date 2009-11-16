@@ -1,7 +1,8 @@
 =sub_nav do
   =breadcrumb_list
-  %li{:class => "secondary"}
-    =link_to 'Create brief', new_brief_path
+  -if current_user_can_create_briefs?
+    %li{:class => "secondary"}
+      =link_to 'Create brief', new_brief_path
 
 #dashboard.col_1
 

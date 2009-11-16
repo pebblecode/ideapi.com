@@ -30,3 +30,17 @@
 %p
   %label{:for => "user_password_confirmation"} Password confirmation:
   = f.password_field :password_confirmation
+  
+.hr
+
+%p
+  = f.label :job_title
+  = f.text_field :job_title
+  
+%p
+  = f.label :telephone
+  = f.text_field :telephone
+  
+%p
+  = f.label :telephone_ext
+  = f.text_field :telephone_ext

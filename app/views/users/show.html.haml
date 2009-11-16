@@ -17,14 +17,24 @@
       %p
         %strong Name:
         -if current_object.full_name.present?
-          =current_object.full_name
+          =current_object.full_name.titleize
         -else
           unknown
       
       %p
         %strong Email:
         =current_object.email        
-          
+      
+      -%w(job_title telephone telephone_ext).each do |extra|
+
+        -if current_object.send(extra).present?
+          %p
+            %strong
+              = succeed ':' do
+                = extra.titleize
+            =current_object.send(extra)
+        
+      
       -if current_object == current_user
         %p.edit= link_to 'Edit', edit_user_path(current_user)
         

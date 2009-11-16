@@ -42,6 +42,10 @@ module LayoutHelper
     "#{time_ago_in_words(date)} #{word}"
   end
   
+  def value_or_symbol(value, symbol = "-")
+    value.present? ? value : symbol  
+  end
+  
   private
   
   def capture_haml_into(hook)

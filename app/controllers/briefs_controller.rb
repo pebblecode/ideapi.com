@@ -4,6 +4,8 @@ class BriefsController < ApplicationController
   # needs login for all actions
   before_filter :require_user
   
+  before_filter :require_account_brief_permissions, :only => [:new, :create]
+  
   # filters for record owners
   before_filter :require_owner, :only => [:edit, :update, :destroy, :collaborators]
   
@@ -107,6 +109,8 @@ class BriefsController < ApplicationController
   def collaborators
     current_object.user_briefs.build
     
+    @users_available_to_add = current_account.users - current_object.users
+    
     respond_to do |format|
       format.html
       format.js { render :layout => false }
@@ -129,6 +133,10 @@ class BriefsController < ApplicationController
   
   def record_user_view
     current_object.user_briefs.for_user(current_user).touch(:last_viewed_at)
+  end
+  
+  def require_account_brief_permissions
+    not_found unless current_user_can_create_briefs?
   end
   
 end
