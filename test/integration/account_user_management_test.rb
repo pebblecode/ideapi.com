@@ -31,7 +31,7 @@ class AccountUserManagementTest < ActionController::IntegrationTest
           fill_in 'Last name', :with => @invite[:last_name]
           fill_in 'Email', :with => @invite[:email]
           
-          click_button 'Invite'
+          click_button 'Add to account'
         end
         
         should_respond_with :success
@@ -47,7 +47,7 @@ class AccountUserManagementTest < ActionController::IntegrationTest
           fill_in 'First name', :with => @invite[:first_name]
           fill_in 'Last name', :with => @invite[:last_name]
           fill_in 'Email', :with => @invite[:email]
-          click_button 'Invite'
+          click_button 'Add to account'
         end
         
         should_change "AccountUser.count", :by => 1
@@ -57,7 +57,7 @@ class AccountUserManagementTest < ActionController::IntegrationTest
             fill_in 'First name', :with => @invite[:first_name]
             fill_in 'Last name', :with => @invite[:last_name]
             fill_in 'Email', :with => @invite[:email]
-            click_button 'Invite'            
+            click_button 'Add to account'            
           end
           
           should_not_change "AccountUser.count"

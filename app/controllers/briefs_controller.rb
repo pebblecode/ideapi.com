@@ -16,7 +16,7 @@ class BriefsController < ApplicationController
   add_breadcrumb 'edit your brief', :edit_object_path, :only => [:edit, :update]
   
   def current_objects
-    @current_objects ||= current_account.briefs
+    @current_objects ||= current_user.briefs.by_account(current_account)
   end
   
   def current_object

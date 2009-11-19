@@ -48,7 +48,7 @@ class AccountSignupTest < ActionController::IntegrationTest
         
         context "created account" do
           setup do
-            @created_account = Account.find_by_name(@account[:name])            
+            @created_account = Account.find_by_name(@account[:name])     
           end
 
           should "give a link to the account url" do
@@ -60,10 +60,10 @@ class AccountSignupTest < ActionController::IntegrationTest
               visit "http://" + @created_account.full_domain
             end
             
-            should "present user with dashboard" do
-              assert_equal(dashboard_path, path)
+            should "redirect to login page" do
+              assert_equal(new_user_session_path, path)
             end
-
+            
           end
           
         end
