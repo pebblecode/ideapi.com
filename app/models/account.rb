@@ -32,6 +32,8 @@ class Account < ActiveRecord::Base
     :in => excluded_subdomains, 
     :message => "The domain <strong>{{value}}</strong> is not available."
   
+  before_validation_on_create :activate_user
+  
   validate :valid_domain?
   validate_on_create :valid_user?
   validate_on_create :valid_plan?
@@ -107,6 +109,10 @@ class Account < ActiveRecord::Base
     def valid_domain?
       conditions = new_record? ? ['full_domain = ?', self.full_domain] : ['full_domain = ? and id <> ?', self.full_domain, self.id]
       self.errors.add(:domain, 'is not available') if self.full_domain.blank? || self.class.count(:conditions => conditions) > 0
+    end
+    
+    def activate_user
+      @user.set_active if @user && @user.pending?
     end
     
     # An account must have an associated user to be the administrator

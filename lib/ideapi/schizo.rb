@@ -24,6 +24,9 @@ module Ideapi
             # create a state_name? instance method for each state ..
             # for example @brief.draft? => true
             define_method("#{state_name}?", lambda { self.state == state_name }) 
+            
+            define_method("set_#{state_name}", lambda { self.state = state_name })
+    
           end
         end
       end

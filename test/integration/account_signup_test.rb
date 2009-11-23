@@ -66,9 +66,20 @@ class AccountSignupTest < ActionController::IntegrationTest
               visit "http://" + @created_account.full_domain
             end
             
-            should "redirect to login page" do
-              assert_equal(new_user_session_path, path)
+            should "redirect to dashboard" do
+              assert_equal(dashboard_path, path)
             end
+            
+            context "account owner" do
+              setup do
+                @user = @created_account.admin
+              end
+
+              should "be active" do
+                assert(@user.active?, "Account owner should be activated when creating account.")
+              end
+            end
+            
             
           end
           
