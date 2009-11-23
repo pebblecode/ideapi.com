@@ -57,7 +57,7 @@ class BriefsController < ApplicationController
       current_object.template_brief = TemplateBrief.last      
     end
               
-    before (:edit, :update) do
+    before(:edit, :update) do
       add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path
       add_breadcrumb 'edit brief', :edit_object_path
     end
