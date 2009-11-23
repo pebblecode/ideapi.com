@@ -12,5 +12,3 @@ coverage.data
 db/sphinx/**/*
 config/*.sphinx.conf
 public/system/**/*
-config/config.yml
-config/gateway.yml
