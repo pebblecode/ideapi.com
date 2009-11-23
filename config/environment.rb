@@ -11,12 +11,6 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "alter-ego", :lib => "alter_ego"
   config.gem "will_paginate", :lib => "will_paginate"
-
-  # these could be in test.rb but I've used some of the elements for bootstrapping etc
-  config.gem "faker"
-  config.gem "shoulda"
-  config.gem "machinist"
-  config.gem "webrat"
   
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 

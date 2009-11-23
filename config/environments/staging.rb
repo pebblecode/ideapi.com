@@ -25,3 +25,8 @@ Paperclip.options[:command_path] = "/usr/local/bin"
 # config.threadsafe!
 
 #Paperclip.options[:command_path] = "/usr/local/bin"
+
+config.gem "faker"
+config.gem "shoulda"
+config.gem "machinist"
+config.gem "webrat"
