@@ -1,0 +1,12 @@
+%h1= @page_title = 'Brief Templates'
+
+%table#accounts
+  %tr
+    %th
+      Name
+  -@templates.each do |template|
+    %tr
+      %td= link_to(h(template.title), [:admin, template])
+
+  
+= will_paginate(@templates)

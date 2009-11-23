@@ -1,0 +1,11 @@
+%h1= @page_title = "Viewing Brief Template: #{@template_brief.title}"
+
+%p= link_to('Edit Template', :action => 'edit')
+
+%h3 Questions
+
+%ul
+  -@template_brief.template_questions.each do |template_question|
+    %li
+      %h4=template_question.body
+      %p=template_question.help_message
