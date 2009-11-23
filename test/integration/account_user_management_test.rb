@@ -39,6 +39,10 @@ class AccountUserManagementTest < ActionController::IntegrationTest
         should_change "User.pending.count", :by => 1
         should_change "AccountUser.count", :by => 1
         
+        should "mark invited by current_user" do
+          assert_equal(@user, User.find_by_email(@invite[:email]).invited_by)
+        end
+        
       end
       
       context "adding an existing user to the account" do

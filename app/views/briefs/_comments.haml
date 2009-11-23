@@ -13,12 +13,13 @@
               %strong="#{comment_adjective_for given_name(comment.user), :position => :before}:"
               =comment.comment
             %span.clear      
-      .comment
-        #comment_form.comment_form
-          =medium_avatar            
-          - form_for :comment, :url => comments_path do |f|
-            =hidden_field_tag :brief_id, current_object.id
-            .speech=f.text_area :comment, :rows => 5, :cols => 80
+      -if current_object.active?
+        .comment
+          #comment_form.comment_form
+            =medium_avatar            
+            - form_for :comment, :url => comments_path do |f|
+              =hidden_field_tag :brief_id, current_object.id
+              .speech=f.text_area :comment, :rows => 5, :cols => 80
 
-            %p.submit
-              =f.submit "submit"
+              %p.submit
+                =f.submit "submit"

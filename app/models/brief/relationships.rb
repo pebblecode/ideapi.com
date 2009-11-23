@@ -62,6 +62,10 @@ class Brief < ActiveRecord::Base
   # COMMENTS
   acts_as_commentable  
 
+  named_scope :by_account, lambda { |account, options| 
+    { :conditions => ["briefs.account_id = ?", account.id] }
+  }
+
   private 
   
   def ensure_approver_set

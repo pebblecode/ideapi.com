@@ -46,6 +46,12 @@ class AccountSignupTest < ActionController::IntegrationTest
           assert_contain 'Account created'
         end
         
+        should "send out account signup email" do
+          assert_sent_email do |email|
+            email.subject == "Welcome to #{AppConfig['app_name']}!"
+          end
+        end
+        
         context "created account" do
           setup do
             @created_account = Account.find_by_name(@account[:name])     

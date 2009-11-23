@@ -1,0 +1,8 @@
+-form_for(brief) do |f|
+  -if brief.published?
+    =f.hidden_field '_call_state', :value => 'complete'
+    =f.submit 'Mark as complete', :class => "action_button"
+  -else
+    =f.hidden_field '_call_state', :value => 'reactivate'
+    =f.submit 'Reactivate', :class => "action_button"
+    

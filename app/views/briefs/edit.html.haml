@@ -35,7 +35,7 @@
             
 
     -if current_object.draft?
-      %p.submit=brief_form.submit 'publish'        
+      %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'    
       %p.submit=brief_form.submit 'save draft'
     -else 
       %p.submit=brief_form.submit 'update'
@@ -50,10 +50,5 @@
   
   
 .col_2
-  .discussion
-    %p.join_discuss
-      -if current_object.published?
-        =link_to 'View Brief', brief_path(current_object), :class => "awesome blue large", :style => "text-transform: uppercase"
-      -else
-        =link_to 'Back to dashboard', briefs_path, :class => "awesome blue large", :style => "text-transform: uppercase"
+  =render :partial => 'change_state', :locals => { :brief => current_object }
         

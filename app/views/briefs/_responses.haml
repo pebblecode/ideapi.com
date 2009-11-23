@@ -23,5 +23,6 @@
         %li 
           %p No ideas have been submitted.
           
-    =link_to 'Draft new idea', new_brief_proposal_path(current_object), :class => 'action'
+    -if current_object.active?
+      =link_to 'Draft new idea', new_brief_proposal_path(current_object), :class => 'action'
     

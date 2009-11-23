@@ -6,15 +6,18 @@
       =brief_item.body_parsed
 
   %ul.actions{:style => "visible: none;"}
-    %li=link_to 'Comment', '', {:class => 'toggle_ask_question'}
-    %li=link_to 'History', '', {:class => 'toggle_brief_item_history'}
+    -if current_object.active?
+      %li=link_to 'Comment', '', {:class => 'toggle_ask_question'}
+    -if brief_item.timeline_events.present?
+      %li=link_to 'History', '', {:class => 'toggle_brief_item_history'}
   
-  .ask_question
-    .question_body
-      =medium_avatar
-      - form_for(@user_question, :url => brief_questions_path(current_object)) do |f|
-        = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item }
-      %span.clear
+  -if current_object.active?
+    .ask_question
+      .question_body
+        =medium_avatar
+        - form_for(@user_question, :url => brief_questions_path(current_object)) do |f|
+          = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item }
+        %span.clear
   
   .clear
   

@@ -1,0 +1,21 @@
+=sub_nav do
+  =breadcrumb_list
+  -if current_user_can_create_briefs?
+    %li{:class => "secondary"}
+      =link_to 'Create brief', new_brief_path
+
+#dashboard.col_1
+      
+  .brief_list
+    %h2 
+      Your completed briefs
+    -if completed_briefs.empty?
+      .brief_item
+        %h3 
+          You have not completed any briefs -
+          =link_to 'create a brief', new_brief_path
+          to get started.
+    -else  
+      =render :partial => 'brief', :collection => completed_briefs
+      
+.col_2.dashboard

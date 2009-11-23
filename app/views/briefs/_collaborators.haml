@@ -22,5 +22,5 @@
               -else
                 Never logged in
     
-    -if owner?(current_object)
+    -if owner?(current_object) && current_object.active?
       =link_to 'Manage users on this brief', collaborators_brief_path(current_object), :class => "action", :rel => "facebox"

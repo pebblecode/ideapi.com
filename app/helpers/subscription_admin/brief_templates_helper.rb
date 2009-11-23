@@ -1,0 +1,2 @@
+module SubscriptionAdmin::BriefTemplatesHelper
+end

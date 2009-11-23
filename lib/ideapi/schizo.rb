@@ -37,7 +37,8 @@ module Ideapi
       def stored_transition_to(state)
         @previous_state = self.state
         transition_to(state)
-        save
+        
+        save if changed_attributes.except("state").empty?
       end
       
       def ensure_default_state
@@ -52,6 +53,10 @@ module Ideapi
       def state
         ensure_default_state
         read_attribute(:state).to_sym
+      end
+      
+      def _call_state=(state)
+        self.send("#{state}!") if self.respond_to?("#{state}!")
       end
             
     end

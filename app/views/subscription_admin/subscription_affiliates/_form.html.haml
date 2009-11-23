@@ -1,0 +1,17 @@
+%p The rate is a percentage, so 0.1 is a 10% affiliate fee.
+
+= form.error_messages
+%fieldset
+  %p 
+    = form.label :name
+    = form.text_field :name
+
+  %p 
+    = form.label :token
+    = form.text_field :token
+
+  %p 
+    = form.label :rate
+    = form.text_field :rate
+
+%p= submit_tag

@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   before_filter :require_user
   
+  before_filter :require_active_brief
+  
   make_resourceful do
     
     belongs_to :brief
@@ -45,6 +47,12 @@ class QuestionsController < ApplicationController
       }
     end
 
+  end
+  
+  private
+  
+  def current_brief
+    parent_object
   end
   
 end

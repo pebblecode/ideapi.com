@@ -13,7 +13,7 @@ CREATE TABLE `account_users` (
   PRIMARY KEY  (`id`),
   KEY `index_account_users_on_user_id` (`user_id`),
   KEY `index_account_users_on_account_id` (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL auto_increment,
@@ -56,7 +56,7 @@ CREATE TABLE `brief_item_versions` (
   KEY `index_brief_item_versions_on_brief_item_id` (`brief_item_id`),
   KEY `index_brief_item_versions_on_brief_id` (`brief_id`),
   KEY `index_brief_item_versions_on_template_question_id` (`template_question_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `brief_items` (
   `id` int(11) NOT NULL auto_increment,
@@ -71,7 +71,7 @@ CREATE TABLE `brief_items` (
   PRIMARY KEY  (`id`),
   KEY `index_brief_items_on_brief_id` (`brief_id`),
   KEY `index_brief_items_on_template_question_id` (`template_question_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -84,12 +84,14 @@ CREATE TABLE `briefs` (
   `approver_id` int(11) default NULL,
   `author_id` int(11) default NULL,
   `account_id` int(11) default NULL,
+  `updated_at` datetime default NULL,
+  `created_at` datetime default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_briefs_on_delta` (`delta`),
   KEY `index_briefs_on_site_id` (`site_id`),
   KEY `index_briefs_on_template_brief_id` (`template_brief_id`),
   KEY `index_briefs_on_approver_id` (`approver_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL auto_increment,
@@ -104,7 +106,7 @@ CREATE TABLE `comments` (
   KEY `index_comments_on_commentable_type` (`commentable_type`),
   KEY `index_comments_on_commentable_id` (`commentable_id`),
   KEY `index_comments_on_user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `password_resets` (
   `id` int(11) NOT NULL auto_increment,
@@ -288,7 +290,7 @@ CREATE TABLE `timeline_events` (
   KEY `index_timeline_events_ssubs` (`secondary_subject_id`,`secondary_subject_type`),
   KEY `index_timeline_events_on_subject_id_and_subject_type` (`subject_id`,`subject_type`),
   KEY `index_timeline_events_on_actor_id_and_actor_type` (`actor_id`,`actor_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=586 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=616 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `user_briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -302,7 +304,7 @@ CREATE TABLE `user_briefs` (
   PRIMARY KEY  (`id`),
   KEY `index_user_briefs_on_brief_id` (`brief_id`),
   KEY `index_user_briefs_on_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
@@ -327,8 +329,9 @@ CREATE TABLE `users` (
   `telephone` varchar(255) collate utf8_unicode_ci default NULL,
   `telephone_ext` varchar(255) collate utf8_unicode_ci default NULL,
   `current_login_at` datetime default NULL,
+  `invited_by_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `watched_briefs` (
   `id` int(11) NOT NULL auto_increment,
@@ -464,3 +467,7 @@ INSERT INTO schema_migrations (version) VALUES ('20091116115958');
 INSERT INTO schema_migrations (version) VALUES ('20091116132517');
 
 INSERT INTO schema_migrations (version) VALUES ('20091116140053');
+
+INSERT INTO schema_migrations (version) VALUES ('20091119142903');
+
+INSERT INTO schema_migrations (version) VALUES ('20091120121202');

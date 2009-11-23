@@ -18,11 +18,7 @@ class User < ActiveRecord::Base
   
   # METHODS FOR BRIEF OWNERSHIP
   has_many :user_briefs
-  has_many :briefs, :through => :user_briefs do
-    def by_account(account)
-      all(:conditions => ["briefs.account_id = ?", account.id])
-    end
-  end
+  has_many :briefs, :through => :user_briefs
   
   delegate :draft, :to => :briefs
   delegate :published, :to => :briefs
@@ -41,5 +37,7 @@ class User < ActiveRecord::Base
 
   delegate :under_review, :to => :responded_briefs
   delegate :complete, :to => :responded_briefs
+  
+  belongs_to :invited_by, :class_name => "User"
   
 end

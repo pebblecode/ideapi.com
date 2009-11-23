@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     
     actions :all
     
+    before :create do
+      current_object.invited_by = current_user
+    end
+    
     after :create do
       unless current_account.users.include?(current_object)
         current_account.users << current_object

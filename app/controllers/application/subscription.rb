@@ -17,10 +17,12 @@ class ApplicationController < ActionController::Base
   private
   
   def account_required
-    begin
-      current_account
-    rescue ActiveRecord::RecordNotFound => e
-      account_not_found
+    unless request.subdomains.present? && Account.excluded_subdomains.include?(request.subdomains.first)
+      begin
+        current_account
+      rescue ActiveRecord::RecordNotFound => e
+        account_not_found
+      end
     end
   end
   

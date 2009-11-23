@@ -3,6 +3,7 @@ class ProposalsController < ApplicationController
   
   # needs login for all actions
   before_filter :require_user
+  before_filter :require_active_brief, :except => [:show]
   
   add_breadcrumb 'dashboard', "/dashboard"
   
@@ -58,6 +59,12 @@ class ProposalsController < ApplicationController
       
     end
     
+  end
+  
+  private
+  
+  def current_brief
+    parent_object
   end
 
 end

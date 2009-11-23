@@ -28,9 +28,13 @@ class Brief < ActiveRecord::Base
   end
 
   state :complete do
+    handle :reactivate! do
+      stored_transition_to(:published)
+    end
+    
     handle :archive! do
       stored_transition_to(:archived)
-    end  
+    end
   end
 
   state :archived
@@ -39,5 +43,13 @@ class Brief < ActiveRecord::Base
   
   # ensure default state is defined in lib
   before_save :ensure_default_state
+    
+  ACTIVE_STATES = %w(draft published)
+  
+  def active?
+    Brief::ACTIVE_STATES.include?(state.to_s)
+  end
+
+  named_scope :active, :conditions => [ 'state IN (?)', Brief::ACTIVE_STATES ]
 
 end

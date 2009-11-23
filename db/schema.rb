@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091116140053) do
+ActiveRecord::Schema.define(:version => 20091120121202) do
 
   create_table "account_users", :force => true do |t|
     t.integer  "user_id"
@@ -82,15 +82,17 @@ ActiveRecord::Schema.define(:version => 20091116140053) do
   add_index "brief_items", ["template_question_id"], :name => "index_brief_items_on_template_question_id"
 
   create_table "briefs", :force => true do |t|
-    t.string  "title"
-    t.string  "state"
-    t.integer "site_id"
-    t.integer "template_brief_id"
-    t.text    "most_important_message"
-    t.boolean "delta"
-    t.integer "approver_id"
-    t.integer "author_id"
-    t.integer "account_id"
+    t.string   "title"
+    t.string   "state"
+    t.integer  "site_id"
+    t.integer  "template_brief_id"
+    t.text     "most_important_message"
+    t.boolean  "delta"
+    t.integer  "approver_id"
+    t.integer  "author_id"
+    t.integer  "account_id"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   add_index "briefs", ["approver_id"], :name => "index_briefs_on_approver_id"
@@ -307,6 +309,7 @@ ActiveRecord::Schema.define(:version => 20091116140053) do
     t.string   "telephone"
     t.string   "telephone_ext"
     t.datetime "current_login_at"
+    t.integer  "invited_by_id"
   end
 
   create_table "watched_briefs", :force => true do |t|

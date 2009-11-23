@@ -24,3 +24,18 @@
       =render :partial => 'brief', :collection => current_objects
       
 .col_2.dashboard
+
+  -if completed_briefs.present?
+    .side_box
+      %h2 
+        Recently Completed
+        %span
+
+      .contents  
+        %ul.completed_briefs
+          -completed_briefs.each do |brief|    
+            %li
+              %p
+                =link_to truncate(brief.title, 10), brief_path(brief)
+              
+        =link_to 'View all completed briefs', completed_briefs_path, :class => "action"

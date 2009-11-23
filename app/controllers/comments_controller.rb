@@ -17,11 +17,21 @@ class CommentsController < ApplicationController
     
   end
   
-  def parent_path
+  def parent_path(path = nil)
     if parent_object.is_a?(Proposal)
       brief_proposal_path(parent_object.brief, parent_object)
     else
       brief_path(parent_object)
+    end
+  end
+  
+  private
+
+  def current_brief
+    if parent_object.is_a?(Proposal)
+      proposal.brief
+    else
+      parent_object
     end
   end
 

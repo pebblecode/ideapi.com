@@ -1,0 +1,41 @@
+= form.error_messages
+
+%fieldset
+  %p 
+  = form.label :name
+  = form.text_field :name
+
+  %p 
+  = form.label :code
+  = form.text_field :code
+
+  %p 
+  = form.label :amount
+  = form.text_field :amount
+
+  %p 
+  = form.label :percent
+  = form.check_box :percent
+
+  %p 
+  = form.label :start_on
+  = form.text_field :start_on
+
+  %p 
+  = form.label :end_on
+  = form.text_field :end_on
+
+  %p 
+  = form.label :apply_to_recurring
+  = form.check_box :apply_to_recurring
+
+  %p 
+  = form.label :apply_to_setup
+  = form.check_box :apply_to_setup
+
+  %p 
+  = form.label :trial_period_extension
+  = form.text_field :trial_period_extension
+
+%p= submit_tag
+

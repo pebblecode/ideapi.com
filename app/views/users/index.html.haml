@@ -14,7 +14,9 @@
         -if admin?
           %th Can create briefs
         %th Briefs
-        %th Remove
+        -if admin?
+          %th Invited by
+          %th Remove
       
       - f.fields_for :account_users do |account_user|
         %tr
@@ -35,8 +37,11 @@
             %td
               = account_user.check_box :can_create_briefs
 
-          %td= account_user.object.user.briefs.by_account(account_user.object).count
-          %td= account_user.check_box :_delete
+          %td= account_user.object.user.briefs.by_account(account_user.object, {}).count
+          -if admin?
+            %td= value_or_symbol(given_name(account_user.object.user.invited_by))
+            
+            %td= account_user.check_box :_delete
     
     =hidden_field_tag :return_to, users_path
         
