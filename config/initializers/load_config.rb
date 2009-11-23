@@ -1,1 +1,1 @@
-AppConfig = YAML.load_file(File.join(RAILS_ROOT, 'config', 'config.yml'))
+AppConfig = YAML.load(ERB.new(File.read("#{RAILS_ROOT}/config/config.yml")).result )

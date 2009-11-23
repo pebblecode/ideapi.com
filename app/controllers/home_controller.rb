@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   layout 'public'
   
   def show
-    if current_account
+    if account_present? && current_account
       redirect_to dashboard_url
     end
   end
@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   # override application/subscription, to allow www etc to display homepage
   # whilst redirecting any other not found domains to error page
   
-  def account_not_found
+  def account_not_found  
     if request.subdomains.blank? || Account.excluded_subdomains.include?(request.subdomains.first)
       render
     else

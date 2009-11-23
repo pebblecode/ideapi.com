@@ -15,9 +15,13 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery # :secret => '779a6e2f0fe7736f0a73da4a7d9f13d4'
   
   private
+
+  def account_present?
+    request.subdomains.present? && !(request.subdomains.present? && Account.excluded_subdomains.include?(request.subdomains.first))
+  end
   
-  def account_required
-    unless request.subdomains.present? && Account.excluded_subdomains.include?(request.subdomains.first)
+  def account_required    
+    if account_present?
       begin
         current_account
       rescue ActiveRecord::RecordNotFound => e
