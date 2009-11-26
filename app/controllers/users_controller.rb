@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   before_filter :account_admin_required, :except => [:signup, :update, :index, :show, :edit, :update]
   
   def current_object
-    @current_object ||= (params[:id].blank?) ? current_user : User.find_by_login(params[:id])
+    @current_object ||= (params[:id].blank?) ? current_user : User.find_by_screename(params[:id])
   end
   
   def current_objects

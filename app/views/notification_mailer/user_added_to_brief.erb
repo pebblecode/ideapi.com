@@ -1,0 +1,8 @@
+Dear <%= @user_brief.user.first_name.capitalize %>,
+
+You’ve been added as a <%= @user_brief.role %> to the brief “<%= @user_brief.brief.title %>” by <%= @user_brief.added_by_user.full_name %>.
+
+<%= brief_url(@user_brief.brief, :host => @user_brief.brief.account.full_domain) %>
+
+Regards,
+ideapi

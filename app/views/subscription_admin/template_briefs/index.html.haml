@@ -1,12 +1,14 @@
 %h1= @page_title = 'Brief Templates'
 
-%table#accounts
+=link_to 'Create Template', new_admin_template_brief_path
+
+%table.spaced
   %tr
     %th
       Name
-  -@templates.each do |template|
+  -current_objects.each do |template|
     %tr
-      %td= link_to(h(template.title), [:admin, template])
+      %td= link_to(h(template.title), edit_admin_template_brief_path(template))
 
   
-= will_paginate(@templates)
+= will_paginate(current_objects)

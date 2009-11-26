@@ -44,6 +44,11 @@ class ActiveSupport::TestCase
   
   # Add more helper methods to be used by all tests here...  
   setup { Sham.reset }
+
+  def should_have_template_brief
+    @template_brief = TemplateBrief.make(:default => true)
+    assert_equal(@template_brief, TemplateBrief.default)    
+  end
 end
 
 Webrat.configure do |config|
@@ -53,7 +58,7 @@ end
 
 module BriefPopulator      
   def populate_template_brief
-    @default_template_brief ||= TemplateBrief.make(:title => "default")
+    @default_template_brief ||= TemplateBrief.make(:title => "default", :default => true)
 
     rand(10).times do
       @default_template_brief.template_questions << TemplateQuestion.make

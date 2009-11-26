@@ -1,0 +1,10 @@
+Dear <%= @proposal.user.first_name.capitalize %>,
+
+Your idea “<%= @proposal.title %>” on the brief “<%= @brief.title %>” has been reviewed by <%= @proposal.approved_by.full_name %>.
+
+It’s status is now <%= @proposal.state.humanize %>
+
+<%= brief_proposal_url(@brief, @proposal, :host => @brief.account.full_domain) %>
+
+Regards,
+ideapi

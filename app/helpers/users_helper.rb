@@ -22,12 +22,12 @@ module UsersHelper
   
   def given_name(user_object)
     if user_object.present?
-      current_user?(user_object) ? "You" : name_or_login(user_object).titleize
+      current_user?(user_object) ? "You" : name_or_screename(user_object).titleize
     end
   end
   
-  def name_or_login(user_object)
-    user_object.full_name.present? ? user_object.full_name : user_object.login
+  def name_or_screename(user_object)
+    user_object.full_name.present? ? user_object.full_name : user_object.screename
   end
   
   def current_user?(user_object)
@@ -35,7 +35,7 @@ module UsersHelper
   end
   
   def salutation
-    (%w(alright hello welcome hey hi).rand << " " << current_user.login).titleize
+    (%w(alright hello welcome hey hi).rand << " " << current_user.screename).titleize
   end
   
   def brief_item_updated_for_user?(brief_item)

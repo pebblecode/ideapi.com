@@ -16,7 +16,7 @@ class UserSignupTest < ActionController::IntegrationTest
     
     context "filling in required attributes" do
       setup do
-        fill_in 'Screename', :with => @user_details[:login]     
+        fill_in 'Screename', :with => @user_details[:screename]     
         fill_in 'Password', :with => @user_details[:password]
         fill_in 'Password confirmation', :with => @user_details[:password]
         
@@ -45,7 +45,7 @@ class UserSignupTest < ActionController::IntegrationTest
       end
 
       should "have errors on login" do
-        assert_select '.field_with_errors input[name=?]', "user[login]"
+        assert_select '.field_with_errors input[name=?]', "user[screename]"
       end
       
       should "still be pending" do

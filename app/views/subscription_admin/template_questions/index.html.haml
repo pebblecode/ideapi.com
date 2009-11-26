@@ -1,0 +1,17 @@
+%h1= @page_title = 'Template Questions'
+
+=link_to 'Create Question', new_admin_template_question_path
+
+
+%table.spaced
+  %tr
+    %th
+      Question
+    %th
+      Help Message
+  -current_objects.each do |question|
+    %tr
+      %td= link_to(h(question.body), edit_admin_template_question_path(question))
+      %td= question.help_message
+  
+= will_paginate(current_objects)

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
     #c.my_config_option = my_value # for available options see documentation in: Authlogic::ActsAsAuthentic
     c.login_field = :email 
+    c.validate_email_field = false
     #c.validate_password_field = false
     c.merge_validates_confirmation_of_password_field_options(:unless => :pending?)
     c.merge_validates_length_of_password_confirmation_field_options(:unless => :pending?)
@@ -38,6 +39,5 @@ class User < ActiveRecord::Base
   delegate :under_review, :to => :responded_briefs
   delegate :complete, :to => :responded_briefs
   
-  belongs_to :invited_by, :class_name => "User"
-  
+  belongs_to :invited_by, :class_name => "User"  
 end

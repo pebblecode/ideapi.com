@@ -8,7 +8,7 @@
   %tbody
     -current_user.pending_friends_by_me.each do |friend|
       %tr
-        %td=link_to friend.login, user_path(friend)
+        %td=link_to friend.screename, user_path(friend)
         %td=friend.email
         %td Pending
         %td n/a

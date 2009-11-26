@@ -8,7 +8,7 @@
   %tbody
     -current_user.friends.each do |friend|
       %tr
-        %td=link_to friend.login, user_path(friend)
+        %td=link_to friend.screename, user_path(friend)
         %td=friend.email
         %td
           =time_ago_in_words(current_user.friendship(friend).accepted_at)

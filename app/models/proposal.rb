@@ -71,6 +71,8 @@ class Proposal < ActiveRecord::Base
   become_schizophrenic
 
   before_save :ensure_default_state
+  after_create :notify_approvers_of_idea_creation
+  after_update :notify_if_state_changed
   
   named_scope :active, :conditions => ["state <> 'draft'"]
   
@@ -97,6 +99,18 @@ class Proposal < ActiveRecord::Base
     def approval_state_names
       approval_states.collect{|state_name,state_object| state_name.to_s }
     end
+  end
+  
+  private
+  
+  def notify_if_state_changed
+    if state_changed? && self.class.approval_state_names.include?(self.state.to_s)
+      NotificationMailer.deliver_user_idea_reviewed_on_brief(self) 
+    end
+  end
+  
+  def notify_approvers_of_idea_creation
+    NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver, self)
   end
   
 end

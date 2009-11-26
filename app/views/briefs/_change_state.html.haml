@@ -2,7 +2,7 @@
   -if brief.published?
     =f.hidden_field '_call_state', :value => 'complete'
     =f.submit 'Mark as complete', :class => "action_button"
-  -else
+  -elsif brief.complete?
     =f.hidden_field '_call_state', :value => 'reactivate'
     =f.submit 'Reactivate', :class => "action_button"
     

@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :subscription_discounts, :as => 'discounts'
       admin.resources :subscription_affiliates, :as => 'affiliates'
       admin.resources :template_briefs
+      admin.resources :template_questions
     end
   end
   

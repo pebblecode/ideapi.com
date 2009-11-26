@@ -23,6 +23,10 @@ module ModelControllerMethods
       flash[:notice] = "The #{cname.humanize.downcase} has been updated."
       redirect_back_or_default redirect_url
     else
+      flash[:error] = "There was a problem updating the #{cname.humanize.downcase}"
+      
+      raise @obj.errors.full_messages.to_yaml
+      
       render :action => 'edit'
     end
   end

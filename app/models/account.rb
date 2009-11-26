@@ -1,5 +1,8 @@
 class Account < ActiveRecord::Base
   
+  has_many :account_template_briefs
+  has_many :template_briefs, :through => :account_template_briefs
+  
   has_many :account_users, :dependent => :destroy
   
   has_many :users, :through => :account_users do    
@@ -14,6 +17,9 @@ class Account < ActiveRecord::Base
   
   accepts_nested_attributes_for :account_users, 
     :allow_destroy => true  
+    
+  accepts_nested_attributes_for :account_template_briefs, 
+    :allow_destroy => true
     
   authenticates_many :user_sessions
   
@@ -40,11 +46,12 @@ class Account < ActiveRecord::Base
   validate_on_create :valid_payment_info?
   validate_on_create :valid_subscription?
   
-  attr_accessible :name, :domain, :user, :plan, :plan_start, :creditcard, :address, :account_users_attributes
+  attr_accessible :name, :domain, :user, :plan, :plan_start, :creditcard, :address, :account_users_attributes, :account_template_briefs_attributes
   attr_accessor :user, :plan, :plan_start, :creditcard, :address, :affiliate
   
   after_create :create_admin
   after_create :send_welcome_email
+  after_create :add_default_brief_template
   
   acts_as_paranoid
   
@@ -157,6 +164,10 @@ class Account < ActiveRecord::Base
     
     def send_welcome_email
       SubscriptionNotifier.deliver_welcome(self)
+    end
+    
+    def add_default_brief_template
+      self.template_briefs << TemplateBrief.default
     end
     
 end

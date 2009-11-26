@@ -1,0 +1,13 @@
+
+= form.error_messages
+
+%fieldset
+  %h3 
+    = form.label :body, "Question"
+    = form.text_area :body, :rows => 3, :cols => 39
+  
+  %p
+    = form.label :help_message
+    = form.text_area :help_message, :rows => 5, :cols => 50
+  
+%p= submit_tag

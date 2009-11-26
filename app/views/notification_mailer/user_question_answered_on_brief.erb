@@ -1,0 +1,8 @@
+Dear <%= @question.user.first_name.capitalize %>,
+
+Your question on the brief “<%= @question.brief.title %>” has been answered by <%= @question.answered_by.full_name %>.
+
+<%= brief_url(@question.brief, :host => @question.brief.account.full_domain) %>
+
+Regards,
+ideapi

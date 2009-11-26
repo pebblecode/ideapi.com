@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     
   # users are found by username
   def to_param
-    self.login || self.id.to_s
+    self.screename || self.id.to_s
   end
   
   # called from proposal_observer

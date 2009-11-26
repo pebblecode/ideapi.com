@@ -1,0 +1,65 @@
+<h1><%= @page_title = 'View Account' %></h1>
+<table id="account">
+  <tr>
+    <th>Name</th>
+    <td><%= h(@account.name) %></td>
+  </tr>
+  <tr>
+    <th>Domain</th>
+    <td><%= @account.full_domain %></td>
+  </tr>
+  <tr>
+    <th>Created</th>
+    <td><%= @account.created_at.to_s(:short_day) %></td>
+  </tr>
+  <tr>
+    <th>Plan</th>
+    <td><%= link_to(@account.subscription.subscription_plan, [:admin, @account.subscription.subscription_plan]) %></td>
+  </tr>
+  <tr>
+    <th>Lifetime Revenue</th>
+    <td><%= link_to(number_to_currency(@account.subscription_payments.sum(:amount)), [:admin, @account.subscription]) %></td>
+  </tr>
+</table>
+
+<h2>Templates</h2>
+
+
+<% form_for [:admin, @account] do |form| %>
+  <%#= render :partial => 'form', :object => form %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Remove</th>
+    </tr>
+    <% form.fields_for :account_template_briefs do |template| -%>
+      <% unless template.object.new_record? -%>
+      <tr>
+        <td><%= template.object.template_brief.title %></td>
+        <td><%= template.check_box '_delete' %></td>
+      </tr>
+      <% end -%>
+    <% end -%>
+  </table>
+  
+  <h3>Add a template</h3>
+  
+  <% if @available_templates.present? -%>
+  
+  <% form.fields_for :account_template_briefs do |template| -%>
+    <% if template.object.new_record? -%>
+      <p>
+        <%= template.label :template_brief_id, 'Choose existing' %>
+        <%= template.select :template_brief_id, @available_templates.map{|t| [t.title, t.id]}, { :include_blank => true } %>
+      </p>
+    <% end -%>
+  <% end -%>
+  
+  <% else -%>
+    <p>No templates left to assign</p>
+  <% end -%>
+    
+  <p><%= submit_tag %></p>
+  
+<% end %>
+

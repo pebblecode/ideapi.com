@@ -14,7 +14,7 @@ class BriefsController < ApplicationController
   # ensure brief is active
   before_filter :require_active_brief, :only => [:edit, :update, :collaborators]
 
-  helper_method :completed_briefs
+  helper_method :completed_briefs, :available_templates
   
   add_breadcrumb 'dashboard', "/dashboard"
   
@@ -51,10 +51,13 @@ class BriefsController < ApplicationController
       @user_question ||= current_object.questions.build(session[:previous_question])
     end
     
+    before(:new, :create) do
+      available_templates
+    end
+    
     before :create do
       current_object.account = current_account
       current_object.author = current_user
-      current_object.template_brief = TemplateBrief.last      
     end
               
     before(:edit, :update) do
@@ -157,6 +160,10 @@ class BriefsController < ApplicationController
   
   def current_brief
     current_object
+  end
+  
+  def available_templates
+    @available_templates ||= current_account.template_briefs
   end
   
 end

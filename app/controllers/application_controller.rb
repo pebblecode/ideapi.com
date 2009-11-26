@@ -10,14 +10,6 @@ class ApplicationController < ActionController::Base
   require_dependency 'application/redirection'  
   require_dependency 'application/authentication'  
   require_dependency 'application/subscription'  
-  require_dependency 'application/brief_security'  
-  
-  helper_method :brief_config
-  
-  private
-    
-    def brief_config
-      @brief_config ||= BriefConfig.current
-    end
+  require_dependency 'application/brief_security'
   
 end

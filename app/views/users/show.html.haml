@@ -3,7 +3,7 @@
 
 .col_1
   
-  %h2=name_or_login(current_object).titleize
+  %h2=name_or_screename(current_object).titleize
   
   .boom_box
 
@@ -12,7 +12,7 @@
 
       %p
         %strong Nickname:
-        =current_object.login
+        =current_object.screename
 
       %p
         %strong Name:

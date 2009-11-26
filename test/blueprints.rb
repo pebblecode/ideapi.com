@@ -5,7 +5,7 @@ Sham.define do
   input_type { %w(text_field text_area select) } 
   
   email { Faker::Internet.email }
-  login { Faker::Internet.user_name.gsub(/\./, '_') }
+  screename { Faker::Internet.user_name.gsub(/\./, '_') }
   password { Faker::Lorem.words.join }
 end
 
@@ -56,7 +56,7 @@ end
 
 Brief.blueprint do
   title
-  template_brief { TemplateBrief.make }
+  template_brief { TemplateBrief.make(:default => true) }
   most_important_message { Sham.body }
   author { User.make }
 end
@@ -72,7 +72,7 @@ BriefItem.blueprint do
 end
 
 User.blueprint do
-  login
+  screename
   first_name { Faker::Name.first_name }
   last_name { Faker::Name.last_name }
   email
@@ -83,7 +83,7 @@ User.blueprint do
 end
 
 User.blueprint(:stubbed) do
-  login { nil }
+  screename { nil }
   password { nil }
   password_confirmation { password }
   state { "pending" }

@@ -1,6 +1,6 @@
 %w(jason alex seb toby fergus).each do |peep|
-  User.seed(:login, :email) do |s|
-    s.login = peep
+  User.seed(:screename, :email) do |s|
+    s.screename = peep
     s.email = "#{peep}@ideapi.com"
     s.password = "password"
     s.password_confirmation = "password"
@@ -61,7 +61,7 @@ if RAILS_ENV == "production"
     User.seed(:login, :email) do |s|
       s.first_name = peep[0]
       s.last_name = peep[1]
-      s.login = peep[2]
+      s.screename = peep[2]
       s.email = "#{peep[2]}@example.com"
       s.password = "password"
       s.password_confirmation = "password"
@@ -69,7 +69,7 @@ if RAILS_ENV == "production"
     end    
   end
   
-  # if alex = User.find_by_login("alex")
+  # if alex = User.find_by_screename("alex")
   #   
   #   if brief = alex.briefs.build(:template_brief => TemplateBrief.find_by_title("Default"))
   #     

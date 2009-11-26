@@ -19,13 +19,6 @@ class Question < ActiveRecord::Base
     author_answer.present?
   end
   
-  attr_reader :recently_answered
-  
-  def author_answer=(answer)
-    @recently_answered = true
-    self['author_answer'] = answer
-  end
-  
   def updated_on
     updated_at.to_date
   end
@@ -47,13 +40,19 @@ class Question < ActiveRecord::Base
   fires :question_answered, :on => :update,
                             :actor => :answered_by,
                             :secondary_subject => :brief_item,
-                            :if => lambda { |question| (question.answered? && question.recently_answered) }, 
+                            :if => lambda { |question| (question.answered? && question.author_answer_changed?) }, 
                             :log_level => 1
+  
+  after_update :notify_if_question_answered
   
   private
   
   def ensure_brief_present
     self.brief = brief_item.brief if brief_item.present? && brief.blank?
+  end
+  
+  def notify_if_question_answered
+    NotificationMailer.deliver_user_question_answered_on_brief(self) if author_answer_changed?
   end
 
 end

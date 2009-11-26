@@ -33,13 +33,20 @@ class Brief < ActiveRecord::Base
   accepts_nested_attributes_for :user_briefs, 
     :allow_destroy => true
   
-  before_update :check_for_author_deletion
+  before_update :check_for_author_deletion, :check_for_last_author_removal
   
   def check_for_author_deletion
     author_guard = self.user_briefs.select {|ub| ub.marked_for_destruction? && ub.user == self.author }
       
     if author_guard.present?
       errors.add(:user_briefs, "You cannot remove the brief author from a brief")
+      return false
+    end
+  end
+  
+  def check_for_last_author_removal
+    if self.user_briefs.authored.count <= 1
+      errors.add(:user_briefs, "You cannot remove the only author from a brief")
       return false
     end
   end

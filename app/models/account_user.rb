@@ -5,6 +5,8 @@ class AccountUser < ActiveRecord::Base
   belongs_to :account
   belongs_to :user
   
+  before_destroy :ensure_enough_users_are_present
+  
   include Ideapi::Schizo
   
   state :pending, :default => true do
@@ -18,6 +20,8 @@ class AccountUser < ActiveRecord::Base
   end
   
   named_scope :admin, :conditions => ["admin = ?", true]
+  
+  named_scope :by_account, lambda { |account| {:conditions => ["account_id = ?", account]} }
   
   state :accepted
   state :cancelled
@@ -35,7 +39,7 @@ class AccountUser < ActiveRecord::Base
   
   #before_create :another_user_allowed?
     
-  #private
+  private
   
   def generate_code
     transform = Time.now.to_s
@@ -52,6 +56,14 @@ class AccountUser < ActiveRecord::Base
       end
     else
       return true
+    end
+  end
+  
+  def ensure_enough_users_are_present
+    if self.class.admin.by_account(self.account).count <= 1 
+      errors.add(:account, "You cannot remove only remaining admin")
+    elsif self.class.by_account(self.account).count <= 1
+       errors.add(:account, "You cannot remove an only remaining account user")
     end
   end
   

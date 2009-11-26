@@ -4,6 +4,7 @@ class AccountSignupTest < ActionController::IntegrationTest
 
   context "" do
     setup do
+      should_have_template_brief
       
       @plans = returning({}) do |plans|
         %w(free basic premium).each do |plan_name|
@@ -29,7 +30,7 @@ class AccountSignupTest < ActionController::IntegrationTest
           fill_in 'Domain', :with => @account[:domain]
           fill_in 'First name', :with => @user[:first_name]
           fill_in 'Last name', :with => @user[:last_name]
-          fill_in 'Screename', :with => @user[:login]
+          fill_in 'Screename', :with => @user[:screename]
           fill_in 'Email', :with => @user[:email]
           fill_in 'Password', :with => @user[:password]
           fill_in 'Password confirmation', :with => @user[:password]
@@ -190,6 +191,83 @@ class AccountSignupTest < ActionController::IntegrationTest
       end
       
     end
+  
+    context "signing up for an account with existing credentials" do
+      setup do
+        visit plans_path
+        
+        @existing_user = User.make(:active)
+        @existing_account = Account.make(:user => @existing_user)
+        
+        @account = Account.plan(:plan => @plans[:free])
+        @user = User.plan
+                  
+        fill_in 'Company', :with => @account[:name]
+        fill_in 'Domain', :with => @account[:domain]
+        fill_in 'First name', :with => @user[:first_name]
+        fill_in 'Last name', :with => @user[:last_name]
+        fill_in 'Email', :with => @user[:email]
+        fill_in 'Screename', :with => @user[:screename]
+        fill_in 'Password', :with => @user[:password]
+        fill_in 'Password confirmation', :with => @user[:password]
+        
+        choose "plan_#{@plans[:free].id}"
+      end
+
+      context "signup up with existing domain" do
+        setup do
+          fill_in 'Domain', :with => @existing_account.domain
+          click_button 'Create my account'
+        end
+                
+        should_not_change("Account count") { Account.count }
+        
+        should "have errors" do
+          assert_contain("Domain is not available")
+        end
+        
+      end
+      
+      context "signup up without screename" do
+        setup do
+          fill_in 'Screename', :with => ""
+          click_button 'Create my account'
+        end
+        
+        should "have the raise error telling user screename is needed" do
+          # https://abutcher.lighthouseapp.com/projects/32755/tickets/46-bug-new-account-validation-error
+          assert_select '.errorExplanation li', 
+            :text => 'Screename must be a single combination of letters (numbers and underscores also allowed)', 
+            :count => 1
+        end
+      end
+      
+      context "signup up with existing user" do
+          
+        context "email" do
+          setup do
+            fill_in 'Email', :with => @existing_user[:email]
+            click_button 'Create my account'
+          end
+          
+          should_not_change("Account count") { Account.count }
+        
+          should "have the correct error message displayed only once" do
+            # https://abutcher.lighthouseapp.com/projects/32755/tickets/46-bug-new-account-validation-error
+            assert_select '.errorExplanation li', :text => 'Email has already been taken', :count => 1
+          end
+          
+          should "not have extra email error message" do
+            # https://abutcher.lighthouseapp.com/projects/32755/tickets/46-bug-new-account-validation-error
+            assert_select '.errorExplanation li', :text => 'Email already taken', :count => 0
+          end
+        end    
+        
+      end
+      
+    end
+    
+  
   end
   
 end

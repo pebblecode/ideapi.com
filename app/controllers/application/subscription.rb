@@ -2,17 +2,12 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  #include AuthenticatedSystem
   include SslRequirement
   include SubscriptionSystem
   
   before_filter :account_required
   
   helper_method :current_user_can_create_briefs?
-    
-  # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
-  # protect_from_forgery # :secret => '779a6e2f0fe7736f0a73da4a7d9f13d4'
   
   private
 

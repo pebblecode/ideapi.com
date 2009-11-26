@@ -104,7 +104,7 @@ class InvitationsTest < ActionController::IntegrationTest
   #       should "have a drop down of friends to add to brief" do          
   #         assert_select 'select#brief_user_briefs_attributes_1_user_id' do
   #           @friends.each do |friend|
-  #             assert_select 'option[value=?]', friend.id, :text => friend.login
+  #             assert_select 'option[value=?]', friend.id, :text => friend.screename
   #           end
   #         end
   #       end
@@ -112,7 +112,7 @@ class InvitationsTest < ActionController::IntegrationTest
   #       context "adding them to the brief" do
   #         setup do
   #           @invited_friend = @friends.first
-  #           select @invited_friend.login, :from => 'brief_user_briefs_attributes_1_user_id'
+  #           select @invited_friend.screename, :from => 'brief_user_briefs_attributes_1_user_id'
   #           click_button 'Add to brief'
   #         end
   #         
@@ -143,7 +143,7 @@ class InvitationsTest < ActionController::IntegrationTest
   # 
   #           should "not have invited friend in the add collaboration dropdown" do
   #             assert_select "select#brief_user_briefs_attributes_2_user_id" do
-  #               assert_select 'option[value=?]', @invited_friend.id, :text => @invited_friend.login, :count => 0
+  #               assert_select 'option[value=?]', @invited_friend.id, :text => @invited_friend.screename, :count => 0
   #             end
   #           end
   #         end
@@ -184,7 +184,7 @@ class InvitationsTest < ActionController::IntegrationTest
   #     context "signing up" do
   #       setup do
   #         @user = User.plan
-  #         fill_in 'user_login', :with => @user[:login]
+  #         fill_in 'user_screename', :with => @user[:screename]
   #         fill_in 'First name', :with => @user[:first_name]
   #         fill_in 'Last name', :with => @user[:last_name]
   #         fill_in 'Email', :with => @user[:email]
@@ -239,7 +239,7 @@ class InvitationsTest < ActionController::IntegrationTest
   #         
   #         @user = User.plan(:password => password)
   #         
-  #         fill_in 'screen name', :with => @user[:login]
+  #         fill_in 'screen name', :with => @user[:screename]
   #         fill_in 'email', :with => @user[:email]
   #         
   #         fill_in 'password', :with => password
@@ -257,7 +257,7 @@ class InvitationsTest < ActionController::IntegrationTest
   #       end
   #       
   #       should "redeem the invite to the new user" do
-  #         user = User.find_by_login(@user[:login])
+  #         user = User.find_by_screename(@user[:screename])
   #         assert_equal(user, @invite.reload.redeemed_by) 
   #       end
   #       

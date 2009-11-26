@@ -69,7 +69,7 @@ class FriendshipRequestTest < ActionController::IntegrationTest
   # 
   # context "responding to a friend request" do
   #   setup do
-  #     @user = User.make(:login => "frank_longe", :password => "testing")
+  #     @user = User.make(:screename => "frank_longe", :password => "testing")
   #     @friend = User.make(:password => "testing")
   #           
   #     @friendship = @user.request_friendship_with(@friend)      
@@ -94,7 +94,7 @@ class FriendshipRequestTest < ActionController::IntegrationTest
   #       
   #       should "have link to friendship request senders profile" do          
   #         assert_select 'a[href=?]', user_path(@user), 
-  #           :text => @user.login.capitalize
+  #           :text => @user.screename.capitalize
   #       end
   #       
   #       context "clicking on accept" do

@@ -23,7 +23,9 @@ class AccountsController < ApplicationController
   
   def create
     @account.affiliate = SubscriptionAffiliate.find_by_token(cookies[:affiliate]) unless cookies[:affiliate].blank?
-
+    
+    @account.user.set_active
+    
     if @account.needs_payment_info?
       @address.first_name = @creditcard.first_name
       @address.last_name = @creditcard.last_name

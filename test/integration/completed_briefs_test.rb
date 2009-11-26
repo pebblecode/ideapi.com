@@ -6,28 +6,59 @@ class CompletedBriefsTest < ActionController::IntegrationTest
   
   context "" do
     setup do
+      should_have_template_brief
+      
       @account, @user = user_with_account    
       
-      @brief = Brief.make(:published, :author => @user, :account => @account)
+      @brief = Brief.make(:author => @user, :account => @account)
       
       login_to_account_as(@account, @user)
-      visit briefs_path
+      
+      visit edit_brief_path(@brief)
     end
     
-    should "be active" do
-      assert @brief.published?
-    end
-    
-    context "setting a brief as completed" do
-      setup do
-        visit edit_brief_path(@brief)
-        click_button 'Mark as complete'
+    context "draft brief" do
+      # https://abutcher.lighthouseapp.com/projects/32755/tickets/41-bug-reactive-button-visible
+      
+      should "not have link to Reactivate" do
+        assert_select 'input[type=submit][value=?]', 'Reactivate', :count => 0
       end
       
-      should_respond_with :success
+    end
+    
+    
+    context "published brief" do
       
-      should "now be complete" do
-        assert @brief.complete?
+      setup do
+        click_button 'publish'
+      end
+      
+      should "be active" do
+        assert @brief.reload.published?
+      end
+      
+      context "setting a brief as completed" do
+        
+        setup do
+          visit edit_brief_path(@brief)
+        end
+        
+        should "have button to mark as complete" do
+          assert_select 'input[type=submit][value=?]', 'Mark as complete', :count => 1
+        end
+        
+        context "clicking mark as complete" do
+          setup do
+            click_button 'Mark as complete'
+          end
+
+          should_respond_with :success
+
+          should "now be complete" do
+            assert @brief.reload.complete?
+          end
+        end
+
       end
       
     end

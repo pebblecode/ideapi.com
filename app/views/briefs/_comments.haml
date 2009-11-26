@@ -10,7 +10,9 @@
           %p.comment_body
             =small_avatar(comment.user)
             %span.speech
-              %strong="#{comment_adjective_for given_name(comment.user), :position => :before}:"
+              %strong
+                = succeed ':' do
+                  =given_name(comment.user)
               =comment.comment
             %span.clear      
       -if current_object.active?

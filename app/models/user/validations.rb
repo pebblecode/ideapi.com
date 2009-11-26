@@ -1,10 +1,8 @@
 class User < ActiveRecord::Base
   
-  validates_uniqueness_of :email, :message => "already taken"
+  validates_uniqueness_of :screename, :if => Proc.new { |u| !u.pending? }
   
-  validates_uniqueness_of :login, :if => Proc.new { |u| !u.pending? }
-  
-  validates_format_of :login, 
+  validates_format_of :screename, 
     :with => /^[\w\d]+$/, 
     :message => "must be a single combination of letters (numbers and underscores also allowed)",
     :if => Proc.new { |u| !u.pending? }
@@ -16,7 +14,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
   
   # protect against mass assignment
-  attr_accessible :login, 
+  attr_accessible :screename, 
     :email, 
     :avatar_file_name, 
     :avatar_content_type, 

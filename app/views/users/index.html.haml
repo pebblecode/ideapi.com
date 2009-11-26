@@ -40,9 +40,12 @@
           %td= account_user.object.user.briefs.by_account(account_user.object, {}).count
           -if admin?
             %td= value_or_symbol(given_name(account_user.object.user.invited_by))
-            
-            %td= account_user.check_box :_delete
-    
+            %td
+              -if !account_user.object.admin? 
+                = account_user.check_box :_delete
+              -else
+                = value_or_symbol(nil)
+              
     =hidden_field_tag :return_to, users_path
         
     %p.submit=f.submit 'Update privileges' 

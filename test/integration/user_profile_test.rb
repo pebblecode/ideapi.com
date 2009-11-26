@@ -20,7 +20,7 @@ class UserProfileTest < ActionController::IntegrationTest
       end
       
       should "show login" do
-        assert_contain(@standard_user.login)
+        assert_contain(@standard_user.screename)
       end
       
     end
@@ -38,7 +38,7 @@ class UserProfileTest < ActionController::IntegrationTest
       end
       
       should "show login" do
-        assert_contain(@standard_user_2.login)
+        assert_contain(@standard_user_2.screename)
       end
       
       context "when friends" do

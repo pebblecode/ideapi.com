@@ -16,7 +16,12 @@
 
     - form_for(:brief, :url => objects_url) do |f|
       = render :partial => "form", :locals => {:f => f}
-
+      
+      %p
+        = f.label :template_brief_id, 'Choose template'
+        = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}, { :include_blank => true }
+      
       %p.submit
         = submit_tag "Create"
         .clear
+        

@@ -9,7 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091120121202) do
+ActiveRecord::Schema.define(:version => 20091126152142) do
+
+  create_table "account_template_briefs", :force => true do |t|
+    t.integer "account_id"
+    t.integer "template_brief_id"
+  end
 
   create_table "account_users", :force => true do |t|
     t.integer  "user_id"
@@ -231,6 +236,7 @@ ActiveRecord::Schema.define(:version => 20091120121202) do
   create_table "template_brief_questions", :force => true do |t|
     t.integer "template_brief_id"
     t.integer "template_question_id"
+    t.integer "position"
   end
 
   add_index "template_brief_questions", ["template_brief_id"], :name => "index_template_brief_questions_on_template_brief_id"
@@ -239,6 +245,7 @@ ActiveRecord::Schema.define(:version => 20091120121202) do
   create_table "template_briefs", :force => true do |t|
     t.string  "title"
     t.integer "site_id"
+    t.boolean "default", :default => false
   end
 
   add_index "template_briefs", ["site_id"], :name => "index_template_briefs_on_site_id"
@@ -277,18 +284,19 @@ ActiveRecord::Schema.define(:version => 20091120121202) do
   create_table "user_briefs", :force => true do |t|
     t.integer  "brief_id"
     t.integer  "user_id"
-    t.boolean  "author",         :default => false
+    t.boolean  "author",           :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "view_count",     :default => 0
+    t.integer  "view_count",       :default => 0
     t.datetime "last_viewed_at"
+    t.integer  "added_by_user_id"
   end
 
   add_index "user_briefs", ["brief_id"], :name => "index_user_briefs_on_brief_id"
   add_index "user_briefs", ["user_id"], :name => "index_user_briefs_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "login"
+    t.string   "screename"
     t.string   "email"
     t.string   "crypted_password"
     t.string   "password_salt"

@@ -1,11 +1,29 @@
 class UserBrief < ActiveRecord::Base
   belongs_to :brief
   belongs_to :user
+  belongs_to :added_by_user, :class_name => "User"
   
   named_scope :authored, :conditions => ['author = true']
   named_scope :collaborating, :conditions => ['author = false']
   
   validates_presence_of :user, :on => :create, :message => "can't be blank"
   validates_presence_of :brief, :on => :create, :message => "can't be blank"
+  
+  after_create :notify_user
+  after_update :notify_if_role_changed
+  
+  def role
+    self.author? ? "author" : "collaborator"
+  end
+  
+  private
+  
+  def notify_user
+    NotificationMailer.deliver_user_added_to_brief(self)
+  end
+  
+  def notify_if_role_changed
+    NotificationMailer.deliver_user_role_changed_on_brief(self) if author_changed?
+  end
   
 end
