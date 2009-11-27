@@ -40,15 +40,15 @@ class ApplicationController < ActionController::Base
   end
   
   def check_for_expired_account
-    if account_present?
-      unless current_account.subscription.current?  
-        if current_account.admin?(current_user)
-          redirect_to account_path
-        else
-          redirect_to '/account_expired' and return
-        end
-      end
-    end
+    # if account_present?
+    #   unless current_account.subscription.current?  
+    #     if current_account.admin?(current_user)
+    #       redirect_to account_path
+    #     else
+    #       redirect_to '/account_expired' and return
+    #     end
+    #   end
+    # end
   end
   
 end
