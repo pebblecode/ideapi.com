@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user_can_create_briefs?
   
+  before_filter :check_for_expired_account
+  
   private
 
   def account_present?
@@ -35,6 +37,10 @@ class ApplicationController < ActionController::Base
   
   def current_user_can_create_briefs?
     current_account.brief_authors.include?(current_user)
+  end
+  
+  def check_for_expired_account
+    redirect_to account_path unless current_account.subscription.current?
   end
   
 end

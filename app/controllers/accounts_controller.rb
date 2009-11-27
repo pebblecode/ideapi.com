@@ -3,6 +3,8 @@ class AccountsController < ApplicationController
     
   skip_before_filter :account_required, :only => [ :new, :create, :plans, :cancelled, :thanks ]
   
+  skip_before_filter :check_for_expired_account
+  
   before_filter :admin_required, :except => [ :new, :create, :plans, :cancelled, :thanks ]
   
   before_filter :build_user, :only => [ :new, :create ]
@@ -43,22 +45,20 @@ class AccountsController < ApplicationController
 
   def billing
     if request.post?
-      if params[:paypal].blank?
-        @address.first_name = @creditcard.first_name
-        @address.last_name = @creditcard.last_name
-        if @creditcard.valid? & @address.valid?
-          if @subscription.store_card(@creditcard, :billing_address => @address.to_activemerchant, :ip => request.remote_ip)
-            flash[:notice] = "Your billing information has been updated."
-            redirect_to :action => "billing"
-          end
-        end
-      else
-        if redirect_url = @subscription.start_paypal(paypal_account_url, billing_account_url)
-          redirect_to redirect_url
+      @address.first_name = @creditcard.first_name
+      @address.last_name = @creditcard.last_name
+      
+      if @creditcard.valid? & @address.valid?
+        if @subscription.store_card(@creditcard, :billing_address => @address.to_activemerchant, :ip => request.remote_ip)
+          flash[:notice] = "Your billing information has been updated."
         end
       end
+            
     end
+    
+    #redirect_to :action => "show"
   end
+
   
   # Handle the redirect return from PayPal
   def paypal

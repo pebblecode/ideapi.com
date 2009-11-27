@@ -22,10 +22,6 @@
 - if @subscription
   .boom_box
     %fieldset
-      %h3
-        = radio_button :paypal, "", "false", :checked => @subscription.paypal?
-        Pay with a credit card
-
       %p 
         = label :creditcard, :first_name, 'Name on card'
         = text_field :creditcard, :first_name, :size => 20
@@ -75,10 +71,4 @@
 
       %p
         = label :address, :phone
-        = text_field :address, :phone      
-
-  .boom_box
-    %fieldset
-      %h3
-        = radio_button :paypal, "", "true", :checked => @subscription.paypal?
-        Pay with PayPal
+        = text_field :address, :phone

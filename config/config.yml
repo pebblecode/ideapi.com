@@ -9,9 +9,11 @@ base_domain: <%= ENV['IDEAPI_BASE_DOMAIN'] || "example.com" %>
 require_payment_info_for_trials: <%= ENV['IDEAPI_TRIAL_PAYMENT_INFO'] || false %>
 
 # Credit card gateway: One of brain_tree, authorize_net_cim, payment_express, or trust_commerce
-gateway: <%= ENV['IDEAPI_TRIAL_PAYMENT_INFO'] || "payment_express" %>
+gateway: <%= ENV['IDEAPI_TRIAL_PAYMENT_INFO'] || "paypal" %>
 
 # Used for accessing the site admin controllers, to manage plans,
 # discounts, etc.  This is prepended to base_domain, so 'admin'
 # here will allow admin.example.com to serve the admin interface.
 admin_subdomain: <%= ENV['IDEAPI_ADMIN_SUBDOMAIN'] || "admin" %>
+
+#AFcWxV21C7fd0v3bYYYRCpSSRl31APbm-.yrl0EagYpq-U7ci4a-MSdr
