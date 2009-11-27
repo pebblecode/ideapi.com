@@ -1,6 +1,6 @@
 class NotificationMailer < ActionMailer::Base
 
-  def user_added_to_brief_as(user_brief, sent_at = Time.now)
+  def user_added_to_brief(user_brief, sent_at = Time.now)
     from        "notifications@#{user_brief.brief.account.full_domain}"
     recipients  user_brief.user.email
     reply_to    "no-reply@#{user_brief.brief.account.full_domain}"
