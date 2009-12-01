@@ -1,4 +1,4 @@
-Dear <%= @question.user.first_name.capitalize %>,
+Dear <%= @question.user.name_parts(:first_name).capitalize %>,
 
 Your question on the brief “<%= @question.brief.title %>” has been answered by <%= @question.answered_by.full_name %>.
 

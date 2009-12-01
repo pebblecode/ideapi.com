@@ -42,11 +42,12 @@ class UsersController < ApplicationController
     if @current_object = current_account.users.pending.find_by_invite_code(params[:invite_code])
       if request.put?
         current_object.attributes = params[:user]
-        if current_object.activate!      
+        current_object.activate!
+        if current_object.save
           if @user_session = attempt_signin(current_object)
             redirect_back_or_default '/'
           end
-        end
+        end  
       end
     else
       not_found

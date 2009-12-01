@@ -5,6 +5,8 @@ class UserDashboardTest < ActionController::IntegrationTest
   
   context "" do
     setup do
+      should_have_template_brief
+      
       @account, @user = user_with_account    
     end
     

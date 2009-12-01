@@ -6,6 +6,8 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
   
   context "author" do
     setup do
+      should_have_template_brief
+      
       populate_template_brief
       
       @account, @author = user_with_account
@@ -26,7 +28,7 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
         assert_equal new_brief_path, path
       end
       
-      context "form layout" do
+      context "filling in the form" do
         setup do
           fill_in 'brief[title]', :with => @brief[:title]
           fill_in 'brief[most_important_message]', :with => @brief[:most_important_message]
@@ -81,13 +83,8 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
           
         end
         
-        
       end
         
-      should "have link back to briefs" do
-        assert_select 'a[href=?]', briefs_path, :text => 'Back to dashboard'
-      end
-      
       context "draft brief document" do
         setup do
           assert_equal(edit_brief_path(@draft), path)
@@ -104,7 +101,6 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
             end
           end
         end
-
         
         should "gather help text from the question template and display to user" do
           message_count = @draft.brief_items.select { |i| !i.help_message.blank?  }.size

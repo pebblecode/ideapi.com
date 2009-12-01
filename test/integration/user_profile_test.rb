@@ -4,6 +4,8 @@ class UserProfileTest < ActionController::IntegrationTest
   
   context "creative or author" do
     setup do
+      should_have_template_brief
+      
       @account, @standard_user = user_with_account    
       login_to_account_as(@account, @standard_user)
     end
@@ -32,27 +34,10 @@ class UserProfileTest < ActionController::IntegrationTest
       end
       
       should_respond_with :success
-    
-      should "show not show email" do
-        assert_not_contain(@standard_user_2.email)
-      end
       
       should "show login" do
         assert_contain(@standard_user_2.screename)
       end
-      
-      context "when friends" do
-        setup do
-          @standard_user.become_friends_with(@standard_user_2)
-          @standard_user.reload
-          reload
-        end
-
-        should "show email" do
-          assert_contain(@standard_user_2.email)
-        end
-      end
-      
       
     end
     

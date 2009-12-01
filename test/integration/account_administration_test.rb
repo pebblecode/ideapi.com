@@ -6,9 +6,10 @@ class AccountAdministrationTest < ActionController::IntegrationTest
   
   context "an an account owner" do
     setup do
+      should_have_template_brief
+      
       @user = User.make(:password => "testing")
       @account = Account.make(:user => @user, :plan => SubscriptionPlan.make(:basic))
-      
       @premium_account = SubscriptionPlan.make(:premium)
        
       login_to_account_as(@account, @user)

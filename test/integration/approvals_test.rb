@@ -6,6 +6,8 @@ class ApprovalsTest < ActionController::IntegrationTest
   
   context "" do
     setup do
+      should_have_template_brief
+      
       @account, @author = user_with_account
       
       @user = @account.users.make(:password => "testing")

@@ -4,6 +4,8 @@ class UserSignupTest < ActionController::IntegrationTest
   
   context "an an account owner" do
     setup do
+      should_have_template_brief
+      
       @account = Account.make(:user => User.make, :plan => SubscriptionPlan.make(:basic, :user_limit => @user_limit))      
       @user_stubbed = User.make(:stubbed)
       @account.users << @user_stubbed
@@ -23,7 +25,7 @@ class UserSignupTest < ActionController::IntegrationTest
         click_button "Complete registration"
       end
 
-      should "redirect to dashboard" do
+      should "redirect to dashboard" do        
         assert_equal(dashboard_path, path)
       end
       
@@ -43,7 +45,7 @@ class UserSignupTest < ActionController::IntegrationTest
                 
         click_button "Complete registration"
       end
-
+    
       should "have errors on login" do
         assert_select '.field_with_errors input[name=?]', "user[screename]"
       end

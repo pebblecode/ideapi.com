@@ -6,7 +6,6 @@ class Brief < ActiveRecord::Base
 
   state :draft, :default => true do
     handle :publish! do
-      ensure_approver_set
       stored_transition_to(:published)
     end  
   end

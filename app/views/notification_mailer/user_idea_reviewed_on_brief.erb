@@ -1,4 +1,4 @@
-Dear <%= @proposal.user.first_name.capitalize %>,
+Dear <%= @proposal.user.name_parts(:first_name).capitalize %>,
 
 Your idea “<%= @proposal.title %>” on the brief “<%= @brief.title %>” has been reviewed by <%= @proposal.approved_by.full_name %>.
 

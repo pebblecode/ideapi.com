@@ -45,7 +45,7 @@ class Brief < ActiveRecord::Base
   end
   
   def check_for_last_author_removal
-    if self.user_briefs.authored.count <= 1
+    if (self.user_briefs.authored.count == 1) && self.user_briefs.authored.any?(&:marked_for_destruction?)
       errors.add(:user_briefs, "You cannot remove the only author from a brief")
       return false
     end
@@ -74,10 +74,6 @@ class Brief < ActiveRecord::Base
   }
 
   private 
-  
-  def ensure_approver_set
-    self.approver_id = self.author if self.approver_id.blank?
-  end
   
   def add_author_to_authors
     user_briefs.create(:user => author, :author => true)

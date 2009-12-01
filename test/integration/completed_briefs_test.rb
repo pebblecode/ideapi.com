@@ -51,14 +51,14 @@ class CompletedBriefsTest < ActionController::IntegrationTest
           setup do
             click_button 'Mark as complete'
           end
-
+      
           should_respond_with :success
-
+      
           should "now be complete" do
             assert @brief.reload.complete?
           end
         end
-
+      
       end
       
     end

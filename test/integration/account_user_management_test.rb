@@ -4,6 +4,8 @@ class AccountUserManagementTest < ActionController::IntegrationTest
   
   context "an an account owner" do
     setup do
+      should_have_template_brief
+      
       @user_limit = 5
       
       @user = User.make(:password => "testing")

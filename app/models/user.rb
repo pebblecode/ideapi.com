@@ -47,7 +47,11 @@ class User < ActiveRecord::Base
   before_save :ensure_default_state
   
   def full_name
-    %w(first_name last_name).map { |m| send(m) }.reject(&:blank?).join(" ")
+    name_parts(:first_name, :last_name)
+  end
+
+  def name_parts(*parts)
+    parts.map { |m| send(m) }.reject(&:blank?).join(" ")
   end
   
   before_create :create_invite_code

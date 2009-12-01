@@ -1,6 +1,6 @@
 Dear <%= @approver.first_name.capitalize %>,
 
-<%= @proposal.user.first_name.capitalize %> has submitted an idea “<%= @proposal.title %>” for your review.
+<%= @proposal.user.name_parts(:first_name).capitalize %> has submitted an idea “<%= @proposal.title %>” for your review.
 
 <%= brief_proposal_url(@proposal.brief, @proposal, :host => @proposal.brief.account.full_domain) %>
 

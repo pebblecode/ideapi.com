@@ -1,4 +1,4 @@
-Dear <%= @user_brief.user.first_name.capitalize %>,
+Dear <%= @user_brief.user.name_parts(:first_name).capitalize %>,
 
 You are now a <%= @user_brief.role %> on the brief “<%= @user_brief.brief.title %>” by <%= @user_brief.added_by_user.full_name %>.
 

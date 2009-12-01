@@ -6,6 +6,8 @@ class ShowBriefTest < ActionController::IntegrationTest
 
   context "" do
     setup do
+      should_have_template_brief
+      
       @account, @author = user_with_account
       @standard_user = User.make(:password => "testing")
       
@@ -83,6 +85,8 @@ class ShowBriefTest < ActionController::IntegrationTest
   context "access control: " do
     
     setup do
+      should_have_template_brief
+      
       @account, @user = user_with_account    
       login_to_account_as(@account, @user)
     end

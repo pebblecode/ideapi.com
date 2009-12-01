@@ -31,3 +31,7 @@ config.gem "faker"
 config.gem "shoulda"
 config.gem "machinist"
 config.gem "webrat"
+
+config.after_initialize do
+  ActiveMerchant::Billing::Base.gateway_mode = :test
+end
