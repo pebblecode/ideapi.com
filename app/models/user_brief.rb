@@ -18,7 +18,9 @@ class UserBrief < ActiveRecord::Base
   private
   
   def notify_user
-    NotificationMailer.deliver_user_added_to_brief(self)
+    unless brief.author?(user)
+      NotificationMailer.deliver_user_added_to_brief(self)
+    end
   end
   
   def notify_if_role_changed

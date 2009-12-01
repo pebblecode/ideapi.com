@@ -1,5 +1,6 @@
 template = TemplateBrief.seed(:title) do |s|
   s.title = "Default"
+  s.default = true
 end
 
 if template
