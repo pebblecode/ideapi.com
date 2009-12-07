@@ -8,11 +8,12 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
-require 'shoulda/tasks'
 
 namespace :test do
   desc 'Measures test coverage'
   task :coverage do
+    require 'shoulda/tasks'
+    
     rm_f "coverage"
     rm_f "coverage.data"
     rcov = "rcov -Itest --rails --aggregate coverage.data -T -x \" rubygems/*,/Library/Ruby/Site/*,gems/*,rcov*\""
