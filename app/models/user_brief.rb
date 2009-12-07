@@ -6,7 +6,7 @@ class UserBrief < ActiveRecord::Base
   named_scope :authored, :conditions => ['author = true']
   named_scope :collaborating, :conditions => ['author = false']
   
-  validates_presence_of :user, :brief 
+  validates_presence_of :user, :brief
   
   after_create :notify_user
   after_update :notify_if_role_changed
@@ -15,10 +15,14 @@ class UserBrief < ActiveRecord::Base
     self.author? ? "author" : "collaborator"
   end
   
+  def brief_author?
+    brief.author?(user)
+  end
+  
   private
   
   def notify_user
-    unless brief.author?(user)
+    unless brief_author?
       NotificationMailer.deliver_user_added_to_brief(self)
     end
   end

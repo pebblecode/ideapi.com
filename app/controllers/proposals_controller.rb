@@ -31,12 +31,6 @@ class ProposalsController < ApplicationController
       params[:proposal][:attachment] = nil if params[:remove_image] == "1" 
     end
     
-    after :create, :update do
-      if params[:commit] == "Submit proposal"
-        current_object.publish!
-      end
-    end
-    
     response_for :show, :show_fails do |format|
       format.html { }
       format.js { render :layout => false }
@@ -55,8 +49,8 @@ class ProposalsController < ApplicationController
           redirect_to object_path
         end
       }
-      format.json { render :json => current_object }
       
+      format.json { render :json => current_object }
     end
     
   end

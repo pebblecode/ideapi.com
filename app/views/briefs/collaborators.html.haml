@@ -43,6 +43,7 @@
             %label{:style => "width: 10em"} Add collaborator
             %p
               =add_collab_form.select "user_id",  @users_available_to_add.map {|u| [given_name(u), u.id] }, { :include_blank => true }
+              =add_collab_form.hidden_field "added_by_user_id", :value => current_user.id
               =add_contact_form.submit 'Add to brief'
           -else
             All your contacts are collaborating on this brief

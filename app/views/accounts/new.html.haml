@@ -56,9 +56,9 @@
     
     %fieldset
       %ul
-        - @plans.each do |plan| 
+        - @plans.each_with_index do |plan, index| 
           %li
-            = radio_button_tag :plan, plan.id
+            = radio_button_tag :plan, plan.id, index.zero?
             = plan
             
               

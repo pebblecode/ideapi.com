@@ -11,7 +11,6 @@
       -if current_user.owns?(current_object) && current_object.draft?
         =link_to 'edit proposal', edit_brief_proposal_path(parent_object, current_object)
         
-        
     .proposal_item
       %p=current_object.long_description
       
@@ -29,6 +28,7 @@
   - if current_user.owns?(current_object) && current_object.draft?
     .hr
     - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
+      =f.hidden_field '_call_state', :value => 'publish'
       %p.submit
         = submit_tag "Submit proposal"
       .clear
