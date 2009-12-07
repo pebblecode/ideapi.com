@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
   config.frameworks -= [ :active_resource ]
 
   # Activate observers that should always be running
-  config.active_record.observers = :proposal_observer
+  # config.active_record.observers = :proposal_observer
 
   # Set Time.zone 
   config.time_zone = 'London'
