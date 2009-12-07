@@ -1,0 +1,37 @@
+h1. Install ruby and rails on snow leopard:
+
+http://hivelogic.com/articles/compiling-ruby-rubygems-and-rails-on-snow-leopard/
+
+h2. Get source from GIT
+
+http://code.google.com/p/git-osx-installer/
+git-1.6.5.2-intel-leopard.dmg
+
+Need a login first - ask Alex.
+
+sudo gem install heroku
+sudo gem install gemcutter && gem tumble
+sudo gem install -v=2.3.4 rails && sudo gem install shoulda thin
+
+git clone git@abutcher.sourcerepo.com:abutcher/ideapi.git && cd ideapi && cp config/database_example.yml config/database.yml && sudo rake gems:install
+
+git submodule -q init && git submodule -q sync && git submodule -q update
+
+rake db:create && rake db:reset
+
+# NOTE YOU WILL NEED TO SETUP SOME EXAMPLE DOMAINS to /etc/hosts
+
+127.0.0.1	example.com
+127.0.0.1	admin.example.com	
+127.0.0.1	www.example.com
+
+# ADD ANY DOMAINS THAT YOU CREATE IN THE APP
+127.0.0.1	frank.example.com
+
+
+# START THE APP
+script/server thin
+
+# OPEN BROWSER TO 
+http://example.com:3000
+
