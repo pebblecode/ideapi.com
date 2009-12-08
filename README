@@ -13,9 +13,7 @@ sudo gem install heroku
 sudo gem install gemcutter && gem tumble
 sudo gem install -v=2.3.4 rails && sudo gem install shoulda thin
 
-git clone git@abutcher.sourcerepo.com:abutcher/ideapi.git && cd ideapi && cp config/database_example.yml config/database.yml && sudo rake gems:install
-
-git submodule -q init && git submodule -q sync && git submodule -q update
+git clone git@heroku.com:ideapi.git -o heroku && cd ideapi && cp config/database_example.yml config/database.yml && sudo rake gems:install
 
 rake db:create && rake db:reset
 
