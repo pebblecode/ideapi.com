@@ -21,10 +21,6 @@ jQuery.extend({
     }
 });
 
-jQuery.fn.triggerFaceboxOnloadEvents = function () {
-  
-}
-
 ////
 // jQuery('element').scrollTo()
 // jQuery('element').scrollTo(speed)
@@ -184,51 +180,11 @@ jQuery.fn.fold_activity_stream = function () {
   });
 }
 
-jQuery.fn.update_collab_list = function (data) {
-  
-  error_messages = []
-  
-  jQuery.each(data.brief.json_errors, function () {
-    error_messages.push("<li><p>" + this + "</p></li>");
-  });
-  
-  jQuery('ul.error_messages').html(error_messages.join("\n")).flashNotice();
-  
-  jQuery('.collaborators tr.user_brief').hide();
-  
-  jQuery.each(data.brief.user_briefs, function () { 
-    user_brief = this;
-        
-    jQuery("#user_brief_"+ this.id).show().each(function () {
-      
-      jQuery(this).find('input[type=checkbox].remove_item').attr('checked', false);
-      
-      jQuery(this).find('.trash').show();
-      
-      jQuery(this).find('.spinner').remove();      
-      
-      if (data.brief.approver_id == user_brief.user_id) {
-        jQuery(this).find('input[type=checkbox].approver').attr('checked', true);
-      }
-      
-      jQuery(this).find('input[type=checkbox].author').attr('checked', user_brief.author);
-    });
-    
-    if (!jQuery("#user_brief_"+ this.id)) {
-      //new_el = jQuery('.collaborators tr.user_brief:last').clone();
-    }
-    
-  });
-  
-  jQuery('form.edit_brief_collaborators input[type=submit]').show();
-  jQuery('form.edit_brief_collaborators input[type=submit]').next('.spinner').remove();
-}
-
 jQuery.fn.delete_item = function (remove_item_class, action) {
   jQuery(this).after('<a href="#" class="trash">Remove</a>');
   
   jQuery(this).next('.trash').click(function () {
-    jQuery(this).prev('input[type=checkbox].remove_item').attr('checked', true);
+    jQuery(this).prev('input:checkbox.remove_item').attr('checked', true);
     
     //disable this action
     jQuery(this).hide().spin();
@@ -239,6 +195,90 @@ jQuery.fn.delete_item = function (remove_item_class, action) {
   });
   
   jQuery(this).hide();
+}
+
+jQuery.hideable_cookie_name = function (id) {
+  return "_note_" + id; 
+}
+
+jQuery.setup_collaboration_widget = function () {
+  jQuery('ul.collaborators').collaboration_widget();
+}
+
+jQuery.fn.collaboration_widget = function () {
+    
+  jQuery(this).after('<div class="disable_screen"></div>');
+  
+  var disable_screen = jQuery(this).next('.disable_screen');
+  
+  disable_screen.spin(true);
+  
+  jQuery(this).siblings('.action').hide();
+  
+  jQuery(this).find('li').collab_control(function (link) {
+    
+    disable_screen.fadeIn();
+    
+    var form = jQuery(this).parents().filter('form');
+    
+    jQuery.put(
+      jQuery(this).parents().filter('form').attr('action') + '.js', 
+      jQuery(this).parents().filter('form').serialize(), 
+      (function (data) {
+        form.replaceWith(data);
+        jQuery.setup_collaboration_widget();
+      }),
+      'js'
+    );
+  });
+  
+  disable_screen.fadeOut();
+  
+}
+
+jQuery.fn.update_collab_link = function () {
+  
+  jQuery(this).parents('ul').find('li input:checkbox, li input:radio').each(function () {        
+    jQuery(this).next('a').toggleClass( "selected", jQuery(this).attr('checked') );
+  });
+
+};
+
+jQuery.fn.collab_control = function (action) {
+
+  jQuery(this).addClass('with_js').find('li span').wrap('<a href="#" class="collab_action"></a>');
+  
+  jQuery(this).find('a.collab_action').click(function () {
+    
+    var change_radio = !jQuery(this).prev('input:radio').attr('checked');
+    
+    var author_protected = true;
+    
+    if (jQuery(this).parents('li:first').hasClass('author')) {
+      author_protected = !(jQuery(this).prev('input:checkbox').attr('checked') && (jQuery(this).parents().find('li.author input:checkbox[checked=true]').length == 1))
+    };
+            
+    if (change_radio && author_protected) {
+      jQuery(this).prev('input:radio, input:checkbox').attr('checked', !jQuery(this).prev('input:radio, input:checkbox').attr('checked'));
+    
+      //disable this action
+      jQuery(this).parents().find('.contents .disable_screen').fadeToggle();
+            
+      jQuery(this).update_collab_link();
+  
+      action.apply(jQuery(this));
+    };
+    
+    return false;
+    
+  }).update_collab_link();
+
+  jQuery('ul.options').hide();
+  
+  jQuery(this).find('p').after('<a href="#" class="options_toggle">options</a>');
+  
+  jQuery(this).find('a.options_toggle').click(function () { jQuery(this).parent().find('ul.options').slideToggle('slow'); return false; });
+
 }
 
 jQuery.fn.document_ready = function() {
@@ -371,54 +411,35 @@ jQuery.fn.document_ready = function() {
       return false;
     }).addClass('js').parent().next('p').hide();
     
-    jQuery('.edit_proposal .remove_item').delete_item('.remove_item', function () { 
-
-        //move the id input inside of the .proposal_asset
-        jQuery(this).parents().filter('.proposal_asset').append(jQuery(this).parents().filter('.proposal_asset').prev('input'));
-
-        var proposal_asset = jQuery(this).parents().filter('.proposal_asset');
-
-        jQuery.put(
-          jQuery(this).parents().filter('form').attr('action'), 
-          jQuery(this).parents().filter('.proposal_asset').wrap('<form class="remove_asset_form"></form>').parents().filter('form.remove_asset_form').serialize(), 
-          function () { proposal_asset.remove() }, 
-          'json'
-        );
-      }
-    );
+    // jQuery('.edit_proposal .remove_item').delete_item('.remove_item', function () { 
+    // 
+    //     //move the id input inside of the .proposal_asset
+    //     jQuery(this).parents().filter('.proposal_asset').append(jQuery(this).parents().filter('.proposal_asset').prev('input'));
+    // 
+    //     var proposal_asset = jQuery(this).parents().filter('.proposal_asset');
+    // 
+    //     jQuery.put(
+    //       jQuery(this).parents().filter('form').attr('action'), 
+    //       jQuery(this).parents().filter('.proposal_asset').wrap('<form class="remove_asset_form"></form>').parents().filter('form.remove_asset_form').serialize(), 
+    //       function () { proposal_asset.remove() }, 
+    //       'json'
+    //     );
+    //   }
+    // );
     
+    jQuery.setup_collaboration_widget();
+      
     jQuery.fn.document_ready_extras();
+    
 }
 
 jQuery.fn.document_ready_extras = function () {
   
-  jQuery('.collaborators .remove_item').delete_item('.remove_item', function () { 
-    jQuery.put(
-      jQuery(this).parents().filter('form').attr('action'), 
-      jQuery(this).parents().filter('form').serialize(), 
-      jQuery.fn.update_collab_list, 
-      'json'
-    )}
-  );
-   
-  jQuery('form.edit_brief_collaborators input[type=submit]').click(function () {
-    //disable this action
-    jQuery(this).hide().spin();
-
-    jQuery.put(
-     jQuery(this).parents().filter('form').attr('action'), 
-     jQuery(this).parents().filter('form').serialize(), 
-     jQuery.fn.update_collab_list, 
-     'json'
-    );
-
-    return false;
-  });
-
   jQuery('.remove_with_js').hide();    
   
 }
 
 jQuery(document).ready(jQuery.fn.document_ready);
+
 
 

@@ -1231,17 +1231,6 @@ textarea
     :font-size 1.2em
     :font-weight bold
     
-table.collaborators
-  :width 30em
-  :margin 1em 0 2em 0em
-  
-  td, th
-    :padding 0.5em 1em
-    :text-align center
-    
-  th.user, td.user
-    :text-align left
-
 a.trash
   :background url(/images/trash.png) no-repeat
   :width 16px
@@ -1277,12 +1266,14 @@ ul.error_messages
           :-webkit-border-top-right-radius 6px
           :-moz-border-radius-topleft 6px
           :-webkit-border-top-left-radius 6px
-          :margin-bottom 0
-            
+          
         .contents
           :border 1px solid #ccc
           :border-top 0
           :background #fefefe
+          :padding 0
+          :margin 0
+          :position relative
           
           h3
             :padding 0.5em 1em 0 1em
@@ -1320,6 +1311,134 @@ ul.error_messages
               :color #0099CC
               :font-weight bold
           
+          ul.collaborators
+            margin: 0
+            padding: 0
+            
+            li
+              :padding 0
+              :margin 0
+              :border-bottom 1px solid #ccc
+              :position relative
+              
+              p
+                :line-height 1em
+                :padding 0
+                :margin 0
+                :padding 0.5em 1em 1em 1em
+                
+              img.avatar
+                :margin-top 0.8em
+                :margin-left 0.9em
+                
+              a.options_toggle
+                :position absolute
+                :right 1em
+                :top 2.5em
+                :font-size 0.8em
+                :color #ccc
+                
+              a.options_toggle:hover
+                :color #333
+              
+              ul.options
+                :padding 0
+                :margin 0
+                :background #e1e1e1 url(/images/collab_option_bg.png) repeat-x
+                :height 50px
+                
+                li
+                  :float left
+                  :top 0
+                  :padding 0
+                  :width 50px
+                  :border 0
+                  :text-transform uppercase
+                  :padding 0.5em 0 0 0
+                  :background transparent
+                  :text-align center
+                  
+                  a
+                    :height 0px
+                    :width 29px
+                    :display block
+                    :margin-left 9px
+                    :padding-top 32px
+                    
+                    span
+                      :color #aaa
+                      :margin-left -2px
+                      
+                  a:hover, a.selected
+                    span
+                      :color #333
+                  
+                li.with_js
+                  :font-size 8px
+                  
+                  input
+                    :display none
+                
+                li.author
+                  a
+                    :background url(/images/collab_options.png) no-repeat
+                    
+                  a:hover, a:focus, a.selected
+                    :background url(/images/collab_options.png) no-repeat 0 -30px
+                  
+                  
+                li.approver
+                  a
+                    :background url(/images/collab_options.png) no-repeat -28px 0
+                  
+                  a:hover, a:focus, a.selected
+                    :background url(/images/collab_options.png) no-repeat -28px -30px
+                      
+                li.remove
+                  :float right
+                  :padding 0.5em 0 0 0
+                  
+                  a
+                    :background url(/images/collab_options.png) no-repeat -58px 0
+                    
+                  a:hover, a:focus, a.selected
+                    :background url(/images/collab_options.png) no-repeat -58px -30px
+              
+            li:last-child
+              :border-bottom 0
+              
+          .disable_screen
+            :background-color #fff
+            :background-color rgba(255,255,255,0.7)
+            :position absolute
+            :top 0
+            :left 0
+            :width 100%
+            :height 100%
+            
+            img.spinner
+              :margin 45% auto
+              
+                    
+          
+          input.action
+            :text-align center
+            :display block
+            :border-top 1px solid #ccc
+            :line-height 1em
+            :padding 0.6em 1em 1em 1em
+            :background #f6f6f6
+            :width 100%
+            :-moz-border-radius-topright 0
+            :-webkit-border-top-right-radius 0
+            :-moz-border-radius-topleft 0
+            :-webkit-border-top-left-radius 0
+            :color = !link_colour
+            :font-weight bold
+            
+          input.action:hover
+            :color = !link_pink
+            
           a.action
             :text-align center
             :display block

@@ -3,24 +3,5 @@
     Brief Collaborators
     %span
   
-  .contents  
-    %ul.collaborators
-      -current_object.users.each do |user|    
-        %li
-          =small_avatar(user)
-          %p
-            =link_to truncate(given_name(user), :lenght => 10), user_path(user)
-            -if current_object.author?(user)
-              %span.author - AUTHOR
-            -elsif current_object.approver?(user)
-              %span.author - APPROVER
-            %br
-            %span
-              -if user.last_request_at.present?            
-                =distance_of_time_in_words_to_now(user.last_request_at)
-                ago
-              -else
-                Never logged in
-    
-    -if owner?(current_object) && current_object.active?
-      =link_to 'Manage users on this brief', collaborators_brief_path(current_object), :class => "action", :rel => "facebox"
+  .contents#collaboration_form  
+    =render :partial => 'collaboration_form'

@@ -13,8 +13,11 @@ class BriefsController < ApplicationController
 
   # ensure brief is active
   before_filter :require_active_brief, :only => [:edit, :update, :collaborators]
+  
+  # load a list of collaborators that could be added to brief
+  before_filter :load_collaborators_available, :only => [:show]
 
-  helper_method :completed_briefs, :available_templates
+  helper_method :completed_briefs, :available_templates, :collaborators_available
   
   add_breadcrumb 'dashboard', "/dashboard"
   
@@ -82,6 +85,7 @@ class BriefsController < ApplicationController
     response_for(:update, :update_fails) do |format|
       format.html { redirect_back_or_default :action => current_object.draft? ? 'edit' : 'show' }
       format.json { render :json => current_object.reload.to_json(:include => :user_briefs, :methods => :json_errors) }
+      format.js { render :partial => 'collaboration_form' }
     end
   
     response_for(:show, :show_fails) do |format|
@@ -117,22 +121,35 @@ class BriefsController < ApplicationController
     end
   end
   
-  def collaborators
-    current_object.user_briefs.build
-    
-    @users_available_to_add = current_account.users - current_object.users
-    
-    respond_to do |format|
-      format.html
-      format.js { render :layout => false }
-    end
-  end
+  # def collaborators
+  #   current_object.user_briefs.build
+  #   
+  #   @users_available_to_add = current_account.users - current_object.users
+  #   
+  #   respond_to do |format|
+  #     format.html
+  #     format.js { render :layout => false }
+  #   end
+  # end
+  
+  # TODO - remove this action, and look at putting a filter param in the routes
+  # so you can still have briefs/completed but it actually calls index
+  # and passes a param .. or even just have briefs?filter=completed meh.
   
   def completed
     completed_briefs({:order => "updated_at DESC"})
   end
   
   private
+  
+  def load_collaborators_available
+    current_object.user_briefs.build
+    collaborators_available
+  end
+  
+  def collaborators_available
+    @collaborators_available ||= current_account.users - current_object.users
+  end
   
   def completed_briefs(options = {})
     @completed_briefs ||= current_user.briefs.complete.by_account(current_account, options)

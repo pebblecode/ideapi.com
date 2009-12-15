@@ -921,15 +921,6 @@ textarea {
   font-size: 1.2em;
   font-weight: bold; }
 
-table.collaborators {
-  width: 30em;
-  margin: 1em 0 2em 0em; }
-  table.collaborators td, table.collaborators th {
-    padding: 0.5em 1em;
-    text-align: center; }
-  table.collaborators th.user, table.collaborators td.user {
-    text-align: left; }
-
 a.trash {
   background: url(/images/trash.png) no-repeat;
   width: 16px;
@@ -956,12 +947,14 @@ ul.error_messages li p {
     -moz-border-radius-topright: 6px;
     -webkit-border-top-right-radius: 6px;
     -moz-border-radius-topleft: 6px;
-    -webkit-border-top-left-radius: 6px;
-    margin-bottom: 0; }
+    -webkit-border-top-left-radius: 6px; }
   #container #content .col_2 .side_box .contents {
     border: 1px solid #ccc;
     border-top: 0;
-    background: #fefefe; }
+    background: #fefefe;
+    padding: 0;
+    margin: 0;
+    position: relative; }
     #container #content .col_2 .side_box .contents h3 {
       padding: 0.5em 1em 0 1em;
       margin: 0;
@@ -989,6 +982,103 @@ ul.error_messages li p {
       #container #content .col_2 .side_box .contents ul span.author {
         color: #0099CC;
         font-weight: bold; }
+    #container #content .col_2 .side_box .contents ul.collaborators {
+      margin: 0;
+      padding: 0; }
+      #container #content .col_2 .side_box .contents ul.collaborators li {
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #ccc;
+        position: relative; }
+        #container #content .col_2 .side_box .contents ul.collaborators li p {
+          line-height: 1em;
+          padding: 0;
+          margin: 0;
+          padding: 0.5em 1em 1em 1em; }
+        #container #content .col_2 .side_box .contents ul.collaborators li img.avatar {
+          margin-top: 0.8em;
+          margin-left: 0.9em; }
+        #container #content .col_2 .side_box .contents ul.collaborators li a.options_toggle {
+          position: absolute;
+          right: 1em;
+          top: 2.5em;
+          font-size: 0.8em;
+          color: #ccc; }
+        #container #content .col_2 .side_box .contents ul.collaborators li a.options_toggle:hover {
+          color: #333; }
+        #container #content .col_2 .side_box .contents ul.collaborators li ul.options {
+          padding: 0;
+          margin: 0;
+          background: #e1e1e1 url(/images/collab_option_bg.png) repeat-x;
+          height: 50px; }
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li {
+            float: left;
+            top: 0;
+            padding: 0;
+            width: 50px;
+            border: 0;
+            text-transform: uppercase;
+            padding: 0.5em 0 0 0;
+            background: transparent;
+            text-align: center; }
+            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li a {
+              height: 0px;
+              width: 29px;
+              display: block;
+              margin-left: 9px;
+              padding-top: 32px; }
+              #container #content .col_2 .side_box .contents ul.collaborators li ul.options li a span {
+                color: #aaa;
+                margin-left: -2px; }
+            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li a:hover span, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li a.selected span {
+              color: #333; }
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.with_js {
+            font-size: 8px; }
+            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.with_js input {
+              display: none; }
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a {
+            background: url(/images/collab_options.png) no-repeat; }
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a.selected {
+            background: url(/images/collab_options.png) no-repeat 0 -30px; }
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a {
+            background: url(/images/collab_options.png) no-repeat -28px 0; }
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a.selected {
+            background: url(/images/collab_options.png) no-repeat -28px -30px; }
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove {
+            float: right;
+            padding: 0.5em 0 0 0; }
+            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a {
+              background: url(/images/collab_options.png) no-repeat -58px 0; }
+            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a.selected {
+              background: url(/images/collab_options.png) no-repeat -58px -30px; }
+      #container #content .col_2 .side_box .contents ul.collaborators li:last-child {
+        border-bottom: 0; }
+    #container #content .col_2 .side_box .contents .disable_screen {
+      background-color: #fff;
+      background-color: rgba(255,255,255,0.7);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+      #container #content .col_2 .side_box .contents .disable_screen img.spinner {
+        margin: 45% auto; }
+    #container #content .col_2 .side_box .contents input.action {
+      text-align: center;
+      display: block;
+      border-top: 1px solid #ccc;
+      line-height: 1em;
+      padding: 0.6em 1em 1em 1em;
+      background: #f6f6f6;
+      width: 100%;
+      -moz-border-radius-topright: 0;
+      -webkit-border-top-right-radius: 0;
+      -moz-border-radius-topleft: 0;
+      -webkit-border-top-left-radius: 0;
+      color: #2b3087;
+      font-weight: bold; }
+    #container #content .col_2 .side_box .contents input.action:hover {
+      color: #ed1a62; }
     #container #content .col_2 .side_box .contents a.action {
       text-align: center;
       display: block;
