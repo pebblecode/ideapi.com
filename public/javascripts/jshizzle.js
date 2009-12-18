@@ -212,7 +212,7 @@ jQuery.setup_collaboration_widget = function () {
 
 jQuery.fn.collaboration_widget = function () {
     
-  //jQuery(this).siblings('.action').hide();
+  jQuery(this).siblings('.action').hide();
   
   jQuery(this).find('li.collaboration_user').each(function () {
     jQuery(this).prepend(jQuery(this).prev('input')[0]);
