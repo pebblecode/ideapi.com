@@ -7,5 +7,5 @@ class Brief < ActiveRecord::Base
     :roles, 
     :states, 
     :validations
-   
+
 end

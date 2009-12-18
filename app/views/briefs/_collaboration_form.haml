@@ -1,37 +1,10 @@
 -if current_object.author?(current_user)
-  - form_for(current_object, :url => brief_path(current_object), :html => { :method => :put }) do |f|    
+  - form_for(current_object, :url => brief_path(current_object), :html => { :method => :put }) do |brief_form|
+    %ul.add_collaborators
+      -current_object.available_collaborators.each do |available_collaborator|
+        =render :partial => 'collaboration_user', :object => available_collaborator
+      
     %ul.collaborators
-      - f.fields_for :user_briefs do |collaboration_form|
-        -unless collaboration_form.object.new_record?
-          -user = collaboration_form.object.user
-          %li
-            =small_avatar(user)
-            %p
-              =link_to truncate(given_name(user), :lenght => 10), user_path(user)
-              -unless collaboration_form.object.role == "collaborator"
-                %span.author 
-                  \- 
-                  =collaboration_form.object.role.upcase  
-              %br
-              %span
-                -if user.last_request_at.present?            
-                  =distance_of_time_in_words_to_now(user.last_request_at)
-                  ago
-                -else
-                  Never logged in
-          
-            %ul.options
-              %li.author
-                =collaboration_form.check_box :author, :class => 'author'
-                %span Author
-              
-              %li.approver
-                =f.radio_button 'approver_id', collaboration_form.object.user_id, :class => 'approver'
-                %span Approver
-              
-              %li.remove
-                =collaboration_form.check_box '_delete'
-                %span Remove
-            .clear
-              
-    =f.submit 'Save Changes', :class => 'action'
+      - brief_form.fields_for :user_briefs do |collaboration_form|            
+        =render :partial => 'collaboration_user', :object => collaboration_form.object.user, :locals => { :brief_form => brief_form, :collaboration_form => collaboration_form }
+    =brief_form.submit 'Save Changes', :class => 'action'

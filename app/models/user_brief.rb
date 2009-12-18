@@ -11,6 +11,8 @@ class UserBrief < ActiveRecord::Base
   after_create :notify_user
   after_update :notify_if_role_changed
   
+  validates_uniqueness_of :user_id, :scope => :brief_id
+  
   def role
     self.author? ? "author" : "collaborator"
   end

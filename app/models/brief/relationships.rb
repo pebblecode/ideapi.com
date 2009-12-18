@@ -1,3 +1,5 @@
+require 'set'
+
 class Brief < ActiveRecord::Base
 
   # RELATIONSHIPS
@@ -53,6 +55,15 @@ class Brief < ActiveRecord::Base
   
   has_many :users, :through => :user_briefs
   delegate :authors, :to => :users
+  
+  # convience methods for finding users to add to a brief
+  def available_collaborators
+    Set[*self.account.users].difference(self.users).to_a
+  end
+
+  def available_collaborators_attributes=(attributes)
+    self.users << User.find(attributes[:user_ids])
+  end
   
   # POINTERS TO SPECIAL USERS
   belongs_to :author, :class_name => 'User'

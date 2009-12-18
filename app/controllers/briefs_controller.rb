@@ -7,17 +7,14 @@ class BriefsController < ApplicationController
   before_filter :require_account_brief_permissions, :only => [:new, :create]
   
   # filters for record owners
-  before_filter :require_owner, :only => [:edit, :update, :destroy, :collaborators]
+  before_filter :require_owner, :only => [:edit, :update, :destroy]
 
   after_filter :record_user_view, :only => [:show]
 
   # ensure brief is active
-  before_filter :require_active_brief, :only => [:edit, :update, :collaborators]
-  
-  # load a list of collaborators that could be added to brief
-  before_filter :load_collaborators_available, :only => [:show]
+  before_filter :require_active_brief, :only => [:edit, :update]
 
-  helper_method :completed_briefs, :available_templates, :collaborators_available
+  helper_method :completed_briefs, :available_templates
   
   add_breadcrumb 'dashboard', "/dashboard"
   
@@ -69,6 +66,8 @@ class BriefsController < ApplicationController
     end
         
     after :update do
+      
+      
       if params[:brief].keys.include?("_call_state")
         flash[:notice] = "Brief has been saved and marked as #{current_object.state}."
       end     
@@ -85,7 +84,14 @@ class BriefsController < ApplicationController
     response_for(:update, :update_fails) do |format|
       format.html { redirect_back_or_default :action => current_object.draft? ? 'edit' : 'show' }
       format.json { render :json => current_object.reload.to_json(:include => :user_briefs, :methods => :json_errors) }
-      format.js { render :partial => 'collaboration_form' }
+      
+      format.js {
+        if (removed = current_object.user_briefs.select(&:marked_for_destruction?).map(&:user)).present?
+          render :partial => 'collaboration_user', :collection => removed
+        else
+          render :nothing => true
+        end
+      }
     end
   
     response_for(:show, :show_fails) do |format|
@@ -121,17 +127,6 @@ class BriefsController < ApplicationController
     end
   end
   
-  # def collaborators
-  #   current_object.user_briefs.build
-  #   
-  #   @users_available_to_add = current_account.users - current_object.users
-  #   
-  #   respond_to do |format|
-  #     format.html
-  #     format.js { render :layout => false }
-  #   end
-  # end
-  
   # TODO - remove this action, and look at putting a filter param in the routes
   # so you can still have briefs/completed but it actually calls index
   # and passes a param .. or even just have briefs?filter=completed meh.
@@ -141,15 +136,6 @@ class BriefsController < ApplicationController
   end
   
   private
-  
-  def load_collaborators_available
-    current_object.user_briefs.build
-    collaborators_available
-  end
-  
-  def collaborators_available
-    @collaborators_available ||= current_account.users - current_object.users
-  end
   
   def completed_briefs(options = {})
     @completed_briefs ||= current_user.briefs.complete.by_account(current_account, options)

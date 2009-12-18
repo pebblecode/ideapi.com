@@ -1311,6 +1311,35 @@ ul.error_messages
               :color #0099CC
               :font-weight bold
           
+          ul.add_collaborators
+            :background #eee
+            :background #e1e1e1 url(/images/collab_option_bg.png) repeat-x
+            :border-bottom 1px solid #ddd
+            
+            li
+              :position relative
+              
+              a.add_collaborator
+                :display block
+                :width 3em
+                :position absolute
+                :top 1em
+                :right 0
+                :padding 0.2em 0.3em
+                :background #ccc
+                :text-align center
+                :-moz-border-radius 3px
+                :-webkit-border-radius 3px
+                :font-size 0.9em
+                :color #444
+                
+                input
+                  :width auto
+          
+              a.add_collaborator:hover
+                :background #bbb
+                :color #333
+          
           ul.collaborators
             margin: 0
             padding: 0

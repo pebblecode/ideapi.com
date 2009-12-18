@@ -1,0 +1,36 @@
+%li.collaboration_user
+  =small_avatar(collaboration_user)
+  %p
+    =link_to truncate(given_name(collaboration_user), :lenght => 10), user_path(collaboration_user)
+    / this should show up the collaborator .. 
+    %span.author 
+      \- 
+      =#user.role.upcase  
+    %br
+    %span
+      -if collaboration_user.last_request_at.present?            
+        =distance_of_time_in_words_to_now(collaboration_user.last_request_at)
+        ago
+      -else
+        Never logged in
+        
+    -unless defined?(collaboration_form)
+      %a.add_collaborator
+        Add
+        = check_box_tag "brief[available_collaborators_attributes][user_ids][]", collaboration_user.id, false
+  
+  -if defined?(collaboration_form)
+    %ul.options
+      %li.author
+        =collaboration_form.check_box :author, :class => 'author'
+        %span Author
+      
+      -if defined?(brief_form)
+        %li.approver
+          =brief_form.radio_button 'approver_id', collaboration_form.object.user_id, :class => 'approver'
+          %span Approver
+
+      %li.remove
+        =collaboration_form.check_box '_delete', :class => 'remove'
+        %span Remove
+    .clear

@@ -1,3 +1,8 @@
+jQuery.ajaxSetup({ 
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+
 function _ajax_request(url, data, callback, type, method) {
     if (jQuery.isFunction(data)) {
         callback = data;
@@ -207,33 +212,21 @@ jQuery.setup_collaboration_widget = function () {
 
 jQuery.fn.collaboration_widget = function () {
     
-  jQuery(this).after('<div class="disable_screen"></div>');
+  //jQuery(this).siblings('.action').hide();
   
-  var disable_screen = jQuery(this).next('.disable_screen');
+  jQuery(this).find('li.collaboration_user').each(function () {
+    jQuery(this).prepend(jQuery(this).prev('input')[0]);
+  }).collab_control();
   
-  disable_screen.spin(true);
-  
-  jQuery(this).siblings('.action').hide();
-  
-  jQuery(this).find('li').collab_control(function (link) {
-    
-    disable_screen.fadeIn();
-    
-    var form = jQuery(this).parents().filter('form');
-    
-    jQuery.put(
-      jQuery(this).parents().filter('form').attr('action') + '.js', 
-      jQuery(this).parents().filter('form').serialize(), 
-      (function (data) {
-        form.replaceWith(data);
-        jQuery.setup_collaboration_widget();
-      }),
-      'js'
-    );
-  });
-  
-  disable_screen.fadeOut();
-  
+  $('.add_collaborators a.add_collaborator').add_collab_link();
+}
+
+jQuery.fn.add_collab_link = function () {
+  jQuery(this).attr('href', '#').click(function () {
+    $(this).find('input').attr('checked', true);
+    $(this).parents().filter('form').submit();
+    return false;
+  }).find('input').hide();
 }
 
 jQuery.fn.update_collab_link = function () {
@@ -241,32 +234,61 @@ jQuery.fn.update_collab_link = function () {
   jQuery(this).parents('ul').find('li input:checkbox, li input:radio').each(function () {        
     jQuery(this).next('a').toggleClass( "selected", jQuery(this).attr('checked') );
   });
+  
+  return jQuery(this);
+  
+};
+
+jQuery.fn.fire_collab_action = function (action_type) {
+  
+  var _link = jQuery(this);
+  
+  _link.hide().spin();
+  
+  jQuery.put(
+    jQuery(this).parents().filter('form').attr('action') + '.js', 
+    jQuery(this).parents().filter('li.collaboration_user').find('input').serialize(), 
+    (function (data) {
+      _link.fadeIn().next('.spinner').remove();
+      
+      console.log(data);
+      
+      if (action_type == "remove") {
+        _link.parents().filter('li.collaboration_user').fadeOut(500,  function () { $(this).remove(); $('ul.add_collaborators').append(data); $('ul.add_collaborators li:last').hide().fadeIn(); $('.add_collaborators li:last a.add_collaborator').add_collab_link(); });
+        
+      };
+    }),
+    'js'
+  );
+  
+  return jQuery(this);
 
 };
 
-jQuery.fn.collab_control = function (action) {
 
-  jQuery(this).addClass('with_js').find('li span').wrap('<a href="#" class="collab_action"></a>');
+jQuery.fn.collab_control = function () {
   
+  var action_type = jQuery(this).find('li').attr('className');
+  
+  jQuery(this).find('li').addClass('with_js').find('span').wrap('<a href="#" class="collab_action"></a>');
+    
   jQuery(this).find('a.collab_action').click(function () {
+      
+    var can_toggle_radio = !jQuery(this).prev('input:radio').attr('checked');
     
-    var change_radio = !jQuery(this).prev('input:radio').attr('checked');
+    var author_is_protected = true;
     
-    var author_protected = true;
-    
-    if (jQuery(this).parents('li:first').hasClass('author')) {
-      author_protected = !(jQuery(this).prev('input:checkbox').attr('checked') && (jQuery(this).parents().find('li.author input:checkbox[checked=true]').length == 1))
+    if (action_type == "author") {
+      author_is_protected = !(jQuery(this).prev('input:checkbox').attr('checked') && (jQuery(this).parents().find('li.author input:checkbox[checked=true]').length == 1))
     };
             
-    if (change_radio && author_protected) {
-      jQuery(this).prev('input:radio, input:checkbox').attr('checked', !jQuery(this).prev('input:radio, input:checkbox').attr('checked'));
-    
-      //disable this action
-      jQuery(this).parents().find('.contents .disable_screen').fadeToggle();
-            
-      jQuery(this).update_collab_link();
-  
-      action.apply(jQuery(this));
+    if (can_toggle_radio && author_is_protected) {
+      jQuery(this).prev('input:radio, input:checkbox').attr('checked', !jQuery(this).prev('input:radio, input:checkbox').attr('checked'));        
+      
+      jQuery(this).update_collab_link().fire_collab_action(
+        $(this).prev('input:radio, input:checkbox').collab_action_type()
+      );
+      
     };
     
     return false;
@@ -274,11 +296,13 @@ jQuery.fn.collab_control = function (action) {
   }).update_collab_link();
 
   jQuery('ul.options').hide();
-  
-  jQuery(this).find('p').after('<a href="#" class="options_toggle">options</a>');
-  
+  jQuery(this).find('p').after('<a href="#" class="options_toggle">options</a>');    
   jQuery(this).find('a.options_toggle').click(function () { jQuery(this).parent().find('ul.options').slideToggle('slow'); return false; });
 
+}
+
+jQuery.fn.collab_action_type = function () {
+  return String($(this).attr('className').match(/author|remove|approver/));
 }
 
 jQuery.fn.document_ready = function() {
@@ -307,7 +331,6 @@ jQuery.fn.document_ready = function() {
       if ((selected_item == undefined) || jQuery(this).parents().filter('.brief_item').attr('id') != selected_item) {
         jQuery(this).hide();
       }
-      
       
     });
         
