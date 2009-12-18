@@ -37,11 +37,16 @@ jQuery.fn.scrollTo = function(speed) {
 
 ////
 // jQuery('element').spin()
-jQuery.fn.spin = function(append) {
+jQuery.fn.spin = function(append, spinner) {
+  
+  if (spinner == undefined) {    
+    spinner = "spinner"
+  };
+  
   if (append)
-    jQuery(this).append('<img src="/images/spinner.gif" class="spinner" />')
+    jQuery(this).append('<img src="/images/'+spinner+'.gif" class="spinner" />')
   else
-    jQuery(this).after('<img src="/images/spinner.gif" class="spinner" />')
+    jQuery(this).after('<img src="/images/'+spinner+'.gif" class="spinner" />')
 }
 
 
@@ -218,13 +223,44 @@ jQuery.fn.collaboration_widget = function () {
     jQuery(this).prepend(jQuery(this).prev('input')[0]);
   }).collab_control();
   
-  $('.add_collaborators a.add_collaborator').add_collab_link();
+  $('.add_collaborators').add_collaborator_widget();
+}
+
+jQuery.fn.add_collaborator_widget = function () { 
+  
+  $(this).hide().before('<a href="#" class="toggle_add_collab">+</a>');  
+  
+  $(this).prev('a.toggle_add_collab').toggle_add_collab_link($(this));
+  
+  //set up add collab links
+  $(this).find('a.add_collaborator').add_collab_link();
+  
+  $(this).update_add_collab_widget();
+}
+
+jQuery.fn.toggle_add_collab_link = function (object_to_toggle) {
+  var on = "+";
+  var off = "-";
+  
+  $(this).click(function () {
+    $(this).text(($(this).text() == on) ? off : on);
+    object_to_toggle.slideToggle('slow');
+  });
+}
+
+jQuery.fn.update_add_collab_widget = function () {
+  if (jQuery(this).find('li').size() == 0) {
+    $(this).prev('a.toggle_add_collab').hide();
+  } else {
+    $(this).prev('a.toggle_add_collab').show();
+  }
 }
 
 jQuery.fn.add_collab_link = function () {
   jQuery(this).attr('href', '#').click(function () {
     $(this).find('input').attr('checked', true);
     $(this).parents().filter('form').submit();
+    $(this).fadeOut();
     return false;
   }).find('input').hide();
 }
@@ -243,7 +279,7 @@ jQuery.fn.fire_collab_action = function (action_type) {
   
   var _link = jQuery(this);
   
-  _link.hide().spin();
+  _link.hide().spin(false, 'spinner_e1');
   
   jQuery.put(
     jQuery(this).parents().filter('form').attr('action') + '.js', 
@@ -254,7 +290,7 @@ jQuery.fn.fire_collab_action = function (action_type) {
       console.log(data);
       
       if (action_type == "remove") {
-        _link.parents().filter('li.collaboration_user').fadeOut(500,  function () { $(this).remove(); $('ul.add_collaborators').append(data); $('ul.add_collaborators li:last').hide().fadeIn(); $('.add_collaborators li:last a.add_collaborator').add_collab_link(); });
+        _link.parents().filter('li.collaboration_user').fadeOut(500,  function () { $(this).remove(); $('ul.add_collaborators').append(data); $('ul.add_collaborators li:last').hide().fadeIn(); $('.add_collaborators li:last a.add_collaborator').add_collab_link(); $('.add_collaborators').update_add_collab_widget(); });
         
       };
     }),
@@ -268,33 +304,38 @@ jQuery.fn.fire_collab_action = function (action_type) {
 
 jQuery.fn.collab_control = function () {
   
-  var action_type = jQuery(this).find('li').attr('className');
-  
   jQuery(this).find('li').addClass('with_js').find('span').wrap('<a href="#" class="collab_action"></a>');
     
   jQuery(this).find('a.collab_action').click(function () {
-      
+    
+    var action_type = $(this).prev('input:radio, input:checkbox').collab_action_type();
+    
     var can_toggle_radio = !jQuery(this).prev('input:radio').attr('checked');
     
     var author_is_protected = true;
     
+    var can_remove = true;
+    
     if (action_type == "author") {
-      author_is_protected = !(jQuery(this).prev('input:checkbox').attr('checked') && (jQuery(this).parents().find('li.author input:checkbox[checked=true]').length == 1))
+      author_is_protected = !(jQuery(this).prev('input:checkbox').attr('checked') && (jQuery(this).parents().find('li.author input:checkbox[checked=true]').length == 1));
     };
+        
+    if (action_type == "remove") {
+      can_remove = !(jQuery(this).parents().filter('ul.options').find('li.author input:checkbox').attr('checked') && (jQuery(this).parents().find('li.author input:checkbox[checked=true]').length == 1));
+    }
             
-    if (can_toggle_radio && author_is_protected) {
+    if (can_toggle_radio && author_is_protected && can_remove) {
       jQuery(this).prev('input:radio, input:checkbox').attr('checked', !jQuery(this).prev('input:radio, input:checkbox').attr('checked'));        
-      
+  
       jQuery(this).update_collab_link().fire_collab_action(
         $(this).prev('input:radio, input:checkbox').collab_action_type()
       );
-      
     };
     
     return false;
     
   }).update_collab_link();
-
+  
   jQuery('ul.options').hide();
   jQuery(this).find('p').after('<a href="#" class="options_toggle">options</a>');    
   jQuery(this).find('a.options_toggle').click(function () { jQuery(this).parent().find('ul.options').slideToggle('slow'); return false; });
