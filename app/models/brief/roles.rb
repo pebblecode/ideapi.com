@@ -4,6 +4,10 @@ class Brief < ActiveRecord::Base
     self.belongs_to?(user) && user_briefs.find_by_user_id(user).author?
   end
   
+  def role?(user)
+    role_for_user?(user)[:label]
+  end
+  
   def role_for_user?(user)
     if author?(user)
       Roles::AUTHOR

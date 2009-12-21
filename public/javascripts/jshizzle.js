@@ -219,7 +219,7 @@ jQuery.fn.collaboration_widget = function () {
     
   jQuery(this).siblings('.action').hide();
   
-  jQuery(this).find('li.collaboration_user').each(function () {
+  jQuery(this).find('li.collaboration_user.is_author').each(function () {
     jQuery(this).prepend(jQuery(this).prev('input')[0]);
   }).collab_control();
   
