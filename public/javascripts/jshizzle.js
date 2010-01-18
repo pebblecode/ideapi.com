@@ -398,7 +398,9 @@ jQuery.fn.document_ready = function() {
     
     jQuery('ul.actions').show();
     
-    jQuery('ul.actions li a').click(function () {
+    jQuery('ul.actions li a').live("click", function(){
+      jQuery(this).parent().siblings().removeClass("selected");
+      jQuery(this).parent("li").toggleClass("selected");
       jQuery(this).parents().filter('.brief_item').find(this.className.replace("toggle_", ".")).toggle();  
       return false;
     });

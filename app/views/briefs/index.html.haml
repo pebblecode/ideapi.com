@@ -9,7 +9,8 @@
   -if flash[:note].present?
     .note
       %h3 Welcome to the dashboard. 
-      %p=flash[:note]
+      
+  %p=flash[':note']
       
   .brief_list
     %h2 

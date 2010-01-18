@@ -1,4 +1,12 @@
-
+/* Mixins */
+/* 1. General
+ *   1.1 Forms
+ *   1.2 Links
+ *   1.3 Type
+ *
+ * 2. Masthead
+ * 3. Content
+ * 4. Footer */
 /* General */
 body {
   font-size: 62.5%;
@@ -10,11 +18,11 @@ body {
  * link-colour   = #2b3087 */
 a {
   text-decoration: none;
-  color: #2b3087;
+  color: #b3d335;
   font-weight: bold; }
 
 a:hover {
-  color: #fcfcfc; }
+  color: #32401a; }
 
 #container {
   width: 94em;
@@ -22,47 +30,69 @@ a:hover {
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc; }
   #container #header {
-    background: #0c033b;
-    border-bottom: 1px solid #505050;
+    -moz-border-radius-topright: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -webkit-border-top-left-radius: 6px;
+    background: #32401a;
     border-top: 1px solid #777;
-    padding: 0.6em 0 0 0;
+    padding: 4em 0 0 0;
     position: relative; }
     #container #header h1 {
       float: left;
+      display: block;
+      height: 82px;
+      width: 190px;
       padding-left: 1em;
       padding-bottom: 0.4em;
       font-size: 1.7em;
       line-height: 1em;
-      font-weight: normal; }
+      font-weight: normal;
+      text-indent: -9999px; }
       #container #header h1 a {
-        color: #eeeeee; }
-      #container #header h1 a:hover {
-        color: #fcfcfc; }
+        height: 92px;
+        width: 190px;
+        display: block;
+        background: url(/images/header/logo.png) top left no-repeat; }
     #container #header ul.navigation {
       padding-top: 1em;
       padding-right: 2em;
       padding-bottom: 0.1em;
       width: 40em;
       position: absolute;
-      top: 6px;
+      bottom: 37px;
       right: 0;
       z-index: 100;
       text-align: right; }
+      #container #header ul.navigation li span {
+        -moz-border-radius-topleft: 3px;
+        -webkit-border-top-left-radius: 3px;
+        -moz-border-radius-topright: 3px;
+        -webkit-border-top-right-radius: 3px; }
       #container #header ul.navigation li a, #container #header ul.navigation li span {
         color: #eeeeee;
-        font-size: 1.4em;
+        font-size: 1.2em;
         font-weight: normal;
         padding: 0.5em 0.8em 0.5em 0.8em; }
       #container #header ul.navigation li a:hover, #container #header ul.navigation li span.current {
-        font-size: 1.4em;
-        background: black;
+        -moz-border-radius-topleft: 3px;
+        -webkit-border-top-left-radius: 3px;
+        -moz-border-radius-topright: 3px;
+        -webkit-border-top-right-radius: 3px;
+        font-size: 1.2em;
+        background: #b3d335;
         color: #fcfcfc; }
       #container #header ul.navigation li a:focus, #container #header ul.navigation li a:active {
+        -moz-border-radius-topleft: 3px;
+        -webkit-border-top-left-radius: 3px;
+        -moz-border-radius-topright: 3px;
+        -webkit-border-top-right-radius: 3px;
         top: 1px;
-        color: #9f003c; }
+        color: #32401a;
+        background: #b3d335; }
     #container #header ul.sub_nav {
-      background: #000;
-      border-top: 2px solid #333;
+      background: #fff;
+      border-top: 2px solid #b3d335;
       padding: 0.5em 2em 0.8em 2em;
       height: 20px;
       position: relative; }
@@ -93,9 +123,9 @@ a:hover {
           #container #header ul.sub_nav .breadcrumbs li span, #container #header ul.sub_nav .breadcrumbs li a {
             font-size: 1.2em;
             font-weight: bold;
-            color: #aaa; }
+            color: #b3d335; }
           #container #header ul.sub_nav .breadcrumbs li span {
-            color: #666; }
+            color: #b3d335; }
       #container #header ul.sub_nav li.watch_form form {
         display: inline; }
         #container #header ul.sub_nav li.watch_form form input {
@@ -122,10 +152,10 @@ a:hover {
     background: #fcfcfc; }
     #container #content a {
       text-decoration: none;
-      color: #2b3087;
+      color: #b3d335;
       font-weight: bold; }
     #container #content a:hover {
-      color: #ed1a62; }
+      color: #32401a; }
     #container #content a.awesome {
       color: white; }
     #container #content p {
@@ -325,8 +355,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
   background: #fffffe;
   margin: 2em 0; }
   #container #content .brief h2, #container #content .proposal h2, #container #content .brief_list h2 {
-    background: #333;
-    color: white;
+    background: #b3d335;
+    color: 32401a;
     font-size: 1.2em;
     padding: 1em 1.8em;
     -moz-border-radius-topright: 6px;
@@ -452,7 +482,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
   right: 1em;
   width: 28px;
   height: 28px;
-  background: url(/images/ico_circle.png) no-repeat;
+  background: url(/images/ico_circle_green.png) no-repeat;
   color: white;
   text-align: center;
   font-size: 1.4em;
@@ -554,14 +584,21 @@ span.field_with_errors input, span.field_with_errors input:focus {
   #container #content .brief_item ul.actions {
     text-align: right; }
     #container #content .brief_item ul.actions li {
-      border: 1px solid #ddd;
+      -moz-border-radius-topleft: 3px;
+      -webkit-border-top-left-radius: 3px;
+      -moz-border-radius-topright: 3px;
+      -webkit-border-top-right-radius: 3px;
       border-bottom: 1px solid #eee;
-      background: #eee;
+      background: #b2d234;
       display: inline;
       padding: 0.2em 1em; }
+      #container #content .brief_item ul.actions li.selected {
+        background: #32401a; }
       #container #content .brief_item ul.actions li span {
         color: #ccc;
         padding-left: 1em; }
+      #container #content .brief_item ul.actions li a {
+        color: #fff; }
   #container #content .brief_item ul.actions.active {
     border-bottom: 1px solid #eee; }
   #container #content .brief_item h3 a.toggle_brief_edit {
@@ -796,15 +833,15 @@ p.cancel {
   float: right; }
 
 input[type=submit] {
-  background: #ccc;
-  color: #333;
+  background: #b3d335;
+  color: #fff;
   cursor: pointer;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   padding: 0.3em 1em 0.5em 1em; }
 
 input[type=submit]:hover {
-  background: #21286c;
+  background: #32401a;
   color: white;
   cursor: pointer; }
 
@@ -897,15 +934,18 @@ textarea {
   background: #f6f6f6; }
   .login a, .app_error a {
     text-decoration: none;
-    color: #2b3087;
+    color: #b3d335;
     font-weight: bold; }
   .login a:hover, .app_error a:hover {
-    color: #2b3087; }
+    color: #32401a; }
   .login h3, .app_error h3 {
-    background: #04194b;
-    border-bottom: 4px solid #505050;
-    border-top: 1px solid #777;
-    color: #ccc;
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    background: #32401a;
+    border-bottom: 4px solid #b3d335;
+    color: #fff;
     padding: 0.2em 1em; }
   .login .login_form, .login .friendship_form, .app_error .login_form, .app_error .friendship_form {
     padding: 1em 1em;
@@ -940,7 +980,7 @@ ul.error_messages li p {
 #container #content .col_2 .side_box {
   margin: 0.5em 0 2em 0; }
   #container #content .col_2 .side_box h2 {
-    background: #666;
+    background: #b3d335;
     color: white;
     font-size: 1.2em;
     padding: 0.5em 1em;
@@ -952,7 +992,7 @@ ul.error_messages li p {
   #container #content .col_2 .side_box .contents {
     border: 1px solid #ccc;
     border-top: 0;
-    background: #fefefe;
+    background: #efefef;
     padding: 0;
     margin: 0;
     position: relative; }
@@ -1117,10 +1157,10 @@ ul.error_messages li p {
       -webkit-border-top-right-radius: 0;
       -moz-border-radius-topleft: 0;
       -webkit-border-top-left-radius: 0;
-      color: #2b3087;
+      color: #b3d335;
       font-weight: bold; }
     #container #content .col_2 .side_box .contents input.action:hover {
-      color: #ed1a62; }
+      color: #32401a; }
     #container #content .col_2 .side_box .contents a.action {
       text-align: center;
       display: block;
@@ -1250,7 +1290,7 @@ ul.error_messages li p {
         .feedback_form .title h2 span a {
           color: #eee; }
         .feedback_form .title h2 span a:hover {
-          color: #ed1a62; }
+          color: #32401a; }
   .feedback_form h3 {
     border-bottom: 1px solid #ccc;
     margin-bottom: 1em; }
