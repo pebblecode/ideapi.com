@@ -5,7 +5,7 @@ class BriefItem < ActiveRecord::Base
   belongs_to :template_question
   
   has_many :questions
-  has_many :timeline_events, :as => :secondary_subject, :order => 'created_at DESC', :group => :subject_id
+  has_many :timeline_events, :as => :secondary_subject, :order => 'created_at ASC', :group => :subject_id
   
   # VALIDATIONS
   validates_presence_of :brief, :template_question
