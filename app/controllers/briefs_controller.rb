@@ -46,7 +46,7 @@ class BriefsController < ApplicationController
     end
     
     before :show do
-      add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path
+      add_breadcrumb truncate(current_object.title, :length => 30), object_path
       @brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
       @user_question ||= current_object.questions.build(session[:previous_question])
     end
@@ -61,7 +61,7 @@ class BriefsController < ApplicationController
     end
               
     before(:edit, :update) do
-      add_breadcrumb truncate(current_object.title.downcase, :length => 30), object_path
+      add_breadcrumb truncate(current_object.title, :length => 30), object_path
       add_breadcrumb 'edit brief', :edit_object_path
     end
         
