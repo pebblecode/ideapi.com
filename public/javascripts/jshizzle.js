@@ -54,6 +54,11 @@ jQuery.fn.fadeToggle = function(speed, easing, callback) {
    return this.animate({opacity: 'toggle'}, speed, easing, callback); 
 };
 
+/*
+*
+* Fades flash notices out after they are shown
+*
+*/
 jQuery.fn.flashNotice = function () {
 	jQuery(this).hide();
 	jQuery(this).fadeIn();

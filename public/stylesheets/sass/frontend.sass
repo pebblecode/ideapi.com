@@ -10,6 +10,10 @@
   :-webkit-border-top-right-radius 6px
   :-moz-border-radius-topleft 6px
   :-webkit-border-top-left-radius 6px
+  
+=rounded-all-6px
+  :-moz-border-radius 6px
+  :-webkit-border-radius 6px
 
 /*
   1. General
@@ -177,13 +181,14 @@ a:hover
         
     p.flash
       :position absolute
-      :top 37px
-      :left 0
+      :top 0
+      :left 60px
       :font-weight bold
       :font-size 1.2em
       :padding 8px 20px
       :height 17px
-      :width 918px
+      :width 800px
+      +rounded-all-6px
       
     p.error
       :background #d81f26
@@ -491,6 +496,7 @@ span.field_with_errors
         :-moz-border-radius-topleft 6px
         :-webkit-border-top-left-radius 6px
         :position relative
+        :text-shadow 0 1px 1px #FFFFFF
         
         a
           :color #666
@@ -1292,14 +1298,14 @@ ul.error_messages
   
         h2
           :background #b3d335
-          :color white
+          :color #32401A
           :font-size 1.2em
           :padding 0.5em 1em
           :-moz-border-radius-topright 6px
           :-webkit-border-top-right-radius 6px
           :-moz-border-radius-topleft 6px
           :-webkit-border-top-left-radius 6px
-          :text-shadow #333 1px 1px 2px
+          :text-shadow 0 1px 1px #FFFFFF
         
         .contents
           :border 1px solid #ccc

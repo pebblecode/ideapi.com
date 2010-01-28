@@ -3,7 +3,7 @@
   -if owner?(current_object)
     -if current_object.active?
       %li.secondary=link_to 'edit brief', edit_brief_path(current_object)
-    %li.secondary=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
+    //%li.secondary=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
   .clear
 
 .col_1
