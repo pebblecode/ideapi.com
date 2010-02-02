@@ -18,9 +18,12 @@
     -if current_objects.empty?
       .brief_item
         %h3 
-          You have no briefs -
-          =link_to 'create a brief', new_brief_path
-          to get started.
+          -if current_user_can_create_briefs?
+            You have no briefs -
+            =link_to 'create a brief', new_brief_path
+            to get started.
+          -else
+            You have no briefs. Contact your account owner if you need the ability to create briefs
     -else  
       =render :partial => 'brief', :collection => current_objects
       
