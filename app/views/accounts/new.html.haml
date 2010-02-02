@@ -3,7 +3,7 @@
   %h2 Create an account
 
   -form_tag :action => 'create' do
-    = hidden_field_tag 'plan', params[:plan]
+    = hidden_field_tag 'plan', params[:plan] || @freeplan.id
     %p Enter the name of your business and the subdomain you'd like to use for your site.
 
     -if @account.errors.any?

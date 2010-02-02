@@ -189,6 +189,7 @@ class AccountsController < ApplicationController
     
     def load_plans
       @plans = SubscriptionPlan.find(:all, :order => 'amount desc').collect {|p| p.discount = @discount; p }
+      @freeplan = SubscriptionPlan.find(:first, :conditions => "name = 'Free'")
     end
     
     

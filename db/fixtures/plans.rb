@@ -1,4 +1,5 @@
 plans = [
+  { 'name' => 'Free', 'amount' => 0, 'user_limit' => 5 },
   { 'name' => 'Basic', 'amount' => 10, 'user_limit' => 5 },
   { 'name' => 'Premium', 'amount' => 30, 'user_limit' => nil }
 ].collect do |plan|
