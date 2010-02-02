@@ -7,14 +7,13 @@ h2. Get source from GIT
 http://code.google.com/p/git-osx-installer/
 git-1.6.5.2-intel-leopard.dmg
 
-Need a login first - ask Alex.
+Need a login to source repository first - ask Alex.
 
 sudo gem install heroku
 sudo gem install gemcutter && gem tumble
 sudo gem install -v=2.3.4 rails && sudo gem install shoulda thin
 
-git clone git@heroku.com:ideapi.git -o heroku && cd ideapi && cp config/database_example.yml config/database.yml && sudo rake gems:install
-
+git clone git@abutcher.sourcerepo.com:abutcher/ideapi.git && cd ideapi && cp config/database_example.yml config/database.yml && sudo rake gems:install
 rake db:create && rake db:reset
 
 # NOTE YOU WILL NEED TO SETUP SOME EXAMPLE DOMAINS to /etc/hosts
