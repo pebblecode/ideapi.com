@@ -5,6 +5,8 @@ class HomeController < ApplicationController
   def show
     if account_present? && current_account
       redirect_to dashboard_url
+    else
+      redirect_to "/home.html"      
     end
   end
   
@@ -15,7 +17,8 @@ class HomeController < ApplicationController
   
   def account_not_found  
     if request.subdomains.blank? || Account.excluded_subdomains.include?(request.subdomains.first)
-      render
+      redirect_to "/home.html"
+      # render
     else
       redirect_to "/account_not_found" and return
     end
