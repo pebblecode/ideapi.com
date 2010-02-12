@@ -30,3 +30,5 @@ config.gem "faker"
 config.gem "shoulda"
 config.gem "machinist"
 config.gem "webrat"
+
+config.action_mailer.delivery_method = :test

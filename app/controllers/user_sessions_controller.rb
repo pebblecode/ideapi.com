@@ -1,19 +1,28 @@
 class UserSessionsController < ApplicationController
+  
+  # make sure user is logged out for certain views
   before_filter :require_no_user, :only => [:new, :create]
+  
+  # make sure user is logged in for certain views
   before_filter :require_user, :only => [:destroy, :delete]
-  skip_before_filter :check_for_expired_account
-
-  layout 'login'
 
   def new
     @user_session = current_account.user_sessions.new
   end
 
+
+  
   def create
-    if @user_session = attempt_signin(params[:user_session])
-      redirect_back_or_default '/'
+    @user_session = UserSession.new(params[:user_session])
+    if @user_session.save
+      flash[:notice] = "You are now logged in."
+      if session[:return_to]
+        redirect_to session[:return_to]
+      else
+        redirect_to users_url
+      end
     else
-      render :action => :new
+      render :action => 'new'
     end
   end
 
