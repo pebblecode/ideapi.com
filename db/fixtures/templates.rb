@@ -48,9 +48,9 @@ if template
 
   if section = TemplateSection.find_by_title("Task")
     questions = [
-      ["Mandatories", "What must responses to this brief include? e.g. Pack shots; Voucher codes. Are there are specific brand guidelines?", false],
+      ["Mandatories", "e.g. Pack shots, logos, brand guidelines.", false],
       ["Target Audience", "Who do you want to reach? Paint a picture of the target?", true],
-      ["Media", "Press? TV? Cinema? Digital? Radio? Outdoor? Ambient? Experiential? Hot air balloons?", true]
+      ["Media", "Diital? Traditional? Ambient? Are the specifications known?", true]
     ]
 
     questions.each do |question|
@@ -65,7 +65,7 @@ if template
   
   if section = TemplateSection.find_by_title("Other")
     questions = [
-      ["Other Essential Information", "Add anything that you think will help creatives get to grips with the task.", true]
+      ["Other Essential Information", "The kitchen sink.", true]
     ]
 
     questions.each do |question|

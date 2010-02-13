@@ -4,12 +4,10 @@
 
 .col_1
   
-  %h2 Create new brief
+  %h2 Create a new brief
   
   #write_new_brief.note
-    %h3 Creating a brief
-    %p Choose a title to concisely refer to your brief – this is how your brief will be listed in ideapi. 
-    %p The &lsquo;One Line Brief&rsquo; should summarise your brief to a single communications requirement.
+    %p Choose your title carefully - this is how your brief will appear on the dashboards of other users.
   
   .boom_box
     = error_messages_for :brief
@@ -17,9 +15,10 @@
     - form_for(:brief, :url => objects_url) do |f|
       = render :partial => "form", :locals => {:f => f}
       
-      %p
-        = f.label :template_brief_id, 'Choose template'
-        = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
+      -# Hidden the drop down to choose template - multiple templates will not likely be supported in BETA
+      -# %p
+      -#   = f.label :template_brief_id, 'Choose template'
+      -#   = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
       
       %p.submit
         = submit_tag "Create"

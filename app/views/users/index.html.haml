@@ -47,10 +47,11 @@
                 = value_or_symbol(nil)
               
     =hidden_field_tag :return_to, users_path
-        
-    %p.submit=f.submit 'Update privileges' 
-    .clear
     
-  -if admin?
-    .hr
-    =render :partial => 'invite'
+        
+    -if admin?
+      %p.submit=f.submit 'Update privileges' 
+      .clear
+    
+      .hr
+      =render :partial => 'invite'

@@ -62,11 +62,16 @@
 .col_2
   - if !current_object.draft? and parent_object.approver?(current_user)
     .side_box
-      %h2 Approve ideas
+      %h2 Status of idea
       .contents          
         .update_proposal
           - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
-            %span mark brief as
+            %span This idea is currently marked as 
+            =parent_object.state
+            .clear
+            .clear
+            
+            %span Update idea status to: 
             =f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
             =f.submit "update"  
   

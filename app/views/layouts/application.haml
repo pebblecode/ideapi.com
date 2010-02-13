@@ -25,8 +25,8 @@
             %li=link_unless_current 'dashboard', '/dashboard'
             %li=link_unless_current 'profile', profile_path
             %li=link_unless_current 'contacts', users_path
-            -if admin?
-              %li=link_unless_current 'account', account_path
+            -#-if admin?
+            -#  %li=link_unless_current 'account', account_path
             %li=link_to 'logout', delete_user_session_path
         .clear
         %ul.sub_nav

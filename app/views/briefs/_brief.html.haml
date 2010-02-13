@@ -15,7 +15,7 @@
           .date=time_ago_in_words_with_word(activity.created_at)
           %span=stream_item(activity)
         
-    =link_to brief.timeline_events(:include_brief_items => true).count, "#", :class => "toggle_activity_stream"
+    =link_to brief.timeline_events(:include_brief_items => true).length, "#", :class => "toggle_activity_stream"
     
   -else
     =render :partial => 'change_state', :locals => { :brief => brief }

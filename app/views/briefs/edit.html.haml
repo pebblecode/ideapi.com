@@ -7,8 +7,8 @@
   -if current_object.draft?
     #edit_brief_writing.note
       %h3 Writing a brief
-      %p The body of your brief can contain any of the sections listed below. To add a section to your brief, simply click the plus button. You can include as many of the sections as you wish. The more care you take with the information you enter, the easier it will be for colleagues to provide useful feedback.
-  
+      %p The more sections of the brief that are completed, the easier it will be for other users to collaborate.  You can come back to this screen at any time to edit your brief.
+        
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
   
     %div[current_object]
