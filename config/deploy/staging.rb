@@ -1,4 +1,4 @@
-server "192.168.3.4", :app, :web, :db, :primary => true
-set :user, "developer"
-set(:deploy_to) { "/Users/#{user}/Sites/#{application}" }
+server "192.168.3.5", :app, :web, :db, :primary => true
+set :user, "ideapi"
+set(:deploy_to) { "/var/www/vhosts/ideapi.com/httpdocs" }
 set :branch, "master"
