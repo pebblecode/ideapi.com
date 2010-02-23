@@ -1,13 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-
-  # map.resources :invitations, 
-  #   :collection => { 
-  #     :request_invitations => :get, 
-  #     :request_invitation_for_email => :post }, 
-  #   :member => { 
-  #     :resend => :get, 
-  #     :cancel => :get 
-  #   }
   
   map.resources :briefs, 
     :collection => { :browse => :get, :completed => :get }, 
@@ -17,9 +8,7 @@ ActionController::Routing::Routes.draw do |map|
     end
   
   map.resources :comments
-    
-  #map.resources :friendships
-  
+      
   map.resource :user_session, :member => { :delete => :get }
   map.resource :profile, :controller => "users"
 
@@ -45,7 +34,6 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect '/signup/d/:discount', :controller => 'accounts', :action => 'plans'
   
   map.plans '/signup', :controller => 'accounts', :action => 'new'
-  
   map.thanks '/signup/thanks', :controller => 'accounts', :action => 'thanks'
   map.create '/signup/create/:discount', :controller => 'accounts', :action => 'create', :discount => nil
   
@@ -60,12 +48,17 @@ ActionController::Routing::Routes.draw do |map|
       :cancel => :any, 
       :cancelled => :get
     }
-  
+
   map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
-  
   map.dashboard 'dashboard', :controller => "briefs", :action => "index"
+  map.root :controller => "pages", :action => "home"
+    
+  # static pages
   
-  map.resource :home, :controller => "home", :only => [:show]
-  map.root :controller => "home", :action => "show"
+  map.home '/', :controller => "pages", :action => "home"
+  map.pricing '/pricing', :controller => 'pages', :action => 'pricing'
+  map.tour '/tour', :controller => 'pages', :action => 'tour'
+  map.terms '/terms', :controller => 'pages', :action => 'terms'
+  map.privacy '/privacy', :controller => 'pages', :action => 'privacy'
   
 end

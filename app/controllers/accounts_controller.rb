@@ -20,7 +20,7 @@ class AccountsController < ApplicationController
   
 
   def new
-    render :layout => 'public'
+    render :layout => 'signup'
   end
   
   def create

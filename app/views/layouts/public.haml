@@ -2,38 +2,48 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml" }
   %head
     %title
-      ideapi
-    %script{ :type => "text/javascript" }  
-    %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=EmulateIE7"}
-
-    =stylesheet_link_tag %w(reset frontend facebox jquery.wysiwyg)
-    =javascript_include_tag %w(jquery jqcorners facebox jquery.cookie jquery.wysiwyg jshizzle)
-
-    /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
-    /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
-    
-    =stylesheet_link_tag %w(reset print), :media => "print"
-    
+      ideapi Pricing
+    %script{ :type => "text/javascript" }
+    %meta{ :content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible" }
+    %link{ :href => "/stylesheets/marketing.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
   %body
     #container
-      #header
-        %h1
-          =link_to "ideapi", "/"
-        %ul.navigation        
-          %li=link_unless_current 'Signup', plans_path
-        .clear
-        %ul.sub_nav
-          =yield :sub_nav
-          
-        - if (flash[:error])
-          %p.flash.error=flash[:error]
-        - elsif (flash[:notice])
-          %p.flash.notice=flash[:notice]
-          
-      #content
-        =yield :title_holder
-        =yield :side_bar
-        .main
+      #banner
+        #header
+          #logo
+            %a{:href => home_path, :alt => "home"}
+              %img{ :src => "/images/ideapi_logo.png", :alt => "ideapi Logo" }
+          #navigation
+            %a{ :href => home_path }
+              Overview
+            \.
+            %a{ :href => tour_path }
+              Tour
+            \.
+            %a{ :href => pricing_path }
+              Pricing
+            \.
+            %a{ :href => plans_path }
+              Signup
+      #middle-section
+        #content
           =yield
-          .clear
-      .clear
+          .spacer
+            \&nbsp;
+      #footer
+        #footer-content
+          #footer-content-left
+            %p
+              \&copy; 2010 Ideapi Limited |
+              %a{ :href => terms_path, :alt => "Terms of Service" }
+                Terms of Service
+              |
+              %a{ :href => privacy_path, :alt => "Privacy Policy" }
+                Privacy Policy
+          #footer-content-right
+            %p
+              %a{ :href => "http://twitter.com/ideapi", :alt => "Follow us on Twitter" }
+                @ideapi on Twitter
+              |
+              %a{ :href => "mailto:info[at", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }
+                info [at] ideapi.com

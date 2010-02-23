@@ -1,13 +1,25 @@
-class HomeController < ApplicationController
+class PagesController < ApplicationController
 
   layout 'public'
   
-  def show
-    if account_present? && current_account
-      redirect_to dashboard_url
-    else
-      redirect_to "/home.html"      
-    end
+  def home
+    
+  end
+  
+  def pricing
+    
+  end
+  
+  def tour
+    
+  end
+  
+  def terms
+    
+  end
+  
+  def privacy
+    
   end
   
   private
@@ -17,8 +29,7 @@ class HomeController < ApplicationController
   
   def account_not_found  
     if request.subdomains.blank? || Account.excluded_subdomains.include?(request.subdomains.first)
-      redirect_to "/home.html"
-      # render
+      render
     else
       redirect_to "/account_not_found" and return
     end
