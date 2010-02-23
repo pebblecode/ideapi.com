@@ -3,7 +3,9 @@ class PagesController < ApplicationController
   layout 'public'
   
   def home
-    
+    if account_present? && current_account
+      redirect_to dashboard_url
+    end    
   end
   
   def pricing
