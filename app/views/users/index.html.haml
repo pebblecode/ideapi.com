@@ -37,7 +37,7 @@
             %td
               = account_user.check_box :can_create_briefs
 
-          %td= account_user.object.user.briefs.by_account(account_user.object, {}).count
+          %td= account_user.object.user.briefs(current_account).count
           -if admin?
             %td= value_or_symbol(given_name(account_user.object.user.invited_by))
             %td
@@ -53,5 +53,5 @@
       %p.submit=f.submit 'Update privileges' 
       .clear
     
-      .hr
-      =render :partial => 'invite'
+  .hr
+  =render :partial => 'invite'
