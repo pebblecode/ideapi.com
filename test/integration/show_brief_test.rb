@@ -35,7 +35,7 @@ class ShowBriefTest < ActionController::IntegrationTest
         end
         
         should "have delete link" do
-          assert_contain('delete brief')
+          assert_select 'input#brief_submit', :value => "delete brief", :count => 1
         end
       end
       

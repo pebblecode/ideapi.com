@@ -35,7 +35,8 @@ class AccountSignupTest < ActionController::IntegrationTest
           fill_in 'Password', :with => @user[:password]
           fill_in 'Password confirmation', :with => @user[:password]
           
-          choose "plan_#{@plans[:free].id}"
+          # At the moment we don't have plans shown .. uncomment this when we do
+          # choose "plan_#{@plans[:free].id}"
           
           click_button 'Create my account'
         end
@@ -115,19 +116,20 @@ class AccountSignupTest < ActionController::IntegrationTest
           assert_equal(dashboard_path, path)
         end
         
-        should "have an account link" do
-          assert_select 'a[href=?]', account_path, :text => 'account', :count => 1
+        # On the beta, we are not showing account link ..
+        should "have not have an account link" do
+          assert_select 'a[href=?]', account_path, :text => 'account', :count => 0
         end
         
-        context "attempting to access account page" do
-          setup do
-            visit account_path
-          end
-
-          should "take user to account management" do
-            assert_equal(account_path, path)
-          end
-        end
+        # context "attempting to access account page" do
+        #   setup do
+        #     visit account_path
+        #   end
+        # 
+        #   should "take user to account management" do
+        #     assert_equal(account_path, path)
+        #   end
+        # end
       end
       
       context "as an account user" do
@@ -210,8 +212,9 @@ class AccountSignupTest < ActionController::IntegrationTest
         fill_in 'Screename', :with => @user[:screename]
         fill_in 'Password', :with => @user[:password]
         fill_in 'Password confirmation', :with => @user[:password]
-        
-        choose "plan_#{@plans[:free].id}"
+
+        # At the moment we don't have plans shown .. uncomment this when we do
+        # choose "plan_#{@plans[:free].id}"
       end
 
       context "signup up with existing domain" do

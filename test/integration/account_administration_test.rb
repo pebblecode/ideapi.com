@@ -15,8 +15,13 @@ class AccountAdministrationTest < ActionController::IntegrationTest
       login_to_account_as(@account, @user)
     end
 
-    should "have link to account" do
-      assert_select 'a[href=?]', account_path, :text => 'account'
+    # should "have link to account" do
+    #   assert_select 'a[href=?]', account_path, :text => 'account'
+    # end
+    
+    # On the beta, we are not showing account link ..
+    should "have not have an account link" do
+      assert_select 'a[href=?]', account_path, :text => 'account', :count => 0
     end
     
     context "account page" do

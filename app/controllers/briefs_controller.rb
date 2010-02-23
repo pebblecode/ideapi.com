@@ -58,7 +58,7 @@ class BriefsController < ApplicationController
     before :create do
       current_object.account = current_account
       current_object.author = current_user
-      current_object.template_brief_id = available_templates.first
+      current_object.template_brief = available_templates.first
     end
               
     before(:edit, :update) do
@@ -67,8 +67,6 @@ class BriefsController < ApplicationController
     end
         
     after :update do
-      
-      
       if params[:brief].keys.include?("_call_state")
         flash[:notice] = "Brief has been saved and marked as #{current_object.state}."
       end     
@@ -83,7 +81,7 @@ class BriefsController < ApplicationController
     end
     
     response_for(:update, :update_fails) do |format|
-      format.html { redirect_back_or_default :action => current_object.draft? ? 'edit' : 'show' }
+      format.html { redirect_to :action => current_object.draft? ? 'edit' : 'show' }
       format.json { render :json => current_object.reload.to_json(:include => :user_briefs, :methods => :json_errors) }
       
       format.js {

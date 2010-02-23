@@ -18,7 +18,6 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
     
     context "creating a brief" do
       setup do
-        # assert_equal dashboard_path, path
         click_link 'create brief'
       end
 
