@@ -5,7 +5,7 @@ class BriefItem < ActiveRecord::Base
   belongs_to :template_question
   
   has_many :questions
-  has_many :timeline_events, :as => :secondary_subject, :order => 'created_at ASC', :group => :subject_id
+  has_many :timeline_events, :as => :secondary_subject, :order => 'created_at DESC', :group => :subject_id
   
   # VALIDATIONS
   validates_presence_of :brief, :template_question
@@ -23,22 +23,24 @@ class BriefItem < ActiveRecord::Base
   # VERSION MANAGEMENT
   acts_as_versioned :if_changed => [:body]
   
-  def version_condition_met? # totally bypasses the <tt>:if</tt> option
-    self.published? && self.body.present?
+  def answered?
+    !body.blank?
   end
   
   self.non_versioned_columns << 'updated_at'
   self.non_versioned_columns << 'created_at'
-  
-  delegate :latest, :to => :revisions
+
+  def latest
+    revisions.latest
+  end
   
   fires :brief_item_changed, :on => :update,
                              :actor => 'author',
                              :subject => 'latest',
-                             :secondary_subject  => :self,
+                             :secondary_subject => :self,
                              :log_level => 1,
-                             :if => lambda { |question| question.latest.present? }
-
+                             :if => lambda { |item| item.published? && !item.revisions.blank? && !item.body.eql?(item.latest.body) }
+                             
   class Version
     
     named_scope :revisions, 

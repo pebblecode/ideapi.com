@@ -18,6 +18,5 @@ class Brief < ActiveRecord::Base
   
   cattr_accessor :timeline_since
   class << self; @@timeline_since = Time.now(&:db); end
-
   
 end

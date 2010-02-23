@@ -22,17 +22,19 @@ module ActivityStreamHelper
   end
   
   def stream_item(event)
-    if event.present? && event.actor.present?
-      action_description(event).gsub!(/ACTOR_NAME/, link_to(given_name(event.actor), user_path(event.actor)))
+    description = action_description(event) 
+    if event.try(:actor).present? && description.match(/ACTOR_NAME/)
+      description.gsub!(/ACTOR_NAME/, link_to(given_name(event.actor), user_path(event.actor)))
     end
+    description
   end
   
   def action_description(event)
     case event.event_type
     when "brief_created"
-      "ACTOR_NAME created this brief"      
+      "ACTOR_NAME created this brief"
     when "brief_item_changed"
-      "Updated by ACTOR_NAME: #{event.subject.body}"
+      "Updated by ACTOR_NAME: #{event.subject.try(:body)}"
     when "new_question"
       "ACTOR_NAME asked a #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)} on the brief"
     when "question_answered"
@@ -48,8 +50,7 @@ module ActivityStreamHelper
         "ACTOR_NAME commented on the brief"
       end
     else
-      "CXOKS"
-      #event.event_type.humanize
+      event.event_type.humanize
     end
   end
   

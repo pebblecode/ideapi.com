@@ -180,19 +180,19 @@ jQuery.fn.edit_brief_item = function () {
 
 jQuery.fn.fold_activity_stream = function () {
   jQuery(this).hide();
-  
-  jQuery('a.toggle_activity_stream').click(function () {
-    
-    if (jQuery(this).hasClass('active')) {
-      jQuery(this).removeClass('active');
-    } else {
-      jQuery(this).addClass('active');
-    };
-    
-    jQuery(this).prev().toggle();
-    
-    return false;
-  });
+  // 
+  // jQuery('a.toggle_activity_stream').click(function () {
+  //   
+  //   if (jQuery(this).hasClass('active')) {
+  //     jQuery(this).removeClass('active');
+  //   } else {
+  //     jQuery(this).addClass('active');
+  //   };
+  //   
+  //   jQuery(this).prev().toggle();
+  //   
+  //   return false;
+  // });
 }
 
 jQuery.fn.delete_item = function (remove_item_class, action) {
@@ -470,7 +470,7 @@ jQuery.fn.document_ready = function() {
       jQuery("#" + jQuery(this).attr('href').split('#')[1]).find('.brief_item_history').show();
     });
 
-    $('#proposal_long_description').wysiwyg({ css: '/stylesheets/wysiwyg_body.css' });
+    // $('#proposal_long_description').wysiwyg({ css: '/stylesheets/wysiwyg_body.css' });
     
     if (document.URL.split('#')[1] != "") {
       jQuery("#" + document.URL.split('#')[1]).scrollTo();

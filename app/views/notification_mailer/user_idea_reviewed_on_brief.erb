@@ -2,7 +2,7 @@ Dear <%= @proposal.user.name_parts(:first_name).capitalize %>,
 
 Your idea “<%= @proposal.title %>” on the brief “<%= @brief.title %>” has been reviewed by <%= @proposal.approver.full_name %>.
 
-It’s status is now <%= @proposal.state.humanize %>
+It’s status is now <%= @proposal.state.to_s.humanize %>
 
 <%= brief_proposal_url(@brief, @proposal, :host => @brief.account.full_domain) %>
 
