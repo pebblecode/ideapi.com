@@ -1,0 +1,251 @@
+
+/* Colours
+  link-colour   = #2b3087
+
+!link_colour        = #b3d335
+!link_hover_colour  = #32401a
+!link_pink          = #32401a
+!off_white          = #fcfcfc
+!link_header        = #eeeeee
+!link_purple        = #2b3087
+!text_color1        = #32401a
+!body_bg            = #fff
+!bright_green       = #b3d335
+
+!nav_default_bg  = #32401a
+!nav_default_txt = #fff
+!nav_current_bg  = #b3d335
+!nav_current_txt = #fff
+
+!text_color = #333
+
+
+
+/* Mixins */ 
+=rounded-top-3px
+  :-moz-border-radius-topleft 3px
+  :-webkit-border-top-left-radius 3px
+  :-moz-border-radius-topright 3px
+  :-webkit-border-top-right-radius 3px
+  
+=rounded-top-6px
+  :-moz-border-radius-topright 6px
+  :-webkit-border-top-right-radius 6px
+  :-moz-border-radius-topleft 6px
+  :-webkit-border-top-left-radius 6px
+  
+=rounded-all-6px
+  :-moz-border-radius 6px
+  :-webkit-border-radius 6px
+
+body
+  background-color: !body_bg
+  text-align: justify
+  color: #4c4c4c
+  padding: 0px
+  margin: 0px
+  line-height: 20px
+  font-size: 12px
+  font-family: "Lucida Grande", Verdana, Arial, sans-serif
+
+
+h1
+  font-size: 20px
+  margin-bottom: 1em
+
+
+h2
+  font-size: 16px
+
+
+a
+  color: #4c4c4c
+  text-decoration: none
+  font-weight: bold
+  &:hover
+    text-decoration: underline
+img
+  border: none
+
+
+#container
+  padding: 0px
+  margin: 0px
+  width: 100%
+  text-align: center
+
+
+#banner
+  background-color: white
+  padding: 0px
+  margin: auto
+  height: 100px
+  width: 920px
+  border-bottom: 3px solid
+  border-color = !bright_green
+  
+  
+  #header
+    width: 920px
+    margin-right: auto
+    margin-left: auto
+    :position relative
+    
+    #logo
+      padding-left: 10px
+      padding-bottom: 15px
+      padding-right: 15px
+      padding-top: 15px
+      margin-top: 15px
+      float: left
+      color: white
+      text-align: left
+      width: 470px
+        
+    ul.navigation
+      :padding-top 12px
+      :padding-bottom 1px
+      :margin-top 65px
+      :float right
+      :width 300px  
+      :z-index 100
+      :text-align right
+
+      li
+        :display inline
+        :padding 0
+        :margin 0
+
+        span
+          +rounded-top-3px
+
+        a, span
+          :color = !nav_default_txt
+          :font-weight normal
+          :font-size 1.2em
+          :padding 5px 0.8em 5px 0.8em
+          +rounded-top-3px
+          :background = !nav_default_bg
+
+          
+        a:hover, span.current
+          :text-decoration none
+          +rounded-top-3px
+          :background = !nav_current_bg
+          :color = !nav_current_txt
+          
+        a:focus, a:active
+          +rounded-top-3px
+          :top 1px
+          :background #b3d335
+
+     
+
+
+#middle-section
+  background-color: white
+  width: 100%
+  clear: both
+  
+
+
+#content
+  background-color: white
+  margin-right: auto
+  margin-left: auto
+  text-align: left
+  width: 920px
+  padding: 10px
+
+
+.section
+  text-align: left
+  margin: 0
+  padding: 0
+  h1
+    :margin-top 2em
+    :font-weight normal
+    :color #32401a
+  p
+    font-family: Arial, Helvetica, sans-serif
+    font-size: 1.2em
+    padding-right: 15px
+    :color #32401a
+    
+.tour-section
+  width: 700px
+  padding-top: 10px
+  margin-left: 10px
+  margin-bottom: 60px
+  margin-right: 10px
+  margin-top: 10px
+  text-align: justify
+
+  img
+    width: 700px
+
+
+#footer
+  height: 200px
+  padding: 0px
+  margin: 0px
+  color: black
+  :width 920px
+  :margin auto
+  :border-top = 3px solid !bright_green
+  .twitter-button
+    +rounded-all-6px
+    :padding 10px 40px
+    :text-align center
+    :background-color #d9d9d9
+    :color = !text_color
+    :font-weight normal
+    :float right
+    :display block
+    &:hover
+      :background-color #bbb
+      :text-decoration none
+  p
+    color: black
+    font-size: 12px
+
+  a
+    text-decoration: none
+    color: black
+
+    &:hover
+      text-decoration: underline
+
+
+
+  #footer-content-left
+    text-align: left
+    padding: 10px
+    float: left
+    width: 400px
+
+
+  #footer-content-right
+    text-align: right
+    padding: 10px 0 10px 10px
+    float: right
+    width: 300px
+    
+    p.right
+      text-align: right
+
+
+  #footer-content
+    margin-right: auto
+    margin-left: auto
+    :width 920px
+
+
+
+
+
+.spacer
+  height: 20px
+
+
+      
