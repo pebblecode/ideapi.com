@@ -55,33 +55,34 @@ a:hover
 #container
   :width 94em
   :margin 1em auto
-  :border-right 1px solid #ccc
-  :border-left 1px solid #ccc
   
   #header
     +rounded-top-6px
-    :background #32401a
-    :border-top 1px solid #777
+    :background white
+    :border-right 1px solid #ccc
+    :border-left 1px solid #ccc
+    :border-top 1px solid #ccc
+
     :padding 4em 0 0 0
     :position relative
+    :border-bottom 3px solid #b3d335
+    :height 85px
     
     h1
       :float left
       :display block
       :height 82px
       :width 190px
+      :margin-top 15px
       :padding-left 1em
       :padding-bottom 0.4em
       :font-size 1.7em
       :line-height 1em
       :font-weight normal
-      :text-indent -9999px
-
       a
-        :height 92px
-        :width 190px
         :display block
-        :background url(/images/header/logo.png) top left no-repeat
+        
+        
         
         
     ul.navigation
@@ -90,7 +91,7 @@ a:hover
       :padding-bottom 0.1em
       :width 40em  
       :position absolute
-      :bottom 37px
+      :bottom 2px
       :right 0
       :z-index 100
       :text-align right
@@ -101,9 +102,11 @@ a:hover
           +rounded-top-3px
         
         a, span
+          +rounded-top-3px
           :color = !link_header
           :font-size 1.2em
           :font-weight normal
+          :background-color #32401a
           :padding 0.5em 0.8em 0.5em 0.8em
 
         a:hover, span.current
@@ -120,11 +123,9 @@ a:hover
           
     ul.sub_nav
       :background #fff
-      :border-top 2px solid #b3d335
       :padding 0.5em 2em 0.8em 2em
       :height 20px
-      :position relative
-    
+  
       li
         :display inline
         :margin-right 2em
@@ -195,13 +196,12 @@ a:hover
       :color white
       
     p.notice
-      :background green
+      :background #b3d335
       :color white
       
       
   #content
     :background #fcfcfc
-    
     a
       :text-decoration none
       :color = !link_colour
@@ -236,10 +236,11 @@ a:hover
 
   
     .main
-      :padding 0
+      :padding 4em 0 0 0
       :border-bottom 2px solid #ddd
       :background #fcfcfc
-
+      :border-right 1px solid #ccc
+      :border-left 1px solid #ccc
     a.button
       :font-size 1.3em
       :text-transform uppercase
@@ -312,7 +313,6 @@ span.field_with_errors
     :color white
 
 #container
-  
   #content
     
     h3

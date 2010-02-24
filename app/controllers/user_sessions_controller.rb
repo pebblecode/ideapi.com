@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user_session = current_account.user_sessions.new
   end
 
-
+  layout "login"
   
   def create
     @user_session = UserSession.new(params[:user_session])

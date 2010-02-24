@@ -12,19 +12,14 @@
         #header
           #logo
             %a{:href => home_path, :alt => "home"}
-              %img{ :src => "/images/ideapi_logo.png", :alt => "ideapi Logo" }
-          #navigation
-            %a{ :href => home_path }
-              Overview
-            \.
-            %a{ :href => tour_path }
-              Tour
-            \.
-            %a{ :href => pricing_path }
-              Pricing
-            \.
-            %a{ :href => plans_path }
-              Signup
+              %img{ :src => "/images/ideapi-logo.gif", :alt => "ideapi Logo" }
+          %ul.navigation
+            %li=link_unless_current 'overview', home_path
+            %li=link_unless_current 'tour', tour_path
+            %li=link_unless_current 'pricing', pricing_path
+            %li=link_unless_current 'signup', plans_path
+          .clear
+          
       #middle-section
         #content
           =yield
@@ -40,10 +35,10 @@
               |
               %a{ :href => privacy_path, :alt => "Privacy Policy" }
                 Privacy Policy
-          #footer-content-right
             %p
-              %a{ :href => "http://twitter.com/ideapi", :alt => "Follow us on Twitter" }
-                @ideapi on Twitter
-              |
               %a{ :href => "mailto:info[at", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }
                 info [at] ideapi.com
+          #footer-content-right
+            %p.right
+              %a.twitter-button{ :href => "http://twitter.com/ideapi", :alt => "Follow us on Twitter" }
+                @ideapi on Twitter
