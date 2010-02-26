@@ -169,5 +169,5 @@ class Account < ActiveRecord::Base
     def add_default_brief_template
       self.template_briefs << TemplateBrief.default
     end
-    
+  
 end

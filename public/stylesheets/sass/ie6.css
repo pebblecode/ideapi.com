@@ -1,0 +1,12 @@
+#banner #header {
+  position: relative;
+  overflow: show !important;
+  border: 2px solid pink; }
+  #banner #header ul.navigation {
+    border: 1px "solid" pink !important; }
+  #banner #header * {
+    border: 1px solid pink; }
+  #banner #header #logo {
+    height: 20px;
+    border: 1px solid black;
+    position: absolute; }

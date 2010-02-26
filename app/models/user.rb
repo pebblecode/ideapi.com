@@ -2,6 +2,8 @@
 require 'md5'
 
 class User < ActiveRecord::Base
+  validates_acceptance_of :terms_of_service, :message => "Must accept the Terms and Conditions", :accept => "1"
+  attr_accessible :terms_of_service
   
   concerned_with :briefs,
     :class_methods,

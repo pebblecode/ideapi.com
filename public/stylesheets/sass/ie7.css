@@ -1,0 +1,13 @@
+input[type=submit] {
+  text-align: center; }
+
+input[type=text] {
+  font-size: 1em;
+  line-height: 1.2em; }
+
+#banner #header ul.navigation {
+  border: 1px solid white;
+  float: left;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px; }

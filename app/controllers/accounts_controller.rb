@@ -27,7 +27,7 @@ class AccountsController < ApplicationController
     @account.affiliate = SubscriptionAffiliate.find_by_token(cookies[:affiliate]) unless cookies[:affiliate].blank?
     
     @account.user.set_active
-    
+
     if @account.needs_payment_info?
       @address.first_name = @creditcard.first_name
       @address.last_name = @creditcard.last_name
@@ -39,7 +39,7 @@ class AccountsController < ApplicationController
       flash[:domain] = @account.domain
       redirect_to :action => 'thanks'
     else
-      render :action => 'new', :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
+      render :action => 'new', :layout => 'signup' # Uncomment if your "public" site has a different layout than the one used for logged-in users
     end
   end
 

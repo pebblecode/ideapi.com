@@ -1,5 +1,8 @@
 module LayoutHelper
 
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
   def side_bar(&block)
     capture_content_from_haml :side_bar, &block
   end

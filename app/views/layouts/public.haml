@@ -2,10 +2,19 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml" }
   %head
     %title
-      ideapi Pricing
+      ="ideapi | "
+      - if yield(:title)
+        =yield(:title)
+      - else
+        ="Welcome to ideapi"
     %script{ :type => "text/javascript" }
     %meta{ :content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible" }
     %link{ :href => "/stylesheets/marketing.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
+    /[if IE 6]
+      %link{ :href => "/stylesheets/ie6.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
+    /[if IE 7]
+      %link{ :href => "/stylesheets/ie7.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
+
   %body
     #container
       #banner

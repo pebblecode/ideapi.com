@@ -48,10 +48,15 @@
           = f.password_field :password
         
         %p
-          = f.label :password_confirmation
+          = f.label :password_confirmation, "Confirm Password"
           = f.password_field :password_confirmation
-  
-    
+        %p
+          =f.label :terms_of_service, "&nbsp;"
+          =f.check_box  :terms_of_service
+          ="I have read and agree to the "
+          =link_to "Terms of Service", {:controller => 'pages', :action => 'terms'}, :popup => 'terms'
+          =" and "
+          =link_to "Privacy Policy", {:controller => 'pages', :action => 'privacy'}, :popup => 'privacy'
 	
     -# %h3 Choose a plan 
     -# %fieldset

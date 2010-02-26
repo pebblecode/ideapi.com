@@ -25,6 +25,9 @@ a {
   a:hover {
     text-decoration: underline; }
 
+img {
+  border: none; }
+
 #container {
   padding: 0px;
   margin: 0px;
@@ -55,16 +58,17 @@ a {
       text-align: left;
       width: 470px; }
     #banner #header ul.navigation {
-      padding-top: 1em;
-      padding-bottom: 0.1em;
+      padding-top: 12px;
+      padding-bottom: 1px;
       margin-top: 65px;
       float: right;
       width: 300px;
-      right: 0;
       z-index: 100;
       text-align: right; }
       #banner #header ul.navigation li {
-        display: inline; }
+        display: inline;
+        padding: 0;
+        margin: 0; }
         #banner #header ul.navigation li span {
           -moz-border-radius-topleft: 3px;
           -webkit-border-top-left-radius: 3px;
@@ -73,7 +77,8 @@ a {
         #banner #header ul.navigation li a, #banner #header ul.navigation li span {
           color: white;
           font-weight: normal;
-          padding: 0.5em 0.8em 0.5em 0.8em;
+          font-size: 1.2em;
+          padding: 5px 0.8em 5px 0.8em;
           -moz-border-radius-topleft: 3px;
           -webkit-border-top-left-radius: 3px;
           -moz-border-radius-topright: 3px;
@@ -86,8 +91,7 @@ a {
           -moz-border-radius-topright: 3px;
           -webkit-border-top-right-radius: 3px;
           background: #b3d335;
-          color: white;
-          height: 50px; }
+          color: white; }
         #banner #header ul.navigation li a:focus, #banner #header ul.navigation li a:active {
           -moz-border-radius-topleft: 3px;
           -webkit-border-top-left-radius: 3px;
@@ -113,10 +117,14 @@ a {
   text-align: left;
   margin: 0;
   padding: 0; }
+  .section h1 {
+    font-weight: normal;
+    color: #32401a; }
   .section p {
-    font-family: 'Garamond', 'Georgia', 'Palatino Linotype', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
-    padding-right: 15px; }
+    padding-right: 15px;
+    color: #32401a; }
 
 .tour-section {
   width: 700px;
@@ -137,6 +145,19 @@ a {
   width: 920px;
   margin: auto;
   border-top: 3px solid #b3d335; }
+  #footer .twitter-button {
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    padding: 10px 40px;
+    text-align: center;
+    background-color: #d9d9d9;
+    color: #333333;
+    font-weight: normal;
+    float: right;
+    display: block; }
+    #footer .twitter-button:hover {
+      background-color: #bbb;
+      text-decoration: none; }
   #footer p {
     color: black;
     font-size: 12px; }
@@ -152,7 +173,7 @@ a {
     width: 400px; }
   #footer #footer-content-right {
     text-align: right;
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     float: right;
     width: 300px; }
     #footer #footer-content-right p.right {
@@ -165,11 +186,7 @@ a {
 .spacer {
   height: 20px; }
 
-.twitter-button {
-  width: 214px;
-  padding: 5px 20px;
-  text-align: center;
-  background-color: #d9d9d9;
-  color: #333333;
-  float: right;
-  display: block; }
+.test-limit-width {
+  width: 55em; }
+  .test-limit-width h2 {
+    margin: .8em 0 .4em 0; }
