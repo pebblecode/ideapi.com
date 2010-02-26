@@ -87,4 +87,4 @@
           = number_to_currency(@account.plan.amount) 
           = @account.plan.renewal_period == 1 ? 'every month' : "every #{@account.plan.renewal_period} months."
         
-      %p= submit_tag 'Create my account'
+      %p.second-column= submit_tag 'Create my account'

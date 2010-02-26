@@ -141,7 +141,7 @@ a:hover {
       left: 60px;
       font-weight: bold;
       font-size: 1.2em;
-      padding: 8px 20px;
+      padding: 8px 8px;
       height: 17px;
       width: 800px;
       -moz-border-radius: 6px;
@@ -1327,3 +1327,7 @@ ul.error_messages li p {
       padding: 0 3em 1em 3em; }
       .feedback_form .info ul li {
         list-style: disc; }
+
+.second-column {
+  margin-left: 9.5em;
+  margin-top: 0.5em; }
