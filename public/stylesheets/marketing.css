@@ -186,7 +186,7 @@ img {
 .spacer {
   height: 20px; }
 
-.test-limit-width {
+.line-width {
   width: 55em; }
-  .test-limit-width h2 {
+  .line-width h2 {
     margin: .8em 0 .4em 0; }
