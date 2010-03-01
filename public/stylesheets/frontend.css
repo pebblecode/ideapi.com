@@ -138,12 +138,12 @@ a:hover {
     #container #header p.flash {
       position: absolute;
       top: 0;
-      left: 60px;
+      left: 5px;
       font-weight: bold;
       font-size: 1.2em;
       padding: 8px 8px;
       height: 17px;
-      width: 800px;
+      width: 930px;
       -moz-border-radius: 6px;
       -webkit-border-radius: 6px; }
     #container #header p.error {
