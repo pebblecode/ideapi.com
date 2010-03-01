@@ -38,6 +38,11 @@
   :-moz-border-radius 6px
   :-webkit-border-radius 6px
 
+=rounded-all-3px
+  :-moz-border-radius 3px
+  :-webkit-border-radius 3px
+
+
 body
   background-color: !body_bg
   text-align: justify
@@ -156,7 +161,34 @@ img
   text-align: left
   width: 920px
   padding: 10px
-
+  p
+    font-family: Georgia, Palatino, serif
+    font-size: 1.3em
+    padding-right: 15px
+    :color #32401a
+    margin-top: 10px
+    &.intro-title
+      font-size: 38px
+      font-family: Helvetica, Arial, sans-serif       
+      line-height: 1em
+      font-weight: bold
+      margin: 10px 0 0 0
+      text-shadow: 0px 1px 2px #888
+    &.intro-text
+      font-size: 1.7em
+      margin: 12px 0 0 0
+      line-height: 1.2em
+    &.actions
+      :margin-top 3em
+      :text-align center
+      span
+        margin-right: 1em
+  ul
+    li
+      font-family: Georgia, Palatino, serif
+      font-size: 1.3em
+      line-height: 1.4em
+  
 
 .section
   text-align: left
@@ -165,12 +197,7 @@ img
   h1
     :font-weight normal
     :color #32401a
-  p
-    font-family: Arial, Helvetica, sans-serif
-    font-size: 1.2em
-    padding-right: 15px
-    :color #32401a
-    
+
 .tour-section
   width: 700px
   padding-top: 10px
@@ -182,11 +209,12 @@ img
 
   img
     width: 700px
-
+    border: 5px solid #eee
+    padding: 3px
+    +rounded-all-3px
 
 #footer
-  height: 200px
-  padding: 0px
+  padding: 0
   margin: 0px
   color: black
   :width 920px
@@ -221,7 +249,6 @@ img
     text-align: left
     padding: 10px
     float: left
-    width: 400px
 
 
   #footer-content-right
@@ -248,3 +275,25 @@ img
   :width 55em
   h2
     :margin .8em 0 .4em 0
+
+.button-ideapi
+  :background #b3d335
+  :color #fff
+  :cursor pointer
+  :-moz-border-radius 6px
+  :-webkit-border-radius 6px
+  :padding 0.5em 1em 0.5em 1em
+  :font-family Helvetica, Arial, sans-serif
+  :font-weight normal
+  &:hover
+    :background #32401a
+    :color white
+    :cursor pointer
+    :text-decoration none
+    
+span.right
+  display: block
+  float: right
+span.left
+  display: block
+  float: left
