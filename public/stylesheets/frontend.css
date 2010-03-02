@@ -33,8 +33,8 @@ a:hover {
     -webkit-border-top-right-radius: 6px;
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
-    border-radius-topleft: 6px;
-    border-radius-topright: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     background: white;
     border-right: 1px solid #ccc;
     border-left: 1px solid #ccc;
@@ -72,14 +72,14 @@ a:hover {
         -moz-border-radius-topright: 3px;
         -webkit-border-top-right-radius: 3px;
         border-top-left-radius: 3px;
-        border-radius-topright: 3px; }
+        border-top-right-radius: 3px; }
       #container #header ul.navigation li a, #container #header ul.navigation li span {
         -moz-border-radius-topleft: 3px;
         -webkit-border-top-left-radius: 3px;
         -moz-border-radius-topright: 3px;
         -webkit-border-top-right-radius: 3px;
         border-top-left-radius: 3px;
-        border-radius-topright: 3px;
+        border-top-right-radius: 3px;
         color: #eeeeee;
         font-size: 1.2em;
         font-weight: normal;
@@ -91,7 +91,7 @@ a:hover {
         -moz-border-radius-topright: 3px;
         -webkit-border-top-right-radius: 3px;
         border-top-left-radius: 3px;
-        border-radius-topright: 3px;
+        border-top-right-radius: 3px;
         font-size: 1.2em;
         background: #b3d335;
         color: #fcfcfc; }
@@ -101,7 +101,7 @@ a:hover {
         -moz-border-radius-topright: 3px;
         -webkit-border-top-right-radius: 3px;
         border-top-left-radius: 3px;
-        border-radius-topright: 3px;
+        border-top-right-radius: 3px;
         top: 1px;
         color: #32401a;
         background: #b3d335; }
@@ -966,7 +966,7 @@ textarea {
     -moz-border-radius-topright: 3px;
     -webkit-border-top-right-radius: 3px;
     border-top-left-radius: 3px;
-    border-radius-topright: 3px;
+    border-top-right-radius: 3px;
     background: #32401a;
     border-bottom: 4px solid #b3d335;
     color: #fff;
