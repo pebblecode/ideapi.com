@@ -11,7 +11,8 @@
 body {
   font-size: 62.5%;
   text-align: center;
-  background: #ddd; }
+  background: #ddd;
+  height: 100%; }
 
 /* Colours
  *
@@ -143,7 +144,7 @@ a:hover {
       font-size: 1.2em;
       padding: 8px 8px;
       height: 17px;
-      width: 800px;
+      width: 930px;
       -moz-border-radius: 6px;
       -webkit-border-radius: 6px; }
     #container #header p.error {
@@ -816,6 +817,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
 #container #content .user .avatar {
   float: left;
   margin-right: 2em; }
+#container #content .user p {
+  margin-left: 135px; }
 
 p.subs {
   float: right; }
@@ -1330,3 +1333,11 @@ ul.error_messages li p {
 
 .second-column {
   margin-left: 9.5em; }
+
+.errorExplanation h4 {
+  color: red; }
+.errorExplanation ul {
+  padding-left: 1em;
+  margin-bottom: 2em; }
+  .errorExplanation ul li {
+    color: #CD251B; }
