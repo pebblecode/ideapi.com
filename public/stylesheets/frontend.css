@@ -157,7 +157,6 @@ a:hover {
       width: 930px;
       -moz-border-radius: 6px;
       -webkit-border-radius: 6px;
-      border-radius: 6px;
       border-radius: 6px; }
     #container #header p.error {
       background: #d81f26;
@@ -382,6 +381,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
     -webkit-border-top-right-radius: 6px;
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     position: relative;
     text-shadow: 0 1px 1px #FFFFFF; }
     #container #content .brief h2 a, #container #content .proposal h2 a, #container #content .brief_list h2 a {
@@ -608,6 +609,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
       -webkit-border-top-left-radius: 3px;
       -moz-border-radius-topright: 3px;
       -webkit-border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
       border-bottom: 1px solid #eee;
       background: #b2d234;
       display: inline;
@@ -743,6 +746,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
   background: #fcfcfc;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
+  border-radius: 6px;
   width: 40em; }
   #container #content .brief_item_history .revision p {
     padding: 0;
@@ -759,6 +763,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
     background: #eee;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
+    border-radius: 6px;
     width: 40em;
     font-weight: bold; }
   #container #content .question_list .question {
@@ -778,6 +783,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
   -webkit-border-top-right-radius: 6px;
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   position: relative; }
   #container #content .filter_questions li {
     display: inline;
@@ -792,8 +799,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
       padding: 0.2em 0.5em 0.3em 0.5em;
       -moz-border-radius: 6px;
       -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      -webkit-border-radius: 6px;
+      border-radius: 6px;
       border-top: 1px solid #ccc; }
   #container #content .filter_questions li.brief_item_filter {
     position: absolute;
@@ -860,6 +866,7 @@ input[type=submit] {
   cursor: pointer;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
+  border-radius: 6px;
   padding: 0.3em 1em 0.5em 1em; }
 
 input[type=submit]:hover {
@@ -888,6 +895,8 @@ p.submit.left {
       -webkit-border-top-right-radius: 6px;
       -moz-border-radius-topleft: 6px;
       -webkit-border-top-left-radius: 6px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
       position: relative; }
       #facebox .content .fb .brief h2 a {
         color: #666;
@@ -1012,6 +1021,8 @@ ul.error_messages li p {
     -webkit-border-top-right-radius: 6px;
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     text-shadow: 0 1px 1px #FFFFFF; }
   #container #content .col_2 .side_box .contents {
     border: 1px solid #ccc;
@@ -1075,6 +1086,7 @@ ul.error_messages li p {
           text-align: center;
           -moz-border-radius: 3px;
           -webkit-border-radius: 3px;
+          border-radius: 3px;
           font-size: 0.9em;
           color: #444;
           text-shadow: #aaa 1px 1px 1px; }
