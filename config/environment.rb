@@ -11,6 +11,7 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "alter-ego", :lib => "alter_ego"
   config.gem "will_paginate", :lib => "will_paginate"
+  config.gem "thoughtbot-paperclip", :lib => 'paperclip', :source => 'http://gems.github.com'
   
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
