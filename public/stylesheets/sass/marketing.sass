@@ -22,26 +22,35 @@
 
 
 /* Mixins */ 
+/* Mixins */ 
 =rounded-top-3px
   :-moz-border-radius-topleft 3px
   :-webkit-border-top-left-radius 3px
   :-moz-border-radius-topright 3px
   :-webkit-border-top-right-radius 3px
+  :border-top-left-radius 3px
+  :border-top-right-radius 3px
   
 =rounded-top-6px
   :-moz-border-radius-topright 6px
   :-webkit-border-top-right-radius 6px
   :-moz-border-radius-topleft 6px
   :-webkit-border-top-left-radius 6px
+  :border-top-left-radius 6px
+  :border-top-right-radius 6px
   
 =rounded-all-6px
   :-moz-border-radius 6px
   :-webkit-border-radius 6px
+  :border-radius 6px
+  :border-radius 6px
+
 
 =rounded-all-3px
   :-moz-border-radius 3px
   :-webkit-border-radius 3px
-
+  :border-radius 3px
+  :border-radius 3px
 
 body
   background-color: !body_bg
@@ -280,8 +289,7 @@ img
   :background #b3d335
   :color #fff
   :cursor pointer
-  :-moz-border-radius 6px
-  :-webkit-border-radius 6px
+  +rounded-all-6px
   :padding 0.5em 1em 0.5em 1em
   :font-family Helvetica, Arial, sans-serif
   :font-weight normal
