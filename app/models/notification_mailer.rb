@@ -67,7 +67,8 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def user_invited_to_account(user, account, sent_at = Time.now)
-    from        "notifications@#{account.full_domain}"
+    # from        "notifications@#{account.full_domain}"
+    from          "#{proposal.brief.account.subdomain}@#{AppConfig['base_config']}"
     recipients  user.email
     reply_to    "no-reply@#{account.full_domain}"
   
