@@ -1,7 +1,7 @@
 Dear <%= @user.name_parts(:first_name).capitalize %>,
 
 Complete the signup process here:
-<%= user_signup_url(@user, :invite_code => @user.invite_code, :host => @account.full_domain) %>
+<%= user_signup_url(:invite_code => @user.invite_code, :host => @account.full_domain) %>
 
 Regards,
 ideapi

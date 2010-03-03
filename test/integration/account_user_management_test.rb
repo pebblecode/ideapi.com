@@ -48,6 +48,7 @@ class AccountUserManagementTest < ActionController::IntegrationTest
         should "send out email to user" do
           assert_sent_email do |email|
             email.subject == "[#{@account.name} ideapi] You have been invited to an account on ideapi.com"
+            email.body =~ /#{@account.full_domain}\/users\/signup\/#{@user.invite_code}/
           end
         end
         
