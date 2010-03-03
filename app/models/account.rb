@@ -1,5 +1,11 @@
 class Account < ActiveRecord::Base
   
+  
+  # Account subdomain name
+  def subdomain
+    full_domain.split('.').first
+  end
+  
   has_many :account_template_briefs
   has_many :template_briefs, :through => :account_template_briefs
   
