@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     after :create do
       unless current_account.users.include?(current_object)
         current_account.users << current_object
+        NotificationMailer.deliver_user_invited_to_account(current_object, current_account)
       end
     end
         

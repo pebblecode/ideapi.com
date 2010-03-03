@@ -66,13 +66,16 @@ class NotificationMailer < ActionMailer::Base
     sent_on sent_at
   end
   
-  # def invitation(invitation, sent_at = Time.now)
-  #   @subject = 'You have been invited to ideapi.com'
-  #   @body[:invitation] = invitation
-  #   @recipients = invitation.recipient_email
-  #   @from = 'support@ideapi.com'
-  #   @sent_on = sent_at
-  # end
+  def user_invited_to_account(user, account, sent_at = Time.now)
+    from        "notifications@#{account.full_domain}"
+    recipients  user.email
+    reply_to    "no-reply@#{account.full_domain}"
+  
+    subject     "[#{account.name} ideapi] You have been invited to an account on ideapi.com"
+    body        :user => user, :account => account
+  
+    sent_on sent_at
+  end
   # 
   # def invite_request(requested_by, sent_at = Time.now)
   #   @subject = '[IDEAPI] Invitation request'

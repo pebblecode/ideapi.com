@@ -45,6 +45,12 @@ class AccountUserManagementTest < ActionController::IntegrationTest
           assert_equal(@user, User.find_by_email(@invite[:email]).invited_by)
         end
         
+        should "send out email to user" do
+          assert_sent_email do |email|
+            email.subject == "[#{@account.name} ideapi] You have been invited to an account on ideapi.com"
+          end
+        end
+        
       end
       
       context "adding an existing user to the account" do

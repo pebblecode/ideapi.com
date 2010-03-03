@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   end
   
   before_create :create_invite_code
-  
+
   private
   
   def stop_watching_brief(proposal)
