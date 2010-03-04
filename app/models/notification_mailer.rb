@@ -71,7 +71,7 @@ class NotificationMailer < ActionMailer::Base
     from          "notifications@#{AppConfig['base_domain']}"
     recipients  user.email
     # reply_to  "no-reply@#{AppConfig['base_domain']}"
-    reply_to    "-reply@#{AppConfig['base_domain']}"
+    reply_to    "no-reply@#{AppConfig['base_domain']}"
   
     subject     "[#{account.name} ideapi] You have been invited to an account on ideapi.com"
     body        :user => user, :account => account
