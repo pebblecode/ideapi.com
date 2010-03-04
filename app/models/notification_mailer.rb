@@ -2,7 +2,7 @@ class NotificationMailer < ActionMailer::Base
 
   def user_added_to_brief(user_brief, sent_at = Time.now)
     # from        "notifications@#{user_brief.brief.account.full_domain}"
-    from        "#{proposal.brief.account.subdomain}@#{AppConfig['base_config']}"
+    from        "#{user_brief.brief.account.subdomain}@#{AppConfig['base_config']}"
     recipients  user_brief.user.email
     # reply_to    "no-reply@#{user_brief.brief.account.full_domain}"
     reply_to    "no-reply@#{AppConfig['base_config']}"
@@ -15,7 +15,7 @@ class NotificationMailer < ActionMailer::Base
   
   def user_idea_reviewed_on_brief(proposal, sent_at = Time.now)
     # from        "notifications@#{user_brief.brief.account.full_domain}"
-    from        "#{proposal.brief.account.subdomain}@#{AppConfig['base_config']}"
+    from        "#{user_brief.brief.account.subdomain}@#{AppConfig['base_config']}"
     recipients  proposal.user.email
     # reply_to    "no-reply@#{proposal.brief.account.full_domain}"
     reply_to    "no-reply@#{AppConfig['base_config']}"
@@ -28,7 +28,7 @@ class NotificationMailer < ActionMailer::Base
   
   def user_question_answered_on_brief(question, sent_at = Time.now)
     # from        "notifications@#{question.brief.account.full_domain}"
-    from        "#{proposal.brief.account.subdomain}@#{AppConfig['base_config']}"
+    from        "#{question.brief.account.subdomain}@#{AppConfig['base_config']}"
     recipients  question.user.email
     # reply_to    "no-reply@#{question.brief.account.full_domain}"
     reply_to    "no-reply@#{AppConfig['base_config']}"
@@ -42,7 +42,7 @@ class NotificationMailer < ActionMailer::Base
   
   def user_role_changed_on_brief(user_brief, sent_at = Time.now)    
     # from        "notifications@#{user_brief.brief.account.full_domain}"
-    from        "#{proposal.brief.account.subdomain}@#{AppConfig['base_config']}"
+    from        "#{user_brief.brief.account.subdomain}@#{AppConfig['base_config']}"
     recipients  user_brief.user.email
     # reply_to    "no-reply@#{user_brief.brief.account.full_domain}"
     reply_to    "no-reply@#{AppConfig['base_config']}"
@@ -68,7 +68,7 @@ class NotificationMailer < ActionMailer::Base
   
   def user_invited_to_account(user, account, sent_at = Time.now)
     # from        "notifications@#{account.full_domain}"
-    from          "#{proposal.brief.account.subdomain}@#{AppConfig['base_config']}"
+    from          "#{account.subdomain}@#{AppConfig['base_config']}"
     recipients  user.email
     reply_to    "no-reply@#{account.full_domain}"
   
