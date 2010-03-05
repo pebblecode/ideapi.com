@@ -2,10 +2,10 @@ class NotificationMailer < ActionMailer::Base
 
   def user_added_to_brief(user_brief, sent_at = Time.now)
     # from        "notifications@#{user_brief.brief.account.full_domain}"
-    from        "notifications@#{AppConfig['base_domain']}"
+    from        "#{user_brief.brief.account.name} <no-reply@#{AppConfig['base_domain']}>"
     recipients  user_brief.user.email
     # reply_to    "no-reply@#{user_brief.brief.account.full_domain}"
-    reply_to    "no-reply@#{AppConfig['base_domain']}"
+    reply_to    "#{user_brief.brief.account.name} <no-reply@#{AppConfig['base_domain']}>"
   
     subject     "[#{user_brief.brief.account.name} ideapi] You have been added to a brief"
     body        :user_brief => user_brief
@@ -15,10 +15,10 @@ class NotificationMailer < ActionMailer::Base
   
   def user_idea_reviewed_on_brief(proposal, sent_at = Time.now)
     # from        "notifications@#{user_brief.brief.account.full_domain}"
-    from        "notifications@#{AppConfig['base_domain']}"
+    from        "#{user_brief.brief.account.full_domain}@#{AppConfig['base_domain']}"
     recipients  proposal.user.email
     # reply_to    "no-reply@#{proposal.brief.account.full_domain}"
-    reply_to    "no-reply@#{AppConfig['base_domain']}"
+    reply_to    "#{user_brief.brief.account.full_domain}@#{AppConfig['base_domain']}"
   
     subject     "[#{proposal.brief.account.name} ideapi] Your idea has been reviewed"
     body        :proposal => proposal, :brief => proposal.brief
@@ -67,11 +67,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def user_invited_to_account(user, account, sent_at = Time.now)
-    # from        "notifications@#{account.full_domain}"
-    from          "notifications@#{AppConfig['base_domain']}"
+    from          "#{account.name} <no-reply@#{AppConfig['base_domain']}"
     recipients  user.email
-    # reply_to  "no-reply@#{AppConfig['base_domain']}"
-    reply_to    "no-reply@#{AppConfig['base_domain']}"
+    reply_to    "#{account.name} <no-reply@#{AppConfig['base_domain']}"
   
     subject     "[#{account.name} ideapi] You have been invited to an account on ideapi.com"
     body        :user => user, :account => account
