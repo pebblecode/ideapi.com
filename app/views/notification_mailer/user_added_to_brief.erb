@@ -1,8 +1,5 @@
-Dear <%= @user_brief.user.name_parts(:first_name).capitalize %>,
+You’ve been invited to collaborate<% if @user_brief.added_by_user.present? -%> by <%= @user_brief.added_by_user.full_name %><% end -%>.
 
-You’ve been added as a <%= @user_brief.role %> to the brief “<%= @user_brief.brief.title %>”<% if @user_brief.added_by_user.present? -%> by <%= @user_brief.added_by_user.full_name %><% end -%>.
-
+Brief: <%= @user_brief.brief.title %>
+Role: <%= @user_brief.role %> 
 <%= brief_url(@user_brief.brief, :host => @user_brief.brief.account.full_domain) %>
-
-Regards,
-ideapi

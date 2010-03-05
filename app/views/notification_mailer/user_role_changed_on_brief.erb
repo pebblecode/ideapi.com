@@ -1,8 +1,3 @@
-Dear <%= @user_brief.user.name_parts(:first_name).capitalize %>,
-
-You are now a <%= @user_brief.role %> on the brief “<%= @user_brief.brief.title %>”<% if @user_brief.added_by_user.present? -%> by <%= @user_brief.added_by_user.full_name %><% end -%>.
+Your role has been changed to <%= @user_brief.role %> on the brief “<%= @user_brief.brief.title %>”<% if @user_brief.added_by_user.present? -%> by <%= @user_brief.added_by_user.full_name %><% end -%>.
 
 <%= brief_url(@user_brief.brief, :host => @user_brief.brief.account.full_domain) %>
-
-Regards,
-ideapi
