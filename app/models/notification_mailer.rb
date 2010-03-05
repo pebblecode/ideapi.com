@@ -1,6 +1,6 @@
 class NotificationMailer < ActionMailer::Base
 
-  def subject(account_name, message, context = "ideapi")
+  def build_subject(account_name, message, context)
     "[#{account_name} :: #{context}] #{message}"
   end
   
@@ -12,7 +12,7 @@ class NotificationMailer < ActionMailer::Base
     from        email_address(user_brief.brief.account.name)
     recipients  user_brief.user.email
     reply_to    email_address(user_brief.brief.account.name)
-    subject     subject(user_brief.brief.account.name, "You have been invited to collaborate", user_brief.brief.title)
+    subject     build_subject(user_brief.brief.account.name, "You have been invited to collaborate", user_brief.brief.title)
     body        :user_brief => user_brief
     sent_on     sent_at    
   end
@@ -21,8 +21,7 @@ class NotificationMailer < ActionMailer::Base
     from        email_address(proposal.brief.account.name)
     recipients  proposal.user.email
     reply_to    email_address(proposal.brief.account.name)
-    #subject     "[#{proposal.brief.account.name} ideapi] Your idea has been reviewed"
-    subject     subject(proposal.brief.account.name, "Your idea has been reviewed", proposal.brief.title)
+    subject     build_subject(proposal.brief.account.name, "Your idea has been reviewed", proposal.brief.title)
     body        :proposal => proposal, :brief => proposal.brief
     sent_on     sent_at
   end
@@ -31,8 +30,7 @@ class NotificationMailer < ActionMailer::Base
     from        email_address(question.brief.account.name)
     recipients  question.user.email
     reply_to    email_address(question.brief.account.name)
-    #subject     "[#{question.brief.account.name} ideapi] Your question has been answered"
-    subject     subject(question.brief.account.name, "Your question has been answered", question.brief.title)
+    subject     build_subject(question.brief.account.name, "Your question has been answered", question.brief.title)
     body        :question => question
     sent_on     sent_at
   end
@@ -42,8 +40,7 @@ class NotificationMailer < ActionMailer::Base
     from        email_address(user_brief.brief.account.name)
     recipients  user_brief.user.email
     reply_to    email_address(user_brief.brief.account.name)
-    #subject     "[#{user_brief.brief.account.name} ideapi] You are now a #{user_brief.role}"
-    subject     subject(user_brief.brief.account.name, "Your role is now #{user_brief.role}", user_brief.brief.title)
+    subject     build_subject(user_brief.brief.account.name, "Your role is now #{user_brief.role}", user_brief.brief.title)
     body        :user_brief => user_brief
     sent_on     sent_at
   end
@@ -52,8 +49,7 @@ class NotificationMailer < ActionMailer::Base
     from        email_address(proposal.brief.account.name)
     recipients  approver.email
     reply_to    email_address(proposal.brief.account.name)
-    #subject     "[#{proposal.brief.account.name} ideapi] An idea has been submitted for review"
-    subject     subject(proposal.brief.account.name, "An idea has been submitted for review", proposal.brief.title)
+    subject     build_subject(proposal.brief.account.name, "An idea has been submitted for review", proposal.brief.title)
     body        :proposal => proposal, :approver => approver
     sent_on     sent_at
   end
@@ -62,8 +58,7 @@ class NotificationMailer < ActionMailer::Base
     from        email_address(account.name)
     recipients  user.email
     reply_to    email_address(account.name)
-    #subject     "[#{account.name} ideapi] You have been invited to an account on ideapi.com"
-    subject     subject(account.name, "You now have an ideapi.com account")
+    subject     build_subject(account.name, "You now have an ideapi.com account", "ideapi")
     body        :user => user, :account => account
     sent_on     sent_at
   end
