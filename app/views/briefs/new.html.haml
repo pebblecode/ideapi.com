@@ -16,9 +16,9 @@
       = render :partial => "form", :locals => {:f => f}
       
       -# Hidden the drop down to choose template - multiple templates will not likely be supported in BETA
-      -# %p
-      -#   = f.label :template_brief_id, 'Choose template'
-      -#   = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
+      %p
+        = f.label :template_brief_id, 'Choose template'
+        = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
       
       %p.submit
         = submit_tag "Create"
