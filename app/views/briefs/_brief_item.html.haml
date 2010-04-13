@@ -21,7 +21,8 @@
   
   .clear
   
-  -if brief_item.timeline_events.present?    
+  -# Adding :print local condition. In print view, we only show brief.
+  -if brief_item.timeline_events.present? and local_assigns[:print].nil?
     %ul.brief_item_history
       -brief_item.timeline_events.each do |event|
         -if event.subject.is_a?(Question)
