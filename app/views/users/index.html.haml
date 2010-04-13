@@ -52,7 +52,8 @@
     -if admin?
       %p.submit=f.submit 'Update privileges' 
       .clear
-    
+  
+  -# Important correct nesting  
+  -if admin?
     .hr
-    =render :partial => 'invite' if admin? 
-    
+    =render :partial => 'invite'
