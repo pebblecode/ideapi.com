@@ -5,7 +5,8 @@
       .boom_box
         = error_messages_for :user
         = render :partial => "form", :locals => {:f => f}
-      %p.submit= submit_tag "Update"
-      %p= link_to 'cancel', object_path, { :class => "submit" }
+      %p.submit
+        =submit_tag "Update" 
+      %p.cancel= link_to 'Cancel', object_path, { :class => "submit-button"}
       .clear
    

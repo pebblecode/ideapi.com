@@ -862,7 +862,7 @@ p.cancel {
 
 input[type=submit] {
   background: #b3d335;
-  color: #fff;
+  color: #fff !important;
   cursor: pointer;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1367,3 +1367,17 @@ ul.error_messages li p {
   margin-bottom: 2em; }
   .errorExplanation ul li {
     color: #CD251B; }
+
+#container #content .main .user a.submit-button {
+  background: #b3d335;
+  color: #fff !important;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  font-weight: normal;
+  margin-top: 1px;
+  padding: 0.3em 1em 0.5em 1em;
+  height: 20px;
+  display: block; }
+  #container #content .main .user a.submit-button:hover {
+    background-color: #32401a; }

@@ -1112,7 +1112,7 @@ p.cancel
 
 input[type=submit]
   :background #b3d335
-  :color #fff
+  :color #fff !important
   :cursor pointer
   +rounded-all-6px
   :padding 0.3em 1em 0.5em 1em
@@ -1740,3 +1740,15 @@ ul.error_messages
     :margin-bottom 2em
     li
       color: #CD251B
+      
+#container #content .main .user a.submit-button
+  :background #b3d335
+  :color #fff !important
+  +rounded-all-6px
+  font-weight: normal
+  margin-top: 1px 
+  :padding 0.3em 1em 0.5em 1em
+  height: 20px
+  display: block
+  &:hover
+    background-color: #32401a
