@@ -18,8 +18,8 @@
         =render :partial => 'change_state', :locals => { :brief => current_object }      
       
   %div[current_object]
-    %h2 
-      =truncate(current_object.title, :length => 30)
+    %h2
+      =current_object.title
       =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
     .most_important_thing
       %p
