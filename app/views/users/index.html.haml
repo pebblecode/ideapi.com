@@ -53,5 +53,6 @@
       %p.submit=f.submit 'Update privileges' 
       .clear
     
-  .hr
-  =render :partial => 'invite'
+    .hr
+    =render :partial => 'invite' if admin? 
+    
