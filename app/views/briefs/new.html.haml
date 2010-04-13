@@ -15,8 +15,7 @@
     - form_for(:brief, :url => objects_url) do |f|
       = render :partial => "form", :locals => {:f => f}
       
-      -# Hidden the drop down to choose template - multiple templates will not likely be supported in BETA
-      %p
+      %p.combo-choose-template
         = f.label :template_brief_id, 'Choose template'
         = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
       
