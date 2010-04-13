@@ -1,11 +1,14 @@
 %li.collaboration_user{:class => (current_object.author?(current_user) ? "is_author" : "")}
   =small_avatar(collaboration_user)
   %p
-    =link_to truncate(given_name(collaboration_user), :lenght => 10), user_path(collaboration_user)
-    / -if current_object.role_for_user?(collaboration_user) != Brief::Roles::COLLABORATOR    
-    /   %span.role 
-    /     =precede("- ") do 
-    /       =current_object.role?(collaboration_user).upcase
+    - if not collaboration_user.pending?
+      =link_to truncate(given_name(collaboration_user), :lenght => 10), user_path(collaboration_user)
+    - else
+      =truncate(given_name(collaboration_user), :lenght => 10)
+    -# if current_object.role_for_user?(collaboration_user) != Brief::Roles::COLLABORATOR    
+    -#   %span.role 
+    -#     =precede("- ") do 
+    -#       =current_object.role?(collaboration_user).upcase
     %br
     %span
       -if collaboration_user.last_request_at.present?            
