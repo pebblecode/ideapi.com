@@ -1,39 +1,40 @@
-%li.collaboration_user{:class => (current_object.author?(current_user) ? "is_author" : "")}
-  =small_avatar(collaboration_user)
-  %p
-    - if not collaboration_user.pending?
-      =link_to truncate(given_name(collaboration_user), :lenght => 10), user_path(collaboration_user)
-    - else
-      =truncate(given_name(collaboration_user), :lenght => 10)
-    -# if current_object.role_for_user?(collaboration_user) != Brief::Roles::COLLABORATOR    
-    -#   %span.role 
-    -#     =precede("- ") do 
-    -#       =current_object.role?(collaboration_user).upcase
-    %br
-    %span
-      -if collaboration_user.last_request_at.present?            
-        =distance_of_time_in_words_to_now(collaboration_user.last_request_at)
-        ago
-      -else
-        Never logged in
+- if collaboration_user
+  %li.collaboration_user{:class => (current_object.author?(current_user) ? "is_author" : "")}
+    =small_avatar(collaboration_user)
+    %p
+      - if not collaboration_user.pending?
+        =link_to truncate(given_name(collaboration_user), :lenght => 10), user_path(collaboration_user)
+      - else
+        =truncate(given_name(collaboration_user), :lenght => 10)
+      -# if current_object.role_for_user?(collaboration_user) != Brief::Roles::COLLABORATOR    
+      -#   %span.role 
+      -#     =precede("- ") do 
+      -#       =current_object.role?(collaboration_user).upcase
+      %br
+      %span
+        -if collaboration_user.last_request_at.present?            
+          =distance_of_time_in_words_to_now(collaboration_user.last_request_at)
+          ago
+        -else
+          Never logged in
         
-    -if current_object.author?(current_user) && !defined?(collaboration_form)
-      %a.add_collaborator
-        Add
-        = check_box_tag "brief[available_collaborators_attributes][user_ids][]", collaboration_user.id, false
+      -if current_object.author?(current_user) && !defined?(collaboration_form)
+        %a.add_collaborator
+          Add
+          = check_box_tag "brief[available_collaborators_attributes][user_ids][]", collaboration_user.id, false
   
-  -if defined?(collaboration_form)
-    %ul.options
-      %li.author
-        =collaboration_form.check_box :author, :class => 'author'
-        %span Author
+    -if defined?(collaboration_form)
+      %ul.options
+        %li.author
+          =collaboration_form.check_box :author, :class => 'author'
+          %span Author
       
-      -if defined?(brief_form)
-        %li.approver
-          =brief_form.radio_button 'approver_id', collaboration_form.object.user_id, :class => 'approver'
-          %span Approver
+        -if defined?(brief_form)
+          %li.approver
+            =brief_form.radio_button 'approver_id', collaboration_form.object.user_id, :class => 'approver'
+            %span Approver
 
-      %li.remove
-        =collaboration_form.check_box '_delete', :class => 'remove'
-        %span Remove
-    .clear
+        %li.remove
+          =collaboration_form.check_box '_delete', :class => 'remove'
+          %span Remove
+      .clear
