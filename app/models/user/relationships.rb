@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :accounts, :through => :account_users
   
   # METHODS FOR BRIEF OWNERSHIP
-  has_many :user_briefs
+  has_many :user_briefs, :dependent => :destroy
   has_many :briefs, :through => :user_briefs
   
   delegate :draft, :to => :briefs
