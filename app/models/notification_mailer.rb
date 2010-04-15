@@ -4,12 +4,17 @@ class NotificationMailer < ActionMailer::Base
     "[#{account_name} :: #{context}] #{message}"
   end
   
-  def email_address(account_name)
-    "#{account_name} <no-reply@#{AppConfig['base_domain']}>"
+  def email_address(account_name, simple = false)
+    if simple
+      "support@ideapi.com"
+    else
+      "#{account_name} <support@ideapi.com>"
+    end
   end 
   
   def user_added_to_brief(user_brief, sent_at = Time.now)
     from        email_address(user_brief.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
     recipients  user_brief.user.email
     reply_to    email_address(user_brief.brief.account.name)
     subject     build_subject(user_brief.brief.account.name, "You have been invited to collaborate", user_brief.brief.title)
@@ -19,6 +24,7 @@ class NotificationMailer < ActionMailer::Base
   
   def user_idea_reviewed_on_brief(proposal, sent_at = Time.now)
     from        email_address(proposal.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
     recipients  proposal.user.email
     reply_to    email_address(proposal.brief.account.name)
     subject     build_subject(proposal.brief.account.name, "Your idea has been reviewed", proposal.brief.title)
@@ -28,6 +34,7 @@ class NotificationMailer < ActionMailer::Base
   
   def user_question_answered_on_brief(question, sent_at = Time.now)
     from        email_address(question.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
     recipients  question.user.email
     reply_to    email_address(question.brief.account.name)
     subject     build_subject(question.brief.account.name, "Your question has been answered", question.brief.title)
@@ -38,6 +45,7 @@ class NotificationMailer < ActionMailer::Base
   
   def user_role_changed_on_brief(user_brief, sent_at = Time.now)    
     from        email_address(user_brief.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
     recipients  user_brief.user.email
     reply_to    email_address(user_brief.brief.account.name)
     subject     build_subject(user_brief.brief.account.name, "Your role is now #{user_brief.role}", user_brief.brief.title)
@@ -47,6 +55,7 @@ class NotificationMailer < ActionMailer::Base
   
   def to_approver_idea_submitted_on_brief(approver, proposal, sent_at = Time.now)
     from        email_address(proposal.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
     recipients  approver.email
     reply_to    email_address(proposal.brief.account.name)
     subject     build_subject(proposal.brief.account.name, "An idea has been submitted for review", proposal.brief.title)
@@ -56,6 +65,7 @@ class NotificationMailer < ActionMailer::Base
   
   def user_invited_to_account(user, account, sent_at = Time.now)
     from        email_address(account.name)
+    headers     "return-path" => 'support@ideapi.com'
     recipients  user.email
     reply_to    email_address(account.name)
     subject     build_subject(account.name, "You now have an ideapi.com account", "ideapi")
