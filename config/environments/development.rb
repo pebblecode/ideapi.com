@@ -14,8 +14,19 @@ config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
 
-config.after_initialize do
-  ActiveMerchant::Billing::Base.gateway_mode = :test
-end
+# config.after_initialize do
+#   ActiveMerchant::Billing::Base.gateway_mode = :test
+# end
+
+require "smtp-tls"
+ActionMailer::Base.smtp_settings = {
+  :tls => true,
+  :address => "smtp.gmail.com",
+  :port => "587",
+  :domain => "ideapi.net",
+  :authentication => :plain,
+  :user_name => "dev@ideapi.net",
+  :password => "createarevolution$"
+}
