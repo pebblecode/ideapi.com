@@ -20,7 +20,6 @@ config.action_mailer.raise_delivery_errors = true
 #   ActiveMerchant::Billing::Base.gateway_mode = :test
 # end
 
-require "smtp-tls"
 ActionMailer::Base.smtp_settings = {
   :tls => true,
   :address => "smtp.gmail.com",
