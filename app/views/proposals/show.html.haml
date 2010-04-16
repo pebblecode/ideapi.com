@@ -8,11 +8,12 @@
       =current_object.title
       %span.status=current_object.state
             
-      -if current_user.owns?(current_object) && current_object.draft?
+      -if current_user.owns?(current_object) # && current_object.draft?
         =link_to 'edit proposal', edit_brief_proposal_path(parent_object, current_object)
         
     .proposal_item
-      =simple_format(current_object.long_description)
+      :textile
+        #{current_object.long_description}
       
     - current_object.assets.each do |asset|
       .proposal_item
@@ -48,7 +49,8 @@
                 %strong
                   = succeed ':' do
                     =given_name(comment.user)
-                =comment.comment
+                :textile
+                  #{strip_tags(comment.comment)}
               %br.clear      
         .comment
           #comment_form.comment_form
