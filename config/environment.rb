@@ -12,7 +12,8 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "alter-ego", :lib => "alter_ego"
   config.gem "will_paginate", :lib => "will_paginate"
-  
+  config.gem "RedCloth"
+  # config.gem "BlueCloth" # For Markdown
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
   # Skip frameworks

@@ -30,7 +30,7 @@ config.action_view.cache_template_loading            = true
 #Paperclip.options[:command_path] = "/usr/local/bin"
 
 # With ruby 1.8.6, we need the smtp-tls gem for smtp mailing. Slicehost doesn't upgrade to 1.8.7 for whatever reason...
-config.gem "smtp-tls"
+config.gem "smtp_tls"
 
 require "smtp-tls"
 ActionMailer::Base.smtp_settings = {
