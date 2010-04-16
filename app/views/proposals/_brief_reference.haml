@@ -11,6 +11,8 @@
       -parent_object.brief_items.answered.each do |brief_item|
         %li
           %h3=brief_item.title
-          %p=brief_item.body
+          %div.proposal-body
+            :textile
+              #{brief_item.body}
             
 %p=link_to 'back to brief', brief_path(parent_object)

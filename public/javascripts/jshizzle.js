@@ -477,10 +477,10 @@ jQuery.fn.document_ready = function() {
     }
     
     jQuery('#brief_reference h3').wrap('<a href="#"></a>').click(function () {
-      $(this).parent().next('p').toggle();
+      $(this).parent().next('div').toggle('fast');
       $(this).toggleClass('active');
       return false;
-    }).addClass('js').parent().next('p').hide();
+    }).addClass('js').parent().next('div').hide();
     
     // jQuery('.edit_proposal .remove_item').delete_item('.remove_item', function () { 
     // 
