@@ -20,7 +20,7 @@
       #header
         %h1
           /=link_to "ideapi", "/"
-          %a{:href => home_path, :alt => "home"}
+          %a{:href => home_path, :title => "home"}
             %img{ :src => "/images/ideapi-logo.gif", :alt => "ideapi Logo" }
         %ul.navigation        
           -if logged_in?

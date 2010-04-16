@@ -1,9 +1,10 @@
 %div[brief_item]{:class => (brief_item_updated_for_user?(brief_item) ? "updated" : "")}
   %h3
     =brief_item.title
-  %p.body
+  %div.body
     -if brief_item.body.present?
-      =brief_item.body_parsed
+      :textile
+        #{brief_item.body}
 
   %ul.actions{:style => "visible: none;"}
     -if current_object.active?
@@ -15,8 +16,8 @@
     .ask_question
       .question_body
         =medium_avatar
-        - form_for(@user_question, :url => brief_questions_path(current_object)) do |f|
-          = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item }
+        - form_for(@user_question, :url => brief_questions_path(current_object), :html => { :id => nil}) do |f|
+          = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item, :counter => brief_item_counter}
         %span.clear
   
   .clear

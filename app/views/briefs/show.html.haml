@@ -1,10 +1,10 @@
 =sub_nav do
   =breadcrumb_list    
-  -if owner?(current_object)
-    -if current_object.active?
-      %li.secondary=link_to 'edit brief', edit_brief_path(current_object)
-    //%li.secondary=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
-  .clear
+  -if owner?(current_object) and current_object.active?
+    %li.secondary=link_to 'edit brief', edit_brief_path(current_object)
+    -#%li.secondary=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
+
+.clear
 
 .col_1
   -if flash[:note].present?
@@ -15,7 +15,7 @@
     .note
       %p 
         This brief has been marked as complete, and therefore is read-only.
-        =render :partial => 'change_state', :locals => { :brief => current_object }      
+        =render :partial => 'change_state', :locals => { :brief => current_object } 
       
   %div[current_object]
     %h2
