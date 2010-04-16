@@ -8,9 +8,9 @@
 
   %ul.actions{:style => "visible: none;"}
     -if current_object.active?
-      %li=link_to 'Comment', '', {:class => 'toggle_ask_question'}
+      %li=link_to 'Comment', '#', {:class => 'toggle_ask_question'}
     -if brief_item.timeline_events.present?
-      %li=link_to 'History', '', {:class => 'toggle_brief_item_history'}
+      %li=link_to 'History', '#', {:class => 'toggle_brief_item_history'}
   
   -if current_object.active?
     .ask_question
@@ -18,7 +18,7 @@
         =medium_avatar
         - form_for(@user_question, :url => brief_questions_path(current_object), :html => { :id => nil}) do |f|
           = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item, :counter => brief_item_counter}
-        %span.clear
+        %div.clear
   
   .clear
   

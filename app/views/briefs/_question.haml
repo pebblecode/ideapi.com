@@ -4,7 +4,7 @@
     %span.speech
       %strong="#{given_name(question.user)}:"
       =question.body_parsed
-    %span.clear    
+    %br.clear    
   -if question.answered?
     .author_answer
       =medium_avatar(question.brief.author)
@@ -14,7 +14,7 @@
             =given_name(question.brief.author)
             answered:
           =question.author_answer
-      %span.clear
+      .clear
   -else
     -if owner?(question.brief) && (question.user != current_user)
       .author_answer_form

@@ -568,6 +568,11 @@ span.field_with_errors input, span.field_with_errors input:focus {
   margin: 0;
   width: 658px;
   position: relative; }
+#container #content .speech {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid white; }
 #container #content .question_body {
   margin: 0.5em auto 0.5em auto;
   width: 49em;

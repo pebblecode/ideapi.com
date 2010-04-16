@@ -363,7 +363,7 @@ jQuery.fn.document_ready = function() {
 
     jQuery(".brief_timeline li span").corners();  
 
-    jQuery('.speech').append('<span class="bubble" />').corners();
+    jQuery('.speech').append('<span class="bubble"></span>');
     
     jQuery('.revision h5').corners();
     

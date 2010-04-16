@@ -8,7 +8,7 @@
       -else
         %strong="#{comment_adjective_for given_name(question.user), :position => :before}:"
       =question.body_parsed
-    %span.clear    
+    %br.clear    
   -if question.answered?
     .author_answer
       =medium_avatar(question.brief.author)
@@ -18,7 +18,7 @@
             =given_name(question.brief.author)
             answered:
           =question.author_answer
-      %span.clear
+      .clear
   -else
     -if owner?(question.brief)
       .author_answer_form
