@@ -1386,14 +1386,3 @@ ul.error_messages li p {
   display: block; }
   #container #content .main .user a.submit-button:hover {
     background-color: #32401a; }
-
-#content .main .brief .body ul {
-  list-style-type: disc;
-  padding-left: 18px; }
-  #content .main .brief .body ul li {
-    display: list-item;
-    list-style-position: outside; }
-#content .main .brief .body table {
-  border: 1px solid black; }
-  #content .main .brief .body table tr {
-    border: 1px solid black; }
