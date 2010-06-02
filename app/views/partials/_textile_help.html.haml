@@ -1,52 +1,54 @@
-.side_box
-  %h2 Formatting help
-  .contents
-    %ul.textile-help
-      %li
-        .html
-          %strong Bold phrase
-        .textile *Bold phrase*
-      %li
-        .html
-          %em Italic phrase
-        .textile _Italic phrase_
-      %li
-        .html
-          %ul.normal
-            %li Bulleted list
-            %li Bulleted list
-        .textile
-          %span.asterisk *
-          Bulleted list
-          %br/
-          %span.asterisk *
-          Bulleted list
-      %li
-        .html
-          %ol
-            %li Numbered list
-            %li Numbered list
-        .textile
-          \# Numbered list
-          %br/
-          \# Numbered list
-      %li
-        .html
-          %blockquote Blockquote
-        .textile
-          bq. Blockquote
-      %li
-        .html
-          %h1 Big header
-        .textile 
-          h1. Big header
-      %li
-        .html
-          %h2 Normal header
-        .textile
-          h2. Normal header
-      %li
-        .html
-          =link_to "ideapi.com", "http://ideapi.com"
-        .textile
-          "ideapi.com":http://ideapi.com
+#textile-help-box
+  .side_box
+    %h2
+      Formatting help
+      = link_to '+', '#', :class => "help-toggle"
+    .contents
+      %ul.textile-help
+        %li
+          .html
+            %strong Bold phrase
+            &rarr; *Bold phrase*
+        %li
+          .html
+            %em Italic phrase
+            &rarr; _Italic phrase_
+        %li
+          .html
+            %ul.normal
+              %li Bulleted list
+              %li Bulleted list
+          .textile
+            %span.asterisk *
+            Bulleted list
+            %br/
+            %span.asterisk *
+            Bulleted list
+        %li
+          .html
+            %ol
+              %li Numbered list
+              %li Numbered list
+          .textile
+            \# Numbered list
+            %br/
+            \# Numbered list
+        %li
+          .html
+            %blockquote Blockquote
+          .textile
+            bq. Blockquote
+        %li
+          .html
+            %h1 Big header
+          .textile 
+            h1. Big header
+        %li
+          .html
+            %h2 Normal header
+          .textile
+            h2. Normal header
+        %li
+          .html
+            =link_to "ideapi", "http://ideapi.com"
+            &rarr; "ideapi":http://ideapi.com

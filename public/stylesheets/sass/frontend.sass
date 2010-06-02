@@ -1766,13 +1766,6 @@ ul.error_messages
   h2
     font-size: 1.2em !important
 
-.show-formatting-help
-  display: block 
-  margin-right: 10px
-  text-align: right
-  font-size: 1.1em
-  color: #c0c0c0 !important
-  font-weight: normal !important
 .textile-help
   li
     margin-bottom: .5em
@@ -1799,3 +1792,20 @@ ul.error_messages
   span.asterisk
     font-family: serif
     font-size: 1.2em
+#textile-help-box
+  h2
+    position: relative
+  a.help-toggle
+    position: absolute
+    top: -7px
+    right: 15px
+    color: #fff !important
+    background: transparent !important
+    font-size: 2em
+    padding: 0
+    margin: 0
+    :text-shadow #333 1px 1px 2px
+    &:hover
+      color: white
+  .contents
+    display: none

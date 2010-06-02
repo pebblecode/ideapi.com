@@ -1394,14 +1394,6 @@ ul.error_messages li p {
 #content .main .brief .brief_item h2 {
   font-size: 1.2em !important; }
 
-.show-formatting-help {
-  display: block;
-  margin-right: 10px;
-  text-align: right;
-  font-size: 1.1em;
-  color: silver !important;
-  font-weight: normal !important; }
-
 .textile-help li {
   margin-bottom: 0.5em; }
 .textile-help .textile {
@@ -1426,3 +1418,20 @@ ul.error_messages li p {
 .textile-help span.asterisk {
   font-family: serif;
   font-size: 1.2em; }
+
+#textile-help-box h2 {
+  position: relative; }
+#textile-help-box a.help-toggle {
+  position: absolute;
+  top: -7px;
+  right: 15px;
+  color: white !important;
+  background: transparent !important;
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+  text-shadow: #333333 1px 1px 2px; }
+  #textile-help-box a.help-toggle:hover {
+    color: white; }
+#textile-help-box .contents {
+  display: none; }

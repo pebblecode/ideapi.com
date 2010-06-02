@@ -499,9 +499,13 @@ jQuery.fn.document_ready = function() {
     // );
     
     
-    jQuery('a.show-formatting-help').click(function(){
-      jQuery('.textile-help').hide('slow');
-      jQuery(this).siblings('.textile-help').toggle('slow');
+    jQuery('#textile-help-box a.help-toggle').click(function(){
+      jQuery('#textile-help-box .contents').slideToggle('slow');
+      if(jQuery(this).text() == '+'){
+        jQuery(this).text('-');
+      }else{
+        jQuery(this).text('+');
+      }
       
       return false;
     });
