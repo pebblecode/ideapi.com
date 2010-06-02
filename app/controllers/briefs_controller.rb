@@ -58,7 +58,7 @@ class BriefsController < ApplicationController
     before :create do
       current_object.account = current_account
       current_object.author = current_user
-      current_object.template_brief = available_templates.first
+      current_object.template_brief = TemplateBrief.find(params[:brief][:template_brief_id]) || available_templates.first
     end
               
     before(:edit, :update) do

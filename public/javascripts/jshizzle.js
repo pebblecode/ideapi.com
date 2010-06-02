@@ -131,14 +131,14 @@ jQuery.fn.edit_brief_item = function () {
   jQuery(this).find('textarea').each( function () { 
     
     if (jQuery(this).val() == "") {
-      jQuery(this).hide();
+      jQuery(this).parent().hide();
 
       jQuery(this).parent().prev('h3').prepend('<a class="toggle_brief_edit" href="#'+jQuery(this).attr("id")+'">'+ link_on_state +'</a>');
       jQuery(this).parent().prev('h3').addClass('empty active');
       
       jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').click(function () {
         
-        jQuery(this).parent().parent().find('textarea').toggle();
+        jQuery(this).parent().parent().find('.body').toggle();
         
         if (jQuery(this).text() == link_on_state) {
           jQuery(this).text(link_off_state);
@@ -497,6 +497,14 @@ jQuery.fn.document_ready = function() {
     //     );
     //   }
     // );
+    
+    
+    jQuery('a.show-formatting-help').click(function(){
+      jQuery('.textile-help').hide('slow');
+      jQuery(this).siblings('.textile-help').toggle('slow');
+      
+      return false;
+    });
     
     jQuery.setup_collaboration_widget();
       

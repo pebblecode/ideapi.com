@@ -27,13 +27,12 @@
           %h3
             =brief_item.title
 
-          %p.body=text_area_tag "brief[brief_items_attributes][#{brief_item.id}][body]", brief_item.body
+          .body
+            = text_area_tag "brief[brief_items_attributes][#{brief_item.id}][body]", brief_item.body
           -if !brief_item.help_message.blank?
             %p.help_message
               %strong Example:
               = brief_item.help_message
-            
-
     -if current_object.draft?
       %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'    
       %p.submit=brief_form.submit 'save draft'

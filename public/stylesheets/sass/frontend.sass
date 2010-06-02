@@ -244,7 +244,7 @@ a:hover
         :margin-right 0.5em
         
       form
-        /:margin-top -10px
+        :margin-top -10px
         :float right      
 
   
@@ -452,7 +452,7 @@ span.field_with_errors
         :color #333
         
     
-    / brief_path
+    // brief_path
 
     ul.tabbed_links
       :background #fffffe
@@ -634,10 +634,11 @@ span.field_with_errors
           :font-size 1.5em
           :width 31em
           
-      p.body
+      .body
         textarea
-          :width 45em
+          :width 50em
           :height 10em
+          :font-size 1.1em
     
     
     .brief_list
@@ -730,8 +731,8 @@ span.field_with_errors
         
     
   
-  / USER PROFILE
-  
+  // USER PROFILE
+
   .avatar
     :border 6px solid #ddd
   
@@ -754,7 +755,7 @@ span.field_with_errors
     :border-top 1px solid #bbb
     :margin 2em 0
     
-  / CREATIVE QUESTIONS
+  // CREATIVE QUESTIONS
 
 #container
   #content    
@@ -1216,13 +1217,12 @@ p.submit.left
         
         .brief_item  
         
-          p.body
+          .body
             :background transparent
             :font-size 1.2em
             :width 100%
             :margin 0
             :padding 0.5em 0
-          
         .brief_item:hover
           :background #ffffdf
 
@@ -1759,3 +1759,43 @@ ul.error_messages
   &:hover
     background-color: #32401a
 
+
+#content .main .brief .brief_item 
+  h1
+    font-size: 1.4em !important
+  h2
+    font-size: 1.2em !important
+
+.show-formatting-help
+  display: block 
+  margin-right: 10px
+  text-align: right
+  font-size: 1.1em
+  color: #c0c0c0 !important
+  font-weight: normal !important
+.textile-help
+  li
+    margin-bottom: .5em
+  .textile
+    margin-left: 2em
+  .html
+    h1, h2, h3, h4, h5, h6
+      border: none !important
+      background: none !important
+      padding: none !important
+    h1
+      font-size: 1.4em
+    h2
+      font-size: 1.2em
+      padding: 0 !important
+    ul, ol
+      list-style-position: inside
+      list-style-type: auto
+      padding: 0 !important
+    ul
+      list-style-type: disc
+    ol
+      list-style-type: decimal
+  span.asterisk
+    font-family: serif
+    font-size: 1.2em
