@@ -22,17 +22,21 @@
           %span.right &rdquo;
     
       -current_object.brief_items.each do |brief_item|
-        =hidden_field_tag "brief[brief_items_attributes][#{brief_item.id}][id]", brief_item.id
-        %div[brief_item]
-          %h3
-            =brief_item.title
-
-          .body
-            = text_area_tag "brief[brief_items_attributes][#{brief_item.id}][body]", brief_item.body
-          -if !brief_item.help_message.blank?
-            %p.help_message
-              %strong Example:
-              = brief_item.help_message
+        - if brief_item.template_question.is_heading? 
+          %div[brief_item]
+            %h3
+              =brief_item.title
+        -else
+          =hidden_field_tag "brief[brief_items_attributes][#{brief_item.id}][id]", brief_item.id
+          %div[brief_item]
+            %h3
+              =brief_item.title
+            .body
+              = text_area_tag "brief[brief_items_attributes][#{brief_item.id}][body]", brief_item.body
+            -if !brief_item.help_message.blank?
+              %p.help_message
+                %strong Example:
+                = brief_item.help_message
     -if current_object.draft?
       %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'    
       %p.submit=brief_form.submit 'save draft'
