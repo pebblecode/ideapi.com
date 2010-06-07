@@ -10,4 +10,8 @@
     = form.label :help_message
     = form.text_area :help_message, :rows => 5, :cols => 50
   
+  %p
+    = form.label :is_heading, 'Is this section a heading?'
+    = form.check_box :is_heading
+  
 %p= submit_tag
