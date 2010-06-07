@@ -61,4 +61,6 @@ ActionController::Routing::Routes.draw do |map|
   map.terms '/terms', :controller => 'pages', :action => 'terms'
   map.privacy '/privacy', :controller => 'pages', :action => 'privacy'
   
+  
+  map.resources :reset_password
 end

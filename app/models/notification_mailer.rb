@@ -158,5 +158,16 @@ class NotificationMailer < ActionMailer::Base
   #   @from = 'alex@abutcher.co.uk'
   #   @sent_on = sent_at
   # end
+  
+  def password_reset_instructions(user)  
+    default_url_options[:host] = "surestack.example.com"
+    default_url_options[:port] = 3000
+    
+    subject       "Password Reset Instructions"  
+    from          "ideapi "
+    recipients    user.email
+    sent_on       Time.now
+    body          :edit_password_reset_url => edit_reset_password_url(user.perishable_token)
+  end
       
 end

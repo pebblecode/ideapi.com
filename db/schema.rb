@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100602102922) do
+ActiveRecord::Schema.define(:version => 20100607100224) do
 
   create_table "account_template_briefs", :force => true do |t|
     t.integer "account_id"
@@ -309,7 +309,7 @@ ActiveRecord::Schema.define(:version => 20100602102922) do
     t.datetime "last_login_at"
     t.datetime "last_request_at"
     t.integer  "invite_count"
-    t.integer  "friends_count",       :default => 0, :null => false
+    t.integer  "friends_count",       :default => 0,  :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "state"
@@ -319,7 +319,10 @@ ActiveRecord::Schema.define(:version => 20100602102922) do
     t.string   "telephone_ext"
     t.datetime "current_login_at"
     t.integer  "invited_by_id"
+    t.string   "perishable_token",    :default => "", :null => false
   end
+
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
   create_table "watched_briefs", :force => true do |t|
     t.integer  "brief_id"

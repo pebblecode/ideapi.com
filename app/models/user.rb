@@ -57,6 +57,14 @@ class User < ActiveRecord::Base
   end
   
   before_create :create_invite_code
+  
+  
+  
+  def deliver_password_reset_instructions!  
+    reset_perishable_token!
+    NotificationMailer.deliver_password_reset_instructions(self)
+  end
+  
 
   private
   
