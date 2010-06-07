@@ -1,0 +1,14 @@
+%h3 iStink – Update your password
+.login_form{:style => "margin: 0 1em; width: 28em"}
+  - form_tag reset_password_path, :method => :put do
+    - field_set_tag do
+      %p Please set a new password for your account. 
+      
+      %p
+        = label_tag "New Password: "
+        = password_field_tag :password
+      %p
+        = label_tag "Confirm Password: "
+        = password_field_tag :password_confirmation
+      %p
+        = submit_tag "Update Password", :class=> "awesome blue"
