@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091126152142) do
+ActiveRecord::Schema.define(:version => 20100602102922) do
 
   create_table "account_template_briefs", :force => true do |t|
     t.integer "account_id"
@@ -64,8 +64,6 @@ ActiveRecord::Schema.define(:version => 20091126152142) do
     t.text     "body"
     t.integer  "position"
     t.integer  "brief_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "template_question_id"
     t.datetime "revised_at"
   end
@@ -257,6 +255,7 @@ ActiveRecord::Schema.define(:version => 20091126152142) do
     t.text    "help_message"
     t.boolean "optional"
     t.integer "template_section_id"
+    t.boolean "is_heading",          :default => false
   end
 
   add_index "template_questions", ["template_section_id"], :name => "index_template_questions_on_template_section_id"
