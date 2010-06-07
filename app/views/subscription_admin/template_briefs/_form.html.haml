@@ -11,8 +11,8 @@
   -unless form.object.new_record?
   
     %h4 Template Questions
-  
-    %table.spaced
+    = sortable_element('template_questions', :url => {:action => 'sort', :id => current_object.id, :method => 'get' }, :tag => 'tr')
+    %table#template_questions.spaced
       %tr
         %th Question
         %th Help Message
@@ -20,7 +20,10 @@
       -form.fields_for :template_brief_questions do |template_brief_question|
         -unless template_brief_question.object.new_record?
           %tr
-            %td= template_brief_question.object.template_question.body  
+            - if template_brief_question.object.template_question.is_heading?
+              %td.heading= template_brief_question.object.template_question.body
+            - else 
+              %td= template_brief_question.object.template_question.body
             %td=template_brief_question.object.template_question.help_message
             %td= template_brief_question.check_box '_delete'
   
