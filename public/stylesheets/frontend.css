@@ -1464,3 +1464,6 @@ ul.error_messages li p {
 #container #content .col_2 .message {
   border-top: 1px solid #dddddd;
   margin-top: 6em; }
+
+body#users.contacts #header ul.sub_nav {
+  display: none; }

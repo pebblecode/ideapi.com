@@ -14,7 +14,7 @@
     
     =stylesheet_link_tag %w(reset print), :media => "print"
     
-  %body
+  %body{:id => body_ids, :class => body_classes}
     =render :partial => 'user_feedback/feedback_form'  
     #container
       #header

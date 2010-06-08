@@ -49,6 +49,14 @@ module LayoutHelper
     value.present? ? value : symbol  
   end
   
+  def body_ids
+    @body_ids ||= [controller.controller_name]
+  end
+  
+  def body_classes
+    @body_classes ||= []
+  end
+  
   private
   
   def capture_haml_into(hook)
