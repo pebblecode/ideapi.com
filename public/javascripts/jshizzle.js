@@ -518,7 +518,7 @@ jQuery.fn.document_ready = function() {
 
 jQuery.fn.document_ready_extras = function () {
   
-  jQuery('.remove_with_js').hide();    
+  jQuery('.remove_with_js').hide();
   
 }
 

@@ -39,6 +39,4 @@
         =asset_form.text_area :description, :rows => "3", :cols => "45"
     
       %p.remove_asset
-        = asset_form.check_box '_delete', :class => "remove_item"
-        = asset_form.label '_delete', 'Remove', :class => "remove_with_js"
-    
+        = link_to "Remove this!", asset_form.object, :method => 'delete', :class => 'delete', :confirm => "Are you sure you want to delete this attachment?"

@@ -593,7 +593,6 @@ span.field_with_errors
           :width 36em
           :padding 0 0 0 2em
           :margin 1px 0 0 0
-          
       .most_important_thing
         :padding 1em 1em 1em 3em
         
@@ -650,7 +649,7 @@ span.field_with_errors
         :background transparent
         
       h3
-        :width 23em
+        :width 30em
         :position relative
         
         .user_context
@@ -724,7 +723,14 @@ span.field_with_errors
         :position absolute
         :top 0
         :right 1em
-    
+        a.delete
+          text-indent: -9999px
+          display: block
+          height: 17px
+          width: 15px
+          background: url('/images/trash.png') no-repeat 0 0
+          &:hover
+            background-position: 0 -17px
     p
       textarea
         :width 35em

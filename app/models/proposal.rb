@@ -1,4 +1,5 @@
 class Proposal < ActiveRecord::Base
+  before_update :update_status
   belongs_to :brief
   belongs_to :user
   
@@ -113,4 +114,7 @@ class Proposal < ActiveRecord::Base
     NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver, self)
   end
   
+  def update_status
+    self.state = "draft"
+  end
 end

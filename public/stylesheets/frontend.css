@@ -488,7 +488,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
 #container #content .brief_list .brief_item:hover {
   background: transparent; }
 #container #content .brief_list h3 {
-  width: 23em;
+  width: 30em;
   position: relative; }
   #container #content .brief_list h3 .user_context {
     margin-left: 1em;
@@ -548,6 +548,14 @@ span.field_with_errors input, span.field_with_errors input:focus {
     position: absolute;
     top: 0;
     right: 1em; }
+    #container .edit_proposal .proposal_asset .remove_asset a.delete {
+      text-indent: -9999px;
+      display: block;
+      height: 17px;
+      width: 15px;
+      background: url("/images/trash.png") no-repeat 0 0; }
+      #container .edit_proposal .proposal_asset .remove_asset a.delete:hover {
+        background-position: 0 -17px; }
 #container .edit_proposal p textarea {
   width: 35em; }
 #container .avatar {

@@ -63,4 +63,5 @@ ActionController::Routing::Routes.draw do |map|
   
   
   map.resources :reset_password
+  map.resources :assets
 end
