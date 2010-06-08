@@ -81,7 +81,7 @@ jQuery.fn.feedback_form = function () {
   form = jQuery(this).find('.wrap');
   
   jQuery(this).find('.title a').click(function () {
-    form.fadeToggle();
+    form.slideToggle('slow');
   });
   
   form.hide();
