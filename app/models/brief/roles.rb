@@ -1,5 +1,7 @@
 class Brief < ActiveRecord::Base
-
+  
+  after_update :notify_if_approver_changed
+  
   def author?(user)
     self.belongs_to?(user) && user_briefs.find_by_user_id(user).author?
   end
@@ -46,5 +48,8 @@ class Brief < ActiveRecord::Base
   def collaborator?(a_user)
     users.include?(a_user)
   end
-
+  
+  def notify_if_approver_changed
+    NotificationMailer.deliver_user_made_approver_on_brief(self) if approver_id_changed?
+  end
 end

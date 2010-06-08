@@ -77,6 +77,17 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
   
+  
+  def user_made_approver_on_brief(brief, sent_at = Time.now)
+    from        email_address(brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
+    recipients  brief.approver.email
+    reply_to    email_address(brief.account.name)
+    subject     build_subject(brief.account.name, "You've been made an approver", brief.title)
+    body        :brief => brief
+    sent_on     sent_at
+  end
+  
   # 
   # def invite_request(requested_by, sent_at = Time.now)
   #   @subject = '[IDEAPI] Invitation request'
