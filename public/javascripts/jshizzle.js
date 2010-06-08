@@ -510,6 +510,15 @@ jQuery.fn.document_ready = function() {
       return false;
     });
     
+    jQuery('form div.change-state input').hover(function(){
+      jQuery('form div.change-state p.info').toggle();
+    },  function(){
+        jQuery('form div.change-state p.info').toggle();
+      });
+    
+    
+    
+    
     jQuery.setup_collaboration_widget();
       
     jQuery.fn.document_ready_extras();

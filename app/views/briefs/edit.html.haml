@@ -55,4 +55,9 @@
 .col_2
   =render :partial => 'partials/textile_help'
   =render :partial => 'change_state', :locals => { :brief => current_object }
-        
+  .message
+    %p
+      If the default ideapi template does not meet your needs, 
+      we can arrange to reproduce your own brief documents. 
+      Send us an example: 
+      = mail_to "info@ideapi.com", "info@ideapi.com", :encode => "javascript"
