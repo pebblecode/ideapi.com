@@ -511,9 +511,12 @@ jQuery.fn.document_ready = function() {
     });
     
     jQuery('form div.change-state input').hover(function(){
-      jQuery('form div.change-state p.info').toggle();
+      jQuery('form div.change-state p.info').fadeIn('slow');
     },  function(){
-        jQuery('form div.change-state p.info').toggle();
+        setTimeout(function(){
+          jQuery('form div.change-state p.info').fadeOut('slow');
+        }, 500);
+        
       });
     
     
