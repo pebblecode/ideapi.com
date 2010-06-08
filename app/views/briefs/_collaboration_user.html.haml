@@ -1,4 +1,4 @@
-- if collaboration_user
+- if collaboration_user.present?
   %li.collaboration_user{:class => (current_object.author?(current_user) ? "is_author" : "")}
     =small_avatar(collaboration_user)
     %p
@@ -12,7 +12,7 @@
       -#       =current_object.role?(collaboration_user).upcase
       %br
       %span
-        -if collaboration_user.last_request_at.present?            
+        -if collaboration_user.last_request_at.present?
           =distance_of_time_in_words_to_now(collaboration_user.last_request_at)
           ago
         -else
