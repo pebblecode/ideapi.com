@@ -1,6 +1,6 @@
 .brief_item
   %h3
-    =link_to truncate(brief.title, :length => 50), show_brief_path(brief)
+    =link_to truncate(brief.title, :length => 48), show_brief_path(brief)
     -if brief.active?
       %span.user_context=brief.role_for_user?(current_user)[:label]
   
