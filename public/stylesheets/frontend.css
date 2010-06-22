@@ -375,7 +375,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
   margin: 2em 0; }
   #container #content .brief h2, #container #content .proposal h2, #container #content .brief_list h2 {
     background: #b3d335;
-    color: 32401a;
+    color: #32401a;
     font-size: 1.2em;
     padding: 1em 1.8em;
     -moz-border-radius-topright: 6px;
@@ -393,10 +393,20 @@ span.field_with_errors input, span.field_with_errors input:focus {
       top: 1em; }
     #container #content .brief h2 a:hover, #container #content .proposal h2 a:hover, #container #content .brief_list h2 a:hover {
       color: #fefefe; }
+    #container #content .brief h2 a.edit_brief, #container #content .proposal h2 a.edit_brief, #container #content .brief_list h2 a.edit_brief {
+      top: 1.2em;
+      background: url("/images/page_edit.png") no-repeat center right;
+      height: 16px;
+      text-indent: -9999px; }
+      #container #content .brief h2 a.edit_brief:hover, #container #content .proposal h2 a.edit_brief:hover, #container #content .brief_list h2 a.edit_brief:hover {
+        text-indent: 0;
+        color: #32401a;
+        padding-right: 20px;
+        font-weight: normal; }
     #container #content .brief h2 a.print_brief, #container #content .proposal h2 a.print_brief, #container #content .brief_list h2 a.print_brief {
       top: 1.2em;
       right: 1.8em;
-      background: url(/images/printer_empty.png);
+      background: url("/images/printer.png");
       width: 16px;
       height: 16px;
       text-indent: -3000px; }

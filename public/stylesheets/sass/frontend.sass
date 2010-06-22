@@ -502,7 +502,7 @@ span.field_with_errors
       
       h2
         :background #b3d335
-        :color 32401a
+        :color #32401a
         :font-size 1.2em
         :padding 1em 1.8em
         +rounded-top-6px
@@ -517,11 +517,20 @@ span.field_with_errors
           
         a:hover
           :color #fefefe
-          
+        a.edit_brief
+          top: 1.2em
+          background: url('/images/page_edit.png') no-repeat center right
+          height: 16px
+          text-indent: -9999px
+          &:hover
+            text-indent: 0
+            color: #32401a
+            padding-right: 20px
+            font-weight: normal
         a.print_brief
           :top 1.2em
           :right 1.8em
-          :background url(/images/printer_empty.png)
+          :background url('/images/printer.png')
           :width 16px
           :height 16px
           :text-indent -3000px
@@ -1172,7 +1181,7 @@ p.submit.left
 
           a:hover
             :color #fefefe
-
+          
           a.print_brief
             :top 1.2em
             :right 1.8em
