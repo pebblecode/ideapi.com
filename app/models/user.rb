@@ -1,5 +1,5 @@
 #require 'friendship'
-require 'md5'
+require 'digest/md5'
 
 class User < ActiveRecord::Base
   validates_acceptance_of :terms_of_service, :message => "Must accept the Terms and Conditions", :accept => "1"
