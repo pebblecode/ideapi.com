@@ -370,6 +370,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
   margin-left: 0.5em; }
 #container #content .update_proposal {
   padding: 1em 0.5em; }
+#container #content .proposal a.edit_icon {
+  right: 1em; }
 #container #content .brief, #container #content .proposal, #container #content .brief_list {
   background: #fffffe;
   margin: 2em 0; }
