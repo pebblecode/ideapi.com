@@ -393,12 +393,12 @@ span.field_with_errors input, span.field_with_errors input:focus {
       top: 1em; }
     #container #content .brief h2 a:hover, #container #content .proposal h2 a:hover, #container #content .brief_list h2 a:hover {
       color: #fefefe; }
-    #container #content .brief h2 a.edit_brief, #container #content .proposal h2 a.edit_brief, #container #content .brief_list h2 a.edit_brief {
+    #container #content .brief h2 a.edit_brief, #container #content .brief h2 a.edit_icon, #container #content .proposal h2 a.edit_brief, #container #content .proposal h2 a.edit_icon, #container #content .brief_list h2 a.edit_brief, #container #content .brief_list h2 a.edit_icon {
       top: 1.2em;
       background: url("/images/page_edit.png") no-repeat center right;
       height: 16px;
       text-indent: -9999px; }
-      #container #content .brief h2 a.edit_brief:hover, #container #content .proposal h2 a.edit_brief:hover, #container #content .brief_list h2 a.edit_brief:hover {
+      #container #content .brief h2 a.edit_brief:hover, #container #content .brief h2 a.edit_icon:hover, #container #content .proposal h2 a.edit_brief:hover, #container #content .proposal h2 a.edit_icon:hover, #container #content .brief_list h2 a.edit_brief:hover, #container #content .brief_list h2 a.edit_icon:hover {
         text-indent: 0;
         color: #32401a;
         padding-right: 20px;

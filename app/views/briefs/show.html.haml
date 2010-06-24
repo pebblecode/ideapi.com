@@ -33,8 +33,8 @@
   =render :partial => 'comments'
   
 .col_2  
-  =render :partial => 'responses'
   =render :partial => 'collaborators'
+  =render :partial => 'responses'
   .discussion     
     =render :partial => 'questions/overview', :locals => { :overview_collection => current_object.questions } 
   =render :partial => 'partials/textile_help'
