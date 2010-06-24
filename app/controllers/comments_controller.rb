@@ -15,6 +15,9 @@ class CommentsController < ApplicationController
       format.html { redirect_to parent_path(:anchor => dom_id(current_object)) }
     end 
     
+    response_for(:destroy) do |format|
+      format.html{ redirect_to session[:return_to] }
+    end
   end
   
   def parent_path(path = nil)

@@ -3,7 +3,7 @@
 /* Mixins */
 /* Mixins */
 body {
-  background-color: !body_bg;
+  background-color: white;
   text-align: justify;
   color: #4c4c4c;
   padding: 0px;
@@ -132,9 +132,9 @@ img {
       font-family: Helvetica, Arial, sans-serif;
       line-height: 1em;
       font-weight: bold;
-      margin: 10px 0 0 0;
-      text-shadow: 0px 1px 2px #888; }
+      margin: 10px 0 0 0; }
     #content p.intro-text {
+      font-style: italic;
       font-size: 1.7em;
       margin: 12px 0 0 0;
       line-height: 1.2em; }
@@ -166,7 +166,7 @@ img {
   text-align: justify; }
   .tour-section img, .tour-section .object {
     width: 700px;
-    border: 5px solid #eee;
+    border: 5px solid #eeeeee;
     padding: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -191,7 +191,7 @@ img {
     float: right;
     display: block; }
     #footer .twitter-button:hover {
-      background-color: #bbb;
+      background-color: #bbbbbb;
       text-decoration: none; }
   #footer p {
     color: black;
@@ -223,11 +223,11 @@ img {
 .line-width {
   width: 55em; }
   .line-width h2 {
-    margin: .8em 0 .4em 0; }
+    margin: 0.8em 0 0.4em 0; }
 
 .button-ideapi {
   background: #b3d335;
-  color: #fff;
+  color: white;
   cursor: pointer;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
