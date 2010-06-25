@@ -1,12 +1,12 @@
 class QuestionsController < ApplicationController
   before_filter :require_user
   
-  before_filter :require_active_brief
+  before_filter :require_active_brief, :except => :destroy
   
   make_resourceful do
     
     belongs_to :brief
-    actions :create, :update
+    actions :create, :update, :destroy
     
     before :create do
       current_object.user = current_user

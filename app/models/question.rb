@@ -1,4 +1,7 @@
 class Question < ActiveRecord::Base
+  
+  before_destroy :delete_timeline_events
+  
   belongs_to :user
   belongs_to :answered_by, :class_name => "User"
   
@@ -54,5 +57,10 @@ class Question < ActiveRecord::Base
   def notify_if_question_answered
     NotificationMailer.deliver_user_question_answered_on_brief(self) if author_answer_changed?
   end
-
+  
+  def delete_timeline_events
+    TimelineEvent.find(:all, :conditions => { :subject_id => self.id, :subject_type => self.class.to_s}).each do |event|
+      event.destroy
+    end
+  end
 end

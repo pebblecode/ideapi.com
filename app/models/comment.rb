@@ -1,7 +1,9 @@
 class Comment < ActiveRecord::Base
 
   include ActsAsCommentable::Comment
-
+  
+  before_destroy :delete_timeline_events
+  
   belongs_to :commentable, :polymorphic => true
   
   fires :new_comment, :on => :create,
@@ -17,5 +19,13 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :comment
+  
+  private
+  
+  def delete_timeline_events
+    TimelineEvent.find(:all, :conditions => { :subject_id => self.id, :subject_type => self.class.to_s}).each do |event|
+      event.destroy
+    end
+  end
 
 end
