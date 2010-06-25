@@ -115,6 +115,6 @@ class Proposal < ActiveRecord::Base
   end
   
   def update_status
-    #self.state = "draft"
+    self.state = "draft"
   end
 end
