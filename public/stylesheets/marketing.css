@@ -213,11 +213,14 @@ img {
     text-align: right;
     padding: 10px 0 10px 10px;
     float: right;
-    width: 300px; }
+    width: 170px; }
     #footer #footer-content-right p {
       margin: 0; }
     #footer #footer-content-right p.right {
       text-align: right; }
+    #footer #footer-content-right span.text {
+      display: block;
+      float: left; }
   #footer #footer-content {
     margin-right: auto;
     margin-left: auto;
