@@ -596,6 +596,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid white; }
+  #container #content .speech textarea {
+    font-size: 1em; }
 #container #content .delete-comment {
   float: right; }
   #container #content .delete-comment a {

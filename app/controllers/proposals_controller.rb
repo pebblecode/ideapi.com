@@ -12,7 +12,8 @@ class ProposalsController < ApplicationController
     actions :all
     
     before :new, :create, :edit, :show, :update do
-      add_breadcrumb truncate(parent_object.title.downcase, :length => 30), brief_path(parent_object)
+      add_breadcrumb truncate(parent_object.title, :length => 30), brief_path(parent_object)
+      session[:return_to] = request.request_uri
     end
     
     before :new, :edit do 
