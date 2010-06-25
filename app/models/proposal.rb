@@ -1,5 +1,5 @@
 class Proposal < ActiveRecord::Base
-  before_update :update_status
+  #before_update :update_status
   belongs_to :brief
   belongs_to :user
   
