@@ -39,6 +39,7 @@
         #footer-content
           #footer-content-left
             %p
+              \&copy; 2010 Ideapi Limited | 
               %a{ :href => terms_path, :alt => "Terms of Service" }
                 Terms of Service
               |
@@ -46,12 +47,18 @@
                 Privacy Policy
               |
               %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
-              |
-              %a{ :href => "http://twitter.com/ideapi", :alt => "Follow us on Twitter" }
-                Twitter
+
         #footer-content-right
           %p
-            \&copy; 2010 Ideapi Limited
+            %span.icon
+              %a{ :href => "http://twitter.com/ideapi", :title => "follow us on twitter" }
+                %img{:src => "/images/twitter_icon.jpg", :alt => "twitter", :height => "24"}
+            %pan.icon
+              %a{ :href => "http://www.facebook.com/pages/ideapi/351745410618", :title => "ideapi @ Facebook" }
+                %img{:src => "/images/facebook_icon.jpg", :alt => "facebook", :height => "24"}
+            %span.icon
+              %a{ :href => "http://blog.ideapi.com/rss", :title => "RSS" }
+                %img{:src => "/images/rss_icon.jpg", :alt => "rss", :height => "24" }
 
     :javascript
       var _gaq = _gaq || [];

@@ -205,6 +205,8 @@ img {
     text-align: left;
     padding: 10px 0;
     float: left; }
+    #footer #footer-content-left p {
+      margin: 0; }
     #footer #footer-content-left a {
       font-weight: normal; }
   #footer #footer-content-right {
@@ -212,6 +214,8 @@ img {
     padding: 10px 0 10px 10px;
     float: right;
     width: 300px; }
+    #footer #footer-content-right p {
+      margin: 0; }
     #footer #footer-content-right p.right {
       text-align: right; }
   #footer #footer-content {
