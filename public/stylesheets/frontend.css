@@ -598,6 +598,11 @@ span.field_with_errors input, span.field_with_errors input:focus {
   border: 1px solid white; }
 #container #content .delete-comment {
   float: right; }
+  #container #content .delete-comment a {
+    color: #aaaaaa;
+    font-weight: normal; }
+    #container #content .delete-comment a:hover {
+      color: #555555; }
 #container #content .question_body {
   margin: 0.5em auto 0.5em auto;
   width: 49em;
