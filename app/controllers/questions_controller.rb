@@ -46,6 +46,11 @@ class QuestionsController < ApplicationController
         redirect_to brief_path(parent_object, :anchor => dom_id(current_object.brief_item)) 
       }
     end
+    
+    response_for(:destroy) do |format|
+      format.html{ redirect_to session[:return_to] }
+    end
+    
 
   end
   
