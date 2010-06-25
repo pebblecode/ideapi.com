@@ -203,8 +203,10 @@ img {
       text-decoration: underline; }
   #footer #footer-content-left {
     text-align: left;
-    padding: 10px;
+    padding: 10px 0;
     float: left; }
+    #footer #footer-content-left a {
+      font-weight: normal; }
   #footer #footer-content-right {
     text-align: right;
     padding: 10px 0 10px 10px;
