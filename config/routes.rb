@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
       briefs.resources :questions
       briefs.resources :proposals, :member => { :delete_asset => :delete }
     end
-  
+  map.resources :template_briefs, :collection => { :sort => :put } 
   map.resources :comments
   map.resources :questions
       

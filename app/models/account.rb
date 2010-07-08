@@ -116,7 +116,7 @@ class Account < ActiveRecord::Base
   def admin?(a_user)
     self.users.admins.include?(a_user)
   end
-  
+ 
   protected
   
     def valid_domain?

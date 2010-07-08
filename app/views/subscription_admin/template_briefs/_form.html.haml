@@ -11,7 +11,7 @@
   -unless form.object.new_record?
   
     %h4 Template Questions
-    = sortable_element('template_questions', :url => {:action => 'sort', :id => current_object.id, :method => 'get' }, :tag => 'tr')
+    //= sortable_element('template_questions', :url => {:action => 'sort', :id => current_object.id, :method => 'get' }, :tag => 'tr')
     %table#template_questions.spaced
       %tr
         %th Question

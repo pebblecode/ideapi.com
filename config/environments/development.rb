@@ -29,3 +29,4 @@ ActionMailer::Base.smtp_settings = {
   :user_name => "dev@ideapi.net",
   :password => "createarevolution$"
 }
+

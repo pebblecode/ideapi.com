@@ -1,0 +1,17 @@
+-form_for @template_brief do |f| 
+  =f.error_messages
+  %p
+    =f.label :title 
+    =f.text_field :title 
+  
+  -f.fields_for :template_questions_attributes do |tqf| 
+    -unless f.object.new_record?
+      =render :partial => 'template_question', :locals => { :f => tqf }
+
+
+  %p
+    =add_child_link "Add a Question", :template_questions
+    =new_child_fields_template(f, :template_questions)
+  =f.submit "Submit"
+
+

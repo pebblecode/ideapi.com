@@ -1,3 +1,37 @@
+
+/*
+* Dynamically add and remove elements from a complex nested form
+* Added from http://github.com/timriley/complex-form-examples/
+* Added by George Ornbo for template_briefs 07/07/10
+*/
+$(function() {
+  $('form a.add_child').click(function() {
+    var assoc   = $(this).attr('data-association');
+    var content = $('#' + assoc + '_fields_template').html();
+    var regexp  = new RegExp('new_' + assoc, 'g');
+    var new_id  = new Date().getTime();
+        
+    $(this).parent().before(content.replace(regexp, new_id));    
+    return false;
+  });
+  
+  $('form a.remove_child').live('click', function() {
+    var hidden_field = $(this).prev('input[type=hidden]')[0];
+    if(hidden_field) {
+      hidden_field.value = '1';
+    }
+    $(this).parents('.fields').hide();
+    return false;
+  });
+});
+
+
+
+
+
+
+
+
 jQuery.ajaxSetup({ 
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
@@ -29,11 +63,11 @@ jQuery.extend({
 ////
 // jQuery('element').scrollTo()
 // jQuery('element').scrollTo(speed)
-jQuery.fn.scrollTo = function(speed) {
-  var offset = jQuery(this).offset().top - 30
-  jQuery('html,body').animate({scrollTop: offset}, speed || 1000)
-  return this
-}
+//jQuery.fn.scrollTo = function(speed) {
+//  var offset = jQuery(this).offset().top - 30
+//  jQuery('html,body').animate({scrollTop: offset}, speed || 1000)
+//  return this
+//}
 
 ////
 // jQuery('element').spin()
@@ -473,7 +507,7 @@ jQuery.fn.document_ready = function() {
     // $('#proposal_long_description').wysiwyg({ css: '/stylesheets/wysiwyg_body.css' });
     
     if (document.URL.split('#')[1] != "") {
-      jQuery("#" + document.URL.split('#')[1]).scrollTo();
+      //jQuery("#" + document.URL.split('#')[1]).scrollTo();
     }
     
     jQuery('#brief_reference h3').wrap('<a href="#"></a>').click(function () {
@@ -519,7 +553,15 @@ jQuery.fn.document_ready = function() {
         
       });
     
-    
+    /*
+    * Added by George Ornbo 7/10/10 to make template questions sortable
+    * See http://docs.jquery.com/UI/Sortable
+    */ 
+    $('#sortable').sortable({update: function() {
+      $.post('/template_briefs/sort', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$(this).sortable('serialize'));
+      }
+    });
+
     
     
     jQuery.setup_collaboration_widget();

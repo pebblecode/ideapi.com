@@ -1,0 +1,24 @@
+=sub_nav do
+  =breadcrumb_list
+
+.col_1
+  
+  .brief
+    %h2
+      =@template_brief.title
+
+    -if @template_brief.template_questions.present?
+      #sortable
+        -@template_brief.template_brief_questions.each do |q|
+          %div{:class => "brief_item", "id" => "brief_item_#{q.id}"}
+            %h3
+              =q.template_question.body
+            -if q.template_question.help_message.present?
+              .body
+                %p
+                  =q.template_question.help_message
+      
+  
+        
+.col_2
+  

@@ -1488,3 +1488,11 @@ ul.error_messages li p {
 
 body#users.contacts #header ul.sub_nav {
   display: none; }
+
+.fields {
+  padding-top: 1em;
+  border-top: 1px solid #cccccc;
+  margin-bottom: 1em; }
+
+#sortable .brief_item:hover {
+  cursor: move; }

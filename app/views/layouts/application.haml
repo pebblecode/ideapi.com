@@ -8,12 +8,14 @@
 
     =stylesheet_link_tag %w(reset frontend textile facebox jquery.wysiwyg)
     =javascript_include_tag %w(jquery jqcorners facebox jquery.cookie jquery.wysiwyg jshizzle prototype)
-
+    =javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
     /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
     /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
     
     =stylesheet_link_tag %w(reset print), :media => "print"
-    
+    =javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 
+
+     
   %body{:id => body_ids, :class => body_classes}
     =render :partial => 'user_feedback/feedback_form'  
     #container
@@ -25,6 +27,8 @@
         %ul.navigation        
           -if logged_in?
             %li=link_unless_current 'dashboard', '/dashboard'
+            -if current_user && current_user_can_create_briefs?
+              %li=link_to 'templates', template_briefs_path
             %li=link_unless_current 'profile', profile_path
             %li=link_unless_current 'contacts', users_path
             -#-if admin?
