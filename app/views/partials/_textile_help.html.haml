@@ -7,48 +7,74 @@
       %ul.textile-help
         %li
           .html
-            %strong Bold phrase
-            &rarr; *Bold phrase*
+            h1. Header
+            %h1 &rarr; Header 
+            %br
         %li
           .html
-            %em Italic phrase
-            &rarr; _Italic phrase_
+            h2. Header
+            %h2 &rarr; Header 
+            %br
         %li
           .html
+            *Bold* &rarr; 
+            %strong Bold 
+            %br
+        %li
+          .html
+            _Italic_ &rarr;
+            %em Italic 
+            %br
+            %br
+        %li
+          .html
+            * Bulleted List
+            %br
+            * Bulleted List
+            %br
             %ul.normal
               %li Bulleted list
               %li Bulleted list
-          .textile
-            %span.asterisk *
-            Bulleted list
-            %br/
-            %span.asterisk *
-            Bulleted list
+            %br
         %li
           .html
+            \# Numbered List
+            %br
+            \# Numbered List
+            %br
             %ol
               %li Numbered list
               %li Numbered list
-          .textile
-            \# Numbered list
-            %br/
-            \# Numbered list
+              %br
         %li
           .html
+            bq. Block &rarr; 
+            %br
             %blockquote Blockquote
-          .textile
-            bq. Blockquote
+            %br
         %li
           .html
-            %h1 Big header
-          .textile 
-            h1. Big header
+            Add a link:
+            %br
+            "ideapi":http://ideapi.com
+            %br
+            &rarr; 
+            =link_to "Link to ideapi.com", "http://ideapi.com"
+            %br
+            %br
         %li
           .html
-            %h2 Normal header
-          .textile
-            h2. Normal header
+            Add an image:
+            %br
+            !http://image_url!
+            %br
+            %br
         %li
           .html
-            =link_to "ideapi", "http://ideapi.com"
-            &rarr; "ideapi":http://ideapi.com
+            Create a table:
+            %br
+            ="|_. Heading |_. Heading |"
+            %br
+            ="| Cell | Cell |"
+            %br
+            %br
