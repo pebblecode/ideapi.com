@@ -6,7 +6,7 @@
   .brief
     %h2
       =@template_brief.title
-
+      =link_to 'edit template', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_brief'
     -if @template_brief.template_questions.present?
       #sortable
         -@template_brief.template_brief_questions.each do |q|

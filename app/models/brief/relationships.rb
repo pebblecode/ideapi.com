@@ -90,11 +90,25 @@ class Brief < ActiveRecord::Base
     user_briefs.create(:user => author, :author => true)
   end
   
+  # Oh intrepid developer! If you have arrived here here are some comments to help 
+  # Added by shapeshed, a developer wearing red underpants picking this application slowly apart
+  # To date I have lost three years of my life getting to this point. 
+  # 
+  # Once a brief is created this method clones the brief items from the template_brief_questions
+  # into brief_items. This solves the issue of what happens if template items are changed
+  # after a brief is created as we are effectively operating on a clone.  
+  #
+  # Dig with a big shovel through BriefItem and you'll find it makes use of 
+  # acts_as_versioned (http://github.com/technoweenie/acts_as_versioned). Note that if you 
+  # make database changes to template_questions these will need to be reflected in both
+  # brief_items and brief_item_versions.
+  #
+  # Carry on..
   def generate_brief_items_from_template!
     raise 'TemplateBriefMissing' if template_brief.blank?
   
     template_brief.template_questions.each do |question|
-      self.brief_items.create(:title => question.body, :template_question => question)
+      self.brief_items.create(:title => question.body, :is_heading => question.is_heading, :template_question => question)
     end
     
     return (brief_items.count == template_brief.template_questions.count)

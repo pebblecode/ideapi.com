@@ -4,9 +4,8 @@
     =f.label :title 
     =f.text_field :title 
   
-  -f.fields_for :template_questions_attributes do |tqf| 
-    -unless f.object.new_record?
-      =render :partial => 'template_question', :locals => { :f => tqf }
+  -f.fields_for :template_questions do |tqf| 
+    =render :partial => 'template_question', :locals => { :f => tqf }
 
 
   %p

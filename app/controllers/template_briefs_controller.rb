@@ -3,11 +3,10 @@ class TemplateBriefsController < ApplicationController
   # needs login for all actions
   before_filter :require_user
   add_breadcrumb 'dashboard', "/dashboard"
-  
   add_breadcrumb 'create a new template', :new_template_brief_path, :only => [:new, :create] 
   
   def index
-    @template_briefs = TemplateBrief.all    
+    @template_briefs = current_account.template_briefs 
   end 
 
   def new

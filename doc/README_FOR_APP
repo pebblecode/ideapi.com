@@ -1,2 +1,23 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+FUCKSOCKS! I was sweeping up after a hard day's work of feeding the penguins and coding ruby
+and found that there was no documentation for this application. Imagine the number of developers
+that will end up in mental homes if this situation continues? I hope this will make you happy but
+most of all I hope the bees do not die. Peanut butter without honey on crumpets would just not be the 
+same.
+
+You'll find the code base is largely completely uncommented, unless it has had comments added by me.
+If you can, pull out your sword of hope and add some yourself. The best commment wins a cup. 
+
+Please cut the crap and tell me how it works!
+
+OK.
+
+The make_resourceful gem is in use so this affects controllers and views with the ubiquitous use of 
+current_object. I'd recommend casting your eyeballs over this page to get down with the plan
+http://github.com/hcatlin/make_resourceful
+
+Tests
+
+There is a reasonably good test suite in place, although I'm not sure of how much recent development has 
+been tested. The test framework uses Machinist for factories, Shoulda and test unit. 
+
+There isn't too much low level stuff - it is mostly integration tests. 

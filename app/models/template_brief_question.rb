@@ -6,6 +6,7 @@ class TemplateBriefQuestion < ActiveRecord::Base
   
   validates_presence_of :template_brief_id, :template_question_id
 
+  # Updates the order of items to enable draggable sorting
   def self.order(ids)
     update_all(
       ['position = FIND_IN_SET(id, ?)', ids.join(',')],

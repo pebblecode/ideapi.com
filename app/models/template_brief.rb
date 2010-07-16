@@ -1,15 +1,14 @@
 class TemplateBrief < ActiveRecord::Base
   belongs_to :site
-  has_many :template_brief_questions, :order => 'position'
-  has_many :template_questions, :through => :template_brief_questions, :order => 'template_brief_questions.position'
+  has_many :template_brief_questions, :order => 'position', :dependent => :destroy
+  has_many :template_questions, :through => :template_brief_questions, :order => 'template_brief_questions.position' 
   
   has_many :account_template_briefs
   has_many :accounts, :through => :account_template_briefs
 
-  #accepts_nested_attributes_for :template_brief_questions, :allow_destroy => true
 
   accepts_nested_attributes_for :template_questions, 
-    :reject_if => lambda { |a| a.values.all?(&:blank?) }, 
+    :reject_if => proc { |attrs| attrs['optional'] == '0' && attrs['is_heading'] == '0' && attrs['body'].blank? },
     :allow_destroy => true
   
   class << self

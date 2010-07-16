@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100607100224) do
+ActiveRecord::Schema.define(:version => 20100716161753) do
 
   create_table "account_template_briefs", :force => true do |t|
     t.integer "account_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20100607100224) do
     t.integer  "brief_id"
     t.integer  "template_question_id"
     t.datetime "revised_at"
+    t.boolean  "is_heading",           :default => false
   end
 
   add_index "brief_item_versions", ["brief_id"], :name => "index_brief_item_versions_on_brief_id"
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20100607100224) do
     t.datetime "updated_at"
     t.integer  "template_question_id"
     t.integer  "version"
+    t.boolean  "is_heading",           :default => false
   end
 
   add_index "brief_items", ["brief_id"], :name => "index_brief_items_on_brief_id"
