@@ -28,7 +28,7 @@
           -if logged_in?
             %li=link_unless_current 'dashboard', '/dashboard'
             -if current_user && current_user_can_create_briefs?
-              %li=link_to 'templates', template_briefs_path
+              %li=link_unless_current 'templates', template_briefs_path
             %li=link_unless_current 'profile', profile_path
             %li=link_unless_current 'contacts', users_path
             -#-if admin?
