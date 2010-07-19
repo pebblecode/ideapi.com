@@ -12,7 +12,7 @@ class TemplateBriefsController < ApplicationController
 
 
   def index
-    @template_briefs = TemplateBrief.owned_templates(current_account) # see named_scope in template_brief.rb
+    @template_briefs = TemplateBrief.owned_templates(current_account.id) # see named_scope in template_brief.rb
   end 
 
   def new
