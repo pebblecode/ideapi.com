@@ -1,7 +1,7 @@
 -form_for @template_brief do |f| 
   =f.error_messages
   %p
-    =f.label :title 
+    =f.label :title, "Template Title"
     =f.text_field :title 
   
   -f.fields_for :template_questions do |tqf| 

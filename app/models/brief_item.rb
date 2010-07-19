@@ -35,6 +35,9 @@ class BriefItem < ActiveRecord::Base
   
   # Named scopes
   named_scope :answered, :conditions => 'body <> ""'
+  # Added by George Ornbo. Incase the above is being used elsewhere adding a new one
+  # to support headings as brief items
+  named_scope :answered_or_heading, :conditions => 'body <> "" OR is_heading = 1'
   
   # Gem Alert! For documentation see http://github.com/technoweenie/acts_as_versioned 
   acts_as_versioned :if_changed => [:body]

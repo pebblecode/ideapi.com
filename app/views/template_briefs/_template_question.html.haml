@@ -1,15 +1,15 @@
 %div.fields
   %p
-    =f.label :body, "Question Title"
+    =f.label :body, "Title"
     =f.text_field :body
-  %p
+  %p.help-message
     =f.label :help_message, "Help Message"
     =f.text_area :help_message, :rows => 3, :cols => 60
-  %p
+  %p.optional
     =f.label :optional, "Optional?"
     =f.check_box :optional, :value => nil
   %p
     =f.label :is_heading, "Is Heading?"
-    =f.check_box :is_heading, :value => nil
+    =f.check_box :is_heading, :value => nil, :class => 'is-heading' 
 
   =remove_child_link "remove", f 

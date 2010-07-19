@@ -10,13 +10,17 @@
     -if @template_brief.template_questions.present?
       #sortable
         -@template_brief.template_brief_questions.each do |q|
-          %div{:class => "brief_item", "id" => "brief_item_#{q.id}"}
-            %h3
-              =q.template_question.body
-            -if q.template_question.help_message.present?
-              .body
-                %p
-                  =q.template_question.help_message
+          %div{:class => q.template_question.is_heading ? "brief_heading" : "brief_item",:id => "brief_item_#{q.id}"}
+            -if q.template_question.is_heading?
+              %h3
+                =q.template_question.body
+            -else
+              %h4
+                =q.template_question.body
+              -if q.template_question.help_message.present?
+                .body
+                  %p
+                    =q.template_question.help_message
       
   
         

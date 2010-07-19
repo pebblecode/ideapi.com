@@ -2,11 +2,17 @@ class TemplateBriefsController < ApplicationController
   
   # needs login for all actions
   before_filter :require_user
+
+
+
   add_breadcrumb 'dashboard', "/dashboard"
   add_breadcrumb 'create a new template', :new_template_brief_path, :only => [:new, :create] 
   
+
+
+
   def index
-    @template_briefs = current_account.template_briefs 
+    @template_briefs = TemplateBrief.owned_templates(current_account) # see named_scope in template_brief.rb
   end 
 
   def new
@@ -21,6 +27,7 @@ class TemplateBriefsController < ApplicationController
 
   def create
     @template_brief = TemplateBrief.new(params[:template_brief])
+    @template_brief.account_template_briefs << AccountTemplateBrief.new(:account_id => current_account, :template_brief_id => @template_brief)
     if @template_brief.save
       flash[:notice] = "Successfully created template brief"
       redirect_to @template_brief
@@ -36,7 +43,7 @@ class TemplateBriefsController < ApplicationController
   def update
     @template_brief = TemplateBrief.find(params[:id])
     if @template_brief.update_attributes(params[:template_brief])
-      flash[:notice] = "Successfully updated project."
+      flash[:notice] = "Successfully updated template"
       redirect_to @template_brief
     else
       render :action => 'edit'

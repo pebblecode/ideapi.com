@@ -554,7 +554,7 @@ jQuery.fn.document_ready = function() {
       });
     
     /*
-    * Added by George Ornbo 7/10/10 to make template questions sortable
+    * Added by George Ornbo 10/07/10 to make template questions sortable
     * See http://docs.jquery.com/UI/Sortable
     */ 
     $('#sortable').sortable({update: function() {
@@ -562,8 +562,18 @@ jQuery.fn.document_ready = function() {
       }
     });
 
-    
-    
+     /*
+    * Added by George Ornbo 19/07/10 to show and hide items when creating template briefs
+    * When an item is marked as a heading this hides fields that are not relevant
+     */ 
+    $('.is-heading').live('click', function(){
+      $(this).parent().siblings('.help-message, .optional').slideToggle('slow');
+    }); 
+    /*
+    * We don't want fields to show on the edit view so hide them
+    */
+    $('.is-heading:checked').parent().siblings('.help-message, .optional').hide();
+ 
     jQuery.setup_collaboration_widget();
       
     jQuery.fn.document_ready_extras();

@@ -523,6 +523,7 @@ span.field_with_errors
           background: url('/images/page_edit.png') no-repeat center right
           height: 16px
           text-indent: -9999px
+          width: 90px
           &:hover
             text-indent: 0
             color: #32401a
@@ -539,7 +540,11 @@ span.field_with_errors
       .most_important_thing, .proposal_item, .brief
         :padding 1em 2em
 
-      .brief_item, .most_important_thing, .proposal_item, .brief
+      .brief_heading
+        h3
+          :margin-left 20px
+
+      .brief_item, .most_important_thing, .proposal_item, .brief, .brief_heading
         :border 1px solid #ccc
         :border-bottom 1px solid #eee
         :border-top 0
@@ -1869,5 +1874,5 @@ body#users.contacts
   margin-bottom: 1em
 
 #sortable
-  .brief_item:hover
+  .brief_item:hover, .brief_heading:hover
     cursor: move
