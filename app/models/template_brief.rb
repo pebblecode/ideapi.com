@@ -29,7 +29,7 @@ class TemplateBrief < ActiveRecord::Base
   
   named_scope :owned_templates, lambda { |account| { 
       :include => :account_template_briefs,
-      :conditions => ["template_briefs.id IN (SELECT account_template_briefs.template_brief_id from account_template_briefs WHERE account_template_briefs.account_id = 1) and template_briefs.default = 0", account] 
+      :conditions => ["template_briefs.id IN (SELECT account_template_briefs.template_brief_id from account_template_briefs WHERE account_template_briefs.account_id = ?) and template_briefs.default = 0", account] 
     }
   }
 end
