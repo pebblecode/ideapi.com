@@ -27,7 +27,7 @@ class TemplateBriefsController < ApplicationController
 
   def create
     @template_brief = TemplateBrief.new(params[:template_brief])
-    @template_brief.account_template_briefs << AccountTemplateBrief.new(:account_id => current_account, :template_brief_id => @template_brief)
+    @template_brief.account_template_briefs << AccountTemplateBrief.new(:account_id => current_account.id, :template_brief_id => @template_brief)
     if @template_brief.save
       flash[:notice] = "Successfully created template brief"
       redirect_to @template_brief
