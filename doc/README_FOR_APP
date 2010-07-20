@@ -7,10 +7,6 @@ same.
 You'll find the code base is largely completely uncommented, unless it has had comments added by me.
 If you can, pull out your sword of hope and add some yourself. The best commment wins a cup. 
 
-Please cut the crap and tell me how it works!
-
-OK.
-
 The make_resourceful gem is in use so this affects controllers and views with the ubiquitous use of 
 current_object. I'd recommend casting your eyeballs over this page to get down with the plan
 http://github.com/hcatlin/make_resourceful
@@ -21,3 +17,11 @@ There is a reasonably good test suite in place, although I'm not sure of how muc
 been tested. The test framework uses Machinist for factories, Shoulda and test unit. 
 
 There isn't too much low level stuff - it is mostly integration tests. 
+
+Deployment
+
+The staging environment is published to apu.pebbleit.com, an Ubuntu server running at Pebble HQ. This serves the ideapi.net domain. This uses a standard capistrano / git workflow so refer to the /config/deploy/staging.rb
+
+The production environment uses the production branch of the git repository so merge the master branch into this when you are ready to deploy. Apparently no one knows the password for jason@ideapi.com so it is a bit like a secret club. You need to get someone who currently has access to add your public key to the account. If after this document has been written the situation is resolved the best place to look for credentials is in Mortimer http://mortimer.apu.pebbleit.com/. This is also like a gentleman's club so if you don't have a password you will need to ask someone or stand outside the office and wink in the right manner. 
+
+The production server is a Slicehost Ubuntu server. If you need credentials for the Slicehost account look in Mortimer.
