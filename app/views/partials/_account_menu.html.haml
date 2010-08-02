@@ -1,0 +1,17 @@
+#account-menu    
+  %a#account-button{:href => "/login"}
+    Log in
+    %span.end
+      &nbsp;
+  Have an account?
+  #account-dropdown
+    #account-form
+      %h2 Log in to ideapi
+      - form_for @user_session, :url => user_session_url do |f|
+        .email
+          =f.label :email
+          =f.text_field :email
+        .password
+          =f.label :password
+          =f.password_field :password
+        =f.submit "Log me in", :class => "submit"

@@ -584,9 +584,45 @@ jQuery.fn.document_ready_extras = function () {
   
   jQuery('.remove_with_js').hide();
   
+  
+  $('a.remote-delete-answer').click(function(){
+    
+    $(this).append('<img src="/images/spinner.gif" alt="Deleting..." />');
+    // we're actually updating the question object, setting the answer and answered_by to null
+    $.ajax({
+      async: false,
+      url: this.href,
+      type: "put",
+      data: { _method: 'update', "question[author_answer]": "" }, 
+      dataType: 'script',
+      success: hide_element($(this).parents('div.author_answer').filter(':first'))
+    });
+    
+    return false;
+  });
+  
+  
+  $('a.remote-delete').click(function(){
+    $(this).append('<img src="/images/spinner.gif" alt="Deleting..." />');
+    
+    $.ajax({
+      async: false,
+      url: this.href,
+      type: "delete", 
+      dataType: 'script',
+      success: hide_element($(this).parents('li').filter(':first')),
+      error: null
+    });
+    
+    return false;
+  });
 }
 
 jQuery(document).ready(jQuery.fn.document_ready);
 
 
-
+function hide_element(element){
+  element.fadeOut('slow', function(){
+    element.remove();
+  });
+}

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  before_filter :user_session_setup
   layout 'public'
   
   def home
@@ -36,5 +36,9 @@ class PagesController < ApplicationController
       redirect_to "/account_not_found" and return
     end
   end
-  
+
+  def user_session_setup
+    @user_session = UserSession.new
+    session[:return_to] = request.url
+  end
 end

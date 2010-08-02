@@ -34,7 +34,7 @@
         -if event.subject.is_a?(Question)
           =render :partial => 'question', :object => event.subject, :locals => { :show_relation => false }
         -elsif event.subject.is_a?(BriefItem::Version)
-          =render :partial => 'brief_item_version', :object => event.subject
+          =render :partial => 'brief_item_version', :locals => {:subject => event.subject, :object => event}
   
 
      

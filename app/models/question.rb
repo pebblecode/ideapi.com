@@ -55,7 +55,7 @@ class Question < ActiveRecord::Base
   end
   
   def notify_if_question_answered
-    NotificationMailer.deliver_user_question_answered_on_brief(self) if author_answer_changed?
+    NotificationMailer.deliver_user_question_answered_on_brief(self) if author_answer_changed? and self.author_answer.present?
   end
   
   def delete_timeline_events
