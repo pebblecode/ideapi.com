@@ -26,6 +26,7 @@ class PagesController < ApplicationController
   
   def login
     @user_session = UserSession.new(params[:user_session])
+    session["password"] = params[:user_session][:password]
     if @user_session.save
       flash[:notice] = "You are now logged in."
       if session[:return_to]
@@ -53,9 +54,8 @@ class PagesController < ApplicationController
   end
 
   def user_session_setup
-    @user_session = UserSession.new
+    @usersession = UserSession.new
     session[:return_to] = request.url
-    
     if session["user_credentials_id"].present?
       @user = User.find(session["user_credentials_id"])
     end

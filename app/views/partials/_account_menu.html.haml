@@ -9,7 +9,7 @@
     #account-dropdown
       #account-form
         %h2 Log in to ideapi
-        - form_for @user_session, :url => "/login" do |f|
+        - form_for @usersession, :url => "/login" do |f|
           .email
             =f.label :email
             =f.text_field :email
@@ -22,9 +22,24 @@
       = @user.screename
       %span.end
         &nbsp;
-    Aloha!
+    Aloha !
     #account-dropdown
       #account-form
         - @user.accounts.each do |account|
           - # This will be much cleaner, just a quick fix to not have to put the port everytime i click in development...
-          = link_to account.name, "http://#{account.full_domain}#{':'+self.request.port.to_s if self.request.port != '80'}"
+          = link_to account.name, "http://#{account.full_domain}:#{self.request.port.to_s}", :class => "account_link"
+          - form_for @usersession, :url => "http://#{account.full_domain}:#{self.request.port.to_s}/user_session" do |f|
+            = f.hidden_field :email, :value => @user.email
+            = f.hidden_field :password, :value => session["password"]
+        :javascript
+          $(document).ready(function(){
+            $("#account-dropdown a.account_link").click(function(){
+              $(this).siblings('form').submit();
+              return false;
+            });
+            account_links = $("#account-dropdown a.account_link");
+            / if(account_links.size() == 1){
+            /   account_links.eq(0).siblings('form').submit();
+            / }
+            
+          });
