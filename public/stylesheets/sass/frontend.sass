@@ -69,7 +69,7 @@ a:hover
 #container
   :width 94em
   :margin 1em auto
-  
+  :position relative
   #header
     +rounded-top-6px
     :background white
@@ -1255,6 +1255,8 @@ p.submit.left
             :width 100%
             :margin 0
             :padding 0.5em 0
+          .actions, .ask_question
+            display: none
         .brief_item:hover
           :background #ffffdf
 
@@ -1319,6 +1321,7 @@ ul.error_messages
       :color #d81f26
       
 //side bar
+
 #container
   #content
     .col_2

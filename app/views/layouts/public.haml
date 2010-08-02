@@ -8,6 +8,7 @@
       - else
         ="Welcome to ideapi"
     %script{ :type => "text/javascript" }
+    =javascript_include_tag %w(jquery marketing)
     %meta{ :content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible" }
     %link{ :href => "/stylesheets/marketing.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
     /[if IE 6]
@@ -18,6 +19,7 @@
   %body
     #container
       #banner
+        =render :partial => 'partials/account_menu'
         #header
           #logo
             %a{:href => home_path, :alt => "home"}

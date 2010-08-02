@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users
   map.resources :user_feedbacks
+  map.resources :timeline_events
   
   map.user_signup '/users/signup/:invite_code', :controller => 'users', :action => 'signup'
   

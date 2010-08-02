@@ -18,7 +18,13 @@ class BriefItem < ActiveRecord::Base
   belongs_to :brief
   belongs_to :template_question
   has_many :questions
-  has_many :timeline_events, :as => :secondary_subject, :order => 'created_at DESC', :group => :subject_id
+  
+  # Timeline Events are created for every _event_type_, e.g. new_question, brief_item_change, question_answered, etc. 
+  # This means that for our Brief Item, numerous records will be created for the same event_type everytime there is a change.
+  # We need to group by the subject_id and subject_type (Questions, BriefItem::Versions, etc) so that we do not fetch 
+  # duplicate records for the same subject. We are not adding event_type to the group by filter, because doing so would return duplicate
+  # records for the same subject (for example, when created, and when changed would mean different events, same subject.)
+  has_many :timeline_events, :as => :secondary_subject, :order => 'created_at DESC', :group => "subject_id, subject_type"
  
   # Validations 
   validates_presence_of :brief, :template_question

@@ -4,4 +4,6 @@
       Author changed section from:
   .item-revision-body
     :textile
-      #{brief_item_version.body}
+      #{subject.body}
+  %span.delete
+    = link_to "delete", timeline_event_url(object), :class => "remote-delete"

@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_filter :require_user
   
-  before_filter :require_active_brief, :except => :destroy
+  before_filter :require_active_brief, :except => [:destroy, :update]
   
   make_resourceful do
     
@@ -15,6 +15,9 @@ class QuestionsController < ApplicationController
     before :update do
       if params[:question][:author_answer].present?
         current_object.answered_by = current_user
+      else
+        params[:question][:author_answer] = nil
+        current_object.answered_by = nil
       end
     end
     
@@ -37,6 +40,9 @@ class QuestionsController < ApplicationController
       format.html {
         flash[:notice] = "Question has been answered successfully, and moved to answered questions."
         redirect_to brief_path(parent_object, :anchor => dom_id(current_object.brief_item)) 
+      }
+      format.js{
+        render :nothing => true
       }
     end
     
