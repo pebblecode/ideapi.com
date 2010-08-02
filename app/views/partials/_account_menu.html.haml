@@ -28,14 +28,3 @@
         - @user.accounts.each do |account|
           - # This will be much cleaner, just a quick fix to not have to put the port everytime i click in development...
           = link_to account.name, "http://#{account.full_domain}", :class => "account_link"
-          - form_for @usersession, :url => "http://#{account.full_domain}/user_session" do |f|
-            = f.hidden_field :email, :value => @user.email
-            = f.hidden_field :password, :value => session["password"]
-        :javascript
-          $(document).ready(function(){
-            $("#account-dropdown a.account_link").click(function(){
-              $(this).siblings('form').submit();
-              return false;
-            });
-            account_links = $("#account-dropdown a.account_link");
-          });
