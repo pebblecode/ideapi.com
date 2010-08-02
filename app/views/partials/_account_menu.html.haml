@@ -1,17 +1,30 @@
-#account-menu    
-  %a#account-button{:href => "/login"}
-    Log in
-    %span.end
-      &nbsp;
-  Have an account?
-  #account-dropdown
-    #account-form
-      %h2 Log in to ideapi
-      - form_for @user_session, :url => user_session_url do |f|
-        .email
-          =f.label :email
-          =f.text_field :email
-        .password
-          =f.label :password
-          =f.password_field :password
-        =f.submit "Log me in", :class => "submit"
+#account-menu
+
+  - unless @user.present?
+    %a#account-button{:href => "/login"}
+      Log in
+      %span.end
+        &nbsp;
+    Have an account?
+    #account-dropdown
+      #account-form
+        %h2 Log in to ideapi
+        - form_for @user_session, :url => "/login" do |f|
+          .email
+            =f.label :email
+            =f.text_field :email
+          .password
+            =f.label :password
+            =f.password_field :password
+          =f.submit "Log me in", :class => "submit"
+  - else 
+    %a#account-button{:href => "/login"}
+      = @user.screename
+      %span.end
+        &nbsp;
+    Aloha!
+    #account-dropdown
+      #account-form
+        - @user.accounts.each do |account|
+          - # This will be much cleaner, just a quick fix to not have to put the port everytime i click in development...
+          = link_to account.name, "http://#{account.full_domain}#{':'+self.request.port.to_s if self.request.port != '80'}"

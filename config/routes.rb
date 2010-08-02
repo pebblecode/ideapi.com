@@ -62,7 +62,7 @@ ActionController::Routing::Routes.draw do |map|
   map.tour '/tour', :controller => 'pages', :action => 'tour'
   map.terms '/terms', :controller => 'pages', :action => 'terms'
   map.privacy '/privacy', :controller => 'pages', :action => 'privacy'
-  
+  map.login '/login', :controller => 'pages', :action => 'login'
   
   map.resources :reset_password
   map.resources :assets
