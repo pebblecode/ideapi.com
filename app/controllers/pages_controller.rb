@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   
   def login
     @user_session = UserSession.new(params[:user_session])
-    session["password"] = params[:user_session][:password]
+    session["password"] = params[:user_session][:password] if params[:user_session]
     if @user_session.save
       flash[:notice] = "You are now logged in."
       if session[:return_to]
