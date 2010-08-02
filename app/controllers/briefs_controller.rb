@@ -21,7 +21,7 @@ class BriefsController < ApplicationController
   add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   
   def current_objects
-    @current_objects ||= current_user.briefs.active.by_account(current_account, {:order => "updated_at DESC"})
+    @current_objects ||= current_user.briefs.active.by_account(current_account, {:order => "updated_at DESC"}).ordered
   end
   
   def current_object    

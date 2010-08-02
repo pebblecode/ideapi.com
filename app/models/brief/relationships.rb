@@ -84,6 +84,8 @@ class Brief < ActiveRecord::Base
     { :conditions => ["briefs.account_id = ?", account.id] }
   }
 
+  named_scope :ordered, lambda { |order| {:order => order || "updated_at DESC"} }
+  
   private 
   
   def add_author_to_authors
