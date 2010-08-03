@@ -21,4 +21,12 @@ module ApplicationHelper
       end
     end
   end
+  
+  def comment_date(time)
+    if time.to_date == Date.today
+      time.strftime("at %R")
+    else
+      time.strftime("on %a #{time.day.ordinalize} %b %y")
+    end
+  end
 end

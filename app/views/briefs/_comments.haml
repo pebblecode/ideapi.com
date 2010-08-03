@@ -14,6 +14,8 @@
                 = succeed ':' do
                   =given_name(comment.user)
               =comment.comment
+              %em
+                ="(#{comment_date(comment.created_at)})"
               -if comment.user == current_user or current_object.author == current_user
                 %span.delete-comment
                   =# link_to_remote 'delete ajax', :url => comment_url(comment), :method => :delete
