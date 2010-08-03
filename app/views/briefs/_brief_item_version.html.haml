@@ -1,9 +1,9 @@
 %li.revision
+  %span.delete
+    = link_to "delete", timeline_event_url(object), :class => "remote-delete"
   %p
     %strong 
       Author changed section from:
   .item-revision-body
     :textile
       #{subject.body}
-  %span.delete
-    = link_to "delete", timeline_event_url(object), :class => "remote-delete"

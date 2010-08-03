@@ -937,7 +937,6 @@ span.field_with_errors
             :width 37em
             :display block
             :position relative
-            
         .question_body, .comment_body
           :font-size 1.1em
         
@@ -1021,7 +1020,14 @@ span.field_with_errors
         :background #fcfcfc
         +rounded-all-6px
         :width 40em
-        
+        .delete
+          float: right
+          a
+            color: #aaa
+            font-weight: normal
+            font-size: 1.1em
+            &:hover
+              color: #888
         p
           :padding 0 
           :margin 0

@@ -789,6 +789,14 @@ span.field_with_errors input, span.field_with_errors input:focus {
   -webkit-border-radius: 6px;
   border-radius: 6px;
   width: 40em; }
+  #container #content .brief_item_history .revision .delete {
+    float: right; }
+    #container #content .brief_item_history .revision .delete a {
+      color: #aaaaaa;
+      font-weight: normal;
+      font-size: 1.1em; }
+      #container #content .brief_item_history .revision .delete a:hover {
+        color: #888888; }
   #container #content .brief_item_history .revision p {
     padding: 0;
     margin: 0; }
