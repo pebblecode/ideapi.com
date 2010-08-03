@@ -128,6 +128,21 @@ class BriefsController < ApplicationController
     end
   end
   
+  def clean
+    # Ideally this method should accept a DELETE request with only the id and the method name: 
+    # :controller/:action/:id
+    # 
+    # Deletes all history items, timeline events, comments, questions (and answers) from this Brief and its
+    # BriefItem's.
+    
+    if params[:id].present?
+      
+    end
+    
+    render :nothing => true
+  end
+  
+  
   # TODO - remove this action, and look at putting a filter param in the routes
   # so you can still have briefs/completed but it actually calls index
   # and passes a param .. or even just have briefs?filter=completed meh.
