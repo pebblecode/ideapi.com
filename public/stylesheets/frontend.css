@@ -389,31 +389,54 @@ span.field_with_errors input, span.field_with_errors input:focus {
     border-top-right-radius: 6px;
     position: relative;
     text-shadow: 0 1px 1px white; }
-    #container #content .brief h2 a, #container #content .proposal h2 a, #container #content .brief_list h2 a {
-      color: #666666;
+    #container #content .brief h2 .actions, #container #content .proposal h2 .actions, #container #content .brief_list h2 .actions {
       position: absolute;
-      right: 4em;
-      top: 1em; }
-    #container #content .brief h2 a:hover, #container #content .proposal h2 a:hover, #container #content .brief_list h2 a:hover {
-      color: #fefefe; }
-    #container #content .brief h2 a.edit_brief, #container #content .brief h2 a.edit_icon, #container #content .proposal h2 a.edit_brief, #container #content .proposal h2 a.edit_icon, #container #content .brief_list h2 a.edit_brief, #container #content .brief_list h2 a.edit_icon {
-      top: 1.2em;
-      background: url("/images/page_edit.png") no-repeat center right;
-      height: 16px;
-      text-indent: -9999px;
-      width: 90px; }
-      #container #content .brief h2 a.edit_brief:hover, #container #content .brief h2 a.edit_icon:hover, #container #content .proposal h2 a.edit_brief:hover, #container #content .proposal h2 a.edit_icon:hover, #container #content .brief_list h2 a.edit_brief:hover, #container #content .brief_list h2 a.edit_icon:hover {
-        text-indent: 0;
-        color: #32401a;
-        padding-right: 20px;
-        font-weight: normal; }
-    #container #content .brief h2 a.print_brief, #container #content .proposal h2 a.print_brief, #container #content .brief_list h2 a.print_brief {
-      top: 1.2em;
-      right: 1.8em;
-      background: url("/images/printer.png");
-      width: 16px;
-      height: 16px;
-      text-indent: -3000px; }
+      top: 1em;
+      right: 1em;
+      text-align: right;
+      padding: 0;
+      margin: 0; }
+      #container #content .brief h2 .actions a, #container #content .proposal h2 .actions a, #container #content .brief_list h2 .actions a {
+        color: #666666;
+        display: block;
+        float: right;
+        margin-left: 1em;
+        margin-top: 3px; }
+      #container #content .brief h2 .actions a:hover, #container #content .proposal h2 .actions a:hover, #container #content .brief_list h2 .actions a:hover {
+        color: #fefefe; }
+      #container #content .brief h2 .actions a.edit_brief, #container #content .brief h2 .actions a.edit_icon, #container #content .proposal h2 .actions a.edit_brief, #container #content .proposal h2 .actions a.edit_icon, #container #content .brief_list h2 .actions a.edit_brief, #container #content .brief_list h2 .actions a.edit_icon {
+        background: url("/images/page_edit.png") no-repeat center right;
+        height: 16px;
+        text-indent: -9999px;
+        width: 40px; }
+        #container #content .brief h2 .actions a.edit_brief:hover, #container #content .brief h2 .actions a.edit_icon:hover, #container #content .proposal h2 .actions a.edit_brief:hover, #container #content .proposal h2 .actions a.edit_icon:hover, #container #content .brief_list h2 .actions a.edit_brief:hover, #container #content .brief_list h2 .actions a.edit_icon:hover {
+          text-indent: 0;
+          color: #32401a;
+          font-weight: normal; }
+      #container #content .brief h2 .actions a.print_brief, #container #content .proposal h2 .actions a.print_brief, #container #content .brief_list h2 .actions a.print_brief {
+        display: block;
+        float: right;
+        background: url("/images/printer.png");
+        width: 16px;
+        height: 16px;
+        text-indent: -3000px; }
+      #container #content .brief h2 .actions form, #container #content .proposal h2 .actions form, #container #content .brief_list h2 .actions form {
+        float: right;
+        margin-left: 1em; }
+      #container #content .brief h2 .actions .clean_brief, #container #content .proposal h2 .actions .clean_brief, #container #content .brief_list h2 .actions .clean_brief {
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        background: url("/images/ui/button_background_red.png") 0 0;
+        border: 1px solid #32401a;
+        padding: 1px 5px 1px 5px;
+        font-weight: normal;
+        font-size: 0.9em;
+        display: block;
+        color: white;
+        text-shadow: none; }
+        #container #content .brief h2 .actions .clean_brief:active, #container #content .proposal h2 .actions .clean_brief:active, #container #content .brief_list h2 .actions .clean_brief:active {
+          background-position: 0 -36px; }
   #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
     padding: 1em 2em; }
   #container #content .brief .brief_heading h3, #container #content .proposal .brief_heading h3, #container #content .brief_list .brief_heading h3 {

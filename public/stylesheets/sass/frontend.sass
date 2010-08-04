@@ -510,33 +510,52 @@ span.field_with_errors
         :position relative
         :text-shadow 0 1px 1px #FFFFFF
         
-        a
-          :color #666
-          :position absolute
-          :right 4em
-          :top 1em
-          
-        a:hover
-          :color #fefefe
-        a.edit_brief, a.edit_icon
-          top: 1.2em
-          background: url('/images/page_edit.png') no-repeat center right
-          height: 16px
-          text-indent: -9999px
-          width: 90px
-          &:hover
-            text-indent: 0
-            color: #32401a
-            padding-right: 20px
+        .actions
+          position: absolute
+          top: 1em
+          right: 1em
+          text-align: right
+          padding: 0
+          margin: 0
+          a
+            :color #666
+            display: block
+            float: right
+            margin-left: 1em
+            margin-top: 3px
+          a:hover
+            :color #fefefe
+          a.edit_brief, a.edit_icon
+            background: url('/images/page_edit.png') no-repeat center right
+            height: 16px
+            text-indent: -9999px
+            width: 40px
+            &:hover
+              text-indent: 0
+              color: #32401a
+              font-weight: normal
+          a.print_brief
+            display: block
+            float: right
+            :background url('/images/printer.png')
+            :width 16px
+            :height 16px
+            :text-indent -3000px
+          form
+            float: right
+            margin-left: 1em
+          .clean_brief
+            +rounded-all-3px
+            background: url('/images/ui/button_background_red.png') 0 0
+            border: 1px solid #32401a
+            padding: 1px 5px 1px 5px
             font-weight: normal
-        a.print_brief
-          :top 1.2em
-          :right 1.8em
-          :background url('/images/printer.png')
-          :width 16px
-          :height 16px
-          :text-indent -3000px
-
+            font-size: 0.9em
+            display: block
+            color: #fff
+            text-shadow: none
+            &:active
+              background-position: 0 -36px
       .most_important_thing, .proposal_item, .brief
         :padding 1em 2em
 

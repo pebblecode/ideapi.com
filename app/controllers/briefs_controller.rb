@@ -129,17 +129,21 @@ class BriefsController < ApplicationController
   end
   
   def clean
-    # Ideally this method should accept a DELETE request with only the id and the method name: 
-    # :controller/:action/:id
+    # POST request only. (routes.rb)
     # 
     # Deletes all history items, timeline events, comments, questions (and answers) from this Brief and its
     # BriefItem's.
     
     if params[:id].present?
-      
+      brief = Brief.find(:first, :conditions => {:id => params[:id]})
+      if brief.present? and brief.clean_brief!
+        flash[:notice] = "Congratulations! Your brief is shiny and clean as new! :-)"
+      else
+        flash[:notice] = "Oops! The brief could not be cleaned properly."
+      end
     end
     
-    render :nothing => true
+    redirect_to :action => :show
   end
   
   

@@ -76,6 +76,7 @@ class Brief < ActiveRecord::Base
 
   has_many :proposals
   has_many :questions
+  has_many :timeline_events, :through => :brief_items
   
   # COMMENTS
   acts_as_commentable  
@@ -85,6 +86,12 @@ class Brief < ActiveRecord::Base
   }
 
   named_scope :ordered, lambda { |order| {:order => order || "updated_at DESC"} }
+  
+  def clean_brief!
+    self.questions.destroy_all
+    self.comments.destroy_all
+    self.timeline_events.destroy_all
+  end
   
   private 
   

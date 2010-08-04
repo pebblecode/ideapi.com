@@ -17,10 +17,15 @@
   %div[current_object]
     %h2
       =current_object.title
-      -if owner?(current_object) and current_object.active?
-        =link_to 'edit brief', edit_brief_path(current_object), :title => 'Edit brief', :class => 'edit_brief'
-        -#%li.secondary=link_to 'delete brief', brief_path(current_object), :method => :delete, :confirm => "Are you sure?"
-      =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
+      
+      .actions
+        -if owner?(current_object) and current_object.active?
+          - form_tag clean_brief_url(current_object) do |f|
+            = submit_tag 'clean', :title => 'Clean brief', :class => 'clean_brief', :confirm => "Are you sure? You will delete all history, comments, questions and answers in this brief."
+        =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
+        -if owner?(current_object) and current_object.active?
+          =link_to 'edit', edit_brief_path(current_object), :title => 'Edit brief', :class => 'edit_brief'
+      
     .most_important_thing
       %p
         %span.left &ldquo;

@@ -53,7 +53,7 @@ class UsersController < ApplicationController
         flash[:notice] = "Sorry, there was a problem sending the invite code :-("
       end
     end
-    render :action => :index
+    redirect_to :action => :index
   end
   
   def signup
