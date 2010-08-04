@@ -65,7 +65,11 @@ class User < ActiveRecord::Base
     NotificationMailer.deliver_password_reset_instructions(self)
   end
   
-
+  def deliver_invite_code!(account)
+    create_invite_code
+    NotificationMailer.deliver_user_invited_to_account(self, account)
+  end
+  
   private
   
   def stop_watching_brief(proposal)

@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :timeline_events
   
   map.user_signup '/users/signup/:invite_code', :controller => 'users', :action => 'signup'
+  map.user_send_invite '/users/send_invite/:id', :controller => 'users', :action => 'send_invite'
   
   map.with_options(:conditions => {:subdomain => AppConfig['admin_subdomain']}) do |subdom|
     subdom.root :controller => 'subscription_admin/subscriptions', :action => 'index'

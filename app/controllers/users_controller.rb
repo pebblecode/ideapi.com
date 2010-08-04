@@ -41,6 +41,21 @@ class UsersController < ApplicationController
         
   end
   
+  
+  def send_invite
+    # need a user id. 
+    
+    if params[:id]
+      @user = User.find(:first, :conditions => {:id => params[:id]})
+      if @user.present? and @user.deliver_invite_code!(current_account)
+        flash[:notice] = "Good! We've sent the invite code to the user."
+      else
+        flash[:notice] = "Sorry, there was a problem sending the invite code :-("
+      end
+    end
+    render :action => :index
+  end
+  
   def signup
     if @current_object = current_account.users.pending.find_by_invite_code(params[:invite_code])
       if request.put?
