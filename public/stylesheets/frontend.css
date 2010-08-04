@@ -424,12 +424,13 @@ span.field_with_errors input, span.field_with_errors input:focus {
         float: right;
         margin-left: 1em; }
       #container #content .brief h2 .actions .clean_brief, #container #content .proposal h2 .actions .clean_brief, #container #content .brief_list h2 .actions .clean_brief {
+        line-height: 1.3em;
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
         background: url("/images/ui/button_background_red.png") 0 0;
         border: 1px solid #32401a;
-        padding: 1px 5px 1px 5px;
+        padding: 2px 5px 3px 5px;
         font-weight: normal;
         font-size: 0.9em;
         display: block;
