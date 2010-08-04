@@ -421,19 +421,17 @@ span.field_with_errors input, span.field_with_errors input:focus {
         height: 16px;
         text-indent: -3000px; }
       #container #content .brief h2 .actions form, #container #content .proposal h2 .actions form, #container #content .brief_list h2 .actions form {
-        float: right;
-        margin-left: 1em; }
+        float: right; }
       #container #content .brief h2 .actions .clean_brief, #container #content .proposal h2 .actions .clean_brief, #container #content .brief_list h2 .actions .clean_brief {
-        line-height: 1.3em;
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
         background: url("/images/ui/button_background_red.png") 0 0;
         border: 1px solid #32401a;
-        padding: 2px 5px 3px 5px;
+        padding: 1px 5px 0px 5px;
         font-weight: normal;
-        font-size: 0.9em;
-        display: block;
+        font-size: 1em;
+        margin-top: 0;
         color: white;
         text-shadow: none; }
         #container #content .brief h2 .actions .clean_brief:active, #container #content .proposal h2 .actions .clean_brief:active, #container #content .brief_list h2 .actions .clean_brief:active {
