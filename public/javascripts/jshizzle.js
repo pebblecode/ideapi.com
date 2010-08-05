@@ -587,33 +587,37 @@ jQuery.fn.document_ready_extras = function () {
   
   $('a.remote-delete-answer').click(function(){
     
-    $(this).append('<img src="/images/spinner.gif" alt="Deleting..." />');
-    // we're actually updating the question object, setting the answer and answered_by to null
-    $.ajax({
-      async: false,
-      url: this.href,
-      type: "put",
-      data: { _method: 'update', "question[author_answer]": "" }, 
-      dataType: 'script',
-      success: hide_element($(this).parents('div.author_answer').filter(':first'))
-    });
-    
+    var answer = confirm("Are you sure you want to delete this answer?");
+    if(answer){
+      $(this).append('<img src="/images/spinner.gif" alt="Deleting..." />');
+      // we're actually updating the question object, setting the answer and answered_by to null
+      $.ajax({
+        async: false,
+        url: this.href,
+        type: "put",
+        data: { _method: 'update', "question[author_answer]": "" }, 
+        dataType: 'script',
+        success: hide_element($(this).parents('div.author_answer').filter(':first'))
+      });
+    }
     return false;
   });
   
   
   $('a.remote-delete').click(function(){
-    $(this).append('<img src="/images/spinner.gif" alt="Deleting..." />');
+    var answer = confirm("Are you sure you want to delete this comment?");
+    if(answer){
+      $(this).append('<img src="/images/spinner.gif" alt="Deleting..." />');
     
-    $.ajax({
-      async: false,
-      url: this.href,
-      type: "delete", 
-      dataType: 'script',
-      success: hide_element($(this).parents('li').filter(':first')),
-      error: null
-    });
-    
+      $.ajax({
+        async: false,
+        url: this.href,
+        type: "delete", 
+        dataType: 'script',
+        success: hide_element($(this).parents('li').filter(':first')),
+        error: null
+      });
+    }
     return false;
   });
 }
