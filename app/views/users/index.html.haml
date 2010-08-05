@@ -24,8 +24,7 @@
           %tr
             %td
               =user_link(account_user.object.user)
-              -if account_user.object.user.pending?
-                -# link_to "(invite_link)", user_signup_url(:invite_code => account_user.object.user.invite_code, :host => current_account.full_domain) unless ENV['RAILS_ENV'] == "production"
+              -if account_user.object.user.pending? and admin?
                 =link_to "(send invite)", user_send_invite_url(:id => account_user.object.user.id, :host => current_account.full_domain)
             %td= value_or_symbol(account_user.object.user.job_title)
             %td= value_or_symbol(account_user.object.user.telephone)
