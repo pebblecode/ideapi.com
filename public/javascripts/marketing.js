@@ -5,13 +5,19 @@ $(document).ready(function(){
   bind_account_form_switch(email);
   bind_account_form_switch(password);
   
-  $('#account-button').click(function(){
+  $('#account-button.logged-out').click(function(){
     $(this).toggleClass('active');
     $('#account-form').slideToggle('fast');
     
     return false;
   });
 
+  $('#account-button.logged-in').click(function(){
+     $(this).toggleClass('active');
+     $('#account-links').slideToggle('fast');
+
+     return false;
+   });
 });
 
 function bind_account_form_switch(object){

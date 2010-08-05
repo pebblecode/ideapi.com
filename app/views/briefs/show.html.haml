@@ -21,13 +21,15 @@
       .actions
         -if owner?(current_object) and current_object.active?
           - form_tag clean_brief_url(current_object) do |f|
-            = link_to "clean", clean_brief_url(current_object), :class => "clean_brief", :confirm => "Are you sure? You will delete all history, comments, questions and answers in this brief."
+            = link_to "clean", clean_brief_url(current_object), :class => "clean_brief"
             :javascript
               $('a.clean_brief').click(function(){
-                $(this).parent().submit();
+                var answer = confirm("Are you sure? You will delete all history, comments, questions and answers in this brief.")
+                if(answer){
+                  $(this).parent().submit();
+                }
                 return false;
               });
-            =# submit_tag 'clean', :title => 'Clean brief', :class => 'clean_brief', :confirm => "Are you sure? You will delete all history, comments, questions and answers in this brief."
         =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
         -if owner?(current_object) and current_object.active?
           =link_to 'edit', edit_brief_path(current_object), :title => 'Edit brief', :class => 'edit_brief'

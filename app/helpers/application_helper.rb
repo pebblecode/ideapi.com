@@ -29,5 +29,13 @@ module ApplicationHelper
       time.strftime("on %a #{time.day.ordinalize} %b %y")
     end
   end
+  def domain_with_port(domain)
+    port = self.request.port
+    if RAILS_ENV == "development"
+      "http://#{domain}:#{port}"
+    else
+      "http://#{domain}"
+    end
+  end
   
 end

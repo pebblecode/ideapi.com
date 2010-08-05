@@ -1,7 +1,7 @@
 #account-menu
 
   - unless @user.present?
-    %a#account-button{:href => "/login"}
+    %a#account-button.logged-out{:href => "/login"}
       Log in
       %span.end
     #account-dropdown
@@ -16,11 +16,12 @@
             =f.password_field :password
           =f.submit "Log me in", :class => "submit"
   - else 
-    %a#account-button{:href => "/login"}
+    %a#account-button.logged-in{:href => "/login"}
       = @user.screename
       %span.end
     #account-dropdown
-      #account-form
-        - @user.accounts.each do |account|
-          - # This will be much cleaner, just a quick fix to not have to put the port everytime i click in development...
-          = link_to account.name, "http://#{account.full_domain}:#{self.request.port}", :class => "account_link"
+      #account-links
+        - if @user.accounts.present?
+          - @user.accounts.each do |account|
+            = link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"
+          = link_to "Logout", "#{domain_with_port(@user.accounts.first.full_domain)}/user_session/delete", :id => "account_logout"

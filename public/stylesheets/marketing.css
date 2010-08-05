@@ -288,7 +288,7 @@ span.left {
     #account-button.active .end {
       background: url("/images/ui/accountbutton_bg.png") no-repeat bottom right; }
 
-#account-form {
+#account-form, #account-links {
   display: none;
   position: absolute;
   z-index: 3;
@@ -302,11 +302,11 @@ span.left {
   border: 1px solid #cccccc;
   background: #defba4;
   width: 200px; }
-  #account-form h2 {
+  #account-form h2, #account-links h2 {
     font-size: 1.2em; }
-  #account-form label {
+  #account-form label, #account-links label {
     display: none; }
-  #account-form #user_session_email, #account-form #user_session_password {
+  #account-form #user_session_email, #account-form #user_session_password, #account-links #user_session_email, #account-links #user_session_password {
     background-color: white;
     margin: 6px 0;
     padding: 0 3px;
@@ -316,11 +316,11 @@ span.left {
     font-size: 1.2em;
     color: #777777;
     -webkit-box-shadow: 0px 0px 1px #aaaaaa; }
-  #account-form #user_session_email.empty {
+  #account-form #user_session_email.empty, #account-links #user_session_email.empty {
     background: white url("/images/ui/account-form-labels.png") no-repeat top left; }
-  #account-form #user_session_password.empty {
+  #account-form #user_session_password.empty, #account-links #user_session_password.empty {
     background: white url("/images/ui/account-form-labels.png") no-repeat bottom left; }
-  #account-form input.submit {
+  #account-form input.submit, #account-links input.submit {
     margin-top: 10px;
     padding: auto 10px;
     background: url("/images/ui/button_background.png") repeat-x;
@@ -330,5 +330,13 @@ span.left {
     border: 1px solid #688924;
     height: 35px;
     color: #eeeeee; }
-    #account-form input.submit:active {
+    #account-form input.submit:active, #account-links input.submit:active {
       background-position: bottom left; }
+
+#account-links {
+  background-color: #eeeeee;
+  text-align: right;
+  width: 150px; }
+
+#account_logout {
+  display: block; }
