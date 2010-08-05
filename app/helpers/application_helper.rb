@@ -29,4 +29,5 @@ module ApplicationHelper
       time.strftime("on %a #{time.day.ordinalize} %b %y")
     end
   end
+  
 end

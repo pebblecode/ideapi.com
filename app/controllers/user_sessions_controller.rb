@@ -1,5 +1,4 @@
 class UserSessionsController < ApplicationController
-  protect_from_forgery :except => :create
   # make sure user is logged out for certain views
   before_filter :require_no_user, :only => [:new, :create]
   

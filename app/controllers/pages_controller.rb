@@ -29,11 +29,16 @@ class PagesController < ApplicationController
     session["password"] = params[:user_session][:password] if params[:user_session]
     if @user_session.save
       flash[:notice] = "You are now logged in."
-      if session[:return_to]
-        redirect_to session[:return_to]
+      @user = User.find(:first, :conditions => {:id => session["user_credentials_id"]})
+      if @user.present? and @user.accounts.present? and @user.accounts.count == 1
+        redirect_to domain_with_port(@user.accounts.first.full_domain)
       else
-        # Redirect to dashboard if there's no return_to path.
-        redirect_to "/"
+        if session[:return_to]
+          redirect_to session[:return_to]
+        else
+          # Redirect to dashboard if there's no return_to path.
+          redirect_to "/"
+        end
       end
     else
       redirect_to "/"
@@ -58,6 +63,16 @@ class PagesController < ApplicationController
     session[:return_to] = request.url
     if session["user_credentials_id"].present?
       @user = User.find(session["user_credentials_id"])
+    end
+  end
+  
+  
+  def domain_with_port(domain)
+    port = self.request.port
+    if RAILS_ENV == "development"
+      "http://#{domain}:#{port}/"
+    else
+      "http://#{domain}/"
     end
   end
 end

@@ -4,8 +4,6 @@
     %a#account-button{:href => "/login"}
       Log in
       %span.end
-        &nbsp;
-    Have an account?
     #account-dropdown
       #account-form
         %h2 Log in to ideapi
@@ -21,10 +19,8 @@
     %a#account-button{:href => "/login"}
       = @user.screename
       %span.end
-        &nbsp;
-    Aloha !
     #account-dropdown
       #account-form
         - @user.accounts.each do |account|
           - # This will be much cleaner, just a quick fix to not have to put the port everytime i click in development...
-          = link_to account.name, "http://#{account.full_domain}", :class => "account_link"
+          = link_to account.name, "http://#{account.full_domain}:#{self.request.port}", :class => "account_link"
