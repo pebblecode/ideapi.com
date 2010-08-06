@@ -2,6 +2,7 @@ class Comment < ActiveRecord::Base
 
   include ActsAsCommentable::Comment
   
+  after_sav :update_brief
   before_destroy :delete_timeline_events
   
   belongs_to :commentable, :polymorphic => true
@@ -27,5 +28,12 @@ class Comment < ActiveRecord::Base
       event.destroy
     end
   end
-
+  
+  def update_brief
+    if self.commentable.is_a?(Brief)
+      self.commentable.updated_at = Time.now
+      self.commentable.save false
+    end
+  end
+  
 end

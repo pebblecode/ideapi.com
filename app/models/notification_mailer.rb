@@ -67,6 +67,17 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
   
+  def to_collabs_new_comment_on_brief(question, sent_at = Time.now)
+    from        email_address(question.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
+    recipients  question.brief.users.collect{ |user| user.email }.compact
+    reply_to    email_address(question.brief.account.name)
+    # We should build a subject similar to: John Doe commented on your brief / idea / whatever...
+    subject     build_subject(question.brief.account.name, "A comment has been posted", question.brief.title)
+    body        :question => question
+    sent_on     sent_at
+  end
+  
   def user_invited_to_account(user, account, sent_at = Time.now)
     from        email_address(account.name)
     headers     "return-path" => 'support@ideapi.com'

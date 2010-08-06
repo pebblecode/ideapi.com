@@ -1,5 +1,6 @@
 class BriefItem < ActiveRecord::Base
   
+  after_save :update_brief
   # Comments added by shapeshed for the good of developers everywhere
   # 
   # Brief Items act as a clone of template questions so that we don't 
@@ -74,6 +75,12 @@ class BriefItem < ActiveRecord::Base
                              :secondary_subject => :self,
                              :log_level => 1,
                              :if => lambda { |item| item.published? && !item.revisions.blank? && !item.body.eql?(item.latest.body) }
+  
+  def update_brief
+    self.brief.updated_at = Time.now
+    self.brief.save false
+  end
+  
   
   # This handles the versioning via acts_as_versioned
   # http://github.com/technoweenie/acts_as_versioned  
