@@ -8,8 +8,9 @@ require 'rubygems'
 require 'spork'
 
 Before do
-  require 'factory_girl'
-  require File.expand_path(File.dirname(__FILE__) + '/../../test/factories/factories')
+  require 'machinist'
+  require File.expand_path(File.dirname(__FILE__) + '/../../test/test_helper')
+  require File.expand_path(File.dirname(__FILE__) + '/../../test/blueprints')
 end
  
 Spork.prefork do

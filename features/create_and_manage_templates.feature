@@ -1,15 +1,15 @@
-Feature: Allow account admins to create and manage their own templates
-    In order to create templates that are relvant to my business
-    As an ideapi account admin
-    I want to be able to create and manage templates
-
-    Scenario: Managing templates
-        Given I am logged in with permission to create briefs
-        #When I go to the dashboard
-        #Then I should see "dashboard"
-        #And I follow "Templates"
-        #Then I should see a page where I can manage templates
-
+#Feature: Allow account admins to create and manage their own templates
+#    In order to create templates that are relvant to my business
+#    As an ideapi account admin
+#    I want to be able to create and manage templates
+#
+#    Scenario: Managing templates
+#        Given I am logged in with permission to create briefs
+#        #When I go to the dashboard
+#        #Then I should see "dashboard"
+#        #And I follow "Templates"
+#        #Then I should see a page where I can manage templates
+#
 #    Scenario: Viewing a list of templates
 #        Given I have a template called "My freaking awesome template"
 #        And I visit the templates page 

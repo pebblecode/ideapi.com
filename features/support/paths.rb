@@ -11,8 +11,10 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
+    when /the sign up page/ 
+      plans_path      
     when /the dashboard/
-     dashboard_url
+      dashboard_url
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
