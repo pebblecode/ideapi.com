@@ -11,7 +11,7 @@
         #{brief_item.body}
 
   -if !brief_item.is_heading?
-    %ul.actions{:style => "visible: none;"}
+    %ul.actions
       -if current_object.active?
         %li=link_to 'Comment', '#', {:class => 'toggle_ask_question'}
       -if brief_item.timeline_events.present?

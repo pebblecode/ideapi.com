@@ -795,33 +795,35 @@ span.field_with_errors input, span.field_with_errors input:focus {
     #container #content .question_list .question #comment_form textarea, #container #content .question_list .comment #comment_form textarea, #container #content .brief_item_history .question #comment_form textarea, #container #content .brief_item_history .comment #comment_form textarea, #container #content .comments .question #comment_form textarea, #container #content .comments .comment #comment_form textarea {
       width: 37em;
       margin-bottom: 0.5em; }
-#container #content .brief_item_history h4 {
-  font-size: 1.3em;
-  color: #666666;
-  padding-bottom: 1em; }
-#container #content .brief_item_history ul {
-  margin: 0 0; }
-#container #content .brief_item_history .revision {
-  padding: 1em 2em;
-  position: relative;
-  border: 1px solid #eeeeee;
-  margin: 1em auto;
-  background: #fcfcfc;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  width: 40em; }
-  #container #content .brief_item_history .revision .delete {
-    float: right; }
-    #container #content .brief_item_history .revision .delete a {
-      color: #aaaaaa;
-      font-weight: normal;
-      font-size: 1.1em; }
-      #container #content .brief_item_history .revision .delete a:hover {
-        color: #888888; }
-  #container #content .brief_item_history .revision p {
-    padding: 0;
-    margin: 0; }
+#container #content .brief_item_history {
+  display: none; }
+  #container #content .brief_item_history h4 {
+    font-size: 1.3em;
+    color: #666666;
+    padding-bottom: 1em; }
+  #container #content .brief_item_history ul {
+    margin: 0 0; }
+  #container #content .brief_item_history .revision {
+    padding: 1em 2em;
+    position: relative;
+    border: 1px solid #eeeeee;
+    margin: 1em auto;
+    background: #fcfcfc;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    width: 40em; }
+    #container #content .brief_item_history .revision .delete {
+      float: right; }
+      #container #content .brief_item_history .revision .delete a {
+        color: #aaaaaa;
+        font-weight: normal;
+        font-size: 1.1em; }
+        #container #content .brief_item_history .revision .delete a:hover {
+          color: #888888; }
+    #container #content .brief_item_history .revision p {
+      padding: 0;
+      margin: 0; }
 #container #content .question_list {
   border: 1px solid #cccccc;
   border-top: 0;

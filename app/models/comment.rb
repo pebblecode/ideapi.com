@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
 
   include ActsAsCommentable::Comment
   
-  after_sav :update_brief
+  after_save     :update_brief
   before_destroy :delete_timeline_events
   
   belongs_to :commentable, :polymorphic => true
