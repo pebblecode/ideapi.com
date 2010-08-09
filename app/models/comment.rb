@@ -2,8 +2,9 @@ class Comment < ActiveRecord::Base
 
   include ActsAsCommentable::Comment
   
-  after_save     :update_brief
-  before_destroy :delete_timeline_events
+  after_save      :update_brief
+  after_save      :deliver_notifications
+  before_destroy  :delete_timeline_events
   
   belongs_to :commentable, :polymorphic => true
   
@@ -35,5 +36,21 @@ class Comment < ActiveRecord::Base
       self.commentable.save false
     end
   end
+  
+  def deliver_notifications
+    # If the comment is on a brief or a Proposal, send relevant notifications. 
+    
+    if self.commentable.is_a?(Brief)
+      # should be sent to brief users (all collaborators)
+      NotificationMailer.deliver_new_comment_on_brief(self)
+    end
+    
+    if self.commentable.is_a?(Proposal)
+      # should be sent to idea.brief.authors and idea.brief.approver
+      NotificationMailer.deliver_new_comment_on_idea(self)
+    end
+    
+  end
+  
   
 end

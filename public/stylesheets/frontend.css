@@ -1557,3 +1557,8 @@ body#users.contacts #header ul.sub_nav {
   font-weight: bold; }
   #container #content .main .col_1 .brief .body strong span, #container #content .main .col_1 .brief .body .item-revision-body strong span {
     font-weight: bold; }
+
+#list-of-accounts {
+  padding: 1em; }
+  #list-of-accounts h2 {
+    padding-left: 1em; }

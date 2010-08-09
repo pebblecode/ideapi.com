@@ -1,0 +1,6 @@
+%h3 Where do we go from here?
+
+#list-of-accounts
+  - if @user.accounts.present?
+    - @user.accounts.each do |account|
+      %h2= link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"

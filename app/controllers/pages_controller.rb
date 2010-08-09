@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_filter :user_session_setup
+  
   layout 'public'
   
   def home
@@ -23,28 +24,23 @@ class PagesController < ApplicationController
   def privacy
     
   end
-  
+
   def login
     @user_session = UserSession.new(params[:user_session])
     session["password"] = params[:user_session][:password] if params[:user_session]
     if @user_session.save
       flash[:notice] = "You are now logged in."
       @user = User.find(:first, :conditions => {:id => session["user_credentials_id"]})
-      if @user.present? and @user.accounts.present? and @user.accounts.count == 1
-        redirect_to domain_with_port(@user.accounts.first.full_domain)
-      else
-        if session[:return_to]
-          redirect_to session[:return_to]
-        else
-          # Redirect to dashboard if there's no return_to path.
-          redirect_to "/"
-        end
+      if @user.present? and @user.accounts.present?
+        redirect_to domain_with_port(@user.accounts.first.full_domain) if @user.accounts.count == 1
+        render :layout => "login"
       end
+    elsif @usersession and @user
+      render :layout => "login"
     else
       redirect_to "/"
     end
   end
-  
   private
   
   # override application/subscription, to allow www etc to display homepage

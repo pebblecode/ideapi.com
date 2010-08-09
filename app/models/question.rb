@@ -64,7 +64,7 @@ class Question < ActiveRecord::Base
   end
   
   def notify_brief_users
-    NotificationMailer.deliver_to_collabs_new_comment_on_brief(self)
+    NotificationMailer.deliver_new_question_on_brief(self)
   end
   
   def delete_timeline_events

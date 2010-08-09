@@ -57,27 +57,6 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
   
-  def to_approver_idea_submitted_on_brief(approver, proposal, sent_at = Time.now)
-    from        email_address(proposal.brief.account.name)
-    headers     "return-path" => 'support@ideapi.com'
-    recipients  approver.email
-    reply_to    email_address(proposal.brief.account.name)
-    subject     build_subject(proposal.brief.account.name, "An idea has been submitted for review", proposal.brief.title)
-    body        :proposal => proposal, :approver => approver
-    sent_on     sent_at
-  end
-  
-  def to_collabs_new_comment_on_brief(question, sent_at = Time.now)
-    from        email_address(question.brief.account.name)
-    headers     "return-path" => 'support@ideapi.com'
-    recipients  question.brief.users.collect{ |user| user.email }.compact
-    reply_to    email_address(question.brief.account.name)
-    # We should build a subject similar to: John Doe commented on your brief / idea / whatever...
-    subject     build_subject(question.brief.account.name, "A comment has been posted", question.brief.title)
-    body        :question => question
-    sent_on     sent_at
-  end
-  
   def user_invited_to_account(user, account, sent_at = Time.now)
     from        email_address(account.name)
     headers     "return-path" => 'support@ideapi.com'
@@ -98,25 +77,6 @@ class NotificationMailer < ActionMailer::Base
     body        :brief => brief
     sent_on     sent_at
   end
-  
-  # 
-  # def invite_request(requested_by, sent_at = Time.now)
-  #   @subject = '[IDEAPI] Invitation request'
-  #   @body[:requested_by] = requested_by
-  #   @recipients = 'ticket+abutcher.32755-u8cs2ma4@lighthouseapp.com'
-  #   @from = 'alex@abutcher.co.uk'
-  #   @sent_on = sent_at
-  # end
-  # 
-  # def invite_request_for_user(requested_by, recipient_email, sent_at = Time.now)
-  #   @subject = '[IDEAPI] Invitation request for user'
-  #   @body[:requested_by] = requested_by
-  #   @body[:recipient_email] = recipient_email
-  #   @recipients = 'ticket+abutcher.32755-u8cs2ma4@lighthouseapp.com'
-  #   @from = 'alex@abutcher.co.uk'
-  #   @sent_on = sent_at
-  # end
-
   
   # def user_added_to_account(brief, user, sent_at = Time.now)
   #   from        "notifications@#{brief.account.full_domain}"
@@ -191,5 +151,70 @@ class NotificationMailer < ActionMailer::Base
     sent_on       Time.now
     body          :edit_password_reset_url => edit_reset_password_url(user.perishable_token)
   end
-      
+  
+  
+  # Notifications for Brief updates, comments, etc.
+  
+  def to_approver_idea_submitted_on_brief(approver, proposal, sent_at = Time.now)
+    from        email_address(proposal.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
+    recipients  approver.email
+    reply_to    email_address(proposal.brief.account.name)
+    subject     build_subject(proposal.brief.account.name, "An idea has been submitted for review", proposal.brief.title)
+    body        :proposal => proposal, :approver => approver
+    sent_on     sent_at
+  end
+  
+  def new_question_on_brief(question, sent_at = Time.now)
+    from        email_address(question.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
+    recipients  question.brief.users.collect{ |user| user.email }.compact
+    reply_to    email_address(question.brief.account.name)
+    subject     build_subject(question.brief.account.name, "A question has been posted", question.brief.title)
+    body        :question => question
+    sent_on     sent_at
+  end
+  
+  def new_comment_on_brief(comment, sent_at = Time.now)
+    # If commentable is not a brief, this fails. 
+    from        email_address(comment.commentable.account.name)
+    headers     "return-path" => 'support@ideapi.com'
+    recipients  comment.commentable.users.collect{ |user| user.email }.compact
+    reply_to    email_address(comment.commentable.account.name)
+    subject     build_subject(comment.commentable.account.name, "A comment has been posted", comment.commentable.title)
+    body        :comment => comment
+    sent_on     sent_at
+  end
+  
+  def new_comment_on_idea(comment, sent_at = Time.now)
+    from        email_address(comment.commentable.brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
+    # Authors and Approver
+    recipients  comment.commentable.brief.authors.collect{ |author| author.email }.push(comment.commentable.brief.approver.email).compact
+    reply_to    email_address(comment.commentable.brief.account.name)
+    subject     build_subject(comment.commentable.brief.account.name, "A comment has been posted", comment.commentable.brief.title)
+    body        :comment => comment
+    sent_on     sent_at
+  end
+  
+  def brief_section_updated(brief, sent_at = Time.now)
+    from        email_address(brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
+    recipients  brief.users.collect{ |user| user.email }.compact
+    reply_to    email_address(brief.account.name)
+    subject     build_subject(brief.account.name, "Brief updated", brief.title)
+    body        :brief => brief
+    sent_on     sent_at
+  end
+  
+  def brief_updated(brief, sent_at = Time.now)
+    from        email_address(brief.account.name)
+    headers     "return-path" => 'support@ideapi.com'
+    recipients  brief.users.collect{ |user| user.email }.compact
+    reply_to    email_address(brief.account.name)
+    subject     build_subject(brief.account.name, "Brief updated", brief.title)
+    body        :brief => brief
+    sent_on     sent_at
+  end
+  
 end

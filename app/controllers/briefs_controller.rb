@@ -67,11 +67,14 @@ class BriefsController < ApplicationController
       add_breadcrumb truncate(current_object.title, :length => 30), object_path
       add_breadcrumb 'edit brief', :edit_object_path
     end
-        
+    
     after :update do
       if params[:brief].keys.include?("_call_state")
         flash[:notice] = "Brief has been saved and marked as #{current_object.state}."
-      end     
+      end
+      if current_object.brief_items_changed?(params[:brief][:brief_items_attributes])
+        NotificationMailer.deliver_brief_section_updated(current_object)
+      end
     end
     
     response_for(:create) do |format|
