@@ -30,6 +30,18 @@
   :-moz-border-radius 3px
   :-webkit-border-radius 3px
   :border-radius 3px
+
+=button-style(!radius = 3px)
+  background: #b3d335 url('/images/ui/button_background.png') repeat-x right top
+  padding: 5px 10px
+  +rounded-corners-all(!radius)
+  border: 1px solid #32401A
+  &:hover
+    background: #b3d335 url('/images/ui/button_background.png') repeat-x right top
+    border: 1px solid #32401A
+  &:active
+    background: #b3d335 url('/images/ui/button_background.png') repeat-x right -36px
+
 /*
   1. General
     1.1 Forms
@@ -1936,3 +1948,13 @@ body#users.contacts
   padding: 1em
   h2
     padding-left: 1em
+    
+#template_briefs
+  a.add_child
+    color: #fff !important
+    font-weight: normal !important
+    text-shadow: 1px 1px 1px #555
+    display: block
+    float: left
+    margin-right: 1em
+    +button-style

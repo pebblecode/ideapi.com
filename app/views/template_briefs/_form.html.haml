@@ -8,9 +8,9 @@
     =render :partial => 'template_question', :locals => { :f => tqf }
 
 
-  %p
-    =add_child_link "Add a Question", :template_questions
+  .actions
+    =add_child_link "Add a Section or Heading", :template_questions
     =new_child_fields_template(f, :template_questions)
-  =f.submit "Submit"
+    =f.submit "Submit"
 
 

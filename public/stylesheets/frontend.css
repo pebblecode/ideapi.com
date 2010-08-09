@@ -1562,3 +1562,23 @@ body#users.contacts #header ul.sub_nav {
   padding: 1em; }
   #list-of-accounts h2 {
     padding-left: 1em; }
+
+#template_briefs a.add_child {
+  color: white !important;
+  font-weight: normal !important;
+  text-shadow: 1px 1px 1px #555555;
+  display: block;
+  float: left;
+  margin-right: 1em;
+  background: #b3d335 url("/images/ui/button_background.png") repeat-x right top;
+  padding: 5px 10px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid white;
+  border: 1px solid #32401a; }
+  #template_briefs a.add_child:hover {
+    background: #b3d335 url("/images/ui/button_background.png") repeat-x right top;
+    border: 1px solid #32401a; }
+  #template_briefs a.add_child:active {
+    background: #b3d335 url("/images/ui/button_background.png") repeat-x right -36px; }
