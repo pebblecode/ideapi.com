@@ -22,7 +22,7 @@ class Account < ActiveRecord::Base
   end
   
   accepts_nested_attributes_for :account_users, 
-    :allow_destroy => true  
+    :reject_if => proc { |attrs| attrs['author'] != '1'} 
     
   accepts_nested_attributes_for :account_template_briefs, 
     :allow_destroy => true

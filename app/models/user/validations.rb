@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
     :last_name,
     :job_title,
     :telephone,
-    :telephone_ext
+    :telephone_ext,
+    :user_briefs_attributes
   
 end

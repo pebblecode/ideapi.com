@@ -24,7 +24,7 @@ Feature: Allow users to sign up and register
 
     Scenario: Logging in to an account
         Given I have a valid account for 'donald@acmeco.com'
-        When I go to the account login page
+        When I go to the account subdomain
         And I fill in the following:
         And I press "Login"
-        Then I should see "You are now logged in"
+        Then I should see the dashboard

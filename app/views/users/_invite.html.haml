@@ -21,4 +21,24 @@
         = f.label :email
         = f.text_field :email
       
+      -if current_account.briefs.present?
+        %h3 Add briefs
+        %table.friends
+          %tr
+            %th
+              Brief
+            %th
+              Author?
+            %th
+              Approver?
+          -f.fields_for :user_briefs_attributes do |f|
+            -current_account.briefs.each_with_index do |b,c|
+              %tr
+                %td
+                  =f.hidden_field :brief_id, :value => b.id, "index" => c
+                  =b.title
+                %td
+                  =f.check_box :author, "index" => c
+                %td
+                  //=f.check_box :approver, "index" => c
       %p=f.submit 'Add to account'

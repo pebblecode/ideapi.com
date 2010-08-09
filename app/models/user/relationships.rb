@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
   # METHODS FOR BRIEF OWNERSHIP
   has_many :user_briefs, :dependent => :destroy
   has_many :briefs, :through => :user_briefs
+
+  accepts_nested_attributes_for :user_briefs, 
+    :reject_if => proc { |attrs| attrs['author'] == 0} 
   
   delegate :draft, :to => :briefs
   delegate :published, :to => :briefs

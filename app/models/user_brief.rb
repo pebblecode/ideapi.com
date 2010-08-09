@@ -6,7 +6,7 @@ class UserBrief < ActiveRecord::Base
   named_scope :authored, :conditions => ['author = true']
   named_scope :collaborating, :conditions => ['author = false']
   
-  validates_presence_of :user, :brief
+  #validates_presence_of :user, :brief
   
   after_create :notify_user
   after_update :notify_if_role_changed
