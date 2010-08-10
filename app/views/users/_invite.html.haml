@@ -20,25 +20,34 @@
       %p
         = f.label :email
         = f.text_field :email
-      
+
+      %p
+        = f.label :invitation_message, "Invitation Message (optional)"
+        = f.text_area :invitation_message, :rows => 5, :cols => 60
+
+      %h4 Brief Privileges
+      %p  
+        = f.check_box :can_create_briefs
+        = f.label :can_create_briefs
+
       -if current_account.briefs.present?
-        %h3 Add briefs
         %table.friends
           %tr
-            %th
-              Brief
-            %th
+            %th{:title => "Select whether a user can access a brief"}
+              Can Access Brief?
+            %th{:title => "Make this user an author on the brief"}
               Author?
-            %th
+            %th{:title => "Make this user an approver on the brief"}
               Approver?
           -f.fields_for :user_briefs_attributes do |f|
             -current_account.briefs.each_with_index do |b,c|
               %tr
                 %td
-                  =f.hidden_field :brief_id, :value => b.id, "index" => c
+                  =f.check_box(:brief_id,{"index" => c}, b.id)
+
                   =b.title
                 %td
                   =f.check_box :author, "index" => c
                 %td
-                  //=f.check_box :approver, "index" => c
+                  =f.check_box :approver, "index" => c
       %p=f.submit 'Add to account'

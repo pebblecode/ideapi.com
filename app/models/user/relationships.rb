@@ -22,7 +22,9 @@ class User < ActiveRecord::Base
   has_many :briefs, :through => :user_briefs
 
   accepts_nested_attributes_for :user_briefs, 
-    :reject_if => proc { |attrs| attrs['author'] == 0} 
+    :reject_if => proc { |attrs| attrs['brief_id'] == "0" } 
+  
+  accepts_nested_attributes_for :account_users 
   
   delegate :draft, :to => :briefs
   delegate :published, :to => :briefs

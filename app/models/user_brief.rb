@@ -6,9 +6,10 @@ class UserBrief < ActiveRecord::Base
   named_scope :authored, :conditions => ['author = true']
   named_scope :collaborating, :conditions => ['author = false']
   
+  attr_accessor :approver
   #validates_presence_of :user, :brief
   
-  after_create :notify_user
+  after_create :notify_user, :assign_approver, :assign_can_create_briefs
   after_update :notify_if_role_changed
   
   validates_uniqueness_of :user_id, :scope => :brief_id
@@ -20,6 +21,7 @@ class UserBrief < ActiveRecord::Base
   def brief_author?
     brief.author?(user)
   end
+  
   
   private
   
@@ -33,4 +35,21 @@ class UserBrief < ActiveRecord::Base
     NotificationMailer.deliver_user_role_changed_on_brief(self) if author_changed?
   end
   
+  # This method checks whether the virtual attribute approver
+  # is true. If so it assigns the user to be an approver for
+  # that brief and saves the record
+  def assign_approver
+    if approver == "1"
+      brief.approver = user
+      brief.save!
+    end
+  end
+
+#  def assign_can_create_briefs
+#    if can_create_briefs == "1"
+#      a = AccountUser.find_by_account_id_and_user_id(user, brief.account).can_create_briefs = 1
+#      a.save!
+#      
+#    end
+#  end
 end

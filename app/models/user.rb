@@ -4,6 +4,10 @@ require 'digest/md5'
 class User < ActiveRecord::Base
   validates_acceptance_of :terms_of_service, :message => "Must accept the Terms and Conditions", :accept => "1"
   attr_accessible :terms_of_service
+
+  # Defines an instance variable so we can send a custom
+  # invitation message
+  attr_accessor :invitation_message
   
   concerned_with :briefs,
     :class_methods,
