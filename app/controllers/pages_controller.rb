@@ -32,8 +32,11 @@ class PagesController < ApplicationController
       flash[:notice] = "You are now logged in."
       @user = User.find(:first, :conditions => {:id => session["user_credentials_id"]})
       if @user.present? and @user.accounts.present?
-        redirect_to domain_with_port(@user.accounts.first.full_domain) if @user.accounts.count == 1
-        render :layout => "login"
+        if @user.accounts.count == 1
+          redirect_to domain_with_port(@user.accounts.first.full_domain) 
+        else
+          render :layout => "login"
+        end
       end
     elsif @usersession and @user
       render :layout => "login"
