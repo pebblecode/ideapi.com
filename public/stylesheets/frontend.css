@@ -795,35 +795,33 @@ span.field_with_errors input, span.field_with_errors input:focus {
     #container #content .question_list .question #comment_form textarea, #container #content .question_list .comment #comment_form textarea, #container #content .brief_item_history .question #comment_form textarea, #container #content .brief_item_history .comment #comment_form textarea, #container #content .comments .question #comment_form textarea, #container #content .comments .comment #comment_form textarea {
       width: 37em;
       margin-bottom: 0.5em; }
-#container #content .brief_item_history {
-  display: none; }
-  #container #content .brief_item_history h4 {
-    font-size: 1.3em;
-    color: #666666;
-    padding-bottom: 1em; }
-  #container #content .brief_item_history ul {
-    margin: 0 0; }
-  #container #content .brief_item_history .revision {
-    padding: 1em 2em;
-    position: relative;
-    border: 1px solid #eeeeee;
-    margin: 1em auto;
-    background: #fcfcfc;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
-    width: 40em; }
-    #container #content .brief_item_history .revision .delete {
-      float: right; }
-      #container #content .brief_item_history .revision .delete a {
-        color: #aaaaaa;
-        font-weight: normal;
-        font-size: 1.1em; }
-        #container #content .brief_item_history .revision .delete a:hover {
-          color: #888888; }
-    #container #content .brief_item_history .revision p {
-      padding: 0;
-      margin: 0; }
+#container #content .brief_item_history h4 {
+  font-size: 1.3em;
+  color: #666666;
+  padding-bottom: 1em; }
+#container #content .brief_item_history ul {
+  margin: 0 0; }
+#container #content .brief_item_history .revision {
+  padding: 1em 2em;
+  position: relative;
+  border: 1px solid #eeeeee;
+  margin: 1em auto;
+  background: #fcfcfc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  width: 40em; }
+  #container #content .brief_item_history .revision .delete {
+    float: right; }
+    #container #content .brief_item_history .revision .delete a {
+      color: #aaaaaa;
+      font-weight: normal;
+      font-size: 1.1em; }
+      #container #content .brief_item_history .revision .delete a:hover {
+        color: #888888; }
+  #container #content .brief_item_history .revision p {
+    padding: 0;
+    margin: 0; }
 #container #content .question_list {
   border: 1px solid #cccccc;
   border-top: 0;
@@ -1566,21 +1564,43 @@ body#users.contacts #header ul.sub_nav {
 #template_briefs #container .new_template_brief .actions, #template_briefs #container .edit_template_brief .actions {
   border-top: 1px solid #dddddd;
   padding-top: 1.5em; }
+  #template_briefs #container .new_template_brief .actions .left, #template_briefs #container .edit_template_brief .actions .left {
+    float: left; }
+  #template_briefs #container .new_template_brief .actions .right, #template_briefs #container .edit_template_brief .actions .right {
+    float: right; }
   #template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child {
     color: white;
-    font-weight: normal;
     display: block;
     float: left;
     margin-right: 1em;
-    background: #b3d335 url("/images/ui/button_background.png") repeat-x right top;
+    font-weight: normal;
+    color: white;
     padding: 5px 10px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     border: 1px solid white;
-    border: 1px solid #32401a; }
+    border: 1px solid #32401a;
+    background: url("/images/ui/button_background.png") repeat-x right top; }
     #template_briefs #container .new_template_brief .actions a.add_child:hover, #template_briefs #container .edit_template_brief .actions a.add_child:hover {
-      background: #b3d335 url("/images/ui/button_background.png") repeat-x right top;
       border: 1px solid #32401a; }
+    #template_briefs #container .new_template_brief .actions a.add_child:hover, #template_briefs #container .edit_template_brief .actions a.add_child:hover {
+      background: url("/images/ui/button_background.png") repeat-x right top; }
     #template_briefs #container .new_template_brief .actions a.add_child:active, #template_briefs #container .edit_template_brief .actions a.add_child:active {
-      background: #b3d335 url("/images/ui/button_background.png") repeat-x right -36px; }
+      background: url("/images/ui/button_background.png") repeat-x right -36px; }
+#template_briefs #container a.delete_template {
+  display: block;
+  float: right;
+  font-weight: normal;
+  color: white;
+  padding: 5px 10px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid white;
+  border: 1px solid #32401a;
+  background: url("/images/ui/button_background_red.png") repeat-x right top; }
+  #template_briefs #container a.delete_template:hover {
+    border: 1px solid #32401a; }
+  #template_briefs #container a.delete_template:active {
+    background: url("/images/ui/button_background_red.png") repeat-x right -36px; }

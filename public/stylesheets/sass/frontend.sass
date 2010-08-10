@@ -32,15 +32,31 @@
   :border-radius 3px
 
 =button-style(!radius = 3px)
-  background: #b3d335 url('/images/ui/button_background.png') repeat-x right top
+  font-weight: normal
+  color: white
   padding: 5px 10px
   +rounded-corners-all(!radius)
   border: 1px solid #32401A
   &:hover
-    background: #b3d335 url('/images/ui/button_background.png') repeat-x right top
     border: 1px solid #32401A
+
+=green-button
+  background: url('/images/ui/button_background.png') repeat-x right top
+  &:hover
+    background: url('/images/ui/button_background.png') repeat-x right top
   &:active
-    background: #b3d335 url('/images/ui/button_background.png') repeat-x right -36px
+    background: url('/images/ui/button_background.png') repeat-x right -36px
+=red-button
+  background: url('/images/ui/button_background_red.png') repeat-x right top
+  &:active
+    background: url('/images/ui/button_background_red.png') repeat-x right -36px
+=white-button
+  background: url('/images/ui/button_background_white.png') repeat-x right top
+  &:active
+    background: url('/images/ui/button_background_white.png') repeat-x right -36px
+
+
+
 
 /*
   1. General
@@ -1035,7 +1051,6 @@ span.field_with_errors
             :margin-bottom 0.5em            
             
     .brief_item_history
-      display: none
       h4
         :font-size 1.3em
         :color #666
@@ -1956,10 +1971,19 @@ body#users.contacts
     .actions
       border-top: 1px solid #ddd
       padding-top: 1.5em
+      .left
+        float: left
+      .right
+        float: right
       a.add_child
         color: #fff
-        font-weight: normal
         display: block
         float: left
         margin-right: 1em
         +button-style
+        +green-button
+  a.delete_template
+    display: block
+    float: right
+    +button-style
+    +red-button
