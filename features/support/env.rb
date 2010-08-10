@@ -11,7 +11,6 @@ Before do
   require 'machinist'
   require File.expand_path(File.dirname(__FILE__) + '/../../test/test_helper')
   require File.expand_path(File.dirname(__FILE__) + '/../../test/blueprints')
-
 end
  
 Spork.prefork do
@@ -22,6 +21,9 @@ Spork.prefork do
   require 'cucumber/rails/world'
   require 'cucumber/rails/active_record'
   require 'cucumber/web/tableish'
+  require 'email_spec'
+  require 'email_spec/cucumber'
+
 
 
   require 'capybara/rails'
@@ -33,8 +35,9 @@ Spork.prefork do
   # prefer to use XPath just remove this line and adjust any selectors in your
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
-
+  
 end
+
  
 Spork.each_run do
   # If you set this to false, any error raised from within your app will bubble 

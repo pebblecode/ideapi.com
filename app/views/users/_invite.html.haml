@@ -26,12 +26,9 @@
         = f.text_area :invitation_message, :rows => 5, :cols => 60
 
       %h4 Brief Privileges
-      %p  
-        = f.check_box :can_create_briefs
-        = f.label :can_create_briefs
 
       -if current_account.briefs.present?
-        %table.friends
+        %table.friends#brief-privileges
           %tr
             %th{:title => "Select whether a user can access a brief"}
               Can Access Brief?
@@ -40,12 +37,12 @@
             %th{:title => "Make this user an approver on the brief"}
               Approver?
           -f.fields_for :user_briefs_attributes do |f|
-            -current_account.briefs.each_with_index do |b,c|
+            -current_account.briefs.active.ordered("title ASC").each_with_index do |b,c|
               %tr
-                %td
-                  =f.check_box(:brief_id,{"index" => c}, b.id)
-
-                  =b.title
+                %td.brief-title
+                  =f.hidden_field :brief_id, :index => c, :value => b.id
+                  =f.check_box :add_brief, "index" => c
+                  =f.label :add_brief, b.title, :index => c
                 %td
                   =f.check_box :author, "index" => c
                 %td

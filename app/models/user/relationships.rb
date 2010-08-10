@@ -21,10 +21,10 @@ class User < ActiveRecord::Base
   has_many :user_briefs, :dependent => :destroy
   has_many :briefs, :through => :user_briefs
 
+  # Used on User#show to add a user and permissions simultaenously
+  # We reject anything that where all checkboxes are unchecked
   accepts_nested_attributes_for :user_briefs, 
-    :reject_if => proc { |attrs| attrs['brief_id'] == "0" } 
-  
-  accepts_nested_attributes_for :account_users 
+    :reject_if => proc { |attrs| attrs['add_brief'] == "0" && attrs['author'] == "0" && attrs['approver'] == "0" } 
   
   delegate :draft, :to => :briefs
   delegate :published, :to => :briefs

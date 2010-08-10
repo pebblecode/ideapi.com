@@ -24,6 +24,14 @@ end
 
 Given /^I have briefs called (.+)$/ do |briefs|
   briefs.split(', ').each do |brief|
-    Brief.make(:published, :author => @user, :account => @account)
+    @published = Brief.make(:published, :author => @user, :account => @account, :title => brief)
   end
 end
+
+Then /^I check the access brief checkbox for (.+)$/ do |breif|
+  with_scope() do
+    check(field)
+  end
+
+end
+

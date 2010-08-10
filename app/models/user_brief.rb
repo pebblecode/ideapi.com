@@ -6,10 +6,10 @@ class UserBrief < ActiveRecord::Base
   named_scope :authored, :conditions => ['author = true']
   named_scope :collaborating, :conditions => ['author = false']
   
-  attr_accessor :approver
+  attr_accessor :approver, :add_brief
   #validates_presence_of :user, :brief
   
-  after_create :notify_user, :assign_approver, :assign_can_create_briefs
+  after_create :notify_user, :assign_approver
   after_update :notify_if_role_changed
   
   validates_uniqueness_of :user_id, :scope => :brief_id

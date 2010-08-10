@@ -1547,6 +1547,12 @@ body#users.contacts #header ul.sub_nav {
 #sortable .brief_item:hover, #sortable .brief_heading:hover {
   cursor: move; }
 
+#brief-privileges .brief-title label {
+  float: none; }
+#brief-privileges .brief-title input {
+  float: left;
+  margin: 5px; }
+
 #container #content .main .col_1 .brief .body h1, #container #content .main .col_1 .brief .body h2, #container #content .main .col_1 .brief .body h3, #container #content .main .col_1 .brief .body h4, #container #content .main .col_1 .brief .body .item-revision-body h1, #container #content .main .col_1 .brief .body .item-revision-body h2, #container #content .main .col_1 .brief .body .item-revision-body h3, #container #content .main .col_1 .brief .body .item-revision-body h4 {
   font-weight: bold; }
   #container #content .main .col_1 .brief .body h1 span, #container #content .main .col_1 .brief .body h2 span, #container #content .main .col_1 .brief .body h3 span, #container #content .main .col_1 .brief .body h4 span, #container #content .main .col_1 .brief .body .item-revision-body h1 span, #container #content .main .col_1 .brief .body .item-revision-body h2 span, #container #content .main .col_1 .brief .body .item-revision-body h3 span, #container #content .main .col_1 .brief .body .item-revision-body h4 span {

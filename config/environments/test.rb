@@ -37,6 +37,8 @@ config.gem "capybara", :lib => false
 config.gem 'rspec', :lib => false
 config.gem 'rspec-rails', :lib => false
 config.gem "factory_girl", :lib => false
+config.gem 'email_spec', :lib => false, :version => "0.6.2"
+config.gem 'rspec', :lib => false
 
 config.after_initialize do
   ActiveMerchant::Billing::Base.gateway_mode = :test

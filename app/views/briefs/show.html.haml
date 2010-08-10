@@ -20,7 +20,7 @@
       
       .actions
         -if owner?(current_object) and current_object.active?
-          - form_tag clean_brief_url(current_object) do |f|
+          - form_tag clean_brief_url(current_object) do
             = link_to "clean", clean_brief_url(current_object), :class => "clean_brief"
             :javascript
               $('a.clean_brief').click(function(){
