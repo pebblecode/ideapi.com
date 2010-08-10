@@ -555,7 +555,7 @@ span.field_with_errors
             :text-indent -3000px
           form
             float: right
-          .clean_brief, a.edit_template
+          .clean_brief
             +rounded-all-3px
             background: url('/images/ui/button_background_red.png') 0 0
             border: 1px solid #32401a
@@ -1952,13 +1952,14 @@ body#users.contacts
     padding-left: 1em
     
 #template_briefs #container
-  .actions
-    border-top: 1px solid #ddd
-    padding-top: 1.5em
-    a.add_child
-      color: #fff
-      font-weight: normal
-      display: block
-      float: left
-      margin-right: 1em
-      +button-style
+  .new_template_brief, .edit_template_brief
+    .actions
+      border-top: 1px solid #ddd
+      padding-top: 1.5em
+      a.add_child
+        color: #fff
+        font-weight: normal
+        display: block
+        float: left
+        margin-right: 1em
+        +button-style

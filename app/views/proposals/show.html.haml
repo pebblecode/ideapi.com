@@ -9,7 +9,8 @@
       %span.status=current_object.state
             
       -if current_user.owns?(current_object) # && current_object.draft?
-        =link_to 'edit idea', edit_brief_proposal_path(parent_object, current_object), :class => 'edit_idea edit_icon'
+        %span.actions
+          =link_to 'edit', edit_brief_proposal_path(parent_object, current_object), :class => 'edit_idea'
         
     .proposal_item
       :textile

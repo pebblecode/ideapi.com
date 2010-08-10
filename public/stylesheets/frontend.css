@@ -422,7 +422,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
         text-indent: -3000px; }
       #container #content .brief h2 .actions form, #container #content .proposal h2 .actions form, #container #content .brief_list h2 .actions form {
         float: right; }
-      #container #content .brief h2 .actions .clean_brief, #container #content .brief h2 .actions a.edit_template, #container #content .proposal h2 .actions .clean_brief, #container #content .proposal h2 .actions a.edit_template, #container #content .brief_list h2 .actions .clean_brief, #container #content .brief_list h2 .actions a.edit_template {
+      #container #content .brief h2 .actions .clean_brief, #container #content .proposal h2 .actions .clean_brief, #container #content .brief_list h2 .actions .clean_brief {
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
@@ -434,7 +434,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
         margin-top: 0;
         color: white;
         text-shadow: none; }
-        #container #content .brief h2 .actions .clean_brief:active, #container #content .brief h2 .actions a.edit_template:active, #container #content .proposal h2 .actions .clean_brief:active, #container #content .proposal h2 .actions a.edit_template:active, #container #content .brief_list h2 .actions .clean_brief:active, #container #content .brief_list h2 .actions a.edit_template:active {
+        #container #content .brief h2 .actions .clean_brief:active, #container #content .proposal h2 .actions .clean_brief:active, #container #content .brief_list h2 .actions .clean_brief:active {
           background-position: 0 -36px; }
   #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
     padding: 1em 2em; }
@@ -1563,10 +1563,10 @@ body#users.contacts #header ul.sub_nav {
   #list-of-accounts h2 {
     padding-left: 1em; }
 
-#template_briefs #container .actions {
+#template_briefs #container .new_template_brief .actions, #template_briefs #container .edit_template_brief .actions {
   border-top: 1px solid #dddddd;
   padding-top: 1.5em; }
-  #template_briefs #container .actions a.add_child {
+  #template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child {
     color: white;
     font-weight: normal;
     display: block;
@@ -1579,8 +1579,8 @@ body#users.contacts #header ul.sub_nav {
     border-radius: 3px;
     border: 1px solid white;
     border: 1px solid #32401a; }
-    #template_briefs #container .actions a.add_child:hover {
+    #template_briefs #container .new_template_brief .actions a.add_child:hover, #template_briefs #container .edit_template_brief .actions a.add_child:hover {
       background: #b3d335 url("/images/ui/button_background.png") repeat-x right top;
       border: 1px solid #32401a; }
-    #template_briefs #container .actions a.add_child:active {
+    #template_briefs #container .new_template_brief .actions a.add_child:active, #template_briefs #container .edit_template_brief .actions a.add_child:active {
       background: #b3d335 url("/images/ui/button_background.png") repeat-x right -36px; }
