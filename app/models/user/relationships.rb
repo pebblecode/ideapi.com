@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     :large => "100x100>", :medium => "48x48>", :small => "32x32>" 
   }
   
-  has_many :account_users, :dependent => :destroy
+  has_many :account_users, :dependent => :destroy 
   has_many :accounts, :through => :account_users
   
   # METHODS FOR BRIEF OWNERSHIP
@@ -23,9 +23,10 @@ class User < ActiveRecord::Base
 
   # Used on User#show to add a user and permissions simultaenously
   # We reject anything that where all checkboxes are unchecked
-  accepts_nested_attributes_for :user_briefs, 
+  accepts_nested_attributes_for :user_briefs,
     :reject_if => proc { |attrs| attrs['add_brief'] == "0" && attrs['author'] == "0" && attrs['approver'] == "0" } 
   
+
   delegate :draft, :to => :briefs
   delegate :published, :to => :briefs
   

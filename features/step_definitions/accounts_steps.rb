@@ -28,10 +28,6 @@ Given /^I have briefs called (.+)$/ do |briefs|
   end
 end
 
-Then /^I check the access brief checkbox for (.+)$/ do |breif|
-  with_scope() do
-    check(field)
-  end
-
+Given /^I have a user called "([^"]*)"$/ do |user|
+  @user = User.make(:password => "testing", :email => "chuck@norris.com", :first_name => "Chuck", :last_name => "Norris")
 end
-

@@ -25,6 +25,12 @@ class UsersController < ApplicationController
     end
     
     actions :all
+
+    before :new do
+      current_account.briefs.active.ordered("title ASC").each do |b|
+        current_object.user_briefs.build(:brief => b, :user => current_object)
+      end
+    end 
     
     before :create do
       current_object.invited_by = current_user
@@ -33,6 +39,9 @@ class UsersController < ApplicationController
     after :create do
       unless current_account.users.include?(current_object)
         current_account.users << current_object
+        if params[:user][:can_create_briefs] == "1"
+          assign_can_create_briefs(current_account, current_object)
+        end
       end
       if current_object.pending?
         NotificationMailer.deliver_user_invited_to_account(current_object, current_account)
@@ -75,6 +84,16 @@ class UsersController < ApplicationController
  
   private
   
+  # This method allows a user to be assigned to account with
+  # permissions to create a brief
+  def assign_can_create_briefs(account, user)
+    if current_account.admins.include?(current_user)
+      a = AccountUser.find_by_account_id_and_user_id(account, user)
+      a.can_create_briefs  = 1
+      a.save!
+    end
+  end
+
   def build_object
     @current_object = current_model.find_or_initialize_by_email(object_parameters)  
   end

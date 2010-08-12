@@ -80,3 +80,13 @@ Feature: Allow account admins to add new users to an account with permissions
         Then I should see "Tony Blair"
 
 
+    Scenario: Adding an existing user to the account
+        Given I have a user called "Chuck Norris"
+        When I go to the users page
+        Then I should see "Add user to your account"
+        And I fill in the following:
+            | First name    | Chuck          |
+            | Last name     | Norris       |
+            | Email         | chuck@norris.com |
+        And I press "Add to account"
+        Then I should see "Chuck Norris" within "table.friends"

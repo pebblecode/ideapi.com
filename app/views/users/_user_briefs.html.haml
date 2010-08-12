@@ -1,0 +1,9 @@
+%tr
+  %td.brief-title
+    =f.hidden_field :brief_id, :index => c, :value => b.id
+    =f.check_box :add_brief, :index => c
+    =f.label :add_brief, b.title, :index => c
+  %td
+    =f.check_box :author, "index" => c
+  %td
+    =f.check_box :approver, "index" => c

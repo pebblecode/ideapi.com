@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
     :telephone,
     :telephone_ext,
     :user_briefs_attributes,
-    :invitation_message
+    :invitation_message,
+    :can_create_briefs
   
 end

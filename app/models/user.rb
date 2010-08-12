@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Defines an instance variable so we can send a custom
   # invitation message
-  attr_accessor :invitation_message
+  attr_accessor :invitation_message, :can_create_briefs
   
   concerned_with :briefs,
     :class_methods,
@@ -52,6 +52,8 @@ class User < ActiveRecord::Base
   
   before_save :ensure_default_state
   
+
+
   def full_name
     name_parts(:first_name, :last_name)
   end
@@ -86,5 +88,6 @@ class User < ActiveRecord::Base
       self.invite_code = Digest::MD5.hexdigest(transform) 
     end
   end
+
 
 end

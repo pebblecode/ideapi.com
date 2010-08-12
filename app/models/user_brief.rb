@@ -7,7 +7,7 @@ class UserBrief < ActiveRecord::Base
   named_scope :collaborating, :conditions => ['author = false']
   
   attr_accessor :approver, :add_brief
-  #validates_presence_of :user, :brief
+  # validates_presence_of :user, :brief
   
   after_create :notify_user, :assign_approver
   after_update :notify_if_role_changed
@@ -45,11 +45,4 @@ class UserBrief < ActiveRecord::Base
     end
   end
 
-#  def assign_can_create_briefs
-#    if can_create_briefs == "1"
-#      a = AccountUser.find_by_account_id_and_user_id(user, brief.account).can_create_briefs = 1
-#      a.save!
-#      
-#    end
-#  end
 end

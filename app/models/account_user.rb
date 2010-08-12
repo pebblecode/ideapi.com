@@ -66,5 +66,6 @@ class AccountUser < ActiveRecord::Base
        errors.add(:account, "You cannot remove an only remaining account user")
     end
   end
+
   
 end
