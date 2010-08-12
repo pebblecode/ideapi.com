@@ -511,8 +511,9 @@ span.field_with_errors input, span.field_with_errors input:focus {
         top: 0;
         left: 0; }
       #container #content .brief .most_important_thing p span.right, #container #content .proposal .most_important_thing p span.right, #container #content .brief_list .most_important_thing p span.right {
-        bottom: -0.2em;
-        padding-right: 0.5em; }
+        bottom: -0.15em;
+        padding-right: 0em;
+        right: 0.1em; }
   #container #content .brief .brief_item.updated h3, #container #content .proposal .brief_item.updated h3, #container #content .brief_list .brief_item.updated h3 {
     background: #ffffdf; }
   #container #content .brief .brief_item.extended, #container #content .proposal .brief_item.extended, #container #content .brief_list .brief_item.extended {
