@@ -85,13 +85,8 @@ class Brief < ActiveRecord::Base
   }
 
   # Tests are whining at this named scope switching to simple ordering for now
-  # named_scope :ordered, lambda { |order| {:order => order || "updated_at DESC"} }
-  # named_scope :ordered, :order => "updated_at DESC" 
-  named_scope :ordered, lambda { |order| 
-    order ||= "updated_at DESC"
-    {:order => order} 
-  }
-  
+  named_scope :ordered, lambda { |order| {:order => order || "updated_at DESC"} }
+  # named_scope :ordered, :order => "updated_at DESC"   
   def clean_brief!
     self.questions.destroy_all
     self.comments.destroy_all
