@@ -29,8 +29,8 @@ class AccountAdministrationTest < ActionController::IntegrationTest
         visit account_path
       end
       
-      should respond_with :success
-      should render_template :show
+      should_respond_with :success
+      should_render_template :show
       
       context "billing" do
         should "have payment details" do
@@ -91,7 +91,7 @@ class AccountAdministrationTest < ActionController::IntegrationTest
           end
 
           should respond_with :success
-          should render_template :cancelled
+          should_render_template :cancelled
           should "change the number of accounts from 1 to 0" do
             assert_equal 0, Account.count
           end
