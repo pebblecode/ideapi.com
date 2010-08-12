@@ -234,6 +234,8 @@ form p label {
   margin-right: 1em;
   line-height: 1.1em;
   width: 8em; }
+form p input[type=checkbox] {
+  margin-top: 5px; }
 
 .wysiwyg {
   margin-left: 9.5em; }
