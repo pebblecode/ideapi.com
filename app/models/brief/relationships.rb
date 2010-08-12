@@ -14,7 +14,7 @@ class Brief < ActiveRecord::Base
   after_create :generate_brief_items_from_template!
 
   # BRIEF ITEMS
-  has_many :brief_items, :order => :position
+  has_many :brief_items, :order => 'position ASC, created_at ASC, id ASC'
   
   accepts_nested_attributes_for :brief_items, 
     :allow_destroy => true, 
@@ -76,7 +76,6 @@ class Brief < ActiveRecord::Base
 
   has_many :proposals
   has_many :questions
-  has_many :timeline_events, :through => :brief_items
   
   # COMMENTS
   acts_as_commentable  
@@ -85,7 +84,10 @@ class Brief < ActiveRecord::Base
     { :conditions => ["briefs.account_id = ?", account.id] }
   }
 
-  named_scope :ordered, lambda { |order| {:order => order || "updated_at DESC"} }
+  named_scope :ordered, lambda { |order| 
+    order ||= "updated_at DESC"
+    {:order => order} 
+  }
   
   def clean_brief!
     self.questions.destroy_all
