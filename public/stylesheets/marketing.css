@@ -337,6 +337,8 @@ span.left {
   background-color: #eeeeee;
   text-align: right;
   width: 150px; }
+  #account-links a {
+    display: block; }
 
 #account_logout {
   display: block; }

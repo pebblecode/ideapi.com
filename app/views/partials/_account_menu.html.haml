@@ -7,7 +7,7 @@
     #account-dropdown
       #account-form
         %h2 Log in to ideapi
-        - form_for @usersession, :url => "/login" do |f|
+        - form_for UserSession.new, :url => "/login" do |f|
           .email
             =f.label :email
             =f.text_field :email

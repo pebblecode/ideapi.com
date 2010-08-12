@@ -8,7 +8,8 @@
   .brief
     %h2
       =@template_brief.title
-      =link_to 'edit template', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_brief'
+      .actions
+        =link_to 'edit', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_template'
     -if @template_brief.template_questions.present?
       #sortable
         -@template_brief.template_brief_questions.each do |q|
@@ -23,8 +24,5 @@
                 .body
                   %p
                     =q.template_question.help_message
-      
-  
-        
 .col_2
   

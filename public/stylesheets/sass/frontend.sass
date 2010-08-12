@@ -30,6 +30,34 @@
   :-moz-border-radius 3px
   :-webkit-border-radius 3px
   :border-radius 3px
+
+=button-style(!radius = 3px)
+  font-weight: normal
+  color: white
+  padding: 5px 10px
+  +rounded-corners-all(!radius)
+  border: 1px solid #32401A
+  &:hover
+    border: 1px solid #32401A
+
+=green-button
+  background: url('/images/ui/button_background.png') repeat-x right top
+  &:hover
+    background: url('/images/ui/button_background.png') repeat-x right top
+  &:active
+    background: url('/images/ui/button_background.png') repeat-x right -36px
+=red-button
+  background: url('/images/ui/button_background_red.png') repeat-x right top
+  &:active
+    background: url('/images/ui/button_background_red.png') repeat-x right -36px
+=white-button
+  background: url('/images/ui/button_background_white.png') repeat-x right top
+  &:active
+    background: url('/images/ui/button_background_white.png') repeat-x right -36px
+
+
+
+
 /*
   1. General
     1.1 Forms
@@ -555,6 +583,8 @@ span.field_with_errors
             text-shadow: none
             &:active
               background-position: 0 -36px
+
+
       .most_important_thing, .proposal_item, .brief
         :padding 1em 2em
 
@@ -1021,7 +1051,6 @@ span.field_with_errors
             :margin-bottom 0.5em            
             
     .brief_item_history
-      
       h4
         :font-size 1.3em
         :color #666
@@ -1939,3 +1968,30 @@ body#users.contacts
       font-weight: bold
       span
         font-weight: bold
+
+#list-of-accounts
+  padding: 1em
+  h2
+    padding-left: 1em
+    
+#template_briefs #container
+  .new_template_brief, .edit_template_brief
+    .actions
+      border-top: 1px solid #ddd
+      padding-top: 1.5em
+      .left
+        float: left
+      .right
+        float: right
+      a.add_child
+        color: #fff
+        display: block
+        float: left
+        margin-right: 1em
+        +button-style
+        +green-button
+  a.delete_template
+    display: block
+    float: right
+    +button-style
+    +red-button

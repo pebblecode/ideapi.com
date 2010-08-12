@@ -46,7 +46,12 @@ class Question < ActiveRecord::Base
                             :if => lambda { |question| (question.answered? && question.author_answer_changed?) }, 
                             :log_level => 1
   
+  
+  after_create :notify_brief_users
   after_update :notify_if_question_answered
+  
+  after_save   :update_brief
+  
   
   private
   
@@ -58,9 +63,19 @@ class Question < ActiveRecord::Base
     NotificationMailer.deliver_user_question_answered_on_brief(self) if author_answer_changed? and self.author_answer.present?
   end
   
+  def notify_brief_users
+    NotificationMailer.deliver_new_question_on_brief(self)
+  end
+  
   def delete_timeline_events
     TimelineEvent.find(:all, :conditions => { :subject_id => self.id, :subject_type => self.class.to_s}).each do |event|
       event.destroy
     end
   end
+  
+  def update_brief
+    self.brief.updated_at = Time.now
+    self.brief.save false
+  end
+  
 end

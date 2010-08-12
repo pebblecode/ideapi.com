@@ -407,11 +407,11 @@ jQuery.fn.document_ready = function() {
     
     jQuery('.brief_item_history').each(function () {            
       var selected_item = document.URL.split('#')[1];
-      
-      if ((selected_item == undefined) || jQuery(this).parents().filter('.brief_item').attr('id') != selected_item) {
-        jQuery(this).hide();
+      var parent_item = $(this).parents().filter('.brief_item');
+      if (parent_item.attr('id') == selected_item){
+        $(this).show();
+        parent_item.children().filter('.actions').find('.toggle_brief_item_history').parent('li').toggleClass('selected');
       }
-      
     });
         
     jQuery('.question .author_answer_form').each(function () { 
@@ -434,11 +434,8 @@ jQuery.fn.document_ready = function() {
       });
       
     }).hide();
-    
-    jQuery('ul.actions').show();
-    
+
     jQuery('ul.actions li a').live("click", function(){
-      jQuery(this).parent().siblings().removeClass("selected");
       jQuery(this).parent("li").toggleClass("selected");
       jQuery(this).parents().filter('.brief_item').find(this.className.replace("toggle_", ".")).toggle();  
       return false;

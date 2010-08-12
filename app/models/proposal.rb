@@ -74,6 +74,7 @@ class Proposal < ActiveRecord::Base
   before_save :ensure_default_state
   after_create :notify_approvers_of_idea_creation
   after_update :notify_if_state_changed
+  after_save   :update_brief
   
   named_scope :active, :conditions => ["state <> 'draft'"]
   
@@ -116,5 +117,10 @@ class Proposal < ActiveRecord::Base
   
   def update_status
     self.state = "draft"
+  end
+  
+  def update_brief
+    self.brief.updated_at = Time.now
+    self.brief.save false
   end
 end
