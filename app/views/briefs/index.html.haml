@@ -11,7 +11,6 @@
       %h3 Welcome to the dashboard. 
       
   %p=flash[':note']
-  %h3 Hi #{current_user.first_name}. You might want to look at
   -if @merged_questions.present?
     %ul#notifications
       -@merged_questions.each do |q|
