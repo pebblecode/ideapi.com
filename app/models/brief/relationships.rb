@@ -14,7 +14,7 @@ class Brief < ActiveRecord::Base
   after_create :generate_brief_items_from_template!
 
   # BRIEF ITEMS
-  has_many :brief_items, :order => :position
+  has_many :brief_items, :order => 'position ASC, created_at ASC, id ASC'
   
   accepts_nested_attributes_for :brief_items, 
     :allow_destroy => true, 
@@ -76,7 +76,6 @@ class Brief < ActiveRecord::Base
 
   has_many :proposals
   has_many :questions
-  has_many :timeline_events, :through => :brief_items
   
   # COMMENTS
   acts_as_commentable  
@@ -87,8 +86,7 @@ class Brief < ActiveRecord::Base
 
   # Tests are whining at this named scope switching to simple ordering for now
   named_scope :ordered, lambda { |order| {:order => order || "updated_at DESC"} }
-  # named_scope :ordered, :order => "updated_at DESC" 
-  
+  # named_scope :ordered, :order => "updated_at DESC"   
   def clean_brief!
     self.questions.destroy_all
     self.comments.destroy_all

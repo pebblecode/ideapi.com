@@ -78,7 +78,6 @@ module BriefWorkflowHelper
     n.times do 
       BriefItem.make(:brief => brief)
     end
-    brief.save
   end
   
   def check_for_questions(brief, creative)
