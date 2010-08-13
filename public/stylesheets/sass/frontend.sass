@@ -708,7 +708,7 @@ span.field_with_errors
     
     
     .brief_list
-      
+      :float left
       .brief_item
         :padding-bottom 1em
       
@@ -1997,3 +1997,35 @@ body#users.contacts
     float: right
     +button-style
     +red-button
+
+
+// Notifications for dashboard
+ul#notifications
+  :float left
+  :width 620px
+  li
+    :float left
+    :padding .5em .25em
+    :width 100%
+    :border-bottom 1px dotted #ccc
+    &.even
+      :background #F6F6F6
+    span
+      &.notification_label
+        :float left
+        :padding 1px 3px
+        :background #32401A
+        :color #fff
+        :margin-right 5px
+        +rounded-corners-all(3px)
+        a
+          :color #fff !important
+          :font-weight normal !important
+      &.notification_meta
+        :float left
+        :clear left
+        :font-style italic
+        :color #999
+      &.notification_action
+        :float right
+

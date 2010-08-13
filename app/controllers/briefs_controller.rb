@@ -43,6 +43,12 @@ class BriefsController < ApplicationController
         
     before :index do
       completed_briefs(:limit => 5, :order => "updated_at DESC")
+      
+      @unanswered_questions = Question.find_all_by_brief_id(current_user.briefs, :conditions => ["answered_by_id IS NULL AND created_at > ? AND user_id != ?", 7.days.ago, current_user.id], :order => "created_at DESC")
+
+      @answered_questions = Question.find_all_by_brief_id(current_user.briefs, :conditions => ["answered_by_id != FALSE AND created_at > ? AND answered_by_id != ?", 7.days.ago, current_user.id], :order => "created_at DESC")
+
+     @merged_questions = (@unanswered_questions + @answered_questions).uniq 
     end
     
     before :show do

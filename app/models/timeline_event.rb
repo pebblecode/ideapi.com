@@ -25,7 +25,14 @@ class TimelineEvent < ActiveRecord::Base
     } 
   }
   
-  
-  
+  named_scope :approver_items_with_last_week, lambda { |*args| 
+    { 
+      :conditions => [
+        "event_type = 'new_question' AND subject_id IN (?) AND created_at > ? AND actor_id != ?",
+         args.first, 7.weeks.ago, args.second
+      ]
+    }
+  }
+        
   
 end

@@ -524,36 +524,38 @@ span.field_with_errors input, span.field_with_errors input:focus {
   width: 50em;
   height: 10em;
   font-size: 1.1em; }
-#container #content .brief_list .brief_item {
-  padding-bottom: 1em; }
-#container #content .brief_list .brief_item:hover {
-  background: transparent; }
-#container #content .brief_list h3 {
-  width: 27em;
-  position: relative; }
-  #container #content .brief_list h3 .user_context {
-    margin-left: 1em;
-    text-transform: uppercase;
-    color: #666666;
-    font-size: 0.5em;
-    width: 10em;
+#container #content .brief_list {
+  float: left; }
+  #container #content .brief_list .brief_item {
+    padding-bottom: 1em; }
+  #container #content .brief_list .brief_item:hover {
+    background: transparent; }
+  #container #content .brief_list h3 {
+    width: 27em;
+    position: relative; }
+    #container #content .brief_list h3 .user_context {
+      margin-left: 1em;
+      text-transform: uppercase;
+      color: #666666;
+      font-size: 0.5em;
+      width: 10em;
+      position: absolute;
+      bottom: 0.5em;
+      right: 0; }
+  #container #content .brief_list .toggle_activity_stream {
     position: absolute;
-    bottom: 0.5em;
-    right: 0; }
-#container #content .brief_list .toggle_activity_stream {
-  position: absolute;
-  top: 0.8em;
-  right: 1em;
-  width: 28px;
-  height: 28px;
-  background: url(/images/ico_circle_green.png) no-repeat;
-  color: white;
-  text-align: center;
-  font-size: 1.4em;
-  padding-top: 2px; }
-#container #content .brief_list .toggle_activity_stream.active {
-  background: url(/images/ico_minus.png) no-repeat;
-  text-indent: -3000px; }
+    top: 0.8em;
+    right: 1em;
+    width: 28px;
+    height: 28px;
+    background: url(/images/ico_circle_green.png) no-repeat;
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    padding-top: 2px; }
+  #container #content .brief_list .toggle_activity_stream.active {
+    background: url(/images/ico_minus.png) no-repeat;
+    text-indent: -3000px; }
 #container #content .note {
   padding: 0.5em 2em 0.5em 2em;
   margin: 2em 0 0.5em 0;
@@ -1612,3 +1614,34 @@ body#users.contacts #header ul.sub_nav {
     border: 1px solid #32401a; }
   #template_briefs #container a.delete_template:active {
     background: url("/images/ui/button_background_red.png") repeat-x right -36px; }
+
+ul#notifications {
+  float: left;
+  width: 620px; }
+  ul#notifications li {
+    float: left;
+    padding: 0.5em 0.25em;
+    width: 100%;
+    border-bottom: 1px dotted #cccccc; }
+    ul#notifications li.even {
+      background: #f6f6f6; }
+    ul#notifications li span.notification_label {
+      float: left;
+      padding: 1px 3px;
+      background: #32401a;
+      color: white;
+      margin-right: 5px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      border: 1px solid white; }
+      ul#notifications li span.notification_label a {
+        color: white !important;
+        font-weight: normal !important; }
+    ul#notifications li span.notification_meta {
+      float: left;
+      clear: left;
+      font-style: italic;
+      color: #999999; }
+    ul#notifications li span.notification_action {
+      float: right; }
