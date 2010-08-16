@@ -20,6 +20,8 @@
           %span.left &ldquo;
           =brief_form.text_area :most_important_message, :rows => "5", :cols => 60, :style => "width: 20em; height: 6em"
           %span.right &rdquo;
+
+
     
       -current_object.brief_items.each do |brief_item|
         - if brief_item.template_question.present? and brief_item.template_question.is_heading? 
@@ -37,6 +39,9 @@
               %p.help_message
                 %strong Example:
                 = brief_item.help_message
+    %p
+      = brief_form.label :tag_list, "Tags<br /> (comma separated)"
+      = brief_form.text_field :tag_list
     -if current_object.draft?
       %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'    
       %p.submit=brief_form.submit 'save draft'

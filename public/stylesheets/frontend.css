@@ -511,8 +511,9 @@ span.field_with_errors input, span.field_with_errors input:focus {
         top: 0;
         left: 0; }
       #container #content .brief .most_important_thing p span.right, #container #content .proposal .most_important_thing p span.right, #container #content .brief_list .most_important_thing p span.right {
-        bottom: -0.2em;
-        padding-right: 0.5em; }
+        bottom: -0.15em;
+        padding-right: 0em;
+        right: 0.1em; }
   #container #content .brief .brief_item.updated h3, #container #content .proposal .brief_item.updated h3, #container #content .brief_list .brief_item.updated h3 {
     background: #ffffdf; }
   #container #content .brief .brief_item.extended, #container #content .proposal .brief_item.extended, #container #content .brief_list .brief_item.extended {
@@ -1146,6 +1147,13 @@ ul.error_messages li p {
             font-weight: normal; }
             #container #content .col_2 .side_box .contents ul li p span strong {
               color: #aaaaaa; }
+      #container #content .col_2 .side_box .contents ul.tag-list li {
+        padding: 0.25em 0;
+        clear: left; }
+        #container #content .col_2 .side_box .contents ul.tag-list li a {
+          display: block; }
+          #container #content .col_2 .side_box .contents ul.tag-list li a span {
+            float: right; }
       #container #content .col_2 .side_box .contents ul span.author {
         color: #0099cc;
         font-weight: bold; }
@@ -1645,3 +1653,114 @@ ul#notifications {
       color: #999999; }
     ul#notifications li span.notification_action {
       float: right; }
+
+.textboxlist {
+  font: 11px "Lucida Grande", Verdana;
+  cursor: text; }
+
+.textboxlist-bits {
+  zoom: 1;
+  overflow: hidden;
+  margin: 0;
+  width: 430px;
+  padding: 3px 4px 0;
+  border: 1px solid #cccccc;
+  background: white; }
+
+.textboxlist-bit {
+  list-style-type: none;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0 5px 3px 0;
+  cursor: default; }
+
+.textboxlist-bit-editable {
+  border: 1px solid white; }
+
+.textboxlist-bit-editable-input {
+  border: 0 !important;
+  padding: 2px 0px;
+  height: 14px;
+  font: 11px "Lucida Grande", Verdana; }
+  .textboxlist-bit-editable-input:focus {
+    background: 0 !important;
+    outline: 0; }
+
+.textboxlist-bit-box {
+  position: relative;
+  line-height: 18px;
+  padding: 0 5px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+  border: 1px solid #cad8f3;
+  background: #dee7f8;
+  cursor: default; }
+
+.textboxlist-bit-box-deletable {
+  padding-right: 15px; }
+
+.textboxlist-bit-box-deletebutton {
+  position: absolute;
+  right: 4px;
+  top: 6px;
+  display: block;
+  width: 7px;
+  height: 7px;
+  font-size: 1px;
+  background: url("/images/close.gif") !important; }
+  .textboxlist-bit-box-deletebutton:hover {
+    border: none;
+    background-position: 7px;
+    text-decoration: none; }
+
+.textboxlist-bit-box-hover {
+  background: #bbcef1;
+  border: 1px solid #6d95e0; }
+
+.textboxlist-bit-box-focus {
+  border-color: #598bec;
+  background: #598bec;
+  color: white; }
+  .textboxlist-bit-box-focus .textboxlist-bit-box-deletebutton {
+    background-position: bottom; }
+
+.textboxlist-autocomplete {
+  position: absolute;
+  margin-left: 122px; }
+
+.textboxlist-autocomplete-placeholder, .textboxlist-autocomplete-results {
+  width: 424px;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  background: #eeeeee;
+  -webkit-box-shadow: 0 3px 3px #cccccc;
+  -moz-box-shadow: 0 3px 3px #cccccc;
+  box-shadow: 0 3px 3px #cccccc;
+  border: 1px solid #999999;
+  border-top: none;
+  display: none; }
+
+.textboxlist-autocomplete-placeholder {
+  padding: 5px 7px; }
+
+.textboxlist-autocomplete-results {
+  margin: 0;
+  padding: 0; }
+
+.textboxlist-autocomplete-result {
+  margin: 0;
+  padding: 5px;
+  list-style-type: none;
+  background: #eeeeee; }
+
+.textboxlist-autocomplete-result-focus {
+  background: #c6d9e4; }
+
+.textboxlist-autocomplete-highlight {
+  background: #eef0c4;
+  font-weight: bold; }
+
+.textboxlist-loading {
+  background: url("/images/spinner.gif") no-repeat 380px center; }

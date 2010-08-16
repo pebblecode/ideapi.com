@@ -40,6 +40,8 @@
   .brief_list
     %h2 
       Your active briefs
+      -if params[:t]
+        tagged as "#{params[:t]}"
     -if current_objects.empty?
       .brief_item
         %h3 
@@ -50,9 +52,17 @@
           -else
             You have no briefs. Contact your account owner if you need the ability to create briefs
     -else  
-      =render :partial => 'brief', :collection => current_objects
-      
+      =render :partial => 'brief', :collection => current_objects      
 .col_2.dashboard
+  -if @tags.present?
+    .side_box
+      %h2
+        Tags
+      .contents
+        %ul.tag-list
+          -@tags.each do |tag|
+            %li
+              =link_to "#{tag.name}<span>#{tag.count}</span>", dashboard_path(:t => tag.name)
 
   -if completed_briefs.present?
     .side_box

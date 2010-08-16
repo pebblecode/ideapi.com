@@ -566,11 +566,43 @@ jQuery.fn.document_ready = function() {
     $('.is-heading').live('click', function(){
       $(this).parent().siblings('.help-message, .optional').slideToggle('slow');
     }); 
+
     /*
     * We don't want fields to show on the edit view so hide them
     */
     $('.is-heading:checked').parent().siblings('.help-message, .optional').hide();
  
+    /*
+    * Makes an autocomplete tag list 
+    * Also preloads the autocomplete JSON for the dropdown
+    * http://devthought.com/projects/jquery/textboxlist/
+    * This doesn't play nice with jQuery's name scope so wrapping
+    * in a check for the id
+    */
+    brief_tag_list = document.getElementById("brief_tag_list");
+    if (brief_tag_list) {
+      $('#brief_tag_list').ready(function(){
+        var tb = new $.TextboxList('#brief_tag_list', {
+          bitsOptions:{
+            editable:{addKeys: [188]}
+          },
+          unique: true, 
+          plugins: {autocomplete: {
+            placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags."
+          }
+        }});
+
+        tb.getContainer().addClass('textboxlist-loading');
+        $.ajax({
+          url: '/tags.json', 
+          dataType: 'json', 
+          success: function(r){
+            tb.plugins['autocomplete'].setValues(r);
+            tb.getContainer().removeClass('textboxlist-loading');
+        }});  
+      });
+    };
+
     jQuery.setup_collaboration_widget();
       
     jQuery.fn.document_ready_extras();
