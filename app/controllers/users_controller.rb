@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       end
       if current_object.pending?
         NotificationMailer.deliver_user_invited_to_account(current_object, current_account)
-        flash[:notice] = "We've sent an invitiaton to" + current_object.email
+        flash[:notice] = "We've sent an invitiaton to " + current_object.email
       end
     end
         
