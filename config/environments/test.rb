@@ -30,7 +30,7 @@ config.action_mailer.delivery_method = :test
 config.gem "faker"
 config.gem "shoulda", :version => "2.10.3"
 config.gem "machinist"
-config.gem "webrat"
+config.gem "webrat", :version => "0.7.0"
 config.gem "cucumber-rails", :lib => false
 config.gem "spork", :lib => false
 config.gem "capybara", :lib => false
