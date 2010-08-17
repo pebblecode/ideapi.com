@@ -179,31 +179,34 @@ class CreativeResponsesTest < ActionController::IntegrationTest
           end
         
         end
-                # 
-                # context "clicking publish" do
-                # 
-                #   setup do
-                #     visit brief_proposal_path(@brief, @proposal)
-                #     click_button 'Submit proposal'
-                #   end
-                # 
-                #   should_respond_with :success
-                #   should_render_template :show
-                #   should_change("Published count", :by => 1) { Proposal.published.count }
-                # 
-                #   should "contain title" do
-                #     assert_contain(@proposal[:title])
-                #   end
-                # 
-                #   should "contain body" do
-                #     assert_contain(@proposal[:long_description])
-                #   end
-                # 
-                #   should "be published" do
-                #     assert assigns(:current_object).published?
-                #   end
-                # 
-                # end
+        
+        context "clicking publish" do
+        
+          setup do
+            visit brief_proposal_path(@brief, @proposal)
+            click_button 'Submit idea'
+          end
+        
+          should_respond_with :success
+          should_render_template :show
+          
+          should "change published count by one" do
+            assert_equal 1, Proposal.published.count
+          end
+          
+          should "contain title" do
+            assert_contain(@proposal[:title])
+          end
+        
+          should "contain body" do
+            assert_contain(@proposal[:long_description])
+          end
+        
+          should "be published" do
+            assert assigns(:current_object).published?
+          end
+        
+        end
         
       end
    
