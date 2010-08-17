@@ -33,8 +33,8 @@ class AccountSignupTest < ActionController::IntegrationTest
           fill_in 'Screename', :with => @user[:screename]
           fill_in 'Email', :with => @user[:email]
           fill_in 'Password', :with => @user[:password]
-          fill_in 'Password confirmation', :with => @user[:password]
-          
+          fill_in 'Confirm Password', :with => @user[:password]
+          check "user_terms_of_service"
           # At the moment we don't have plans shown .. uncomment this when we do
           # choose "plan_#{@plans[:free].id}"
           
@@ -211,7 +211,7 @@ class AccountSignupTest < ActionController::IntegrationTest
         fill_in 'Email', :with => @user[:email]
         fill_in 'Screename', :with => @user[:screename]
         fill_in 'Password', :with => @user[:password]
-        fill_in 'Password confirmation', :with => @user[:password]
+        fill_in 'Confirm Password', :with => @user[:password]
 
         # At the moment we don't have plans shown .. uncomment this when we do
         # choose "plan_#{@plans[:free].id}"
