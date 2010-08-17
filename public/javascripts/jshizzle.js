@@ -551,7 +551,7 @@ jQuery.fn.document_ready = function() {
       });
     
     /*
-    * Added by George Ornbo 10/07/10 to make template questions sortable
+    * Makes template questions sortable
     * See http://docs.jquery.com/UI/Sortable
     */ 
     $('#sortable').sortable({update: function() {
@@ -559,10 +559,10 @@ jQuery.fn.document_ready = function() {
       }
     });
 
-     /*
-    * Added by George Ornbo 19/07/10 to show and hide items when creating template briefs
+    /*
+    * Shows and hides items when creating template briefs
     * When an item is marked as a heading this hides fields that are not relevant
-     */ 
+    */ 
     $('.is-heading').live('click', function(){
       $(this).parent().siblings('.help-message, .optional').slideToggle('slow');
     }); 
@@ -575,33 +575,10 @@ jQuery.fn.document_ready = function() {
     /*
     * Makes an autocomplete tag list 
     * Also preloads the autocomplete JSON for the dropdown
-    * http://devthought.com/projects/jquery/textboxlist/
-    * This doesn't play nice with jQuery's name scope so wrapping
-    * in a check for the id
+    * http://wayofspark.com/projects/smarttextbox/
+    * 
     */
-    brief_tag_list = document.getElementById("brief_tag_list");
-    if (brief_tag_list) {
-      $('#brief_tag_list').ready(function(){
-        var tb = new $.TextboxList('#brief_tag_list', {
-          bitsOptions:{
-            editable:{addKeys: [188]}
-          },
-          unique: true, 
-          plugins: {autocomplete: {
-            placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags."
-          }
-        }});
-
-        tb.getContainer().addClass('textboxlist-loading');
-        $.ajax({
-          url: '/tags.json', 
-          dataType: 'json', 
-          success: function(r){
-            tb.plugins['autocomplete'].setValues(r);
-            tb.getContainer().removeClass('textboxlist-loading');
-        }});  
-      });
-    };
+    $('#brief_tag_list').smartTextBox({autocompleteUrl : "/tags.json", separator : "," });
 
     jQuery.setup_collaboration_widget();
       

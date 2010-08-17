@@ -2038,55 +2038,62 @@ ul#notifications
         :color #999
       &.notification_action
         :float right
-// Styles for textbox list (tag boxes)
-.textboxlist
-  :font 11px "Lucida Grande", Verdana
+
+// Facebook style tagging boxes
+.smartTextBox
   :cursor text
 
-.textboxlist-bits
+.smartTextBox-items
   :zoom 1
   :overflow hidden
   :margin 0
-  :width 430px
   :padding 3px 4px 0
   :border 1px solid #ccc
   :background #fff
+  :width 430px
 
-.textboxlist-bit
+.smartTextBox-elem
   :list-style-type none
+  :line-height 18px
   :float left
   :display block
   :padding 0
   :margin 0 5px 3px 0
   :cursor default
 
-.textboxlist-bit-editable
-  :border 1px solid #fff
-
-.textboxlist-bit-editable-input
-  :border 0 !important
-  :padding 2px 0px
-  :height 14px
-  :font 11px "Lucida Grande", Verdana
-  &:focus
-    :background 0 !important
-    :outline 0
-
-.textboxlist-bit-box
+.smartTextBox-box-elem
   :position relative
-  :line-height 18px
   :padding 0 5px
+  :border 1px solid #B3D335
+  :background #c6e355
+  :cursor default
   :-moz-border-radius 9px
   :-webkit-border-radius 9px
   :border-radius 9px
-  :border 1px solid #CAD8F3
-  :background #DEE7F8
-  :cursor default
 
-.textboxlist-bit-box-deletable
-  :padding-right 15px
+.smartTextBox-input-elem
+  :backgound-color transparent
 
-.textboxlist-bit-box-deletebutton
+.smartTextBox-input-elem-valueInput
+  :border none
+
+.smartTextBox-elem-hover
+
+.smartTextBox-elem-box-hover
+  :background-color #B3D335
+
+.smartTextBox-elem-input-hover, .smartTextBox-elem-focus
+
+.smartTextBox-elem-box-focus
+  :background-color #a0c11e
+
+.smartTextBox-elem-input-focus
+
+.smartTextBox-elem-valueContainer
+  :margin-right 8px
+  :white-space nowrap
+
+.smartTextBox-elem-deleteButton
   :position absolute
   :right 4px
   :top 6px
@@ -2094,63 +2101,53 @@ ul#notifications
   :width 7px
   :height 7px
   :font-size 1px
-  :background url('/images/close.gif') !important
+  :background url('/images/close.gif')
   &:hover
     :border none
     :background-position 7px
     :text-decoration none
 
-.textboxlist-bit-box-hover
-  :background #BBCEF1
-  :border 1px solid #6D95E0
+/* AutoComplete
 
-.textboxlist-bit-box-focus
-  :border-color #598BEC
-  :background #598BEC
-  :color #fff
-  .textboxlist-bit-box-deletebutton
-    :background-position bottom
-    
-// Autocomplete 
-.textboxlist-autocomplete
+.smartTextBox-autocomplete
+  :width 430px
   :position absolute
-  :margin-left 122px
+  :z-index 10
 
-.textboxlist-autocomplete-placeholder, .textboxlist-autocomplete-results
-  :width 424px
+.smartTextBox-autocomplete-placeholder
   :opacity 0.9
   :filter alpha(opacity = 90)
   :background #eee
-  :-webkit-box-shadow 0 3px 3px #ccc
-  :-moz-box-shadow 0 3px 3px #ccc
-  :box-shadow 0 3px 3px #ccc
   :border 1px solid #999
   :border-top none
-  :display none
-
-.textboxlist-autocomplete-placeholder
   :padding 5px 7px
+  :margin-left 122px
+  :width 424px
 
-.textboxlist-autocomplete-results
+.smartTextBox-autocomplete-results
+  :opacity 0.9
+  :filter alpha(opacity = 90)
+  :background #eee
+  :border 1px solid #999
+  :border-top none
   :margin 0
   :padding 0
+  :margin-left 122px
+  :width 438px
 
-.textboxlist-autocomplete-result
+.smartTextBox-autocomplete-result
   :margin 0
   :padding 5px
   :list-style-type none
   :background #eee
+  :cursor pointer
+  :.width 100%
 
-.textboxlist-autocomplete-result-focus
-  :background #C6D9E4
+.smartTextBox-autocomplete-value
+  :display none
 
-.textboxlist-autocomplete-highlight
-  :background #EEF0C4
+.smartTextBox-autocomplete-highligh
   :font-weight bold
 
-
-
-.textboxlist-loading 
-  :background url('/images/spinner.gif') no-repeat 380px center
-
-
+.smartTextBox-autocomplete-result-focus
+  :background #a0c11e

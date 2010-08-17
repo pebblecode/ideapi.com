@@ -1,6 +1,7 @@
-[
+{values:[
 -@tags.each_with_index do |tag, i|
-  [#{i.to_json}, #{tag.name.to_json}, null, #{tag.name.to_json}]
+  #{tag.name.to_json}
   -unless i+1 == @tags.size
     ,
-]
+]}
+

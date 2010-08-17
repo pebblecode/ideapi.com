@@ -40,7 +40,7 @@
                 %strong Example:
                 = brief_item.help_message
     %p
-      = brief_form.label :tag_list, "Tags<br /> (comma separated)"
+      = brief_form.label :tag_list, "Tags:"
       = brief_form.text_field :tag_list
     -if current_object.draft?
       %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'    
