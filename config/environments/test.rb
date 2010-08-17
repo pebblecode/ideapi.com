@@ -28,9 +28,9 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 
 config.gem "faker"
-config.gem "shoulda"
+config.gem "shoulda", :version => "2.10.3"
 config.gem "machinist"
-config.gem "webrat"
+config.gem "webrat", :version => "0.7.0"
 config.gem "cucumber-rails", :lib => false
 config.gem "spork", :lib => false
 config.gem "capybara", :lib => false
@@ -39,6 +39,7 @@ config.gem 'rspec-rails', :lib => false
 config.gem "factory_girl", :lib => false
 config.gem 'email_spec', :lib => false, :version => "0.6.2"
 config.gem 'rspec', :lib => false
+config.gem 'test-unit', :lib => false
 
 config.after_initialize do
   ActiveMerchant::Billing::Base.gateway_mode = :test

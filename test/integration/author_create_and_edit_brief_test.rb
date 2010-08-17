@@ -37,7 +37,9 @@ class AuthorCreateAndEditBriefTest < ActionController::IntegrationTest
         should_respond_with :success
         should_render_template :edit
         
-        should_change "Brief.count", :by => 1
+        should "update the brief count" do
+          assert_equal 1, Brief.count
+        end
       end
       
     end
