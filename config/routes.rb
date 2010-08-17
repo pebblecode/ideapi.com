@@ -10,6 +10,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments
   map.resources :questions
       
+  map.resources :tags
+
   map.resource :user_session, :member => { :delete => :get }
   map.resource :profile, :controller => "users"
 

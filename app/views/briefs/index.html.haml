@@ -11,10 +11,37 @@
       %h3 Welcome to the dashboard. 
       
   %p=flash[':note']
-      
+  -if @merged_questions.present?
+    %ul#notifications
+      -@merged_questions.each do |q|
+        %li{:class => cycle(false, "even")}
+          %span.notification_label
+            -if q.answered_by_id.present?
+              =link_to "answer to question", brief_path(q.brief, :anchor => "brief_item_#{q.brief_item_id.to_s}")
+            -else
+              =link_to "new question", brief_path(q.brief, :anchor => "brief_item_#{q.brief_item_id.to_s}")
+          -if q.answered_by_id.present?
+            %strong
+              =truncate(q.body, 80)
+            =truncate(q.author_answer, 80)
+          -else
+            =truncate(q.body, 80)
+          %span.notification_meta
+            -if q.answered_by_id.present?
+              answered by #{q.answered_by.full_name}
+            -else
+              asked by #{q.user.full_name}
+            on #{q.brief.title},  #{time_ago_in_words_with_word(q.created_at)}
+          %span.notification_action
+            -if q.answered_by_id.present?
+              =link_to "View answer", brief_path(q.brief, :anchor => "brief_item_#{q.brief_item_id.to_s}")
+            -else
+              =link_to "Answer this question", brief_path(q.brief, :anchor => "brief_item_#{q.brief_item_id.to_s}")
   .brief_list
     %h2 
       Your active briefs
+      -if params[:t]
+        tagged as "#{params[:t]}"
     -if current_objects.empty?
       .brief_item
         %h3 
@@ -25,9 +52,17 @@
           -else
             You have no briefs. Contact your account owner if you need the ability to create briefs
     -else  
-      =render :partial => 'brief', :collection => current_objects
-      
+      =render :partial => 'brief', :collection => current_objects      
 .col_2.dashboard
+  -if @tags.present?
+    .side_box
+      %h2
+        Tags
+      .contents
+        %ul.tag-list
+          -@tags.each do |tag|
+            %li
+              =link_to "#{tag.name}<span>#{tag.count}</span>", dashboard_path(:t => tag.name)
 
   -if completed_briefs.present?
     .side_box

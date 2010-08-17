@@ -12,6 +12,7 @@ Rails::Initializer.run do |config|
   config.gem "alter-ego", :lib => "alter_ego"
   config.gem "will_paginate", :lib => "will_paginate"
   config.gem "RedCloth"
+  config.gem "acts-as-taggable-on", :source => "http://gemcutter.org", :version => '2.0.0.rc1'
   # config.gem "BlueCloth" # For Markdown
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 

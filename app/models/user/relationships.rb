@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   
+  # Authlogic settings
+  # Handles authentication for the application
+  # See - http://github.com/binarylogic/authlogic
   acts_as_authentic do |c|
     #c.my_config_option = my_value # for available options see documentation in: Authlogic::ActsAsAuthentic
     c.login_field = :email 
@@ -10,6 +13,8 @@ class User < ActiveRecord::Base
     c.merge_validates_length_of_password_field_options(:unless => :pending?)
   end
 
+  # Paperclip attachment
+  # See http://github.com/thoughtbot/paperclip
   has_attached_file :avatar, :styles => { 
     :large => "100x100>", :medium => "48x48>", :small => "32x32>" 
   }
@@ -38,6 +43,10 @@ class User < ActiveRecord::Base
   # pathways to the hallowed briefs
   has_many :responded_briefs, :through => :proposals, :source => :brief
   has_many :watching_briefs, :through => :watched_briefs, :source => :brief
+
+  has_many :authoring_briefs, :class_name => "Brief", :foreign_key => "author_id"
+  has_many :approving_briefs, :class_name => "Brief", :foreign_key => "approver_id"
+  has_many :collaborating_briefs, :through => :user_briefs, :source => :brief, :conditions => ['author_id != #{self.id} AND approver_id != #{self.id}' ]
   
   alias :watching :watching_briefs
   alias :pitching :responded_briefs

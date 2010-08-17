@@ -2,6 +2,13 @@ require 'set'
 
 class Brief < ActiveRecord::Base
 
+  # The acts-as-taggable handles tags on the model
+  # See http://github.com/mbleigh/acts-as-taggable-on
+  acts_as_taggable
+  named_scope :by_join_date, :order => "created_at DESC"
+
+
+
   # RELATIONSHIPS
   
   # TEMPLATE BRIEF 

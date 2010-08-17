@@ -38,4 +38,10 @@ module ApplicationHelper
     end
   end
   
+  # This augments the time_ago_in_words method 
+  # adding the word. 
+  # Usage: time_ago_in_words_with_word(object.created_at)
+  def time_ago_in_words_with_word(date, word = "ago")
+    "#{time_ago_in_words(date)} #{word}"
+  end
 end

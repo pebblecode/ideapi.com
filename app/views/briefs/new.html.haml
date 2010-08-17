@@ -19,6 +19,9 @@
           = f.label :template_brief_id, 'Choose template'
           = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
       
+      %p
+        = f.label :tag_list, "Tags<br /> (comma separated)"
+        = f.text_field :tag_list
       %p.submit
         = submit_tag "Create"
         .clear

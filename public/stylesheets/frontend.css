@@ -525,36 +525,38 @@ span.field_with_errors input, span.field_with_errors input:focus {
   width: 50em;
   height: 10em;
   font-size: 1.1em; }
-#container #content .brief_list .brief_item {
-  padding-bottom: 1em; }
-#container #content .brief_list .brief_item:hover {
-  background: transparent; }
-#container #content .brief_list h3 {
-  width: 27em;
-  position: relative; }
-  #container #content .brief_list h3 .user_context {
-    margin-left: 1em;
-    text-transform: uppercase;
-    color: #666666;
-    font-size: 0.5em;
-    width: 10em;
+#container #content .brief_list {
+  float: left; }
+  #container #content .brief_list .brief_item {
+    padding-bottom: 1em; }
+  #container #content .brief_list .brief_item:hover {
+    background: transparent; }
+  #container #content .brief_list h3 {
+    width: 27em;
+    position: relative; }
+    #container #content .brief_list h3 .user_context {
+      margin-left: 1em;
+      text-transform: uppercase;
+      color: #666666;
+      font-size: 0.5em;
+      width: 10em;
+      position: absolute;
+      bottom: 0.5em;
+      right: 0; }
+  #container #content .brief_list .toggle_activity_stream {
     position: absolute;
-    bottom: 0.5em;
-    right: 0; }
-#container #content .brief_list .toggle_activity_stream {
-  position: absolute;
-  top: 0.8em;
-  right: 1em;
-  width: 28px;
-  height: 28px;
-  background: url(/images/ico_circle_green.png) no-repeat;
-  color: white;
-  text-align: center;
-  font-size: 1.4em;
-  padding-top: 2px; }
-#container #content .brief_list .toggle_activity_stream.active {
-  background: url(/images/ico_minus.png) no-repeat;
-  text-indent: -3000px; }
+    top: 0.8em;
+    right: 1em;
+    width: 28px;
+    height: 28px;
+    background: url(/images/ico_circle_green.png) no-repeat;
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    padding-top: 2px; }
+  #container #content .brief_list .toggle_activity_stream.active {
+    background: url(/images/ico_minus.png) no-repeat;
+    text-indent: -3000px; }
 #container #content .note {
   padding: 0.5em 2em 0.5em 2em;
   margin: 2em 0 0.5em 0;
@@ -1145,6 +1147,13 @@ ul.error_messages li p {
             font-weight: normal; }
             #container #content .col_2 .side_box .contents ul li p span strong {
               color: #aaaaaa; }
+      #container #content .col_2 .side_box .contents ul.tag-list li {
+        padding: 0.25em 0;
+        clear: left; }
+        #container #content .col_2 .side_box .contents ul.tag-list li a {
+          display: block; }
+          #container #content .col_2 .side_box .contents ul.tag-list li a span {
+            float: right; }
       #container #content .col_2 .side_box .contents ul span.author {
         color: #0099cc;
         font-weight: bold; }
@@ -1613,3 +1622,145 @@ body#users.contacts #header ul.sub_nav {
     border: 1px solid #32401a; }
   #template_briefs #container a.delete_template:active {
     background: url("/images/ui/button_background_red.png") repeat-x right -36px; }
+
+ul#notifications {
+  float: left;
+  width: 620px; }
+  ul#notifications li {
+    float: left;
+    padding: 0.5em 0.25em;
+    width: 100%;
+    border-bottom: 1px dotted #cccccc; }
+    ul#notifications li.even {
+      background: #f6f6f6; }
+    ul#notifications li span.notification_label {
+      float: left;
+      padding: 1px 3px;
+      background: #32401a;
+      color: white;
+      margin-right: 5px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      border: 1px solid white; }
+      ul#notifications li span.notification_label a {
+        color: white !important;
+        font-weight: normal !important; }
+    ul#notifications li span.notification_meta {
+      float: left;
+      clear: left;
+      font-style: italic;
+      color: #999999; }
+    ul#notifications li span.notification_action {
+      float: right; }
+
+.textboxlist {
+  font: 11px "Lucida Grande", Verdana;
+  cursor: text; }
+
+.textboxlist-bits {
+  zoom: 1;
+  overflow: hidden;
+  margin: 0;
+  width: 430px;
+  padding: 3px 4px 0;
+  border: 1px solid #cccccc;
+  background: white; }
+
+.textboxlist-bit {
+  list-style-type: none;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0 5px 3px 0;
+  cursor: default; }
+
+.textboxlist-bit-editable {
+  border: 1px solid white; }
+
+.textboxlist-bit-editable-input {
+  border: 0 !important;
+  padding: 2px 0px;
+  height: 14px;
+  font: 11px "Lucida Grande", Verdana; }
+  .textboxlist-bit-editable-input:focus {
+    background: 0 !important;
+    outline: 0; }
+
+.textboxlist-bit-box {
+  position: relative;
+  line-height: 18px;
+  padding: 0 5px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+  border: 1px solid #cad8f3;
+  background: #dee7f8;
+  cursor: default; }
+
+.textboxlist-bit-box-deletable {
+  padding-right: 15px; }
+
+.textboxlist-bit-box-deletebutton {
+  position: absolute;
+  right: 4px;
+  top: 6px;
+  display: block;
+  width: 7px;
+  height: 7px;
+  font-size: 1px;
+  background: url("/images/close.gif") !important; }
+  .textboxlist-bit-box-deletebutton:hover {
+    border: none;
+    background-position: 7px;
+    text-decoration: none; }
+
+.textboxlist-bit-box-hover {
+  background: #bbcef1;
+  border: 1px solid #6d95e0; }
+
+.textboxlist-bit-box-focus {
+  border-color: #598bec;
+  background: #598bec;
+  color: white; }
+  .textboxlist-bit-box-focus .textboxlist-bit-box-deletebutton {
+    background-position: bottom; }
+
+.textboxlist-autocomplete {
+  position: absolute;
+  margin-left: 122px; }
+
+.textboxlist-autocomplete-placeholder, .textboxlist-autocomplete-results {
+  width: 424px;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  background: #eeeeee;
+  -webkit-box-shadow: 0 3px 3px #cccccc;
+  -moz-box-shadow: 0 3px 3px #cccccc;
+  box-shadow: 0 3px 3px #cccccc;
+  border: 1px solid #999999;
+  border-top: none;
+  display: none; }
+
+.textboxlist-autocomplete-placeholder {
+  padding: 5px 7px; }
+
+.textboxlist-autocomplete-results {
+  margin: 0;
+  padding: 0; }
+
+.textboxlist-autocomplete-result {
+  margin: 0;
+  padding: 5px;
+  list-style-type: none;
+  background: #eeeeee; }
+
+.textboxlist-autocomplete-result-focus {
+  background: #c6d9e4; }
+
+.textboxlist-autocomplete-highlight {
+  background: #eef0c4;
+  font-weight: bold; }
+
+.textboxlist-loading {
+  background: url("/images/spinner.gif") no-repeat 380px center; }
