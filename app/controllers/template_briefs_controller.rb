@@ -4,12 +4,8 @@ class TemplateBriefsController < ApplicationController
   before_filter :require_user
 
 
-
-  add_breadcrumb 'dashboard', "/dashboard"
+  add_breadcrumb 'templates', :template_briefs_path
   add_breadcrumb 'create a new template', :new_template_brief_path, :only => [:new, :create] 
-  
-
-
 
   def index
     @template_briefs = TemplateBrief.owned_templates(current_account.id) # see named_scope in template_brief.rb
@@ -17,6 +13,7 @@ class TemplateBriefsController < ApplicationController
 
   def new
     @template_brief = TemplateBrief.new
+    @template_brief.template_questions.build
   end
 
  def show
@@ -27,7 +24,6 @@ class TemplateBriefsController < ApplicationController
 
   def create
     @template_brief = TemplateBrief.new(params[:template_brief])
-    @template_brief.account_template_briefs << AccountTemplateBrief.new(:account_id => current_account.id, :template_brief_id => @template_brief)
     if @template_brief.save
       flash[:notice] = "Successfully created template brief"
       redirect_to @template_brief
@@ -62,7 +58,5 @@ class TemplateBriefsController < ApplicationController
     TemplateBriefQuestion.order(order) # order method is in model
     render :nothing => true
   end
-
-
 
 end
