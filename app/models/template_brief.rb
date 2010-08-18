@@ -7,10 +7,10 @@ class TemplateBrief < ActiveRecord::Base
   has_many :accounts, :through => :account_template_briefs
 
   accepts_nested_attributes_for :template_questions, 
-    :reject_if => proc { |attributes| attributes.all? {|k,v| v.blank?} },
+    :reject_if => proc { |attributes| attributes['body'].blank? && attributes['help_message'].blank? }, 
     :allow_destroy => true
   
-
+  attr_accessible :title, :template_questions_attributes
 
 
   class << self
