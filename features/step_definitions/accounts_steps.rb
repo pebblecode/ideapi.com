@@ -32,7 +32,7 @@ Given /^I have a brief called "([^"]*)" tagged with "([^"]*)"$/ do |brief, tags|
   @published = Brief.make(:published, :author => @user, :account => @account, :title => brief, :tag_list => tags)
 end
 
-
-Given /^I have a user called "([^"]*)"$/ do |user|
-  @user = User.make(:password => "testing", :email => "chuck@norris.com", :first_name => "Chuck", :last_name => "Norris")
+Given /^I have a user called "([^"]*)" with the email "([^"]*)"$/ do |user, email|
+  bits = user.split(' ')
+  @user = User.make(:password => "testing", :email => email, :first_name => bits[0], :last_name => bits[1])
 end
