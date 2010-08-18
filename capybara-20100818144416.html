@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>
+ideapi
+</title>
+<script type='text/javascript'></script>
+<meta content='IE=EmulateIE7' http-equiv='X-UA-Compatible' />
+<link href="/Users/george/Sites/ideapi/public/stylesheets/reset.css?1262950959" media="screen" rel="stylesheet" type="text/css" />
+<link href="/Users/george/Sites/ideapi/public/stylesheets/frontend.css?1282039052" media="screen" rel="stylesheet" type="text/css" />
+<link href="/Users/george/Sites/ideapi/public/stylesheets/textile.css?1277729719" media="screen" rel="stylesheet" type="text/css" />
+<link href="/Users/george/Sites/ideapi/public/stylesheets/facebox.css?1262950959" media="screen" rel="stylesheet" type="text/css" />
+<link href="/Users/george/Sites/ideapi/public/stylesheets/jquery.wysiwyg.css?1262950959" media="screen" rel="stylesheet" type="text/css" />
+<script src="/Users/george/Sites/ideapi/public/javascripts/jquery.js?1262950959" type="text/javascript"></script>
+<script src="/Users/george/Sites/ideapi/public/javascripts/jqcorners.js?1277729719" type="text/javascript"></script>
+<script src="/Users/george/Sites/ideapi/public/javascripts/facebox.js?1277729719" type="text/javascript"></script>
+<script src="/Users/george/Sites/ideapi/public/javascripts/jquery.cookie.js?1262950959" type="text/javascript"></script>
+<script src="/Users/george/Sites/ideapi/public/javascripts/jquery.wysiwyg.js?1262950959" type="text/javascript"></script>
+<script src="/Users/george/Sites/ideapi/public/javascripts/SmartTextBox.js?1281744850" type="text/javascript"></script>
+<script src="/Users/george/Sites/ideapi/public/javascripts/jshizzle.js?1282037238" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js" type="text/javascript"></script>
+<!--[if IE 7]> <link href="/Users/george/Sites/ideapi/public/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" /> <![endif]-->
+<!--[if IE 6]> <link href="/Users/george/Sites/ideapi/public/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" /> <![endif]-->
+<link href="/Users/george/Sites/ideapi/public/stylesheets/reset.css?1262950959" media="print" rel="stylesheet" type="text/css" />
+<link href="/Users/george/Sites/ideapi/public/stylesheets/print.css?1264699285" media="print" rel="stylesheet" type="text/css" />
+
+</head>
+<body class='' id='briefs'>
+<div class='feedback_form' id='beta_feedback'>
+<div class='title'>
+<h2>
+IDEAPI BETA
+<span>
+Tell us what you think, or report a problem
+<a href="#">show/hide our feedback form</a>
+and send us an email.
+</span>
+</h2>
+</div>
+<div class='wrap'>
+<div class='user_input' id='user_input'>
+<form action="/Users/george/Sites/ideapi/public/user_feedbacks" method="post">
+<h3>Beta feedback</h3>
+<p>
+<label for="user_feedback_email">Your email</label>
+<input id="user_feedback_email" name="user_feedback[email]" size="30" type="text" value="aric.smith@kautzergoyette.name" />
+</p>
+<p>
+<label for="user_feedback_message">Your message</label>
+<textarea cols="40" id="user_feedback_message" name="user_feedback[message]" rows="20"></textarea>
+</p>
+<p class='submit'><input id="user_feedback_submit" name="commit" type="submit" value="submit this feedback" /></p>
+</form>
+</div>
+<div class='info'>
+<h3>Information</h3>
+<p>Thanks for helping make ideapi better, we really value your comments and time.</p>
+<ul>
+<li>Know someone who would benefit from ideapi?</li>
+<li>Don't understand something? Let us know</li>
+<li>Tell us if you encounter an error, or something isn't quite right</li>
+<li>Thanks for your time - your comments really help us improve ideapi</li>
+</ul>
+</div>
+<div class='clear'></div>
+</div>
+</div>
+
+<div id='container'>
+<div id='header'>
+<h1>
+<!-- =link_to "ideapi", "/Users/george/Sites/ideapi/public/" -->
+<a href='/Users/george/Sites/ideapi/public/' title='home'>
+<img alt='ideapi Logo' src='/Users/george/Sites/ideapi/public/images/ideapi-logo.gif' />
+</a>
+</h1>
+<ul class='navigation'>
+<li><span class="current">dashboard</span></li>
+<li><a href="/Users/george/Sites/ideapi/public/template_briefs" class="current">templates</a></li>
+<li><a href="/Users/george/Sites/ideapi/public/profile" class="current">profile</a></li>
+<li><a href="/Users/george/Sites/ideapi/public/users" class="current">contacts</a></li>
+<li><a href="/Users/george/Sites/ideapi/public/user_session/delete">logout</a></li>
+</ul>
+<div class='clear'></div>
+<ul class='sub_nav'>
+<li><span>You are here:</span><ul class="breadcrumbs"><li><span>dashboard</span></li></ul></li>
+<li class='secondary'>
+<a href="/Users/george/Sites/ideapi/public/briefs/new">Create brief</a>
+</li>
+
+</ul>
+</div>
+<div id='content'>
+
+
+<div class='main'>
+<div class='col_1' id='dashboard'>
+<p></p>
+<div class='brief_list'>
+<h2>
+Your active briefs
+</h2>
+<div class='brief_item'>
+<h3>
+<a href="/Users/george/Sites/ideapi/public/briefs/116">Website brief</a>
+<span class='user_context'>author</span>
+</h3>
+<!-- %ul.activity_stream -->
+<!-- -brief.timeline_events(:include_brief_items => true).each do |activity| -->
+<!-- %li -->
+<!-- .date=time_ago_in_words_with_word(activity.created_at) -->
+<!-- %span=stream_item(activity) -->
+<a href="/Users/george/Sites/ideapi/public/briefs/116" class="toggle_activity_stream">1</a>
+</div>
+<div class='brief_item'>
+<h3>
+<a href="/Users/george/Sites/ideapi/public/briefs/117">Photoshoot brief</a>
+<span class='user_context'>author</span>
+</h3>
+<!-- %ul.activity_stream -->
+<!-- -brief.timeline_events(:include_brief_items => true).each do |activity| -->
+<!-- %li -->
+<!-- .date=time_ago_in_words_with_word(activity.created_at) -->
+<!-- %span=stream_item(activity) -->
+<a href="/Users/george/Sites/ideapi/public/briefs/117" class="toggle_activity_stream">1</a>
+</div>
+
+</div>
+</div>
+<div class='col_2 dashboard'>
+</div>
+
+<div class='clear'></div>
+</div>
+</div>
+<div class='clear'></div>
+</div>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-691295-5']);
+    _gaq.push(['_setDomainName', '.ideapi.com']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+</body>
+</html>

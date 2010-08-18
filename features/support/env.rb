@@ -36,6 +36,8 @@ Spork.prefork do
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
   
+  Capybara.default_host = "smackaho.st"
+  Capybara.app_host = "smackaho.st"
 end
 
  

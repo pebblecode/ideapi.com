@@ -7,7 +7,7 @@ class TemplateBrief < ActiveRecord::Base
   has_many :accounts, :through => :account_template_briefs
 
   accepts_nested_attributes_for :template_questions, 
-    :reject_if => proc { |attrs| attrs['optional'] == '0' && attrs['is_heading'] == '0' && attrs['body'].blank? },
+    :reject_if => proc { |attributes| attributes.all? {|k,v| v.blank?} },
     :allow_destroy => true
   
 

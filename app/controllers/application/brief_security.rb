@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
 
+  # This checks for a valid brief state and boots the
+  # user back if the states are not found
+  # The active method is defined in /app/models/brief/states.rb
   def require_active_brief
     unless current_brief.active?
       flash[:error] = "You cannot do that to a brief that isn't active."

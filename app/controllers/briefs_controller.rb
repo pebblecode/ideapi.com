@@ -12,7 +12,7 @@ class BriefsController < ApplicationController
   after_filter :record_user_view, :only => [:show]
 
   # ensure brief is active
-  before_filter :require_active_brief, :only => [:edit, :update]
+  before_filter :require_active_brief, :only => [:edit]
 
   helper_method :completed_briefs, :available_templates
   
@@ -81,10 +81,16 @@ class BriefsController < ApplicationController
       add_breadcrumb truncate(current_object.title, :length => 30), object_path
       add_breadcrumb 'edit brief', :edit_object_path
     end
+
+    after :create do
+      flash[:notice] = "Brief was successfully created"
+    end
     
     after :update do
       if params[:brief].keys.include?("_call_state")
         flash[:notice] = "Brief has been saved and marked as #{current_object.state}."
+      else
+        flash[:notice] = "Brief was successfully edited"
       end
       if current_object.brief_items_changed?(params[:brief][:brief_items_attributes])
         NotificationMailer.deliver_brief_section_updated(current_object)
