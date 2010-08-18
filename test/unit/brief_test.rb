@@ -12,15 +12,19 @@ class BriefTest < ActiveSupport::TestCase
       populate_brief(@brief, 1)
     end
     
-    should "have brief items" do
+    should "have brief items" do 
       assert_equal 1, @brief.brief_items.count
     end
     
     context "when created" do
-      should "have created and updated actions in its history" do
+      should "have created" do
         assert_equal("brief_created", @brief.timeline_events.first.event_type)
+      end
+      
+      should "and updated actions in its history" do
         assert_equal("brief_updated", @brief.timeline_events.last.event_type)
       end
+      
     end
     
     context "updating a brief item" do

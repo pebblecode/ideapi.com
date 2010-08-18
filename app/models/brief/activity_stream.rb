@@ -5,7 +5,7 @@ class Brief < ActiveRecord::Base
   fires :brief_updated, :on => :update, :actor => "author", :log_level => 1, :if => :published?
   
   def timeline_events(options = {})
-    options.reverse_merge! :conditions => ["log_level >=1 AND created_at >= ?", 1.day.ago], :include_brief_items => false, :order => 'created_at DESC'
+    options.reverse_merge! :conditions => ["log_level >=1 AND created_at >= ?", 1.day.ago], :include_brief_items => false, :order => 'created_at ASC, id ASC'
     if options.delete(:include_brief_items)
       TimelineEvent.brief_history_with_brief_items(self).all(options)
     else
