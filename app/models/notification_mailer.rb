@@ -197,13 +197,13 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
   
-  def brief_section_updated(brief, sent_at = Time.now)
+  def brief_section_updated(brief, user, items, sent_at = Time.now)
     from        email_address(brief.account.name)
     headers     "return-path" => 'support@ideapi.com'
     recipients  brief.users.collect{ |user| user.email }.compact
     reply_to    email_address(brief.account.name)
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
-    body        :brief => brief
+    body        :brief => brief, :user => user, :items => items
     sent_on     sent_at
   end
   

@@ -9,17 +9,8 @@ class Brief < ActiveRecord::Base
     :validations
   
   def brief_items_changed?(hash)
-    
-    return false unless hash.is_a?(Hash)
-    
-    # Returns if any brief_item has changed. 
-    # Check if it exists, and has changed. 
-    # Builds an array of true / false values. True means an item has changed.
-    # Returns true / false depending on the content of that array
-    
-    hash.collect{|k,v|
-      item = BriefItem.find(:first, :conditions => {:id => k})
-      item.blank? or item.body != v["body"]
-    }.any?
+    # Returns changed brief_items
+    raise "Method expects a Hash" unless hash.is_a?(Hash)
+    hash.collect{|k,v| item = BriefItem.find(:first, :conditions => ["id = ? AND body != ?", k, v["body"]]) }.compact
   end
 end

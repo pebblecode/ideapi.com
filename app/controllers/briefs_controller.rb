@@ -77,14 +77,17 @@ class BriefsController < ApplicationController
       flash[:notice] = "Brief was successfully created"
     end
     
+    before :update do
+      @brief_items_changed = current_object.brief_items_changed?(params[:brief][:brief_items_attributes])
+    end
     after :update do
       if params[:brief].keys.include?("_call_state")
         flash[:notice] = "Brief has been saved and marked as #{current_object.state}."
       else
         flash[:notice] = "Brief was successfully edited"
       end
-      if current_object.brief_items_changed?(params[:brief][:brief_items_attributes])
-        NotificationMailer.deliver_brief_section_updated(current_object)
+      if @brief_items_changed.present?
+        NotificationMailer.deliver_brief_section_updated(current_object, current_user, @brief_items_changed)
       end
     end
     
