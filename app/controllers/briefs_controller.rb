@@ -98,7 +98,7 @@ class BriefsController < ApplicationController
     end
     
     before :update do
-      @brief_items_changed = current_object.brief_items_changed?(params[:brief][:brief_items_attributes])
+      @brief_items_changed = current_object.brief_items_changed?(params[:brief][:brief_items_attributes]) if params[:brief][:brief_items_attributes].is_a? Hash
     end
     after :update do
       if params[:brief].keys.include?("_call_state")
