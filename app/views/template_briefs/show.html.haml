@@ -9,7 +9,7 @@
     %h2
       =@template_brief.title
       .actions
-        =link_to 'edit', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_template'
+        =link_to 'edit', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_template edit_icon'
     -if @template_brief.template_questions.present?
       #sortable
         -@template_brief.template_brief_questions.each do |q|

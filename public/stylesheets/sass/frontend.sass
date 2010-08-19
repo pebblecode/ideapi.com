@@ -535,56 +535,60 @@ span.field_with_errors
         :background #b3d335
         :color #32401a
         :font-size 1.2em
-        :padding 1em 1.8em
-        +rounded-top-6px
+        :padding 1em 70px 1em 1.8em
         :position relative
         :text-shadow 0 1px 1px #FFFFFF
-        
-        .actions
-          position: absolute
-          top: 1em
-          right: 1em
-          text-align: right
-          padding: 0
-          margin: 0
-          a
-            :color #666
-            display: block
-            float: right
-            margin-left: 1em
-            margin-top: 3px
-          a:hover
-            :color #fefefe
-          a.edit_brief, a.edit_icon
-            background: url('/images/page_edit.png') no-repeat center right
-            height: 16px
-            text-indent: -9999px
-            width: 40px
-            &:hover
-              text-indent: 0
-              color: #32401a
-              font-weight: normal
-          a.print_brief
-            display: block
-            float: right
-            :background url('/images/printer.png')
-            :width 16px
-            :height 16px
-            :text-indent -3000px
-          form
-            float: right
-          .clean_brief
-            +rounded-all-3px
-            background: url('/images/ui/button_background_red.png') 0 0
-            border: 1px solid #32401a
-            padding: 1px 5px 0px 5px
+        +rounded-top-6px
+        &.show
+          :padding 1em 130px 1em 1.8em
+      .title
+        position: relative
+      .actions
+        z-index: 300
+        position: absolute
+        top: 1em
+        right: 1em
+        text-align: right
+        padding: 0
+        margin: 0
+        a
+          :color #666
+          display: block
+          float: right
+          margin-left: 1em
+          margin-top: 3px
+        a:hover
+          :color #fefefe
+        a.edit_brief, a.edit_icon, a.edit_template
+          background: url('/images/page_edit.png') no-repeat center right
+          height: 16px
+          text-indent: -9999px
+          width: 40px
+          &:hover
+            text-indent: 0
+            color: #32401a
             font-weight: normal
-            font-size: 1em
-            margin-top: 0
-            color: #fff
-            text-shadow: none
-            &:active
-              background-position: 0 -36px
+        a.print_brief
+          display: block
+          float: right
+          :background url('/images/printer.png')
+          :width 16px
+          :height 16px
+          :text-indent -3000px
+        form
+          float: right
+        .clean_brief
+          +rounded-all-3px
+          background: url('/images/ui/button_background_red.png') 0 0
+          border: 1px solid #32401a
+          padding: 1px 5px 0px 5px
+          font-weight: normal
+          font-size: 1em
+          margin-top: 0
+          color: #fff
+          text-shadow: none
+          &:active
+            background-position: 0 -36px
 
 
       .most_important_thing, .proposal_item, .brief

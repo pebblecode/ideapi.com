@@ -23,9 +23,6 @@ class BriefItem < ActiveRecord::Base
   # model to be processed. This means if you want to debug something 
   # look in the model that it has been delegated to. Want more?
   # OK THEN! http://blog.wyeworks.com/2009/6/4/rails-delegate-method 
-  # delegate :optional, :to => :template_question
-  # delegate :help_message, :to => :template_question
-  # delegate :section_name, :to => :template_question
   delegate :published?, :to => :brief
   delegate :author, :to => :brief
   
