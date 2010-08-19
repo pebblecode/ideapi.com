@@ -142,9 +142,6 @@ class NotificationMailer < ActionMailer::Base
   # end
   
   def password_reset_instructions(user)  
-    default_url_options[:host] = "surestack.example.com"
-    default_url_options[:port] = 3000
-    
     subject       "Password Reset Instructions"  
     from          "ideapi "
     recipients    user.email
