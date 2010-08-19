@@ -36,11 +36,10 @@ class BriefsController < ApplicationController
       completed_briefs(:limit => 5, :order => "updated_at DESC")
       
       # TODO - refactor this 
-      @unanswered_questions = Question.find_all_by_brief_id(current_user.briefs, :conditions => ["answered_by_id IS NULL AND created_at > ? AND user_id != ?", 7.days.ago, current_user.id], :order => "created_at DESC")
-      @answered_questions = Question.find_all_by_brief_id(current_user.briefs, :conditions => ["answered_by_id != FALSE AND created_at > ? AND answered_by_id != ?", 7.days.ago, current_user.id], :order => "created_at DESC")
-      @merged_questions = (@unanswered_questions + @answered_questions).uniq 
+      #@unanswered_questions = Question.find_all_by_brief_id(current_user.briefs, :conditions => ["answered_by_id IS NULL AND created_at > ? AND user_id != ?", 7.days.ago, current_user.id], :order => "created_at DESC")
+      #@answered_questions = Question.find_all_by_brief_id(current_user.briefs, :conditions => ["answered_by_id != FALSE AND created_at > ? AND answered_by_id != ?", 7.days.ago, current_user.id], :order => "created_at DESC")
+      #@merged_questions = (@unanswered_questions + @answered_questions).uniq 
 
-      
       @tags = Tag.find_by_sql(["SELECT tags.*, COUNT(*) AS count FROM `tags` 
                                 LEFT OUTER JOIN taggings 
                                 ON tags.id = taggings.tag_id 
@@ -98,14 +97,17 @@ class BriefsController < ApplicationController
       flash[:notice] = "Brief was successfully created"
     end
     
+    before :update do
+      @brief_items_changed = current_object.brief_items_changed?(params[:brief][:brief_items_attributes])
+    end
     after :update do
       if params[:brief].keys.include?("_call_state")
         flash[:notice] = "Brief has been saved and marked as #{current_object.state}."
       else
         flash[:notice] = "Brief was successfully edited"
       end
-      if current_object.brief_items_changed?(params[:brief][:brief_items_attributes])
-        NotificationMailer.deliver_brief_section_updated(current_object)
+      if @brief_items_changed.present?
+        NotificationMailer.deliver_brief_section_updated(current_object, current_user, @brief_items_changed)
       end
     end
     

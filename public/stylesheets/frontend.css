@@ -395,7 +395,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
       padding: 1em 130px 1em 1.8em; }
   #container #content .brief .title, #container #content .proposal .title, #container #content .brief_list .title {
     position: relative; }
-  #container #content .brief .actions, #container #content .proposal .actions, #container #content .brief_list .actions {
+  #container #content .brief div.actions, #container #content .proposal div.actions, #container #content .brief_list div.actions {
     z-index: 300;
     position: absolute;
     top: 1em;
@@ -403,33 +403,33 @@ span.field_with_errors input, span.field_with_errors input:focus {
     text-align: right;
     padding: 0;
     margin: 0; }
-    #container #content .brief .actions a, #container #content .proposal .actions a, #container #content .brief_list .actions a {
+    #container #content .brief div.actions a, #container #content .proposal div.actions a, #container #content .brief_list div.actions a {
       color: #666666;
       display: block;
       float: right;
       margin-left: 1em;
       margin-top: 3px; }
-    #container #content .brief .actions a:hover, #container #content .proposal .actions a:hover, #container #content .brief_list .actions a:hover {
+    #container #content .brief div.actions a:hover, #container #content .proposal div.actions a:hover, #container #content .brief_list div.actions a:hover {
       color: #fefefe; }
-    #container #content .brief .actions a.edit_brief, #container #content .brief .actions a.edit_icon, #container #content .brief .actions a.edit_template, #container #content .proposal .actions a.edit_brief, #container #content .proposal .actions a.edit_icon, #container #content .proposal .actions a.edit_template, #container #content .brief_list .actions a.edit_brief, #container #content .brief_list .actions a.edit_icon, #container #content .brief_list .actions a.edit_template {
+    #container #content .brief div.actions a.edit_brief, #container #content .brief div.actions a.edit_icon, #container #content .brief div.actions a.edit_template, #container #content .proposal div.actions a.edit_brief, #container #content .proposal div.actions a.edit_icon, #container #content .proposal div.actions a.edit_template, #container #content .brief_list div.actions a.edit_brief, #container #content .brief_list div.actions a.edit_icon, #container #content .brief_list div.actions a.edit_template {
       background: url("/images/page_edit.png") no-repeat center right;
       height: 16px;
       text-indent: -9999px;
       width: 40px; }
-      #container #content .brief .actions a.edit_brief:hover, #container #content .brief .actions a.edit_icon:hover, #container #content .brief .actions a.edit_template:hover, #container #content .proposal .actions a.edit_brief:hover, #container #content .proposal .actions a.edit_icon:hover, #container #content .proposal .actions a.edit_template:hover, #container #content .brief_list .actions a.edit_brief:hover, #container #content .brief_list .actions a.edit_icon:hover, #container #content .brief_list .actions a.edit_template:hover {
+      #container #content .brief div.actions a.edit_brief:hover, #container #content .brief div.actions a.edit_icon:hover, #container #content .brief div.actions a.edit_template:hover, #container #content .proposal div.actions a.edit_brief:hover, #container #content .proposal div.actions a.edit_icon:hover, #container #content .proposal div.actions a.edit_template:hover, #container #content .brief_list div.actions a.edit_brief:hover, #container #content .brief_list div.actions a.edit_icon:hover, #container #content .brief_list div.actions a.edit_template:hover {
         text-indent: 0;
         color: #32401a;
         font-weight: normal; }
-    #container #content .brief .actions a.print_brief, #container #content .proposal .actions a.print_brief, #container #content .brief_list .actions a.print_brief {
+    #container #content .brief div.actions a.print_brief, #container #content .proposal div.actions a.print_brief, #container #content .brief_list div.actions a.print_brief {
       display: block;
       float: right;
       background: url("/images/printer.png");
       width: 16px;
       height: 16px;
       text-indent: -3000px; }
-    #container #content .brief .actions form, #container #content .proposal .actions form, #container #content .brief_list .actions form {
+    #container #content .brief div.actions form, #container #content .proposal div.actions form, #container #content .brief_list div.actions form {
       float: right; }
-    #container #content .brief .actions .clean_brief, #container #content .proposal .actions .clean_brief, #container #content .brief_list .actions .clean_brief {
+    #container #content .brief div.actions .clean_brief, #container #content .proposal div.actions .clean_brief, #container #content .brief_list div.actions .clean_brief {
       -moz-border-radius: 3px;
       -webkit-border-radius: 3px;
       border-radius: 3px;
@@ -441,7 +441,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
       margin-top: 0;
       color: white;
       text-shadow: none; }
-      #container #content .brief .actions .clean_brief:active, #container #content .proposal .actions .clean_brief:active, #container #content .brief_list .actions .clean_brief:active {
+      #container #content .brief div.actions .clean_brief:active, #container #content .proposal div.actions .clean_brief:active, #container #content .brief_list div.actions .clean_brief:active {
         background-position: 0 -36px; }
   #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
     padding: 1em 2em; }
@@ -626,7 +626,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
 #container #content .ask_question {
   margin: 0;
   width: 658px;
-  position: relative; }
+  position: relative;
+  display: none; }
 #container #content .speech {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;

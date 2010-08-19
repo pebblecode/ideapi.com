@@ -1,0 +1,10 @@
+%p
+  A comments has been left on the brief 
+  = link_to @comment.commentable.title, brief_url(@comment.commentable, :host => @comment.commentable.account.full_domain)
+  by #{@comment.user.full_name}.
+%p
+  #{@comment.user.full_name} wrote
+  %br/
+  "#{@comment.comment}"
+%p
+  = link_to brief_url(@comment.commentable, :host => @comment.commentable.account.full_domain), brief_url(@comment.commentable, :host => @comment.commentable.account.full_domain)

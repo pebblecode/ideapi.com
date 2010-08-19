@@ -142,9 +142,6 @@ class NotificationMailer < ActionMailer::Base
   # end
   
   def password_reset_instructions(user)  
-    default_url_options[:host] = "surestack.example.com"
-    default_url_options[:port] = 3000
-    
     subject       "Password Reset Instructions"  
     from          "ideapi "
     recipients    user.email
@@ -197,13 +194,13 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
   
-  def brief_section_updated(brief, sent_at = Time.now)
+  def brief_section_updated(brief, user, items, sent_at = Time.now)
     from        email_address(brief.account.name)
     headers     "return-path" => 'support@ideapi.com'
     recipients  brief.users.collect{ |user| user.email }.compact
     reply_to    email_address(brief.account.name)
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
-    body        :brief => brief
+    body        :brief => brief, :user => user, :items => items
     sent_on     sent_at
   end
   

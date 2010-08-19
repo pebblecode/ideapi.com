@@ -12,24 +12,13 @@
 
   -if !brief_item.is_heading?
     %ul.actions
-      -if current_object.active?
-        %li=link_to 'Comment', '#', {:class => 'toggle_ask_question'}
-      -if brief_item.timeline_events.present?
-        %li=link_to 'History', '#', {:class => 'toggle_brief_item_history'}
+      
+      -if current_object.active? 
+        
+        %li=link_to comments_tab(brief_item), '#', {:class => 'toggle_ask_question'}
+      / -if brief_item.timeline_events.present?
+      /         %li=link_to 'History', '#', {:class => 'toggle_brief_item_history'}
     
     -if current_object.active?
-      .ask_question
-        -if brief_item.timeline_events.present? and local_assigns[:print].nil?
-          %ul.brief_item_history
-            -brief_item.timeline_events.each do |event|
-              -if event.subject.is_a?(Question)
-                =render :partial => 'question', :object => event.subject, :locals => { :show_relation => false }
-              -elsif event.subject.is_a?(BriefItem::Version)
-                =render :partial => 'brief_item_version', :locals => {:subject => event.subject, :object => event}
-        .question_body
-          =medium_avatar
-          - form_for(@user_question, :url => brief_questions_path(current_object), :html => { :id => nil}) do |f|
-            = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item, :counter => brief_item_counter}
-          %div.clear
-  
+      = render :partial => "activity_stream", :locals => {:brief_item => brief_item, :brief_item_counter => brief_item_counter}
   .clear

@@ -32,11 +32,7 @@
         =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
         -if owner?(current_object) and current_object.active?
           =link_to 'edit', edit_brief_path(current_object), :title => 'Edit brief', :class => 'edit_brief'
-      
-      
-      
-      
-      
+          
     .most_important_thing
       %p
         %span.left &ldquo;
