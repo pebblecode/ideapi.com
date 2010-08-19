@@ -40,14 +40,25 @@ class BriefsController < ApplicationController
       #@answered_questions = Question.find_all_by_brief_id(current_user.briefs, :conditions => ["answered_by_id != FALSE AND created_at > ? AND answered_by_id != ?", 7.days.ago, current_user.id], :order => "created_at DESC")
       #@merged_questions = (@unanswered_questions + @answered_questions).uniq 
 
-      #@tags = current_user.briefs.active.tag_counts_on(:tags, :order => 'count DESC')
-
+      @tags = Tag.find_by_sql(["SELECT tags.*, COUNT(*) AS count FROM `tags` 
+                                LEFT OUTER JOIN taggings 
+                                ON tags.id = taggings.tag_id 
+                                AND taggings.context = 'tags'
+                                AND taggings.tagger_id = ?
+                                AND taggings.taggable_id IN (?) 
+                                INNER JOIN briefs 
+                                ON briefs.id = taggings.taggable_id 
+                                AND briefs.state IN ('published', 'draft')
+                                GROUP BY tags.id, tags.name 
+                                HAVING COUNT(*) > 0
+                                ORDER BY count DESC, tags.name ASC", current_user, current_user.briefs.active])
+                      
       # Quick and dirty filtering by tags
       # This hooks into acts_as_taggable and returns
       # any projects tagged with the parameter
-      #if params[:t]
-      #  @current_objects = current_user.briefs.tagged_with(params[:t])
-      #end
+      if params[:t]
+        @current_objects = current_user.briefs.active.tagged_with(params[:t])
+      end
     end
     
     before :show do
@@ -71,6 +82,15 @@ class BriefsController < ApplicationController
     before(:edit, :update) do
       add_breadcrumb truncate(current_object.title, :length => 30), object_path
       add_breadcrumb 'edit brief', :edit_object_path
+    end
+
+    # We need to apply the owner for acts_as_taggable so a virtual attribute is used
+    # (tag_field) to hold the params. In this filter we build the current_user in 
+    # so this the user is applied in the taggings table as tagger_id and tagger_type
+    # This allows filtering of tags on a per user basis
+    # For more documentation on acts_as_taggable see http://github.com/mbleigh/acts-as-taggable-on
+    before(:create, :update) do
+      current_user.tag(current_object, :with => params[:brief][:tag_field], :on => :tags) if params[:brief][:tag_field].present?
     end
 
     after :create do

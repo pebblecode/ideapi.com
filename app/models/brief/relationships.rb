@@ -5,8 +5,12 @@ class Brief < ActiveRecord::Base
   # The acts-as-taggable handles tags on the model
   # See http://github.com/mbleigh/acts-as-taggable-on
   acts_as_taggable
-  named_scope :by_join_date, :order => "created_at DESC"
 
+  # acts_as_taggable isn't quite as flexible as we need
+  # it to be so this virutal attribute allows some post 
+  # processing on form submissions. See the after_create 
+  # and after_update filters in the controller. 
+  attr_accessor :tag_field
 
 
   # RELATIONSHIPS
