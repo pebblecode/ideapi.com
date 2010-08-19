@@ -16,20 +16,13 @@ class BriefItem < ActiveRecord::Base
 
   # Relationships
   belongs_to :brief, :touch => true
-  belongs_to :template_question
   has_many :questions
   has_many :timeline_events, :as => :secondary_subject, :order => 'created_at ASC, id ASC', :group => "subject_id, subject_type"
-  
-  # Validations 
-  validates_presence_of :brief, :template_question
   
   # Delegation takes some methods and sends them off to another 
   # model to be processed. This means if you want to debug something 
   # look in the model that it has been delegated to. Want more?
   # OK THEN! http://blog.wyeworks.com/2009/6/4/rails-delegate-method 
-  delegate :optional, :to => :template_question
-  delegate :help_message, :to => :template_question
-  delegate :section_name, :to => :template_question
   delegate :published?, :to => :brief
   delegate :author, :to => :brief
   

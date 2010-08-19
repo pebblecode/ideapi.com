@@ -24,7 +24,7 @@
 
     
       -current_object.brief_items.each do |brief_item|
-        - if brief_item.template_question.present? and brief_item.template_question.is_heading? 
+        - if brief_item.present? and brief_item.is_heading? 
           %div[brief_item]
             %h3
               =brief_item.title

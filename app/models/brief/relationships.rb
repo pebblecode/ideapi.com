@@ -124,7 +124,7 @@ class Brief < ActiveRecord::Base
     raise 'TemplateBriefMissing' if template_brief.blank?
   
     template_brief.template_questions.each do |question|
-      self.brief_items.create(:title => question.body, :is_heading => question.is_heading, :template_question => question)
+      self.brief_items.create(:title => question.body, :is_heading => question.is_heading, :optional => question.optional, :help_message => question.help_message)
     end
     
     return (brief_items.count == template_brief.template_questions.count)
