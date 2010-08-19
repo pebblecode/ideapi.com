@@ -141,12 +141,12 @@ class NotificationMailer < ActionMailer::Base
   #   @sent_on = sent_at
   # end
   
-  def password_reset_instructions(user)  
+  def password_reset_instructions(user, account)  
     subject       "Password Reset Instructions"  
     from          "ideapi "
     recipients    user.email
     sent_on       Time.now
-    body          :edit_password_reset_url => edit_reset_password_url(user.perishable_token)
+    body          :edit_password_reset_url => edit_reset_password_url(user.perishable_token, account.full_domain)
   end
   
   

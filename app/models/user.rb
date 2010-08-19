@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
   
   def deliver_password_reset_instructions!  
     reset_perishable_token!
-    NotificationMailer.deliver_password_reset_instructions(self)
+    NotificationMailer.deliver_password_reset_instructions(self, self.accounts.first)
   end
   
   def deliver_invite_code!(account)
