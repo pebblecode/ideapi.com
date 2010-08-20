@@ -101,7 +101,8 @@ class Brief < ActiveRecord::Base
   def clean_brief!
     self.questions.destroy_all
     self.comments.destroy_all
-    self.timeline_events.destroy_all
+    self.timeline_events().each{|event| event.destroy}
+    self.brief_items.each{|item| item.timeline_events.destroy_all}
   end
   
   private 
