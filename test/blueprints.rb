@@ -68,7 +68,6 @@ end
 BriefItem.blueprint do
   title
   body
-  template_question
 end
 
 User.blueprint do
