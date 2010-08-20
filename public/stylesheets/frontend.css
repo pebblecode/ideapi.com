@@ -233,7 +233,8 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 form p label {
   margin-right: 1em;
   line-height: 1.1em;
-  width: 8em; }
+  width: 8em;
+  clear: left; }
 form p input[type=checkbox] {
   margin-top: 5px; }
 
