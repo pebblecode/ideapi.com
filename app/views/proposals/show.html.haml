@@ -5,13 +5,18 @@
   
   .proposal
     .title
-      -if current_user.owns?(current_object) # && current_object.draft?
-        .actions
-          =link_to 'edit', edit_brief_proposal_path(parent_object, current_object), :class => 'edit_idea edit_icon'
       %h2
         =current_object.title
         %span.status=current_object.state
-
+        
+      -if current_user.owns?(current_object)
+        .actions
+          = link_to "Show options", "#", :class => "show-options-menu"
+    #options-menu
+      %ul.object-actions
+        %li
+          -if current_user.owns?(current_object) # && current_object.draft?
+            =link_to 'edit', edit_brief_proposal_path(parent_object, current_object)
     .proposal_item
       :textile
         #{current_object.long_description}

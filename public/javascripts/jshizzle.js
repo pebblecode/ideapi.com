@@ -626,11 +626,28 @@ jQuery.fn.document_ready_extras = function () {
     }
     return false;
   });
+  
+  
+  $('#content div.title a.show-options-menu').click(function(){
+    $(this).toggleClass('selected');
+    toggle_brief_options_menu($(this).hasClass('selected'));
+    return false;
+  });
+  
+  $('#options-menu').hide();
 }
 
 jQuery(document).ready(jQuery.fn.document_ready);
 
-
+function toggle_brief_options_menu(selected){
+  options_menu = $('#options-menu');
+  if(selected == true){
+    options_menu.fadeIn('fast');
+  } else {
+    options_menu.hide();
+  }
+  
+}
 function hide_element(element){
   element.fadeOut('slow', function(){
     element.remove();

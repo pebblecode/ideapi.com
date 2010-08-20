@@ -6,10 +6,15 @@
   #write_new_brief.note
     %p You can reorder your brief items by dragging them up and down. 
   .brief
-    %h2
-      =@template_brief.title
+    .title
+      %h2
+        =@template_brief.title
       .actions
-        =link_to 'edit', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_template edit_icon'
+        = link_to "Show options", "#", :class => "show-options-menu"
+    #options-menu
+      %ul.object-actions
+        %li
+          =link_to 'edit template', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_template edit_icon'
     -if @template_brief.template_questions.present?
       #sortable
         -@template_brief.template_brief_questions.each do |q|
