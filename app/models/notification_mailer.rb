@@ -76,6 +76,7 @@ class NotificationMailer < ActionMailer::Base
     subject     build_subject(brief.account.name, "You've been made an approver", brief.title)
     body        :brief => brief
     sent_on     sent_at
+    
   end
   
   # def user_added_to_account(brief, user, sent_at = Time.now)
@@ -160,6 +161,7 @@ class NotificationMailer < ActionMailer::Base
     subject     build_subject(proposal.brief.account.name, "An idea has been submitted for review", proposal.brief.title)
     body        :proposal => proposal, :approver => approver
     sent_on     sent_at
+    content_type "text/html"
   end
   
   def new_question_on_brief(question, sent_at = Time.now)
@@ -170,6 +172,7 @@ class NotificationMailer < ActionMailer::Base
     subject     build_subject(question.brief.account.name, "A question has been posted", question.brief.title)
     body        :question => question
     sent_on     sent_at
+    content_type "text/html"
   end
   
   def new_comment_on_brief(comment, sent_at = Time.now)
@@ -181,6 +184,7 @@ class NotificationMailer < ActionMailer::Base
     subject     build_subject(comment.commentable.account.name, "A comment has been posted", comment.commentable.title)
     body        :comment => comment
     sent_on     sent_at
+    content_type "text/html"
   end
   
   def new_comment_on_idea(comment, sent_at = Time.now)
@@ -192,6 +196,7 @@ class NotificationMailer < ActionMailer::Base
     subject     build_subject(comment.commentable.brief.account.name, "A comment has been posted", comment.commentable.brief.title)
     body        :comment => comment
     sent_on     sent_at
+    content_type "text/html"
   end
   
   def brief_section_updated(brief, user, items, sent_at = Time.now)
@@ -202,6 +207,7 @@ class NotificationMailer < ActionMailer::Base
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
     body        :brief => brief, :user => user, :items => items
     sent_on     sent_at
+    content_type "text/html"
   end
   
   def brief_updated(brief, sent_at = Time.now)
@@ -212,6 +218,7 @@ class NotificationMailer < ActionMailer::Base
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
     body        :brief => brief
     sent_on     sent_at
+    content_type "text/html"
   end
   
 end
