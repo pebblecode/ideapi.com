@@ -1,5 +1,12 @@
 class Account < ActiveRecord::Base
   
+  # The acts-as-taggable gem handles tags.
+  # This assigns an account a tagger
+  # Allowing creation of folksonomy tags within the
+  # sceope of an account
+  # See http://github.com/mbleigh/acts-as-taggable-on
+  acts_as_tagger
+
   
   # Account subdomain name
   def subdomain

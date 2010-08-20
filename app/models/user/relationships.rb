@@ -1,10 +1,5 @@
 class User < ActiveRecord::Base
 
-  # The acts-as-taggable gem handles tags.
-  # This assigns a users a tagger
-  # See http://github.com/mbleigh/acts-as-taggable-on
-  acts_as_tagger
-
   # Authlogic settings
   # Handles authentication for the application
   # See - http://github.com/binarylogic/authlogic

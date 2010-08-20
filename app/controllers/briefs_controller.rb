@@ -45,14 +45,13 @@ class BriefsController < ApplicationController
                                 LEFT OUTER JOIN taggings 
                                 ON tags.id = taggings.tag_id 
                                 AND taggings.context = 'tags'
-                                AND taggings.tagger_id = ?
                                 AND taggings.taggable_id IN (?) 
                                 INNER JOIN briefs 
                                 ON briefs.id = taggings.taggable_id 
                                 AND briefs.state IN ('published', 'draft')
                                 GROUP BY tags.id, tags.name 
                                 HAVING COUNT(*) > 0
-                                ORDER BY count DESC, tags.name ASC", current_user, current_user.briefs.active])
+                                ORDER BY count DESC, tags.name ASC", current_user.briefs.active])
                       
       # Quick and dirty filtering by tags
       # This hooks into acts_as_taggable and returns
@@ -85,13 +84,13 @@ class BriefsController < ApplicationController
       add_breadcrumb 'edit brief', :edit_object_path
     end
 
-    # We need to apply the owner for acts_as_taggable so a virtual attribute is used
-    # (tag_field) to hold the params. In this filter we build the current_user in 
-    # so this the user is applied in the taggings table as tagger_id and tagger_type
-    # This allows filtering of tags on a per user basis
+    # We need to apply the current_account for acts_as_taggable so a virtual attribute is used
+    # (tag_field) to hold the params. In this filter we build the current_account in 
+    # so this the current account is applied in the taggings table as tagger_id and tagger_type
+    # This allows filtering of tags on a per account basis
     # For more documentation on acts_as_taggable see http://github.com/mbleigh/acts-as-taggable-on
     before(:create, :update) do
-      current_user.tag(current_object, :with => params[:brief][:tag_field], :on => :tags) if params[:brief][:tag_field].present?
+      current_account.tag(current_object, :with => params[:brief][:tag_field], :on => :tags) if params[:brief][:tag_field].present?
     end
 
     after :create do
