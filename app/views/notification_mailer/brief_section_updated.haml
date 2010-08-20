@@ -7,6 +7,6 @@
     - @items.each do |item|
       %li
         %h4= item.title
-        %p= item.body
+        %p= item.latest.body
 %p
   = link_to brief_url(@brief, :host => @brief.account.full_domain), brief_url(@brief, :host => @brief.account.full_domain)
