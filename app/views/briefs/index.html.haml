@@ -54,15 +54,15 @@
     -else  
       =render :partial => 'brief', :collection => current_objects      
 .col_2.dashboard
-  -#-if @tags.present?
-  -#  .side_box
-  -#    %h2
-  -#      Tags
-  -#    .contents
-  -#      %ul.tag-list
-  -#        -@tags.each do |tag|
-  -#          %li
-  -#            =link_to "#{tag.name}<span>#{tag.count}</span>", dashboard_path(:t => tag.name)
+  -if @tags.present?
+    .side_box
+      %h2
+        Tags
+      .contents
+        %ul.tag-list
+          -@tags.each do |tag|
+            %li
+              =link_to "#{tag.name}<span>#{tag.count}</span>", dashboard_path(:t => tag.name)
 
   -if completed_briefs.present?
     .side_box

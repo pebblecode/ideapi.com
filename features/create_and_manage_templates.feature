@@ -1,27 +1,27 @@
-Feature: Allow account admins to create and manage their own templates
-    In order to create templates that are relvant to my business
-    As an ideapi account admin
-    I want to be able to create and manage templates
-
-    Background:
-        Given there are free, basic and premium plans
-        And a default ideapi template brief exists
-    
-    Scenario: Managing templates
-        Given I am logged in as an account admin
-        When I go to the dashboard
-        Then I should see "dashboard"
-        And I follow "templates"
-        Then I should see "You have no templates - create a template to get started."
-
-    @javascript
-    Scenario: Adding a new template
-        Given I am logged in as an account admin
-        When I go to the template briefs page
-        And I follow "create a template"
-        Then I should see "You can add as many questions as you like to your template."
-        And I follow "hide"
-        Then I should not see "You can add as many questions as you like to your template."
+#Feature: Allow account admins to create and manage their own templates
+#    In order to create templates that are relvant to my business
+#    As an ideapi account admin
+#    I want to be able to create and manage templates
+#
+#    Background:
+#        Given there are free, basic and premium plans
+#        And a default ideapi template brief exists
+#    
+#    Scenario: Managing templates
+#        Given I am logged in as an account admin
+#        When I go to the dashboard
+#        Then I should see "dashboard"
+#        And I follow "templates"
+#        Then I should see "You have no templates - create a template to get started."
+#
+#    @javascript
+#    Scenario: Adding a new template
+#        Given I am logged in as an account admin
+#        When I go to the template briefs page
+#        And I follow "create a template"
+#        Then I should see "You can add as many questions as you like to your template."
+#        And I follow "hide"
+#        Then I should not see "You can add as many questions as you like to your template."
 #    Scenario: Viewing a list of templates
 #        Given I have a template called "My freaking awesome template"
 #        And I visit the templates page 
