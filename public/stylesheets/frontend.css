@@ -1764,3 +1764,38 @@ ul#notifications {
 
 .smartTextBox-autocomplete-result-focus {
   background: #a0c11e; }
+
+/* Contains styles for various panels across the app. 
+ * The first being the brief show view actions (dropdown panel) */
+/*  Some Icons are Copyright © Yusuke Kamiyamane. 
+    All rights reserved. 
+    Licensed under a Creative Commons Attribution 3.0 license.  */
+#content .main .title .actions a.show-options-menu {
+  display: block;
+  /* For more great 16x16 pixel icons, visit http://p.yusukekamiyamane.com/ */
+  background: url("/images/ui/ui-menu.png") no-repeat 0 0;
+  text-indent: -9999px;
+  width: 16px;
+  height: 16px; }
+#content .main .title .actions a.selected {
+  background: url("/images/ui/ui-menu-blue.png") no-repeat 0 0; }
+
+#content .main #options-menu {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 5px 0; }
+  #content .main #options-menu ul.object-actions {
+    list-style: none;
+    margin-right: 1em;
+    text-align: right; }
+    #content .main #options-menu ul.object-actions li {
+      list-style-type: none;
+      display: inline;
+      margin-left: 1em;
+      font-size: 1em; }
+      #content .main #options-menu ul.object-actions li form {
+        display: inline; }
+      #content .main #options-menu ul.object-actions li a {
+        color: #888; }
+        #content .main #options-menu ul.object-actions li a:hover {
+          color: #111; }
