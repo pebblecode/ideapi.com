@@ -56,7 +56,7 @@ class BriefsController < ApplicationController
       # This hooks into acts_as_taggable and returns
       # any projects tagged with the parameter
       if params[:t]
-        @current_objects = current_user.briefs.active.tagged_with(params[:t])
+        @current_objects = @current_objects.tagged_with(params[:t])
       end
     end
     
