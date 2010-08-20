@@ -35,7 +35,7 @@ Feature: Allow users to tag briefs
         And I go to the dashboard
         Then I should not see "tag2"
 
-    Scenario: Editing a brief and deleting all tags
+    Scenario: Editing a brief and replacing all tags
         Given I have a brief called "My brief" tagged with "tag1, tag2"
         When I go to the dashboard
         Then I should see "tag2"
@@ -44,11 +44,12 @@ Feature: Allow users to tag briefs
         And I follow "edit"
         Then I should see "edit brief"
         Then the "brief_tag_field" field should contain "tag1, tag2"
-        When I fill in "brief_tag_field" with ""
+        When I fill in "brief_tag_field" with "tag3"
         And I press "update"
         And I go to the dashboard
         Then I should not see "tag1"
         And I should not see "tag2"
+        And I should see "tag3"
 
     Scenario: Editing a brief and adding a tag
         Given I have a brief called "My brief" tagged with "tag1, tag2"
@@ -128,3 +129,21 @@ Feature: Allow users to tag briefs
         Then I should see "Brief has been saved and marked as complete."
         And I go to the dashboard
         Then I should not see "tag1"
+
+    Scenario: Another user tags a brief
+        Given I have a brief called "My brief" tagged with "tag1, tag2"
+        And I have a user called "Chuck Norris" with the email "chuck@norris.com"
+        And "chuck@norris.com" is an author on "My brief"
+        And I go to the dashboard
+        Then I should see "tag1"
+        And I should see "tag2"
+        And I follow "logout"
+        And I press "Yes log me out"
+        Then I should see "Please login to your account"
+        And I fill in the following:
+            | Email     | chuck@norris.com |
+            | Password  | testing          |
+        And I press "Login"
+        And I go to the dashboard
+        Then I should see "tag1"
+        And I should see "tag2"
