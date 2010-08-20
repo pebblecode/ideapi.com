@@ -146,7 +146,7 @@ class NotificationMailer < ActionMailer::Base
     from          "ideapi "
     recipients    user.email
     sent_on       Time.now
-    body          :edit_password_reset_url => edit_reset_password_url(user.perishable_token, account.full_domain)
+    body          :edit_password_reset_url => edit_reset_password_url(user.perishable_token, :host => account.full_domain)
   end
   
   
