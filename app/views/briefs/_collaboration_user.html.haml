@@ -12,7 +12,7 @@
       -#       =current_object.role?(collaboration_user).upcase
       %br
       %span
-        = current_object.role?(collaboration_user).titleize
+        = current_object.role?(collaboration_user).upcase
       -if current_object.author?(current_user) && !defined?(collaboration_form)
         %a.add_collaborator
           Add
