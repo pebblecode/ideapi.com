@@ -15,9 +15,7 @@
       
       -if current_object.active? 
         
-        %li=link_to comments_tab(brief_item), '#', {:class => 'toggle_ask_question'}
-      / -if brief_item.timeline_events.present?
-      /         %li=link_to 'History', '#', {:class => 'toggle_brief_item_history'}
+        %li=link_to comments_tab(brief_item), '#', {:class => 'toggle_brief_item_activity'}
     
     -if current_object.active?
       = render :partial => "activity_stream", :locals => {:brief_item => brief_item, :brief_item_counter => brief_item_counter}

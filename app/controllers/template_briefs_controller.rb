@@ -26,6 +26,8 @@ class TemplateBriefsController < ApplicationController
     @template_brief = TemplateBrief.new(params[:template_brief])
     if @template_brief.save
       flash[:notice] = "Successfully created template brief"
+      # Now that it has been saved correctly, connect it with current account
+      @template_brief.account_template_briefs.new(:account => current_account).save
       redirect_to @template_brief
     else
       render :action => 'new'

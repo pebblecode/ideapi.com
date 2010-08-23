@@ -1,61 +1,6 @@
-/* Mixins */ 
+/* Mixins */
 
-=rounded-top-3px
-  :-moz-border-radius-topleft 3px
-  :-webkit-border-top-left-radius 3px
-  :-moz-border-radius-topright 3px
-  :-webkit-border-top-right-radius 3px
-  :border-top-left-radius 3px
-  :border-top-right-radius 3px
-  
-=rounded-top-6px
-  :-moz-border-radius-topright 6px
-  :-webkit-border-top-right-radius 6px
-  :-moz-border-radius-topleft 6px
-  :-webkit-border-top-left-radius 6px
-  :border-top-left-radius 6px
-  :border-top-right-radius 6px
-  
-=rounded-all-6px
-  :-moz-border-radius 6px
-  :-webkit-border-radius 6px
-  :border-radius 6px
-
-=rounded-corners-all(!radius = 5px)
-  :-moz-border-radius = !radius
-  :-webkit-border-radius = !radius
-  :border-radius = !radius
-  :border 1px solid white
-=rounded-all-3px
-  :-moz-border-radius 3px
-  :-webkit-border-radius 3px
-  :border-radius 3px
-
-=button-style(!radius = 3px)
-  font-weight: normal
-  color: white
-  padding: 5px 10px
-  +rounded-corners-all(!radius)
-  border: 1px solid #32401A
-  &:hover
-    border: 1px solid #32401A
-
-=green-button
-  background: url('/images/ui/button_background.png') repeat-x right top
-  &:hover
-    background: url('/images/ui/button_background.png') repeat-x right top
-  &:active
-    background: url('/images/ui/button_background.png') repeat-x right -36px
-=red-button
-  background: url('/images/ui/button_background_red.png') repeat-x right top
-  &:active
-    background: url('/images/ui/button_background_red.png') repeat-x right -36px
-=white-button
-  background: url('/images/ui/button_background_white.png') repeat-x right top
-  &:active
-    background: url('/images/ui/button_background_white.png') repeat-x right -36px
-
-
+@import "mixins"
 
 
 /*
@@ -838,52 +783,7 @@ span.field_with_errors
 
 #container
   #content    
-    .speech
-      +rounded-corners-all(5px)
-      textarea
-        font-size: 1em
-    .delete-comment
-      float: right
-      a
-        color: #aaa
-        font-weight: normal
-        &:hover
-          color: #555
-        
-    .question_body
-      :margin 0.5em auto 0.5em auto
-      :width 49em
-      :margin 0 auto
-      :padding-top 1em
-      
-      .submit
-        :margin-right 6em
-        :margin-top 0.5em
-      
-      .speech
-        :background #e9e9e8
-        :padding 0.5em 0.8em
-        :margin 0
-        :width 33em
-        :display block
-        :position relative
-        span.bubble
-          :background url(/images/speech.png) 8px 0
-          :width 7px
-          :height 16px
-          :display block
-          :position absolute
-          :right -7px
-          :top 40%
 
-        textarea
-          :font-size 1em
-          :width 32.5em
-          :height 6em
-                              
-      img
-        :float right
-        :margin-top 1em
       
     .brief_item
       :position relative
@@ -1945,3 +1845,4 @@ ul#notifications
 // Imports
 
 @import "partials/panels"
+@import "partials/comments_and_activity_stream"

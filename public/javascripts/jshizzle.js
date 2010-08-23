@@ -405,7 +405,8 @@ jQuery.fn.document_ready = function() {
       jQuery(this).siblings('p.changes').toggle();
     }).siblings('p.changes').toggle();
     
-    jQuery('.ask_question').each(function () {            
+    jQuery('.brief_item_activity').hide();
+    jQuery('.brief_item_activity').each(function () {            
       var selected_item = document.URL.split('#')[1];
       var parent_item = $(this).parents().filter('.brief_item');
       if (parent_item.attr('id') == selected_item){
@@ -413,14 +414,25 @@ jQuery.fn.document_ready = function() {
         $(this).show();
       }
     });
+    
+    $('#briefs li.revision a.toggle_revision_body').click(function(){
+      $(this).parents().filter('.revision-body').find('.body').slideToggle();
+      if($(this).text() == 'show'){
+        $(this).text('hide');
+      } else{
+        $(this).text('show');
+      }
+      return false;
+    });
+    
         
     jQuery('.question .author_answer_form').each(function () { 
        
-      jQuery(this).before('<p class="submit show_author_answer_form"><input type="submit" value="respond"/></p>');
+      jQuery(this).before('<div class="submit show_author_answer_form"><input type="submit" value="respond"/></div>');
       
       jQuery(this).prev('.submit').find('input[type=submit]').click(function () {
         jQuery(this).parent().next('.author_answer_form').fadeIn();
-        jQuery(this).parent().fadeOut();
+        jQuery(this).fadeOut();
         return false;
       });
       
@@ -437,7 +449,11 @@ jQuery.fn.document_ready = function() {
 
     jQuery('ul.actions li a').live("click", function(){
       jQuery(this).parent("li").toggleClass("selected");
-      jQuery(this).parents().filter('.brief_item').find(this.className.replace("toggle_", ".")).toggle();  
+      var container = jQuery(this).parents().filter('.brief_item').find(this.className.replace("toggle_", "."));
+      if(jQuery(this).parent("li").hasClass('selected')){
+        container.show();
+      } else { container.hide();}
+      
       return false;
     });
     

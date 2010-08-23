@@ -1,4 +1,4 @@
-%div{:class => "ask_question brief_item_history"}
+%div.brief_item_activity
   -if brief_item.timeline_events.present? and local_assigns[:print].nil?
     %ul.brief_item_history
       -brief_item.timeline_events.each do |event|
@@ -6,9 +6,8 @@
           =render :partial => 'question', :object => event.subject, :locals => { :show_relation => false }
         -elsif event.subject.is_a?(BriefItem::Version)
           =render :partial => 'brief_item_version', :locals => {:subject => event.subject, :object => event}
-  .question_body
+  .question_form
     =medium_avatar
     - form_for(@user_question, :url => brief_questions_path(current_object), :html => { :id => nil}) do |f|
       = render :partial => "question_form", :locals => {:f => f, :brief_item => brief_item, :counter => brief_item_counter}
-
-  %div.clear
+      
