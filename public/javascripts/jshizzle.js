@@ -11,7 +11,7 @@ $(function() {
     var regexp  = new RegExp('new_' + assoc, 'g');
     var new_id  = new Date().getTime();
         
-    $(this).parent().before(content.replace(regexp, new_id));    
+    $(this).parents().filter('.actions').before(content.replace(regexp, new_id));    
     return false;
   });
   
