@@ -263,7 +263,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
 #container #content h3 span {
   font-size: 0.8em; }
 #container #content .col_1 {
-  width: 63em;
+  width: 655px;
   padding: 0 0 0 2em;
   float: left;
   padding-bottom: 2em; }
@@ -1625,12 +1625,12 @@ ul#notifications {
 #container #content .main .brief_item .brief_item_activity {
   background: #f7f7f7;
   margin: 0;
-  padding: 0 0 1em 0; }
+  padding: 1em 0 1em 0; }
   #container #content .main .brief_item .brief_item_activity .brief_item_history {
-    margin: 0 auto 1em auto;
+    margin: 0 auto 0 auto;
     padding: 0; }
   #container #content .main .brief_item .brief_item_activity li {
-    padding: 1em 0 0 0;
+    padding: 0 0 1em 0;
     margin: 0; }
   #container #content .main .brief_item .brief_item_activity .revision-body {
     border: 1px dashed #ddd;
@@ -1659,9 +1659,9 @@ ul#notifications {
     position: relative; }
     #container #content .main .brief_item .brief_item_activity .show_author_answer_form input[type=submit] {
       position: absolute;
-      right: 1em;
-      top: -2.5em;
-      padding: 2px 5px; }
+      right: 10px;
+      top: -2em;
+      padding: 2px 3px; }
   #container #content .main .brief_item .brief_item_activity .brief_item_question .avatar, #container #content .main .brief_item .brief_item_activity .question_form .avatar {
     position: absolute;
     left: 2em;
@@ -1692,7 +1692,8 @@ ul#notifications {
     padding-bottom: 10px; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question_form .speech textarea {
       width: 425px;
-      margin: 0; }
+      margin: 0;
+      height: 80px; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question_form .speech p.button {
       text-align: right;
       margin: 0.8em auto 0 auto; }
