@@ -12,6 +12,10 @@
       -#       =current_object.role?(collaboration_user).upcase
       %br
       %span
+        - if current_object.author?(collaboration_user)
+          Author
+        - if current_object.approver?(collaboration_user)
+          Approver
         -if collaboration_user.last_request_at.present?
           =distance_of_time_in_words_to_now(collaboration_user.last_request_at)
           ago

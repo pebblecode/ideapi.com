@@ -40,7 +40,14 @@ class BriefItem < ActiveRecord::Base
   def answered?
     !body.blank?
   end
-
+  
+  
+  # This method returns the total number of events (Section updates, questions, and answers)
+  def total_activity_count
+    return  self.timeline_events.find(:all, :conditions => {:event_type => "brief_item_changed"}).count + 
+            self.questions.count +
+            self.questions.answered.count
+  end
   # Tell acts_as_versioned to exclude certain columns 
   self.non_versioned_columns << 'updated_at'
   self.non_versioned_columns << 'created_at'
@@ -96,5 +103,5 @@ class BriefItem < ActiveRecord::Base
   include Ideapi::GetParsed
   gp_parse_fields :body
   truncates :title
-      
+  
 end
