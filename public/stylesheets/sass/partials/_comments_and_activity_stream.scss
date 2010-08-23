@@ -6,11 +6,19 @@ $speechbox-textarea-width: $speechbox-width - 7;
 // Styles
 
 #container #content .main{
+  
+  .comments{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    li{
+      margin-top: 1em;
+    }
+  }
   .brief_item_question, 
   .author_answer, 
   .author_answer_form, 
   .question_form, 
-  .comment_form{
+  .comment{
     position: relative;
     clear: both;
   }
@@ -32,7 +40,7 @@ $speechbox-textarea-width: $speechbox-width - 7;
   }
   
   
-  #comment_form{
+  .comment{
     .avatar{
       position: absolute;
       left: 2em;
@@ -50,6 +58,9 @@ $speechbox-textarea-width: $speechbox-width - 7;
     }
     
     .speech{
+      p{
+        margin-bottom: 0.5em;
+      }
       textarea{
         width: $speechbox-textarea-width;
         margin: 0;
@@ -210,19 +221,30 @@ $speechbox-textarea-width: $speechbox-width - 7;
             top: 20px;
           }
         }
-    }
-    
-    .delete-comment {
-      float: right;
-      a {
-        color: #aaaaaa;
-        font-weight: normal;
-        &:hover {
-          color: #555555;
-        }
+      }
+  }
+  
+  .delete-comment {
+    float: right;
+    a {
+      color: #aaaaaa;
+      font-weight: normal;
+      &:hover {
+        color: #555555;
       }
     }
   }
+  .author_answer_form, 
+  .comment_form{
+    
+    textarea{
+      font-size: 1.1em;
+    }
+  }
+  .question_form textarea{
+    font-size: 1.2em;
+  }
+  
 }
 
 

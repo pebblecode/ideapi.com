@@ -6,21 +6,22 @@
         %li
           %p There have been no comments
       -current_object.comments.each do |comment|
-        %li[comment]        
-          %p.comment_body
+        %li
+          %div[comment]
             =small_avatar(comment.user)
-            %span.speech
-              %strong
-                = succeed ':' do
-                  =given_name(comment.user)
-              =comment.comment
-              %em
-                ="(#{comment_date(comment.created_at)})"
-              -if comment.user == current_user or current_object.author == current_user
-                %span.delete-comment
-                  =# link_to_remote 'delete ajax', :url => comment_url(comment), :method => :delete
-                  = link_to 'delete', comment_url(comment),:class => "remote-delete"
-            %div.clear  
+            .speech
+              %p
+                -if comment.user == current_user or current_object.author == current_user
+                  %span.delete-comment
+                    =# link_to_remote 'delete ajax', :url => comment_url(comment), :method => :delete
+                    = link_to 'delete', comment_url(comment),:class => "remote-delete"
+
+                %strong
+                  = succeed ':' do
+                    =given_name(comment.user)
+                =comment.comment
+                %em
+                  ="(#{comment_date(comment.created_at)})"
       -if current_object.active?
         %li
           .comment
