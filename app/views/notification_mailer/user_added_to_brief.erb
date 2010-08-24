@@ -1,5 +1,0 @@
-You’ve been invited to collaborate<% if @user_brief.added_by_user.present? -%> by <%= @user_brief.added_by_user.full_name %><% end -%>.
-
-Brief: <%= @user_brief.brief.title %>
-Role: <%= @user_brief.role %> 
-<%= brief_url(@user_brief.brief, :host => @user_brief.brief.account.full_domain) %>

@@ -1,3 +1,4 @@
+- @brief = @question.brief
 %p
   %strong Account:
   = @brief.account.name
@@ -7,9 +8,7 @@
   %br/
   %strong Link:
   = brief_url(@brief, :host => @brief.account.full_domain)
-
-
 %p
-  The brief
-  = link_to @brief.title, brief_url(@brief, :host => @brief.account.full_domain)
-  has been updated by #{@user.full_name}.
+  A question you asked has been answered by#{@question.answered_by.full_name}.
+%p
+  "#{@question.author_answer}"

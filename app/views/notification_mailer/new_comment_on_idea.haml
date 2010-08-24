@@ -1,3 +1,14 @@
+- @brief = @comment.commentable.brief
+- @idea = @comment.commentable
+%p
+  %strong Account:
+  = @brief.account.name
+  %br/
+  %strong Brief: 
+  = truncate(@brief.title, :length => 40)
+  %br/
+  %strong Link:
+  = brief_proposal_url(:id => @idea.id, :brief_id => @brief.id, :host => @brief.account.full_domain)
 %p
   A comments has been left on the brief 
   = link_to @comment.commentable.title, brief_proposal_url(:id => @comment.commentable.id, :brief_id => @comment.commentable.brief.id, :host => @comment.commentable.brief.account.full_domain)
@@ -6,5 +17,3 @@
   #{@comment.user.full_name} wrote
   %br/
   "#{@comment.comment}"
-%p
-  = link_to brief_proposal_url(:id => @comment.commentable.id, :brief_id => @comment.commentable.brief.id, :host => @comment.commentable.brief.account.full_domain), brief_proposal_url(:id => @comment.commentable.id, :brief_id => @comment.commentable.brief.id, :host => @comment.commentable.brief.account.full_domain)

@@ -1,5 +1,0 @@
-Your idea “<%= @proposal.title %>” has been reviewed by <%= @proposal.approver.full_name %>.
-
-Brief: <%= @brief.title %>
-Status: <%= @proposal.state.to_s.humanize %>
-<%= brief_proposal_url(@brief, @proposal, :host => @brief.account.full_domain) %>

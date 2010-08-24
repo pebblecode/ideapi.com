@@ -8,8 +8,10 @@
   %strong Link:
   = brief_url(@brief, :host => @brief.account.full_domain)
 
-
 %p
-  The brief
-  = link_to @brief.title, brief_url(@brief, :host => @brief.account.full_domain)
-  has been updated by #{@user.full_name}.
+  Your role has been changed to
+  = @user_brief.role
+  on the brief “#{@brief.title}”
+  - if @user_brief.added_by_user.present? 
+    by 
+    = @user_brief.added_by_user.full_name

@@ -1,8 +1,16 @@
+- @brief = @question.brief
+%p
+  %strong Account:
+  = @brief.account.name
+  %br/
+  %strong Brief: 
+  = truncate(@brief.title, :length => 40)
+  %br/
+  %strong Link:
+  = brief_url(@brief, :host => @brief.account.full_domain)
 %p
   A question has been left on the brief 
-  = link_to @question.brief.title, brief_url(@question.brief, :host => @question.brief.account.full_domain)
-  by #{@question.user.full_name}:
+  = link_to @question.brief.title, brief_url(@brief, :host => @brief.account.full_domain)
+  by #{@question.user.full_name}. Please respond.
 %p
   "#{@question.body}"
-%p
-  = link_to brief_url(@question.brief, :host => @question.brief.account.full_domain), brief_url(@question.brief, :host => @question.brief.account.full_domain)

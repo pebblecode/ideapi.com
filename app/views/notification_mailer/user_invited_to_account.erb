@@ -1,8 +1,0 @@
-<%- if @user.invitation_message.present? %>
-<%= @user.invitation_message %>
-<%- else %>
-Dear <%= @user.name_parts(:first_name).capitalize %>,
-<% end %>
-An account has been created for you on <%= @account.full_domain %>.  To complete the signup process, click here:
-<%= user_signup_url(:invite_code => @user.invite_code, :host => @account.full_domain) %>
-

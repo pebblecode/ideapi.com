@@ -1,0 +1,13 @@
+- if @user.invitation_message.present?
+  = @user.invitation_message
+- else
+  Dear "#{@user.name_parts(:first_name).capitalize}", 
+  = @user.name_parts(:first_name).capitalize
+%p
+  An account has been created for you on"#{@account.full_domain}".
+%p
+  Account: 
+  = @account.full_domain
+  %br/
+  To complete the signup process, click here:
+  = user_signup_url(:invite_code => @user.invite_code, :host => @account.full_domain)

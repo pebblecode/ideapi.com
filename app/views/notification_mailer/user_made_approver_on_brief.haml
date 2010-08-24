@@ -1,5 +1,5 @@
 %p
-  %strong Account:
+  %strong Account: 
   = @brief.account.name
   %br/
   %strong Brief: 
@@ -7,9 +7,8 @@
   %br/
   %strong Link:
   = brief_url(@brief, :host => @brief.account.full_domain)
-
-
 %p
-  The brief
-  = link_to @brief.title, brief_url(@brief, :host => @brief.account.full_domain)
-  has been updated by #{@user.full_name}.
+  You've been made an approver on the brief 
+  = @brief.title 
+  - if @brief.author.present?
+    = "by #{@brief.author.full_name}."

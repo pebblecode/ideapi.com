@@ -1,5 +1,0 @@
-<%= @proposal.user.full_name.capitalize %> has submitted an idea “<%= @proposal.title %>” for your review.
-
-Brief: <%= @proposal.brief.title %>
-Approver: <%= @approver.full_name.capitalize %>
-<%= brief_proposal_url(@proposal.brief, @proposal, :host => @proposal.brief.account.full_domain) %>

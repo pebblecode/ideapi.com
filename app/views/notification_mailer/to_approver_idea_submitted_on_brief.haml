@@ -1,0 +1,14 @@
+- @brief = @proposal.brief
+%p
+  %strong Account:
+  = @brief.account.name
+  %br/
+  %strong Brief: 
+  = truncate(@brief.title, :length => 40)
+  %br/
+  %strong Link:
+  = brief_proposal_url(:id => @proposal.id, :brief_id => @brief.id, :host => @brief.account.full_domain)
+%p
+  = @proposal.user.full_name.capitalize
+  has submitted an idea “#{@proposal.title}” for your review.
+  
