@@ -658,9 +658,9 @@ jQuery(document).ready(jQuery.fn.document_ready);
 function toggle_brief_options_menu(selected){
   options_menu = $('#options-menu');
   if(selected == true){
-    options_menu.fadeIn('fast');
+    options_menu.slideDown('fast');
   } else {
-    options_menu.hide();
+    options_menu.slideUp('fast');
   }
   
 }

@@ -379,7 +379,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
   right: 1em; }
 #container #content .brief, #container #content .proposal, #container #content .brief_list {
   background: #fffffe;
-  margin: 2em 0; }
+  margin: 2em 0 1em 0; }
   #container #content .brief h2, #container #content .proposal h2, #container #content .brief_list h2 {
     background: #b3d335;
     color: #32401a;
@@ -1724,71 +1724,3 @@ ul#notifications {
   font-size: 1.1em; }
 #container #content .main .question_form textarea {
   font-size: 1.2em; }
-
-/*
-  li.brief_item_filter {
-    position: absolute;
-    top: 1.2em;
-    right: 1em;
-    font-size: 0.9em;
-  
-    form {
-      display: inline;
-    
-      div {
-        display: none; }
-      
-      span {
-        color: #cccccc;
-        padding-right: 0.5em;
-      }
-    
-    }
-  }
-}
-
-
-.question_list {
-  border: 1px solid #cccccc;
-  border-top: 0;
-  margin-bottom: 2em;
-  p.no_questions {
-    padding: 1em 2em;
-    position: relative;
-    border: 1px solid #eeeeee;
-    margin: 1em auto;
-    background: #eeeeee;
-    @include rounded-all-6px;
-    width: 40em;
-    font-weight: bold;
-  }
-
-}
-
-.filter_questions {
-  margin: 1.7em 0 0 0;
-  background: #333333;
-  color: white;
-  font-size: 1.2em;
-  padding: 1em 1.8em;
-  @include rounded-top-6px;
-  position: relative;
-  li {
-    display: inline;
-    margin-right: 1em;
-    a {
-      color: #cccccc;
-    }
-    a:hover {
-      color: $off-white;
-    }
-    span.current {
-      font-weight: bold;
-      background: #eeeeee;
-      padding: 0.2em 0.5em 0.3em 0.5em;
-      @include rounded-all-6px;
-      border-top: 1px solid #cccccc;
-    }
-  }
-
-*/

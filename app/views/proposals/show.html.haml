@@ -42,33 +42,34 @@
   
   - unless current_object.draft?    
     .comments_area
-      %h4 Comments      
+      %h4 Idea comments      
       %ul.comments
         - if current_object.comments.blank?
           %li
             %p There have been no comments
         -current_object.comments.each do |comment|
-          %li[comment]        
-            %p.comment_body
+          %li
+            %div[comment]
               =small_avatar(comment.user)
-              %span.speech
-                %strong
-                  = succeed ':' do
-                    =given_name(comment.user)
-                #{strip_tags(comment.comment)}
-                
-                -if comment.user == current_user or current_object.author == current_user
-                  %span.delete-comment
-                    = link_to('delete', { :action => "destroy", :controller => 'comments', :id => comment }, :confirm => "Are you sure you want to delete this comment?", :method => :delete)
-                
-              %br.clear      
-        .comment
-          #comment_form.comment_form
-            =medium_avatar            
-            - form_for :comment, :url => comments_path do |f|
-              =hidden_field_tag :proposal_id, current_object.id
-              .speech=f.text_area :comment, :rows => 5, :cols => 70
-              %p.submit_comment=f.submit "submit"
+              .speech
+                %p
+                  -if comment.user == current_user or current_object.author == current_user
+                    %span.delete-comment
+                      = link_to('delete', { :action => "destroy", :controller => 'comments', :id => comment }, :confirm => "Are you sure you want to delete this comment?", :method => :delete)
+                  
+                  %strong
+                    = succeed ':' do
+                      =given_name(comment.user)
+                  #{strip_tags(comment.comment)}
+        %li
+          .comment
+            #comment_form.comment_form
+              =medium_avatar            
+              - form_for :comment, :url => comments_path do |f|
+                =hidden_field_tag :proposal_id, current_object.id
+                .speech
+                  =f.text_area :comment, :rows => 5, :cols => 70
+                  %p.button=f.submit "submit"
   
         
 .col_2
