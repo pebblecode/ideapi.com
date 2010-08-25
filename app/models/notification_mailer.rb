@@ -133,7 +133,7 @@ class NotificationMailer < ActionMailer::Base
   
   def new_comment_on_brief(comment, sent_at = Time.now)
     from      email_address("ideapi")
-    headers   "return-path" => 'no-reply@ideapi.com'
+    headers   "return-path" => 'no-reply@ideapi.com', "from" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
