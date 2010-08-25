@@ -8,12 +8,9 @@ class NotificationMailer < ActionMailer::Base
     if simple
       "support@ideapi.com"
     else
-      "#{account_name} <no-reply@ideapi.com>"
+      "#{account_name} <support@ideapi.com>"
     end
-  end 
-  # Need to add "return-path" headers because of a bug in rails' smtp mailer
-  # It seems to use from address as return-path and returns a syntax error.
-  # Fixed in rails 3.x
+  end
   
   def user_added_to_brief(user_brief, sent_at = Time.now)
     from      email_address("ideapi")
@@ -133,7 +130,7 @@ class NotificationMailer < ActionMailer::Base
   
   def new_comment_on_brief(comment, sent_at = Time.now)
     from      email_address("ideapi")
-    headers   "return-path" => 'no-reply@ideapi.com', "from" => 'no-reply@ideapi.com'
+    headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
