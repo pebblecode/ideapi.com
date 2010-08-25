@@ -16,9 +16,9 @@ class NotificationMailer < ActionMailer::Base
   # Fixed in rails 3.x
   
   def user_added_to_brief(user_brief, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  user_brief.user.email
@@ -28,9 +28,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def user_idea_reviewed_on_brief(proposal, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  proposal.user.email
@@ -40,9 +40,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def user_question_answered_on_brief(question, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  question.user.email
@@ -53,9 +53,9 @@ class NotificationMailer < ActionMailer::Base
 
   
   def user_role_changed_on_brief(user_brief, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  user_brief.user.email
@@ -66,9 +66,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def user_invited_to_account(user, account, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  user.email
@@ -80,9 +80,9 @@ class NotificationMailer < ActionMailer::Base
   
   
   def user_made_approver_on_brief(brief, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  brief.approver.email
@@ -94,9 +94,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def password_reset_instructions(user, account)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     subject       "Password Reset Instructions"  
@@ -106,9 +106,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def to_approver_idea_submitted_on_brief(approver, proposal, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  approver.email
@@ -119,9 +119,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def new_question_on_brief(question, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  question.brief.authors.collect{ |user| user.email }.compact
@@ -132,9 +132,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def new_comment_on_brief(comment, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     recipients  comment.commentable.users.collect{ |user| user.email }.compact - [comment.user.email]
@@ -144,9 +144,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def new_comment_on_idea(comment, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     # Authors and Approver
@@ -157,9 +157,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def brief_section_updated(brief, user, items, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
     
     recipients  brief.users.collect{ |user| user.email }.compact
@@ -169,9 +169,9 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def brief_updated(brief, sent_at = Time.now)
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
     
     recipients  brief.users.collect{ |user| user.email }.compact
@@ -183,9 +183,9 @@ class NotificationMailer < ActionMailer::Base
   protected
   
   def setup_headers
-    from      "support@ideapi.com"
-    headers   "return-path" => 'support@ideapi.com'
-    reply_to  "support@ideapi.com"
+    from      "ideapi"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
     content_type "text/html"
   end
   
