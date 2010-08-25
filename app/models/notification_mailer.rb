@@ -12,6 +12,10 @@ class NotificationMailer < ActionMailer::Base
     end
   end
   
+  # Need to add "return-path" headers because of a bug in rails' smtp mailer
+  # It seems to use from address as return-path and returns a syntax error.
+  # Fixed in rails 3.x
+  
   def user_added_to_brief(user_brief, sent_at = Time.now)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
