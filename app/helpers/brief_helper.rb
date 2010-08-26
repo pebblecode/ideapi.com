@@ -5,7 +5,7 @@ module BriefHelper
   end
   
   def comments_tab(item)
-    if item.timeline_events.count > 0
+    if item.timeline_events.length > 0
       "Comment (#{item.total_activity_count})"
     else
       "Comment"

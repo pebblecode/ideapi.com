@@ -44,9 +44,9 @@ class BriefItem < ActiveRecord::Base
   
   # This method returns the total number of events (Section updates, questions, and answers)
   def total_activity_count
-    return  self.timeline_events.find(:all, :conditions => {:event_type => "brief_item_changed"}).count + 
-            self.questions.count +
-            self.questions.answered.count
+    return  self.timeline_events.find(:all, :conditions => {:event_type => "brief_item_changed"}).length + 
+            self.questions.length +
+            self.questions.answered.length
   end
   # Tell acts_as_versioned to exclude certain columns 
   self.non_versioned_columns << 'updated_at'
