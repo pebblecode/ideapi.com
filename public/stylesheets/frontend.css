@@ -540,9 +540,10 @@ span.field_with_errors input, span.field_with_errors input:focus {
   #container #content .brief_list .brief_item:hover {
     background: transparent; }
   #container #content .brief_list h3 {
-    width: 27em;
+    width: 28.5em;
     position: relative; }
     #container #content .brief_list h3 .user_context {
+      text-align: right;
       margin-left: 1em;
       text-transform: uppercase;
       color: #666666;
