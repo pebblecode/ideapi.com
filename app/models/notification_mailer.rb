@@ -163,7 +163,7 @@ class NotificationMailer < ActionMailer::Base
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
     
-    recipients  brief.authors.collect{ |user| user.email }.compact - [updated_by.email]
+    recipients  brief.users.collect{ |user| user.email }.compact - [updated_by.email]
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
     body        :brief => brief, :user => updated_by, :items => items
     sent_on     sent_at
