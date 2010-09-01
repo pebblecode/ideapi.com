@@ -1,5 +1,5 @@
 a:link, a:visited {
-  color: #520;
+  color: #552200;
   background: transparent;
   font-weight: bold;
   text-decoration: underline; }
@@ -10,20 +10,23 @@ body {
 .brief {
   padding: 1em 4em; }
   .brief h2 {
-    border-bottom: 4px solid #333; }
+    border-bottom: 4px solid #333333; }
   .brief .most_important_thing {
     font-size: 2em;
     padding: 1em 1em 0 1em; }
     .brief .most_important_thing p {
       font-weight: bold; }
   .brief img {
-    display: none; }
+    max-width: 90%;
+    display: block;
+    border: 5px solid #dddddd;
+    margin: auto; }
   .brief p {
     font-size: 1.2em; }
   .brief .brief_item {
     padding: 1em; }
     .brief .brief_item h3 {
-      border-bottom: 1px solid #aaa; }
+      border-bottom: 1px solid #aaaaaa; }
     .brief .brief_item .body {
       padding: 0.5em 1em; }
     .brief .brief_item .actions {
@@ -33,16 +36,16 @@ body {
       .brief .brief_item .brief_item_history .question {
         margin: 0.5em 1em;
         padding: 0 1em;
-        border-bottom: 1px dashed #aaa; }
+        border-bottom: 1px dashed #aaaaaa; }
         .brief .brief_item .brief_item_history .question .question_body span.speech {
           font-style: italic; }
       .brief .brief_item .brief_item_history p.updated {
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #cccccc;
         font-size: 1em;
         text-transform: uppercase;
         text-align: right; }
         .brief .brief_item .brief_item_history p.updated span {
-          color: #aaa; }
+          color: #aaaaaa; }
 
 .col_2 {
   display: none; }
