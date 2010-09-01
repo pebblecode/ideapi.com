@@ -32,7 +32,7 @@
         %li
           -if owner?(current_object) and current_object.active?
             - form_tag clean_brief_url(current_object) do |f|
-              = link_to "clean", clean_brief_url(current_object), :class => "clean_brief"
+              = link_to "clear brief", clean_brief_url(current_object), :class => "clean_brief"
             :javascript
               $('a.clean_brief').click(function(){
                 var answer = confirm("Are you sure? You will delete all history, comments, questions and answers in this brief.")

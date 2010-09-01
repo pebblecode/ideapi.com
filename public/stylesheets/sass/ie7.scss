@@ -98,7 +98,7 @@ input[type=text] {
   } 
 }
 #container #content .col_2{
-  padding-top: 2em !important;
+  padding-top: 2.2em !important;
 }
 
 
@@ -111,10 +111,34 @@ input[type=text] {
   ul.comments li{
     border: 1px solid white;
   }
-  ul.brief_item_history li .brief_item_question, 
-  .comments_area ul.comments .comment{
-    .speech{
-      margin-top: -17px;
+  li.revision{
+    .revision-body{
+      .info{
+        .buttons{
+          .toggle_revision_body{
+            display: none;
+          }
+        }
+      }
+      .body{
+        display: block;
+      }
+    }
+  }
+  ul.brief_item_history li, 
+  .comments_area ul.comments li{
+    .brief_item_question, 
+    .comment{
+      .speech{
+        margin-top: -17px;
+      }
+    }
+    
+    .show_author_answer_form{
+      input[type=submit]{
+        width: 60px;
+        top: -2.5em;
+      }
     }
   }
 }
@@ -142,4 +166,104 @@ input.smartTextBox-input-elem-valueInput{
 
 #user_input.user_input{
   float: left;
+  width: 330px;
+}
+
+
+/*DASHBOARD*/
+
+
+/*COLLABORATION LIST*/
+#container #content .side_box{
+  .action{
+    clear: both;
+  }
+  ul.overview, ul.proposals{
+    li{
+      position: relative;
+      clear: both;
+      p{
+        float: left;
+        margin: 0 0 1em 0;
+        padding: 0;
+      }
+    }
+  }
+  
+  #collaboration_form.contents{
+    ul.collaborators{
+      li.collaboration_user{
+        clear: both;
+        img.avatar{
+          position: absolute;
+          top: 0em;
+          left: 0em;
+        }
+        p{
+          margin: -15px 0 0 50px !important;
+        }
+      }
+    }
+  }
+  
+}
+
+
+#template_briefs #container {
+  .new_template_brief, .edit_template_brief {
+    .actions {
+      border-top: 1px solid #dddddd;
+      padding-top: 1.5em;
+      
+      #template_brief_submit{
+        height: 30px;
+      }
+    }
+    
+  }
+}
+
+
+
+
+#container #content .col_1 .user{
+  input[type=file]{
+    border: 1px solid #aaa;
+    background: white;
+    padding: 0px 5px 5px 5px;
+  }
+  p.cancel{
+    position: absolute;
+    left: 530px;
+    margin-left: 0;
+    float: right !important;
+    margin-right: 0 !important;
+  }
+  
+}
+
+
+#account-menu{
+  z-index: 2;
+  #account-button{
+    float: none;
+    
+  }
+}
+
+#content > object{
+  z-index: 1 !important;
+}
+
+#account-dropdown{
+  z-index: 1;
+}
+
+#banner{
+  #header ul.navigation{
+   margin-top: 58px;
+   margin-right: 0;
+   width: 284px;
+  }
+
 }

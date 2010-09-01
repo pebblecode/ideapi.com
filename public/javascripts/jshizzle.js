@@ -33,8 +33,8 @@ $(function() {
 
 
 jQuery.ajaxSetup({ 
-  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-})
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript");}
+});
 
 
 function _ajax_request(url, data, callback, type, method) {
@@ -60,28 +60,18 @@ jQuery.extend({
     }
 });
 
-////
-// jQuery('element').scrollTo()
-// jQuery('element').scrollTo(speed)
-//jQuery.fn.scrollTo = function(speed) {
-//  var offset = jQuery(this).offset().top - 30
-//  jQuery('html,body').animate({scrollTop: offset}, speed || 1000)
-//  return this
-//}
 
-////
-// jQuery('element').spin()
 jQuery.fn.spin = function(append, spinner) {
   
   if (spinner == undefined) {    
-    spinner = "spinner"
+    spinner = "spinner";
   };
   
-  if (append)
-    jQuery(this).append('<img src="/images/'+spinner+'.gif" class="spinner" />')
-  else
-    jQuery(this).after('<img src="/images/'+spinner+'.gif" class="spinner" />')
-}
+  if (append){
+    jQuery(this).append('<img src="/images/'+spinner+'.gif" class="spinner" />');
+  } else{
+    jQuery(this).after('<img src="/images/'+spinner+'.gif" class="spinner" />');}
+};
 
 
 jQuery.fn.fadeToggle = function(speed, easing, callback) { 
@@ -104,12 +94,12 @@ jQuery.fn.flashNotice = function () {
 	  clearTimeout(timeout);
 	  jQuery(this).fadeOut();
 	});
-}
+};
 
 jQuery.fn.showNotice = function (message) {	 
-	jQuery(this).html("<p class='notice'>"+message+"</p>")
+	jQuery(this).html("<p class='notice'>"+message+"</p>");
 	jQuery(".notice", this).flashNotice();
-}
+};
 
 jQuery.fn.feedback_form = function () {
   form = jQuery(this).find('.wrap');
@@ -119,7 +109,7 @@ jQuery.fn.feedback_form = function () {
   });
   
   form.hide();
-}
+};
 
 
 jQuery.fn.trigger_help_message = function (parent_class) {
@@ -128,11 +118,11 @@ jQuery.fn.trigger_help_message = function (parent_class) {
   }).blur(function () {
     jQuery(this).parents().filter(parent_class).find('.help_message').fadeOut();
   });
-}
+};
 
 jQuery.hideable_cookie_name = function (id) {
   return "_note_" + id; 
-}
+};
 
 jQuery.fn.hideable_note = function () {
   var el_id = jQuery(this).attr('id');
@@ -154,7 +144,7 @@ jQuery.fn.hideable_note = function () {
     return false; 
   
   });
-}
+};
 
 
 jQuery.fn.edit_brief_item = function () {
@@ -210,7 +200,7 @@ jQuery.fn.edit_brief_item = function () {
     });
   
   });
-}
+};
 
 jQuery.fn.fold_activity_stream = function () {
   jQuery(this).hide();
@@ -227,7 +217,7 @@ jQuery.fn.fold_activity_stream = function () {
   //   
   //   return false;
   // });
-}
+};
 
 jQuery.fn.delete_item = function (remove_item_class, action) {
   jQuery(this).after('<a href="#" class="trash">Remove</a>');
@@ -244,15 +234,15 @@ jQuery.fn.delete_item = function (remove_item_class, action) {
   });
   
   jQuery(this).hide();
-}
+};
 
 jQuery.hideable_cookie_name = function (id) {
   return "_note_" + id; 
-}
+};
 
 jQuery.setup_collaboration_widget = function () {
   jQuery('ul.collaborators').collaboration_widget();
-}
+};
 
 jQuery.fn.collaboration_widget = function () {
     
@@ -263,7 +253,7 @@ jQuery.fn.collaboration_widget = function () {
   }).collab_control();
   
   $('.add_collaborators').add_collaborator_widget();
-}
+};
 
 jQuery.fn.add_collaborator_widget = function () { 
   
@@ -275,7 +265,7 @@ jQuery.fn.add_collaborator_widget = function () {
   $(this).find('a.add_collaborator').add_collab_link();
   
   $(this).update_add_collab_widget();
-}
+};
 
 jQuery.fn.toggle_add_collab_link = function (object_to_toggle) {
   var on = "+";
@@ -285,7 +275,7 @@ jQuery.fn.toggle_add_collab_link = function (object_to_toggle) {
     $(this).text(($(this).text() == on) ? off : on);
     object_to_toggle.slideToggle('slow');
   });
-}
+};
 
 jQuery.fn.update_add_collab_widget = function () {
   if (jQuery(this).find('li').size() == 0) {
@@ -293,7 +283,7 @@ jQuery.fn.update_add_collab_widget = function () {
   } else {
     $(this).prev('a.toggle_add_collab').show();
   }
-}
+};
 
 jQuery.fn.add_collab_link = function () {
   jQuery(this).attr('href', '#').click(function () {
@@ -302,7 +292,7 @@ jQuery.fn.add_collab_link = function () {
     $(this).fadeOut();
     return false;
   }).find('input').hide();
-}
+};
 
 jQuery.fn.update_collab_link = function () {
   
@@ -366,9 +356,7 @@ jQuery.fn.collab_control = function () {
     if (can_toggle_radio && author_is_protected && can_remove) {
       jQuery(this).prev('input:radio, input:checkbox').attr('checked', !jQuery(this).prev('input:radio, input:checkbox').attr('checked'));        
   
-      jQuery(this).update_collab_link().fire_collab_action(
-        $(this).prev('input:radio, input:checkbox').collab_action_type()
-      );
+      jQuery(this).update_collab_link().fire_collab_action($(this).prev('input:radio, input:checkbox').collab_action_type());
     };
     
     return false;
@@ -379,11 +367,11 @@ jQuery.fn.collab_control = function () {
   jQuery(this).find('p').after('<a href="#" class="options_toggle">options</a>');    
   jQuery(this).find('a.options_toggle').click(function () { jQuery(this).parent().find('ul.options').slideToggle('slow'); return false; });
 
-}
+};
 
 jQuery.fn.collab_action_type = function () {
   return String($(this).attr('className').match(/author|remove|approver/));
-}
+};
 
 jQuery.fn.document_ready = function() {
   
@@ -394,16 +382,8 @@ jQuery.fn.document_ready = function() {
     jQuery('.brief_item textarea').trigger_help_message('.brief_item');
     
     jQuery('.note').hideable_note();
-
-    jQuery(".brief_timeline li span").corners();  
-
     jQuery('.speech').append('<span class="bubble"></span>');
     
-    jQuery('.revision h5').corners();
-    
-    jQuery('.revision h5').click(function () {
-      jQuery(this).siblings('p.changes').toggle();
-    }).siblings('p.changes').toggle();
     
     jQuery('.brief_item_activity').hide();
     jQuery('.brief_item_activity').each(function () {            
@@ -416,7 +396,7 @@ jQuery.fn.document_ready = function() {
     });
     
     $('#briefs li.revision a.toggle_revision_body').click(function(){
-      $(this).parents().filter('.revision-body').find('.body').slideToggle();
+      $(this).parents().filter('.revision-body').find('.body').toggle();
       if($(this).text() == 'show'){
         $(this).text('hide');
       } else{
@@ -506,7 +486,7 @@ jQuery.fn.document_ready = function() {
     
     jQuery('a[href=#beta_feedback]').click(function () {
       jQuery('.feedback_form').find('.wrap').fadeIn();
-    })
+    });
         
     jQuery('.activity_stream').fold_activity_stream();
     

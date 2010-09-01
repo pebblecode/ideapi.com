@@ -108,7 +108,6 @@ a:hover {
         color: #32401a;
         background: #b3d335; }
     #container #header ul.sub_nav {
-      background: white;
       padding: 0.5em 2em 0.8em 2em;
       height: 20px; }
       #container #header ul.sub_nav li {
@@ -283,6 +282,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
   font-size: 1.2em;
   font-weight: bold;
   line-height: 2em; }
+#container #content #dashboard .brief_list {
+  width: 655px; }
 #container #content #dashboard .brief_overviews h2 {
   padding: 0;
   font-size: 1.1em;
@@ -1534,6 +1535,12 @@ ul#notifications {
 .smartTextBox-autocomplete-result-focus {
   background: #a0c11e; }
 
+#content .brief_item .body img {
+  max-width: 500px;
+  border: 5px solid #eee;
+  display: block;
+  margin: auto; }
+
 /* Contains styles for various panels across the app. 
  * The first being the brief show view actions (dropdown panel) */
 /*  Some Icons are Copyright © Yusuke Kamiyamane. 
@@ -1637,16 +1644,12 @@ ul#notifications {
     margin: 0 auto;
     padding: 0.5em 1em;
     background: #fcfcfc; }
-    #container #content .main .brief_item .brief_item_activity .revision-body .info {
-      position: relative; }
-      #container #content .main .brief_item .brief_item_activity .revision-body .info h5 {
-        font-size: 1.1em; }
-      #container #content .main .brief_item .brief_item_activity .revision-body .info .buttons {
-        position: absolute;
-        right: 0em;
-        top: 0; }
-        #container #content .main .brief_item .brief_item_activity .revision-body .info .buttons a {
-          margin-left: 1em; }
+    #container #content .main .brief_item .brief_item_activity .revision-body .info h5 {
+      font-size: 1.1em; }
+    #container #content .main .brief_item .brief_item_activity .revision-body .info .buttons {
+      float: right; }
+      #container #content .main .brief_item .brief_item_activity .revision-body .info .buttons a {
+        margin-left: 1em; }
     #container #content .main .brief_item .brief_item_activity .revision-body .body {
       display: none;
       clear: both; }

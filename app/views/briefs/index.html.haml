@@ -10,7 +10,8 @@
     .note
       %h3 Welcome to the dashboard. 
       
-  %p=flash[':note']
+  - if flash[':note'].present?
+    %p=flash[':note']
   -if @merged_questions.present?
     %ul#notifications
       -@merged_questions.each do |q|

@@ -189,21 +189,6 @@ a:link, a:visited {
 a:hover {
   text-decoration: none; }
 
-.clear {
-  clear: both; }
-
-.clearfix {
-  display: inline-block;
-  display: block; }
-  .clearfix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-
-* html .clearfix {
-  height: 1%; }
 
 form label {
   display: block;

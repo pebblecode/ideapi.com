@@ -10,7 +10,7 @@
       :textile
         #{brief_item.body}
 
-  -if !brief_item.is_heading?
+  -unless brief_item.is_heading? or @print_mode.present?
     %ul.actions
       
       -if current_object.active? 

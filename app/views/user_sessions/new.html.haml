@@ -8,10 +8,10 @@
       =f.label :password
       =f.password_field :password
     %p
-      =f.check_box :remember_me
       =f.label :remember_me
+      =f.check_box :remember_me
 
     %p.submit
       =submit_tag "Login"
-      .clear
+    .clear
   = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'

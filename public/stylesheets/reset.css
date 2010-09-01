@@ -1,703 +1,703 @@
 html, body, div, span, applet, object, iframe {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 h1 {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-weight: bold;
-  font-size: 3.00em; }
+  font-size: 3em; }
 
 h2 {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-weight: bold;
-  font-size: 2.50em; }
+  font-size: 2.5em; }
 
 h3 {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-weight: bold;
-  font-size: 2.00em; }
+  font-size: 2em; }
 
 h4 {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-weight: bold;
-  font-size: 1.60em; }
+  font-size: 1.6em; }
 
 h5 {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-weight: bold;
-  font-size: 1.20em; }
+  font-size: 1.2em; }
 
 h6 {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-weight: bold;
-  font-size: 1.00em; }
+  font-size: 1em; }
 
 p {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  margin: 0.50em 0 1.00em 0;
-  line-height: 1.50em; }
+  outline: none;
+  margin: 0.5em 0 1em 0;
+  line-height: 1.5em; }
 
 blockquote {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  margin: 0.80em 0;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  outline: none;
+  margin: 0.8em 0;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
   quotes: "" ""; }
   blockquote p {
     margin: 0;
-    padding: 0.80em;
-    color: #666;
+    padding: 0.8em;
+    color: #666666;
     background: inherit; }
 
 pre {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  margin: 0.80em 0;
+  outline: none;
+  margin: 0.8em 0;
   font-family: "Palatino Linotype", "Courier New", monospace;
-  line-height: 1.50em; }
+  line-height: 1.5em; }
   pre strong {
-    color: #c33;
+    color: #cc3333;
     background: inherit; }
 
 a {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  color: #06f;
+  outline: none;
+  color: #0066ff;
   background-color: inherit;
   text-decoration: underline; }
   a:visited {
     color: #454545;
     background: inherit; }
   a:hover {
-    color: #222;
+    color: #222222;
     background: inherit; }
   a:active {
-    color: #333;
+    color: #333333;
     background: inherit; }
 
 abbr {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  font-size: 0.90em;
+  outline: none;
+  font-size: 0.9em;
   text-transform: uppercase;
-  border-bottom: 1px dashed #ddd;
+  border-bottom: 1px dashed #dddddd;
   cursor: help; }
 
 acronym {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  font-size: 0.90em;
+  outline: none;
+  font-size: 0.9em;
   text-transform: uppercase;
-  letter-spacing: 0.10em; }
+  letter-spacing: 0.1em; }
 
 address, big {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 cite {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-style: italic; }
 
 code {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  margin: 0.80em 0;
+  outline: none;
+  margin: 0.8em 0;
   font-family: "Palatino Linotype", "Courier New", monospace;
-  line-height: 1.50em; }
+  line-height: 1.5em; }
   code strong {
-    color: #c33;
+    color: #cc3333;
     background: inherit; }
 
 del {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  color: #888;
+  outline: none;
+  color: #888888;
   background-color: inherit;
   text-decoration: line-through; }
 
 dfn {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 em {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-style: italic; }
 
 font, img, ins, kbd {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 q {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  margin: 0.80em 0;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  outline: none;
+  margin: 0.8em 0;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
   quotes: "" ""; }
   q p {
     margin: 0;
-    padding: 0.80em;
-    color: #666;
+    padding: 0.8em;
+    color: #666666;
     background: inherit; }
 
 s {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   text-decoration: line-through; }
 
 samp, small {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 strike {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   text-decoration: line-through; }
 
 strong {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-weight: bold; }
 
 sub {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   vertical-align: sub; }
 
 sup {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   vertical-align: sup; }
 
 tt {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 var {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
-  margin: 0.80em 0;
+  outline: none;
+  margin: 0.8em 0;
   font-family: "Palatino Linotype", "Courier New", monospace;
-  line-height: 1.50em; }
+  line-height: 1.5em; }
   var strong {
-    color: #c33;
+    color: #cc3333;
     background: inherit; }
 
 dl {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 dt {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   font-weight: bold; }
 
 dd {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   list-style-position: outside;
   list-style: none;
-  line-height: 1.50em;
+  line-height: 1.5em;
   padding: 0; }
 
 ol {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   list-style-position: outside;
   list-style: none;
-  line-height: 1.50em;
+  line-height: 1.5em;
   list-style-type: decimal;
   list-style-position: outside; }
 
 ul {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   list-style-position: outside;
   list-style: none;
-  line-height: 1.50em; }
+  line-height: 1.5em; }
 
 li {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 fieldset {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   border: 0; }
 
 form {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 label {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   display: block;
   float: left;
   padding: 3px;
@@ -716,34 +716,34 @@ label {
 legend {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
 table {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0;
+  outline: none;
   border-collapse: separate;
   border-spacing: 0; }
   table th {
@@ -752,28 +752,28 @@ table {
 caption, tbody, tfoot, thead, tr, th, td, *, .x {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #333333;
   background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.60em;
+  line-height: 1.6em;
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
   border: 0;
-  outline: 0; }
+  outline: none; }
 
-* {
-  focus-outline: 0; }
+*:focus {
+  outline: none; }
 
 hr {
   display: block;
   width: 100%;
   height: 1px;
-  color: #aaa;
-  background: #aaa;
+  color: #aaaaaa;
+  background: #aaaaaa;
   border: none; }
 
 .hide {
@@ -812,11 +812,11 @@ hr {
   border: 1px solid red; }
 
 .monospace {
-  margin: 0.80em 0;
+  margin: 0.8em 0;
   font-family: "Palatino Linotype", "Courier New", monospace;
-  line-height: 1.50em; }
+  line-height: 1.5em; }
   .monospace strong {
-    color: #c33;
+    color: #cc3333;
     background: inherit; }
 
 i {
@@ -835,9 +835,9 @@ u {
 input.default {
   float: left;
   padding: 3px;
-  border: 1px solid #aaa;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd; }
+  border: 1px solid #aaaaaa;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd; }
 input.xs {
   width: 20px; }
 input.s {
@@ -852,9 +852,9 @@ input.xl {
 textarea.default, select.default {
   float: left;
   padding: 3px;
-  border: 1px solid #aaa;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd; }
+  border: 1px solid #aaaaaa;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd; }
 
 button {
   padding: 2px 5px;

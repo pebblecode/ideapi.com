@@ -7,6 +7,8 @@
         = render :partial => "form", :locals => {:f => f}
       %p.submit
         =submit_tag "Update" 
-      %p.cancel= link_to 'Cancel', object_path, { :class => "submit-button"}
+      %p.cancel
+        = link_to 'Cancel', object_path
+        or 
       .clear
    

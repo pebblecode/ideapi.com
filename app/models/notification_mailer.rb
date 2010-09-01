@@ -157,37 +157,28 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
   
-  def brief_section_updated(brief, user, items, sent_at = Time.now)
+  def brief_section_updated(brief, updated_by, items, sent_at = Time.now)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
     
-    recipients  brief.users.collect{ |user| user.email }.compact
+    recipients  brief.authors.collect{ |user| user.email }.compact - [updated_by.email]
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
-    body        :brief => brief, :user => user, :items => items
+    body        :brief => brief, :user => updated_by, :items => items
     sent_on     sent_at
   end
   
-  def brief_updated(brief, sent_at = Time.now)
+  def brief_updated(brief, updated_by, sent_at = Time.now)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
     
-    recipients  brief.users.collect{ |user| user.email }.compact
+    recipients  brief.authors.collect{ |user| user.email }.compact - [updated_by.email]
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
     body        :brief => brief
     sent_on     sent_at
   end
 
-  protected
-  
-  def setup_headers
-    from      email_address("ideapi")
-    headers   "return-path" => 'no-reply@ideapi.com'
-    reply_to  "no-reply@ideapi.com"
-    content_type "text/html"
-  end
-  
 end

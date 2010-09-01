@@ -107,14 +107,11 @@ $speechbox-textarea-width: $speechbox-width - 7;
           padding: 0.5em 1em;
           background: #fcfcfc;
           .info{
-            position: relative;
             h5{
               font-size: 1.1em;
             }
             .buttons{
-              position: absolute;
-              right: 0em;
-              top: 0;
+              float: right;
               a{
                 margin-left: 1em;
               }
