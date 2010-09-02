@@ -64,7 +64,11 @@ class Question < ActiveRecord::Base
   end
   
   def notify_brief_users
-    NotificationMailer.deliver_new_question_on_brief(self)
+    NotificationMailer.deliver_new_question_on_brief(self, recipients) if recipients.present?
+  end
+  
+  def recipients
+    self.brief.authors.collect{ |user| user.email }.compact - [self.user.email]
   end
   
   def delete_timeline_events

@@ -119,51 +119,51 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
   
-  def new_question_on_brief(question, sent_at = Time.now)
+  def new_question_on_brief(question, recipients, sent_at = Time.now)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
-    recipients  question.brief.authors.collect{ |user| user.email }.compact  - [question.user.email]
+    recipients  recipients
     reply_to    email_address(question.brief.account.name)
     subject     build_subject(question.brief.account.name, "A question has been posted", question.brief.title)
     body        :question => question
     sent_on     sent_at
   end
   
-  def new_comment_on_brief(comment, sent_at = Time.now)
+  def new_comment_on_brief(comment, recipients, sent_at = Time.now)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
-    recipients  comment.commentable.users.collect{ |user| user.email }.compact - [comment.user.email]
+    recipients  recipients
     subject     build_subject(comment.commentable.account.name, "A comment has been posted", comment.commentable.title)
     body        :comment => comment
     sent_on     sent_at
   end
   
-  def new_comment_on_idea(comment, sent_at = Time.now)
+  def new_comment_on_idea(comment, recipients, sent_at = Time.now)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
     # Authors and Approver
-    recipients  comment.commentable.brief.authors.collect{ |author| author.email }.push(comment.commentable.brief.approver.email).compact.uniq - [comment.user.email]
+    recipients  recipients
     subject     build_subject(comment.commentable.brief.account.name, "A comment has been posted", comment.commentable.brief.title)
     body        :comment => comment
     sent_on     sent_at
   end
   
-  def brief_section_updated(brief, updated_by, items, sent_at = Time.now)
+  def brief_section_updated(brief, recipients, updated_by, items, sent_at = Time.now)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
     
-    recipients  brief.users.collect{ |user| user.email }.compact - [updated_by.email]
+    recipients  recipients
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
     body        :brief => brief, :user => updated_by, :items => items
     sent_on     sent_at

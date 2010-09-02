@@ -39,18 +39,25 @@ class Comment < ActiveRecord::Base
   
   def deliver_notifications
     # If the comment is on a brief or a Proposal, send relevant notifications. 
-    
+
     if self.commentable.is_a?(Brief)
       # should be sent to brief users (all collaborators)
-      NotificationMailer.deliver_new_comment_on_brief(self)
+      NotificationMailer.deliver_new_comment_on_brief(self, brief_recipients) if brief_recipients.present?
     end
-    
+  
     if self.commentable.is_a?(Proposal)
       # should be sent to idea.brief.authors and idea.brief.approver
-      NotificationMailer.deliver_new_comment_on_idea(self)
+      NotificationMailer.deliver_new_comment_on_idea(self, idea_recipients) if idea_recipients.present?
     end
     
   end
   
+  def brief_recipients
+    self.commentable.users.collect{ |user| user.email }.compact - [self.user.email]
+  end
+  
+  def idea_recipients
+    self.commentable.brief.authors.collect{ |author| author.email }.push(self.commentable.brief.approver.email).compact.uniq - [self.user.email]
+  end
   
 end
