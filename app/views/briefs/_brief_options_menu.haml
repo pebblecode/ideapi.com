@@ -22,5 +22,5 @@
       - if owner?(current_object)
         -form_for current_object, :html => { :method => :delete } do |f|
           =hidden_field_tag '_flash[notice]', 'Brief deleted'
-          =f.submit 'delete brief', :confirm => "Are you sure?"
+          =f.submit 'delete', :confirm => "Are you sure?"
       
