@@ -125,7 +125,7 @@ class NotificationMailer < ActionMailer::Base
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
-    recipients  question.brief.authors.collect{ |user| user.email }.compact
+    recipients  question.brief.authors.collect{ |user| user.email }.compact  - [question.user.email]
     reply_to    email_address(question.brief.account.name)
     subject     build_subject(question.brief.account.name, "A question has been posted", question.brief.title)
     body        :question => question
