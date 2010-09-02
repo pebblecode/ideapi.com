@@ -21,26 +21,8 @@
       -if current_user.owns?(current_object)
         .actions
           = link_to "Show options", "#", :class => "show-options-menu"
-    #options-menu
-      %ul.object-actions
-        %li
-          -if owner?(current_object) and current_object.active?
-            =link_to 'edit', edit_brief_path(current_object), :title => 'Edit brief', :class => 'edit_brief'
-        %li
-          =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
+    = render :partial => 'brief_options_menu', :locals => {:object => current_object}
 
-        %li
-          -if owner?(current_object) and current_object.active?
-            - form_tag clean_brief_url(current_object) do |f|
-              = link_to "clear brief", clean_brief_url(current_object), :class => "clean_brief"
-            :javascript
-              $('a.clean_brief').click(function(){
-                var answer = confirm("Are you sure? You will delete all history, comments, questions and answers in this brief.")
-                if(answer){
-                  $(this).parent().submit();
-                }
-                return false;
-              });
     .most_important_thing
       %p
         %span.left &ldquo;

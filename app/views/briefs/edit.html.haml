@@ -47,16 +47,9 @@
       %p.submit=brief_form.submit 'save draft'
     -else 
       %p.submit=brief_form.submit 'update'
- 
+  
   .clear
-          
   .hr
-  
-  -form_for current_object, :html => { :method => :delete } do |f|
-    =hidden_field_tag '_flash[notice]', 'Brief deleted'
-    %p=f.submit 'delete brief', :confirm => "Are you sure?"
-  
-  
 .col_2
   =render :partial => 'partials/textile_help'
   =render :partial => 'change_state', :locals => { :brief => current_object }

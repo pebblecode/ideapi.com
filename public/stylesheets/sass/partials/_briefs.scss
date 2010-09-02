@@ -1,16 +1,32 @@
-#content{
-  .brief_item{
-    .body{
-      img{
-        max-width: 600px;
-        border: 5px solid #eee;
-        display: block;
-        margin: auto;
+#briefs{
+  #content{
+    #options-menu{
+      .delete-brief{
+        input#brief_submit{
+          background: transparent !important;
+          border: 0 !important;
+          padding: 0 !important;
+          color: #888 !important;
+          font-weight: bold;
+          &:hover{
+            color: #333 !important;
+          }
+        }
       }
-      
-      .item-revision-body{
+    }
+    .brief_item{
+      .body{
         img{
-          max-width: 420px;
+          max-width: 600px;
+          border: 5px solid #eee;
+          display: block;
+          margin: auto;
+        }
+      
+        .item-revision-body{
+          img{
+            max-width: 420px;
+          }
         }
       }
     }
