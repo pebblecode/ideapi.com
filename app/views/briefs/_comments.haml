@@ -20,7 +20,7 @@
                   = succeed ':' do
                     =given_name(comment.user)
                 =comment.comment
-                %em
+                %span.timestamp
                   ="(#{comment_date(comment.created_at)})"
       -if current_object.active?
         %li

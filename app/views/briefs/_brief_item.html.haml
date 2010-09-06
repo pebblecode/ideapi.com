@@ -8,7 +8,7 @@
   %div.body
     -if brief_item.body.present?
       :textile
-        #{brief_item.body}
+        #{brief_item.body.lstrip}
 
   -unless brief_item.is_heading? or @print_mode.present?
     %ul.actions

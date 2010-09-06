@@ -9,7 +9,7 @@
             = link_to "delete", question_url(question), :class => "remote-delete"
         %strong="#{given_name(question.user)}:"
         =question.body_parsed
-        %em
+        %span.timestamp
           ="(#{comment_date(question.created_at)})"
   
   -if question.answered?
@@ -23,7 +23,7 @@
             =given_name(question.brief.author)
             answered:
           =question.author_answer
-          %em
+          %span.timestamp
             ="(#{comment_date(question.updated_at)})"
           
       .clear
