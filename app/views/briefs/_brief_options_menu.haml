@@ -1,5 +1,8 @@
 #options-menu
   %ul.object-actions
+    %li.show-tags
+      = link_to "tags", "#", :id => "brief-tags-toggle"
+      
     %li.edit-brief
       -if owner?(current_object) and current_object.active?
         =link_to 'edit', edit_brief_path(current_object), :title => 'Edit brief', :class => 'edit_brief'

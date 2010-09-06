@@ -1566,6 +1566,25 @@ ul#notifications {
   height: 16px; }
 #content .main .title .actions a.selected {
   background: url("/images/ui/ui-menu-blue.png") no-repeat 0 0; }
+#content .main #brief-tags {
+  border-width: 0 1px 1px 1px;
+  border-color: #ccc;
+  border-style: solid;
+  padding: 3px 5px; }
+  #content .main #brief-tags label {
+    display: none; }
+  #content .main #brief-tags .smartTextBox-box-elem {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+  #content .main #brief-tags .smartTextBox {
+    float: left; }
+  #content .main #brief-tags .inline-submit {
+    display: inline;
+    margin-left: 10px;
+    padding: 2px 5px;
+    margin-top: 3px;
+    margin-bottom: 3px; }
 
 #content .main #options-menu {
   background: #eee;

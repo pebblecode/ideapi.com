@@ -458,7 +458,7 @@ jQuery.fn.document_ready = function() {
 
     jQuery('a[rel*=facebox]').each(function () { jQuery(this).attr("href", jQuery(this).attr("href") + ".js"); }).facebox();
     
-    jQuery('a[rel*=img_fb]').each(function () { jQuery(this).attr("href", jQuery(this).attr("href").split('?')[0]) }).facebox();
+    jQuery('a[rel*=img_fb]').each(function () { jQuery(this).attr("href", jQuery(this).attr("href").split('?')[0]); }).facebox();
     
     jQuery('input, textarea').each(function () {
       if (jQuery(this).attr('title') != "" && jQuery(this).val() == "") {
@@ -580,7 +580,7 @@ jQuery.fn.document_ready = function() {
       
     jQuery.fn.document_ready_extras();
     
-}
+};
 
 jQuery.fn.document_ready_extras = function () {
   
@@ -630,8 +630,14 @@ jQuery.fn.document_ready_extras = function () {
     return false;
   });
   
-  $('#options-menu').hide();
-}
+  $('#brief-tags').hide();
+  
+  $('#brief-tags-toggle').click(function(){
+    $('#brief-tags').toggle();
+    $(this).toggleClass('selected');
+    return false;
+  });
+};
 
 jQuery(document).ready(jQuery.fn.document_ready);
 
