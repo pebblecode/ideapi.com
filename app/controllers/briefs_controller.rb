@@ -50,7 +50,7 @@ class BriefsController < ApplicationController
                                 AND briefs.state IN ('published', 'draft')
                                 GROUP BY tags.id, tags.name 
                                 HAVING COUNT(*) > 0
-                                ORDER BY count DESC, tags.name ASC", current_user.briefs.active])
+                                ORDER BY count DESC, tags.name ASC", @current_objects])
                       
       # Quick and dirty filtering by tags
       # This hooks into acts_as_taggable and returns

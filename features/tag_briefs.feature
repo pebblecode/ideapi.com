@@ -84,8 +84,7 @@ Feature: Allow users to tag briefs
         Then I should see "tag1"
         And I should see "tag2"
         And I follow "My brief"
-        And I follow "edit"
-        And I press "delete brief"
+        And I press "delete"
         Then I should not see "tag1" 
         And I should not see "tag2"
         
@@ -94,30 +93,30 @@ Feature: Allow users to tag briefs
         And I have a brief called "Another brief" tagged with "tag3"
         And I go to the dashboard
         Then I should see "tag1"
-        And I should see "tag1" within ".tag-list li:first"
-        And I should see "1" within ".tag-list li:first span"
+        And I should see "tag1" within ".tag-list li:nth-child(2)"
+        And I should see "1" within ".tag-list li:nth-child(2) span"
         And I follow "Another brief"
         And I follow "edit"
         And I fill in "brief_tag_field" with "tag3, tag1"
         And I press "update"
         And I go to the dashboard
-        Then I should see "tag1" within ".tag-list li:first"
-        And I should see "2" within ".tag-list li:first span"
+        Then I should see "tag1" within ".tag-list li:nth-child(2)"
+        And I should see "2" within ".tag-list li:nth-child(2) span"
 
     Scenario: Decrementing the tag count
         Given I have a brief called "My brief" tagged with "tag1, tag2"
         And I have a brief called "Another brief" tagged with "tag1, tag3"
         And I go to the dashboard
         Then I should see "tag1"
-        And I should see "tag1" within ".tag-list li:first"
-        And I should see "2" within ".tag-list li:first span"
+        And I should see "tag1" within ".tag-list li:nth-child(2)"
+        And I should see "2" within ".tag-list li:nth-child(2) span"
         And I follow "Another brief"
         And I follow "edit"
         And I fill in "brief_tag_field" with "tag3"
         And I press "update"
         And I go to the dashboard
-        Then I should see "tag1" within ".tag-list li:first"
-        And I should see "1" within ".tag-list li:first span"
+        Then I should see "tag1" within ".tag-list li:nth-child(2)"
+        And I should see "1" within ".tag-list li:nth-child(2) span"
 
     Scenario: Moving a brief from active to completed
         Given I have a brief called "My brief" tagged with "tag1, tag2"

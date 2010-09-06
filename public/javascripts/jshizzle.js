@@ -574,7 +574,7 @@ jQuery.fn.document_ready = function() {
     * http://wayofspark.com/projects/smarttextbox/
     * 
     */
-    $('#brief_tag_field').smartTextBox({autocompleteUrl : "/tags.json", separator : "," });
+    $('#brief_tag_field').smartTextBox({autocompleteUrl : "/tags.json", separator : ",", placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags." });
 
     jQuery.setup_collaboration_widget();
       
