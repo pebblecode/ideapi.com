@@ -47,9 +47,11 @@
       .brief_item
         %h3 
           -if current_user_can_create_briefs?
-            You have no briefs -
+            You have no briefs - either 
             =link_to 'create a brief', new_brief_path
-            to get started.
+            using the standard template or 
+            =link_to 'create your own specific template', new_template_brief_path
+            first.
           -else
             You have no briefs. Contact your account owner if you need the ability to create briefs
     -else  

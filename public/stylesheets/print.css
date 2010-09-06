@@ -7,6 +7,11 @@ a:link, a:visited {
 body {
   font-size: 62.5%; }
 
+ul {
+  list-style: disc; }
+  ul li {
+    margin-left: 5px; }
+
 .brief {
   padding: 1em 4em; }
   .brief h2 {

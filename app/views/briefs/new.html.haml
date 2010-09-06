@@ -14,7 +14,7 @@
     - form_for(:brief, :url => objects_url) do |f|
       = render :partial => "form", :locals => {:f => f}
       
-      - if available_templates.count > 1
+      - if available_templates.count > 0
         %p.combo-choose-template
           = f.label :template_brief_id, 'Choose template'
           = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
