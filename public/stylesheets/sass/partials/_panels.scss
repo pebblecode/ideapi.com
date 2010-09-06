@@ -76,3 +76,18 @@
     }
   }
 }
+
+
+#options-menu{
+  input[type=submit]{
+    text-transform: lowercase;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    color: #888 !important;
+    font-weight: bold;
+    &:hover{
+      color: #333 !important;
+    }
+  }
+}

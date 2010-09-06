@@ -14,7 +14,12 @@
     #options-menu
       %ul.object-actions
         %li
-          =link_to 'edit template', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_template edit_icon'
+          =link_to 'edit', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_template edit_icon'
+        %li
+          -form_for @template_brief, :html => { :method => :delete } do |f|
+            =hidden_field_tag '_flash[notice]', 'Brief deleted'
+            =f.submit 'delete', :confirm => "Are you sure?"
+            
     -if @template_brief.template_questions.present?
       #sortable
         -@template_brief.template_brief_questions.each do |q|
