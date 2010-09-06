@@ -28,11 +28,11 @@
         -form_for(current_object) do |change_state_form|
           -if current_object.published?
             =change_state_form.hidden_field '_call_state', :value => 'complete'
-            =change_state_form.submit 'Mark as completed'
+            =change_state_form.submit 'Mark as completed', :id => "brief_change_state_submit"
 
           -elsif current_object.complete?
             =change_state_form.hidden_field '_call_state', :value => 'reactivate'
-            =change_state_form.submit 'Reactivate'
+            =change_state_form.submit 'Reactivate', :id => "brief_change_state_submit"
       %li.delete-brief
         -form_for current_object, :html => { :method => :delete } do |f|
           =hidden_field_tag '_flash[notice]', 'Brief deleted'
