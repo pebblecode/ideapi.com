@@ -9,8 +9,9 @@
     %li.print-brief
       =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
 
-    %li.clear-history
-      -if owner?(current_object) and current_object.active?
+    
+    -if owner?(current_object) and current_object.active?
+      %li.clear-history
         - form_tag clean_brief_url(current_object) do |f|
           = link_to "clear history", clean_brief_url(current_object), :class => "clean_brief"
         :javascript
@@ -21,8 +22,18 @@
             }
             return false;
           });
-    %li.delete-brief
-      - if owner?(current_object)
+    
+    -if owner?(current_object)
+      %li.change-state
+        -form_for(current_object) do |change_state_form|
+          -if current_object.published?
+            =change_state_form.hidden_field '_call_state', :value => 'complete'
+            =change_state_form.submit 'Mark as completed'
+
+          -elsif current_object.complete?
+            =change_state_form.hidden_field '_call_state', :value => 'reactivate'
+            =change_state_form.submit 'Reactivate'
+      %li.delete-brief
         -form_for current_object, :html => { :method => :delete } do |f|
           =hidden_field_tag '_flash[notice]', 'Brief deleted'
           =f.submit 'delete', :confirm => "Are you sure?"

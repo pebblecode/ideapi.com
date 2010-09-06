@@ -38,10 +38,8 @@ class PagesController < ApplicationController
           render :layout => "login"
         end
       end
-    elsif @usersession and @user
-      render :layout => "login"
     else
-      redirect_to "/"
+      render :layout => "login"
     end
   end
   private

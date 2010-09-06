@@ -1536,13 +1536,14 @@ ul#notifications {
 .smartTextBox-autocomplete-result-focus {
   background: #a0c11e; }
 
-#briefs #content #options-menu .delete-brief input#brief_submit {
+#briefs #content #options-menu .delete-brief input[type=submit], #briefs #content #options-menu .change-state input[type=submit] {
+  text-transform: lowercase;
   background: transparent !important;
   border: 0 !important;
   padding: 0 !important;
   color: #888 !important;
   font-weight: bold; }
-  #briefs #content #options-menu .delete-brief input#brief_submit:hover {
+  #briefs #content #options-menu .delete-brief input[type=submit]:hover, #briefs #content #options-menu .change-state input[type=submit]:hover {
     color: #333 !important; }
 #briefs #content .brief_item .body img {
   max-width: 600px;

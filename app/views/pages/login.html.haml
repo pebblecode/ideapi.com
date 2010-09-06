@@ -1,6 +1,28 @@
-%h3 Where do we go from here?
+- if @usersession.present? and @user.present? 
 
-#list-of-accounts
-  - if @user.accounts.present?
-    - @user.accounts.each do |account|
-      %h2= link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"
+
+  %h3 Where do we go from here?
+
+  #list-of-accounts
+    - if @user.accounts.present?
+      - @user.accounts.each do |account|
+        %h2= link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"
+
+- else
+  %h3 Please login to ideapi
+  .login_form{:style => "margin: 0 1em; width: 28em"}  
+    -form_for @user_session, :url => "/login" do |f|
+      %p
+        =f.label :email
+        =f.text_field :email
+      %p
+        =f.label :password
+        =f.password_field :password
+      %p
+        =f.label :remember_me
+        =f.check_box :remember_me
+
+      %p.submit
+        =submit_tag "Login"
+      .clear
+    = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
