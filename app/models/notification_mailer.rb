@@ -1,5 +1,9 @@
 class NotificationMailer < ActionMailer::Base
 
+  # Queue mail deliver with Resque
+  # See http://github.com/zapnap/resque_mailer
+  include Resque::Mailer
+  
   def build_subject(account_name, message, context)
     "[#{account_name} :: #{context}] #{message}"
   end
@@ -41,14 +45,17 @@ class NotificationMailer < ActionMailer::Base
   end
   
   def user_question_answered_on_brief(question, sent_at = Time.now)
+
+    # We need to look this up so we can process mail with Resque
+    @question = Question.find(question.id)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/html"
 
-    recipients  question.user.email
-    subject     build_subject(question.brief.account.name, "Your question has been answered", question.brief.title)
-    body        :question => question
+    recipients  @question.user.email
+    subject     build_subject(@question.brief.account.name, "Your question has been answered", @question.brief.title)
+    body        :question => @question
     sent_on     sent_at
   end
 

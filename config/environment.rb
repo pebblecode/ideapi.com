@@ -14,6 +14,9 @@ Rails::Initializer.run do |config|
   config.gem "RedCloth"
   config.gem "acts-as-taggable-on", :source => "http://gemcutter.org", :version => '2.0.0.rc1'
   config.gem 'hoptoad_notifier'
+  config.gem 'resque' 
+  config.gem 'resque_mailer'
+
   # config.gem "BlueCloth" # For Markdown
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
