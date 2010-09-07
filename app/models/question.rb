@@ -60,11 +60,19 @@ class Question < ActiveRecord::Base
   end
   
   def notify_if_question_answered
-    NotificationMailer.deliver_user_question_answered_on_brief(self) if author_answer_changed? and self.author_answer.present?
+    # [DEPRECATED]
+    # NotificationMailer.deliver_user_question_answered_on_brief(self) if author_answer_changed? and self.author_answer.present?
+    # We are using Resque to deliver emails so need to pass
+    # the object id so the worker can do its thang
+    NotificationMailer.deliver_user_question_answered_on_brief(self.id) if author_answer_changed? and self.author_answer.present?
   end
   
   def notify_brief_users
-    NotificationMailer.deliver_new_question_on_brief(self, recipients) if recipients.present?
+    # [DEPRECATED]
+    # NotificationMailer.deliver_new_question_on_brief(self, recipients) if recipients.present?
+    # We are using Resque to deliver emails so need to pass
+    # the object id so the worker can do its thang
+    NotificationMailer.deliver_new_question_on_brief(self.id, recipients) if recipients.present?
   end
   
   def recipients

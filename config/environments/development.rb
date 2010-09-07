@@ -19,5 +19,13 @@ config.action_mailer.raise_delivery_errors = false
 # config.after_initialize do
 #   ActiveMerchant::Billing::Base.gateway_mode = :test
 # end
-}
 
+ActionMailer::Base.smtp_settings = {
+  :tls => true,
+  :address => "smtp.gmail.com",
+  :port => "587",
+  :domain => "ideapi.net",
+  :authentication => :plain,
+  :user_name => "dev@ideapi.net",
+  :password => "createarevolution$"
+}

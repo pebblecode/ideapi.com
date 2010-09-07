@@ -42,12 +42,19 @@ class Comment < ActiveRecord::Base
 
     if self.commentable.is_a?(Brief)
       # should be sent to brief users (all collaborators)
-      NotificationMailer.deliver_new_comment_on_brief(self, brief_recipients) if brief_recipients.present?
+
+      # [DEPRECATED]
+      # NotificationMailer.deliver_new_comment_on_brief(self, brief_recipients) if brief_recipients.present?
+      # We are using Resque to process emails so need to send id to worker
+      NotificationMailer.deliver_new_comment_on_brief(self.id, brief_recipients) if brief_recipients.present?
     end
   
     if self.commentable.is_a?(Proposal)
       # should be sent to idea.brief.authors and idea.brief.approver
-      NotificationMailer.deliver_new_comment_on_idea(self, idea_recipients) if idea_recipients.present?
+      # [DEPRECATED]
+      # NotificationMailer.deliver_new_comment_on_idea(self, idea_recipients) if idea_recipients.present?
+      # We are using Resque to process emails so need to send id to worker
+      NotificationMailer.deliver_new_comment_on_idea(self.id, idea_recipients) if idea_recipients.present?
     end
     
   end
