@@ -18,6 +18,9 @@
         %p.combo-choose-template
           = f.label :template_brief_id, 'Choose template'
           = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
+          
+          or 
+          = link_to "create a new template", new_admin_template_brief_url
       
       %p
         = f.label :tag_field, "Tags:"
