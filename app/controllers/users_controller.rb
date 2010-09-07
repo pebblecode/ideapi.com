@@ -44,7 +44,11 @@ class UsersController < ApplicationController
         end
       end
       if current_object.pending?
-        NotificationMailer.deliver_user_invited_to_account(current_object, current_account)
+        # [DEPRECATED]
+        #NotificationMailer.deliver_user_invited_to_account(current_object, current_account)
+        # As mail is now delivered via Resque we need
+        # to pass the object ids so the worker can process it
+        NotificationMailer.deliver_user_invited_to_account(current_object.id, current_account.id)
         flash[:notice] = "We've sent an invitiaton to " + current_object.email
       end
     end

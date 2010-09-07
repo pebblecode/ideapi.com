@@ -109,7 +109,7 @@ class BriefsController < ApplicationController
       recipients = current_object.users.collect{ |user| user.email }.compact - [current_user.email]
       
       if @brief_items_changed.present? and recipients.present?
-        NotificationMailer.deliver_brief_section_updated(current_object, recipients, current_user, @brief_items_changed)
+        NotificationMailer.deliver_brief_section_updated(current_object.id, recipients, current_user.id, @brief_items_changed.collect(&:id))
       end
       
     end

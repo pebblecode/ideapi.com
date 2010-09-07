@@ -107,12 +107,22 @@ class Proposal < ActiveRecord::Base
   
   def notify_if_state_changed
     if state_changed? && self.class.approval_state_names.include?(self.state.to_s)
-      NotificationMailer.deliver_user_idea_reviewed_on_brief(self) 
+      # [DEPRECATED]
+      # NotificationMailer.deliver_user_idea_reviewed_on_brief(self) 
+
+      # As this is now being processed by Resque we need to pass
+      # the id as it gets processed by a worker
+      NotificationMailer.deliver_user_idea_reviewed_on_brief(self.id) 
     end
   end
   
   def notify_approvers_of_idea_creation
-    NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver, self)
+    # [DEPRECATED]
+    # NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver, self)
+
+    # As this is now being processed by Resque we need to pass
+    # the id as it gets processed by a worker
+    NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver.id, self.id)
   end
   
   def update_status
