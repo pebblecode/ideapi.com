@@ -3,9 +3,8 @@
     =small_avatar(question.user)
     .speech
       %p
-        -if question.user == current_user or current_object.author == current_user
+        -if question.user == current_user or owner?(current_object)
           %span.delete-comment
-            - # in jshizzle.js, these links are posted by AJAX.
             = link_to "delete", question_url(question), :class => "remote-delete"
         %strong="#{given_name(question.user)}:"
         =question.body_parsed
@@ -17,8 +16,9 @@
       =medium_avatar(question.brief.author)
       .speech
         %p
-          %span.delete-comment
-            = link_to "delete", question_url(question), :class => "remote-delete-answer"
+          - if owner?(current_object) # owner? is true for authors, and only authors can answer
+            %span.delete-comment
+              = link_to "delete", question_url(question), :class => "remote-delete-answer"
           %strong
             =given_name(question.brief.author)
             answered:

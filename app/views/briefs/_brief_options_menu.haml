@@ -6,9 +6,9 @@
     %li.edit-brief
       -if owner?(current_object) and current_object.active?
         =link_to 'edit', edit_brief_path(current_object), :title => 'Edit brief', :class => 'edit_brief'
+      
     %li.print-brief
       =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
-
     
     -if owner?(current_object) and current_object.active?
       %li.clear-history
@@ -22,8 +22,6 @@
             }
             return false;
           });
-    
-    -if owner?(current_object)
       %li.change-state
         -form_for(current_object) do |change_state_form|
           -if current_object.published?

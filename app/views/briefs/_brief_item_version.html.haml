@@ -3,7 +3,8 @@
     .info
       .buttons
         = link_to "show", "#", :class => 'toggle_revision_body'
-        = link_to "delete", timeline_event_url(object), :class => "remote-delete"
+        - if owner?(current_object)
+          = link_to "delete", timeline_event_url(object), :class => "remote-delete"
       %h5 Section Update
     .body
       %p

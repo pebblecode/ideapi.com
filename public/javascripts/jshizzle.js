@@ -27,9 +27,16 @@ $(function() {
 
 
 
-
-
-
+function url_valid_string(string) {
+  
+  for (var i=0, output='', valid="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_"; i<string.length; i++){
+    if (valid.indexOf(string.charAt(i)) != -1){
+       output += string.charAt(i);
+     }
+  }
+    
+    return output;
+} 
 
 
 jQuery.ajaxSetup({ 
@@ -374,7 +381,13 @@ jQuery.fn.collab_action_type = function () {
 };
 
 jQuery.fn.document_ready = function() {
-  
+    
+
+    $("#account_name").keyup(function(key){
+      field = $("#account_domain");
+      field.attr('value', url_valid_string($(this).val()).toLowerCase());
+    });
+    
     jQuery(".notice, .error").flashNotice();  
     
     jQuery('.help_message').hide();
@@ -648,10 +661,16 @@ function toggle_brief_options_menu(selected){
   } else {
     options_menu.slideUp('fast');
   }
-  
 }
+
 function hide_element(element){
   element.fadeOut('slow', function(){
     element.remove();
   });
 }
+
+$(document).ready(function(){
+  
+  
+});
+
