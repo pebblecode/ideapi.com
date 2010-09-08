@@ -1,3 +1,5 @@
+APPLICATION_URL = "http://ideapi.net/"
+
 config.cache_classes = true
 config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
