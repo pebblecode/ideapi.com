@@ -522,7 +522,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
         bottom: -0.15em;
         padding-right: 0em;
         right: 0.1em; }
-  #container #content .brief .brief_item.updated h4, #container #content .proposal .brief_item.updated h4, #container #content .brief_list .brief_item.updated h4 {
+  #container #content .brief .brief_item.updated h3, #container #content .brief .brief_item.updated h4, #container #content .proposal .brief_item.updated h3, #container #content .proposal .brief_item.updated h4, #container #content .brief_list .brief_item.updated h3, #container #content .brief_list .brief_item.updated h4 {
     background: #ffffdf; }
   #container #content .brief .brief_item.extended, #container #content .proposal .brief_item.extended, #container #content .brief_list .brief_item.extended {
     background: transparent; }
@@ -1535,6 +1535,48 @@ ul#notifications {
 
 .smartTextBox-autocomplete-result-focus {
   background: #a0c11e; }
+
+#top-menu {
+  color: #888888;
+  font-size: 1.2em;
+  text-align: right;
+  margin-top: -2.6em;
+  position: relative;
+  padding: 0 1.8em; }
+  #top-menu span.current {
+    color: #32401a;
+    font-weight: bold; }
+  #top-menu a:visited {
+    color: #b3d335; }
+  #top-menu a:hover {
+    color: #32401a; }
+  #top-menu .name {
+    color: #333333;
+    font-weight: bold;
+    padding: 2px 4px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+
+#list-of-accounts {
+  display: block;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: #dddddd;
+  position: absolute;
+  width: 10em;
+  right: 19.9em;
+  top: 2.5em; }
+
+#footer {
+  background: white url("/images/logo-small.png") no-repeat 2em 6px;
+  padding: 3px 2em 0px 7em;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #cccccc; }
+  #footer p {
+    font-size: 1.1em; }
 
 #briefs #content .brief_item .body img {
   max-width: 600px;

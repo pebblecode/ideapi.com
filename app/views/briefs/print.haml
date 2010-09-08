@@ -20,4 +20,7 @@
       -if current_object.brief_items.empty? && current_object.published?
         %p This document is empty
       =render :partial => 'brief_item', :collection => (current_object.draft? ? current_object.brief_items : current_object.brief_items.answered), :locals => { :draft => current_object.draft?, :print => true}
+    #footer
+      %p
+        &copy; Ideapi Limited 2010
     

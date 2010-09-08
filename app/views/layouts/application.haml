@@ -25,16 +25,25 @@
           /=link_to "ideapi", "/"
           %a{:href => home_path, :title => "home"}
             %img{ :src => "/images/ideapi-logo.gif", :alt => "ideapi Logo" }
-        %ul.navigation        
-          -if logged_in?
+        - if logged_in? 
+          %p#top-menu
+            Logged in as:
+            %span.name= current_user.full_name
+            |
+            = link_unless_current 'Profile', profile_path
+            - if admin?
+              |
+              = link_unless_current 'Account', account_path
+            | 
+            = link_unless_current "Help", "/"
+            |
+            =link_to 'Logout', delete_user_session_path
+          / #list-of-accounts
+          %ul.navigation
             %li=link_unless_current 'dashboard', '/dashboard'
             -if current_user && current_user_can_create_briefs?
               %li=link_unless_current 'templates', template_briefs_path
-            %li=link_unless_current 'profile', profile_path
             %li=link_unless_current 'contacts', users_path
-            -#-if admin?
-            -#  %li=link_unless_current 'account', account_path
-            %li=link_to 'logout', delete_user_session_path
         .clear
         %ul.sub_nav
           =yield :sub_nav
@@ -50,6 +59,15 @@
         .main
           =yield
           .clear
+      #footer
+        %p
+          &copy; Ideapi Limited 2010
+          |
+          = mail_to "support@ideapi.com", "Support"
+          |
+          = mail_to "feedback@ideapi.com", "Feedback"
+          |
+          = mail_to "", "Tell a friend", :body => "Hello world!", :subject => "Try ideapi"
       .clear
     
     - # Google Analytics only in the dashboard

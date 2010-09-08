@@ -1844,7 +1844,44 @@ ul#notifications
 .smartTextBox-autocomplete-result-focus
   :background #a0c11e
 
+#top-menu
+  color: #888
+  font-size: 1.2em
+  text-align: right
+  margin-top: -2.6em
+  position: relative
+  padding: 0 1.8em
+  span.current
+    color: #32401a
+    font-weight: bold
+  a
+    &:visited
+      color: #B3D335
+    &:hover
+      color: #32401a
+  .name
+    color: #333
+    font-weight: bold
+    padding: 2px 4px
+    +rounded-corners-all(3px)
+#list-of-accounts
+  display: block
+  +rounded-corners-all(3px)
+  background: #ddd
+  position: absolute
+  width: 10em
+  right: 19.9em
+  top: 2.5em
+  
 
+#footer
+  background: white url('/images/logo-small.png') no-repeat 2em 6px
+  padding: 3px 2em 0px 7em
+  border-width: 0 1px 1px 1px
+  border-style: solid
+  border-color: #ccc
+  p
+    font-size: 1.1em
 // Imports
 
 @import "partials/briefs"

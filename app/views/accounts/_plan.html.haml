@@ -9,11 +9,12 @@
 %p
   You can change your plan level at any time. The position limits and other features of the new plan that you select will be effective as soon as you make the change, but your bill amount will not change until your next bill date. 
 
-%p  
-  Your next bill date is 
-  = succeed '.' do
-    %strong
-      =@subscription.next_renewal_at.to_s(:long_day)
+- unless @subscription.subscription_plan.name == 'Free'
+  %p  
+    Your next bill date is 
+    = succeed '.' do
+      %strong
+        =@subscription.next_renewal_at.to_s(:long_day)
 
 - if @subscription.needs_payment_info?
   %p
