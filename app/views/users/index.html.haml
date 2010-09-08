@@ -14,7 +14,7 @@
         %th Last login
         -if admin?
           %th Can create briefs
-        %th Briefs
+        - # %th Briefs
         -if admin?
           %th Invited by
           %th Remove
@@ -39,7 +39,7 @@
               %td
                 = account_user.check_box :can_create_briefs
 
-            %td= account_user.object.user.briefs(current_account).count
+            -# %td= account_user.object.user.briefs(current_account).count
             -if admin?
               %td= value_or_symbol(given_name(account_user.object.user.invited_by))
               %td
