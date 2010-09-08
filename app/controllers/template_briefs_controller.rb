@@ -17,7 +17,7 @@ class TemplateBriefsController < ApplicationController
   end
 
  def show
-    @template_brief = TemplateBrief.find(params[:id])
+    @template_brief = TemplateBrief.find(params[:id], :include => :template_questions)
     add_breadcrumb @template_brief.title, template_brief_path(@template_brief)
   end
 

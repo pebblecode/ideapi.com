@@ -25,7 +25,7 @@ class BriefsController < ApplicationController
   end
   
   def current_object    
-    @current_object ||= current_user.briefs.find(params[:id], :include => [ :comments, :questions, { :brief_items_answered => [:timeline_events] } ])
+    @current_object ||= current_user.briefs.find(params[:id], :include => [ { :user_briefs => :user}, { :brief_items_answered => [:brief, :questions, { :timeline_events => :subject }], :comments => [:user] } ])
   end
   
   make_resourceful do

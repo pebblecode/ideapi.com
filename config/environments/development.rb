@@ -29,3 +29,15 @@ ActionMailer::Base.smtp_settings = {
   :user_name => "dev@ideapi.net",
   :password => "createarevolution$"
 }
+
+# config.gem 'bullet', :source => 'http://gemcutter.org'
+# config.after_initialize do
+#   Bullet.enable = true 
+#   Bullet.alert = true
+#   Bullet.bullet_logger = true  
+#   Bullet.console = true
+#   # Bullet.growl = true
+#   Bullet.rails_logger = true
+#   Bullet.disable_browser_cache = true
+# end
+
