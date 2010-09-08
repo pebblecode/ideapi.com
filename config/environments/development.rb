@@ -1,4 +1,5 @@
 # Settings specified here will take precedence over those in config/environment.rb
+APPLICATION_URL = "http://smackaho.st/"
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development
@@ -29,3 +30,15 @@ ActionMailer::Base.smtp_settings = {
   :user_name => "dev@ideapi.net",
   :password => "createarevolution$"
 }
+
+# config.gem 'bullet', :source => 'http://gemcutter.org'
+# config.after_initialize do
+#   Bullet.enable = true 
+#   Bullet.alert = true
+#   Bullet.bullet_logger = true  
+#   Bullet.console = true
+#   # Bullet.growl = true
+#   Bullet.rails_logger = true
+#   Bullet.disable_browser_cache = true
+# end
+

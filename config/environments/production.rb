@@ -1,5 +1,7 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
+APPLICATION_URL = "http://ideapi.com/"
+
 config.action_controller.session = { :domain => ".ideapi.com" }
 
 # The production environment is meant for finished, "live" apps.

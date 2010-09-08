@@ -25,7 +25,7 @@ class BriefsController < ApplicationController
   end
   
   def current_object    
-    @current_object ||= current_user.briefs.find(params[:id], :include => [ :comments, :questions, { :brief_items_answered => [:timeline_events] } ])
+    @current_object ||= current_user.briefs.find(params[:id], :include => [ { :user_briefs => :user}, { :brief_items_answered => [:brief, :questions, { :timeline_events => :subject }], :comments => [:user] } ])
   end
   
   make_resourceful do
@@ -83,13 +83,13 @@ class BriefsController < ApplicationController
       add_breadcrumb 'edit brief', :edit_object_path
     end
 
-    # We need to apply the current_account for acts_as_taggable so a virtual attribute is used
+    # We need to apply the current_account for acts_as_taggable_on so a virtual attribute is used
     # (tag_field) to hold the params. In this filter we build the current_account in 
-    # so this the current account is applied in the taggings table as tagger_id and tagger_type
+    # so the current account is applied in the taggings table as tagger_id and tagger_type
     # This allows filtering of tags on a per account basis
-    # For more documentation on acts_as_taggable see http://github.com/mbleigh/acts-as-taggable-on
+    # For more documentation on acts_as_taggable_on see http://github.com/mbleigh/acts-as-taggable-on
     before(:create, :update) do
-      current_account.tag(current_object, :with => params[:brief][:tag_field], :on => :tags) if params[:brief][:tag_field].present?
+      current_account.tag(current_object, :with => params[:brief][:tag_field], :on => :tags)
     end
 
     after :create do
