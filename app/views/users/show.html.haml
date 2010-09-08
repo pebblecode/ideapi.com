@@ -23,7 +23,7 @@
       
       %p
         %strong Email:
-        =current_object.email        
+        =mail_to(current_object.email)        
       
       -%w(job_title telephone telephone_ext).each do |extra|
 

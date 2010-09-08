@@ -1,27 +1,28 @@
-FUCKSOCKS! I was sweeping up after a hard day's work of feeding the penguins and coding ruby
-and found that there was no documentation for this application. Imagine the number of developers
-that will end up in mental homes if this situation continues? I hope this will make you happy but
-most of all I hope the bees do not die. Peanut butter without honey on crumpets would just not be the 
-same.
+# Installation 
 
-You'll find the code base is largely completely uncommented, unless it has had comments added by me.
-If you can, pull out your sword of hope and add some yourself. The best commment wins a cup. 
+There are a number of pre-requisites to installing ideapi
 
-The make_resourceful gem is in use so this affects controllers and views with the ubiquitous use of 
-current_object. I'd recommend casting your eyeballs over this page to get down with the plan
-http://github.com/hcatlin/make_resourceful
+ideapi makes use of Resque http://github.com/defunkt/resque to queue background jobs. Resque relies on Redis. 
+The Resque README provides instructions on installing Redis.
 
-Tests
+To ensure that workers do not die (bless them) ideapi also uses God http://github.com/mojombo/god. Again
+the README for God is comprehensive. The staging and production servers are configured to keep workers 
+and Redis alive.
 
-There is a reasonably good test suite in place, although I'm not sure of how much recent development has 
-been tested. The test framework uses Machinist for factories, Shoulda and test unit. 
+On your development box you will need to have Redis and workers running if you want to use Resque.
 
-There isn't too much low level stuff - it is mostly integration tests. 
+To invoke a worker from the root of the rails site you can use the following command
 
-Deployment
+QUEUE=* rake resque:work
 
-The staging environment is published to apu.pebbleit.com, an Ubuntu server running at Pebble HQ. This serves the ideapi.net domain. This uses a standard capistrano / git workflow so refer to the /config/deploy/staging.rb
+To start the Resque GUI run
 
-The production environment uses the production branch of the git repository so merge the master branch into this when you are ready to deploy. Apparently no one knows the password for jason@ideapi.com so it is a bit like a secret club. You need to get someone who currently has access to add your public key to the account. If after this document has been written the situation is resolved the best place to look for credentials is in Mortimer http://mortimer.apu.pebbleit.com/. This is also like a gentleman's club so if you don't have a password you will need to ask someone or stand outside the office and wink in the right manner. 
+resque-web
 
-The production server is a Slicehost Ubuntu server. If you need credentials for the Slicehost account look in Mortimer.
+
+
+
+
+
+
+
