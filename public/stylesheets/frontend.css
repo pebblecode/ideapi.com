@@ -1579,8 +1579,10 @@ ul#notifications {
     border-radius: 3px; }
 
 #footer {
-  background: url("/images/logo-small.png") no-repeat 0.5em 7px;
-  padding: 3px 2em 0px 5.5em; }
+  margin-top: 1em;
+  background: url("/images/logo-small.png") no-repeat 2.2em 7px;
+  padding: 3px 2em 0px 7.2em;
+  border: 1px solid #dddddd; }
   #footer p {
     font-size: 1.1em; }
     #footer p a {
