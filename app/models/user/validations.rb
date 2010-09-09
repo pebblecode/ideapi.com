@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  validates_uniqueness_of :screename, :if => Proc.new { |u| !u.pending? }
+  validates_uniqueness_of :screename, :if => Proc.new { |u| !u.pending? }, :case_sensitive => false
   
   validates_format_of :screename, 
     :with => /^[\w\d]+$/, 
