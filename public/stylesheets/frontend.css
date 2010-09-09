@@ -21,7 +21,15 @@ body {
 a {
   text-decoration: none;
   color: #b3d335;
-  font-weight: bold; }
+  font-weight: bold;
+  -webkit-transition-property: background-color, color;
+  -webkit-transition-duration: 300ms;
+  -moz-transition-property: background-color, color;
+  -moz-transition-duration: 300ms;
+  -o-transition-property: background-color, color;
+  -o-transition-duration: 300ms;
+  transition-property: background-color, color;
+  transition-duration: 300ms; }
 
 a:hover {
   color: #32401a; }
@@ -717,6 +725,9 @@ p.submit {
 
 p.cancel {
   float: right; }
+
+span.cancel {
+  margin-right: 0.5em; }
 
 input[type=submit] {
   background: #b3d335;
@@ -1546,10 +1557,19 @@ ul#notifications {
   #top-menu span.current {
     color: #32401a;
     font-weight: bold; }
-  #top-menu a:visited {
-    color: #b3d335; }
-  #top-menu a:hover {
-    color: #32401a; }
+  #top-menu a {
+    -webkit-transition-property: background-color, color;
+    -webkit-transition-duration: 400ms;
+    -moz-transition-property: background-color, color;
+    -moz-transition-duration: 400ms;
+    -o-transition-property: background-color, color;
+    -o-transition-duration: 400ms;
+    transition-property: background-color, color;
+    transition-duration: 400ms; }
+    #top-menu a:visited {
+      color: #b3d335; }
+    #top-menu a:hover {
+      color: #32401a; }
   #top-menu .name {
     color: #333333;
     font-weight: bold;
@@ -1558,25 +1578,23 @@ ul#notifications {
     -webkit-border-radius: 3px;
     border-radius: 3px; }
 
-#list-of-accounts {
-  display: block;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  background: #dddddd;
-  position: absolute;
-  width: 10em;
-  right: 19.9em;
-  top: 2.5em; }
-
 #footer {
-  background: white url("/images/logo-small.png") no-repeat 2em 6px;
-  padding: 3px 2em 0px 7em;
-  border-width: 0 1px 1px 1px;
-  border-style: solid;
-  border-color: #cccccc; }
+  background: url("/images/logo-small.png") no-repeat 0.5em 7px;
+  padding: 3px 2em 0px 5.5em; }
   #footer p {
     font-size: 1.1em; }
+    #footer p a {
+      color: #888888;
+      -webkit-transition-property: background-color, color;
+      -webkit-transition-duration: 600ms;
+      -moz-transition-property: background-color, color;
+      -moz-transition-duration: 600ms;
+      -o-transition-property: background-color, color;
+      -o-transition-duration: 600ms;
+      transition-property: background-color, color;
+      transition-duration: 600ms; }
+      #footer p a:hover {
+        color: #333333; }
 
 #briefs #content .brief_item .body img {
   max-width: 600px;

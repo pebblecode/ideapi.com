@@ -17,6 +17,8 @@ config.action_controller.session = { :domain => ".smackaho.st" }
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
+Haml::Template.options[:ugly] = true
+
 # config.after_initialize do
 #   ActiveMerchant::Billing::Base.gateway_mode = :test
 # end

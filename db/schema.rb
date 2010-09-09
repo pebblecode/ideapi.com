@@ -9,7 +9,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100818115953) do
+ActiveRecord::Schema.define(:version => 20100909125054) do
+
   create_table "account_template_briefs", :force => true do |t|
     t.integer "account_id"
     t.integer "template_brief_id"
@@ -344,6 +345,18 @@ ActiveRecord::Schema.define(:version => 20100818115953) do
   end
 
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
+
+  create_table "vw_account_owners", :id => false, :force => true do |t|
+    t.string   "email"
+    t.integer  "id",          :default => 0, :null => false
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "full_domain"
+    t.datetime "deleted_at"
+    t.string   "first_name"
+    t.string   "last_name"
+  end
 
   create_table "watched_briefs", :force => true do |t|
     t.integer  "brief_id"

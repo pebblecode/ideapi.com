@@ -6,9 +6,9 @@
         = error_messages_for :user
         = render :partial => "form", :locals => {:f => f}
       %p.submit
+        %span.cancel
+          = link_to 'Cancel', object_path
+          or
         =submit_tag "Update" 
-      %p.cancel
-        = link_to 'Cancel', object_path
-        or 
       .clear
    

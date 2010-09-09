@@ -35,6 +35,7 @@ a
   :text-decoration none
   :color = !link_colour
   :font-weight bold
+  +color-transitions
   
 a:hover
   :color = !link_hover_colour
@@ -896,6 +897,8 @@ p.submit
 
 p.cancel
   :float right
+span.cancel
+  margin-right: .5em
 
 input[type=submit]
   :background #b3d335
@@ -1855,6 +1858,7 @@ ul#notifications
     color: #32401a
     font-weight: bold
   a
+    +color-transitions(400ms)
     &:visited
       color: #B3D335
     &:hover
@@ -1864,24 +1868,19 @@ ul#notifications
     font-weight: bold
     padding: 2px 4px
     +rounded-corners-all(3px)
-#list-of-accounts
-  display: block
-  +rounded-corners-all(3px)
-  background: #ddd
-  position: absolute
-  width: 10em
-  right: 19.9em
-  top: 2.5em
   
 
 #footer
-  background: white url('/images/logo-small.png') no-repeat 2em 6px
-  padding: 3px 2em 0px 7em
-  border-width: 0 1px 1px 1px
-  border-style: solid
-  border-color: #ccc
+  background: url('/images/logo-small.png') no-repeat 0.5em 7px
+  padding: 3px 2em 0px 5.5em
   p
     font-size: 1.1em
+    a
+      color: #888
+      +color-transitions(600ms)
+      &:hover
+        color: #333
+        
 // Imports
 
 @import "partials/briefs"

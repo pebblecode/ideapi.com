@@ -35,7 +35,7 @@
               |
               = link_unless_current 'Account', account_path
             | 
-            = link_unless_current "Help", "/"
+            = link_unless_current "Help", help_path
             |
             =link_to 'Logout', delete_user_session_path
           / #list-of-accounts
@@ -66,8 +66,7 @@
           = mail_to "support@ideapi.com", "Support"
           |
           = mail_to "feedback@ideapi.com", "Feedback"
-          |
-          = link_to "Tell a friend", users_url
+
       .clear
     
     - # Google Analytics only in the dashboard

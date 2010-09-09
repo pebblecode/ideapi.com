@@ -4,10 +4,11 @@
 
   -form_tag :action => 'create' do
     = hidden_field_tag 'plan', params[:plan] || @freeplan.id
-    %p
-      Enter the name of your business and the address where your site will be found.
-      The address you pick will be used in any links sent to your collaborators.
+    :markdown
+      Enter the name of your business and the web address your collaborators will use to login to ideapi. 
+      Every ideapi account has it's own unique web address, for example **http://yourcompany.ideapi.com**.
       Only letters and digits are allowed.
+      
 
     -if @account.errors.any?
       .errorExplanation
@@ -21,7 +22,7 @@
           = f.text_field :name
           = error_message_on @account, :name
         %p
-          = f.label :domain, "Address"
+          = f.label :domain, "Web Address"
           = f.text_field :domain
           = '.' << AppConfig['base_domain']
     
@@ -40,7 +41,7 @@
         %p
           = f.label :screename, 'Screename'
           = f.text_field :screename
-          %span.tip="This is how your updates will tagged"
+          %span.tip (This is how your updates will tagged)
         
         %p
           = f.label :email
@@ -60,14 +61,15 @@
           =link_to "Terms of Service", {:controller => 'pages', :action => 'terms'}, :popup => 'terms'
           =" and "
           =link_to "Privacy Policy", {:controller => 'pages', :action => 'privacy'}, :popup => 'privacy'
-	
-    %h3 Choose a plan 
-    %fieldset
-      %ul
-        - @plans.each_with_index do |plan, index| 
-          %li
-            = radio_button_tag :plan, plan.id, @plan == plan
-            = plan
+
+    
+    -# %h3 Choose a plan 
+    -#       %fieldset
+    -#         %ul
+    -#           - @plans.each_with_index do |plan, index| 
+    -#             %li
+    -#               = radio_button_tag :plan, plan.id, @plan == plan
+    -#               = plan
        
     - if @account.needs_payment_info?
       %h3 Payment details

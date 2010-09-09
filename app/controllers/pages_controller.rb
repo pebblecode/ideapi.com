@@ -24,6 +24,10 @@ class PagesController < ApplicationController
   def privacy
     
   end
+  
+  def help
+    render :layout => 'application'
+  end
 
   def login
     @user_session = UserSession.new(params[:user_session])

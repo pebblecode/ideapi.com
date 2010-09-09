@@ -20,11 +20,9 @@
       - else
         %p Your trial account has expired. To regain access to your account, enter your credit card information below.  Your first charge will happen immediately, and you will be billed monthly thereafter.
   
-  = render :partial => 'plan'
+  = render :partial => 'plan' if false
   
   - if @subscription.state == 'trial' or @subscription.amount > 0
     = render :partial => 'billing'
-  
-  .hr
-  
+
   %p= link_to('Cancel plan', cancel_account_url)
