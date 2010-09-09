@@ -295,8 +295,10 @@ jQuery.fn.update_add_collab_widget = function () {
 jQuery.fn.add_collab_link = function () {
   jQuery(this).attr('href', '#').click(function () {
     $(this).find('input').attr('checked', true);
-    $(this).parents().filter('form').submit();
     $(this).fadeOut();
+    $(this).parents().filter('ul.add_collaborators').find('li.collaboration_user a.add_collaborator').fadeOut();
+    $(this).parents().filter('form').submit();
+    
     return false;
   }).find('input').hide();
 };

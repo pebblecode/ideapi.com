@@ -1614,12 +1614,10 @@ ul#notifications {
 #content .main .title .actions a.show-options-menu {
   display: block;
   /* For more great 16x16 pixel icons, visit http://p.yusukekamiyamane.com/ */
-  background: url("/images/ui/ui-menu.png") no-repeat 0 0;
+  background: url("/images/ui/gear.png") no-repeat 0 0;
   text-indent: -9999px;
   width: 16px;
   height: 16px; }
-#content .main .title .actions a.selected {
-  background: url("/images/ui/ui-menu-blue.png") no-repeat 0 0; }
 #content .main #brief-tags {
   border-width: 0 1px 1px 1px;
   border-color: #ccc;
