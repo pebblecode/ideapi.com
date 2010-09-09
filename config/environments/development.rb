@@ -39,8 +39,11 @@ ActionMailer::Base.smtp_settings = {
 #   Bullet.alert = true
 #   Bullet.bullet_logger = true  
 #   Bullet.console = true
-#   # Bullet.growl = true
+#   begin
+#     require 'ruby-growl'
+#     Bullet.growl = true
+#   rescue MissingSourceFile
+#   end
 #   Bullet.rails_logger = true
 #   Bullet.disable_browser_cache = true
 # end
-
