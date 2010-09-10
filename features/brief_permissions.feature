@@ -18,7 +18,7 @@ Feature: Control access to briefs based on user roles
         And I press "Add to account"
         Then I should see "We've sent an invitiaton to lord@lucan.org"
         Then I should see "Lord Lucan" within "table.friends"
-        And I follow "logout"
+        And I follow "Logout"
         And I press "Yes log me out"
         Then "lord@lucan.org" should receive an email with subject "You now have an ideapi.com account"
         When I open the email

@@ -136,7 +136,7 @@ Feature: Allow users to tag briefs
         And I go to the dashboard
         Then I should see "tag1"
         And I should see "tag2"
-        And I follow "logout"
+        And I follow "Logout"
         And I press "Yes log me out"
         Then I should see "Please login to your account"
         And I fill in the following:
