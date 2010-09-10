@@ -847,6 +847,25 @@ textarea {
   width: 45em;
   border: 10px solid #dddddd;
   background: #f6f6f6; }
+  .login .footer, .app_error .footer {
+    background: #dddddd;
+    padding: 0.5em 0 0 0; }
+    .login .footer p, .app_error .footer p {
+      margin: 0;
+      padding: 0;
+      font-size: 1.2em; }
+    .login .footer a, .app_error .footer a {
+      color: #888888;
+      -webkit-transition-property: background-color, color;
+      -webkit-transition-duration: 600ms;
+      -moz-transition-property: background-color, color;
+      -moz-transition-duration: 600ms;
+      -o-transition-property: background-color, color;
+      -o-transition-duration: 600ms;
+      transition-property: background-color, color;
+      transition-duration: 600ms; }
+      .login .footer a:hover, .app_error .footer a:hover {
+        color: #333333; }
   .login a, .app_error a {
     text-decoration: none;
     color: #b3d335;

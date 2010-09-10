@@ -9,9 +9,11 @@ body {
 
 ul {
   list-style: disc;
+  list-style-position: inside;
+  padding: 0;
   font-size: 1.2em; }
   ul li {
-    margin-left: 1em;
+    margin-left: 0.1em;
     font-size: 1em; }
 
 .brief {
@@ -35,7 +37,7 @@ ul {
     .brief .brief_item h3 {
       border-bottom: 1px solid #aaaaaa; }
     .brief .brief_item .body {
-      padding: 0.5em 1em; }
+      padding: 0; }
     .brief .brief_item .actions {
       display: none; }
     .brief .brief_item .brief_item_history {
