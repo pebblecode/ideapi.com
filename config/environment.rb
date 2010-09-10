@@ -19,6 +19,8 @@ Rails::Initializer.run do |config|
   config.gem 'SystemTimer', :lib => 'system_timer'
 
   # config.gem "BlueCloth" # For Markdown
+  
+  config.gem "rdiscount", :source => 'http://gemcutter.org' # For Markdown
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
   # Skip frameworks
