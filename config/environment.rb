@@ -16,8 +16,8 @@ Rails::Initializer.run do |config|
   config.gem 'hoptoad_notifier'
   config.gem 'resque' 
   config.gem 'resque_mailer'
-
-  # config.gem "BlueCloth" # For Markdown
+  
+  config.gem "rdiscount", :source => 'http://gemcutter.org' # For Markdown
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
   # Skip frameworks
