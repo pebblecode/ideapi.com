@@ -59,15 +59,15 @@ Feature: Managing briefs
             | brief_most_important_message  | My one liner  |
         And I press "Create"
         Then I should see "Brief was successfully created"
-        And I press "delete brief"
+        And I press "publish"
+        And I press "delete"
         Then I should see "Brief deleted"
         
     Scenario: Deleting an existing brief
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
         When I go to the dashboard 
         And I follow "Website brief"
-        And I follow "edit"
-        And I press "delete brief"
+        And I press "delete"
         Then I should see "Brief deleted"
         And I should not see "Website brief"
 

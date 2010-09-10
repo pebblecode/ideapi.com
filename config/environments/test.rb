@@ -1,3 +1,4 @@
+APPLICATION_URL = "http://smackaho.st/"
 # Settings specified here will take precedence over those in config/environment.rb
 
 # The test environment is used exclusively to run your application's
@@ -22,8 +23,7 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 # config.action_mailer.delivery_method = :test
 
-
-require "smtp-tls"
+# require "smtp-tls"
 ActionMailer::Base.smtp_settings = {
   :tls => true,
   :address => "smtp.gmail.com",
@@ -51,6 +51,8 @@ config.gem "factory_girl", :lib => false
 config.gem 'email_spec', :lib => false, :version => "0.6.2"
 config.gem 'rspec', :lib => false
 config.gem 'test-unit', :lib => false
+config.gem 'database_cleaner', :lib => false
+config.gem 'launchy', :lib => false
 
 config.after_initialize do
   ActiveMerchant::Billing::Base.gateway_mode = :test
