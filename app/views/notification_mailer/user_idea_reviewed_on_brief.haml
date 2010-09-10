@@ -1,4 +1,5 @@
 - @brief = @proposal.brief
+
 %p
   %strong Account:
   = @brief.account.name
@@ -8,8 +9,10 @@
   %br/
   %strong Link:
   = brief_proposal_url(@brief, @proposal, :host => @brief.account.full_domain)
+
 %p
   Your idea “#{@proposal.title}” has been reviewed by #{@proposal.approver.full_name}.
+
 %p
   Status:
   = @proposal.state.to_s.humanize

@@ -8,11 +8,13 @@
   %br/
   %strong Link:
   = brief_url(@brief, :host => @brief.account.full_domain)
+
 %p
   A comment has been left on the brief 
   = link_to @comment.commentable.title, brief_url(@comment.commentable, :host => @comment.commentable.account.full_domain)
   by #{@comment.user.full_name}.
+
 %p
-  #{@comment.user.full_name} wrote
+  #{@comment.user.full_name} wrote:
   %br/
   "#{@comment.comment}"

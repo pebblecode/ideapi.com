@@ -1,4 +1,5 @@
 - @brief = @user_brief.brief 
+
 %p
   %strong Account:
   = @brief.account.name
@@ -10,8 +11,7 @@
   = brief_url(@brief, :host => @brief.account.full_domain)
 
 %p
-  You’ve been invited to collaborate
-  on the brief “#{@brief.title}”
+  You’ve been invited to collaborate on the brief “#{@brief.title}”
   - if @user_brief.added_by_user.present? 
     by 
     = @user_brief.added_by_user.full_name

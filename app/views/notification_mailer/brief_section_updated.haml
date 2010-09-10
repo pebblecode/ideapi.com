@@ -12,11 +12,10 @@
   The brief
   = link_to @brief.title, brief_url(@brief, :host => @brief.account.full_domain)
   has been updated by #{@user.full_name}. The following sections have been updated:
-%p
-  %ul
-    - @items.each do |item|
-      %p
-        %strong= item.title
-        %br/
-        = item.latest.body
-        %br/
+
+- @items.each do |item|
+  %p
+    %strong= item.title
+    %br/
+    = item.latest.body
+    %br/

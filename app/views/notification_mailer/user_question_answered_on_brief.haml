@@ -8,7 +8,9 @@
   %br/
   %strong Link:
   = brief_url(@brief, :host => @brief.account.full_domain)
+
 %p
   A question you asked has been answered by#{@question.answered_by.full_name}.
+
 %p
   "#{@question.author_answer}"

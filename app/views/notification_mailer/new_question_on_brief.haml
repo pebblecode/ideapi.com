@@ -8,9 +8,11 @@
   %br/
   %strong Link:
   = brief_url(@brief, :host => @brief.account.full_domain)
+
 %p
-  A question has been left on the brief 
+  A question has been asked on the brief 
   = link_to @question.brief.title, brief_url(@brief, :host => @brief.account.full_domain)
-  by #{@question.user.full_name}. Please respond.
+  by #{@question.user.full_name}.
+
 %p
   "#{@question.body}"
