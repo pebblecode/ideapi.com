@@ -38,13 +38,4 @@ config.gem "webrat"
 
 # config.action_mailer.delivery_method = :test
 
-require "smtp-tls"
-ActionMailer::Base.smtp_settings = {
-  :tls => true,
-  :address => "smtp.gmail.com",
-  :port => "587",
-  :domain => "ideapi.net",
-  :authentication => :plain,
-  :user_name => "dev@ideapi.net",
-  :password => "createarevolution$"
-}
+ActionMailer::Base.delivery_method = :sendmail

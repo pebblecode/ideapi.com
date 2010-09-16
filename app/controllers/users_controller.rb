@@ -34,6 +34,10 @@ class UsersController < ApplicationController
     
     before :create do
       current_object.invited_by = current_user
+      if User.exists?(current_object)
+        logger.info "****** EXISTS ***********"
+        current_object.update_attributes(params[:user])
+      end
     end
     
     after :create do
@@ -42,13 +46,14 @@ class UsersController < ApplicationController
         if params[:user][:can_create_briefs] == "1"
           assign_can_create_briefs(current_account, current_object)
         end
+        NotificationMailer.deliver_user_added_to_account(current_object.id, current_account.id, current_object.invitation_message)
       end
       if current_object.pending?
         # [DEPRECATED]
         #NotificationMailer.deliver_user_invited_to_account(current_object, current_account)
         # As mail is now delivered via Resque we need
         # to pass the object ids so the worker can process it
-        NotificationMailer.deliver_user_invited_to_account(current_object.id, current_account.id)
+        NotificationMailer.deliver_user_invited_to_account(current_object.id, current_account.id, current_object.invitation_message)
         flash[:notice] = "We've sent an invitiaton to " + current_object.email
       end
     end

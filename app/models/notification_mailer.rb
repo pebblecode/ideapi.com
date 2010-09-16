@@ -78,10 +78,11 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
   
-  def user_invited_to_account(user_id, account_id, sent_at = Time.now)
+  def user_invited_to_account(user_id, account_id, invitation_message, sent_at = Time.now)
     # We need to look these up so we can process mail with Resque
     @user = User.find_by_id(user_id)
     @account = Account.find_by_id(account_id)
+    @user.invitation_message = invitation_message
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
@@ -95,6 +96,22 @@ class NotificationMailer < ActionMailer::Base
   end
   
   
+  def user_added_to_account(user_id, account_id, invitation_message, sent_at = Time.now)
+    # We need to look these up so we can process mail with Resque
+    @user = User.find_by_id(user_id)
+    @account = Account.find_by_id(account_id)
+    from      email_address("ideapi")
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
+    content_type "text/html"
+
+    recipients  @user.email
+    reply_to    email_address(@account.name)
+    subject     build_subject(@account.name, "You've been invited to an ideapi.com account", "ideapi")
+    body        :user => @user, :account => @account
+    sent_on     sent_at
+  end
+
   def user_made_approver_on_brief(brief_id, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
     @brief = Brief.find_by_id(brief_id)

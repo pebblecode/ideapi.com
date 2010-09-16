@@ -21,7 +21,7 @@ Feature: Allow account admins to add new users to an account with permissions
         And I follow "Logout"
         And I press "Yes log me out"
         Then "lord@lucan.org" should receive an email with subject "You now have an ideapi.com account"
-        When I open the email
+        When I open the email with subject "You now have an ideapi.com account"
         And I click the first link in the email
         Then I should see "Signup"
         Then the "First name:" field should contain "Lord" 
@@ -81,7 +81,6 @@ Feature: Allow account admins to add new users to an account with permissions
         Then I should see "Advert brief"
         And I should not see "Website brief"
         And I should not see "Photoshoot brief"
-        And I should see "collaborator" within ".brief_item h3 span.user_context"
         And I follow "Advert brief"
         Then I should see "You" within ".side_box:first"
 
@@ -128,7 +127,7 @@ Feature: Allow account admins to add new users to an account with permissions
         And I press "Add to account"
         Then I should see "Tony Blair" within "table.friends"
         And I should see "We've sent an invitiaton to tony@theblairs.com"
-        And I follow "logout"
+        And I follow "Logout"
         And I press "Yes log me out"
         And "tony@theblairs.com" should receive an email with subject "You now have an ideapi.com account"
         When I open the email with subject "You now have an ideapi.com account"
@@ -145,93 +144,98 @@ Feature: Allow account admins to add new users to an account with permissions
         Then I should see "Advert brief"
         And I should see "approver" within ".brief_item h3 span.user_context"
 
-#    Scenario: Adding an existing user to an account with no privileges
-#        Given I have a user called "Chuck Norris" with the email "chuck@norris.com"
-#        When I go to the users page
-#        Then I should see "Add user to your account"
-#        And I fill in the following:
-#            | First name    | Chuck          |
-#            | Last name     | Norris       |
-#            | Email         | chuck@norris.com |
-#        And I press "Add to account"
-#        Then I should see "Chuck Norris" within "table.friends"
-#        And I follow "logout"
-#        And I press "Yes log me out"
-#        Then I should see "Please login to your account"
-#        And I fill in the following:
-#            | Email     | chuck@norris.com |
-#            | Password  | testing          |
-#        And I press "Login"
-#        Then I should see "You have no briefs."
-#    
-#    Scenario: Adding an existing user as a collaborator
-#        Given I have briefs called Advert brief, Website brief, Photoshoot brief
-#        And I have a user called "Cheryl Cole" with the email "cheryl@thecoles.com"
-#        When I go to the users page
-#        Then I should see "Add user to your account"
-#        And I fill in the following:
-#            | First name    | Cheryl                |
-#            | Last name     | Cole                  |
-#            | Email         | cheryl@thecoles.com   |
-#        And I check "Advert brief" within "#brief-privileges" 
-#        And I press "Add to account"
-#        Then I should see "Cheryl Cole" within "table.friends"
-#        And I follow "logout"
-#        And I press "Yes log me out"
-#        Then I should see "Please login to your account"
-#        And I fill in the following:
-#            | Email     | cheryl@thecoles.com   |
-#            | Password  | testing               |
-#        And I press "Login"
-#        Then I should see "Advert brief"
-#        And I should see "collaborator" within ".brief_item h3 span.user_context"
-#        And I follow "Advert brief"
-#        Then I should see "You" within ".side_box:first"
-#    
-#    Scenario: Adding an existing user as an author
-#        Given I have briefs called Advert brief, Website brief, Photoshoot brief
-#        And I have a user called "David Cameron" with the email "dave@therave.com"
-#        When I go to the users page
-#        Then I should see "Add user to your account"
-#        And I fill in the following:
-#            | First name    | David                 |
-#            | Last name     | Cameron               |
-#            | Email         | dave@therave.com      |
-#        And I check "user[user_briefs_attributes][0][author]"
-#        And I press "Add to account"
-#        Then I should see "David Cameron" within "table.friends"
-#        And I follow "logout"
-#        And I press "Yes log me out"
-#        Then I should see "Please login to your account"
-#        And I fill in the following:
-#            | Email     | dave@therave.com      |
-#            | Password  | testing               |
-#        And I press "Login"
-#        Then I should see "Advert brief"
-#        And I should see "author" within ".brief_item h3 span.user_context"
-#        And I follow "Advert brief"
-#        Then I should see "You" within ".side_box:first"
-#    
-#    Scenario: Adding an existing user as an approver
-#        Given I have briefs called Advert brief, Website brief, Photoshoot brief
-#        And I have a user called "Boris Johnson" with the email "bozza@thejohnsons.com"
-#        When I go to the users page
-#        Then I should see "Add user to your account"
-#        And I fill in the following:
-#            | First name    | Boris                 |
-#            | Last name     | Johnson               |
-#            | Email         | bozza@thejohnsons.com |
-#        And I check "user[user_briefs_attributes][0][approver]"
-#        And I press "Add to account"
-#        Then I should see "Boris Johnson" within "table.friends"
-#        And I follow "logout"
-#        And I press "Yes log me out"
-#        Then I should see "Please login to your account"
-#        And I fill in the following:
-#            | Email     | boris@thejohnsons.com |
-#            | Password  | testing               |
-#        And I press "Login"
-#        Then I should see "Advert brief"
-#        And I should see "collaborator" within ".brief_item h3 span.user_context"
-#        And I follow "Advert brief"
-#        Then I should see "You" within ".side_box:first"
+    Scenario: Adding an existing user to an account with no privileges
+        Given I have a user called "Chuck Norris" with the email "chuck@norris.com"
+        When I go to the users page
+        Then I should see "Add user to your account"
+        And I fill in the following:
+            | First name    | Chuck          |
+            | Last name     | Norris       |
+            | Email         | chuck@norris.com |
+        And I press "Add to account"
+        Then I should see "Chuck Norris" within "table.friends"
+        And I follow "Logout"
+        And I press "Yes log me out"
+        Then "chuck@norris.com" should receive an email with subject "You've been invited to an ideapi.com account"
+        When I open the email with subject "You've been invited to an ideapi.com account"
+        And I click the first link in the email
+        Then I should see "Please login to your account"
+        And I fill in the following:
+            | Email     | chuck@norris.com |
+            | Password  | testing          |
+        And I press "Login"
+        Then I should see "You have no briefs."
+    
+    Scenario: Adding an existing user as a collaborator
+        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        And I have a user called "Cheryl Cole" with the email "cheryl@thecoles.com"
+        When I go to the users page
+        Then I should see "Add user to your account"
+        And I fill in the following:
+            | First name    | Cheryl                |
+            | Last name     | Cole                  |
+            | Email         | cheryl@thecoles.com   |
+        And I check "Advert brief" within "#brief-privileges" 
+        And I press "Add to account"
+        Then I should see "Cheryl Cole" within "table.friends"
+        And I follow "Logout"
+        And I press "Yes log me out"
+        Then "cheryl@thecoles.com" should receive an email with subject "You've been invited to an ideapi.com account"
+        When I open the email with subject "You've been invited to an ideapi.com account"
+        And I click the first link in the email
+        Then I should see "Please login to your account"
+        And I fill in the following:
+            | Email     | cheryl@thecoles.com   |
+            | Password  | testing               |
+        And I press "Login"
+        Then I should see "Advert brief"
+        And I follow "Advert brief"
+        Then I should see "You" within ".side_box:first"
+    
+    Scenario: Adding an existing user as an author
+        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        And I have a user called "David Cameron" with the email "dave@therave.com"
+        When I go to the users page
+        Then I should see "Add user to your account"
+        And I fill in the following:
+            | First name    | David                 |
+            | Last name     | Cameron               |
+            | Email         | dave@therave.com      |
+        And I check "user[user_briefs_attributes][0][author]"
+        And I press "Add to account"
+        Then I should see "David Cameron" within "table.friends"
+        And I follow "Logout"
+        And I press "Yes log me out"
+        Then I should see "Please login to your account"
+        And I fill in the following:
+            | Email     | dave@therave.com      |
+            | Password  | testing               |
+        And I press "Login"
+        Then I should see "Advert brief"
+        And I should see "author" within ".brief_item h3 span.user_context"
+        And I follow "Advert brief"
+        Then I should see "You" within ".side_box:first"
+    
+    Scenario: Adding an existing user as an approver
+        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        And I have a user called "Boris Johnson" with the email "bozza@thejohnsons.com"
+        When I go to the users page
+        Then I should see "Add user to your account"
+        And I fill in the following:
+            | First name    | Boris                 |
+            | Last name     | Johnson               |
+            | Email         | bozza@thejohnsons.com |
+        And I check "user[user_briefs_attributes][0][approver]"
+        And I press "Add to account"
+        Then I should see "Boris Johnson" within "table.friends"
+        And I follow "Logout"
+        And I press "Yes log me out"
+        Then I should see "Please login to your account"
+        And I fill in the following:
+            | Email     | bozza@thejohnsons.com |
+            | Password  | testing               |
+        And I press "Login"
+        Then I should see "Advert brief"
+        And I should see "approver" within ".brief_item h3 span.user_context"
+        And I follow "Advert brief"
+        Then I should see "You" within ".side_box:first"

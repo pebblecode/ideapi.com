@@ -6,6 +6,7 @@ class AccountUser < ActiveRecord::Base
   belongs_to :user
   
   before_destroy :ensure_enough_users_are_present
+  before_destroy :remove_user_briefs
   
   include Ideapi::Schizo
   
@@ -67,5 +68,15 @@ class AccountUser < ActiveRecord::Base
     end
   end
 
+  # When a user is removed from an account we want to delete the associations
+  # on briefs
+  def remove_user_briefs
+    self.account.briefs.each do |brief|
+      if self.user.briefs.include?(brief)
+        ub = UserBrief.find_by_brief_id_and_user_id(brief, self.user)
+        ub.destroy if ub.present?
+      end 
+    end
+  end
   
 end
