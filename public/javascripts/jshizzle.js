@@ -591,6 +591,28 @@ jQuery.fn.document_ready = function() {
     */
     $('#brief_tag_field').smartTextBox({autocompleteUrl : "/tags.json", separator : ",", placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags." });
 
+    /*
+    * Hides checkboxes on add user form on User#show
+    */
+    $('table#brief-privileges td.brief-title input').parent().siblings().children().hide();
+
+    /*
+    * Show any checkboxes that are checked on page load (form errors etc)
+    */
+    $('table#brief-privileges td.brief-title input:checked').parent().siblings().children().show();
+
+    /*
+    * Toggle show and hide of author & approver links
+    */
+    $('table#brief-privileges td.brief-title input[type=checkbox]').click (function (){
+      if ($(this).is (':checked')){
+          $(this).parent().siblings().children().fadeIn();
+        }
+      else{
+          $(this).parent().siblings().children().fadeOut();
+        }
+      });
+    
     jQuery.setup_collaboration_widget();
       
     jQuery.fn.document_ready_extras();

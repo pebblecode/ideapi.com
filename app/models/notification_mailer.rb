@@ -169,7 +169,7 @@ class NotificationMailer < ActionMailer::Base
 
     recipients  recipients
     reply_to    email_address(@question.brief.account.name)
-    subject     build_subject(@question.brief.account.name, "A question has been posted", question.brief.title)
+    subject     build_subject(@question.brief.account.name, "A question has been posted", @question.brief.title)
     body        :question => @question
     sent_on     sent_at
   end

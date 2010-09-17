@@ -1,4 +1,6 @@
 .add_users
+
+  = error_messages_for :user
   %h3 Add user to your account
 
   -if current_account.reached_user_limit? 

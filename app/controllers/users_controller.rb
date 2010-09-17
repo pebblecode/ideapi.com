@@ -18,10 +18,14 @@ class UsersController < ApplicationController
   def current_objects
     @current_objects ||= current_account.account_users(:include => :user)
   end
-  
+
   make_resourceful do      
     response_for :create do |format|
       format.html { redirect_to users_path }
+    end
+    response_for :create_fails do 
+      render :action => 'index'
+      flash[:error] = 'There was a problem adding the user to the account'
     end
     
     actions :all
@@ -34,9 +38,10 @@ class UsersController < ApplicationController
     
     before :create do
       current_object.invited_by = current_user
+      # This allows us to add existing users to a project
       if User.exists?(current_object)
-        logger.info "****** EXISTS ***********"
         current_object.update_attributes(params[:user])
+        flash[:notice] = "We've sent an invitiaton to " + current_object.email
       end
     end
     
@@ -46,7 +51,9 @@ class UsersController < ApplicationController
         if params[:user][:can_create_briefs] == "1"
           assign_can_create_briefs(current_account, current_object)
         end
-        NotificationMailer.deliver_user_added_to_account(current_object.id, current_account.id, current_object.invitation_message)
+        if !current_object.pending?
+          NotificationMailer.deliver_user_added_to_account(current_object.id, current_account.id, current_object.invitation_message)
+        end
       end
       if current_object.pending?
         # [DEPRECATED]

@@ -23,7 +23,7 @@ Feature: Control access to briefs based on user roles
         Then "lord@lucan.org" should receive an email with subject "You now have an ideapi.com account"
         When I open the email
         And I click the first link in the email
-        Then I should see "Signup"
+        Then I should see "Create an account"
         Then the "First name:" field should contain "Lord" 
         And the "Last Name:" field should contain "Lucan"
         And the "Email:" field should contain "lord@lucan.org"
