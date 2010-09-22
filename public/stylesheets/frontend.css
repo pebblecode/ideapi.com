@@ -407,7 +407,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
   #container #content .brief .title, #container #content .proposal .title, #container #content .brief_list .title {
     position: relative; }
   #container #content .brief div.actions, #container #content .proposal div.actions, #container #content .brief_list div.actions {
-    z-index: 300;
+    z-index: 100;
     position: absolute;
     top: 1em;
     right: 1em;
@@ -760,6 +760,8 @@ p.submit.left {
   float: left;
   margin: 0 1em 1em 0; }
 
+#facebox .content img {
+  max-width: 600px; }
 #facebox .content .fb {
   width: 60em; }
   #facebox .content .fb p.message {

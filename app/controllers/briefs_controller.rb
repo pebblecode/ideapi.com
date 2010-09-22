@@ -64,7 +64,7 @@ class BriefsController < ApplicationController
       add_breadcrumb truncate(current_object.title, :length => 30), object_path
       @brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
       @user_question ||= current_object.questions.build(session[:previous_question])
-      session[:return_to] = request.request_uri
+      #session[:return_to] = request.request_uri
     end
     
     before(:new, :create) do
