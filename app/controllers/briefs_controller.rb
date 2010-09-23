@@ -41,14 +41,14 @@ class BriefsController < ApplicationController
       #@merged_questions = (@unanswered_questions + @answered_questions).uniq 
 
       @tags = Tag.find_by_sql(["SELECT tags.*, COUNT(*) AS count FROM `tags` 
-                                LEFT OUTER JOIN taggings 
+                                INNER JOIN taggings 
                                 ON tags.id = taggings.tag_id 
                                 AND taggings.context = 'tags'
                                 AND taggings.taggable_id IN (?) 
                                 INNER JOIN briefs 
                                 ON briefs.id = taggings.taggable_id 
                                 AND briefs.state IN ('published', 'draft')
-                                GROUP BY tags.id, tags.name 
+                                GROUP BY tags.id, tags.name
                                 HAVING COUNT(*) > 0
                                 ORDER BY count DESC, tags.name ASC", @current_objects])
                       
@@ -56,7 +56,7 @@ class BriefsController < ApplicationController
       # This hooks into acts_as_taggable and returns
       # any projects tagged with the parameter
       if params[:t]
-        @current_objects = @current_objects.tagged_with(params[:t])
+        @current_objects = @current_objects.tagged_with(params[:t]).uniq
       end
     end
     
