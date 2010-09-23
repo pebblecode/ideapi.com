@@ -5,7 +5,11 @@
       =link_to 'Create brief', new_brief_path
 
 #dashboard.col_1
-
+  .note
+    %p
+      Thank you for creating an account on ideapi. From the dashboard you can access all your active briefs or filter briefs by tag. [Create your first brief] using the default ideapi template, or start by [creating your own template].
+    %p
+      Before you can collaborate on briefs, you’ll also need to [add some users to your account].
   -if flash[:note].present?
     .note
       %h3 Welcome to the dashboard. 
@@ -68,6 +72,13 @@
           -@tags.each do |tag|
             %li
               =link_to "#{tag.name}<span>#{tag.count}</span>", dashboard_path(:t => tag.name)
+  - else 
+    .side_box
+      %h2
+        Tags
+      .contents
+        %ul
+          %li Add tags to your briefs to allow them to be categorised.
 
   -if completed_briefs.present?
     .side_box
