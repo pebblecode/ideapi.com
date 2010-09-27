@@ -7,7 +7,7 @@ input[type=text] {
   font-size: 1em;
   line-height: 1.2em; }
 
-#banner #header ul.navigation {
+#banner #header ul.navigation, #container #header ul.navigation {
   padding-bottom: 3px; }
 
 #middle-section {
@@ -20,10 +20,12 @@ input[type=text] {
 #container #header ul.navigation {
   bottom: -1px;
   width: 340px;
-  right: 20px; }
+  right: 10px;
+  float: right; }
+  #container #header ul.navigation li {
+    display: inline; }
   #container #header ul.navigation a, #container #header ul.navigation span {
-    display: block;
-    float: left;
+    display: inline;
     padding: 15px;
     margin-left: 5px; }
 
@@ -149,3 +151,9 @@ input.smartTextBox-input-elem-valueInput {
   margin-top: 58px;
   margin-right: 0;
   width: 284px; }
+
+#top-menu {
+  margin-top: 1em; }
+
+#proposals .boom_box {
+  width: 600px; }

@@ -17,7 +17,7 @@ input[type=text] {
   line-height: 1.2em;
 }
 
-#banner {
+#banner, #container {
   #header {
     ul.navigation {
       padding-bottom: 3px;
@@ -41,12 +41,16 @@ input[type=text] {
     ul.navigation{
       bottom: -1px;
       width: 340px;
-      right: 20px;
+      right: 10px;
+      float: right;
+      li{
+        display: inline;
+      }
       a, span{
-        display: block;
-        float: left;
+        display: inline;
         padding: 15px;
         margin-left: 5px;
+        
         
       }
     }
@@ -265,5 +269,16 @@ input.smartTextBox-input-elem-valueInput{
    margin-right: 0;
    width: 284px;
   }
+}
 
+#top-menu{
+  margin-top: 1em;
+}
+
+
+
+#proposals{
+  .boom_box{
+    width: 600px;
+  }
 }
