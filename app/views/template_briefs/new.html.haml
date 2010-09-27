@@ -4,8 +4,17 @@
 .col_1
 
   %h2 Create a new template
-  #write_new_brief.note
-    %p You can add as many questions as you like to your template. 
+  #new_template_brief_note.note
+    :markdown
+      **Template title** is how you will refer to the template when creating briefs. 
+      Enter a **section** (and optionally a **help message**) for each of the sections to appear in briefs based on this template. 
+      Add additional sections by clicking **“Add a Section or Heading”**
+
+      You can group related sections together using a **Section Heading**. 
+      Create a Section Heading by ticking the **“Is Heading?”** check box.
+
+      Sections and Section Headings can be reordered once the template has been submitted. 
+      There is no limit to the number of Sections that you can have.
   
   .boom_box
     =render :partial => 'form'        

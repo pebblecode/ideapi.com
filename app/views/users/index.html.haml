@@ -1,6 +1,11 @@
 - body_classes << "contacts"
 .col_1
   %h2 Contacts
+  #contacts_note.note
+    :markdown
+      You must add users to your account before you can invite anyone to collaborate on a brief. When adding new useds you can opt to allow them to create new briefs, as well as adding them straight onto existing briefs.
+
+      
   
   -form_for current_account, :url => account_path do |f|
     
