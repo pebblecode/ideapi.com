@@ -33,6 +33,8 @@ ActionMailer::Base.smtp_settings = {
   :password => "createarevolution$"
 }
 
+ActionMailer::Base.delivery_method = :sendmail
+
 # config.gem 'bullet', :source => 'http://gemcutter.org'
 # config.after_initialize do
 #   Bullet.enable = true 
