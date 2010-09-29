@@ -46,7 +46,7 @@ class Comment < ActiveRecord::Base
       # [DEPRECATED]
       # NotificationMailer.deliver_new_comment_on_brief(self, brief_recipients) if brief_recipients.present?
       # We are using Resque to process emails so need to send id to worker
-      NotificationMailer.deliver_new_comment_on_brief!(self.id, brief_recipients) if brief_recipients.present?
+      NotificationMailer.deliver_new_comment_on_brief(self.id, brief_recipients) if brief_recipients.present?
     end
   
     if self.commentable.is_a?(Proposal)
@@ -54,7 +54,7 @@ class Comment < ActiveRecord::Base
       # [DEPRECATED]
       # NotificationMailer.deliver_new_comment_on_idea(self, idea_recipients) if idea_recipients.present?
       # We are using Resque to process emails so need to send id to worker
-      NotificationMailer.deliver_new_comment_on_idea!(self.id, idea_recipients) if idea_recipients.present?
+      NotificationMailer.deliver_new_comment_on_idea(self.id, idea_recipients) if idea_recipients.present?
     end
     
   end
