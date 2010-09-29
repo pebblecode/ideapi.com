@@ -72,7 +72,7 @@
             =link_to "all briefs", dashboard_path
           -@tags.each do |tag|
             %li
-              =link_to "#{tag.name}<span>#{tag.count}</span>", dashboard_path(:t => tag.name)
+              =link_to "<span>#{tag.count}</span>#{tag.name}", dashboard_path(:t => tag.name)
   - else 
     .side_box
       %h2

@@ -31,7 +31,7 @@
             =change_state_form.hidden_field '_call_state', :value => 'reactivate'
             = link_to "Reactivate", "#"
             :javascript
-              $('#options-menu li.change-state').click(function(){
+              $('#options-menu li.change-state a').click(function(){
                 $(this).parent().submit();
                 return false;
               });
@@ -40,7 +40,7 @@
           =hidden_field_tag '_flash[notice]', 'Brief deleted'
           = link_to "delete", "#"
           :javascript
-            $('#options-menu li.delete-brief').click(function(){
+            $('#options-menu li.delete-brief a').click(function(){
               var answer = confirm("Are you sure?")
               if(answer){
                 $(this).parent().submit();

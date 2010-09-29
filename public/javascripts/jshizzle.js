@@ -264,7 +264,7 @@ jQuery.fn.collaboration_widget = function () {
 
 jQuery.fn.add_collaborator_widget = function () { 
   
-  $(this).hide().before('<a href="#" class="toggle_add_collab">+</a>');  
+  $(this).before('<a href="#" class="toggle_add_collab">+</a>');  
   
   $(this).prev('a.toggle_add_collab').toggle_add_collab_link($(this));
   

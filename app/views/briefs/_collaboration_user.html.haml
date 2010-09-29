@@ -6,10 +6,6 @@
         =link_to truncate(given_name(collaboration_user), :lenght => 10), user_path(collaboration_user)
       - else
         =truncate(given_name(collaboration_user), :lenght => 10)
-      -# if current_object.role_for_user?(collaboration_user) != Brief::Roles::COLLABORATOR    
-      -#   %span.role 
-      -#     =precede("- ") do 
-      -#       =current_object.role?(collaboration_user).upcase
       %br
       %span
         = current_object.role?(collaboration_user).upcase
