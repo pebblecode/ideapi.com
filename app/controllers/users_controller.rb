@@ -52,7 +52,7 @@ class UsersController < ApplicationController
           assign_can_create_briefs(current_account, current_object)
         end
         if !current_object.pending?
-          NotificationMailer.deliver_user_added_to_account(current_object.id, current_account.id, current_object.invitation_message)
+          NotificationMailer.deliver_user_added_to_account!(current_object.id, current_account.id, current_object.invitation_message)
         end
       end
       if current_object.pending?
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
         #NotificationMailer.deliver_user_invited_to_account(current_object, current_account)
         # As mail is now delivered via Resque we need
         # to pass the object ids so the worker can process it
-        NotificationMailer.deliver_user_invited_to_account(current_object.id, current_account.id, current_object.invitation_message)
+        NotificationMailer.deliver_user_invited_to_account!(current_object.id, current_account.id, current_object.invitation_message)
         flash[:notice] = "We've sent an invitiaton to " + current_object.email
       end
     end

@@ -50,6 +50,6 @@ class Brief < ActiveRecord::Base
   end
   
   def notify_if_approver_changed
-    NotificationMailer.deliver_user_made_approver_on_brief(self.id) if approver_id_changed?
+    NotificationMailer.deliver_user_made_approver_on_brief!(self.id) if approver_id_changed? and not self.approver.pending?
   end
 end

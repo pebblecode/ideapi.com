@@ -106,10 +106,10 @@ class BriefsController < ApplicationController
         flash[:notice] = "Brief was successfully edited"
       end
       
-      recipients = current_object.users.collect{ |user| user.email }.compact - [current_user.email]
+      recipients = current_object.users.collect{ |user| user.email unless user.pending? }.compact - [current_user.email]
       
       if @brief_items_changed.present? and recipients.present?
-        NotificationMailer.deliver_brief_section_updated(current_object.id, recipients, current_user.id, @brief_items_changed.collect(&:id))
+        NotificationMailer.deliver_brief_section_updated!(current_object.id, recipients, current_user.id, @brief_items_changed.collect(&:id))
       end
       
     end
