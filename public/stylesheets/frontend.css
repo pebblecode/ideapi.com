@@ -929,193 +929,198 @@ ul.error_messages li p {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     text-shadow: 0 1px 1px white; }
-  #container #content .col_2 .side_box .contents {
+  #container #content .col_2 .side_box .contents, #container #content .col_2 .side_box .help {
     border: 1px solid #cccccc;
     border-top: 0;
     background: #efefef;
     padding: 0;
     margin: 0;
     position: relative; }
-    #container #content .col_2 .side_box .contents h3 {
-      padding: 0.5em 1em 0 1em;
-      margin: 0;
-      font-size: 1em; }
-    #container #content .col_2 .side_box .contents ul {
-      padding: 0.5em 1em; }
-      #container #content .col_2 .side_box .contents ul li {
-        margin: 0 0 0 0;
-        padding: 0; }
-        #container #content .col_2 .side_box .contents ul li img.avatar {
-          border: 0;
-          float: left;
-          margin-right: 1em; }
-        #container #content .col_2 .side_box .contents ul li p.non_found {
-          color: #aaaaaa; }
-        #container #content .col_2 .side_box .contents ul li p {
-          font-size: 1em;
-          font-weight: bold; }
-          #container #content .col_2 .side_box .contents ul li p span {
-            font-size: 0.9em;
-            color: #aaaaaa;
-            font-weight: normal; }
-            #container #content .col_2 .side_box .contents ul li p span strong {
-              color: #aaaaaa; }
-      #container #content .col_2 .side_box .contents ul.tag-list li {
-        padding: 0.25em 0;
-        clear: left; }
-        #container #content .col_2 .side_box .contents ul.tag-list li a {
-          display: block; }
-          #container #content .col_2 .side_box .contents ul.tag-list li a span {
-            float: right; }
-      #container #content .col_2 .side_box .contents ul span.author {
-        color: #0099cc;
-        font-weight: bold; }
-    #container #content .col_2 .side_box .contents a.toggle_add_collab {
-      position: absolute;
-      top: -1.7em;
-      right: 0;
-      font-size: 2em;
-      text-align: center;
-      width: 2em;
-      height: 1.5em;
-      color: white;
-      text-shadow: #333333 1px 1px 2px; }
-    #container #content .col_2 .side_box .contents ul.add_collaborators {
-      background: #e1e1e1 url(/images/collab_option_bg.png) repeat-x;
-      border-bottom: 1px solid #dddddd;
-      padding: 0.2em 1em; }
-      #container #content .col_2 .side_box .contents ul.add_collaborators li {
-        position: relative;
-        height: 40px; }
-        #container #content .col_2 .side_box .contents ul.add_collaborators li a.add_collaborator {
-          display: block;
-          width: 3em;
-          position: absolute;
-          top: 1em;
-          right: 0;
-          padding: 0.2em 0.3em;
-          background: #cccccc;
-          text-align: center;
-          -moz-border-radius: 3px;
-          -webkit-border-radius: 3px;
-          border-radius: 3px;
-          font-size: 0.9em;
-          color: #444444;
-          text-shadow: #aaaaaa 1px 1px 1px; }
-          #container #content .col_2 .side_box .contents ul.add_collaborators li a.add_collaborator input {
-            width: auto; }
-        #container #content .col_2 .side_box .contents ul.add_collaborators li a.add_collaborator:hover {
-          background: #bbbbbb;
-          color: #333333; }
-    #container #content .col_2 .side_box .contents ul.collaborators {
-      margin: 0;
+  #container #content .col_2 .side_box .help p {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 1em;
+    color: #555555; }
+  #container #content .col_2 .side_box .help h3 {
+    padding: 0.5em 1em 0 1em;
+    margin: 0;
+    font-size: 1em; }
+  #container #content .col_2 .side_box .help ul {
+    padding: 0.5em 1em; }
+    #container #content .col_2 .side_box .help ul li {
+      margin: 0 0 0 0;
       padding: 0; }
-      #container #content .col_2 .side_box .contents ul.collaborators li {
+      #container #content .col_2 .side_box .help ul li img.avatar {
+        border: 0;
+        float: left;
+        margin-right: 1em; }
+      #container #content .col_2 .side_box .help ul li p.non_found {
+        color: #aaaaaa; }
+      #container #content .col_2 .side_box .help ul li p {
+        font-size: 1em;
+        font-weight: bold; }
+        #container #content .col_2 .side_box .help ul li p span {
+          font-size: 0.9em;
+          color: #aaaaaa;
+          font-weight: normal; }
+          #container #content .col_2 .side_box .help ul li p span strong {
+            color: #aaaaaa; }
+    #container #content .col_2 .side_box .help ul.tag-list li {
+      padding: 0.25em 0;
+      clear: left; }
+      #container #content .col_2 .side_box .help ul.tag-list li a {
+        display: block; }
+        #container #content .col_2 .side_box .help ul.tag-list li a span {
+          float: right; }
+    #container #content .col_2 .side_box .help ul span.author {
+      color: #0099cc;
+      font-weight: bold; }
+  #container #content .col_2 .side_box .help a.toggle_add_collab {
+    position: absolute;
+    top: -1.7em;
+    right: 0;
+    font-size: 2em;
+    text-align: center;
+    width: 2em;
+    height: 1.5em;
+    color: white;
+    text-shadow: #333333 1px 1px 2px; }
+  #container #content .col_2 .side_box .help ul.add_collaborators {
+    background: #e1e1e1 url(/images/collab_option_bg.png) repeat-x;
+    border-bottom: 1px solid #dddddd;
+    padding: 0.2em 1em; }
+    #container #content .col_2 .side_box .help ul.add_collaborators li {
+      position: relative;
+      height: 40px; }
+      #container #content .col_2 .side_box .help ul.add_collaborators li a.add_collaborator {
+        display: block;
+        width: 3em;
+        position: absolute;
+        top: 1em;
+        right: 0;
+        padding: 0.2em 0.3em;
+        background: #cccccc;
+        text-align: center;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        font-size: 0.9em;
+        color: #444444;
+        text-shadow: #aaaaaa 1px 1px 1px; }
+        #container #content .col_2 .side_box .help ul.add_collaborators li a.add_collaborator input {
+          width: auto; }
+      #container #content .col_2 .side_box .help ul.add_collaborators li a.add_collaborator:hover {
+        background: #bbbbbb;
+        color: #333333; }
+  #container #content .col_2 .side_box .help ul.collaborators {
+    margin: 0;
+    padding: 0; }
+    #container #content .col_2 .side_box .help ul.collaborators li {
+      padding: 0;
+      margin: 0;
+      border-bottom: 1px solid #cccccc;
+      position: relative; }
+      #container #content .col_2 .side_box .help ul.collaborators li p {
+        line-height: 1em;
         padding: 0;
         margin: 0;
-        border-bottom: 1px solid #cccccc;
-        position: relative; }
-        #container #content .col_2 .side_box .contents ul.collaborators li p {
-          line-height: 1em;
+        padding: 0.5em 1em 1em 1em; }
+      #container #content .col_2 .side_box .help ul.collaborators li img.avatar {
+        margin-top: 0.8em;
+        margin-left: 0.9em; }
+      #container #content .col_2 .side_box .help ul.collaborators li a.options_toggle {
+        position: absolute;
+        right: 1em;
+        top: 2.5em;
+        font-size: 0.8em;
+        color: #cccccc; }
+      #container #content .col_2 .side_box .help ul.collaborators li a.options_toggle:hover {
+        color: #333333; }
+      #container #content .col_2 .side_box .help ul.collaborators li ul.options {
+        padding: 0;
+        margin: 0;
+        background: #e1e1e1 url(/images/collab_option_bg.png) repeat-x;
+        height: 50px; }
+        #container #content .col_2 .side_box .help ul.collaborators li ul.options li {
+          float: left;
+          top: 0;
           padding: 0;
-          margin: 0;
-          padding: 0.5em 1em 1em 1em; }
-        #container #content .col_2 .side_box .contents ul.collaborators li img.avatar {
-          margin-top: 0.8em;
-          margin-left: 0.9em; }
-        #container #content .col_2 .side_box .contents ul.collaborators li a.options_toggle {
-          position: absolute;
-          right: 1em;
-          top: 2.5em;
-          font-size: 0.8em;
-          color: #cccccc; }
-        #container #content .col_2 .side_box .contents ul.collaborators li a.options_toggle:hover {
-          color: #333333; }
-        #container #content .col_2 .side_box .contents ul.collaborators li ul.options {
-          padding: 0;
-          margin: 0;
-          background: #e1e1e1 url(/images/collab_option_bg.png) repeat-x;
-          height: 50px; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li {
-            float: left;
-            top: 0;
-            padding: 0;
-            width: 50px;
-            border: 0;
-            text-transform: uppercase;
-            padding: 0.5em 0 0 0;
-            background: transparent;
-            text-align: center; }
-            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li img.spinner {
-              width: 16px;
-              height: 16px;
-              margin: 12px 0 0 15px;
-              padding: 0; }
-            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li a {
-              height: 0px;
-              width: 29px;
-              display: block;
-              margin-left: 9px;
-              padding-top: 32px; }
-              #container #content .col_2 .side_box .contents ul.collaborators li ul.options li a span {
-                color: #aaaaaa;
-                margin-left: -2px; }
-            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li a:hover span, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li a.selected span {
-              color: #333333; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.with_js {
-            font-size: 8px; }
-            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.with_js input {
-              display: none; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a {
-            background: url(/images/collab_options.png) no-repeat; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a.selected {
-            background: url(/images/collab_options.png) no-repeat 0 -30px; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a {
-            background: url(/images/collab_options.png) no-repeat -28px 0; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a.selected {
-            background: url(/images/collab_options.png) no-repeat -28px -30px; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove {
-            float: right;
-            padding: 0.5em 0 0 0; }
-            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a {
-              background: url(/images/collab_options.png) no-repeat -58px 0; }
-            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a.selected {
-              background: url(/images/collab_options.png) no-repeat -58px -30px; }
-      #container #content .col_2 .side_box .contents ul.collaborators li:last-child {
-        border-bottom: 0; }
-    #container #content .col_2 .side_box .contents .disable_screen {
-      background-color: white;
-      background-color: rgba(255, 255, 255, 0.7);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%; }
-      #container #content .col_2 .side_box .contents .disable_screen img.spinner {
-        margin: 45% auto; }
-    #container #content .col_2 .side_box .contents input.action {
-      text-align: center;
-      display: block;
-      border-top: 1px solid #cccccc;
-      line-height: 1em;
-      padding: 0.6em 1em 1em 1em;
-      background: #f6f6f6;
-      width: 100%;
-      -moz-border-radius-topright: 0;
-      -webkit-border-top-right-radius: 0;
-      -moz-border-radius-topleft: 0;
-      -webkit-border-top-left-radius: 0;
-      color: #b3d335;
-      font-weight: bold; }
-    #container #content .col_2 .side_box .contents input.action:hover {
-      color: #32401a; }
-    #container #content .col_2 .side_box .contents a.action {
-      text-align: center;
-      display: block;
-      border-top: 1px solid #cccccc;
-      line-height: 1em;
-      padding: 0.6em 1em 1em 1em;
-      background: #f6f6f6; }
+          width: 50px;
+          border: 0;
+          text-transform: uppercase;
+          padding: 0.5em 0 0 0;
+          background: transparent;
+          text-align: center; }
+          #container #content .col_2 .side_box .help ul.collaborators li ul.options li img.spinner {
+            width: 16px;
+            height: 16px;
+            margin: 12px 0 0 15px;
+            padding: 0; }
+          #container #content .col_2 .side_box .help ul.collaborators li ul.options li a {
+            height: 0px;
+            width: 29px;
+            display: block;
+            margin-left: 9px;
+            padding-top: 32px; }
+            #container #content .col_2 .side_box .help ul.collaborators li ul.options li a span {
+              color: #aaaaaa;
+              margin-left: -2px; }
+          #container #content .col_2 .side_box .help ul.collaborators li ul.options li a:hover span, #container #content .col_2 .side_box .help ul.collaborators li ul.options li a.selected span {
+            color: #333333; }
+        #container #content .col_2 .side_box .help ul.collaborators li ul.options li.with_js {
+          font-size: 8px; }
+          #container #content .col_2 .side_box .help ul.collaborators li ul.options li.with_js input {
+            display: none; }
+        #container #content .col_2 .side_box .help ul.collaborators li ul.options li.author a {
+          background: url(/images/collab_options.png) no-repeat; }
+        #container #content .col_2 .side_box .help ul.collaborators li ul.options li.author a:hover, #container #content .col_2 .side_box .help ul.collaborators li ul.options li.author a:focus, #container #content .col_2 .side_box .help ul.collaborators li ul.options li.author a.selected {
+          background: url(/images/collab_options.png) no-repeat 0 -30px; }
+        #container #content .col_2 .side_box .help ul.collaborators li ul.options li.approver a {
+          background: url(/images/collab_options.png) no-repeat -28px 0; }
+        #container #content .col_2 .side_box .help ul.collaborators li ul.options li.approver a:hover, #container #content .col_2 .side_box .help ul.collaborators li ul.options li.approver a:focus, #container #content .col_2 .side_box .help ul.collaborators li ul.options li.approver a.selected {
+          background: url(/images/collab_options.png) no-repeat -28px -30px; }
+        #container #content .col_2 .side_box .help ul.collaborators li ul.options li.remove {
+          float: right;
+          padding: 0.5em 0 0 0; }
+          #container #content .col_2 .side_box .help ul.collaborators li ul.options li.remove a {
+            background: url(/images/collab_options.png) no-repeat -58px 0; }
+          #container #content .col_2 .side_box .help ul.collaborators li ul.options li.remove a:hover, #container #content .col_2 .side_box .help ul.collaborators li ul.options li.remove a:focus, #container #content .col_2 .side_box .help ul.collaborators li ul.options li.remove a.selected {
+            background: url(/images/collab_options.png) no-repeat -58px -30px; }
+    #container #content .col_2 .side_box .help ul.collaborators li:last-child {
+      border-bottom: 0; }
+  #container #content .col_2 .side_box .help .disable_screen {
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+    #container #content .col_2 .side_box .help .disable_screen img.spinner {
+      margin: 45% auto; }
+  #container #content .col_2 .side_box .help input.action {
+    text-align: center;
+    display: block;
+    border-top: 1px solid #cccccc;
+    line-height: 1em;
+    padding: 0.6em 1em 1em 1em;
+    background: #f6f6f6;
+    width: 100%;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topleft: 0;
+    -webkit-border-top-left-radius: 0;
+    color: #b3d335;
+    font-weight: bold; }
+  #container #content .col_2 .side_box .help input.action:hover {
+    color: #32401a; }
+  #container #content .col_2 .side_box .help a.action {
+    text-align: center;
+    display: block;
+    border-top: 1px solid #cccccc;
+    line-height: 1em;
+    padding: 0.6em 1em 1em 1em;
+    background: #f6f6f6; }
 #container #content .col_2 .ideas .user_idea {
   position: relative;
   padding-left: 2em; }
