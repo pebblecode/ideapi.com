@@ -31,7 +31,7 @@ class UserBrief < ActiveRecord::Base
       # NotificationMailer.deliver_user_added_to_brief(self)
       # As this is now being processed by Resque we need to pass
       # the id as it gets processed by a worker
-      NotificationMailer.deliver_user_added_to_brief(self.id) unless self.user.pending?
+      NotificationMailer.deliver_user_added_to_brief(self.id)
     end
   end
   
@@ -40,7 +40,7 @@ class UserBrief < ActiveRecord::Base
     # NotificationMailer.deliver_user_added_to_brief(self)
     # As this is now being processed by Resque we need to pass
     # the id as it gets processed by a worker
-    NotificationMailer.deliver_user_role_changed_on_brief(self.id) if author_changed? and not self.user.pending?
+    NotificationMailer.deliver_user_role_changed_on_brief(self.id) if author_changed?
   end
   
   # This method checks whether the virtual attribute approver

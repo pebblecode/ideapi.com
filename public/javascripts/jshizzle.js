@@ -264,8 +264,8 @@ jQuery.fn.collaboration_widget = function () {
 
 jQuery.fn.add_collaborator_widget = function () { 
   
-  $(this).hide().before('<a href="#" class="toggle_add_collab">+</a>');  
-  
+  $(this).before('<a href="#" class="toggle_add_collab">+</a>');  
+  $(this).hide();
   $(this).prev('a.toggle_add_collab').toggle_add_collab_link($(this));
   
   //set up add collab links
@@ -280,7 +280,7 @@ jQuery.fn.toggle_add_collab_link = function (object_to_toggle) {
   
   $(this).click(function () {
     $(this).text(($(this).text() == on) ? off : on);
-    object_to_toggle.slideToggle('slow');
+    object_to_toggle.toggle();
   });
 };
 
