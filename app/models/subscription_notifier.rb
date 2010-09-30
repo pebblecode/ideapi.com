@@ -17,8 +17,8 @@ class SubscriptionNotifier < ActionMailer::Base
     setup_email(account.admin, "Welcome to #{AppConfig['app_name']}!")
     @from = ideapi_email("ideapi")
     @body = { :account => account }
-    @headers   "return-path" => 'no-reply@ideapi.com'
-    @reply_to  "no-reply@ideapi.com"
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
   end
   
   def trial_expiring(user, subscription)
