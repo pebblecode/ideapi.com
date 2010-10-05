@@ -134,9 +134,9 @@ jQuery.hideable_cookie_name = function (id) {
 jQuery.fn.hideable_note = function () {
   var el_id = jQuery(this).attr('id');
   
-  if ( !((el_id == "") || (el_id == undefined)) ) {    
-    if (jQuery.cookie(jQuery.hideable_cookie_name(el_id)) != null) {      
-      jQuery(this).remove();
+  if ( !((el_id == "") || (el_id == undefined)) ) {
+    if (jQuery.cookie(jQuery.hideable_cookie_name(el_id)) != null) {
+      jQuery(this).hide();
     }
   };
   
@@ -631,6 +631,7 @@ jQuery.fn.document_ready = function() {
 jQuery.fn.document_ready_extras = function () {
   
   jQuery('.remove_with_js').hide();
+  jQuery('.show_with_js').show();
   
   
   $('a.remote-delete-answer').click(function(){

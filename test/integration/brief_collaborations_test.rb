@@ -74,7 +74,7 @@ class BriefCollaborationsTest < ActionController::IntegrationTest
             
       # context "removing last author" do
       #   setup do
-      #     check 'brief_user_briefs_attributes_0__delete'
+      #     check 'brief_user_briefs_attributes_0__destroy'
       #     click_button 'Save Changes'
       #   end
       # 
