@@ -4,25 +4,20 @@
 .clear
 
 .col_1
-  #brief_showview_info.note
+  %div{:id => "show_brief_infso_#{current_object.id}", :class => 'note'}
     :markdown
       You can see the history of each brief section and collaborate by leaving comments or asking questions.
       All comments and questions that you leave on the brief will cause brief authors to be notified by email.
       Other brief options are available from the brief actions menu.
-
+      
       The Brief Collaborators box shows the other collaborators working on this brief.
       Click the “+” button to add more people to the brief (authors only).
       To mark a user as an author or approver for the brief, click the “options” link (authors only).
-
-      Comments and updates can be seen by all collaborators.
-
       
-  -if flash[:note].present?
-    .note
-      %p=flash[:note]
+      Comments and updates can be seen by all collaborators.
       
   -unless current_object.active?
-    .note
+    %div{:id => "reactivate_tooltip_#{current_object.id}", :class => 'note'}
       %p 
         This brief has been marked as complete, and therefore is read-only.
         =render :partial => 'change_state', :locals => { :brief => current_object } 
