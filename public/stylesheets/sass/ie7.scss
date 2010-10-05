@@ -291,3 +291,26 @@ input.smartTextBox-input-elem-valueInput{
     width: 600px;
   }
 }
+
+
+/* EDIT BRIEFS */
+
+#briefs #content .edit_brief{
+  .most_important_thing{
+    p{
+      display: inline;
+    }
+    textarea{
+      display: inline;
+    }
+  }
+  .brief_item{
+    .body{
+      position: relative;
+      textarea{
+        position: static;
+        display: inline;
+      }
+    }
+  }
+}

@@ -256,7 +256,17 @@ jQuery.fn.collaboration_widget = function () {
   jQuery(this).siblings('.action').hide();
   
   jQuery(this).find('li.collaboration_user.is_author').each(function () {
-    jQuery(this).prepend(jQuery(this).prev('input')[0]);
+    // The following code was not working, so it has been replaced. The generated HTML (by rails) is invalid (input element in a <ul> but outside an <li>)
+    // So each browser tries to fix this, which causes inconsistent markup in some browsers (IE7 in particular cannot target those elements properly).
+    // Not sure if this IE7's Javascript/DOM misbehaving, or just due to the bad markup. 
+   // jQuery(this).append(jQuery(this).prev('input')[0]);
+   //$(this).prepend($(this).prev('input'))
+   
+   // Now, we are creating helper_elements (hidden input fields) with the ID we need to target, 
+   // so we can use that to collect the correct element from the DOM... wherever it has been placed. 
+   var helper_element = $(this).find('.user_brief_id_helper');
+   var input_element = $('ul.collaborators input[name*="[id]"][value=' + helper_element.val() + ']');
+   $(this).find('.user_brief_id_helper').after(input_element);
   }).collab_control();
   
   $('.add_collaborators').add_collaborator_widget();
@@ -318,20 +328,19 @@ jQuery.fn.fire_collab_action = function (action_type) {
   var _link = jQuery(this);
   
   _link.hide().spin(false, 'spinner_e1');
-  
+  var _date = new Date();
+  var serialized_data = jQuery(this).parents('li.collaboration_user').find('input').serialize().replace(/%5B/g, '[').replace(/%5D/g, ']');
   jQuery.put(
     jQuery(this).parents().filter('form').attr('action') + '.js', 
-    jQuery(this).parents().filter('li.collaboration_user').find('input').serialize(), 
-    (function (data) {
+    serialized_data, 
+    function (data) {
       _link.fadeIn().next('.spinner').remove();
-      
-      console.log(data);
-      
+      // console.log(data);
       if (action_type == "remove") {
         _link.parents().filter('li.collaboration_user').fadeOut(500,  function () { $(this).remove(); $('ul.add_collaborators').append(data); $('ul.add_collaborators li:last').hide().fadeIn(); $('.add_collaborators li:last a.add_collaborator').add_collab_link(); $('.add_collaborators').update_add_collab_widget(); });
         
       };
-    }),
+    },
     'js'
   );
   

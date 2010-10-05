@@ -1,5 +1,7 @@
 - if collaboration_user.present?
   %li.collaboration_user{:class => (current_object.author?(current_user) ? "is_author" : "")}
+    -if defined? collaboration_form
+      = hidden_field_tag "user_brief_id_#{collaboration_form.object.id}", collaboration_form.object.id, :class => 'user_brief_id_helper'
     =small_avatar(collaboration_user)
     %p
       - if not collaboration_user.pending?
