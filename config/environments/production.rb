@@ -37,12 +37,14 @@ config.action_view.cache_template_loading            = true
 # config.gem "ambethia-smtp-tls", :lib => "smtp-tls", :source => "http://gems.github.com/"
 
 # require "smtp-tls"
-ActionMailer::Base.smtp_settings = {
-  :tls => true,
-  :address => "smtp.gmail.com",
-  :port => "587",
-  :domain => "ideapi.net",
-  :authentication => :plain,
-  :user_name => "dev@ideapi.net",
-  :password => "createarevolution$"
-}
+# ActionMailer::Base.smtp_settings = {
+#   :tls => true,
+#   :address => "smtp.gmail.com",
+#   :port => "587",
+#   :domain => "ideapi.net",
+#   :authentication => :plain,
+#   :user_name => "dev@ideapi.net",
+#   :password => "createarevolution$"
+# }
+
+ActionMailer::Base.delivery_method = :sendmail
