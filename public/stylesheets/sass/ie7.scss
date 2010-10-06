@@ -314,3 +314,10 @@ input.smartTextBox-input-elem-valueInput{
     }
   }
 }
+
+.login_form{
+  .submit, #forgot-password, #remember-me{
+    margin-top: 0px !important;
+    margin-bottom: 0 !important;
+  }
+}

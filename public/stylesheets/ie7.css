@@ -173,3 +173,7 @@ input.smartTextBox-input-elem-valueInput {
   #briefs #content .edit_brief .brief_item .body textarea {
     position: static;
     display: inline; }
+
+.login_form .submit, .login_form #forgot-password, .login_form #remember-me {
+  margin-top: 0px !important;
+  margin-bottom: 0 !important; }

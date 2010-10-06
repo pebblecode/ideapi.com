@@ -56,7 +56,7 @@
               %td= value_or_symbol(given_name(account_user.object.user.invited_by))
               %td
                 -if !account_user.object.admin? 
-                  = account_user.check_box :_delete
+                  = account_user.check_box :_destroy
                 -else
                   = value_or_symbol(nil)
               

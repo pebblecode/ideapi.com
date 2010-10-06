@@ -1,5 +1,5 @@
 =sub_nav do
-  =breadcrumb_list    
+  =breadcrumb_list 
 
 .clear
 
@@ -28,7 +28,7 @@
         =current_object.title
       -if current_user.owns?(current_object)
         .actions
-          = link_to "Show options", "#", :class => "show-options-menu"
+          = link_to "Show options", "#", :class => "show-options-menu selected"
     = render :partial => 'brief_options_menu', :locals => {:object => current_object}
     #brief-tags
       - form_for(current_object, :html => { :method => :put }) do |brief_form|

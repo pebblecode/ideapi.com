@@ -666,6 +666,9 @@ jQuery.fn.document_ready_extras = function () {
         success: hide_element($(this).parents('li').filter(':first')),
         error: null
       });
+      $('ul.comments').slideUp();
+      $('ul.comments').slideDown();
+      
     }
     return false;
   });
@@ -691,9 +694,9 @@ jQuery(document).ready(jQuery.fn.document_ready);
 function toggle_brief_options_menu(selected){
   options_menu = $('#options-menu');
   if(selected == true){
-    options_menu.slideDown('fast');
+    options_menu.hide();
   } else {
-    options_menu.slideUp('fast');
+    options_menu.show();
   }
 }
 

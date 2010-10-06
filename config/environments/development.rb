@@ -48,4 +48,5 @@ ActionMailer::Base.smtp_settings = {
 #   Bullet.rails_logger = true
 #   Bullet.disable_browser_cache = true
 # end
-config.action_mailer.delivery_method = :sendmail
+
+# config.action_mailer.delivery_method = :sendmail
