@@ -29,8 +29,7 @@ module LayoutHelper
   def breadcrumb_list
     list = content_tag(:span, "You are here:")
     list << content_tag(:ul, breadcrumbs(:separator => '<li>&gt;</li>'), :class => "breadcrumbs")
-  
-    list
+    content_tag(:li, list)
   end
   
   def distance_in_time_with_today(date, word = "ago")

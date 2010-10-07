@@ -5,7 +5,8 @@
       %span
         Tell us what you think, or report a problem
         =link_to 'show/hide our feedback form', '#' 
-        and send us an email.
+        and send us an email. Best viewed in #{ link_to 'Safari', 'http://www.apple.com/safari'}, 
+        #{ link_to 'Firefox', 'http://www.firefox.com'}, or #{ link_to 'Chrome', 'http://www.google.com/chrome/'}
   .wrap  
     #user_input.user_input
       -form_for 'user_feedback', :url => user_feedbacks_path do |f|
