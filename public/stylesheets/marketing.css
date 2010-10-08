@@ -1,6 +1,7 @@
 /* Colours
  * link-colour   = #2b3087 */
-/* Banner */
+/* Dimensions */
+/* z-index - low lvls = further behind */
 /* Mixins */
 body {
   background-color: white;
@@ -51,7 +52,8 @@ img {
   padding: 0;
   margin: 0;
   height: 430px;
-  position: relative; }
+  position: relative;
+  z-index: 0; }
   #banner #header {
     width: 959px;
     margin-right: auto;
@@ -67,8 +69,7 @@ img {
     #banner #header ul.navigation {
       position: absolute;
       right: 66px;
-      margin: 36px 0 0 0;
-      z-index: 100; }
+      margin: 36px 0 0 0; }
       #banner #header ul.navigation li {
         display: inline;
         padding: 0;
@@ -95,8 +96,11 @@ img {
           background: #b3d335; }
 
 #middle-section {
+  z-index: 100;
+  position: relative;
   background-color: transparent;
-  width: 100%;
+  width: 959px;
+  margin: -345px auto 0;
   clear: both; }
 
 #content {
@@ -105,7 +109,7 @@ img {
   margin-left: auto;
   text-align: left;
   width: 920px;
-  padding: 10px; }
+  padding: 60px 82px 0; }
   #content p {
     font-size: 1.3em;
     padding-right: 15px;
@@ -323,7 +327,10 @@ span.left {
 #promo-video {
   z-index: 0;
   position: block;
-  background-color: black; }
+  background-color: black;
+  width: 795px;
+  height: 418px;
+  text-align: center; }
   #promo-video object {
     position: block;
     z-index: 0; }

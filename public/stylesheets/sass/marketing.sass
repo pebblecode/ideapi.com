@@ -20,10 +20,15 @@
 
 !text_color = #333
 
-/* Banner */
+/* Dimensions */
+!container_width = 959px
 !banner_height = 430px
 
-
+/* z-index - low lvls = further behind */
+!z_index_highest = 5000
+!z_index_lvl_0 = 0
+!z_index_lvl_1 = 100
+!z_index_lvl_2 = 200
 
 /* Mixins */ 
 
@@ -84,7 +89,7 @@ img
   width: 100%
   height: 100%
   text-align: center
-  z-index: 5000
+  z-index: !z_index_highest
   background: transparent url(/images/grid.png) repeat-y center 0
 
 #container
@@ -101,9 +106,10 @@ img
   margin: 0
   height: !banner_height
   position: relative
+  z-index: !z_index_lvl_0
   
   #header
-    width: 959px
+    width: !container_width
     margin-right: auto
     margin-left: auto
     :position relative
@@ -120,7 +126,6 @@ img
       position: absolute
       right: 66px
       margin: 36px 0 0 0
-      z-index: 100
       
       li
         :display inline
@@ -155,10 +160,12 @@ img
 
 
 #middle-section
+  z-index: !z_index_lvl_1
+  position: relative
   background-color: transparent
-  width: 100%
-  clear: both
-  
+  width: !container_width
+  margin: -345px auto 0
+  clear: both  
 
 
 #content
@@ -167,7 +174,7 @@ img
   margin-left: auto
   text-align: left
   width: 920px
-  padding: 10px
+  padding: 60px 82px 0
   p
     font-size: 1.3em
     padding-right: 15px
@@ -389,6 +396,9 @@ span.left
   z-index: 0
   position: block
   background-color: #000
+  width: 795px
+  height: 418px
+  text-align: center
   object
     position: block
     z-index: 0
