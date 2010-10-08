@@ -1,42 +1,40 @@
-%p
-  = f.label :title
-  = f.text_field :title
+%div[current_object]
+  %h2
+    = f.text_field :title, :class => "inplace"
+  .fields
+    .field
+      = f.text_area :long_description, :rows => "17", :cols => 60
 
-%p
-  = f.label :long_description, 'Your idea'
-  = f.text_area :long_description, :rows => "17", :cols => 60
-
-.hr
-  
--attachment_count = 0  
-- f.fields_for :assets do |asset_form|
-
-  -if asset_form.object.new_record?
-    %p
-      = asset_form.label :data, 'Upload file'
-      = asset_form.file_field :data
+    #idea-attachments
+      -attachment_count = 0
+      = submit_tag 'upload'
+      - f.fields_for :assets do |asset_form|
+        -if asset_form.object.new_record?
+          %p
+            = asset_form.label :data, 'Attach file:'
+            = asset_form.file_field :data
     
-    %p
-      =asset_form.label :description
-      =asset_form.text_area :description, :rows => "3", :cols => "45"
+          %p
+            =asset_form.label :description, 'Description:'
+            =asset_form.text_area :description, :rows => "3", :cols => "45", :class => 'asset-description'
     
-  -else
-    .proposal_asset    
-      - if asset_form.object.data.file?
-        %p
-          %label="Attachment #{attachment_count+=1}"
-          -if asset_form.object.data.content_type =~ /image/
-            =link_to image_tag(asset_form.object.data.url, :width => "100"), asset_form.object.data.url, :rel => "img_fb"
-          -else
-            =link_to asset_form.object.data.original_filename, asset_form.object.data.url
-      -else
-        %p
-          = asset_form.label :data, 'Upload file'
-          = asset_form.file_field :data
+        -else
+          .proposal_asset    
+            - if asset_form.object.data.file?
+              %p
+                %label="Attachment #{attachment_count+=1}"
+                -if asset_form.object.data.content_type =~ /image/
+                  =link_to image_tag(asset_form.object.data.url, :width => "100"), asset_form.object.data.url, :rel => "img_fb"
+                -else
+                  =link_to asset_form.object.data.original_filename, asset_form.object.data.url
+            -else
+              %p
+                = asset_form.label :data, 'Upload file'
+                = asset_form.file_field :data
     
-      %p
-        =asset_form.label :description
-        =asset_form.text_area :description, :rows => "3", :cols => "45"
+            %p
+              =asset_form.label :description
+              =asset_form.text_area :description, :rows => "3", :cols => "45"
     
-      %p.remove_asset
-        = link_to "Remove this!", asset_form.object, :method => 'delete', :class => 'delete', :confirm => "Are you sure you want to delete this attachment?"
+            %p.remove_asset
+              = link_to "Remove this!", asset_form.object, :method => 'delete', :class => 'delete', :confirm => "Are you sure you want to delete this attachment?"

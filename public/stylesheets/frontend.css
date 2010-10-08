@@ -13,7 +13,7 @@ body {
   font-size: 62.5%;
   text-align: center;
   background: #dddddd;
-  height: 100%; }
+  padding: 1px; }
 
 /* Colours
  *
@@ -230,7 +230,7 @@ a:hover {
         right: -18px;
         background: url(/images/button/right.png) no-repeat; }
 
-input[type=text], input[type=password], textarea, select {
+input[type=text], input[type=password], textarea {
   border: 1px solid #cccccc;
   padding: 0.2em 0.3em;
   background: white; }
@@ -730,22 +730,10 @@ span.cancel {
   margin-right: 0.5em; }
 
 input[type=submit] {
-  background: #b3d335;
-  color: white !important;
   cursor: pointer;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  padding: 0.3em 1em 0.5em 1em; }
-
-input[type=submit]:hover {
-  background: #32401a;
-  color: white;
-  cursor: pointer; }
-
-input[type=submit] {
   background: #b3d335 url("/images/ui/button_background.png") repeat-x right top;
-  padding: 5px 10px;
+  color: white;
+  padding: 0.3em 0.5em;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1633,6 +1621,20 @@ ul#notifications {
 .show_with_js {
   display: none; }
 
+#container #content #idea_users .contents {
+  border-bottom: 0; }
+#container #content #idea_users ul {
+  padding: 0;
+  margin: 0; }
+#container #content #idea_users li.idea_user {
+  margin: 0;
+  padding: 1em;
+  border-bottom: 1px solid #cccccc; }
+  #container #content #idea_users li.idea_user p {
+    margin: 0; }
+  #container #content #idea_users li.idea_user .idea_user_link {
+    display: block; }
+
 #briefs #content .brief_item .body img {
   max-width: 600px;
   border: 5px solid #eee;
@@ -1693,15 +1695,17 @@ ul#notifications {
         #content .main #options-menu ul.object-actions li a:hover {
           color: #111; }
 
-#options-menu input[type=submit] {
-  text-transform: lowercase;
-  background: transparent !important;
-  border: 0 !important;
-  padding: 0 !important;
-  color: #888 !important;
-  font-weight: bold; }
-  #options-menu input[type=submit]:hover {
-    color: #333 !important; }
+#options-menu {
+  text-transform: lowercase; }
+  #options-menu input[type=submit] {
+    text-transform: lowercase;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    color: #888 !important;
+    font-weight: bold; }
+    #options-menu input[type=submit]:hover {
+      color: #333 !important; }
 
 #container #content .main .comments {
   padding-top: 1em;
@@ -1859,3 +1863,35 @@ span.timestamp {
   color: #999;
   font-size: .85em;
   font-style: italic; }
+
+#proposals #content .edit_proposal textarea, #proposals #content .new_proposal textarea {
+  font-size: 1.2em; }
+#proposals #content .edit_proposal h2 input[type=text], #proposals #content .new_proposal h2 input[type=text] {
+  font-size: 1.5em;
+  padding: 3px 10px;
+  display: block;
+  width: 590px; }
+#proposals #content .edit_proposal .fields, #proposals #content .new_proposal .fields {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0; }
+#proposals #content .edit_proposal .field, #proposals #content .new_proposal .field {
+  padding: 0 20px; }
+#proposals #content #proposal_long_description {
+  display: block;
+  width: 590px;
+  padding: 10px; }
+#proposals #content #idea-attachments {
+  padding: 1em;
+  margin: 2em 20px;
+  background: #f8f8f8;
+  border: 1px solid #f1f1f1;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+  #proposals #content #idea-attachments label {
+    width: 7em; }
+  #proposals #content #idea-attachments .asset-description {
+    width: 30em;
+    font-size: 1em; }

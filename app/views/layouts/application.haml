@@ -8,15 +8,9 @@
     %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=EmulateIE7"}
 
     =stylesheet_link_tag %w(reset frontend textile facebox jquery.wysiwyg)
-    =javascript_include_tag %w(jquery jcorners facebox jquery.cookie jquery.wysiwyg SmartTextBox jshizzle)
-    =javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
-    
     /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
     /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
-    
     =stylesheet_link_tag %w(reset print), :media => "print"
-    =javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 
-
      
   %body{:id => body_ids, :class => body_classes}
     =render :partial => 'user_feedback/feedback_form'  
@@ -84,3 +78,6 @@
         })();
         
     /[if IE 6]<script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>
+    =javascript_include_tag %w(jquery jcorners facebox jquery.cookie jquery.wysiwyg SmartTextBox jshizzle)
+    =javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
+    =javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 

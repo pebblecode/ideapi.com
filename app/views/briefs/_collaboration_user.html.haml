@@ -1,7 +1,7 @@
 - if collaboration_user.present?
   %li.collaboration_user{:class => (current_object.author?(current_user) ? "is_author" : "")}
     -if defined? collaboration_form
-      = hidden_field_tag "user_brief_id_#{collaboration_form.object.id}", collaboration_form.object.id, :class => 'user_brief_id_helper'
+      =collaboration_form.hidden_field(:id)
     =small_avatar(collaboration_user)
     %p
       - if not collaboration_user.pending?
@@ -14,7 +14,7 @@
       -if current_object.author?(current_user) && !defined?(collaboration_form)
         %a.add_collaborator
           Add
-          = check_box_tag "brief[available_collaborators_attributes][user_ids][]", collaboration_user.id, false
+          = check_box_tag "brief[available_collaborators_attributes][user_ids][]", collaboration_user.id, false, :id => "brief_collaborator_id_#{collaboration_user.id}"
   
     -if defined?(collaboration_form)
       %ul.options
