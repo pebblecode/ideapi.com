@@ -24,17 +24,19 @@ config.action_controller.allow_forgery_protection    = false
 # config.action_mailer.delivery_method = :test
 
 # require "smtp-tls"
-ActionMailer::Base.smtp_settings = {
-  :tls => true,
-  :address => "smtp.gmail.com",
-  :port => "587",
-  :domain => "ideapi.net",
-  :authentication => :plain,
-  :user_name => "dev@ideapi.net",
-  :password => "createarevolution$"
-}
+#ActionMailer::Base.smtp_settings = {
+#  :tls => true,
+#  :address => "smtp.gmail.com",
+#  :port => "587",
+#  :domain => "ideapi.net",
+#  :authentication => :plain,
+#  :user_name => "dev@ideapi.net",
+#  :password => "createarevolution$"
+#}
 
-ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.delivery_method = :test
+
+
 
 # Use SQL instead of Active Record's schema dumper when creating the test database.
 # This is necessary if your schema can't be completely dumped by the schema dumper,

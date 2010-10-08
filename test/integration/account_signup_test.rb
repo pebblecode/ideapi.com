@@ -27,7 +27,7 @@ class AccountSignupTest < ActionController::IntegrationTest
           @user = User.plan
                     
           fill_in 'Company', :with => @account[:name]
-          fill_in 'Domain', :with => @account[:domain]
+          fill_in 'Web Address', :with => @account[:domain]
           fill_in 'First name', :with => @user[:first_name]
           fill_in 'Last name', :with => @user[:last_name]
           fill_in 'Screename', :with => @user[:screename]
@@ -112,8 +112,8 @@ class AccountSignupTest < ActionController::IntegrationTest
           click_button 'Login'
         end
 
-        should "take user to dashboard" do
-          assert_equal(dashboard_path, path)
+        should "take user to a thank you page" do
+          assert_equal(thanks_path, path)
         end
         
         # On the beta, we are not showing account link ..
@@ -150,7 +150,7 @@ class AccountSignupTest < ActionController::IntegrationTest
         end
         
         should "not have an account link" do
-          assert_select 'a[href=?]', account_path, :text => 'account', :count => 0
+          assert_select 'a[href=?]', account_path, :text => 'Account', :count => 0
         end
         
         context "attempting to access account page" do

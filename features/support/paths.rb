@@ -11,7 +11,7 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
-    when /the sign up page/ 
+    when /the sign\s?up page/ 
       plans_path      
     when /the dashboard/
       dashboard_path
