@@ -1,6 +1,41 @@
 # Installation 
 
-There are a number of pre-requisites to installing ideapi
+To install ideapi from scratch, go into the ideapi rails directory:
+
+    # Install gems
+    sudo gem install -v=2.3.8 rails
+    sudo gem install resque
+    sudo gem install haml
+    sudo rake gems:install
+    
+    # Install mysql if required: http://www.icoretech.org/2009/08/install-mysql-and-mysql-ruby-gem-on-snow-leopard-64-bit/
+    # May need to set the correct permissions for mysql to run properly
+    
+    # If using homebrew
+    brew update
+    brew install redis    # Follow post install instructions
+        
+    # Set up db
+    rake db:create    # Required if ideapi db hasn't been created yet
+    rake ideapi:bootstrap
+    
+    
+Add this to the /etc/apache2/extra/httpd-vhosts.conf file, replacing [ideapi directory] with the relevant value:
+    
+    <VirtualHost *:80>
+        <Directory [ideapi directory]>
+          Options +FollowSymlinks +SymLinksIfOwnerMatch 
+          Order allow,deny
+          allow from all
+          AllowOverride All
+        </Directory>
+        DocumentRoot [ideapi directory]/public
+        ServerName smackaho.st
+        ServerAlias *.smackaho.st
+        RailsEnv development
+    </VirtualHost>
+    
+## Resque    
 
 ideapi makes use of Resque http://github.com/defunkt/resque to queue background jobs. Resque relies on Redis. 
 The Resque README provides instructions on installing Redis.
