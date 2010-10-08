@@ -7,14 +7,16 @@
         =yield(:title)
       - else
         ="Welcome to ideapi"
-    %script{ :type => "text/javascript" }
-    =javascript_include_tag %w(jquery marketing)
+
     %meta{ :content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible" }
     %link{ :href => "/stylesheets/marketing.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
     /[if IE 6]
       %link{ :href => "/stylesheets/ie6.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
     /[if IE 7]
-      %link{ :href => "/stylesheets/ie7.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
+      %link{ :href => "/stylesheets/ie7.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }        
+        
+    %script{ :type => "text/javascript" }
+    =javascript_include_tag %w(jquery marketing)
 
   %body
     #container
