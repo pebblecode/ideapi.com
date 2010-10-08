@@ -4,11 +4,10 @@
 
 !link_colour        = #b3d335
 !link_hover_colour  = #32401a
-!link_pink          = #32401a
 !off_white          = #fcfcfc
 !link_header        = #eeeeee
 !link_purple        = #2b3087
-!text_color1        = #32401a
+!heading_color      = #32401a
 !body_bg            = #fff
 !bright_green       = #b3d335
 
@@ -65,13 +64,14 @@ body
 
 
 h1
-  font-size: 20px
+  font-size: 3em
   margin-bottom: 1em
+  color: !heading_color
 
 
 h2
-  font-size: 16px
-
+  font-size: 2.6667em
+  color: !heading_color
 
 a
   color: #4c4c4c
@@ -199,7 +199,16 @@ img
     li
       font-size: 1.3em
       line-height: 1.4em
-  
+      
+  #workflow
+    background: transparent url(/images/workflow.png) no-repeat 0 0
+    width: 807px
+    height: 150px
+    text-indent: -9999px
+    list-style: none
+    margin: 40px 0 0 -6px
+    padding-bottom: 50px
+    border-bottom: 1px solid #e7f0f7
 
 .section
   text-align: left
