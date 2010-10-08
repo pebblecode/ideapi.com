@@ -1,6 +1,11 @@
 class SubscriptionNotifier < ActionMailer::Base
   include ActionView::Helpers::NumberHelper
   
+  def ideapi_email(account_name, simple = false)
+    return "support@ideapi.com" if simple
+    "#{account_name} <support@ideapi.com>"
+  end
+  
   def setup_email(to, subject, from = AppConfig['from_email'])
     @sent_on = Time.now
     @subject = subject
@@ -10,7 +15,10 @@ class SubscriptionNotifier < ActionMailer::Base
   
   def welcome(account)
     setup_email(account.admin, "Welcome to #{AppConfig['app_name']}!")
+    @from = ideapi_email("ideapi")
     @body = { :account => account }
+    headers   "return-path" => 'no-reply@ideapi.com'
+    reply_to  "no-reply@ideapi.com"
   end
   
   def trial_expiring(user, subscription)

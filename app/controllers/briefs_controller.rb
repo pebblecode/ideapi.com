@@ -41,14 +41,14 @@ class BriefsController < ApplicationController
       #@merged_questions = (@unanswered_questions + @answered_questions).uniq 
 
       @tags = Tag.find_by_sql(["SELECT tags.*, COUNT(*) AS count FROM `tags` 
-                                LEFT OUTER JOIN taggings 
+                                INNER JOIN taggings 
                                 ON tags.id = taggings.tag_id 
                                 AND taggings.context = 'tags'
                                 AND taggings.taggable_id IN (?) 
                                 INNER JOIN briefs 
                                 ON briefs.id = taggings.taggable_id 
                                 AND briefs.state IN ('published', 'draft')
-                                GROUP BY tags.id, tags.name 
+                                GROUP BY tags.id, tags.name
                                 HAVING COUNT(*) > 0
                                 ORDER BY count DESC, tags.name ASC", @current_objects])
                       
@@ -56,7 +56,7 @@ class BriefsController < ApplicationController
       # This hooks into acts_as_taggable and returns
       # any projects tagged with the parameter
       if params[:t]
-        @current_objects = @current_objects.tagged_with(params[:t])
+        @current_objects = @current_objects.tagged_with(params[:t]).uniq
       end
     end
     
@@ -64,7 +64,7 @@ class BriefsController < ApplicationController
       add_breadcrumb truncate(current_object.title, :length => 30), object_path
       @brief_proposals = current_object.proposal_list_for_user(current_user).group_by(&:state)
       @user_question ||= current_object.questions.build(session[:previous_question])
-      session[:return_to] = request.request_uri
+      #session[:return_to] = request.request_uri
     end
     
     before(:new, :create) do
@@ -106,7 +106,7 @@ class BriefsController < ApplicationController
         flash[:notice] = "Brief was successfully edited"
       end
       
-      recipients = current_object.users.collect{ |user| user.email }.compact - [current_user.email]
+      recipients = current_object.users.collect{ |user| user.email unless user.pending? }.compact - [current_user.email]
       
       if @brief_items_changed.present? and recipients.present?
         NotificationMailer.deliver_brief_section_updated(current_object.id, recipients, current_user.id, @brief_items_changed.collect(&:id))

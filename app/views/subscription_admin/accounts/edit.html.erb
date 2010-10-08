@@ -36,7 +36,7 @@
       <% unless template.object.new_record? -%>
       <tr>
         <td><%= template.object.template_brief.title %></td>
-        <td><%= template.check_box '_delete' %></td>
+        <td><%= template.check_box '_destroy' %></td>
       </tr>
       <% end -%>
     <% end -%>

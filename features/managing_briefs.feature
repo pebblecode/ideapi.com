@@ -75,10 +75,8 @@ Feature: Managing briefs
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
         When I go to the dashboard 
         And I follow "Website brief"
-        And I follow "edit"
         And I press "Mark as completed"
         Then I should see "Brief has been saved and marked as complete."
-        And I should see "This brief has been marked as complete, and therefore is read-only."
 
     Scenario: Reactivating a completed brief
         Given I have briefs called Advert brief, Website brief, Photoshoot brief

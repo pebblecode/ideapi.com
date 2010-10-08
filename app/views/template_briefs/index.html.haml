@@ -6,11 +6,18 @@
       =link_to 'Create template', new_template_brief_path
 #dashboard.col_1
 
-  -if flash[:note].present?
-    .note
-      %h3 Welcome to the dashboard. 
-      
-      %p=flash[':note']
+  - # if flash[:note].present?
+  #templates_dashboard_note.note
+    :markdown
+      Briefs are created from templates.
+
+      The templates dashboard lists all of your custom brief templates. 
+      Your ideapi account has been created with a default template that contains 
+      some common brief sections (not shown on the templates dashboard).
+
+      To create your own templates click “create template”.
+
+        
       
   .brief_list
     %h2 

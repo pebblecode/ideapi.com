@@ -65,7 +65,6 @@ img {
       padding-bottom: 1px;
       margin-top: 65px;
       float: right;
-      width: 300px;
       z-index: 100;
       text-align: right; }
       #banner #header ul.navigation li {
@@ -291,7 +290,7 @@ span.left {
 #account-form, #account-links {
   display: none;
   position: absolute;
-  z-index: 3;
+  z-index: 30;
   top: 25px;
   right: 0;
   padding: 5px 10px 10px 10px;
@@ -342,3 +341,10 @@ span.left {
 
 #account_logout {
   display: block; }
+
+#promo-video {
+  z-index: 0;
+  position: block; }
+  #promo-video object {
+    position: block;
+    z-index: 0; }

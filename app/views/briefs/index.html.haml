@@ -5,13 +5,18 @@
       =link_to 'Create brief', new_brief_path
 
 #dashboard.col_1
-
-  -if flash[:note].present?
-    .note
-      %h3 Welcome to the dashboard. 
-      
-  - if flash[':note'].present?
-    %p=flash[':note']
+  #dashboard_introduction.note
+    - if current_user_can_create_briefs?
+      %p
+        From the dashboard you can access all your active briefs or filter briefs by tag. If you are an author or approver on any brief, your role will be visible here. 
+        = link_to "View role descriptions", help_path
+      %p
+        = link_to "Create your first brief", new_brief_path
+        using the default ideapi template, or start by #{link_to "creating your own template", new_template_brief_path}. Before you can collaborate on briefs, you’ll also need to #{ link_to "add some users to your account", users_path}.
+    - else
+      %p
+        From the dashboard you can access all your active briefs or filter briefs by tag. If you are an author or approver on any brief, your role will be visible here. 
+        = link_to 'View role descriptions', help_path
   -if @merged_questions.present?
     %ul#notifications
       -@merged_questions.each do |q|
@@ -67,14 +72,19 @@
             =link_to "all briefs", dashboard_path
           -@tags.each do |tag|
             %li
-              =link_to "#{tag.name}<span>#{tag.count}</span>", dashboard_path(:t => tag.name)
+              =link_to "<span>#{tag.count}</span>#{tag.name}", dashboard_path(:t => tag.name)
+  - else 
+    .side_box
+      %h2
+        Tags
+      .contents
+        %ul
+          %li Add tags to your briefs to allow them to be categorised.
 
   -if completed_briefs.present?
     .side_box
       %h2 
         Recently Completed
-        %span
-
       .contents  
         %ul.completed_briefs
           -completed_briefs.each do |brief|    

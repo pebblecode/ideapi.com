@@ -76,7 +76,7 @@ class Question < ActiveRecord::Base
   end
   
   def recipients
-    self.brief.authors.collect{ |user| user.email }.compact - [self.user.email]
+    self.brief.authors.collect{ |user| user.email unless user.pending? }.compact - [self.user.email]
   end
   
   def delete_timeline_events

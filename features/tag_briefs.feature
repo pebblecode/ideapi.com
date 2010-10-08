@@ -123,7 +123,6 @@ Feature: Allow users to tag briefs
         And I go to the dashboard
         Then I should see "tag1"
         And I follow "My brief"
-        And I follow "edit"
         And I press "Mark as completed"
         Then I should see "Brief has been saved and marked as complete."
         And I go to the dashboard

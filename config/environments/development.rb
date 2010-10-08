@@ -12,7 +12,7 @@ config.whiny_nils = true
 # Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = true
 config.action_view.debug_rjs                         = true
-config.action_controller.perform_caching             = false
+config.action_controller.perform_caching             = true
 config.action_controller.session = { :domain => ".smackaho.st" }
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
@@ -33,6 +33,7 @@ ActionMailer::Base.smtp_settings = {
   :password => "createarevolution$"
 }
 
+
 # config.gem 'bullet', :source => 'http://gemcutter.org'
 # config.after_initialize do
 #   Bullet.enable = true 
@@ -47,3 +48,5 @@ ActionMailer::Base.smtp_settings = {
 #   Bullet.rails_logger = true
 #   Bullet.disable_browser_cache = true
 # end
+
+# config.action_mailer.delivery_method = :sendmail

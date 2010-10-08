@@ -60,11 +60,13 @@ class Comment < ActiveRecord::Base
   end
   
   def brief_recipients
-    self.commentable.users.collect{ |user| user.email }.compact - [self.user.email]
+    self.commentable.users.collect{ |user| user.email unless user.pending? }.compact - [self.user.email]
   end
   
   def idea_recipients
-    self.commentable.brief.authors.collect{ |author| author.email }.push(self.commentable.brief.approver.email).compact.uniq - [self.user.email]
+    recipients = self.commentable.brief.authors.collect{ |author| author.email unless author.pending? }
+    recipients.push(self.commentable.brief.approver.email) unless self.commentable.brief.approver.pending?
+    return recipients.compact.uniq - [self.user.email]
   end
   
 end

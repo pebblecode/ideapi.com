@@ -6,7 +6,14 @@
   %h2 Create a new brief
   
   #write_new_brief.note
-    %p Choose your title carefully - this is how your brief will appear on the dashboards of other users.
+    :markdown
+      The title is how your brief will appear on the Dashboards of other users. 
+      One line brief is a punchy statement about your brief, 
+      maybe a strap line or just the most important thing that you want to say. 
+      Tags can be used to categorise your brief, e.g. Client names, Brief types, 
+      Departments, etc.
+      
+      Be careful to choose the right template. Once created, you can’t alter the structure of a brief.
   
   .boom_box
     = error_messages_for :brief

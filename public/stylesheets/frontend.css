@@ -407,7 +407,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
   #container #content .brief .title, #container #content .proposal .title, #container #content .brief_list .title {
     position: relative; }
   #container #content .brief div.actions, #container #content .proposal div.actions, #container #content .brief_list div.actions {
-    z-index: 300;
+    z-index: 100;
     position: absolute;
     top: 1em;
     right: 1em;
@@ -760,6 +760,8 @@ p.submit.left {
   float: left;
   margin: 0 1em 1em 0; }
 
+#facebox .content img {
+  max-width: 600px; }
 #facebox .content .fb {
   width: 60em; }
   #facebox .content .fb p.message {
@@ -927,6 +929,14 @@ ul.error_messages li p {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     text-shadow: 0 1px 1px white; }
+  #container #content .col_2 .side_box .always-visible-help {
+    border: 1px solid #cccccc;
+    background: #efefef; }
+    #container #content .col_2 .side_box .always-visible-help p {
+      margin: 0;
+      padding: 5px 10px;
+      font-size: 1em;
+      color: #555555; }
   #container #content .col_2 .side_box .contents {
     border: 1px solid #cccccc;
     border-top: 0;
@@ -1216,55 +1226,55 @@ ul.error_messages li p {
 #container #content .dashboard .invite_users {
   margin-top: 6.2em; }
 
-.feedback_form {
+#beta_feedback {
   background: white;
   background: #fefefe;
   min-width: 980px;
   width: 100%; }
-  .feedback_form .title {
+  #beta_feedback .title {
     background: #333333;
     padding: 1em; }
-    .feedback_form .title h2 {
+    #beta_feedback .title h2 {
       color: white;
       font-size: 1.4em;
       width: 65em;
       margin: 0 auto; }
-      .feedback_form .title h2 span {
+      #beta_feedback .title h2 span {
         padding-left: 1em;
         font-size: 0.8em;
         color: #aaaaaa; }
-        .feedback_form .title h2 span a {
+        #beta_feedback .title h2 span a {
           color: #eeeeee; }
-        .feedback_form .title h2 span a:hover {
-          color: #32401a; }
-  .feedback_form h3 {
+        #beta_feedback .title h2 span a:hover {
+          color: #b3d335; }
+  #beta_feedback h3 {
     border-bottom: 1px solid #cccccc;
     margin-bottom: 1em; }
-  .feedback_form .wrap {
+  #beta_feedback .wrap {
     width: 92em;
     margin: 0 auto; }
-  .feedback_form .user_input, .feedback_form .info {
+  #beta_feedback .user_input, #beta_feedback .info {
     padding: 1em 2em;
     background: #ffffdf;
     border: 1px solid #cccccc;
     height: 24em; }
-  .feedback_form .user_input {
+  #beta_feedback .user_input {
     float: left;
     margin: 2em 0 2em 2em;
     border-right: none; }
-    .feedback_form .user_input textarea {
+    #beta_feedback .user_input textarea {
       height: 10em; }
-    .feedback_form .user_input p.submit {
+    #beta_feedback .user_input p.submit {
       text-align: right; }
-  .feedback_form .info {
+  #beta_feedback .info {
     float: left;
     margin: 2em 2em 2em 0;
     border-left: none; }
-    .feedback_form .info p {
+    #beta_feedback .info p {
       font-size: 1.2em; }
-    .feedback_form .info ul {
+    #beta_feedback .info ul {
       padding: 0 3em 1em 3em; }
-      .feedback_form .info ul li {
+      #beta_feedback .info ul li {
         list-style: disc; }
 
 .second-column {
@@ -1616,6 +1626,12 @@ ul#notifications {
       transition-duration: 600ms; }
       #footer p a:hover {
         color: #333333; }
+
+#proposals #brief_reference img {
+  max-width: 100%; }
+
+.show_with_js {
+  display: none; }
 
 #briefs #content .brief_item .body img {
   max-width: 600px;

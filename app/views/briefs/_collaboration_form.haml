@@ -1,9 +1,9 @@
 - form_for(current_object, :url => brief_path(current_object), :html => { :method => :put }) do |brief_form|
   %ul.add_collaborators
-    -current_object.available_collaborators.each do |available_collaborator|
-      =render :partial => 'collaboration_user', :object => available_collaborator
+    - current_object.available_collaborators.each do |available_collaborator|
+      = render :partial => 'collaboration_user', :object => available_collaborator
     
   %ul.collaborators
-    - brief_form.fields_for :user_briefs do |collaboration_form|            
+    - brief_form.fields_for :user_briefs do |collaboration_form|
       =render :partial => 'collaboration_user', :object => collaboration_form.object.user, :locals => { :brief_form => brief_form, :collaboration_form => collaboration_form }
   =brief_form.submit 'Save Changes', :class => 'action'

@@ -1,3 +1,12 @@
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+
+# # Don't redirect the redirect
+# RewriteCond %{REQUEST_URI} !/maintenance.html$
+# # Allow access to the stylesheet
+# RewriteCond %{REQUEST_URI} !/stylesheets/frontend.css$
+# # Allow access to the site from your IP
+# RewriteCond %{REMOTE_HOST} !^78.86.163.223
+# RewriteRule $ /maintenance.html [R=302,L]

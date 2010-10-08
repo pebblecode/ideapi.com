@@ -18,14 +18,15 @@
       %p
         =f.label :password
         =f.password_field :password
-      %p
+      %p#remember-me
         =f.label :remember_me
         =f.check_box :remember_me
 
       %p.submit
         =submit_tag "Login"
       .clear
-    = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
+    %p#forgot-password
+      = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
     
     
 .footer

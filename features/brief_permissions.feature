@@ -7,7 +7,7 @@ Feature: Control access to briefs based on user roles
         Given there are free, basic and premium plans
         And a default ideapi template brief exists
         And I am logged in as an account admin
-
+        
     Scenario: Adding a new user to an account with no privileges
         When I go to the users page
         Then I should see "Add user to your account"

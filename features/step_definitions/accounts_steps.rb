@@ -16,7 +16,7 @@ Given /^I am logged in as an account admin$/ do
     @user = User.make(:password => "testing")
     @account = Account.make(:user => @user, :plan => SubscriptionPlan.make(:basic, :user_limit => @user_limit))
     Capybara.default_host = @account.full_domain
-    visit "http://" + @account.full_domain 
+    visit "http://" + @account.full_domain + ":9887"
     fill_in 'Email', :with => @user.email
     fill_in 'Password', :with => "testing"
     click_button 'Login'

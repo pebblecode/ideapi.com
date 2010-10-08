@@ -1,15 +1,13 @@
 - if collaboration_user.present?
   %li.collaboration_user{:class => (current_object.author?(current_user) ? "is_author" : "")}
+    -if defined? collaboration_form
+      = hidden_field_tag "user_brief_id_#{collaboration_form.object.id}", collaboration_form.object.id, :class => 'user_brief_id_helper'
     =small_avatar(collaboration_user)
     %p
       - if not collaboration_user.pending?
         =link_to truncate(given_name(collaboration_user), :lenght => 10), user_path(collaboration_user)
       - else
         =truncate(given_name(collaboration_user), :lenght => 10)
-      -# if current_object.role_for_user?(collaboration_user) != Brief::Roles::COLLABORATOR    
-      -#   %span.role 
-      -#     =precede("- ") do 
-      -#       =current_object.role?(collaboration_user).upcase
       %br
       %span
         = current_object.role?(collaboration_user).upcase
@@ -30,6 +28,6 @@
             %span Approver
 
         %li.remove
-          =collaboration_form.check_box '_delete', :class => 'remove'
+          =collaboration_form.check_box '_destroy', :class => 'remove'
           %span Remove
       .clear
