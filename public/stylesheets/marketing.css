@@ -1,7 +1,6 @@
 /* Colours
  * link-colour   = #2b3087 */
 /* Mixins */
-/* Mixins */
 body {
   background-color: white;
   text-align: justify;
@@ -30,20 +29,18 @@ img {
   border: none; }
 
 #container {
+  background: transparent url(/images/grid.png) repeat-y 0 0;
   padding: 0px;
-  margin: 0px;
-  width: 100%;
+  margin: 0 auto;
+  width: 959px;
   text-align: center;
   position: relative; }
 
 #banner {
-  background-color: white;
-  padding: 0px;
-  margin: auto;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
   height: 100px;
-  width: 920px;
-  border-bottom: 3px solid;
-  border-color: #b3d335;
   position: relative; }
   #banner #header {
     width: 920px;
@@ -111,12 +108,12 @@ img {
           background: #b3d335; }
 
 #middle-section {
-  background-color: white;
+  background-color: transparent;
   width: 100%;
   clear: both; }
 
 #content {
-  background-color: white;
+  background-color: transparent;
   margin-right: auto;
   margin-left: auto;
   text-align: left;
@@ -344,7 +341,8 @@ span.left {
 
 #promo-video {
   z-index: 0;
-  position: block; }
+  position: block;
+  background-color: black; }
   #promo-video object {
     position: block;
     z-index: 0; }
