@@ -24,7 +24,7 @@
         =render :partial => 'partials/account_menu'
         #header
           #logo
-            %a{:href => home_path, :alt => "home"}
+            %a{:href => home_path, :title => "home"}
               %img{ :src => "/images/logo-green.png", :alt => "ideapi Logo" }
           %ul.navigation
             %li=link_unless_current 'overview', home_path
@@ -46,10 +46,10 @@
             %p
               \&copy; 2010 Ideapi Limited 
               | 
-              %a{ :href => terms_path, :alt => "Terms of Service" }
+              %a{ :href => terms_path, :title => "Terms of Service" }
                 Terms of Service
               |
-              %a{ :href => privacy_path, :alt => "Privacy Policy" }
+              %a{ :href => privacy_path, :title => "Privacy Policy" }
                 Privacy Policy
               |
               %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
@@ -61,7 +61,7 @@
             %span.icon
               %a{ :href => "http://twitter.com/ideapi", :title => "follow us on twitter" }
                 %img{:src => "/images/twitter_icon.jpg", :alt => "twitter", :height => "24"}
-            %pan.icon
+            %span.icon
               %a{ :href => "http://www.facebook.com/pages/ideapi/351745410618", :title => "ideapi @ Facebook" }
                 %img{:src => "/images/facebook_icon.jpg", :alt => "facebook", :height => "24"}
             %span.icon
