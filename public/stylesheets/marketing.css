@@ -1,5 +1,6 @@
 /* Colours
  * link-colour   = #2b3087 */
+/* Banner */
 /* Mixins */
 body {
   background-color: white;
@@ -28,19 +29,28 @@ a {
 img {
   border: none; }
 
+#grid-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 5000;
+  background: transparent url(/images/grid.png) repeat-y center 0; }
+
 #container {
-  background: transparent url(/images/grid.png) repeat-y 0 0;
   padding: 0px;
   margin: 0 auto;
-  width: 959px;
+  width: 100%;
   text-align: center;
   position: relative; }
 
 #banner {
-  background-color: transparent;
+  background: #b3d335 url(/images/bg_clouds.png) repeat-x center 100%;
   padding: 0;
   margin: 0;
-  height: 100px;
+  height: 430px;
   position: relative; }
   #banner #header {
     width: 920px;

@@ -12,12 +12,16 @@
 !body_bg            = #fff
 !bright_green       = #b3d335
 
+
 !nav_default_bg  = #32401a
 !nav_default_txt = #fff
 !nav_current_bg  = #b3d335
 !nav_current_txt = #fff
 
 !text_color = #333
+
+/* Banner */
+!banner_height = 430px
 
 
 
@@ -78,21 +82,29 @@ a
 img
   border: none
 
+#grid-overlay
+  position: absolute
+  left: 0px
+  top: 0px
+  width: 100%
+  height: 100%
+  text-align: center
+  z-index: 5000
+  background: transparent url(/images/grid.png) repeat-y center 0
 
 #container
-  background: transparent url(/images/grid.png) repeat-y 0 0
   padding: 0px
   margin: 0 auto
-  width: 959px
+  width: 100%
   
   text-align: center
   position: relative
 
 #banner
-  background-color: transparent
+  background: !bright_green url(/images/bg_clouds.png) repeat-x center 100%
   padding: 0
   margin: 0
-  height: 100px
+  height: !banner_height
   position: relative
   
   #header
