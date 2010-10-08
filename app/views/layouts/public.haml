@@ -38,8 +38,7 @@
       #middle-section
         #content
           =yield
-          .spacer
-            \&nbsp;
+          
       #footer
         #footer-content
           #footer-content-left
@@ -54,19 +53,19 @@
               |
               %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
 
-        #footer-content-right
-          %p
-            %span.text
-              Follow us on: 
-            %span.icon
-              %a{ :href => "http://twitter.com/ideapi", :title => "follow us on twitter" }
-                %img{:src => "/images/twitter_icon.jpg", :alt => "twitter", :height => "24"}
-            %span.icon
-              %a{ :href => "http://www.facebook.com/pages/ideapi/351745410618", :title => "ideapi @ Facebook" }
-                %img{:src => "/images/facebook_icon.jpg", :alt => "facebook", :height => "24"}
-            %span.icon
-              %a{ :href => "http://blog.ideapi.com/rss", :title => "RSS" }
-                %img{:src => "/images/rss_icon.jpg", :alt => "rss", :height => "24" }
+          #footer-content-right
+            %p
+              %span.text
+                Follow us on: 
+              %span.icon
+                %a{ :href => "http://twitter.com/ideapi", :title => "follow us on twitter" }
+                  %img{:src => "/images/twitter_icon.jpg", :alt => "twitter", :height => "24"}
+              %span.icon
+                %a{ :href => "http://www.facebook.com/pages/ideapi/351745410618", :title => "ideapi @ Facebook" }
+                  %img{:src => "/images/facebook_icon.jpg", :alt => "facebook", :height => "24"}
+              %span.icon
+                %a{ :href => "http://blog.ideapi.com/rss", :title => "RSS" }
+                  %img{:src => "/images/rss_icon.jpg", :alt => "rss", :height => "24" }
 
     :javascript
       var _gaq = _gaq || [];

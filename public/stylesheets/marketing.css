@@ -15,12 +15,21 @@ body {
 
 h1 {
   font-size: 3em;
+  line-height: 1.2em;
   margin-bottom: 1em;
   color: #32401a; }
 
 h2 {
   font-size: 2.667em;
+  line-height: 1.2em;
   color: #32401a; }
+
+h3 {
+  font-size: 1.833em;
+  line-height: 1.2em;
+  color: #32401a;
+  font-weight: normal;
+  margin-bottom: 0; }
 
 a {
   color: #4c4c4c;
@@ -113,7 +122,6 @@ img {
   width: 920px;
   padding: 60px 82px 0; }
   #content p {
-    font-size: 1.3em;
     padding-right: 15px;
     color: #32401a;
     margin-top: 10px; }
@@ -132,9 +140,6 @@ img {
       text-align: center; }
       #content p.actions span {
         margin-right: 1em; }
-  #content ul li {
-    font-size: 1.3em;
-    line-height: 1.4em; }
   #content #workflow {
     background: transparent url(/images/workflow.png) no-repeat 0 0;
     width: 807px;
@@ -144,6 +149,17 @@ img {
     margin: 40px 0 0 -6px;
     padding-bottom: 50px;
     border-bottom: 1px solid #e7f0f7; }
+  #content #testimonials {
+    list-style: none;
+    overflow: auto;
+    margin: 0;
+    padding: 0; }
+    #content #testimonials li {
+      width: 248px;
+      float: left;
+      margin-right: 26px; }
+    #content #testimonials .body p {
+      color: #676767; }
 
 .section {
   text-align: left;
@@ -173,9 +189,9 @@ img {
   padding: 0;
   margin: 0px;
   color: black;
-  width: 920px;
-  margin: auto;
-  border-top: 3px solid #b3d335; }
+  width: 959px;
+  margin: 60px auto 0;
+  overflow: auto; }
   #footer .twitter-button {
     border-radius: 6px;
     -moz-border-radius: 6px;
@@ -198,6 +214,9 @@ img {
     color: black; }
     #footer a:hover {
       text-decoration: underline; }
+  #footer #footer-content {
+    border-top: 1px solid #e7f0f7;
+    margin: 0 82px; }
   #footer #footer-content-left {
     text-align: left;
     padding: 10px 0;
@@ -218,10 +237,6 @@ img {
     #footer #footer-content-right span.text {
       display: block;
       float: left; }
-  #footer #footer-content {
-    margin-right: auto;
-    margin-left: auto;
-    width: 920px; }
 
 .spacer {
   height: 20px; }
