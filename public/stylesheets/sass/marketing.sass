@@ -12,10 +12,11 @@
 !body_bg            = #fff
 !bright_green       = #b3d335
 
-!nav_default_bg  = #32401a
+!nav_default_bg  = transparent
 !nav_default_txt = #fff
 !nav_current_bg  = #7e9d3a
 !nav_current_txt = #fff
+!nav_special_txt  = #ffcc00
 
 !text_color = #333
 
@@ -55,7 +56,7 @@ body
   margin: 0px
   line-height: 20px
   font-size: 12px
-  font-family: "Lucida Grande", Verdana, Arial, sans-serif
+  font-family: Helvetica, Arial, Trebuchet MS, sans-serif
 
 
 h1
@@ -102,56 +103,53 @@ img
   position: relative
   
   #header
-    width: 920px
+    width: 959px
     margin-right: auto
     margin-left: auto
     :position relative
     
     #logo
-      padding-left: 10px
-      padding-bottom: 15px
-      padding-right: 15px
-      padding-top: 15px
-      margin-top: 15px
-      float: left
-      color: white
+      position: absolute
+      top: 20px
+      left: 82px
+      width: 148px
+      height: 65px
       text-align: left
-      width: 470px
         
     ul.navigation
-      :padding-top 12px
-      :padding-bottom 1px
-      :margin-top 65px
-      :float right
-      :z-index 100
-      :text-align right
+      position: absolute
+      right: 66px
+      margin: 36px 0 0 0
+      z-index: 100
+      
       li
         :display inline
         :padding 0
         :margin 0
-
-        span
-          +rounded-top-3px
-
+        
+        &.free-trial
+          a, a:hover, a:focus, a:active, span, span.current
+            color: !nav_special_txt
+          
         a, span
-          :color = !nav_default_txt
-          :font-weight normal
-          :font-size 1.2em
-          :padding 5px 0.8em 5px 0.8em
-          +rounded-top-3px
-          :background = !nav_default_bg
+          color: !nav_default_txt
+          font-weight: bold
+          font-size: 1.3333em
+          line-height: 1.3333em
+          padding: 8px 0.8em 5px 0.8em
+          @include border_radius(15px)
+          background: !nav_default_bg
+          text-transform: capitalize
 
           
         a:hover, span.current
-          :text-decoration none
-          +rounded-top-3px
-          :background = !nav_current_bg
-          :color = !nav_current_txt
+          text-decoration: none
+          background: !nav_current_bg
+          color: !nav_current_txt
           
         a:focus, a:active
-          +rounded-top-3px
-          :top 1px
-          :background #b3d335
+          top: 1px
+          background: #b3d335
 
      
 
