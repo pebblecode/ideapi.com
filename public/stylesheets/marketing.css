@@ -105,7 +105,7 @@ img {
           -webkit-border-top-right-radius: 3px;
           border-top-left-radius: 3px;
           border-top-right-radius: 3px;
-          background: #b3d335;
+          background: #7e9d3a;
           color: white; }
         #banner #header ul.navigation li a:focus, #banner #header ul.navigation li a:active {
           -moz-border-radius-topleft: 3px;
@@ -176,9 +176,9 @@ img {
     width: 700px;
     border: 5px solid #eeeeee;
     padding: 3px;
+    border-radius: 3px;
     -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px; }
+    -webkit-border-radius: 3px; }
 
 #footer {
   padding: 0;
@@ -188,9 +188,9 @@ img {
   margin: auto;
   border-top: 3px solid #b3d335; }
   #footer .twitter-button {
+    border-radius: 6px;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
-    border-radius: 6px;
     padding: 10px 40px;
     text-align: center;
     background-color: #d9d9d9;
@@ -246,9 +246,7 @@ img {
   background: #b3d335;
   color: white;
   cursor: pointer;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
+@border_radius(6px);
   padding: 0.5em 1em 0.5em 1em;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal; }
@@ -301,9 +299,9 @@ span.left {
   top: 25px;
   right: 0;
   padding: 5px 10px 10px 10px;
+  border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  border-radius: 3px;
   text-align: left;
   border: 1px solid #cccccc;
   background: #defba4;
@@ -330,9 +328,9 @@ span.left {
     margin-top: 10px;
     padding: auto 10px;
     background: url("/images/ui/button_background.png") repeat-x;
+    border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    border-radius: 3px;
     border: 1px solid #688924;
     height: 35px;
     color: #eeeeee; }

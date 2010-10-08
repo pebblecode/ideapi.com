@@ -12,10 +12,9 @@
 !body_bg            = #fff
 !bright_green       = #b3d335
 
-
 !nav_default_bg  = #32401a
 !nav_default_txt = #fff
-!nav_current_bg  = #b3d335
+!nav_current_bg  = #7e9d3a
 !nav_current_txt = #fff
 
 !text_color = #333
@@ -26,6 +25,11 @@
 
 
 /* Mixins */ 
+
+@mixin border_radius($size)
+  border-radius: $size
+  -moz-border-radius: $size
+  -webkit-border-radius: $size
 
 =rounded-top-3px
   :-moz-border-radius-topleft 3px
@@ -42,16 +46,6 @@
   :-webkit-border-top-left-radius 6px
   :border-top-left-radius 6px
   :border-top-right-radius 6px
-  
-=rounded-all-6px
-  :-moz-border-radius 6px
-  :-webkit-border-radius 6px
-  :border-radius 6px
-  
-=rounded-all-3px
-  :-moz-border-radius 3px
-  :-webkit-border-radius 3px
-  :border-radius 3px
 
 body
   background-color: !body_bg
@@ -226,7 +220,7 @@ img
     width: 700px
     border: 5px solid #eee
     padding: 3px
-    +rounded-all-3px
+    @include border_radius(3px)
 
 #footer
   padding: 0
@@ -236,7 +230,7 @@ img
   :margin auto
   :border-top = 3px "solid" !bright_green
   .twitter-button
-    +rounded-all-6px
+    @include border_radius(6px)
     :padding 10px 40px
     :text-align center
     :background-color #d9d9d9
@@ -302,7 +296,7 @@ img
   :background #b3d335
   :color #fff
   :cursor pointer
-  +rounded-all-6px
+  @border_radius(6px)
   :padding 0.5em 1em 0.5em 1em
   :font-family Helvetica, Arial, sans-serif
   :font-weight normal
@@ -355,7 +349,7 @@ span.left
   top: 25px
   right: 0
   padding: 5px 10px 10px 10px
-  +rounded-all-3px
+  @include border_radius(3px)
   text-align: left
   border: 1px solid #ccc
   background: #defba4
@@ -382,7 +376,7 @@ span.left
     margin-top: 10px
     padding: auto 10px
     background: url('/images/ui/button_background.png') repeat-x
-    +rounded-all-3px
+    @include border_radius(3px)
     border: 1px solid #688924
     height: 35px
     color: #eee
