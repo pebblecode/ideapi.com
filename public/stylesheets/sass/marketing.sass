@@ -30,6 +30,7 @@
 !z_index_lvl_0 = 0
 !z_index_lvl_1 = 100
 !z_index_lvl_2 = 200
+!z_index_lvl_3 = 300
 
 /* Mixins */ 
 
@@ -202,7 +203,6 @@ img
 
 
 #middle-section
-  z-index: !z_index_lvl_1
   position: relative
   background-color: transparent
   width: !container_width
@@ -393,7 +393,7 @@ span.left
   padding: 0 18px 5px 20px
   @include bottom_left_border_radius(15px)
   @include bottom_right_border_radius(3px)
-  z-index: !z_index_lvl_1
+  z-index: !z_index_lvl_3
   
   &.logged-in
     ol, ul
@@ -416,20 +416,17 @@ span.left
   #account-contents
     display: none
     clear: both
-    float: left
     border: none
-    padding: 10px 0 0 0
+    padding: 10px 0 10px 0
+    margin: 0
     text-align: right
           
     font-size: 0.9em
         
     legend
       display: none
-      
-    form
-      float: left
+
     ol, ul
-      float: left
       list-style: none
       margin: 0
       padding: 0
@@ -448,7 +445,15 @@ span.left
         &.logout-link
           border-top: 1px solid #666
           margin-top: 5px
-        
+          
+    .submit
+      background: url("/images/ui/button_background.png") repeat-x scroll 0 0 transparent
+      border: 1px solid #688924
+      color: #EEEEEE
+      height: 25px
+      line-height: 1em
+      margin-top: 10px
+      padding-bottom: 2px  
 
   
 #promo-video

@@ -120,7 +120,6 @@ img {
           background: #b3d335; }
 
 #middle-section {
-  z-index: 100;
   position: relative;
   background-color: transparent;
   width: 959px;
@@ -301,7 +300,7 @@ span.left {
   -moz-border-radius-bottomright: 3px;
   -webkit-border-bottom-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  z-index: 100; }
+  z-index: 300; }
   #account-menu.logged-in ol, #account-menu.logged-in ul {
     list-style: none;
     padding: 0; }
@@ -318,17 +317,14 @@ span.left {
   #account-menu #account-contents {
     display: none;
     clear: both;
-    float: left;
     border: none;
-    padding: 10px 0 0 0;
+    padding: 10px 0 10px 0;
+    margin: 0;
     text-align: right;
     font-size: 0.9em; }
     #account-menu #account-contents legend {
       display: none; }
-    #account-menu #account-contents form {
-      float: left; }
     #account-menu #account-contents ol, #account-menu #account-contents ul {
-      float: left;
       list-style: none;
       margin: 0;
       padding: 0; }
@@ -342,6 +338,14 @@ span.left {
       #account-menu #account-contents ol li.logout-link, #account-menu #account-contents ul li.logout-link {
         border-top: 1px solid #666666;
         margin-top: 5px; }
+    #account-menu #account-contents .submit {
+      background: url("/images/ui/button_background.png") repeat-x scroll 0 0 transparent;
+      border: 1px solid #688924;
+      color: #eeeeee;
+      height: 25px;
+      line-height: 1em;
+      margin-top: 10px;
+      padding-bottom: 2px; }
 
 #promo-video {
   z-index: 0;

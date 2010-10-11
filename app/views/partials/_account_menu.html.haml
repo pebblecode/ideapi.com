@@ -1,5 +1,7 @@
-- unless @user.present?
+- unless @user.present?  
   #account-menu.logged-out
+    %a#account-button{:href => "/login"} Login
+    
     %fieldset#account-contents
       %legend Log in     
       - form_for UserSession.new, :url => "/login", :html => {:class => "infield-labels"} do |f|
@@ -11,8 +13,6 @@
             =f.label :password
             =f.password_field :password, :autocomplete => "off"
         =f.submit "Log in", :class => "submit"
-    
-    %a#account-button{:href => "/login"} Login
     
 - else
   #account-menu.logged-in 
