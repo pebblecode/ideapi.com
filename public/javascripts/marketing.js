@@ -24,7 +24,7 @@ $(document).ready(function(){
         $(account_form).hide();
       } else { // Account is hidden
         $(this).parent().addClass("active");
-        $(this).text("Close");
+        $(this).text("Close (X)");
         $(account_form).show();
       }      
       
