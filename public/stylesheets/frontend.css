@@ -12,8 +12,7 @@
 body {
   font-size: 62.5%;
   text-align: center;
-  background: #dddddd;
-  height: 100%; }
+  background: #dddddd; }
 
 /* Colours
  *
@@ -230,7 +229,7 @@ a:hover {
         right: -18px;
         background: url(/images/button/right.png) no-repeat; }
 
-input[type=text], input[type=password], textarea, select {
+input[type=text], input[type=password], textarea {
   border: 1px solid #cccccc;
   padding: 0.2em 0.3em;
   background: white; }
@@ -601,24 +600,6 @@ span.field_with_errors input, span.field_with_errors input:focus {
   padding: 1em 2em;
   border-right: 1px solid #cccccc;
   border-left: 1px solid #cccccc; }
-#container .edit_proposal .proposal_asset {
-  border-bottom: 1px solid #cccccc;
-  margin: 1em 0 2em 0;
-  position: relative; }
-  #container .edit_proposal .proposal_asset .remove_asset {
-    position: absolute;
-    top: 0;
-    right: 1em; }
-    #container .edit_proposal .proposal_asset .remove_asset a.delete {
-      text-indent: -9999px;
-      display: block;
-      height: 17px;
-      width: 15px;
-      background: url("/images/trash.png") no-repeat 0 0; }
-      #container .edit_proposal .proposal_asset .remove_asset a.delete:hover {
-        background-position: 0 -17px; }
-#container .edit_proposal p textarea {
-  width: 35em; }
 #container .avatar {
   border: 6px solid #dddddd; }
 #container .creative, #container .author {
@@ -730,22 +711,10 @@ span.cancel {
   margin-right: 0.5em; }
 
 input[type=submit] {
-  background: #b3d335;
-  color: white !important;
   cursor: pointer;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  padding: 0.3em 1em 0.5em 1em; }
-
-input[type=submit]:hover {
-  background: #32401a;
-  color: white;
-  cursor: pointer; }
-
-input[type=submit] {
   background: #b3d335 url("/images/ui/button_background.png") repeat-x right top;
-  padding: 5px 10px;
+  color: white;
+  padding: 0.3em 0.5em;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1633,6 +1602,23 @@ ul#notifications {
 .show_with_js {
   display: none; }
 
+#container #content #idea_users .contents {
+  border-bottom: 0; }
+#container #content #idea_users ul {
+  padding: 0;
+  margin: 0; }
+#container #content #idea_users li.idea_user {
+  margin: 0;
+  padding: 1em;
+  border-bottom: 1px solid #cccccc; }
+  #container #content #idea_users li.idea_user p {
+    margin: 0; }
+  #container #content #idea_users li.idea_user .idea_user_link {
+    display: block; }
+
+.block {
+  display: block; }
+
 #briefs #content .brief_item .body img {
   max-width: 600px;
   border: 5px solid #eee;
@@ -1647,7 +1633,7 @@ ul#notifications {
     All rights reserved. 
     Licensed under a Creative Commons Attribution 3.0 license.  */
 #content .main .title .actions a.show-options-menu {
-  display: block;
+  display: none;
   /* For more great 16x16 pixel icons, visit http://p.yusukekamiyamane.com/ */
   background: url("/images/ui/gear.png") no-repeat 0 0;
   text-indent: -9999px;
@@ -1693,15 +1679,17 @@ ul#notifications {
         #content .main #options-menu ul.object-actions li a:hover {
           color: #111; }
 
-#options-menu input[type=submit] {
-  text-transform: lowercase;
-  background: transparent !important;
-  border: 0 !important;
-  padding: 0 !important;
-  color: #888 !important;
-  font-weight: bold; }
-  #options-menu input[type=submit]:hover {
-    color: #333 !important; }
+#options-menu {
+  text-transform: lowercase; }
+  #options-menu input[type=submit] {
+    text-transform: lowercase;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    color: #888 !important;
+    font-weight: bold; }
+    #options-menu input[type=submit]:hover {
+      color: #333 !important; }
 
 #container #content .main .comments {
   padding-top: 1em;
@@ -1859,3 +1847,90 @@ span.timestamp {
   color: #999;
   font-size: .85em;
   font-style: italic; }
+
+#proposals #content .edit_proposal textarea, #proposals #content .new_proposal textarea {
+  font-size: 1.2em; }
+#proposals #content .edit_proposal h2 input[type=text], #proposals #content .new_proposal h2 input[type=text] {
+  font-size: 1.5em;
+  padding: 3px 10px;
+  display: block;
+  width: 590px; }
+#proposals #content .edit_proposal .fields, #proposals #content .new_proposal .fields {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0; }
+#proposals #content .edit_proposal .field, #proposals #content .new_proposal .field {
+  padding: 0 20px; }
+#proposals #content #proposal_long_description {
+  display: block;
+  width: 590px;
+  padding: 10px; }
+#proposals #content #idea-attachments {
+  padding: 0;
+  margin: 2em 20px; }
+  #proposals #content #idea-attachments label {
+    width: 80px;
+    margin: 0;
+    text-align: right;
+    padding-right: 1em; }
+  #proposals #content #idea-attachments .asset-description {
+    width: 470px;
+    font-size: 1em; }
+  #proposals #content #idea-attachments p.submit {
+    text-align: right; }
+#proposals #content p.submit {
+  margin-right: 20px; }
+#proposals #content .proposal_asset {
+  margin: 0;
+  padding: 10px;
+  position: relative;
+  font-size: 0.9em;
+  border: 1px solid #fff; }
+  #proposals #content .proposal_asset a.delete {
+    text-indent: -9999px;
+    display: none; }
+  #proposals #content .proposal_asset .asset-file {
+    text-align: left; }
+    #proposals #content .proposal_asset .asset-file span {
+      margin-left: 0;
+      text-align: left;
+      width: 480px; }
+  #proposals #content .proposal_asset p {
+    margin: 0 0 0.5em 0;
+    clear: both; }
+  #proposals #content .proposal_asset p.asset-desc {
+    margin-bottom: 0.7em; }
+  #proposals #content .proposal_asset .update-proposal-assets input {
+    margin: 0;
+    padding: 0px 4px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px; }
+  #proposals #content .proposal_asset a.js-toggle-edit {
+    text-indent: -9999px;
+    float: left;
+    margin-right: 4px;
+    background: url("/images/ui/tag-pencil.png") no-repeat;
+    width: 16px;
+    height: 16px; }
+  #proposals #content .proposal_asset .description-textarea input[type=text] {
+    padding: 1px 5px;
+    width: 30em; }
+#proposals #content .proposal_asset.hovered {
+  background: #fafafa;
+  border: 1px solid #f1f1f1; }
+  #proposals #content .proposal_asset.hovered .remove_asset {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #efefef; }
+    #proposals #content .proposal_asset.hovered .remove_asset a.delete {
+      text-indent: -9999px;
+      display: block;
+      height: 16px;
+      width: 16px;
+      background: url("/images/ui/cross-button.png") no-repeat 0 0; }
+#proposals #content .new.hovered {
+  background: #eff6ce;
+  border: 1px solid #D3DAB8; }

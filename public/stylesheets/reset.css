@@ -11,8 +11,7 @@ html, body, div, span, applet, object, iframe {
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
-  border: 0;
-  outline: none; }
+  border: 0; }
 
 h1 {
   margin: 0;
@@ -749,11 +748,10 @@ table {
   table th {
     font-weight: bold; }
 
-caption, tbody, tfoot, thead, tr, th, td, *, .x {
+caption, tbody, tfoot, thead, tr, th, td, .x, * {
   margin: 0;
   padding: 0;
   color: #333333;
-  background: transparent;
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 101%;
   font-weight: normal;
@@ -762,11 +760,11 @@ caption, tbody, tfoot, thead, tr, th, td, *, .x {
   text-decoration: none;
   text-align: left;
   vertical-align: baseline;
-  border: 0;
-  outline: none; }
+  border: 0; }
 
-*:focus {
-  outline: none; }
+* {
+  margin: 0;
+  padding: 0; }
 
 hr {
   display: block;

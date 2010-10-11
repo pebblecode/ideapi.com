@@ -1,0 +1,11 @@
+%li.idea_user
+  %p
+    %a{:href => user_path(idea_user), :class => 'idea_user_link'}
+      = small_avatar(idea_user)
+      = truncate(given_name(idea_user), :lenght => 10)
+      %br
+      %span
+        - if current_object.user == idea_user
+          IDEA OWNER
+        - else 
+          = current_object.brief.role?(idea_user).upcase 

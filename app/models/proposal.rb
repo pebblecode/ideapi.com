@@ -16,6 +16,12 @@ class Proposal < ActiveRecord::Base
   
   acts_as_commentable
   
+  
+  def users
+    return [self.user] if self.draft?
+    [self.user, self.approver, self.brief.authors].flatten.uniq
+  end
+  
   include Ideapi::Schizo
   
   state :draft, :default => true do

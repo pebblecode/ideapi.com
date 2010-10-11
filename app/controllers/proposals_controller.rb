@@ -5,6 +5,9 @@ class ProposalsController < ApplicationController
   before_filter :require_user
   before_filter :require_active_brief, :except => [:show]
   
+  before_filter :require_owner_if_draft, :only => :show
+  before_filter :require_owner, :only => :edit
+  
   add_breadcrumb 'dashboard', "/dashboard"
   
   make_resourceful do
@@ -19,9 +22,14 @@ class ProposalsController < ApplicationController
     before :new, :edit do 
       current_object.assets.build
     end
-    
-    before :edit, :show, :update do
-      add_breadcrumb current_object.title, object_path
+    before :edit do
+      add_breadcrumb "edit idea"
+    end
+    before :new do
+      add_breadcrumb "draft new idea"
+    end
+    before :show, :update do
+      add_breadcrumb current_object.title
     end
     
     before :create do
@@ -62,4 +70,19 @@ class ProposalsController < ApplicationController
     parent_object
   end
 
+
+
+  def require_owner_if_draft
+    if current_object.draft? and not current_object.user == current_user
+      flash[:notice] = "You must be the owner of the idea while it's still a draft."
+      redirect_to brief_path(current_object.brief)
+    end
+  end
+  
+  def require_owner
+    unless current_object.user == current_user
+      flash[:notice] = "Access error: you can only edit proposals you own."
+      redirect_to brief_path(current_object.brief)
+    end
+  end
 end

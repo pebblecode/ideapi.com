@@ -3,8 +3,6 @@
 
 .col_1
   
-  %h2 Draft an idea
-  
   #write_new_proposal.note
     :markdown
       You can add formatting to your idea, including: 
@@ -17,15 +15,14 @@
       Once published, the brief approvers will be informed that 
       it is ready for review.
   
-  .boom_box
-    = error_messages_for :proposal
+  = error_messages_for :proposal
 
-    - form_for(current_object, :url => objects_url, :html => { :multipart => true }) do |f|
-      = render :partial => "form", :locals => {:f => f}
-        
-      %p.submit
-        = submit_tag "Save draft"
-      .clear
+  - form_for(current_object, :url => objects_url, :html => { :multipart => true }) do |f|
+    = render :partial => "form", :locals => {:f => f}
+      
+    %p.submit
+      = submit_tag "Save draft"
+    .clear
         
 .col_2
   =render :partial => 'brief_reference'

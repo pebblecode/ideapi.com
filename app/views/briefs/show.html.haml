@@ -31,10 +31,10 @@
           = link_to "Show options", "#", :class => "show-options-menu selected"
     = render :partial => 'brief_options_menu', :locals => {:object => current_object}
     #brief-tags
-      - form_for(current_object, :html => { :method => :put }) do |brief_form|
+      - form_for(current_object, :html => { :method => :put, :id => 'inline_brief_tags_form' }) do |brief_form|
         = brief_form.label :tag_field, "Tags:"
         = brief_form.text_field :tag_field, :value => current_object.tags_from(current_account)
-        = brief_form.submit "save tags", :class => "inline-submit"
+        = brief_form.submit "save tags", :class => "inline-submit", :id => 'inline_brief_tags_submit'
     .most_important_thing
       %p
         %span.left &ldquo;

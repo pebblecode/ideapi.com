@@ -2,22 +2,17 @@
   =breadcrumb_list
 
 .col_1
-  %h2 Edit your idea
-  
   = error_messages_for :proposal
 
   - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
-    .boom_box
-      = render :partial => "form", :locals => {:f => f}
+    = render :partial => "form", :locals => {:f => f, :cf => current_object.assets}
       
     %p.submit
-      = submit_tag "Save draft"
-      
-    %p.submit
-      = submit_tag "Preview"
-      .clear
+      = link_to 'Cancel', :back
+      or 
+      = submit_tag "Save"
       
 .col_2    
   =render :partial => 'brief_reference'
   =render :partial => 'partials/textile_help'
-  
+  = render :partial => 'proposals/idea_users'
