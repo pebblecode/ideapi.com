@@ -291,86 +291,20 @@ span.left {
 
 #account-menu {
   position: absolute;
-  top: 20px;
-  right: 0px;
-  font-size: 0.9em; }
-
-#account-button {
-  display: block;
-  float: right;
-  margin-left: 10px;
-  background: url("/images/ui/accountbutton_bg.png") no-repeat 0 0;
-  height: 23px;
-  padding: 0 10px;
-  color: #333333;
-  margin-right: 24px; }
-  #account-button .end {
-    width: 25px;
-    height: 23px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-left: 5px;
-    background: url("/images/ui/accountbutton_bg.png") no-repeat top right; }
-  #account-button.active {
-    background: url("/images/ui/accountbutton_bg.png") no-repeat bottom left; }
-    #account-button.active .end {
-      background: url("/images/ui/accountbutton_bg.png") no-repeat bottom right; }
-
-#account-form, #account-links {
-  display: none;
-  position: absolute;
-  z-index: 30;
-  top: 25px;
-  right: 0;
-  padding: 5px 10px 10px 10px;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  text-align: left;
-  border: 1px solid #cccccc;
-  background: #defba4;
-  width: 200px; }
-  #account-form h2, #account-links h2 {
-    font-size: 1.2em; }
-  #account-form label, #account-links label {
-    display: none; }
-  #account-form #user_session_email, #account-form #user_session_password, #account-links #user_session_email, #account-links #user_session_password {
-    background-color: white;
-    margin: 6px 0;
-    padding: 0 3px;
-    border: 1px solid #cccccc;
-    width: 190px;
-    height: 26px;
-    font-size: 1.2em;
-    color: #777777;
-    -webkit-box-shadow: 0px 0px 1px #aaaaaa; }
-  #account-form #user_session_email.empty, #account-links #user_session_email.empty {
-    background: white url("/images/ui/account-form-labels.png") no-repeat top left; }
-  #account-form #user_session_password.empty, #account-links #user_session_password.empty {
-    background: white url("/images/ui/account-form-labels.png") no-repeat bottom left; }
-  #account-form input.submit, #account-links input.submit {
-    margin-top: 10px;
-    padding: auto 10px;
-    background: url("/images/ui/button_background.png") repeat-x;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border: 1px solid #688924;
-    height: 35px;
-    color: #eeeeee; }
-    #account-form input.submit:active, #account-links input.submit:active {
-      background-position: bottom left; }
-
-#account-links {
-  background-color: #eeeeee;
-  text-align: right;
-  width: 150px; }
-  #account-links a {
-    display: block; }
-
-#account_logout {
-  display: block; }
+  top: 0;
+  right: 79px;
+  width: 500px; }
+  #account-menu fieldset {
+    border: none; }
+    #account-menu fieldset legend {
+      font-weight: bold;
+      float: left; }
+    #account-menu fieldset ol, #account-menu fieldset ul {
+      list-style: none; }
+      #account-menu fieldset ol li, #account-menu fieldset ul li {
+        float: left; }
+        #account-menu fieldset ol li input, #account-menu fieldset ul li input {
+          width: 100px; }
 
 #promo-video {
   z-index: 0;
@@ -382,3 +316,10 @@ span.left {
   #promo-video object {
     position: block;
     z-index: 0; }
+
+.infield-labels li {
+  position: relative; }
+.infield-labels label {
+  position: absolute;
+  top: 0;
+  left: 0; }

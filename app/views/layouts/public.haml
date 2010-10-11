@@ -16,16 +16,16 @@
       %link{ :href => "/stylesheets/ie7.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }        
         
     %script{ :type => "text/javascript" }
-    =javascript_include_tag %w(jquery marketing)
+    =javascript_include_tag %w(jquery jquery.infieldlabel.min marketing)
 
   %body
     #container
-      #banner
-        =render :partial => 'partials/account_menu'
+      #banner      
         #header
           #logo
             %a{:href => home_path, :title => "home"}
               %img{ :src => "/images/logo-green.png", :alt => "ideapi Logo" }
+          =render :partial => 'partials/account_menu'    
           %ul.navigation
             %li=link_unless_current 'overview', home_path
             %li=link_unless_current 'tour', tour_path

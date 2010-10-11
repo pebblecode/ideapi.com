@@ -1,20 +1,17 @@
 #account-menu
-
-  - unless @user.present?
-    %a#account-button.logged-out{:href => "/login"}
-      Log in
-      %span.end
-    #account-dropdown
-      #account-form
-        %h2 Log in to ideapi
-        - form_for UserSession.new, :url => "/login" do |f|
-          .email
+  - unless @user.present?    
+    %fieldset#account-form
+      %legend Log in          
+      - form_for UserSession.new, :url => "/login", :html => {:class => "infield-labels"} do |f|
+        %ol
+          %li.email
             =f.label :email
             =f.text_field :email
-          .password
+          %li.password
             =f.label :password
             =f.password_field :password
-          =f.submit "Log me in", :class => "submit"
+        =f.submit "Log me in", :class => "submit"
+        
   - else 
     %a#account-button.logged-in{:href => "/login"}
       = @user.screename

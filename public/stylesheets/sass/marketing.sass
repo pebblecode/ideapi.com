@@ -371,81 +371,26 @@ span.left
   
 
 // ACCOUNT MENU
-
 #account-menu
   position: absolute
-  top: 20px
-  right: 0px
-  font-size: 0.9em
-#account-button
-  display: block
-  float: right
-  margin-left: 10px
-  background: url('/images/ui/accountbutton_bg.png') no-repeat 0 0
-  height: 23px
-  padding: 0 10px
-  color: #333
-  margin-right: 24px
-  .end
-    width: 25px
-    height: 23px
-    position: absolute
-    top: 0
-    right: 0
-    margin-left: 5px
-    background: url('/images/ui/accountbutton_bg.png') no-repeat top right
-  &.active
-    background: url('/images/ui/accountbutton_bg.png') no-repeat bottom left
-    .end
-      background: url('/images/ui/accountbutton_bg.png') no-repeat bottom right
-#account-form, #account-links
-  display: none
-  position: absolute
-  z-index: 30
-  top: 25px
-  right: 0
-  padding: 5px 10px 10px 10px
-  @include border_radius(3px)
-  text-align: left
-  border: 1px solid #ccc
-  background: #defba4
-  width: 200px
-  h2
-    font-size: 1.2em
-  label
-    display: none
-  #user_session_email, #user_session_password
-    background-color: #fff
-    margin: 6px 0
-    padding: 0 3px
-    border: 1px solid #ccc
-    width: 190px
-    height: 26px
-    font-size: 1.2em
-    color: #777
-    -webkit-box-shadow: 0px 0px 1px #aaa
-  #user_session_email.empty
-    background: #fff url('/images/ui/account-form-labels.png') no-repeat top left
-  #user_session_password.empty
-    background: #fff url('/images/ui/account-form-labels.png') no-repeat bottom left
-  input.submit
-    margin-top: 10px
-    padding: auto 10px
-    background: url('/images/ui/button_background.png') repeat-x
-    @include border_radius(3px)
-    border: 1px solid #688924
-    height: 35px
-    color: #eee
-    &:active
-      :background-position bottom left
-#account-links
-  background-color: #eee
-  text-align: right
-  width: 150px
-  a
-    display: block
-#account_logout
-  display: block
+  top: 0
+  right: 79px
+  width: 500px 
+  
+  fieldset
+    border: none
+    legend
+      font-weight: bold
+      float: left
+    ol, ul
+      list-style: none
+      
+      li
+        float: left
+        
+        input
+          width: 100px
+
   
 #promo-video
   z-index: 0
@@ -457,3 +402,11 @@ span.left
   object
     position: block
     z-index: 0
+    
+.infield-labels
+  li
+    position: relative
+  label
+    position: absolute
+    top: 0
+    left: 0
