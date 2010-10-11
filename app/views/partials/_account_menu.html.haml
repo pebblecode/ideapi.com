@@ -6,10 +6,10 @@
         %ol
           %li.email
             =f.label :email
-            =f.text_field :email
+            =f.text_field :email, :autocomplete => "off"
           %li.password
             =f.label :password
-            =f.password_field :password
+            =f.password_field :password, :autocomplete => "off"
         =f.submit "Log in", :class => "submit"
     
     %a#account-button.logged-out{:href => "/login"} Login
