@@ -179,7 +179,7 @@ img {
     width: 500px;
     float: left; }
   #content #testimonials .try-button {
-    margin: 30px 126px 0 0;
+    margin: 30px 0 0 0;
     float: right;
     height: 41px; }
   #content #testimonials .listing {
@@ -191,7 +191,9 @@ img {
     #content #testimonials .listing li {
       width: 248px;
       float: left;
-      margin-right: 26px; }
+      margin-right: 25px; }
+      #content #testimonials .listing li.last {
+        margin-right: 0; }
     #content #testimonials .listing .body p {
       color: #676767; }
 
