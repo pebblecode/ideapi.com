@@ -103,7 +103,7 @@ img {
     text-align: left; }
   #header ul.navigation {
     position: absolute;
-    right: 66px;
+    right: 68px;
     margin: 36px 0 0 0; }
     #header ul.navigation li {
       display: inline;
@@ -347,7 +347,7 @@ span.left {
 #account-menu {
   position: absolute;
   top: 0;
-  right: 76px;
+  right: 82px;
   background: #7e9d3a;
   padding: 0 18px 5px 20px;
   -moz-border-radius-bottomleft: 15px;
