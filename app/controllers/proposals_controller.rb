@@ -23,6 +23,7 @@ class ProposalsController < ApplicationController
       current_object.assets.build
     end
     before :edit do
+      add_breadcrumb current_object.title, brief_proposal_path(current_object.brief, current_object)
       add_breadcrumb "edit idea"
     end
     before :new do
