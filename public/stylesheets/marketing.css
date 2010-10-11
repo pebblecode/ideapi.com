@@ -310,7 +310,12 @@ span.left {
     list-style: none;
     padding: 0; }
   #account-menu.active #account-button {
-    color: #32401a; }
+    color: #32401a;
+    background: url("/images/close.png") no-repeat scroll right -25px transparent;
+    padding-right: 14px; }
+    #account-menu.active #account-button:hover {
+      color: #444444;
+      background-position: right 5px; }
   #account-menu #account-button {
     outline: none;
     color: white;

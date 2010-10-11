@@ -20,10 +20,10 @@ $(document).ready(function(){
       
       if ($(account_form).filter(":visible").size() > 0) { // Account is visible
         $(this).parent().removeClass("active");
-        $(account_form).hide(500);
+        $(account_form).hide();
       } else { // Account is hidden
         $(this).parent().addClass("active");
-        $(account_form).show(500);
+        $(account_form).show();
       }      
       
       return false;
