@@ -24,6 +24,8 @@
 
 /* Dimensions */
 !container_width = 959px
+!content_side_padding = 82px
+!content_width = !container_width - (2*!content_side_padding)
 !large_banner_height = 430px
 !small_banner_height = 160px
 
@@ -230,8 +232,8 @@ img
   margin-right: auto
   margin-left: auto
   text-align: left
-  width: 920px
-  padding: 220px 82px 0
+  width: !content_width
+  padding: 220px !content_side_padding 0
   p
     padding-right: 15px
     :color #32401a
@@ -401,7 +403,7 @@ span.left
   h1  
     font-size: 4.1667em
     line-height: 1em
-    margin: 0 0 80px
+    margin: 0 0 80px 0
     padding-bottom: 35px
     border-bottom: 1px solid !dark_divider_colour
     
@@ -426,8 +428,7 @@ span.left
       margin-bottom: 85px
     
     .content
-      width: 470px
-      margin-right: 30px
+      width: 464px
       
       p
         font-size: 1.3333em
@@ -437,12 +438,14 @@ span.left
       width: 300px
     .odd
       .content
-        float: left
+        float: left        
       img
         float: right
+        margin-right: 0
     .even
       .content
         float: right
+        margin-right: 0        
       img
         float: left      
 
