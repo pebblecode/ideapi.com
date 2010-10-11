@@ -20,7 +20,8 @@
       = @user.screename
       
     - if @user.accounts.present?  
-      %ol#account-contents        
-        - @user.accounts.each do |account|
-          %li= link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"
-        %li= link_to "Logout", "#{domain_with_port(@user.accounts.first.full_domain)}/user_session/delete", :id => "account_logout"
+      #account-contents
+        %ol
+          - @user.accounts.each do |account|
+            %li= link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"
+          %li.logout-link= link_to "Logout", "#{domain_with_port(@user.accounts.first.full_domain)}/user_session/delete", :id => "account_logout"

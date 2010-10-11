@@ -305,18 +305,23 @@ span.left {
   #account-menu.logged-in ol, #account-menu.logged-in ul {
     list-style: none;
     padding: 0; }
+  #account-menu.active #account-button {
+    color: #32401a; }
   #account-menu #account-button {
+    outline: none;
     color: white;
-    float: left;
+    float: right;
     margin-top: 1px; }
     #account-menu #account-button:hover {
-      color: #4c4c4c;
+      color: #32401a;
       text-decoration: none; }
   #account-menu #account-contents {
     display: none;
+    clear: both;
     float: left;
     border: none;
-    padding: 1px 15px 0 0;
+    padding: 10px 0 0 0;
+    text-align: right;
     font-size: 0.9em; }
     #account-menu #account-contents legend {
       display: none; }
@@ -327,14 +332,16 @@ span.left {
       list-style: none;
       margin: 0;
       padding: 0; }
-      #account-menu #account-contents ol li, #account-menu #account-contents ul li {
-        float: left;
-        margin-right: 2px; }
-        #account-menu #account-contents ol li input, #account-menu #account-contents ul li input {
-          width: 100px;
-          height: 10px; }
-    #account-menu #account-contents .submit {
-      float: left; }
+      #account-menu #account-contents ol li input, #account-menu #account-contents ul li input {
+        width: 100px;
+        height: 10px; }
+      #account-menu #account-contents ol li a, #account-menu #account-contents ul li a {
+        color: white; }
+        #account-menu #account-contents ol li a:hover, #account-menu #account-contents ul li a:hover {
+          text-decoration: none; }
+      #account-menu #account-contents ol li.logout-link, #account-menu #account-contents ul li.logout-link {
+        border-top: 1px solid #666666;
+        margin-top: 5px; }
 
 #promo-video {
   z-index: 0;

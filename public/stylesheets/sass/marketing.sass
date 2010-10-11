@@ -399,23 +399,28 @@ span.left
     ol, ul
       list-style: none
       padding: 0
-      
+  
+  &.active #account-button
+    color: !link_hover_colour
+    
   #account-button
-    color: #fff
-    float: left
+    outline: none
+    color: !nav_default_txt
+    float: right
     margin-top: 1px
     &:hover
-      color: #4C4C4C
+      color: !link_hover_colour
       text-decoration: none
     
   
   #account-contents
     display: none
-    
+    clear: both
     float: left
     border: none
-    padding: 1px 15px 0 0
-        
+    padding: 10px 0 0 0
+    text-align: right
+          
     font-size: 0.9em
         
     legend
@@ -428,16 +433,22 @@ span.left
       list-style: none
       margin: 0
       padding: 0
-      li
-        float: left
-        margin-right: 2px
-        
+          
+      li  
         input
           width: 100px
           height: 10px      
+        
+        a
+          color: !nav_default_txt
+
+          &:hover
+            text-decoration: none
           
-    .submit
-      float: left
+        &.logout-link
+          border-top: 1px solid #666
+          margin-top: 5px
+        
 
   
 #promo-video
