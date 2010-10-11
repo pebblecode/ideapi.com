@@ -1,0 +1,122 @@
+// variables
+$field_padding: 20px;
+$textfield_padding: 10px;
+$textfield_width: 590px;
+
+#proposals #content{
+  .edit_proposal, .new_proposal{
+    textarea{
+      font-size: 1.2em;
+    }
+    h2{
+      input[type=text]{
+        font-size: 1.5em;
+        padding: 3px $textfield_padding;
+        display: block;
+        width: $textfield_width;
+        
+      }  
+    }
+    .fields{
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 15px 0;
+    }
+    .field{
+      padding: 0 $field_padding;
+    }
+  }
+  
+  #proposal_long_description{
+    display: block;
+    width: $textfield_width;
+    padding: $textfield_padding;
+  }
+  
+  #idea-attachments{
+    padding: 0;
+    margin: 2em $field_padding;
+    label{
+      width: 100px;
+      margin: 0;
+    }
+    .asset-description{
+      width: 470px;
+      font-size: 1em;
+    }
+    p.submit{
+      text-align: right;
+    }
+  }
+  p.submit{
+    margin-right: 20px;
+  }
+  .proposal_asset{
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    font-size: 0.9em;
+    
+    
+    a.delete{text-indent: -9999px; display: none;}
+    .asset-file{
+      text-align: left;
+      span{
+        margin-left: 0;
+        text-align: left;
+        width: 480px;
+      } 
+      
+    }
+    p{
+      margin: 0 0 0.5em 0;
+      clear: both;
+      
+    }
+    .update-proposal-assets{
+      input{
+        margin: 0;
+        padding: 0px 4px;
+        @include rounded-corners-all(0px);
+      }
+    }
+    a.js-toggle-edit{
+      text-indent: -9999px;
+      float: left;
+      margin-right: 4px;
+      background: url('/images/ui/tag-pencil.png') no-repeat;
+      width: 16px;
+      height: 16px;
+    }
+    .description-textarea{
+      input[type=text]{
+        padding: 0 5px;
+        width: 30em;
+      }
+      
+    }
+
+  }
+  .proposal_asset.hovered{
+    background: #fafafa;
+    .remove_asset {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #efefef;
+      a.delete {
+        text-indent: -9999px;
+        display: block;
+        height: 16px;
+        width: 16px;
+        background: url("/images/ui/cross-button.png") no-repeat 0 0;
+      } 
+    }
+    
+  }
+  .new.hovered{
+    background: #eff6ce;
+  }
+  
+}

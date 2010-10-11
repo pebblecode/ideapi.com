@@ -111,7 +111,7 @@ jQuery.fn.showNotice = function (message) {
 jQuery.fn.feedback_form = function () {
   form = jQuery(this).find('.wrap');
   
-  jQuery(this).find('.title a').click(function () {
+  jQuery(this).find('.title a.toggle').click(function () {
     form.slideToggle('slow');
   });
   
@@ -533,23 +533,6 @@ jQuery.fn.document_ready = function() {
       return false;
     }).addClass('js').parent().next('div').hide();
     
-    // jQuery('.edit_proposal .remove_item').delete_item('.remove_item', function () { 
-    // 
-    //     //move the id input inside of the .proposal_asset
-    //     jQuery(this).parents().filter('.proposal_asset').append(jQuery(this).parents().filter('.proposal_asset').prev('input'));
-    // 
-    //     var proposal_asset = jQuery(this).parents().filter('.proposal_asset');
-    // 
-    //     jQuery.put(
-    //       jQuery(this).parents().filter('form').attr('action'), 
-    //       jQuery(this).parents().filter('.proposal_asset').wrap('<form class="remove_asset_form"></form>').parents().filter('form.remove_asset_form').serialize(), 
-    //       function () { proposal_asset.remove() }, 
-    //       'json'
-    //     );
-    //   }
-    // );
-    
-    
     jQuery('#textile-help-box a.help-toggle').click(function(){
       jQuery('#textile-help-box .contents').slideToggle('slow');
       if(jQuery(this).text() == '+'){
@@ -687,6 +670,10 @@ jQuery.fn.document_ready_extras = function () {
     $(this).toggleClass('selected');
     return false;
   });
+  
+  $('body#proposals #idea-attachments div.proposal_asset').hover(function(){
+    $(this).toggleClass('hovered');
+  }, function(){$(this).toggleClass('hovered');});
 };
 
 jQuery(document).ready(jQuery.fn.document_ready);
@@ -707,7 +694,10 @@ function hide_element(element){
 }
 
 $(document).ready(function(){
-  
-  
+  $('#idea-attachments a.js-toggle-edit').click(function(){
+    $(this).parent().find('.description-text').toggle();
+    $(this).parents('.proposal_asset').find('.description-textarea').toggle();
+    return false;
+  });
 });
 
