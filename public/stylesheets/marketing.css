@@ -292,27 +292,45 @@ span.left {
 #account-menu {
   position: absolute;
   top: 0;
-  right: 76px; }
-  #account-menu fieldset {
+  right: 76px;
+  background: #7e9d3a;
+  padding: 0 18px 5px 20px;
+  -moz-border-radius-bottomleft: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+  #account-menu #account-button {
+    color: white;
+    float: left;
+    margin-top: 1px; }
+    #account-menu #account-button:hover {
+      color: #4c4c4c;
+      text-decoration: none; }
+  #account-menu #account-form {
+    display: none;
+    float: left;
     border: none;
-    padding: 3px 0; }
-    #account-menu fieldset legend {
+    padding: 1px 15px 0 0;
+    font-size: 0.9em; }
+    #account-menu #account-form legend {
       display: none; }
-    #account-menu fieldset form {
+    #account-menu #account-form form {
       float: left; }
-    #account-menu fieldset ol, #account-menu fieldset ul {
+    #account-menu #account-form ol, #account-menu #account-form ul {
       float: left;
       list-style: none;
       margin: 0;
       padding: 0; }
-      #account-menu fieldset ol li, #account-menu fieldset ul li {
+      #account-menu #account-form ol li, #account-menu #account-form ul li {
         float: left;
         margin-right: 2px; }
-        #account-menu fieldset ol li input, #account-menu fieldset ul li input {
-          width: 100px; }
-    #account-menu fieldset .submit {
-      float: left;
-      margin-top: 2px; }
+        #account-menu #account-form ol li input, #account-menu #account-form ul li input {
+          width: 100px;
+          height: 10px; }
+    #account-menu #account-form .submit {
+      float: left; }
 
 #promo-video {
   z-index: 0;
@@ -331,4 +349,5 @@ span.left {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 2px 4px; }
+  padding: 1px 4px;
+  color: #999999; }

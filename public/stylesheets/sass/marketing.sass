@@ -38,6 +38,20 @@
   -moz-border-radius: $size
   -webkit-border-radius: $size
 
+@mixin bottom_left_border_radius($size)
+  :-moz-border-radius-bottomleft $size
+  :-webkit-border-bottom-left-radius $size
+  :border-bottom-left-radius $size
+
+@mixin bottom_right_border_radius($size)
+  :-moz-border-radius-bottomright $size
+  :-webkit-border-bottom-right-radius $size
+  :border-bottom-right-radius $size
+  
+@mixin bottom_border_radius($size)
+  @include bottom_left_border_radius($size)
+  @include bottom_right_border_radius($size)  
+  
 =rounded-top-3px
   :-moz-border-radius-topleft 3px
   :-webkit-border-top-left-radius 3px
@@ -375,10 +389,28 @@ span.left
   position: absolute
   top: 0
   right: 76px
+  background: #7E9D3A
+  padding: 0 18px 5px 20px
+  @include bottom_left_border_radius(15px)
+  @include bottom_right_border_radius(3px)
   
-  fieldset    
+  #account-button
+    color: #fff
+    float: left
+    margin-top: 1px
+    &:hover
+      color: #4C4C4C
+      text-decoration: none
+    
+  
+  #account-form
+    display: none
+    
+    float: left
     border: none
-    padding: 3px 0
+    padding: 1px 15px 0 0
+        
+    font-size: 0.9em
         
     legend
       display: none
@@ -393,11 +425,13 @@ span.left
       li
         float: left
         margin-right: 2px
+        
         input
           width: 100px
+          height: 10px
+          
     .submit
       float: left
-      margin-top: 2px
 
   
 #promo-video
@@ -418,4 +452,5 @@ span.left
     position: absolute
     top: 0
     left: 0
-    padding: 2px 4px        
+    padding: 1px 4px
+    color: #999

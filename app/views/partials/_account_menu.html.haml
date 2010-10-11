@@ -1,5 +1,5 @@
 #account-menu
-  - unless @user.present?    
+  - unless @user.present?        
     %fieldset#account-form
       %legend Log in     
       - form_for UserSession.new, :url => "/login", :html => {:class => "infield-labels"} do |f|
@@ -11,7 +11,9 @@
             =f.label :password
             =f.password_field :password
         =f.submit "Log in", :class => "submit"
-        
+    
+    %a#account-button.logged-out{:href => "/login"} Login
+    
   - else 
     %a#account-button.logged-in{:href => "/login"}
       = @user.screename
