@@ -49,7 +49,7 @@ a {
   .try-button.primary {
     position: absolute;
     right: 82px;
-    top: 98px; }
+    top: 158px; }
 
 img {
   border: none; }
@@ -76,54 +76,59 @@ img {
   padding: 0;
   margin: 0;
   height: 430px;
-  position: relative;
-  z-index: 0; }
-  #banner #header {
-    width: 959px;
-    margin-right: auto;
-    margin-left: auto;
-    position: relative; }
-    #banner #header #logo {
-      position: absolute;
-      top: 20px;
-      left: 82px;
-      width: 148px;
-      height: 65px;
-      text-align: left; }
-    #banner #header ul.navigation {
-      position: absolute;
-      right: 66px;
-      margin: 36px 0 0 0; }
-      #banner #header ul.navigation li {
-        display: inline;
-        padding: 0;
-        margin: 0; }
-        #banner #header ul.navigation li.free-trial a, #banner #header ul.navigation li.free-trial a:hover, #banner #header ul.navigation li.free-trial a:focus, #banner #header ul.navigation li.free-trial a:active, #banner #header ul.navigation li.free-trial span, #banner #header ul.navigation li.free-trial span.current {
-          color: #ffcc00; }
-        #banner #header ul.navigation li a, #banner #header ul.navigation li span {
-          color: white;
-          font-weight: bold;
-          font-size: 1.333em;
-          line-height: 1.333em;
-          padding: 8px 0.8em 5px 0.8em;
-          border-radius: 15px;
-          -moz-border-radius: 15px;
-          -webkit-border-radius: 15px;
-          background: transparent;
-          text-transform: capitalize; }
-        #banner #header ul.navigation li a:hover, #banner #header ul.navigation li span.current {
-          text-decoration: none;
-          background: #7e9d3a;
-          color: white; }
-        #banner #header ul.navigation li a:focus, #banner #header ul.navigation li a:active {
-          top: 1px;
-          background: #b3d335; }
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+#header {
+  z-index: 100;
+  width: 959px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative; }
+  #header #logo {
+    position: absolute;
+    top: 20px;
+    left: 82px;
+    width: 148px;
+    height: 65px;
+    text-align: left; }
+  #header ul.navigation {
+    position: absolute;
+    right: 66px;
+    margin: 36px 0 0 0; }
+    #header ul.navigation li {
+      display: inline;
+      padding: 0;
+      margin: 0; }
+      #header ul.navigation li.free-trial a, #header ul.navigation li.free-trial a:hover, #header ul.navigation li.free-trial a:focus, #header ul.navigation li.free-trial a:active, #header ul.navigation li.free-trial span, #header ul.navigation li.free-trial span.current {
+        color: #ffcc00; }
+      #header ul.navigation li a, #header ul.navigation li span {
+        color: white;
+        font-weight: bold;
+        font-size: 1.333em;
+        line-height: 1.333em;
+        padding: 8px 0.8em 5px 0.8em;
+        border-radius: 15px;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        background: transparent;
+        text-transform: capitalize; }
+      #header ul.navigation li a:hover, #header ul.navigation li span.current {
+        text-decoration: none;
+        background: #7e9d3a;
+        color: white; }
+      #header ul.navigation li a:focus, #header ul.navigation li a:active {
+        top: 1px;
+        background: #b3d335; }
 
 #middle-section {
+  z-index: 0;
   position: relative;
   background-color: transparent;
   width: 959px;
-  margin: -345px auto 0;
+  margin: 0 auto;
   clear: both; }
 
 #content {
@@ -132,7 +137,7 @@ img {
   margin-left: auto;
   text-align: left;
   width: 920px;
-  padding: 60px 82px 0; }
+  padding: 120px 82px 0; }
   #content p {
     padding-right: 15px;
     color: #32401a;

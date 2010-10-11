@@ -118,7 +118,7 @@ a
   &.primary
     position: absolute
     right: 82px
-    top: 98px
+    top: 158px
   &.secondary
     
   
@@ -148,65 +148,69 @@ img
   padding: 0
   margin: 0
   height: !banner_height
-  position: relative
-  z-index: !z_index_lvl_0
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
   
-  #header
-    width: !container_width
-    margin-right: auto
-    margin-left: auto
-    :position relative
-    
-    #logo
-      position: absolute
-      top: 20px
-      left: 82px
-      width: 148px
-      height: 65px
-      text-align: left
-        
-    ul.navigation
-      position: absolute
-      right: 66px
-      margin: 36px 0 0 0
+#header
+  z-index: !z_index_lvl_1
+  width: !container_width
+  margin-right: auto
+  margin-left: auto
+  position: relative
+  
+  #logo
+    position: absolute
+    top: 20px
+    left: 82px
+    width: 148px
+    height: 65px
+    text-align: left
       
-      li
-        :display inline
-        :padding 0
-        :margin 0
+  ul.navigation
+    position: absolute
+    right: 66px
+    margin: 36px 0 0 0
+    
+    li
+      :display inline
+      :padding 0
+      :margin 0
+      
+      &.free-trial
+        a, a:hover, a:focus, a:active, span, span.current
+          color: !nav_special_txt
         
-        &.free-trial
-          a, a:hover, a:focus, a:active, span, span.current
-            color: !nav_special_txt
-          
-        a, span
-          color: !nav_default_txt
-          font-weight: bold
-          font-size: 1.3333em
-          line-height: 1.3333em
-          padding: 8px 0.8em 5px 0.8em
-          @include border_radius(15px)
-          background: !nav_default_bg
-          text-transform: capitalize
+      a, span
+        color: !nav_default_txt
+        font-weight: bold
+        font-size: 1.3333em
+        line-height: 1.3333em
+        padding: 8px 0.8em 5px 0.8em
+        @include border_radius(15px)
+        background: !nav_default_bg
+        text-transform: capitalize
 
-          
-        a:hover, span.current
-          text-decoration: none
-          background: !nav_current_bg
-          color: !nav_current_txt
-          
-        a:focus, a:active
-          top: 1px
-          background: #b3d335
+        
+      a:hover, span.current
+        text-decoration: none
+        background: !nav_current_bg
+        color: !nav_current_txt
+        
+      a:focus, a:active
+        top: 1px
+        background: #b3d335
 
      
 
 
 #middle-section
+  z-index: !z_index_lvl_0
   position: relative
   background-color: transparent
   width: !container_width
-  margin: -345px auto 0
+  margin: 0 auto
   clear: both  
 
 
@@ -216,7 +220,7 @@ img
   margin-left: auto
   text-align: left
   width: 920px
-  padding: 60px 82px 0
+  padding: 120px 82px 0
   p
     padding-right: 15px
     :color #32401a
