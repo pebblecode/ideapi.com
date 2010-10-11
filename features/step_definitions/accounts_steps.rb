@@ -37,3 +37,5 @@ Given /^I have a user called "([^"]*)" with the email "([^"]*)"$/ do |user, emai
   bits = user.split(' ')
   @user = User.make(:password => "testing", :email => email, :first_name => bits[0], :last_name => bits[1])
 end
+
+

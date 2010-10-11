@@ -4,25 +4,39 @@
 
 !link_colour        = #b3d335
 !link_hover_colour  = #32401a
-!link_pink          = #32401a
 !off_white          = #fcfcfc
 !link_header        = #eeeeee
 !link_purple        = #2b3087
-!text_color1        = #32401a
+!heading_color      = #32401a
 !body_bg            = #fff
 !bright_green       = #b3d335
 
-!nav_default_bg  = #32401a
+!nav_default_bg  = transparent
 !nav_default_txt = #fff
-!nav_current_bg  = #b3d335
+!nav_current_bg  = #7e9d3a
 !nav_current_txt = #fff
+!nav_special_txt  = #ffcc00
 
 !text_color = #333
 
+!divider_colour = #e7f0f7
 
+/* Dimensions */
+!container_width = 959px
+!banner_height = 430px
+
+/* z-index - low lvls = further behind */
+!z_index_highest = 5000
+!z_index_lvl_0 = 0
+!z_index_lvl_1 = 100
+!z_index_lvl_2 = 200
 
 /* Mixins */ 
-/* Mixins */ 
+
+@mixin border_radius($size)
+  border-radius: $size
+  -moz-border-radius: $size
+  -webkit-border-radius: $size
 
 =rounded-top-3px
   :-moz-border-radius-topleft 3px
@@ -39,16 +53,6 @@
   :-webkit-border-top-left-radius 6px
   :border-top-left-radius 6px
   :border-top-right-radius 6px
-  
-=rounded-all-6px
-  :-moz-border-radius 6px
-  :-webkit-border-radius 6px
-  :border-radius 6px
-  
-=rounded-all-3px
-  :-moz-border-radius 3px
-  :-webkit-border-radius 3px
-  :border-radius 3px
 
 body
   background-color: !body_bg
@@ -58,17 +62,27 @@ body
   margin: 0px
   line-height: 20px
   font-size: 12px
-  font-family: "Lucida Grande", Verdana, Arial, sans-serif
+  font-family: Helvetica, Arial, sans-serif
 
 
 h1
-  font-size: 20px
+  font-size: 3em
+  line-height: 1.2em
   margin-bottom: 1em
+  color: !heading_color
 
 
 h2
-  font-size: 16px
+  font-size: 2.6667em
+  line-height: 1.2em  
+  color: !heading_color
 
+h3
+  font-size: 1.8333em
+  line-height: 1.2em  
+  color: !heading_color
+  font-weight: normal
+  margin-bottom: 0
 
 a
   color: #4c4c4c
@@ -76,125 +90,175 @@ a
   font-weight: bold
   &:hover
     text-decoration: underline
+    
+.try-button
+  background: transparent url(/images/try-button.png) no-repeat 0 0
+  display: block
+  width: 206px
+  height: 62px
+  text-indent: -9999px
+  
+  &:hover
+    background-position: 0 -81px
+  &.primary
+    position: absolute
+    right: 82px
+    top: 98px
+  &.secondary
+    
+  
 img
   border: none
 
+#grid-overlay
+  position: absolute
+  left: 0px
+  top: 0px
+  width: 100%
+  height: 100%
+  text-align: center
+  z-index: !z_index_highest
+  background: transparent url(/images/grid.png) repeat-y center 0
 
 #container
   padding: 0px
-  margin: 0px
+  margin: 0 auto
   width: 100%
+  
   text-align: center
   position: relative
 
 #banner
-  background-color: white
-  padding: 0px
-  margin: auto
-  height: 100px
-  width: 920px
-  border-bottom: 3px solid
-  border-color = !bright_green
+  background: !bright_green url(/images/bg_clouds.png) repeat-x center 100%
+  padding: 0
+  margin: 0
+  height: !banner_height
   position: relative
+  z-index: !z_index_lvl_0
   
   #header
-    width: 920px
+    width: !container_width
     margin-right: auto
     margin-left: auto
     :position relative
     
     #logo
-      padding-left: 10px
-      padding-bottom: 15px
-      padding-right: 15px
-      padding-top: 15px
-      margin-top: 15px
-      float: left
-      color: white
+      position: absolute
+      top: 20px
+      left: 82px
+      width: 148px
+      height: 65px
       text-align: left
-      width: 470px
         
     ul.navigation
-      :padding-top 12px
-      :padding-bottom 1px
-      :margin-top 65px
-      :float right
-      :z-index 100
-      :text-align right
+      position: absolute
+      right: 66px
+      margin: 36px 0 0 0
+      
       li
         :display inline
         :padding 0
         :margin 0
-
-        span
-          +rounded-top-3px
-
+        
+        &.free-trial
+          a, a:hover, a:focus, a:active, span, span.current
+            color: !nav_special_txt
+          
         a, span
-          :color = !nav_default_txt
-          :font-weight normal
-          :font-size 1.2em
-          :padding 5px 0.8em 5px 0.8em
-          +rounded-top-3px
-          :background = !nav_default_bg
+          color: !nav_default_txt
+          font-weight: bold
+          font-size: 1.3333em
+          line-height: 1.3333em
+          padding: 8px 0.8em 5px 0.8em
+          @include border_radius(15px)
+          background: !nav_default_bg
+          text-transform: capitalize
 
           
         a:hover, span.current
-          :text-decoration none
-          +rounded-top-3px
-          :background = !nav_current_bg
-          :color = !nav_current_txt
+          text-decoration: none
+          background: !nav_current_bg
+          color: !nav_current_txt
           
         a:focus, a:active
-          +rounded-top-3px
-          :top 1px
-          :background #b3d335
+          top: 1px
+          background: #b3d335
 
      
 
 
 #middle-section
-  background-color: white
-  width: 100%
-  clear: both
-  
+  z-index: !z_index_lvl_1
+  position: relative
+  background-color: transparent
+  width: !container_width
+  margin: -345px auto 0
+  clear: both  
 
 
 #content
-  background-color: white
+  background-color: transparent
   margin-right: auto
   margin-left: auto
   text-align: left
   width: 920px
-  padding: 10px
+  padding: 60px 82px 0
   p
-    font-family: Georgia, Palatino, serif
-    font-size: 1.3em
     padding-right: 15px
     :color #32401a
     margin-top: 10px
     &.intro-title
       font-size: 38px
-      font-family: Helvetica, Arial, sans-serif       
       line-height: 1em
       font-weight: bold
       margin: 10px 0 0 0
-    &.intro-text
-      font-style: italic
-      font-size: 1.7em
-      margin: 12px 0 0 0
+    &.intro-text    
+      font-size: 2em
+      margin: 12px 0 50px 0
       line-height: 1.2em
+      width: 548px
     &.actions
       :margin-top 3em
       :text-align center
       span
         margin-right: 1em
-  ul
-    li
-      font-family: Georgia, Palatino, serif
-      font-size: 1.3em
-      line-height: 1.4em
+      
+  #workflow
+    background: transparent url(/images/workflow.png) no-repeat 0 0
+    width: 807px
+    height: 150px
+    text-indent: -9999px
+    list-style: none
+    margin: 40px 0 0 -6px
+    padding: 0 0 50px 0
+    border-bottom: 1px solid !divider_colour
   
-
+  #testimonials
+    h2
+      width: 500px
+      float: left
+    
+    .try-button
+      margin: 30px 126px 0 0
+      float: right
+      height: 41px
+      
+    .listing
+      clear: both
+      list-style: none
+      overflow: auto
+      margin: 0
+      padding: 0
+    
+      li 
+        width: 248px
+        float: left
+        margin-right: 26px
+      
+      .body
+        p
+          color: #676767
+    
 .section
   text-align: left
   margin: 0
@@ -216,17 +280,17 @@ img
     width: 700px
     border: 5px solid #eee
     padding: 3px
-    +rounded-all-3px
+    @include border_radius(3px)
 
 #footer
   padding: 0
   margin: 0px
   color: black
-  :width 920px
-  :margin auto
-  :border-top = 3px "solid" !bright_green
+  width: !container_width
+  margin: 60px auto 0
+  overflow: auto
   .twitter-button
-    +rounded-all-6px
+    @include border_radius(6px)
     :padding 10px 40px
     :text-align center
     :background-color #d9d9d9
@@ -248,11 +312,13 @@ img
     &:hover
       text-decoration: underline
 
-
-
+  #footer-content
+    border-top: 1px solid !divider_colour  
+    margin: 0 82px
+      
   #footer-content-left
     text-align: left
-    padding: 10px 0
+    padding: 20px 0 20px
     float: left
     p
       margin: 0
@@ -261,7 +327,7 @@ img
 
   #footer-content-right
     text-align: right
-    padding: 10px 0 10px 10px
+    padding: 15px 0 0 10px
     float: right
     width: 170px
     p
@@ -271,12 +337,7 @@ img
     span.text
       display: block
       float: left
-
-
-  #footer-content
-    margin-right: auto
-    margin-left: auto
-    :width 920px
+      margin-top: 5px
 
     
 .spacer
@@ -292,9 +353,8 @@ img
   :background #b3d335
   :color #fff
   :cursor pointer
-  +rounded-all-6px
-  :padding 0.5em 1em 0.5em 1em
-  :font-family Helvetica, Arial, sans-serif
+  @border_radius(6px)
+  :padding 0.5em 1em 0.5em 1em  
   :font-weight normal
   &:hover
     :background #32401a
@@ -345,7 +405,7 @@ span.left
   top: 25px
   right: 0
   padding: 5px 10px 10px 10px
-  +rounded-all-3px
+  @include border_radius(3px)
   text-align: left
   border: 1px solid #ccc
   background: #defba4
@@ -372,7 +432,7 @@ span.left
     margin-top: 10px
     padding: auto 10px
     background: url('/images/ui/button_background.png') repeat-x
-    +rounded-all-3px
+    @include border_radius(3px)
     border: 1px solid #688924
     height: 35px
     color: #eee
@@ -390,6 +450,10 @@ span.left
 #promo-video
   z-index: 0
   position: block
+  background-color: #000
+  width: 795px
+  height: 417px
+  text-align: center
   object
     position: block
     z-index: 0

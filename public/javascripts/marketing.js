@@ -1,5 +1,15 @@
 
 $(document).ready(function(){
+  // For debugging: Add grid on logo click
+  $("#logo").click(function() {
+    $("#container").append("<div id='grid-overlay'></div>");
+    
+    $("#grid-overlay").click(function() {
+      $(this).remove();
+    });
+    return false;
+  });
+  
   email = $('#user_session_email');
   password = $('#user_session_password');
   bind_account_form_switch(email);

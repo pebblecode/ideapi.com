@@ -7,14 +7,16 @@
         =yield(:title)
       - else
         ="Welcome to ideapi"
-    %script{ :type => "text/javascript" }
-    =javascript_include_tag %w(jquery marketing)
+
     %meta{ :content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible" }
     %link{ :href => "/stylesheets/marketing.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
     /[if IE 6]
       %link{ :href => "/stylesheets/ie6.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
     /[if IE 7]
-      %link{ :href => "/stylesheets/ie7.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
+      %link{ :href => "/stylesheets/ie7.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }        
+        
+    %script{ :type => "text/javascript" }
+    =javascript_include_tag %w(jquery marketing)
 
   %body
     #container
@@ -22,48 +24,48 @@
         =render :partial => 'partials/account_menu'
         #header
           #logo
-            %a{:href => home_path, :alt => "home"}
-              %img{ :src => "/images/ideapi-logo.gif", :alt => "ideapi Logo" }
+            %a{:href => home_path, :title => "home"}
+              %img{ :src => "/images/logo-green.png", :alt => "ideapi Logo" }
           %ul.navigation
             %li=link_unless_current 'overview', home_path
             %li=link_unless_current 'tour', tour_path
-            /%li=link_unless_current 'pricing', pricing_path
-            %li=link_unless_current 'signup', plans_path
             %li=link_to 'blog', 'http://blog.ideapi.com'
+            %li=link_to 'login', '/login'
+            /%li=link_unless_current 'pricing', pricing_path
+            %li.free-trial= link_unless_current 'FREE trial', plans_path
           .clear
           
       #middle-section
         #content
           =yield
-          .spacer
-            \&nbsp;
+          
       #footer
         #footer-content
           #footer-content-left
             %p
               \&copy; 2010 Ideapi Limited 
               | 
-              %a{ :href => terms_path, :alt => "Terms of Service" }
+              %a{ :href => terms_path, :title => "Terms of Service" }
                 Terms of Service
               |
-              %a{ :href => privacy_path, :alt => "Privacy Policy" }
+              %a{ :href => privacy_path, :title => "Privacy Policy" }
                 Privacy Policy
               |
               %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
 
-        #footer-content-right
-          %p
-            %span.text
-              Follow us on: 
-            %span.icon
-              %a{ :href => "http://twitter.com/ideapi", :title => "follow us on twitter" }
-                %img{:src => "/images/twitter_icon.jpg", :alt => "twitter", :height => "24"}
-            %pan.icon
-              %a{ :href => "http://www.facebook.com/pages/ideapi/351745410618", :title => "ideapi @ Facebook" }
-                %img{:src => "/images/facebook_icon.jpg", :alt => "facebook", :height => "24"}
-            %span.icon
-              %a{ :href => "http://blog.ideapi.com/rss", :title => "RSS" }
-                %img{:src => "/images/rss_icon.jpg", :alt => "rss", :height => "24" }
+          #footer-content-right
+            %p
+              %span.text
+                Follow us on: 
+              %span.icon
+                %a{ :href => "http://twitter.com/ideapi", :title => "follow us on twitter" }
+                  %img{:src => "/images/twitter_icon.jpg", :alt => "twitter", :height => "24"}
+              %span.icon
+                %a{ :href => "http://www.facebook.com/pages/ideapi/351745410618", :title => "ideapi @ Facebook" }
+                  %img{:src => "/images/facebook_icon.jpg", :alt => "facebook", :height => "24"}
+              %span.icon
+                %a{ :href => "http://blog.ideapi.com/rss", :title => "RSS" }
+                  %img{:src => "/images/rss_icon.jpg", :alt => "rss", :height => "24" }
 
     :javascript
       var _gaq = _gaq || [];
