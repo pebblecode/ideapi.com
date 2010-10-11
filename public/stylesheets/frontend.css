@@ -1633,7 +1633,7 @@ ul#notifications {
     All rights reserved. 
     Licensed under a Creative Commons Attribution 3.0 license.  */
 #content .main .title .actions a.show-options-menu {
-  display: block;
+  display: none;
   /* For more great 16x16 pixel icons, visit http://p.yusukekamiyamane.com/ */
   background: url("/images/ui/gear.png") no-repeat 0 0;
   text-indent: -9999px;
@@ -1870,8 +1870,10 @@ span.timestamp {
   padding: 0;
   margin: 2em 20px; }
   #proposals #content #idea-attachments label {
-    width: 100px;
-    margin: 0; }
+    width: 80px;
+    margin: 0;
+    text-align: right;
+    padding-right: 1em; }
   #proposals #content #idea-attachments .asset-description {
     width: 470px;
     font-size: 1em; }
@@ -1883,7 +1885,8 @@ span.timestamp {
   margin: 0;
   padding: 10px;
   position: relative;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+  border: 1px solid #fff; }
   #proposals #content .proposal_asset a.delete {
     text-indent: -9999px;
     display: none; }
@@ -1896,6 +1899,8 @@ span.timestamp {
   #proposals #content .proposal_asset p {
     margin: 0 0 0.5em 0;
     clear: both; }
+  #proposals #content .proposal_asset p.asset-desc {
+    margin-bottom: 0.7em; }
   #proposals #content .proposal_asset .update-proposal-assets input {
     margin: 0;
     padding: 0px 4px;
@@ -1910,10 +1915,11 @@ span.timestamp {
     width: 16px;
     height: 16px; }
   #proposals #content .proposal_asset .description-textarea input[type=text] {
-    padding: 0 5px;
+    padding: 1px 5px;
     width: 30em; }
 #proposals #content .proposal_asset.hovered {
-  background: #fafafa; }
+  background: #fafafa;
+  border: 1px solid #f1f1f1; }
   #proposals #content .proposal_asset.hovered .remove_asset {
     position: absolute;
     top: 10px;
@@ -1926,4 +1932,5 @@ span.timestamp {
       width: 16px;
       background: url("/images/ui/cross-button.png") no-repeat 0 0; }
 #proposals #content .new.hovered {
-  background: #eff6ce; }
+  background: #eff6ce;
+  border: 1px solid #D3DAB8; }
