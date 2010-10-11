@@ -19,7 +19,8 @@
 
 !text_color = #333
 
-!divider_colour = #e7f0f7
+!divider_colour = #b3d335   // Light green
+!dark_divider_colour = #32401a // Dark green
 
 /* Dimensions */
 !container_width = 959px
@@ -107,11 +108,16 @@ a
   &:hover
     text-decoration: underline
     
+.home-page
+  .try-button.primary
+    top: 158px
+    height: 62px
+    
 .try-button
   background: transparent url(/images/try-button.png) no-repeat 0 0
   display: block
   width: 206px
-  height: 62px
+  height: 41px
   text-indent: -9999px
   
   &:hover
@@ -119,7 +125,7 @@ a
   &.primary
     position: absolute
     right: 82px
-    top: 158px
+    top: 220px
   &.secondary
     
   
@@ -217,14 +223,15 @@ img
   margin: 0 auto
   clear: both  
 
-
+.home-page #content
+  padding-top: 120px
 #content
   background-color: transparent
   margin-right: auto
   margin-left: auto
   text-align: left
   width: 920px
-  padding: 120px 82px 0
+  padding: 220px 82px 0
   p
     padding-right: 15px
     :color #32401a
@@ -391,8 +398,16 @@ span.left
   float: left
   
 .tour-page
+  h1  
+    font-size: 4.1667em
+    line-height: 1em
+    margin: 0 0 80px
+    padding-bottom: 35px
+    border-bottom: 1px solid !dark_divider_colour
+    
   h2
     font-size: 1.8333em
+    line-height: 1em    
     font-weight: normal
     margin: 0 0 15px
   #content
