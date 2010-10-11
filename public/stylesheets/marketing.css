@@ -292,19 +292,27 @@ span.left {
 #account-menu {
   position: absolute;
   top: 0;
-  right: 79px;
-  width: 500px; }
+  right: 76px; }
   #account-menu fieldset {
-    border: none; }
+    border: none;
+    padding: 3px 0; }
     #account-menu fieldset legend {
-      font-weight: bold;
+      display: none; }
+    #account-menu fieldset form {
       float: left; }
     #account-menu fieldset ol, #account-menu fieldset ul {
-      list-style: none; }
+      float: left;
+      list-style: none;
+      margin: 0;
+      padding: 0; }
       #account-menu fieldset ol li, #account-menu fieldset ul li {
-        float: left; }
+        float: left;
+        margin-right: 2px; }
         #account-menu fieldset ol li input, #account-menu fieldset ul li input {
           width: 100px; }
+    #account-menu fieldset .submit {
+      float: left;
+      margin-top: 2px; }
 
 #promo-video {
   z-index: 0;
@@ -322,4 +330,5 @@ span.left {
 .infield-labels label {
   position: absolute;
   top: 0;
-  left: 0; }
+  left: 0;
+  padding: 2px 4px; }
