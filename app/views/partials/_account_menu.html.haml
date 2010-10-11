@@ -1,6 +1,6 @@
-#account-menu
-  - unless @user.present?        
-    %fieldset#account-form
+- unless @user.present?
+  #account-menu.logged-out
+    %fieldset#account-contents
       %legend Log in     
       - form_for UserSession.new, :url => "/login", :html => {:class => "infield-labels"} do |f|
         %ol
@@ -12,15 +12,15 @@
             =f.password_field :password, :autocomplete => "off"
         =f.submit "Log in", :class => "submit"
     
-    %a#account-button.logged-out{:href => "/login"} Login
+    %a#account-button{:href => "/login"} Login
     
-  - else 
-    %a#account-button.logged-in{:href => "/login"}
+- else
+  #account-menu.logged-in 
+    %a#account-button{:href => "/login"}
       = @user.screename
-      %span.end
-    #account-dropdown
-      #account-links
-        - if @user.accounts.present?
-          - @user.accounts.each do |account|
-            = link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"
-          = link_to "Logout", "#{domain_with_port(@user.accounts.first.full_domain)}/user_session/delete", :id => "account_logout"
+      
+    - if @user.accounts.present?  
+      %ol#account-contents        
+        - @user.accounts.each do |account|
+          %li= link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"
+        %li= link_to "Logout", "#{domain_with_port(@user.accounts.first.full_domain)}/user_session/delete", :id => "account_logout"

@@ -393,7 +393,13 @@ span.left
   padding: 0 18px 5px 20px
   @include bottom_left_border_radius(15px)
   @include bottom_right_border_radius(3px)
+  z-index: !z_index_lvl_1
   
+  &.logged-in
+    ol, ul
+      list-style: none
+      padding: 0
+      
   #account-button
     color: #fff
     float: left
@@ -403,7 +409,7 @@ span.left
       text-decoration: none
     
   
-  #account-form
+  #account-contents
     display: none
     
     float: left
@@ -428,7 +434,7 @@ span.left
         
         input
           width: 100px
-          height: 10px
+          height: 10px      
           
     .submit
       float: left

@@ -300,7 +300,11 @@ span.left {
   border-bottom-left-radius: 15px;
   -moz-border-radius-bottomright: 3px;
   -webkit-border-bottom-right-radius: 3px;
-  border-bottom-right-radius: 3px; }
+  border-bottom-right-radius: 3px;
+  z-index: 100; }
+  #account-menu.logged-in ol, #account-menu.logged-in ul {
+    list-style: none;
+    padding: 0; }
   #account-menu #account-button {
     color: white;
     float: left;
@@ -308,28 +312,28 @@ span.left {
     #account-menu #account-button:hover {
       color: #4c4c4c;
       text-decoration: none; }
-  #account-menu #account-form {
+  #account-menu #account-contents {
     display: none;
     float: left;
     border: none;
     padding: 1px 15px 0 0;
     font-size: 0.9em; }
-    #account-menu #account-form legend {
+    #account-menu #account-contents legend {
       display: none; }
-    #account-menu #account-form form {
+    #account-menu #account-contents form {
       float: left; }
-    #account-menu #account-form ol, #account-menu #account-form ul {
+    #account-menu #account-contents ol, #account-menu #account-contents ul {
       float: left;
       list-style: none;
       margin: 0;
       padding: 0; }
-      #account-menu #account-form ol li, #account-menu #account-form ul li {
+      #account-menu #account-contents ol li, #account-menu #account-contents ul li {
         float: left;
         margin-right: 2px; }
-        #account-menu #account-form ol li input, #account-menu #account-form ul li input {
+        #account-menu #account-contents ol li input, #account-menu #account-contents ul li input {
           width: 100px;
           height: 10px; }
-    #account-menu #account-form .submit {
+    #account-menu #account-contents .submit {
       float: left; }
 
 #promo-video {

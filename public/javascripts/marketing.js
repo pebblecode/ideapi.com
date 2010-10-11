@@ -16,7 +16,7 @@ $(document).ready(function(){
   // Account tab
   {    
     $("#account-button").click(function() {                  
-      var account_form = $(this).prev("#account-form");
+      var account_form = $(this).siblings("#account-contents");
       
       if ($(account_form).filter(":visible").size() > 0) { // Account is visible
         $(this).parent().removeClass("active");
