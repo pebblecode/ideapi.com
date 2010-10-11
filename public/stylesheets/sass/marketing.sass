@@ -23,7 +23,8 @@
 
 /* Dimensions */
 !container_width = 959px
-!banner_height = 430px
+!large_banner_height = 430px
+!small_banner_height = 160px
 
 /* z-index - low lvls = further behind */
 !z_index_highest = 5000
@@ -143,15 +144,18 @@ img
   text-align: center
   position: relative
 
+.home-page #banner
+  height: !large_banner_height
 #banner
   background: !bright_green url(/images/bg_clouds.png) repeat-x center 100%
   padding: 0
   margin: 0
-  height: !banner_height
+  height: !small_banner_height
   width: 100%
   position: absolute
   top: 0
   left: 0
+  
   
 #header
   z-index: !z_index_lvl_1

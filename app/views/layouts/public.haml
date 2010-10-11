@@ -17,10 +17,12 @@
         
     %script{ :type => "text/javascript" }
     =javascript_include_tag %w(jquery jquery.infieldlabel.min marketing)
-
-  %body
+  
+  - if controller_name == "pages"
+  -   @body_class = action_name + "-page"
+  %body{:class => @body_class}
     #banner  
-    #container    
+    #container
       #header
         #logo
           %a{:href => home_path, :title => "home"}

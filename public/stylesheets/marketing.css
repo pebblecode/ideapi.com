@@ -71,11 +71,14 @@ img {
   text-align: center;
   position: relative; }
 
+.home-page #banner {
+  height: 430px; }
+
 #banner {
   background: #b3d335 url(/images/bg_clouds.png) repeat-x center 100%;
   padding: 0;
   margin: 0;
-  height: 430px;
+  height: 160px;
   width: 100%;
   position: absolute;
   top: 0;
