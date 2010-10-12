@@ -8,6 +8,10 @@ class PagesController < ApplicationController
       redirect_to dashboard_url
     end    
   end
+
+  def faq
+    
+  end
   
   def pricing
     

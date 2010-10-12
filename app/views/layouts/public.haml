@@ -19,7 +19,7 @@
     =javascript_include_tag %w(jquery jquery.infieldlabel.min marketing)
   
   - if controller_name == "pages"
-  -   @body_class = action_name + "-page"
+  -   @body_class = action_name + "-page page-template"
   %body{:class => @body_class}
     #banner  
     #container
@@ -30,6 +30,7 @@
         =render :partial => 'partials/account_menu'    
         %ul.navigation
           %li=link_unless_current 'overview', home_path
+          %li=link_unless_current 'FAQ', faq_path
           %li=link_unless_current 'tour', tour_path
           %li=link_to 'blog', 'http://blog.ideapi.com'
           /%li=link_unless_current 'pricing', pricing_path
