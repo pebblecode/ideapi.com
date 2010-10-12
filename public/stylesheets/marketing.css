@@ -327,13 +327,34 @@ span.left {
   display: block;
   float: left; }
 
-.faq-page .listing li {
-  margin-bottom: 50px; }
-  .faq-page .listing li .ans {
-    color: #676767;
-    margin: 0 0 10px;
+.faq-page h1 {
+  margin-bottom: 40px; }
+.faq-page #contents {
+  border: 1px solid #b3d335;
+  padding: 10px 5px;
+  margin-bottom: 50px;
+  width: 50%; }
+  .faq-page #contents h2 {
+    display: none; }
+  .faq-page #contents li {
     font-size: 1.333em;
     line-height: 1.5em; }
+.faq-page .faq-listing {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .faq-page .faq-listing li {
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    margin-bottom: 80px;
+    border-bottom: 1px solid #b3d335; }
+    .faq-page .faq-listing li .question {
+      margin-bottom: 10px; }
+    .faq-page .faq-listing li .ans {
+      color: #676767;
+      margin: 0 0 10px;
+      font-size: 1.333em;
+      line-height: 1.5em; }
 
 .tour-page #content p {
   color: #676767;
