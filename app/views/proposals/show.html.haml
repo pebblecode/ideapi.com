@@ -12,12 +12,12 @@
     .title
       %h2
         =current_object.title
-        %span.status=current_object.state
+        %span#widget_proposal_status.status=current_object.state
         
       -if current_user.owns?(current_object)
         .actions
-          = link_to "Show options", "#", :class => "show-options-menu"
-    #options-menu
+          = link_to "Actions", "#", :class => "show-options-menu"
+    #options-menu.remove_with_js
       %ul.object-actions
         %li
           -if current_user.owns?(current_object) # && current_object.draft?
@@ -28,14 +28,17 @@
       
     - current_object.assets.each do |asset|
       .proposal_item
-        %p.asset
-          -if asset.data.content_type =~ /image/
-            =link_to image_tag(asset.data.url, :width => "120"), asset.data.url, :rel => "img_fb"
-          -else
-            =link_to asset.data.original_filename, asset.data.url
-          
-        %p.description=asset.description if asset.description.present?
-        .clear
+        %p.the_asset
+          %p.description
+            %strong Description:
+            =asset.description if asset.description.present?
+          %p.asset
+            %strong Attachment: 
+            -if asset.data.content_type =~ /image/
+              =link_to image_tag(asset.data.url, :width => "120"), asset.data.url, :rel => "img_fb"
+            -else
+              =link_to asset.data.original_filename, asset.data.url
+          .clear
   
   - if current_user.owns?(current_object) && current_object.draft?
     - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
@@ -77,14 +80,17 @@
   
         
 .col_2
-
+  = render :partial => 'proposals/idea_users'
   - if !current_object.draft?
-    = render :partial => 'proposals/idea_users'
     .side_box
       %h2 Status of idea
       .contents          
-        .update_proposal
+        #update_proposal_status.update_proposal
           - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
-            =f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
-            =f.submit "update"
+            %p=f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
+            %p.align-right
+              / loading gif... for ajax submissions. hidden by default
+              %span.ajax-loading
+                %img{:src => '/images/ui/loading.gif', :alt => 'Loading...'}/
+              =f.submit "update"
             

@@ -1,0 +1,9 @@
+.proposal_asset.new
+  %p.asset-desc
+    =f.label :description, 'Description'
+    %span.description-textarea
+      =f.text_field :description
+
+  %p.asset-file
+    = f.label :data, 'Attach file'
+    = f.file_field :data
