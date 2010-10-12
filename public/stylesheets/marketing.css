@@ -394,14 +394,15 @@ span.left {
       padding: 0; }
       #account-menu #account-contents ol li input, #account-menu #account-contents ul li input {
         width: 100px;
-        height: 10px; }
+        height: 13px; }
       #account-menu #account-contents ol li a, #account-menu #account-contents ul li a {
         color: white; }
         #account-menu #account-contents ol li a:hover, #account-menu #account-contents ul li a:hover {
           text-decoration: none; }
       #account-menu #account-contents ol li.logout-link, #account-menu #account-contents ul li.logout-link {
         border-top: 1px solid #666666;
-        margin-top: 5px; }
+        margin-top: 10px;
+        padding-top: 5px; }
     #account-menu #account-contents .submit {
       background: url("/images/ui/button_background.png") repeat-x scroll 0 0 transparent;
       border: 1px solid #688924;
@@ -428,5 +429,5 @@ span.left {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 5px 4px;
+  padding: 7px 4px;
   color: #999999; }

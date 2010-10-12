@@ -13,16 +13,18 @@
 
 /* Account menu */
 #account-menu {
-  padding-bottom: 0;
+  padding-bottom: 5px;
+  
   &.active #account-button {  
-    background-position: right -25px;
+    background-position: right -27px;
 
     &:hover {
-      background-position: right 5px;
+      background-position: right 3px;
     }
   }
-  #account-contents {
+  fieldset#account-contents {
     padding-bottom: 0;
+    margin-bottom: -10px;
   }
 }
 
