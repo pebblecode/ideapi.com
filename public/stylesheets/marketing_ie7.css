@@ -5,7 +5,17 @@
   top: 148px; }
 
 /* Account menu */
-#account-menu.active #account-button {
-  background-position: right -26px; }
-  #account-menu.active #account-button:hover {
-    background-position: right 6px; }
+#account-menu {
+  padding-bottom: 0; }
+  #account-menu.active #account-button {
+    background-position: right -25px; }
+    #account-menu.active #account-button:hover {
+      background-position: right 5px; }
+  #account-menu #account-contents {
+    padding-bottom: 0; }
+
+/* Content */
+#content #testimonials h2 {
+  padding-top: 25px; }
+#content #testimonials .listing {
+  margin-top: 40px; }

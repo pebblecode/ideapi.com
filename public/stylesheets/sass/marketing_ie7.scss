@@ -13,11 +13,25 @@
 
 /* Account menu */
 #account-menu {
+  padding-bottom: 0;
   &.active #account-button {  
-    background-position: right -26px;
+    background-position: right -25px;
 
     &:hover {
-      background-position: right 6px;
+      background-position: right 5px;
     }
+  }
+  #account-contents {
+    padding-bottom: 0;
+  }
+}
+
+/* Content */
+#content #testimonials {
+  h2 {
+    padding-top: 25px;
+  }
+  .listing {
+    margin-top: 40px;
   }
 }
