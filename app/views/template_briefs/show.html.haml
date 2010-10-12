@@ -14,8 +14,8 @@
       %h2
         =@template_brief.title
       .actions
-        = link_to "Show options", "#", :class => "show-options-menu"
-    #options-menu
+        = link_to "Actions", "#", :class => "show-options-menu"
+    #options-menu.remove_with_js
       %ul.object-actions
         %li
           =link_to 'edit', edit_template_brief_path(@template_brief), :title => 'Edit template', :class => 'edit_template edit_icon'

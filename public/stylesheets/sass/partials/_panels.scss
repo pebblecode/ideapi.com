@@ -9,12 +9,11 @@
 #content .main{
   .title .actions{
     a.show-options-menu{
-      display: none;
-      /* For more great 16x16 pixel icons, visit http://p.yusukekamiyamane.com/ */
+      /* 16x16 pixel icons from http://p.yusukekamiyamane.com/ */
+      display: block;
       background: url('/images/ui/gear.png') no-repeat 0 0;
-      text-indent: -9999px;
-      width: 16px;
       height: 16px;
+      padding-left: 16px;
     }
   }
   
