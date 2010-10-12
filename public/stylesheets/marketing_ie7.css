@@ -1,0 +1,88 @@
+/*
+Syntax error: Invalid CSS after "...on: right -26px": expected ";", was "&:hover {"
+        on line 19 of /Users/ttt/Work/Dev/ideapi.com/public/stylesheets/sass/marketing_ie7.scss
+
+14: /* Account menu */
+15: #account-menu {
+16:   &.active #account-button {  
+17:     background-position: right -26px
+18: 
+19:     &:hover {
+20:       background-position: right 6px
+21:     }
+22:   }
+23: }
+
+Backtrace:
+/Users/ttt/Work/Dev/ideapi.com/public/stylesheets/sass/marketing_ie7.scss:19
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:821:in `expected'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:796:in `expected'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:792:in `tok!'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:374:in `declaration_or_ruleset'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:340:in `block_child'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:330:in `block_contents'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:322:in `block'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:316:in `ruleset'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:384:in `declaration_or_ruleset'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:340:in `block_child'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:330:in `block_contents'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:322:in `block'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:316:in `ruleset'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:339:in `block_child'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:333:in `block_contents'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:57:in `stylesheet'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:26:in `parse'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/engine.rb:205:in `_to_tree'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/engine.rb:178:in `to_tree'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/lib/haml/util.rb:289:in `silence_haml_warnings'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/engine.rb:178:in `to_tree'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/files.rb:44:in `tree_for'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:220:in `update_stylesheet'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:85:in `update_stylesheets'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:78:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:78:in `update_stylesheets'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:76:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:76:in `update_stylesheets'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:50:in `check_for_updates'
+/usr/local/lib/ruby/gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin/rack.rb:40:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/ttt/Work/Dev/ideapi.com/vendor/gems/hoptoad_notifier-2.2.2/lib/hoptoad_notifier/rack.rb:27:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/utils.rb:252:in `safe_fork'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server.rb:163:in `start'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/spawn_manager.rb:253:in `spawn_rails_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/spawn_manager.rb:247:in `spawn_rails_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+/usr/local/lib/ruby/gems/1.8/gems/passenger-2.2.15/bin/passenger-spawn-server:61
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...on: right -26px\": expected \";\", was \"&:hover {\"\A         on line 19 of /Users/ttt/Work/Dev/ideapi.com/public/stylesheets/sass/marketing_ie7.scss\A \A 14: /* Account menu */\A 15: #account-menu {\A 16:   &.active #account-button {  \A 17:     background-position: right -26px\A 18: \A 19:     &:hover {\A 20:       background-position: right 6px\A 21:     }\A 22:   }\A 23: }"; }

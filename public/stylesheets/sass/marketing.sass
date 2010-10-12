@@ -1,3 +1,6 @@
+/* Mixins */
+
+@import "mixins"
 
 /* Colours
   link-colour   = #2b3087
@@ -36,42 +39,6 @@
 !z_index_lvl_2 = 200
 !z_index_lvl_3 = 300
 
-/* Mixins */ 
-
-@mixin border_radius($size)
-  border-radius: $size
-  -moz-border-radius: $size
-  -webkit-border-radius: $size
-
-@mixin bottom_left_border_radius($size)
-  :-moz-border-radius-bottomleft $size
-  :-webkit-border-bottom-left-radius $size
-  :border-bottom-left-radius $size
-
-@mixin bottom_right_border_radius($size)
-  :-moz-border-radius-bottomright $size
-  :-webkit-border-bottom-right-radius $size
-  :border-bottom-right-radius $size
-  
-@mixin bottom_border_radius($size)
-  @include bottom_left_border_radius($size)
-  @include bottom_right_border_radius($size)  
-  
-=rounded-top-3px
-  :-moz-border-radius-topleft 3px
-  :-webkit-border-top-left-radius 3px
-  :-moz-border-radius-topright 3px
-  :-webkit-border-top-right-radius 3px
-  :border-top-left-radius 3px
-  :border-top-right-radius 3px
-  
-=rounded-top-6px
-  :-moz-border-radius-topright 6px
-  :-webkit-border-top-right-radius 6px
-  :-moz-border-radius-topleft 6px
-  :-webkit-border-top-left-radius 6px
-  :border-top-left-radius 6px
-  :border-top-right-radius 6px
 
 body
   background-color: !body_bg
@@ -461,6 +428,7 @@ span.left
   @include bottom_left_border_radius(15px)
   @include bottom_right_border_radius(3px)
   z-index: !z_index_lvl_3
+  text-align: right
   
   &.logged-in
     ol, ul
@@ -469,17 +437,16 @@ span.left
   
   &.active #account-button
     color: !link_hover_colour
-    background: url("/images/close.png") no-repeat scroll right -25px transparent
+    background: url("/images/close.png") no-repeat scroll right -29px transparent
     padding-right: 14px
     
     &:hover
       color: #444
-      background-position: right 5px
+      background-position: right 1px
 
   #account-button
     outline: none
     color: !nav_default_txt
-    float: right
     margin-top: 1px
     &:hover
       color: !link_hover_colour
