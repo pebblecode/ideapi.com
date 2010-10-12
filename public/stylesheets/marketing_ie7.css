@@ -25,3 +25,7 @@ ul.navigation li a, ul.navigation li span {
   padding-top: 25px; }
 #content #testimonials .listing {
   margin-top: 40px; }
+
+/* FAQ */
+.faq-page #contents {
+  padding: 15px 5px 5px; }
