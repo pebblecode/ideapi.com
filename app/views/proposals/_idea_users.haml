@@ -1,0 +1,6 @@
+#idea_users.side_box
+  %h2 On Idea
+  .contents
+    - if current_object.users.present?
+      %ul
+        = render :partial => 'proposals/idea_user', :collection => current_object.users

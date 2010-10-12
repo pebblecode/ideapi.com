@@ -38,11 +38,10 @@
         .clear
   
   - if current_user.owns?(current_object) && current_object.draft?
-    .hr
     - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
       =f.hidden_field '_call_state', :value => 'publish'
       %p.submit
-        = submit_tag "Submit idea"
+        = submit_tag "Submit"
       .clear
   
   - unless current_object.draft?    
@@ -78,20 +77,14 @@
   
         
 .col_2
+
   - if !current_object.draft?
+    = render :partial => 'proposals/idea_users'
     .side_box
       %h2 Status of idea
       .contents          
         .update_proposal
           - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
-            %span This idea is currently marked as 
-            =parent_object.state
-            .clear
-            .clear
-            
-            %span Update idea status to: 
             =f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
-            =f.submit "update"  
-  
-  %p=link_to 'back to brief', brief_path(parent_object)
-  
+            =f.submit "update"
+            
