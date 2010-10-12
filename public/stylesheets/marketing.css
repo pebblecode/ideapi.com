@@ -106,14 +106,16 @@ img {
   #header ul.navigation {
     position: absolute;
     right: 68px;
-    margin: 36px 0 0 0; }
+    margin: 36px 0 0 0;
+    list-style: none; }
     #header ul.navigation li {
-      display: inline;
+      float: left;
       padding: 0;
-      margin: 0; }
+      margin: 0 0 0 5px; }
       #header ul.navigation li.free-trial a, #header ul.navigation li.free-trial a:hover, #header ul.navigation li.free-trial a:focus, #header ul.navigation li.free-trial a:active, #header ul.navigation li.free-trial span, #header ul.navigation li.free-trial span.current {
         color: #ffcc00; }
       #header ul.navigation li a, #header ul.navigation li span {
+        display: block;
         color: white;
         font-weight: bold;
         font-size: 1.333em;

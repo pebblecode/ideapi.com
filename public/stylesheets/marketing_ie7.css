@@ -4,6 +4,11 @@
 .home-page .try-button-primary {
   top: 148px; }
 
+/* Navigation */
+ul.navigation li a, ul.navigation li span {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
 /* Account menu */
 #account-menu {
   padding-bottom: 5px; }

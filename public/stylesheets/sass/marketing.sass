@@ -150,17 +150,19 @@ img
     position: absolute
     right: 68px
     margin: 36px 0 0 0
+    list-style: none
     
     li
-      :display inline
-      :padding 0
-      :margin 0
+      float: left
+      padding: 0
+      margin: 0 0 0 5px
       
       &.free-trial
         a, a:hover, a:focus, a:active, span, span.current
           color: !nav_special_txt
         
       a, span
+        display: block
         color: !nav_default_txt
         font-weight: bold
         font-size: 1.3333em
