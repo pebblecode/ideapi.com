@@ -78,7 +78,7 @@ a
     text-decoration: underline
     
 .home-page
-  .try-button.primary
+  .try-button-primary
     top: 158px
     height: 62px
     
@@ -91,11 +91,10 @@ a
   
   &:hover
     background-position: 0 -81px
-  &.primary
-    position: absolute
-    right: 82px
-    top: 220px
-  &.secondary
+.try-button-primary
+  position: absolute
+  right: 82px
+  top: 220px
     
   
 img
@@ -462,6 +461,7 @@ span.left
     text-align: right
           
     font-size: 0.9em
+    line-height: 1em
         
     legend
       display: none
@@ -474,7 +474,7 @@ span.left
       li  
         input
           width: 100px
-          height: 10px      
+          height: 10px   
         
         a
           color: !nav_default_txt
@@ -514,5 +514,5 @@ span.left
     position: absolute
     top: 0
     left: 0
-    padding: 1px 4px
+    padding: 5px 4px
     color: #999

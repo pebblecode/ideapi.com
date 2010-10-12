@@ -7,17 +7,17 @@
 
 
 /* Homepage */
-.home-page .try-button.primary {
+.home-page .try-button-primary {
   top: 148px;
 }
 
 /* Account menu */
 #account-menu {
   &.active #account-button {  
-    background-position: right -26px
+    background-position: right -26px;
 
     &:hover {
-      background-position: right 6px
+      background-position: right 6px;
     }
   }
 }
