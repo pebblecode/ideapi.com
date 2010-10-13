@@ -335,7 +335,6 @@ jQuery.fn.fire_collab_action = function (action_type) {
     serialized_data, 
     function (data) {
       _link.fadeIn().next('.spinner').remove();
-      // console.log(data);
       if (action_type == "remove") {
         _link.parents().filter('li.collaboration_user').fadeOut(500,  function () { $(this).remove(); $('ul.add_collaborators').append(data); $('ul.add_collaborators li:last').hide().fadeIn(); $('.add_collaborators li:last a.add_collaborator').add_collab_link(); $('.add_collaborators').update_add_collab_widget(); });
         
@@ -718,13 +717,7 @@ $(document).ready(function(){
       error: function(data){
 
       },
-      success: function(response){
-        
-        console.log(response.proposal);
-        // update status: 
-        $('#widget_proposal_status').html(response.proposal.state);
-        
-      },
+      success: function(response){$('#widget_proposal_status').html(response.proposal.state);},
       dataType: "json",
       cache: false
     });

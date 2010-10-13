@@ -1981,7 +1981,8 @@ span.timestamp {
 #proposals #content .main .proposal .proposal_item .asset {
   float: none !important;
   width: auto !important;
-  margin-right: 10px; }
+  margin-right: 10px;
+  margin-bottom: 0.5em; }
   #proposals #content .main .proposal .proposal_item .asset img {
     width: auto !important;
     max-width: 400px;

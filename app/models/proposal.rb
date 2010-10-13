@@ -118,7 +118,7 @@ class Proposal < ActiveRecord::Base
 
       # As this is now being processed by Resque we need to pass
       # the id as it gets processed by a worker
-      NotificationMailer.deliver_user_idea_reviewed_on_brief(self.id) unless self.user.pending?
+      NotificationMailer.deliver_user_idea_reviewed_on_brief(self.id) unless self.user.pending? or self.draft?
     end
   end
   
@@ -128,7 +128,7 @@ class Proposal < ActiveRecord::Base
 
     # As this is now being processed by Resque we need to pass
     # the id as it gets processed by a worker
-    NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver.id, self.id) unless self.approver.pending?
+    NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver.id, self.id) unless self.approver.pending? or self.draft?
   end
   
   def update_status

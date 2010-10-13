@@ -29,15 +29,13 @@
     - current_object.assets.each do |asset|
       .proposal_item
         %p.the_asset
-          %p.description
-            %strong Description:
-            =asset.description if asset.description.present?
           %p.asset
-            %strong Attachment: 
             -if asset.data.content_type =~ /image/
               =link_to image_tag(asset.data.url, :width => "120"), asset.data.url, :rel => "img_fb"
             -else
               =link_to asset.data.original_filename, asset.data.url
+          %p.description
+            =asset.description if asset.description.present?
           .clear
   
   - if current_user.owns?(current_object) && current_object.draft?
@@ -47,7 +45,7 @@
         = submit_tag "Submit"
       .clear
   
-  - unless current_object.draft?    
+  - unless current_object.draft?
     .comments_area
       %h4 Idea comments      
       %ul.comments
