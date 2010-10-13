@@ -726,8 +726,7 @@ $(document).ready(function(){
         
       },
       dataType: "json",
-      cache: false,
-      contentType: "application/json"
+      cache: false
     });
     return false;
   });
