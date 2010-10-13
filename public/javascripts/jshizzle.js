@@ -692,8 +692,14 @@ $(document).ready(function(){
   
   
   
-  
-  
+  // Override delete, etc in actions bar. 
+  $('#options-menu li form a').click(function(){
+    var answer = confirm("Are you sure?")
+    if(answer){
+      $(this).parent().submit();
+    }
+    return false;
+  });
   
   // Proposals. Maybe we should start putting things in a better arrangement...
   
