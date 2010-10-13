@@ -3,7 +3,15 @@ $field_padding: 20px;
 $textfield_padding: 10px;
 $textfield_width: 590px;
 
+#proposal_state{
+  font-size: 1em;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
 #proposals #content{
+  .ajax-loading{ display: none;}
+
   .edit_proposal, .new_proposal{
     textarea{
       font-size: 1.2em;
@@ -26,17 +34,27 @@ $textfield_width: 590px;
     .field{
       padding: 0 $field_padding;
     }
+    #proposal_long_description{
+      display: block;
+      width: $textfield_width;
+      padding: $textfield_padding;
+    }
+  }
+  
+  #new_proposal #proposal_title{
+    padding: 3px $textfield_padding;
   }
   
   #proposal_long_description{
     display: block;
-    width: $textfield_width;
+    width: 400px;
     padding: $textfield_padding;
   }
   
   #idea-attachments{
     padding: 0;
     margin: 2em $field_padding;
+    
     label{
       width: 80px;
       margin: 0;
@@ -50,18 +68,48 @@ $textfield_width: 590px;
     p.submit{
       text-align: right;
     }
+    
+    .actions{
+      position: static;
+      margin-top: 0.7em;
+      a{
+        display: inline;
+        float: none;
+        background: url('/images/ui/plus-button.png') no-repeat left center;
+        padding-left: 20px;
+        padding-bottom: 2px;
+        
+        &:hover{
+          color: #000;
+        }
+      }
+    }
   }
   p.submit{
     margin-right: 20px;
   }
   .proposal_asset{
-    margin: 0;
+    @include color-transitions(500ms);
+    margin: 0.5em 0 0 0;
     padding: 10px;
     position: relative;
     font-size: 0.9em;
     border: 1px solid #fff;
-    
-    a.delete{text-indent: -9999px; display: none;}
+    background: #fafafa;
+    border: 1px solid #f1f1f1;
+    .remove_asset {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #efefef;
+      a.delete {
+        text-indent: -9999px;
+        display: block;
+        height: 16px;
+        width: 16px;
+        background: url("/images/ui/cross-button.png") no-repeat 0 0;
+      } 
+    }
     .asset-file{
       text-align: left;
       span{
@@ -103,27 +151,55 @@ $textfield_width: 590px;
     }
 
   }
-  .proposal_asset.hovered{
-    background: #fafafa;
-    border: 1px solid #f1f1f1;
-    .remove_asset {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #efefef;
-      a.delete {
-        text-indent: -9999px;
-        display: block;
-        height: 16px;
-        width: 16px;
-        background: url("/images/ui/cross-button.png") no-repeat 0 0;
-      } 
-    }
-    
+  .proposal_asset:hover, .proposal_asset.hovered{
+    background: #f3f3f3;
+    border-color: #eee;
   }
-  .new.hovered{
+  .proposal_asset.new{
+    background: #fcffeb;
+    border: 1px solid #D3DAB8;
+  }
+  
+  .proposal_asset.new.hovered, .proposal_asset.new:hover{
     background: #eff6ce;
     border: 1px solid #D3DAB8;
   }
   
+  .side_box{
+    .update_proposal{
+      padding: 0.5em 1em 1em 1em;
+      p{
+        margin: 0.5em 0;
+      }
+      p+p{
+        margin-top: 1em;
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  
+  // Some show view styles
+  .main .proposal .proposal_item{
+    .asset{
+      float: none !important;
+      width: auto !important;
+      margin-right: 10px;
+      margin-bottom: 0.5em;  
+      img{
+        width: auto !important;
+        max-width: 400px;
+        max-height: 100px;
+        vertical-align: top;
+        &:hover{
+
+        }
+      }
+    }
+    p.description{
+      float: none !important;
+      padding: 0;
+    }
+  }
 }
+

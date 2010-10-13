@@ -335,7 +335,6 @@ jQuery.fn.fire_collab_action = function (action_type) {
     serialized_data, 
     function (data) {
       _link.fadeIn().next('.spinner').remove();
-      // console.log(data);
       if (action_type == "remove") {
         _link.parents().filter('li.collaboration_user').fadeOut(500,  function () { $(this).remove(); $('ul.add_collaborators').append(data); $('ul.add_collaborators li:last').hide().fadeIn(); $('.add_collaborators li:last a.add_collaborator').add_collab_link(); $('.add_collaborators').update_add_collab_widget(); });
         
@@ -656,10 +655,8 @@ jQuery.fn.document_ready_extras = function () {
     return false;
   });
   
-  
   $('#content div.title a.show-options-menu').click(function(){
-    $(this).toggleClass('selected');
-    toggle_brief_options_menu($(this).hasClass('selected'));
+    toggle_brief_options_menu();
     return false;
   });
   
@@ -671,20 +668,12 @@ jQuery.fn.document_ready_extras = function () {
     return false;
   });
   
-  $('body#proposals #idea-attachments div.proposal_asset').hover(function(){
-    $(this).toggleClass('hovered');
-  }, function(){$(this).toggleClass('hovered');});
 };
 
 jQuery(document).ready(jQuery.fn.document_ready);
 
 function toggle_brief_options_menu(selected){
-  options_menu = $('#options-menu');
-  if(selected == true){
-    options_menu.hide();
-  } else {
-    options_menu.show();
-  }
+  $('#options-menu').toggle();
 }
 
 function hide_element(element){
@@ -699,5 +688,52 @@ $(document).ready(function(){
     $(this).parents('.proposal_asset').find('.description-textarea').toggle();
     return false;
   });
+  
+  
+  
+  
+  
+  
+  
+  // Proposals. Maybe we should start putting things in a better arrangement...
+  
+  $('#update_proposal_status #proposal_submit').click(function(){
+    var submit_button = $(this);
+    var form = $(this).parents('form');
+    var loading_gif = $(this).siblings('.ajax-loading');
+    
+    // show loading gif, disable button (in case they click twice!)
+    loading_gif.show();
+    submit_button.attr('disabled', 'disabled');
+    
+    $.ajax({
+      type: 'POST',
+      url: form.attr('action'),
+      data: form.serialize(),
+      complete: function(){
+        loading_gif.hide();
+        submit_button.attr('disabled', false);
+      },
+      error: function(data){
+
+      },
+      success: function(response){$('#widget_proposal_status').html(response.proposal.state);},
+      dataType: "json",
+      cache: false
+    });
+    return false;
+  });
+  
+  
+  /*
+    Proposals edit/new submit form. When submitted, 
+    place an overlay on top of every new asset div with a loading.gif, 
+    to indicate progress.
+    OR: Simply add the loading.gif arrows at the side of the button. 
+  */
+    $('#proposals div.col_1 form').submit(function(){
+      $(this).find('p.submit').prepend('<img src="/images/ui/loading.gif" alt="Loading..." />');
+    });
+  
 });
 

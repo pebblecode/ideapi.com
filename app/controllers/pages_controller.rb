@@ -72,9 +72,9 @@ class PagesController < ApplicationController
   end
   
   
-  def domain_with_port(domain)
+  def domain_with_port(domain, with_port = false)
     port = self.request.port
-    if RAILS_ENV == "development"
+    if with_port
       "http://#{domain}:#{port}/"
     else
       "http://#{domain}/"

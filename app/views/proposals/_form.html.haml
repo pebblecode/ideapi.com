@@ -4,25 +4,26 @@
   .fields
     .field
       = f.text_area :long_description, :rows => "17", :cols => 60
-
     #idea-attachments
+      =new_child_fields_template(f, :assets, {:object => Asset.new, :partial => 'proposal_asset'})
       -attachment_count = 0
-      - cf.reverse!
       - f.fields_for :assets do |asset_form, index|
         -if asset_form.object.new_record?
+          
           .proposal_asset.new
             %p.asset-desc
               =asset_form.label :description, 'Description'
               %span.description-textarea
                 =asset_form.text_field :description
-            
+          
             %p.asset-file
               = asset_form.label :data, 'Attach file'
               = asset_form.file_field :data
-    
-    
+          
+          .actions
+            =add_child_link "Add more...", :assets
         -else
-          .proposal_asset    
+          .proposal_asset
             %p.asset-desc
               =asset_form.label :description
               %span.description-textarea
@@ -34,7 +35,7 @@
                   %span=link_to image_tag(asset_form.object.data.url, :width => "100"), asset_form.object.data.url, :class => 'link_to_asset', :target => '_blank'
                 -else
                   %span=link_to asset_form.object.data.original_filename, asset_form.object.data.url, :class => 'link_to_asset'
-                
+              
             -else
               %p.asset-file
                 = asset_form.label :data, 'Upload file'

@@ -4,7 +4,7 @@
 .clear
 
 .col_1
-  %div{:id => "show_brief_infso_#{current_object.id}", :class => 'note'}
+  %div{:id => "show_brief_info_#{current_object.id}", :class => 'note'}
     :markdown
       You can see the history of each brief section and collaborate by leaving comments or asking questions.
       All comments and questions that you leave on the brief will cause brief authors to be notified by email.
@@ -28,7 +28,7 @@
         =current_object.title
       -if current_user.owns?(current_object)
         .actions
-          = link_to "Show options", "#", :class => "show-options-menu selected"
+          = link_to "Actions", "#", :class => "show-options-menu selected"
     = render :partial => 'brief_options_menu', :locals => {:object => current_object}
     #brief-tags
       - form_for(current_object, :html => { :method => :put, :id => 'inline_brief_tags_form' }) do |brief_form|

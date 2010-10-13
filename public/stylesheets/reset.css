@@ -759,8 +759,7 @@ caption, tbody, tfoot, thead, tr, th, td, .x, * {
   line-height: 1.6em;
   text-decoration: none;
   text-align: left;
-  vertical-align: baseline;
-  border: 0; }
+  vertical-align: baseline; }
 
 * {
   margin: 0;
