@@ -1,14 +1,14 @@
 
 $(document).ready(function(){
   // For debugging: Add grid on logo click
-  $("#logo").click(function() {
-    $("#container").append("<div id='grid-overlay'></div>");
-    
-    $("#grid-overlay").click(function() {
-      $(this).remove();
-    });
-    return false;
-  });
+  // $("#logo").click(function() {
+  //   $("#container").append("<div id='grid-overlay'></div>");
+  //   
+  //   $("#grid-overlay").click(function() {
+  //     $(this).remove();
+  //   });
+  //   return false;
+  // });
   
   // Add inline labels
   $(".infield-labels label").inFieldLabels();
