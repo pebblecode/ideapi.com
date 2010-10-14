@@ -454,10 +454,14 @@ span.left {
 #promo-video {
   z-index: 0;
   position: block;
-  background-color: black;
-  width: 795px;
-  height: 417px;
-  text-align: center; }
+  width: 557px;
+  height: 418px;
+  text-align: center;
+  margin: 0 auto;
+  border: 10px solid #7e9d3a;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px; }
   #promo-video object {
     position: block;
     z-index: 0; }
