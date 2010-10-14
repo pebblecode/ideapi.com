@@ -16,10 +16,7 @@
     =render :partial => 'user_feedback/feedback_form'  
     #container
       #header
-        %h1
-          /=link_to "ideapi", "/"
-          %a{:href => home_path, :title => "home"}
-            %img{ :src => "/images/ideapi-logo.gif", :alt => "ideapi Logo" }
+        = render :partial => 'partials/logo'
         - if logged_in? 
           %p#top-menu
             Logged in as:
@@ -40,7 +37,7 @@
               %li=link_unless_current 'templates', template_briefs_path
             %li=link_unless_current 'contacts', users_path
         .clear
-        %ul.sub_nav
+        %ul{:class => "sub_nav #{app_logo_class}"}
           =yield :sub_nav
           
         - if (flash[:error])

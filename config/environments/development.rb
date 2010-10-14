@@ -50,3 +50,4 @@ ActionMailer::Base.smtp_settings = {
 # end
 
 # config.action_mailer.delivery_method = :sendmail
+Paperclip.options[:command_path] = '/usr/local/bin'

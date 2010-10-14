@@ -44,4 +44,8 @@ module ApplicationHelper
   def time_ago_in_words_with_word(date, word = "ago")
     "#{time_ago_in_words(date)} #{word}"
   end
+  
+  def app_logo_class
+    return current_account.logo.options[:default_url] == current_account.logo(:normal) ? 'default' : 'custom'
+  end
 end

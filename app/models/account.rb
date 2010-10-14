@@ -7,7 +7,18 @@ class Account < ActiveRecord::Base
   # See http://github.com/mbleigh/acts-as-taggable-on
   acts_as_tagger
 
+  # Custom logo
+  attr_accessible :logo
+  has_attached_file :logo, :default_url => '/images/ideapi-logo.gif', 
+    :styles => { :normal => '185x80', :thumb => '90x40'}, 
+    :whiny => false
   
+  validates_attachment_content_type :logo,
+    :content_type => ['image/png', 'image/jpeg', 'image/gif'],
+    :message => 'Only image formats allowed are PNG, JPEG, and GIF.', :whiny => false
+  validates_attachment_size :logo,
+    :less_than => 500.kilobytes, 
+    :message => 'The logo file size must be less than 500KB.'    
   # Account subdomain name
   def subdomain
     full_domain.split('.').first
@@ -21,6 +32,10 @@ class Account < ActiveRecord::Base
   has_many :users, :through => :account_users do    
     def admins
       all(:conditions => "account_users.admin = true")
+    end
+    
+    def admin
+      first(:conditions => "account_users.admin = true")
     end
     
     def brief_authors
@@ -46,6 +61,7 @@ class Account < ActiveRecord::Base
   class << self; attr_accessor :excluded_subdomains; end
   @excluded_subdomains =  %W( support blog www billing help api #{AppConfig['admin_subdomain']} )
   
+  validates_presence_of :name
   validates_format_of :domain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/
   validates_exclusion_of :domain, 
     :in => excluded_subdomains, 
@@ -117,7 +133,18 @@ class Account < ActiveRecord::Base
   delegate :brief_authors, :to => :users
   
   def admin
-    self.users.admins.first
+    self.admins.first
+  end
+  
+  attr_accessible :admin
+  
+  def admin=(a_user)
+    a_user = User.find(:first, :conditions => {:id => a_user}) unless a_user.is_a?(User)
+    self.account_users.each do |account_user| 
+      account_user.admin = false
+      account_user.admin = true if account_user.user == a_user
+      account_user.save
+    end
   end
   
   def admin?(a_user)

@@ -84,7 +84,6 @@
   
         
 .col_2
-  = render :partial => 'proposals/idea_users'
   - if !current_object.draft?
     .side_box
       %h2 Status of idea
@@ -97,4 +96,4 @@
               %span.ajax-loading
                 %img{:src => '/images/ui/loading.gif', :alt => 'Loading...'}/
               =f.submit "update"
-            
+  = render :partial => 'proposals/idea_users'

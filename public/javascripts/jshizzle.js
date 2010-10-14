@@ -393,7 +393,7 @@ jQuery.fn.collab_action_type = function () {
 jQuery.fn.document_ready = function() {
     
 
-    $("#account_name").keyup(function(key){
+    $("#signup #account_name").keyup(function(key){
       field = $("#account_domain");
       field.attr('value', url_valid_string($(this).val()).toLowerCase());
     });
