@@ -8,11 +8,11 @@ class AccountsController < ApplicationController
   before_filter :admin_required, :except => [ :new, :create, :plans, :cancelled, :thanks ]
   
   before_filter :build_user, :only => [ :new, :create ]
-  before_filter :load_subscription, :only => [ :show, :billing, :plan, :paypal, :plan_paypal ]
-  before_filter :load_plans, :only => [ :new, :create, :show ]
+  before_filter :load_subscription, :only => [ :show, :billing, :plan, :paypal, :plan_paypal, :update ]
+  before_filter :load_plans, :only => [ :new, :create, :show, :update ]
   
-  before_filter :load_billing, :only => [ :show, :new, :create, :billing, :paypal ]
-  before_filter :load_discount, :only => [ :show, :plans, :plan, :new, :create ]
+  before_filter :load_billing, :only => [ :show, :new, :create, :billing, :paypal, :update ]
+  before_filter :load_discount, :only => [ :show, :plans, :plan, :new, :create, :update ]
   before_filter :build_plan, :only => [:create]
   
   ssl_required :billing, :cancel, :new, :create
@@ -21,6 +21,39 @@ class AccountsController < ApplicationController
 
   def new
     render :layout => 'signup'
+  end
+  
+  def dashboard
+    
+  end
+  
+  
+  def update
+    @account = current_account
+    if params[:delete_logo].present?
+      params[:account][:logo] = nil
+    end
+    if @account.update_attributes(params[:account])
+      flash[:notice] = "Successfully updated account"
+      if params[:account][:domain].present?
+        @account.reload
+        redirect_to "http://#{@account.full_domain}/account" and return
+      end
+    else
+      flash[:notice] = "There were errors in your form"
+    end
+    
+    # if we changed the subdomain, we must redirect.
+    
+    
+    current_object = @account
+    
+    if current_user != current_account.admin
+      redirect_to '/dashboard'
+    else
+      render :action => 'show' and return
+    end
+    
   end
   
   def create
