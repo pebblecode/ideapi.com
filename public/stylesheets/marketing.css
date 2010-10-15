@@ -388,6 +388,25 @@ span.left {
   .tour-page .features .even img {
     float: left; }
 
+.blog #sidebar {
+  float: right;
+  width: 220px;
+  padding: 15px;
+  background: #f1f1f1;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+  .blog #sidebar h1 {
+    font-size: 1.667em;
+    margin-bottom: 1em;
+    padding-bottom: 0;
+    border: none; }
+  .blog #sidebar p.actions {
+    margin: 2em 0; }
+    .blog #sidebar p.actions span {
+      margin: 0; }
+
 #account-menu {
   position: absolute;
   top: 0;

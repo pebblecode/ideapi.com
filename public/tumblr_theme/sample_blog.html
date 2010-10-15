@@ -64,26 +64,13 @@
         ol.notes { margin: 0; padding: 0; }
         ol.notes li.note { margin: 0 0 0.75em 0; padding: 0 0 0.75em 0 }
         ol.notes img.avatar { display: none; }
-        
-        #sidebar{
-          float: right;
-          width: 220px;
-          padding: 0 15px;
-          background: #f1f1f1;
-          -webkit-border-radius: 3px;
-          -moz-border-radius: 3px;
-          border-radius: 3px;
-        }
-
-        #content #sidebar p.actions{margin: 2em 0;}
-        #content #sidebar p.actions span{margin: 0;}
-
 
       </style>
       
       <!-- TODO: Remove this - for debugging -->
       <script type="text/javascript" src="/javascripts/jquery.js"></script>
       <script type="text/javascript">
+        <!--//--><![CDATA[//><!--
         function turn_on_logo_grid_toggle() {
           $("#logo a").click(function() {
             turn_on_grid();
@@ -102,16 +89,17 @@
         }
         $(document).ready(function() {
           turn_on_logo_grid_toggle();
-        });         
+        }); 
+        //--><!]]>   
       </script>
 </head>
-<body>
+<body class="blog">
   <div id='container'>
 
     <div id='banner'>
       <div id='header'>
         <div id='logo'>
-          <a alt='home' href='http://ideapi.com/'>
+          <a title='home' href='http://ideapi.com/'>
             <img alt='ideapi Logo' src='/images/logo-green.png' />
           </a>
         </div>
@@ -342,17 +330,17 @@
             <h2>Manage Your Own Templates</h2>
 <p>ideapi now allows users the ability to create, edit and manage their own brief templates. It works very much like the dashboard but for templates. Useful for companies with varying brief templates depending on the type of client.</p>
 
-<center><p><img src="http://media.tumblr.com/tumblr_l5nd0vmZlV1qa7q62.png"/></p></center>
+<center><p><img src="/images/homepage_note_v3.jpg"/></p></center>
 
 <h2>Formatting Help</h2>
 <p>ideapi utilizes Textile, a way of adding a little bit of formatting magic to your briefs or ideas. When editing a brief or idea, check out the Formatting Help widget on the right hand side - it will guide you as to how Textile works.</p>
 
-<center><p><img src="http://media.tumblr.com/tumblr_l5nd17zZYs1qa7q62.png"/></p></center>
+<center><p><img src="/images/homepage_note_v3.jpg"/></p></center>
 
 <h2>Permissions</h2>
 <p>Add other people to collaborate on your brief, allow them to help author the brief and add idea approvers. The Brief Collaborators widget on the right hand side of the brief allows you to easily assign the right permissions.</p>
 
-<center><p><img src="http://media.tumblr.com/tumblr_l5nd1mi2HA1qa7q62.png"/></p></center>
+<center><p><img src="/images/homepage_note_v3.jpg"/></p></center>
 
 <h2>Upcoming Features</h2>
 <ul><li>New and improved Dashboard with notifications of tasks outstanding and the ability to sort briefs into Job Bags.</li>
@@ -551,18 +539,18 @@
         <div id='footer-content'>
           <div id='footer-content-left'>
             <p>
-              <a alt='Terms of Service' href='/terms'>
+              <a title='Terms of Service' href='/terms'>
                 Terms of Service
               </a>
               |
-              <a alt='Privacy Policy' href='/privacy'>
+              <a title='Privacy Policy' href='/privacy'>
                 Privacy Policy
               </a>
 
               |
               <a href='mailto:info[at]pebbleit' onclick="this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" rel='ideapi.com' title='info'>Contact</a>
               |
-              <a alt='Follow us on Twitter' href='http://twitter.com/ideapi'>
+              <a title='Follow us on Twitter' href='http://twitter.com/ideapi'>
                 Twitter
               </a>
             </p>
@@ -576,31 +564,9 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-    //<![CDATA[
-    (function() {
-        var links = document.getElementsByTagName('a');
-        var query = '?';
-        for(var i = 0; i < links.length; i++) {
-        if(links[i].href.indexOf('#disqus_thread') >= 0) {
-            query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
-        }
-        }
-        document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums//get_num_replies.js' + query + '"></' + 'script>');
-    })();
-    
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-691295-5']);
-    _gaq.push(['_setDomainName', '.ideapi.com']);
-    _gaq.push(['_trackPageview']);
 
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    //]]>
-    </script>
-  <!-- BEGIN TUMBLR CODE --><iframe src="http://assets.tumblr.com/iframe.html?8&src=http%3A%2F%2Fblog.ideapi.com%2F&amp;lang=en_US&amp;name=ideapi&amp;brag=0" scrolling="no" width="324" height="25" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe><!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]--><script type="text/javascript">_qoptions={qacct:"p-19UtqE8ngoZbM"};</script><script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script><noscript><img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif" style="display:none; border-width:0px; height:1px; width:1px;" alt=""/></noscript><!-- END TUMBLR CODE --></body>
+    <!-- Removed unused scripts -->
+    
+  </body>
 
 </html>
