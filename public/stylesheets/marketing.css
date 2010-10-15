@@ -444,12 +444,18 @@ span.left {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 3px;
-  border: 1px solid #b3d335; }
+  border: 1px solid #b3d335;
+  position: relative; }
   .blog #sidebar h1 {
     font-size: 1.667em;
     margin-bottom: 1em;
     padding-bottom: 0;
-    border: none; }
+    border: none;
+    margin-top: 5px; }
+  .blog #sidebar .follow-us {
+    position: absolute;
+    top: 15px;
+    right: 15px; }
   .blog #sidebar .try-button {
     margin: 0 auto; }
 
