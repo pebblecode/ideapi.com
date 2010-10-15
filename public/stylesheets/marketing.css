@@ -352,9 +352,17 @@ span.left {
     margin-bottom: 50px;
     padding-bottom: 20px;
     margin-bottom: 80px;
-    border-bottom: 1px solid #b3d335; }
+    border-bottom: 1px solid #b3d335;
+    position: relative; }
     .faq-page .faq-listing li .question {
       margin-bottom: 10px; }
+    .faq-page .faq-listing li .back-to-top {
+      color: #b3d335;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-right: 20px;
+      background: transparent url(/images/up-arrow.png) no-repeat right 4px; }
     .faq-page .faq-listing li .ans {
       color: #676767;
       margin: 0 0 10px;
