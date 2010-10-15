@@ -395,7 +395,8 @@ span.left {
     border-bottom: 1px solid #b3d335;
     margin-bottom: 80px; }
     .blog #posts .post .title {
-      color: #32401a; }
+      color: #32401a;
+      margin-bottom: 5px; }
       .blog #posts .post .title a {
         color: #32401a;
         font-weight: normal; }
@@ -404,6 +405,28 @@ span.left {
       font-size: 1.333em;
       line-height: 1.5em;
       margin: 0 0 10px; }
+      .blog #posts .post .post-content p {
+        color: #676767; }
+      .blog #posts .post .post-content h1, .blog #posts .post .post-content h2 {
+        color: #32401a;
+        font-size: 1.167em;
+        line-height: 1em;
+        font-weight: normal;
+        margin: 35px 0 5px; }
+      .blog #posts .post .post-content h1 {
+        border: none;
+        padding-bottom: 0;
+        font-weight: bold; }
+      .blog #posts .post .post-content h3 {
+        color: #32401a;
+        font-size: 1em;
+        line-height: 1em;
+        font-style: italic; }
+      .blog #posts .post .post-content h4, .blog #posts .post .post-content h5, .blog #posts .post .post-content h6 {
+        color: #32401a;
+        font-size: 0.917em;
+        line-height: 1em;
+        font-weight: bold; }
       .blog #posts .post .post-content img {
         max-width: 496px; }
 .blog #sidebar {
