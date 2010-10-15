@@ -333,7 +333,7 @@ span.left {
   margin-bottom: 40px; }
 .faq-page #contents {
   border: 1px solid #b3d335;
-  padding: 10px 5px;
+  padding: 10px 5px 10px 0;
   margin-bottom: 50px;
   width: 70%;
   border-radius: 10px;
@@ -341,9 +341,12 @@ span.left {
   -webkit-border-radius: 10px; }
   .faq-page #contents h2 {
     display: none; }
+  .faq-page #contents .listing {
+    padding-left: 35px; }
   .faq-page #contents li {
     font-size: 1.333em;
-    line-height: 1.5em; }
+    line-height: 1.5em;
+    list-style: disc; }
 .faq-page .faq-listing {
   list-style: none;
   padding: 0;
