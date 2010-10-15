@@ -396,6 +396,10 @@ span.left {
   .blog #posts .post {
     border-bottom: 1px solid #b3d335;
     margin-bottom: 80px; }
+    .blog #posts .post .link .title a {
+      text-indent: 20px;
+      background: transparent url(/images/links.png) no-repeat 0 2px;
+      display: block; }
     .blog #posts .post .title {
       margin-bottom: 5px; }
       .blog #posts .post .title a {
