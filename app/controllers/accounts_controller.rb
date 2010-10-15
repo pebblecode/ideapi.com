@@ -29,24 +29,25 @@ class AccountsController < ApplicationController
   
   
   def update
+    logger.debug(@account.logo(:normal))
     @account = current_account
     if params[:delete_logo].present?
       params[:account][:logo] = nil
     end
     if @account.update_attributes(params[:account])
       flash[:notice] = "Successfully updated account"
+      @account.reload
       if params[:account][:domain].present?
-        @account.reload
         redirect_to "http://#{@account.full_domain}/account" and return
       end
     else
-      flash[:notice] = "There were errors in your form"
+      current_account.logo = Account.find(current_account.id).logo if current_account.logo.dirty? 
+      flash[:error] = "Account could not be updated."
     end
     
     # if we changed the subdomain, we must redirect.
     
-    
-    current_object = @account
+  
     
     if current_user != current_account.admin
       redirect_to '/dashboard'

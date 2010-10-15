@@ -7,3 +7,5 @@
   %p.asset-file
     = f.label :data, 'Attach file'
     = f.file_field :data
+  %p.remove_asset
+    = link_to "Remove or clear", 'javascript:void(0)', :class => 'close-box'

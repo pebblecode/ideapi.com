@@ -1,6 +1,5 @@
 .col_1
   %h3 Account management
-  
   #update_domain_name
     - form_for @account, :url => account_path, :html => {:id => 'account_domain_form', :multipart => true} do |domain_form|
       .field.account-url
@@ -9,12 +8,16 @@
           %p.domain
             = "#{domain_form.text_field :domain}"
             %span.base_domain=".#{AppConfig['base_domain']}"
-          - if domain_form.object.errors[:domain] 
-            %p.errors = domain_form.object.errors[:name] 
+          - if domain_form.object.errors[:domain].present?
+            %p.errors= domain_form.object.errors[:name] 
           %p.desc
             :markdown
               **You can change your account subdomain here**. The subdomain must be at least 3 characters, lowercase letters and numbers only. 
               You may change this later on.
+          %p.warning.change_domain
+            = domain_form.check_box :change_domain
+            = domain_form.label :change_domain, "By changing your subdomain, all users of this account will need to login using the new url. Tick this box to confirm you understand."
+
       .field.submit
         = domain_form.submit 'Change subdomain'
             
@@ -29,15 +32,18 @@
         %p
           = f.label :admin, 'Account Holder'
           = f.collection_select :admin, current_account.users, :id, :full_name, :prompt => true, :selected => @account.admin.id
+        %p.warning NB. By changing the account holder, you will no longer have access to this page and will be redirected to the dashboard.
       .field.logo
         %p
           = f.label :logo, 'Logo' 
           = f.file_field :logo
-          %span.logo-preview
-            =image_tag(@account.logo.url(:normal))
-            - if @account.logo.url(:normal) != @account.logo.options[:default_url]
-              = check_box_tag :delete_logo, '1'
-              Delete logo?
+        - if f.object.errors[:logo].present?
+          %p.errors= f.object.errors[:logo]
+        %p.logo-preview
+          =image_tag(@account.logo.url(:normal))
+          - if @account.logo.url(:normal) != @account.logo.options[:default_url]
+            = check_box_tag :delete_logo, '1'
+            = label_tag :delete_logo, 'Delete logo'
       .field.submit
         = f.submit 'Update'
   - if @subscription.state == 'trial'

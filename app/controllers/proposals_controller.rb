@@ -3,6 +3,7 @@ class ProposalsController < ApplicationController
   
   # needs login for all actions
   before_filter :require_user
+  before_filter :require_authorized_user
   before_filter :require_active_brief, :except => [:show]
   
   before_filter :require_owner_if_draft, :only => :show
@@ -47,20 +48,18 @@ class ProposalsController < ApplicationController
     end
     
     response_for :create do |format|
-      format.html { redirect_to edit_object_path }
+      format.html { redirect_to object_path }
     end
     
     response_for :update do |format|
       format.html {
         flash[:notice] = "Proposal successfully updated"
-        if current_object.draft?
-          redirect_to (params[:commit] == "Preview" ? object_path : edit_object_path)
-        else
-          redirect_to object_path
-        end
+        redirect_to object_path
       }
       
-      format.json { render :json => current_object }
+      format.json { 
+        render :json => current_object 
+      }
     end
     
   end
@@ -76,6 +75,15 @@ class ProposalsController < ApplicationController
   def require_owner_if_draft
     if current_object.draft? and not current_object.user == current_user
       flash[:notice] = "You must be the owner of the idea while it's still a draft."
+      redirect_to brief_path(current_object.brief)
+    end
+  end
+  def authorized_users
+    # brief authors, brief approver, and proposal user (owner)
+    [current_object.user, current_object.brief.authors, current_object.brief.approver].uniq.flatten
+  end
+  def require_authorized_user
+    unless authorized_users.include? current_user
       redirect_to brief_path(current_object.brief)
     end
   end

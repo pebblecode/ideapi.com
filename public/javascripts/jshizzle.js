@@ -694,7 +694,7 @@ $(document).ready(function(){
   
   // Override delete, etc in actions bar. 
   $('#options-menu li form a').click(function(){
-    var answer = confirm("Are you sure?")
+    var answer = confirm("Are you sure?");
     if(answer){
       $(this).parent().submit();
     }
@@ -723,7 +723,10 @@ $(document).ready(function(){
       error: function(data){
 
       },
-      success: function(response){$('#widget_proposal_status').html(response.proposal.state);},
+      success: function(response){
+        state = response.proposal.state.replace('_',' ');
+        $('#widget_proposal_status').html(state);
+      },
       dataType: "json",
       cache: false
     });
@@ -741,5 +744,21 @@ $(document).ready(function(){
       $(this).find('p.submit').prepend('<img src="/images/ui/loading.gif" alt="Loading..." />');
     });
   
+  
+  /*
+    Inline labels
+    Show them when forms are loaded and certain conditions are met.
+    For now, just used in proposals forms
+  */
+  $('#proposals form .title-span label').inFieldLabels();
+  $('.field label').inFieldLabels();
+  
+  $('#proposals #idea-attachments .proposal_asset .close-box').live('click',function(){
+    var parent_box = $(this).parents('div.new.proposal_asset');
+    parent_box.fadeOut('fast', function(){
+      parent_box.remove();
+    });
+    return false;
+  });
 });
 

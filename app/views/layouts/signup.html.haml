@@ -7,8 +7,7 @@
     %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=EmulateIE7"}
 
     =stylesheet_link_tag %w(reset frontend facebox jquery.wysiwyg)
-    =javascript_include_tag %w(jquery jcorners facebox jquery.cookie jquery.wysiwyg SmartTextBox jshizzle)
-
+    
     /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
     /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
     
@@ -40,3 +39,4 @@
           .clear
       .clear
     /[if IE 6]<script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>
+    =javascript_include_tag %w(jquery jcorners facebox jquery.cookie jquery.wysiwyg SmartTextBox jshizzle)
