@@ -24,62 +24,11 @@
   
   <!-- <link href='http://ideapi.com/stylesheets/marketing.css' media='screen' rel='stylesheet' type='text/css' /> -->
   <link href='/stylesheets/marketing.css' media='screen' rel='stylesheet' type='text/css' />
-    <style type="text/css" media="screen">
-          
-        /* POSTS */
-        #posts { 
-          clear: left;
-          width: 50em;
-          }
-        .text,.link,.quote,.photo,.video,.audio,.chat,.photoset-post{margin-bottom:.5em;}
-        .link .link-description{margin:0 0 1.5em}
-        .quote .words{border:0;font:normal 1.2em/1.3 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;margin:0 0 1em;padding:0}
-        .quote .source{font-style:italic}
-        .photo .caption,.video .caption,.audio .caption,.quote .source,.photoset-post .caption{clear: right;margin-bottom:1.5em;margin-top:0.75em;text-align:left}
-        .photo a img{border:0;}
-        .chat ul.convo{list-style-type:none;padding:0;}
-        .chat ul.convo li{line-height:2;}
-        .chat ul.convo li .person { font-weight: bold; }
-        .audio .playcount { float: right; }
-        
-        .post h3{ font-size: 1.5em; margin-bottom: 0;}
-        /* POST FOOTERS */
-        .post-footer{
-          list-style:none;
-          font-size:0.857em;
-          margin:.5em 0;
-          padding:0;
-          }
-        .post-footer li{display:inline;margin-left:1em;padding:0}
-        
-        /* REBLOG */
-        .post-footer li.reblog{display:block;font-style:italic;margin-bottom:0.25em}
-        .post-footer li.date h3{display:inline;font-family:Helvetica,Arial,sans-serif;font-size:1em}
-        
-        /* TAGS */
-        .post-footer li.tags ul, .post-footer li.tags ul li{display:inline; padding: 0;}
-        .post-footer li.tags ul li {margin-left: 0.4em;}
-        
-        /* NOTES */
-        ol.notes { margin: 0; padding: 0; }
-        ol.notes li.note { margin: 0 0 0.75em 0; padding: 0 0 0.75em 0 }
-        ol.notes img.avatar { display: none; }
-        
-        #sidebar{
-          float: right;
-          width: 220px;
-          padding: 0 15px;
-          background: #f1f1f1;
-          -webkit-border-radius: 3px;
-          -moz-border-radius: 3px;
-          border-radius: 3px;
-        }
-
-        #content #sidebar p.actions{margin: 2em 0;}
-        #content #sidebar p.actions span{margin: 0;}
-
-
-      </style>
+  
+  <!-- TODO: Change this link -->
+  <!--[if IE 7]>  
+    <link href='/stylesheets/marketing_ie7.css' media='screen' rel='stylesheet' type='text/css' />
+  <![endif]-->  
 </head>
 <body class="blog">
   <div id='container'>
@@ -87,9 +36,13 @@
       <div id='header'>
         <div id='logo'>
           <a alt='home' href='http://ideapi.com/'>
+            <!-- TODO: Change this link -->
             <img alt='ideapi Logo' src='/images/logo-green.png' />
           </a>
         </div>
+        <div id="account-menu" class="logged-out">
+          <a id="account-button" href="/login">Account</a>
+        </div>        
         <ul class='navigation'>
           <li><a href="http://ideapi.com" class="current">overview</a></li>
           <li><a href="http://ideapi.com/tour" class="current">tour</a></li>
@@ -99,20 +52,38 @@
         </ul>
         <div class='clear'></div>
       </div>
-    </div>
+    </div> <!-- end #header -->
     <div id='middle-section'>
       <div id="content">  
 
-       <div id="sidebar">
+        <div id="sidebar">
           <h1>Blog.</h1>
+          
+          <div class="follow-us">
+            <span class='icon'>
+              <a href='http://twitter.com/ideapi' title='follow us on twitter'>
+                <img alt='twitter' height='24' src='/images/twitter_icon.jpg' />
+              </a>
+            </span>
+            <span class='icon'>
+              <a href='http://www.facebook.com/pages/ideapi/351745410618' title='ideapi @ Facebook'>
+                <img alt='facebook' height='24' src='/images/facebook_icon.jpg' />
+              </a>
+            </span>
+            <span class='icon'>
+              <a href='http://blog.ideapi.com/rss' title='RSS'>
+                <img alt='rss' height='24' src='/images/rss_icon.jpg' />
+              </a>
+            </span>
+          </div> <!-- end .follow-us -->          
+          
           <p>ideapi is a tool that helps groups of people work together better.</p>
           <p>You can collaborate on and agree a clear brief, as well as manage the process of submitting and approving ideas.</p>
           <p>Brief &amp; idea collaboration for clients, agencies &amp; production.</p>
-          <p class="actions">
-            <span><a class="button-ideapi" href="http://ideapi.com/signup">FREE <strong>BETA</strong> - TRY IT</a></span>
-          </p>
-          <p align="center">[<a href="http://twitter.com/ideapi">twitter</a>] [<a href="http://blog.ideapi.com/rss">rss</a>]</p>
-        </div>
+
+          <a class="try-button" href="http://ideapi.com/signup">Try it for free</a>
+
+        </div> <!-- end #sidebar -->
 
       <div id="posts" class="autopagerize_page_element">
 				
@@ -120,7 +91,7 @@
         <div class="post">
           {block:Text}
           <div class="regular">
-            {block:Title}<h3>{Title}</h3>{/block:Title}
+            {block:Title}<h2 class="title">{Title}</h2>{/block:Title}
             <div class="post-footer">
               {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
               {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
@@ -132,7 +103,9 @@
               <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
               
             </div>
-            {Body}
+            <div class="post-content">
+              {Body}
+            </div>
           </div>
           {/block:Text}
 
@@ -148,15 +121,17 @@
             <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
             
           </div>
-          <div class="quote">
-            <span class="words">&#0147;{Quote}&#0148;</span>
-            {block:Source}<span class="source">{Source}</span>{/block:Source}
+          <div class="post-content">
+            <div class="quote">
+              <span class="words">&#0147;{Quote}&#0148;</span>
+              {block:Source}<span class="source">{Source}</span>{/block:Source}
+            </div>
           </div>
           {/block:Quote}
 
           {block:Link}
           <div class="link">
-            <h3><a href="{URL}" {Target}>{Name}</a></h3>
+            <h2 class="title"><a href="{URL}" {Target}>{Name}</a></h2>
             <div class="post-footer">
               {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
               {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
@@ -168,16 +143,16 @@
               <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
               
             </div>
-            <div class="link-body">
-            {block:Description}{Description}{/block:Description}
+            <div class="post-content">
+              {block:Description}{Description}{/block:Description}
             </div>
           </div>
           {/block:Link}
         
           {block:Chat}
           <div class="conversation">
-            {block:Title}<h3>{Title}</h3>{/block:Title}
-            <ul>
+            {block:Title}<h2 class="title">{Title}</h2>{/block:Title}
+            <ul class="post-content">
               {block:Lines}
               <li>
                 {block:Label}<span class="person">{Label}</span>{/block:Label}
@@ -210,10 +185,11 @@
             <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
             
           </div>
-          
-          <div class="photo">
-            {LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
-            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          <div class="post-content">
+            <div class="photo">
+              {LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+              {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+            </div>
           </div>
           {/block:Photo}
 
@@ -229,11 +205,11 @@
             <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
             
           </div>
-          
-          <div class="video">
-            
-            {Video-400}
-            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          <div class="post-content">
+            <div class="video">            
+              {Video-400}
+              {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+            </div>
           </div>
           {/block:Video}
           
@@ -249,10 +225,11 @@
             <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
             
           </div>
-          
-          <div class="audio">
-            {AudioPlayerGrey}
-            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          <div class="post-content">
+            <div class="audio">
+              {AudioPlayerGrey}
+              {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+            </div>
           </div>
           {/block:Audio}
           <br style="clear-left"/>
@@ -280,33 +257,50 @@
     {block:IfDisqusShortname}
     {/block:IfDisqusShortname}
         </div>
-      </div>
+      </div> <!-- end #posts -->
       <div id='footer'>
         <div id='footer-content'>
           <div id='footer-content-left'>
             <p>
-              <a alt='Terms of Service' href='/terms'>
-                Terms of Service
+              &copy; 2010 Ideapi Limited
+              |
+
+              <a href='/terms' title='Terms of Service'>
+              Terms of Service
               </a>
               |
-              <a alt='Privacy Policy' href='/privacy'>
-                Privacy Policy
+              <a href='/privacy' title='Privacy Policy'>
+              Privacy Policy
               </a>
               |
               <a href='mailto:info[at]pebbleit' onclick="this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" rel='ideapi.com' title='info'>Contact</a>
-              |
-              <a alt='Follow us on Twitter' href='http://twitter.com/ideapi'>
-                Twitter
-              </a>
             </p>
-          </div>
-        </div>
-        <div id='footer-content-right'>
-          <p>
-            &copy; 2010 Ideapi Limited
-          </p>
-        </div>
-      </div>
+          </div> <!-- end #footer-content-left -->
+          <div id='footer-content-right'>
+            <p>
+              <span class='text'>
+              Follow us on:
+              </span>
+
+              <span class='icon'>
+                <a href='http://twitter.com/ideapi' title='follow us on twitter'>
+                  <img alt='twitter' height='24' src='/images/twitter_icon.jpg' />
+                </a>
+              </span>
+              <span class='icon'>
+                <a href='http://www.facebook.com/pages/ideapi/351745410618' title='ideapi @ Facebook'>
+                  <img alt='facebook' height='24' src='/images/facebook_icon.jpg' />
+                </a>
+              </span>
+              <span class='icon'>
+                <a href='http://blog.ideapi.com/rss' title='RSS'>
+                  <img alt='rss' height='24' src='/images/rss_icon.jpg' />
+                </a>
+              </span>
+            </p>
+          </div> <!-- end #footer-content-right -->
+        </div> <!-- end #footer-content -->
+      </div> <!-- end #footer -->
     </div>
     <script type="text/javascript">
     //<![CDATA[
