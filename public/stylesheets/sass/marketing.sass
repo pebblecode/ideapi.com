@@ -39,6 +39,8 @@
 !z_index_lvl_2 = 200
 !z_index_lvl_3 = 300
 
+/* Blog */
+!blog_post_content_width = 496px
 
 body
   background-color: !body_bg
@@ -51,26 +53,28 @@ body
   font-family: Helvetica, Arial, sans-serif
 
 
-h1  
+h1
+  color: !heading_color
   font-size: 4.1667em
   line-height: 1em
   margin: 0 0 80px 0
   padding-bottom: 35px
   border-bottom: 1px solid !dark_divider_colour
-
+  
 
 .home-page
   h2
     font-size: 2.6667em
-    line-height: 1.2em  
-    color: !heading_color
+    line-height: 1.2em
     margin: 30px 0
     
 h2
+  color: !heading_color
   font-size: 1.8333em
   line-height: 1em    
   font-weight: normal
   margin: 0 0 15px
+  
 /*
   h1
     font-size: 3em
@@ -468,14 +472,13 @@ span.left
 .blog
   #posts
     clear: left
-    width: 496px
+    width: !blog_post_content_width
     
     .post
       border-bottom: 1px solid !divider_colour
       margin-bottom: 80px
       
       .title
-        color: !heading_color
         margin-bottom: 5px
       
         a
@@ -525,7 +528,8 @@ span.left
         
       
         img
-          max-width: 496px
+          max-width: !blog_post_content_width
+          
     
   #sidebar
     float: right
