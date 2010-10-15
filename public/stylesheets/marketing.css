@@ -398,7 +398,7 @@ span.left {
     margin-bottom: 80px; }
     .blog #posts .post .link .title a {
       text-indent: 20px;
-      background: transparent url(/images/links.png) no-repeat 0 2px;
+      background: transparent url(/images/links.png) no-repeat 0 3px;
       display: block; }
     .blog #posts .post .title {
       margin-bottom: 5px; }
