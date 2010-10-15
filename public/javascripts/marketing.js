@@ -1,10 +1,7 @@
 
 $(document).ready(function(){
   // For debugging: Add grid on logo click
-  // $("#logo").click(function() {
-  //   turn_on_grid();
-  //   return false;
-  // });
+  //turn_on_logo_grid_toggle();
   
   // Add inline labels
   $(".infield-labels label").inFieldLabels();
@@ -30,6 +27,12 @@ $(document).ready(function(){
 });
 
 // For debugging
+function turn_on_logo_grid_toggle() {
+  $("#logo").click(function() {
+    turn_on_grid();
+    return false;
+  });
+}
 function turn_on_grid() {
   var grid_overlay = $("#grid-overlay");
   if (grid_overlay.size() == 0) {

@@ -39,6 +39,8 @@
 !z_index_lvl_2 = 200
 !z_index_lvl_3 = 300
 
+/* Blog */
+!blog_post_content_width = 496px
 
 body
   background-color: !body_bg
@@ -51,26 +53,28 @@ body
   font-family: Helvetica, Arial, sans-serif
 
 
-h1  
+h1
+  color: !heading_color
   font-size: 4.1667em
   line-height: 1em
   margin: 0 0 80px 0
   padding-bottom: 35px
   border-bottom: 1px solid !dark_divider_colour
-
+  
 
 .home-page
   h2
     font-size: 2.6667em
-    line-height: 1.2em  
-    color: !heading_color
+    line-height: 1.2em
     margin: 30px 0
     
 h2
+  color: !heading_color
   font-size: 1.8333em
   line-height: 1em    
   font-weight: normal
   margin: 0 0 15px
+  
 /*
   h1
     font-size: 3em
@@ -395,29 +399,41 @@ span.left
     
   #contents
     border: 1px solid !divider_colour
-    padding: 10px 5px
+    padding: 10px 5px 10px 0
     margin-bottom: 50px
-    width: 50%
+    width: 70%
+
+    @include border-radius(10px)
     
     h2
-      display: none    
+      display: none
+    .listing
+      padding-left: 35px
     li
       font-size: 1.333em
       line-height: 1.5em
+      list-style: disc
     
   .faq-listing
     list-style: none
     padding: 0
     margin: 0
-    li
+    >li
       margin-bottom: 50px
       
       padding-bottom: 20px
       margin-bottom: 80px
       border-bottom: 1px solid #B3D335
-            
+      position: relative      
       .question
         margin-bottom: 10px
+      .back-to-top  
+        color: !bright_green
+        position: absolute
+        top: 0
+        right: 0
+        padding-right: 20px
+        background: transparent url(/images/up-arrow.png) no-repeat right 4px
       .ans
         color: #676767
         margin: 0 0 10px
@@ -462,6 +478,101 @@ span.left
         margin-right: 0        
       img
         float: left      
+
+.blog
+  #posts
+    clear: left
+    width: !blog_post_content_width
+    
+    .post
+      border-bottom: 1px solid !divider_colour
+      margin-bottom: 80px
+      
+      .link
+        .title a
+          text-indent: 20px
+          background: transparent url(/images/links.png) no-repeat 0 3px
+          display: block
+      
+      .title
+        margin-bottom: 5px        
+      
+        a
+          color: !heading_color
+          font-weight: normal
+      
+      .post-content
+        color: #676767
+        font-size: 1.333em
+        line-height: 1.5em
+        margin: 0 0 10px
+        
+        p
+          color: #676767          
+        
+        h1 
+          color: !heading_color
+          font-size: 1.1667em          
+          line-height: 1em
+          font-weight: normal
+          margin: 35px 0 5px
+          
+          font-weight: bold
+        
+          // Cancel other styles
+          border: none
+          padding-bottom: 0          
+          
+        h2
+          color: !heading_color
+          font-size: 1.1667em          
+          line-height: 1em
+          font-weight: normal
+          margin: 35px 0 5px          
+          
+        h3
+          color: !heading_color
+          font-size: 1em
+          line-height: 1em          
+          font-style: italic
+          
+        h4, h5, h6
+          color: !heading_color
+          font-size: 0.91667em
+          line-height: 1em        
+          font-weight: bold
+        
+      
+        img
+          max-width: !blog_post_content_width
+          
+    
+  #sidebar
+    float: right
+    width: 215px
+    padding: 15px
+    background: #fff
+    @include border-radius(10px)
+    border-radius: 3px
+    border: 1px solid #B3D335
+    position: relative
+
+    h1
+      font-size: 1.6667em
+      margin-bottom: 1em
+      padding-bottom: 0
+      border: none
+      margin-top: 5px
+      
+    
+    .follow-us
+      position: absolute
+      top: 15px
+      right: 15px
+      
+    .try-button
+      margin: 0 auto
+      
 
 
 // ACCOUNT MENU
