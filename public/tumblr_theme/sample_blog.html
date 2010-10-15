@@ -23,21 +23,8 @@
   <meta name="viewport" content="width=575"/>
   <link rel="apple-touch-icon" href="http://29.media.tumblr.com/avatar_75d848c0081b_128.png"/>
   
-  <link href='http://ideapi.com/stylesheets/marketing.css' media='screen' rel='stylesheet' type='text/css' />
+  <link href='/stylesheets/marketing.css' media='screen' rel='stylesheet' type='text/css' />
     <style type="text/css" media="screen">
-        html{font-size:87.5%}
-        .clear-left{clear: left;}
-        body {
-          background-color: white;
-          text-align: justify;
-          color: #4c4c4c;
-          padding: 0px;
-          margin: 0px;
-          line-height: 20px;
-          font-size: 12px;
-          font-family: "Lucida Grande", Verdana, Arial, sans-serif; }
-          #banner #header #logo{ width: 250px;}
-          #banner #header ul.navigation{ width: 400px;}
           
         /* POSTS */
         #posts { 
@@ -93,6 +80,30 @@
 
 
       </style>
+      
+      <!-- TODO: Remove this - for debugging -->
+      <script type="text/javascript" src="/javascripts/jquery.js"></script>
+      <script type="text/javascript">
+        function turn_on_logo_grid_toggle() {
+          $("#logo a").click(function() {
+            turn_on_grid();
+            return false;
+          });
+        }
+        function turn_on_grid() {
+          var grid_overlay = $("#grid-overlay");
+          if (grid_overlay.size() == 0) {
+            $("#container").append("<div id='grid-overlay'></div>");
+
+            $("#grid-overlay").click(function() {
+              $(this).remove();
+            });    
+          }
+        }
+        $(document).ready(function() {
+          turn_on_logo_grid_toggle();
+        });         
+      </script>
 </head>
 <body>
   <div id='container'>
@@ -101,7 +112,7 @@
       <div id='header'>
         <div id='logo'>
           <a alt='home' href='http://ideapi.com/'>
-            <img alt='ideapi Logo' src='http://ideapi.com/images/ideapi-logo.gif' />
+            <img alt='ideapi Logo' src='/images/logo-green.png' />
           </a>
         </div>
         <ul class='navigation'>
