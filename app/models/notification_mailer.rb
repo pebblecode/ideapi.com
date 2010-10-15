@@ -211,7 +211,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "text/html"
+    content_type "text/plain"
     
     recipients  recipients
     subject     build_subject(@brief.account.name, "Brief updated", @brief.title)
