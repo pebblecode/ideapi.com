@@ -2,11 +2,7 @@
 $(document).ready(function(){
   // For debugging: Add grid on logo click
   // $("#logo").click(function() {
-  //   $("#container").append("<div id='grid-overlay'></div>");
-  //   
-  //   $("#grid-overlay").click(function() {
-  //     $(this).remove();
-  //   });
+  //   turn_on_grid();
   //   return false;
   // });
   
@@ -32,3 +28,15 @@ $(document).ready(function(){
 
   
 });
+
+// For debugging
+function turn_on_grid() {
+  var grid_overlay = $("#grid-overlay");
+  if (grid_overlay.size() == 0) {
+    $("#container").append("<div id='grid-overlay'></div>");
+
+    $("#grid-overlay").click(function() {
+      $(this).remove();
+    });    
+  }
+}
