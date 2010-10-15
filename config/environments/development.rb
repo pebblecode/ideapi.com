@@ -23,15 +23,15 @@ Haml::Template.options[:ugly] = true
 #   ActiveMerchant::Billing::Base.gateway_mode = :test
 # end
 
-ActionMailer::Base.smtp_settings = {
-  :tls => true,
-  :address => "smtp.gmail.com",
-  :port => "587",
-  :domain => "ideapi.net",
-  :authentication => :plain,
-  :user_name => "dev@ideapi.net",
-  :password => "createarevolution$"
-}
+# ActionMailer::Base.smtp_settings = {
+#   :tls => true,
+#   :address => "smtp.gmail.com",
+#   :port => "587",
+#   :domain => "ideapi.net",
+#   :authentication => :plain,
+#   :user_name => "dev@ideapi.net",
+#   :password => "createarevolution$"
+# }
 
 
 # config.gem 'bullet', :source => 'http://gemcutter.org'

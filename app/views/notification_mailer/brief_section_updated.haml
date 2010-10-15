@@ -1,21 +1,13 @@
-%p
-  %strong Account:
-  = @brief.account.name
-  %br/
-  %strong Brief: 
-  = truncate(@brief.title, :length => 40)
-  %br/
-  %strong Link:
-  = brief_url(@brief, :host => @brief.account.full_domain)
+Account: #{@brief.account.name}
+Brief: #{truncate(@brief.title, :length => 40)}
+Link: #{brief_url(@brief, :host => @brief.account.full_domain)}
 
-%p
-  The brief
-  = link_to @brief.title, brief_url(@brief, :host => @brief.account.full_domain)
-  has been updated by #{@user.full_name}. The following sections have been updated:
+The brief #{@brief.title} has been updated by #{@user.full_name}. The following sections have been updated:
 
 - @items.each do |item|
-  %p
-    %strong= item.title
-    %br/
+    
+    = item.title
+    
     = item.latest.body
-    %br/
+    
+    
