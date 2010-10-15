@@ -466,13 +466,34 @@ span.left
         float: left      
 
 .blog
+  #posts
+    clear: left
+    width: 496px
+    
+    .title
+      color: #32401A
+      
+      a
+        color: #32401A
+        font-weight: normal
+      
+    .post-content
+      color: #676767
+      font-size: 1.333em
+      line-height: 1.5em
+      margin: 0 0 10px
+      
+      img
+        max-width: 496px
+    
   #sidebar
     float: right
-    width: 220px
+    width: 215px
     padding: 15px
-    background: #f1f1f1
-    @include border-radius(3px)
+    background: #fff
+    @include border-radius(10px)
     border-radius: 3px
+    border: 1px solid #B3D335
 
     h1
       font-size: 1.6667em
@@ -480,11 +501,9 @@ span.left
       padding-bottom: 0
       border: none
 
-    p.actions
-      margin: 2em 0
-
-      span
-        margin: 0
+    .try-button
+      margin: 0 auto
+      
 
 
 // ACCOUNT MENU
