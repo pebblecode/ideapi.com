@@ -19,25 +19,31 @@
           = link_to "Actions", "#", :class => "show-options-menu"
     #options-menu.remove_with_js
       %ul.object-actions
-        %li
-          -if current_user.owns?(current_object) # && current_object.draft?
+        -if current_user.owns?(current_object)
+          %li
             =link_to 'edit', edit_brief_proposal_path(parent_object, current_object)
+        -if current_user.owns?(current_object)
+          %li
+            -form_for brief_proposal_path, :html => { :method => :delete, :id => 'proposal_delete_form' } do |f|
+              =hidden_field_tag '_flash[notice]', 'Idea deleted', :id => 'proposal_flash_notice'
+              = submit_tag "delete", :class => 'remove_with_js'
+              = link_to "delete", "#", :class => 'show_with_js'
     .proposal_item
       :textile
         #{current_object.long_description}
       
     - current_object.assets.each do |asset|
       .proposal_item
-        %p.the_asset
+        .the_asset
           %p.asset
             -if asset.data.content_type =~ /image/
               =link_to image_tag(asset.data.url, :width => "120"), asset.data.url, :rel => "img_fb"
             -else
               =link_to asset.data.original_filename, asset.data.url
-          %p.description
-            =asset.description if asset.description.present?
+          - if asset.description.present?
+            %p.description
+              =asset.description
           .clear
-  
   - if current_user.owns?(current_object) && current_object.draft?
     - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
       =f.hidden_field '_call_state', :value => 'publish'
@@ -78,7 +84,6 @@
   
         
 .col_2
-  = render :partial => 'proposals/idea_users'
   - if !current_object.draft?
     .side_box
       %h2 Status of idea
@@ -91,4 +96,4 @@
               %span.ajax-loading
                 %img{:src => '/images/ui/loading.gif', :alt => 'Loading...'}/
               =f.submit "update"
-            
+  = render :partial => 'proposals/idea_users'

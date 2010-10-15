@@ -393,7 +393,7 @@ jQuery.fn.collab_action_type = function () {
 jQuery.fn.document_ready = function() {
     
 
-    $("#account_name").keyup(function(key){
+    $("#signup #account_name").keyup(function(key){
       field = $("#account_domain");
       field.attr('value', url_valid_string($(this).val()).toLowerCase());
     });
@@ -692,8 +692,14 @@ $(document).ready(function(){
   
   
   
-  
-  
+  // Override delete, etc in actions bar. 
+  $('#options-menu li form a').click(function(){
+    var answer = confirm("Are you sure?")
+    if(answer){
+      $(this).parent().submit();
+    }
+    return false;
+  });
   
   // Proposals. Maybe we should start putting things in a better arrangement...
   

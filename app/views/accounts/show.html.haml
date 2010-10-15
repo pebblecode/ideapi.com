@@ -1,36 +1,74 @@
 .col_1
-  - if false #HIDE ALL THIS
-    - if @subscription.state == 'trial'
-      .note
-        %h3
-          Thank you for trying 
-          = succeed "!" do
-            = AppConfig['app_name']
-   
-        - if @subscription.next_renewal_at > Time.now
-          %p 
-            Your trial account will expire in 
-            = succeed "," do
-              %strong= pluralize(@subscription.trial_days, 'day', 'days') 
-            at which time you will no longer have access to your account.  
-            To maintain access to your account, enter your credit card information below. 
-          %p 
-            Your first charge will happen on 
-            = succeed "." do
-              %strong= @subscription.next_renewal_at.to_s(:long_day)
-        - else
-          %p Your trial account has expired. To regain access to your account, enter your credit card information below.  Your first charge will happen immediately, and you will be billed monthly thereafter.
+  %h3 Account management
   
-    = render :partial => 'plan' if false
-  
-    - if @subscription.state == 'trial' or @subscription.amount > 0
-      = render :partial => 'billing'
+  #update_domain_name
+    - form_for @account, :url => account_path, :html => {:id => 'account_domain_form', :multipart => true} do |domain_form|
+      .field.account-url
+        = domain_form.label :domain, 'Subdomain'
+        .account-domain
+          %p.domain
+            = "#{domain_form.text_field :domain}"
+            %span.base_domain=".#{AppConfig['base_domain']}"
+          - if domain_form.object.errors[:domain] 
+            %p.errors = domain_form.object.errors[:name] 
+          %p.desc
+            :markdown
+              **You can change your account subdomain here**. The subdomain must be at least 3 characters, lowercase letters and numbers only. 
+              You may change this later on.
+      .field.submit
+        = domain_form.submit 'Change subdomain'
+            
+  #update_account
+    - form_for @account, :url => account_path, :html => {:id => 'edit_account_form', :multipart => true} do |f|
+      .field.company-name
+        %p
+          = f.label :name, 'Company name'
+          = f.text_field :name
+          %span.errors= f.object.errors[:name]
+      .field.account-holder
+        %p
+          = f.label :admin, 'Account Holder'
+          = f.collection_select :admin, current_account.users, :id, :full_name, :prompt => true, :selected => @account.admin.id
+      .field.logo
+        %p
+          = f.label :logo, 'Logo' 
+          = f.file_field :logo
+          %span.logo-preview
+            =image_tag(@account.logo.url(:normal))
+            - if @account.logo.url(:normal) != @account.logo.options[:default_url]
+              = check_box_tag :delete_logo, '1'
+              Delete logo?
+      .field.submit
+        = f.submit 'Update'
+  - if @subscription.state == 'trial'
+    .note
+      %h3
+        Thank you for trying 
+        = succeed "!" do
+          = AppConfig['app_name']
+ 
+      - if @subscription.next_renewal_at > Time.now
+        %p 
+          Your trial account will expire in 
+          = succeed "," do
+            %strong= pluralize(@subscription.trial_days, 'day', 'days') 
+          at which time you will no longer have access to your account.  
+          To maintain access to your account, enter your credit card information below. 
+        %p 
+          Your first charge will happen on 
+          = succeed "." do
+            %strong= @subscription.next_renewal_at.to_s(:long_day)
+      - else
+        %p Your trial account has expired. To regain access to your account, enter your credit card information below.  Your first charge will happen immediately, and you will be billed monthly thereafter.
 
-    %p= link_to('Cancel plan', cancel_account_url)
-    
-  - else # Temporary account holding page...
-    :markdown
-      ## Account Management
-      
-      Including information about your plan and how to change it coming soon.
-    
+  = render :partial => 'plan' if false
+
+  - if @subscription.state == 'trial' or @subscription.amount > 0
+    = render :partial => 'billing'
+
+  / %p= link_to('Cancel plan', cancel_account_url)
+  #delete-account
+    %h3 Delete Account
+    %p
+      If you would like to delete your account, you can do so by following the 'Delete account' button.
+    %p.align-right= link_to 'Cancel plan', cancel_account_url, :class => 'ideapi_button'

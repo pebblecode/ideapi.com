@@ -1,0 +1,68 @@
+#accounts #container #content{
+  h3{
+    margin: 0.5em 0 0.5em 0;
+  }
+  #update_domain_name{
+    
+    background: #fcffeb;
+    border: 1px solid #D3DAB8;
+    padding: 1em;
+    @include rounded-corners-all(0.4em);
+    label, #account_domain, .base_domain{
+      font-size: 1.5em;
+    }
+    #account_domain{
+      text-align: right;
+      padding: 0;
+    }
+    p{padding-top: 0; margin-top: 0; }
+    .account-domain{
+      border: 1px solid #fcffeb;
+      font-size: 1.2em;
+      margin-left: 10em;
+      p{
+        font-size: 1em;
+      }
+    }
+    
+    .submit{
+      text-align: right;
+      padding: 0;
+    }
+  }
+  
+  
+  
+  #update_account{
+    margin-top: 2em;
+    border: 0 solid #ccc;
+    border-bottom-width: 2px;
+    padding: 1em;
+
+  }
+  #edit_account_form{
+    .field{
+      
+    }
+    .submit{
+      text-align: right;
+      padding: 0;
+    }
+    .account-url .url{
+      input{
+        width: 150px;
+        text-align: right;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    
+    .logo-preview{
+      display: block;
+      margin: 1em 0 0 9em;
+    }
+  }
+  #delete-account{
+    padding: 0 1em 1em 1em;
+  }
+}
