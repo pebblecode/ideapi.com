@@ -13,17 +13,40 @@ $textfield_width: 590px;
   .ajax-loading{ display: none;}
 
   .edit_proposal, .new_proposal{
+    .infield-label{
+      display: block;
+      float: none;
+      color: #aaa;
+      z-index: 5;
+      position: absolute;
+      left: 1px;
+      top: 1px;
+      font-size: 1.5em;
+      padding-left: $textfield_padding;
+      font-style: italic;
+    }
     textarea{
       font-size: 1.2em;
     }
     h2{
+      .title-span{
+        background: white;
+        position: relative;
+        display: block;
+        width: $textfield_width + $textfield_padding + $textfield_padding;
+        
+      }  
       input[type=text]{
         font-size: 1.5em;
         padding: 3px $textfield_padding;
         display: block;
         width: $textfield_width;
-        
-      }  
+        background: transparent;
+        z-index: 5;
+        position: relative;
+        font-weight: bold;
+      }
+      
     }
     .fields{
       border-left: 1px solid #ccc;
@@ -33,6 +56,13 @@ $textfield_width: 590px;
     }
     .field{
       padding: 0 $field_padding;
+      position: relative;
+      
+      .infield-label{
+        left: 20px;
+        padding-top: 5px;
+        
+      }
     }
     #proposal_long_description{
       display: block;
@@ -102,13 +132,13 @@ $textfield_width: 590px;
       top: 10px;
       right: 10px;
       background: #efefef;
-      a.delete {
+      a.delete, .close-box {
         text-indent: -9999px;
         display: block;
         height: 16px;
         width: 16px;
         background: url("/images/ui/cross-button.png") no-repeat 0 0;
-      } 
+      }
     }
     .asset-file{
       text-align: left;

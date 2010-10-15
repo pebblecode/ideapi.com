@@ -11,6 +11,14 @@
     label, #account_domain, .base_domain{
       font-size: 1.5em;
     }
+    .change_domain{
+      label{
+        font-weight: normal;
+        font-size: 1em;
+        float: none;
+        display: inline;
+      }
+    }
     #account_domain{
       text-align: right;
       padding: 0;
@@ -41,8 +49,23 @@
 
   }
   #edit_account_form{
+    label{ 
+      width: 120px;
+      margin-right: 10px;
+      padding: 3px 0 4px 0;
+    }
     .field{
       
+    }
+    .warning{
+      color: #888;
+    }
+    .errors{
+      color: #ff3333;
+    }
+    .errors, .warning, .logo-preview{
+      font-style: italic;
+      margin-left: 130px;
     }
     .submit{
       text-align: right;
@@ -59,7 +82,15 @@
     
     .logo-preview{
       display: block;
-      margin: 1em 0 0 9em;
+      label{
+        display: inline;
+        float: none;
+        font-weight: normal;
+      }
+      img{
+        vertical-align: middle;
+        margin-right: 1em;
+      }
     }
   }
   #delete-account{

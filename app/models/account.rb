@@ -11,11 +11,12 @@ class Account < ActiveRecord::Base
   attr_accessible :logo
   has_attached_file :logo, :default_url => '/images/ideapi-logo.gif', 
     :styles => { :normal => '185x80', :thumb => '90x40'}, 
-    :whiny => false
+    :whiny => true
   
   validates_attachment_content_type :logo,
     :content_type => ['image/png', 'image/jpeg', 'image/gif'],
-    :message => 'Only image formats allowed are PNG, JPEG, and GIF.', :whiny => false
+    :message => 'Only image formats allowed are PNG, JPEG, and GIF.'
+    
   validates_attachment_size :logo,
     :less_than => 500.kilobytes, 
     :message => 'The logo file size must be less than 500KB.'    
@@ -125,6 +126,10 @@ class Account < ActiveRecord::Base
     self.full_domain = "#{domain}.#{AppConfig['base_domain']}"
   end
   
+  validates_acceptance_of :change_domain, :message => "Must indicate that you understand", :accept => "1", :if => Proc.new{|model| model.change_domain.present?}
+  attr_accessible :change_domain
+  
+  
   def to_s
     name.blank? ? full_domain : "#{name} (#{full_domain})"
   end
@@ -142,7 +147,12 @@ class Account < ActiveRecord::Base
     a_user = User.find(:first, :conditions => {:id => a_user}) unless a_user.is_a?(User)
     self.account_users.each do |account_user| 
       account_user.admin = false
-      account_user.admin = true if account_user.user == a_user
+      
+      if account_user.user == a_user
+        account_user.admin = true 
+        account_user.can_create_briefs = true 
+      end
+      
       account_user.save
     end
   end

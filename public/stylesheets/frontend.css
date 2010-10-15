@@ -120,7 +120,7 @@ a:hover {
       padding: 0.5em 2em 0.8em 2em;
       height: 20px; }
       #container #header ul.sub_nav.custom {
-        padding-top: 1.5em; }
+        padding-top: 2em; }
       #container #header ul.sub_nav li {
         display: inline;
         margin-right: 2em; }
@@ -380,8 +380,9 @@ span.field_with_errors input, span.field_with_errors input:focus {
       background-color: rgba(33, 40, 108, 0.9); }
 #container #content .proposal h2 span.status {
   background: #eeeeee;
-  font-size: 0.8em;
-  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: capitalize;
   color: black;
   padding: 0.1em 0.5em;
   margin-left: 0.5em; }
@@ -458,7 +459,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
       #container #content .brief div.actions .clean_brief:active, #container #content .proposal div.actions .clean_brief:active, #container #content .brief_list div.actions .clean_brief:active {
         background-position: 0 -36px; }
   #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief {
-    padding: 1em 2em; }
+    padding: 1em 2em;
+    z-index: 10; }
   #container #content .brief .brief_heading h3, #container #content .proposal .brief_heading h3, #container #content .brief_list .brief_heading h3 {
     margin-left: 20px; }
   #container #content .brief .brief_item, #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .brief .brief_heading, #container #content .proposal .brief_item, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .proposal .brief_heading, #container #content .brief_list .brief_item, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief, #container #content .brief_list .brief_heading {
@@ -1633,6 +1635,9 @@ ul#notifications {
 .align-right {
   text-align: right; }
 
+.warning {
+  color: #ff3333; }
+
 #briefs #content .brief_item .body img {
   max-width: 600px;
   border: 5px solid #eee;
@@ -1869,20 +1874,44 @@ span.timestamp {
 
 #proposals #content .ajax-loading {
   display: none; }
+#proposals #content .edit_proposal .infield-label, #proposals #content .new_proposal .infield-label {
+  display: block;
+  float: none;
+  color: #aaa;
+  z-index: 5;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  font-size: 1.5em;
+  padding-left: 10px;
+  font-style: italic; }
 #proposals #content .edit_proposal textarea, #proposals #content .new_proposal textarea {
   font-size: 1.2em; }
+#proposals #content .edit_proposal h2 .title-span, #proposals #content .new_proposal h2 .title-span {
+  background: white;
+  position: relative;
+  display: block;
+  width: 610px; }
 #proposals #content .edit_proposal h2 input[type=text], #proposals #content .new_proposal h2 input[type=text] {
   font-size: 1.5em;
   padding: 3px 10px;
   display: block;
-  width: 590px; }
+  width: 590px;
+  background: transparent;
+  z-index: 5;
+  position: relative;
+  font-weight: bold; }
 #proposals #content .edit_proposal .fields, #proposals #content .new_proposal .fields {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   padding: 15px 0; }
 #proposals #content .edit_proposal .field, #proposals #content .new_proposal .field {
-  padding: 0 20px; }
+  padding: 0 20px;
+  position: relative; }
+  #proposals #content .edit_proposal .field .infield-label, #proposals #content .new_proposal .field .infield-label {
+    left: 20px;
+    padding-top: 5px; }
 #proposals #content .edit_proposal #proposal_long_description, #proposals #content .new_proposal #proposal_long_description {
   display: block;
   width: 590px;
@@ -1940,7 +1969,7 @@ span.timestamp {
     top: 10px;
     right: 10px;
     background: #efefef; }
-    #proposals #content .proposal_asset .remove_asset a.delete {
+    #proposals #content .proposal_asset .remove_asset a.delete, #proposals #content .proposal_asset .remove_asset .close-box {
       text-indent: -9999px;
       display: block;
       height: 16px;
@@ -2014,6 +2043,11 @@ span.timestamp {
   border-radius: 0.4em; }
   #accounts #container #content #update_domain_name label, #accounts #container #content #update_domain_name #account_domain, #accounts #container #content #update_domain_name .base_domain {
     font-size: 1.5em; }
+  #accounts #container #content #update_domain_name .change_domain label {
+    font-weight: normal;
+    font-size: 1em;
+    float: none;
+    display: inline; }
   #accounts #container #content #update_domain_name #account_domain {
     text-align: right;
     padding: 0; }
@@ -2034,6 +2068,17 @@ span.timestamp {
   border: 0 solid #ccc;
   border-bottom-width: 2px;
   padding: 1em; }
+#accounts #container #content #edit_account_form label {
+  width: 120px;
+  margin-right: 10px;
+  padding: 3px 0 4px 0; }
+#accounts #container #content #edit_account_form .warning {
+  color: #888; }
+#accounts #container #content #edit_account_form .errors {
+  color: #ff3333; }
+#accounts #container #content #edit_account_form .errors, #accounts #container #content #edit_account_form .warning, #accounts #container #content #edit_account_form .logo-preview {
+  font-style: italic;
+  margin-left: 130px; }
 #accounts #container #content #edit_account_form .submit {
   text-align: right;
   padding: 0; }
@@ -2043,7 +2088,13 @@ span.timestamp {
   padding: 0;
   margin: 0; }
 #accounts #container #content #edit_account_form .logo-preview {
-  display: block;
-  margin: 1em 0 0 9em; }
+  display: block; }
+  #accounts #container #content #edit_account_form .logo-preview label {
+    display: inline;
+    float: none;
+    font-weight: normal; }
+  #accounts #container #content #edit_account_form .logo-preview img {
+    vertical-align: middle;
+    margin-right: 1em; }
 #accounts #container #content #delete-account {
   padding: 0 1em 1em 1em; }

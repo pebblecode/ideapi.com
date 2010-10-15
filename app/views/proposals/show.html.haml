@@ -12,7 +12,7 @@
     .title
       %h2
         =current_object.title
-        %span#widget_proposal_status.status=current_object.state
+        %span#widget_proposal_status.status=current_object.state.to_s.titleize
         
       -if current_user.owns?(current_object)
         .actions

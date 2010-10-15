@@ -75,6 +75,6 @@
         })();
         
     /[if IE 6]<script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>
-    =javascript_include_tag %w(jquery jcorners facebox jquery.cookie jquery.wysiwyg SmartTextBox jshizzle)
+    =javascript_include_tag %w(jquery jcorners facebox jquery.cookie jquery.wysiwyg SmartTextBox jquery.infieldlabel.min jshizzle )
     =javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
     =javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 
