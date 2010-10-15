@@ -472,7 +472,7 @@ span.left {
     top: 15px;
     right: 15px; }
   .blog #sidebar .try-button {
-    margin: 0 auto; }
+    margin: 25px auto 10px; }
 
 #account-menu {
   position: absolute;
