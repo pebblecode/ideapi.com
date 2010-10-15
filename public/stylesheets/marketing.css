@@ -333,7 +333,10 @@ span.left {
   border: 1px solid #b3d335;
   padding: 10px 5px;
   margin-bottom: 50px;
-  width: 50%; }
+  width: 50%;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px; }
   .faq-page #contents h2 {
     display: none; }
   .faq-page #contents li {
