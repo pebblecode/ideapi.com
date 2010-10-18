@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
     create_invite_code
     #[DEPRECATED]
     # NotificationMailer.deliver_user_invited_to_account(self, account)
-    NotificationMailer.deliver_user_invited_to_account(self.id, account.id)
+    NotificationMailer.deliver_user_invited_to_account(self.id, account.id, "")
   end
   
   private

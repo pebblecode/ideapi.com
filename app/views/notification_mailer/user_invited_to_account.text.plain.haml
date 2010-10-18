@@ -1,12 +1,9 @@
-- if @user.invitation_message.present?
-  :plain 
-    #{@user.invitation_message}
-- else
-  :plain 
-    Dear #{@user.name_parts(:first_name).capitalize},
-    
-:plain  
+:plain 
+  #{@user.invitation_message if @user.invitation_message.present?}
+  #{"Dear " + @user.name_parts(:first_name).capitalize + "," if @user.invitation_message.blank?}
+  
   An account has been created for you on "#{@account.full_domain}".
-
+  
   To complete the signup process, click here:
   #{user_signup_url(:invite_code => @user.invite_code, :host => @account.full_domain)}
+  

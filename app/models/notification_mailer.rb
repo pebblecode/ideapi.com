@@ -72,13 +72,12 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  @user_brief.user.email
-    reply_to    email_address(@user_brief.brief.account.name)
     subject     build_subject(@user_brief.brief.account.name, "Your role is now #{@user_brief.role}", @user_brief.brief.title)
     body        :user_brief => @user_brief, :brief => @user_brief.brief
     sent_on     sent_at
   end
   
-  def user_invited_to_account(user_id, account_id, invitation_message, sent_at = Time.now)
+  def user_invited_to_account(user_id, account_id, invitation_message = "", sent_at = Time.now)
     # We need to look these up so we can process mail with Resque
     @user = User.find_by_id(user_id)
     @account = Account.find_by_id(account_id)
@@ -89,7 +88,6 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  @user.email
-    reply_to    email_address(@account.name)
     subject     build_subject(@account.name, "You now have an ideapi.com account", "ideapi")
     body        :user => @user, :account => @account
     sent_on     sent_at
@@ -106,7 +104,6 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  @user.email
-    reply_to    email_address(@account.name)
     subject     build_subject(@account.name, "You've been invited to an ideapi.com account", "ideapi")
     body        :user => @user, :account => @account
     sent_on     sent_at
@@ -121,7 +118,6 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  @brief.approver.email
-    reply_to    email_address(@brief.account.name)
     subject     build_subject(@brief.account.name, "You've been made an approver", @brief.title)
     body        :brief => @brief
     sent_on     sent_at
@@ -153,7 +149,6 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  @approver.email
-    reply_to    email_address(@proposal.brief.account.name)
     subject     build_subject(@proposal.brief.account.name, "An idea has been submitted for review", @proposal.brief.title)
     body        :proposal => @proposal, :approver => @approver
     sent_on     sent_at
@@ -168,7 +163,6 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  recipients
-    reply_to    email_address(@question.brief.account.name)
     subject     build_subject(@question.brief.account.name, "A question has been posted", @question.brief.title)
     body        :question => @question
     sent_on     sent_at
