@@ -83,7 +83,7 @@ class ProposalsController < ApplicationController
     if current_object.present? 
       return [current_object.user, current_object.brief.authors, current_object.brief.approver].uniq.flatten
     else
-      return [parent_object.authors, parent_object.approver].uniq.flatten
+      return [parent_object.users].uniq.flatten
     end
   end
   def require_authorized_user
