@@ -581,11 +581,15 @@ span.left
   top: 0
   right: !content_side_padding
   background: #7E9D3A
-  padding: 0 18px 5px 20px
+  padding: 3px 18px 5px 20px
   @include bottom_left_border_radius(15px)
   @include bottom_right_border_radius(3px)
   z-index: !z_index_lvl_3
   text-align: right
+  
+  border-left: 1px solid black
+  border-right: 1px solid black
+  border-bottom: 1px solid black
   
   &.logged-in
     ol, ul
@@ -619,7 +623,7 @@ span.left
     margin: 0
     text-align: right
           
-    font-size: 0.9em
+    font-size: 1.3333em
     line-height: 1em
         
     legend
@@ -632,8 +636,10 @@ span.left
           
       li  
         input
-          width: 100px
-          height: 13px   
+          width: 150px
+          height: 20px
+          font-size: 1em
+          line-height: 1em
         
         a
           color: !nav_default_txt
