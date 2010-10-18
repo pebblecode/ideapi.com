@@ -15,5 +15,10 @@ namespace :ideapi do
     include ActionView::Helpers::AssetTagHelper
     stylesheet_link_tag :all, :cache => true
   end
-  
+
+  desc "Backup current environment database and assets directory"
+  task :backup => :environment do
+    require 'lib/s3-backup.rb'
+    SimpleS3Backup.do_backup
+  end
 end
