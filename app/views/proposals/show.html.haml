@@ -17,17 +17,18 @@
       -if current_user.owns?(current_object)
         .actions
           = link_to "Actions", "#", :class => "show-options-menu"
-    #options-menu.remove_with_js
-      %ul.object-actions
-        -if current_user.owns?(current_object)
-          %li
-            =link_to 'edit', edit_brief_proposal_path(parent_object, current_object)
-        -if current_user.owns?(current_object)
-          %li
-            -form_for brief_proposal_path, :html => { :method => :delete, :id => 'proposal_delete_form' } do |f|
-              =hidden_field_tag '_flash[notice]', 'Idea deleted', :id => 'proposal_flash_notice'
-              = submit_tag "delete", :class => 'remove_with_js'
-              = link_to "delete", "#", :class => 'show_with_js'
+    - if current_user.owns?(current_object)
+      #options-menu.remove_with_js
+        %ul.object-actions
+          -if current_user.owns?(current_object)
+            %li
+              =link_to 'edit', edit_brief_proposal_path(parent_object, current_object)
+          -if current_user.owns?(current_object)
+            %li
+              -form_for brief_proposal_path, :html => { :method => :delete, :id => 'proposal_delete_form' } do |f|
+                =hidden_field_tag '_flash[notice]', 'Idea deleted', :id => 'proposal_flash_notice'
+                = submit_tag "delete", :class => 'remove_with_js'
+                = link_to "delete", "#", :class => 'show_with_js'
     .proposal_item
       :textile
         #{current_object.long_description}

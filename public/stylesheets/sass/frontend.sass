@@ -1912,6 +1912,67 @@ ul#notifications
   text-align: right
 .warning
   color: #F33
+  
+  
+  
+// Help / FAQ
+
+#help_and_faq
+  .try-button
+    display: none
+  h1
+    margin-bottom: 40px
+    
+  #contents
+    border: 1px solid #b3d335
+    padding: 10px 5px 10px 0
+    margin-bottom: 50px
+    width: 70%
+
+    @include border-radius(10px)
+    
+    h2
+      display: none
+    h3
+      font-weight: normal
+    .listing
+      padding-left: 35px
+    li
+      font-size: 1.333em
+      line-height: 1.5em
+      list-style: disc
+    
+  .faq-listing
+    list-style: none
+    padding: 0
+    margin: 0
+    >li
+      font-size: 90%
+      p a
+        font-size: 90%
+      padding-bottom: 20px
+      margin-bottom: 3em
+      border-bottom: 1px solid #B3D335
+      position: relative      
+      .question
+        margin-bottom: 10px
+        font-weight: normal
+        padding-right: 4em
+      .back-to-top  
+        color: #b3d335
+        font-size: 110%
+        position: absolute
+        top: 0
+        right: 0
+        padding-right: 20px
+        background: transparent url(/images/up-arrow.png) no-repeat right 4px
+      .ans
+        color: #676767
+        margin: 0 0 10px
+        font-size: 1.333em
+        line-height: 1.5em  
+  
+  
 // Imports
 
 @import "partials/briefs"

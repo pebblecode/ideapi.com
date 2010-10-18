@@ -1,7 +1,7 @@
 #beta_feedback.feedback_form
   .title
     %h2 
-      IDEAPI BETA
+      IDEAPI
       %span
         Tell us what you think, or report a problem
         =link_to 'show/hide our feedback form', '#', :class => 'toggle'
@@ -10,7 +10,7 @@
   .wrap  
     #user_input.user_input
       -form_for 'user_feedback', :url => user_feedbacks_path do |f|
-        %h3 Beta feedback
+        %h3 Feedback
         %p
           =f.label 'email', "Your email"
           =f.text_field 'email', :value => (logged_in? ? current_user.email : '')
