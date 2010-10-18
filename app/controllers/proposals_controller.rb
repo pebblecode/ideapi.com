@@ -62,6 +62,13 @@ class ProposalsController < ApplicationController
       }
     end
     
+    response_for :destroy do |format|
+      format.html {
+        flash[:notice] = 'Proposal successfully deleted'
+        redirect_to parent_object
+      }
+    end
+    
   end
   
   private

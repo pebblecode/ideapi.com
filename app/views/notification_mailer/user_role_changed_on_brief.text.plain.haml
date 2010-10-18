@@ -3,7 +3,5 @@
   Brief: #{truncate(@brief.title, :length => 40)}
   Link: #{brief_url(@brief, :host => @brief.account.full_domain)}
 
-  Your role has been changed to #{@user_brief.role} on the brief “#{@brief.title}”
-- if @user_brief.added_by_user.present? 
-    by 
-    = @user_brief.added_by_user.full_name
+  Your role has been changed to #{@user_brief.role} on the brief “#{@brief.title}” #{'by ' + @user_brief.added_by_user.full_name if @user_brief.added_by_user.present?}
+  

@@ -29,7 +29,6 @@ class AccountsController < ApplicationController
   
   
   def update
-    logger.debug(@account.logo(:normal))
     @account = current_account
     if params[:delete_logo].present?
       params[:account][:logo] = nil
@@ -51,6 +50,8 @@ class AccountsController < ApplicationController
     
     if current_user != current_account.admin
       redirect_to '/dashboard'
+    elsif params[:return_to].present?
+      redirect_to params[:return_to]
     else
       render :action => 'show' and return
     end

@@ -13,7 +13,15 @@ class UserBrief < ActiveRecord::Base
   after_update :notify_if_role_changed
   
   validates_uniqueness_of :user_id, :scope => :brief_id
-  
+  # If we delete the approver user_brief record, the brief does not get updated.
+  # Make sure that the approver is part of the brief users, if not, set it to brief author. 
+  after_destroy :update_approver_if_needed
+  def update_approver_if_needed
+    if not self.brief.users.include? self.user
+      self.brief.approver = self.brief.author
+      self.brief.save
+    end
+  end
   def role
     self.author? ? "author" : "collaborator"
   end

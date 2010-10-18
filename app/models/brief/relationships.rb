@@ -24,6 +24,7 @@ class Brief < ActiveRecord::Base
   belongs_to :template_brief
   after_create :generate_brief_items_from_template!
 
+
   # BRIEF ITEMS
   has_many :brief_items, :order => 'position ASC, created_at ASC, id ASC'
   

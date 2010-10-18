@@ -15,6 +15,9 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "You are now logged in."
+      user = @user_session.user
+      user.user_agent_string = request.headers['HTTP_USER_AGENT']
+      user.save
       if session[:return_to]
         redirect_to session[:return_to]
       else
