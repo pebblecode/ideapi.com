@@ -1,4 +1,4 @@
 backup_files:
   minute: 0
-  hour: 2
+  hour: 0
   command: ideapi:backup
