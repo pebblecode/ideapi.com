@@ -1,15 +1,16 @@
-Account: #{@brief.account.name}
-Brief: #{truncate(@brief.title, :length => 40)}
-Link: #{brief_url(@brief, :host => @brief.account.full_domain)}
+:plain
+  Account: #{@brief.account.name}
+  Brief: #{truncate(@brief.title, :length => 40)}
+  Link: #{brief_url(@brief, :host => @brief.account.full_domain)}
 
 
-The brief #{@brief.title} has been updated by #{@user.full_name}. The following sections have been updated:
+  The brief #{@brief.title} has been updated by #{@user.full_name}. The following sections have been updated:
 
 
-- @items.each do |item|
+  - @items.each do |item|
 
 
-  = item.title
-  = item.latest.body
+    = item.title
+    = item.latest.body
     
     

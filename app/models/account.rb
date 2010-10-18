@@ -18,8 +18,8 @@ class Account < ActiveRecord::Base
     :message => 'Only image formats allowed are PNG, JPEG, and GIF.'
     
   validates_attachment_size :logo,
-    :less_than => 500.kilobytes, 
-    :message => 'The logo file size must be less than 500KB.'    
+    :less_than => 1.megabytes, 
+    :message => 'The logo file size must be less than 1 megabyte.'
   # Account subdomain name
   def subdomain
     full_domain.split('.').first

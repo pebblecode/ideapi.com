@@ -5,10 +5,9 @@
   = @user.name_parts(:first_name).capitalize
   ,
 
-%p
-  An account has been created for you on "#{@account.full_domain}".
 
-%p
-  To complete the signup process, click here:
-  %br/
-  = user_signup_url(:invite_code => @user.invite_code, :host => @account.full_domain)
+An account has been created for you on "#{@account.full_domain}".
+
+To complete the signup process, click here:
+
+= user_signup_url(:invite_code => @user.invite_code, :host => @account.full_domain)
