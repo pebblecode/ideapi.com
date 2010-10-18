@@ -290,7 +290,8 @@ img {
     text-align: right;
     padding: 15px 0 0 10px;
     float: right;
-    width: 170px; }
+    width: 170px;
+    position: relative; }
     #footer #footer-content-right p {
       margin: 0; }
     #footer #footer-content-right p.right {
@@ -300,7 +301,10 @@ img {
       float: left;
       margin-top: 5px; }
     #footer #footer-content-right .social-links {
-      margin-top: 3px;
+      position: absolute;
+      margin-top: 0;
+      right: 0;
+      top: 15px;
       padding: 0; }
       #footer #footer-content-right .social-links a:hover {
         text-decoration: none; }
