@@ -47,8 +47,13 @@ ul.navigation li {
 /* Blog */
 
 .blog {
-  #sidebar h1 {
-    margin-top: 20px;
+  #sidebar {
+    h1 {
+      margin-top: 20px;
+    }
+    .social-links {
+      margin-top: 15px;
+    }
   }
 }
 

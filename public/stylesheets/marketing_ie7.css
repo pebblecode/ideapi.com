@@ -29,6 +29,8 @@ ul.navigation li a, ul.navigation li span {
 /* Blog */
 .blog #sidebar h1 {
   margin-top: 20px; }
+.blog #sidebar .social-links {
+  margin-top: 15px; }
 
 /* Footer */
 #footer #footer-content-right .social-links {
