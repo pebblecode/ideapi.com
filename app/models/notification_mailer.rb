@@ -26,7 +26,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  @user_brief.user.email
     subject     build_subject(@user_brief.brief.account.name, "You have been invited to collaborate", @user_brief.brief.title)
@@ -40,7 +40,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  @proposal.user.email
     subject     build_subject(@proposal.brief.account.name, "Your idea has been reviewed", @proposal.brief.title)
@@ -54,7 +54,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  @question.user.email
     subject     build_subject(@question.brief.account.name, "Your question has been answered", @question.brief.title)
@@ -69,7 +69,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  @user_brief.user.email
     reply_to    email_address(@user_brief.brief.account.name)
@@ -103,7 +103,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  @user.email
     reply_to    email_address(@account.name)
@@ -118,7 +118,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  @brief.approver.email
     reply_to    email_address(@brief.account.name)
@@ -135,7 +135,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     subject       "Password Reset Instructions"  
     recipients    @user.email
@@ -150,7 +150,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  @approver.email
     reply_to    email_address(@proposal.brief.account.name)
@@ -165,7 +165,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  recipients
     reply_to    email_address(@question.brief.account.name)
@@ -180,7 +180,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     recipients  recipients
     subject     build_subject(@comment.commentable.account.name, "A comment has been posted", @comment.commentable.title)
@@ -194,7 +194,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
 
     # Authors and Approver
     recipients  recipients
@@ -211,7 +211,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
     
     recipients  recipients
     subject     build_subject(@brief.account.name, "Brief updated", @brief.title)
@@ -224,7 +224,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "multipart/alternative"
+    content_type "text/plain"
     
     recipients  brief.authors.collect{ |user| user.email }.compact - [updated_by.email]
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
