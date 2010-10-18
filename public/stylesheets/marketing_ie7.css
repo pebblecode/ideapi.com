@@ -12,10 +12,6 @@ ul.navigation li a, ul.navigation li span {
 /* Account menu */
 #account-menu {
   padding-bottom: 5px; }
-  #account-menu.active #account-button {
-    background-position: right -27px; }
-    #account-menu.active #account-button:hover {
-      background-position: right 3px; }
   #account-menu fieldset#account-contents {
     padding-bottom: 0;
     margin-bottom: -10px; }

@@ -22,14 +22,7 @@ ul.navigation li {
 /* Account menu */
 #account-menu {
   padding-bottom: 5px;
-  
-  &.active #account-button {  
-    background-position: right -27px;
 
-    &:hover {
-      background-position: right 3px;
-    }
-  }
   fieldset#account-contents {
     padding-bottom: 0;
     margin-bottom: -10px;
