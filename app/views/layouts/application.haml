@@ -8,6 +8,7 @@
     %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=EmulateIE7"}
 
     =stylesheet_link_tag %w(reset frontend textile facebox jquery.wysiwyg)
+    /[if IE 8]<link href="/stylesheets/ie8.css" media="screen" rel="stylesheet" type="text/css" />
     /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
     /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
     =stylesheet_link_tag %w(reset print), :media => "print"
