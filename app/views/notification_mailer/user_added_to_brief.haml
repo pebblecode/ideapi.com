@@ -1,17 +1,15 @@
 - @brief = @user_brief.brief 
+Account:
+= @brief.account.name
+Brief: 
+= truncate(@brief.title, :length => 40)
+Link:
+= brief_url(@brief, :host => @brief.account.full_domain)
 
-%p
-  %strong Account:
-  = @brief.account.name
-  %br/
-  %strong Brief: 
-  = truncate(@brief.title, :length => 40)
-  %br/
-  %strong Link:
-  = brief_url(@brief, :host => @brief.account.full_domain)
 
-%p
-  You’ve been invited to collaborate on the brief “#{@brief.title}”
-  - if @user_brief.added_by_user.present? 
-    by 
-    = @user_brief.added_by_user.full_name
+
+
+You’ve been invited to collaborate on the brief “#{@brief.title}”
+- if @user_brief.added_by_user.present? 
+  by 
+  = @user_brief.added_by_user.full_name

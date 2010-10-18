@@ -13,10 +13,10 @@
           %p.desc
             :markdown
               **You can change your account subdomain here**. The subdomain must be at least 3 characters, lowercase letters and numbers only. 
-              You may change this later on.
+              You may change this later on. By changing your subdomain, all users of this account will need to login using the new url. 
           %p.warning.change_domain
             = domain_form.check_box :change_domain
-            = domain_form.label :change_domain, "By changing your subdomain, all users of this account will need to login using the new url. Tick this box to confirm you understand."
+            = domain_form.label :change_domain, "Tick this box to confirm you understand."
 
       .field.submit
         = domain_form.submit 'Change subdomain'
