@@ -479,7 +479,7 @@ span.left {
   top: 0;
   right: 82px;
   background: #7e9d3a;
-  padding: 0 18px 5px 20px;
+  padding: 3px 18px 5px 20px;
   -moz-border-radius-bottomleft: 15px;
   -webkit-border-bottom-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -487,7 +487,10 @@ span.left {
   -webkit-border-bottom-right-radius: 3px;
   border-bottom-right-radius: 3px;
   z-index: 300;
-  text-align: right; }
+  text-align: right;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black; }
   #account-menu.logged-in ol, #account-menu.logged-in ul {
     list-style: none;
     padding: 0; }
@@ -513,7 +516,7 @@ span.left {
     padding: 10px 0 10px 0;
     margin: 0;
     text-align: right;
-    font-size: 0.9em;
+    font-size: 1.333em;
     line-height: 1em; }
     #account-menu #account-contents legend {
       display: none; }
@@ -522,8 +525,10 @@ span.left {
       margin: 0;
       padding: 0; }
       #account-menu #account-contents ol li input, #account-menu #account-contents ul li input {
-        width: 100px;
-        height: 13px; }
+        width: 150px;
+        height: 20px;
+        font-size: 1em;
+        line-height: 1em; }
       #account-menu #account-contents ol li a, #account-menu #account-contents ul li a {
         color: white; }
         #account-menu #account-contents ol li a:hover, #account-menu #account-contents ul li a:hover {
