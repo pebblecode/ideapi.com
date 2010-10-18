@@ -299,6 +299,16 @@ img {
       display: block;
       float: left;
       margin-top: 5px; }
+    #footer #footer-content-right .social-links {
+      margin-top: 3px;
+      padding: 0; }
+      #footer #footer-content-right .social-links a:hover {
+        text-decoration: none; }
+
+.social-links {
+  list-style: none; }
+  .social-links li {
+    display: inline; }
 
 .spacer {
   height: 20px; }
