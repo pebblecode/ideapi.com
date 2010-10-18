@@ -1,5 +1,5 @@
 .col_1
-  %h3 Account management
+  %h3 Account Management
   #update_domain_name
     - form_for @account, :url => account_path, :html => {:id => 'account_domain_form', :multipart => true} do |domain_form|
       .field.account-url
@@ -25,7 +25,7 @@
     - form_for @account, :url => account_path, :html => {:id => 'edit_account_form', :multipart => true} do |f|
       .field.company-name
         %p
-          = f.label :name, 'Company name'
+          = f.label :name, 'Company Name'
           = f.text_field :name
           %span.errors= f.object.errors[:name]
       .field.account-holder
