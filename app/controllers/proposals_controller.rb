@@ -88,7 +88,7 @@ class ProposalsController < ApplicationController
   end
   def require_authorized_user
     unless authorized_users.include? current_user
-      redirect_to brief_path(current_object.brief)
+      redirect_to brief_path(parent_object)
     end
   end
   
