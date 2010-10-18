@@ -492,12 +492,13 @@ span.left {
     list-style: none;
     padding: 0; }
   #account-menu.active #account-button {
+    display: block;
     color: #32401a;
-    background: url("/images/close.png") no-repeat scroll right -29px transparent;
-    padding-right: 14px; }
+    background: url("/images/close.png") no-repeat scroll right -25px transparent;
+    padding: 0 14px 0 0; }
     #account-menu.active #account-button:hover {
       color: #444444;
-      background-position: right 1px; }
+      background-position: right 5px; }
   #account-menu #account-button {
     outline: none;
     color: white;
