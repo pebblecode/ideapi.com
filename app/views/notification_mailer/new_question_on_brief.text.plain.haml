@@ -1,0 +1,9 @@
+- @brief = @question.brief
+:plain 
+  Account: #{@brief.account.name}
+  Brief: #{truncate(@brief.title, :length => 40)}
+  Link: #{brief_url(@brief, :host => @brief.account.full_domain)}
+
+  A question has been asked on the brief #{link_to @question.brief.title, brief_url(@brief, :host => @brief.account.full_domain)} by #{@question.user.full_name}.
+
+  "#{@question.body}"

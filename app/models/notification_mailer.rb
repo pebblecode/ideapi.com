@@ -165,7 +165,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "text/html"
+    content_type "text/plain"
 
     recipients  recipients
     reply_to    email_address(@question.brief.account.name)
@@ -180,7 +180,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "text/html"
+    content_type "text/plain"
 
     recipients  recipients
     subject     build_subject(@comment.commentable.account.name, "A comment has been posted", @comment.commentable.title)
@@ -194,7 +194,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "text/html"
+    content_type "text/plain"
 
     # Authors and Approver
     recipients  recipients
@@ -224,7 +224,7 @@ class NotificationMailer < ActionMailer::Base
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
-    content_type "text/html"
+    content_type "text/plain"
     
     recipients  brief.authors.collect{ |user| user.email }.compact - [updated_by.email]
     subject     build_subject(brief.account.name, "Brief updated", brief.title)
