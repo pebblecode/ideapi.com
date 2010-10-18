@@ -80,7 +80,11 @@ class ProposalsController < ApplicationController
   end
   def authorized_users
     # brief authors, brief approver, and proposal user (owner)
-    [current_object.user, current_object.brief.authors, current_object.brief.approver].uniq.flatten
+    if current_object.present? 
+      return [current_object.user, current_object.brief.authors, current_object.brief.approver].uniq.flatten
+    else
+      return [parent_object.authors, parent_object.approver].uniq.flatten
+    end
   end
   def require_authorized_user
     unless authorized_users.include? current_user
