@@ -3,7 +3,7 @@ set :user, "jason"
 set :branch, "production"
 set :repository,  "git@apu.pebbleit.com:ideapi.com.git"
 set :deploy_via, :remote_cache
-
+role :cron, "174.143.232.121"
 
 namespace :craken do
   desc "Install craken"
