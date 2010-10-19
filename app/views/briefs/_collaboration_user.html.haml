@@ -9,8 +9,8 @@
       - else
         =truncate(given_name(collaboration_user), :lenght => 10)
       %br
-      %span
-        = current_object.role?(collaboration_user).upcase
+      %span.user_role
+        = current_object.role?(collaboration_user)
       -if current_object.author?(current_user) && !defined?(collaboration_form)
         %a.add_collaborator
           Add

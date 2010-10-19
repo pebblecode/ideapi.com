@@ -988,6 +988,9 @@ ul.error_messages {
           ul.collaborators {
             margin: 0;
             padding: 0;
+            span.user_role{
+              text-transform: uppercase;
+            }
             li {
               padding: 0;
               margin: 0;

@@ -22,6 +22,17 @@ class UserBrief < ActiveRecord::Base
       self.brief.save
     end
   end
+  
+  def brief_role
+    return "" if self.brief.nil?
+    if self.author? and self.brief.approver?(self.user)
+      {  :label => "author, approver", 
+         :log_level => 3  }
+    else
+      self.brief.role_for_user?(self.user)
+    end
+  end
+  
   def role
     self.author? ? "author" : "collaborator"
   end

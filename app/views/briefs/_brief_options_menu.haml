@@ -14,40 +14,20 @@
         - form_tag clean_brief_url(current_object) do |f|
           = submit_tag "clear history", :class => 'remove_with_js', :confirm => "Are you sure?"
           = link_to "clear history", clean_brief_url(current_object), :class => "clean_brief show_with_js"
-        :javascript
-          $('a.clean_brief').click(function(){
-            var answer = confirm("Are you sure? You will delete all history, comments, questions and answers in this brief.")
-            if(answer){
-              $(this).parent().submit();
-            }
-            return false;
-          });
-      %li.change-state
-        -form_for(current_object, :html => {:id => 'brief_change_state'}) do |change_state_form|
-          -if current_object.published?
-            =change_state_form.hidden_field '_call_state', :value => 'complete'
-            = link_to "Mark as completed", "#", :class => 'show_with_js'
-            = submit_tag "Mark as completed", :class => 'remove_with_js', :confirm => "Are you sure?"
-          -elsif current_object.complete?
-            =change_state_form.hidden_field '_call_state', :value => 'reactivate'
-            = submit_tag "Reactivate", :class => 'remove_with_js'
-            = link_to "Reactivate", "#", :class => 'show_with_js'
-            :javascript
-              $('#options-menu li.change-state a').click(function(){
-                $(this).parent().submit();
-                return false;
-              });
-      %li.delete-brief
-        -form_for current_object, :html => { :method => :delete, :id => 'brief_delete' } do |f|
-          =hidden_field_tag '_flash[notice]', 'Brief deleted', :id => 'brief_flash_notice'
-          = submit_tag "delete", :class => 'remove_with_js'
-          = link_to "delete", "#", :class => 'show_with_js'
-          :javascript
-            $('#options-menu li.delete-brief a').click(function(){
-              var answer = confirm("Are you sure?")
-              if(answer){
-                $(this).parent().submit();
-              }
-              return false;
-            });
-      
+
+    %li.change-state
+      -form_for(current_object, :html => {:id => 'brief_change_state'}) do |change_state_form|
+        -if current_object.published?
+          =change_state_form.hidden_field '_call_state', :value => 'complete'
+          = link_to "Mark as completed", "#", :class => 'show_with_js'
+          = submit_tag "Mark as completed", :class => 'remove_with_js', :confirm => "Are you sure?"
+        -elsif current_object.complete?
+          =change_state_form.hidden_field '_call_state', :value => 'reactivate'
+          = submit_tag "Reactivate", :class => 'remove_with_js'
+          = link_to "Reactivate", "#", :class => 'show_with_js'
+    %li.delete-brief
+      -form_for current_object, :html => { :method => :delete, :id => 'brief_delete' } do |f|
+        =hidden_field_tag '_flash[notice]', 'Brief deleted', :id => 'brief_flash_notice'
+        = submit_tag "delete", :class => 'remove_with_js'
+        = link_to "delete", "#", :class => 'show_with_js'
+        

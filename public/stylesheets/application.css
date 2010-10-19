@@ -974,6 +974,8 @@ ul.error_messages li p {
     #container #content .col_2 .side_box .contents ul.collaborators {
       margin: 0;
       padding: 0; }
+      #container #content .col_2 .side_box .contents ul.collaborators span.user_role {
+        text-transform: uppercase; }
       #container #content .col_2 .side_box .contents ul.collaborators li {
         padding: 0;
         margin: 0;

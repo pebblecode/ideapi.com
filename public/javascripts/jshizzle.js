@@ -330,18 +330,36 @@ jQuery.fn.fire_collab_action = function (action_type) {
   _link.hide().spin(false, 'spinner_e1');
   var _date = new Date();
   var serialized_data = jQuery(this).parents('li.collaboration_user').find('input').serialize().replace(/%5B/g, '[').replace(/%5D/g, ']');
-  jQuery.put(
-    jQuery(this).parents().filter('form').attr('action') + '.js', 
-    serialized_data, 
-    function (data) {
+  var clicked_id = $(this).parents('li.collaboration_user').find('input[name="brief[approver_id]"]').val();
+  var target_span = $(this).parents('li.collaboration_user').find('span.user_role');
+  console.log(target_span.html());
+  $.ajax({
+    type: 'PUT',
+    url: jQuery(this).parents().filter('form').attr('action'),
+    data: serialized_data,
+    complete: function(){
+    },
+    error: function(data){
+    },
+    success: function(response){
+      $.each(response.brief.user_briefs, function(index, value){
+        if( value.user_id == clicked_id ){
+          target_span.html(value.brief_role.label);
+          console.log(value.brief_role.label);
+        }
+        
+      });
+      
       _link.fadeIn().next('.spinner').remove();
       if (action_type == "remove") {
         _link.parents().filter('li.collaboration_user').fadeOut(500,  function () { $(this).remove(); $('ul.add_collaborators').append(data); $('ul.add_collaborators li:last').hide().fadeIn(); $('.add_collaborators li:last a.add_collaborator').add_collab_link(); $('.add_collaborators').update_add_collab_widget(); });
-        
-      };
+      }
+      // state = response.proposal.state.replace('_',' ');
+      // $('#widget_proposal_status').html(state);
     },
-    'js'
-  );
+    dataType: "json",
+    cache: false
+  });
   
   return jQuery(this);
 
@@ -760,5 +778,6 @@ $(document).ready(function(){
     });
     return false;
   });
+  
 });
 

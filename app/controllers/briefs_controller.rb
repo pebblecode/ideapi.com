@@ -124,7 +124,7 @@ class BriefsController < ApplicationController
     
     response_for(:update, :update_fails) do |format|
       format.html { redirect_to :action => current_object.draft? ? 'edit' : 'show' }
-      format.json { render :json => current_object.reload.to_json(:include => :user_briefs, :methods => :json_errors) }
+      format.json { render :json => current_object.reload.to_json(:include => [:user_briefs], :methods => [:json_errors, :brief_role]) }
       
       format.js {
         if (removed = current_object.user_briefs.select(&:marked_for_destruction?).map(&:user)).present?
