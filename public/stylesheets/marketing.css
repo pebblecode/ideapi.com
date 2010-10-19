@@ -1,5 +1,6 @@
 /* Mixins */
 /* Mixins */
+/* Mixins */
 /*
  * FancyBox - jQuery Plugin
  * Simple and fancy lightbox alternative
@@ -99,12 +100,11 @@
 
 #fancybox-close {
   position: absolute;
-  top: -15px;
-  right: -15px;
-  width: 30px;
-  height: 30px;
-  background-image: url("/images/fancybox/fancybox.png");
-  background-position: -40px 0px;
+  top: -12px;
+  right: -12px;
+  width: 22px;
+  height: 22px;
+  background: transparent url("/images/fancybox/lightbox-close.png") no-repeat 0 0;
   cursor: pointer;
   z-index: 1103;
   display: none; }
@@ -143,7 +143,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  font-family: Arial;
+  /*font-family: Arial;*/
   font-size: 12px;
   z-index: 1102; }
 
@@ -171,27 +171,34 @@
   display: inline-block; }
 
 #fancybox-title-wrap span {
-  height: 32px;
+  /*  height: 32px;*/
   float: left; }
 
 #fancybox-title-left {
-  padding-left: 15px;
-  background-image: url("/images/fancybox/fancybox.png");
-  background-position: -40px -90px;
-  background-repeat: no-repeat; }
+  /*  padding-left: 15px;
+    background-image: url('/images/fancybox/fancybox.png');
+    background-position: -40px -90px;
+    background-repeat: no-repeat;*/ }
 
 #fancybox-title-main {
-  font-weight: bold;
-  line-height: 29px;
-  background-image: url("/images/fancybox/fancybox-x.png");
-  background-position: 0px -40px;
-  color: #FFF; }
+  /*  font-weight: bold;
+    line-height: 29px;
+    background-image: url('/images/fancybox/fancybox-x.png');
+    background-position: 0px -40px;*/
+  color: #FFF;
+  background-color: #32401a;
+  padding: 10px 20px 7px;
+  font-size: 1.333em;
+  line-height: 1em;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px; }
 
 #fancybox-title-right {
-  padding-left: 15px;
-  background-image: url("/images/fancybox/fancybox.png");
-  background-position: -55px -90px;
-  background-repeat: no-repeat; }
+  /*  padding-left: 15px;
+    background-image: url('/images/fancybox/fancybox.png');
+    background-position: -55px -90px;
+    background-repeat: no-repeat;*/ }
 
 #fancybox-left, #fancybox-right {
   position: absolute;
@@ -300,63 +307,54 @@
 /* IE */
 #fancybox-loading.fancybox-ie div {
   background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_loading.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_loading.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancybox-close {
   background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_close.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/lightbox-close.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancybox-title-over {
   background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_title_over.png', sizingMethod='scale');
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_title_over.png', sizingMethod='scale');
   zoom: 1; }
 
-.fancybox-ie #fancybox-title-left {
-  background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_title_left.png', sizingMethod='scale'); }
-
-.fancybox-ie #fancybox-title-main {
-  background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_title_main.png', sizingMethod='scale'); }
-
-.fancybox-ie #fancybox-title-right {
-  background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_title_right.png', sizingMethod='scale'); }
-
+/*.fancybox-ie #fancybox-title-left { background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_title_left.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-title-main { background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_title_main.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-title-right  { background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_title_right.png', sizingMethod='scale'); }*/
 .fancybox-ie #fancybox-left-ico {
   background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_nav_left.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_nav_left.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancybox-right-ico {
   background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_nav_right.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_nav_right.png', sizingMethod='scale'); }
 
 .fancybox-ie .fancy-bg {
   background: transparent !important; }
 
 .fancybox-ie #fancy-bg-n {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_shadow_n.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_n.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancy-bg-ne {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_shadow_ne.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_ne.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancy-bg-e {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_shadow_e.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_e.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancy-bg-se {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_shadow_se.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_se.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancy-bg-s {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_shadow_s.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_s.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancy-bg-sw {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_shadow_sw.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_sw.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancy-bg-w {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_shadow_w.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_w.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancy-bg-nw {
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fancybox/fancy_shadow_nw.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_nw.png', sizingMethod='scale'); }
 
 /* Colours
  * link-colour   = #2b3087 */
