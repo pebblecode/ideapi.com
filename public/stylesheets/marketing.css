@@ -786,13 +786,13 @@ span.left {
     overflow: auto;
     margin-bottom: 85px; }
     .tour-page .features li.dashboard .content {
-      margin-top: 15px; }
+      margin-top: 23px; }
     .tour-page .features li.brief .content {
-      margin-top: 40px; }
+      margin-top: 50px; }
     .tour-page .features li.edit-brief .content {
-      margin-top: 60px; }
-    .tour-page .features li.idea .content {
       margin-top: 65px; }
+    .tour-page .features li.idea .content {
+      margin-top: 70px; }
   .tour-page .features .content {
     width: 270px; }
     .tour-page .features .content p {
@@ -803,18 +803,19 @@ span.left {
     border: 10px solid #7e9d3a;
     border-radius: 10px;
     -moz-border-radius: 10px;
-    -webkit-border-radius: 10px; }
+    -webkit-border-radius: 10px;
+    padding: 11px; }
   .tour-page .features .odd .content {
     float: left;
     text-align: right;
-    margin-left: 130px; }
+    margin-left: 111px; }
   .tour-page .features .odd img {
     float: right;
     margin-right: 0; }
   .tour-page .features .even .content {
     float: right;
     margin-right: 0;
-    margin-right: 130px; }
+    margin-right: 111px; }
   .tour-page .features .even img {
     float: left; }
 
