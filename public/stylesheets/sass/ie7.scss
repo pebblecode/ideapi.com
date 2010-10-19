@@ -17,13 +17,6 @@ input[type=text] {
   line-height: 1.2em;
 }
 
-#banner, #container {
-  #header {
-    ul.navigation {
-      padding-bottom: 3px;
-    }
-  }
-}
 
 #middle-section {
   clear: both !important;
@@ -32,29 +25,6 @@ input[type=text] {
     h1 {
       padding-top: 1em;
     }
-  }
-}
-
-/*NAVIGATION*/
-#container{
-  #header{
-    ul.navigation{
-      bottom: -1px;
-      width: 340px;
-      right: 10px;
-      float: right;
-      li{
-        display: inline;
-      }
-      a, span{
-        display: inline;
-        padding: 15px;
-        margin-left: 5px;
-        
-        
-      }
-    }
-    
   }
 }
 
@@ -84,28 +54,13 @@ input[type=text] {
 
 /*Layout fixes*/
 
-#container{
-  #header{
-    position: relative;
-    padding-top: 0px;
-    height: $header_height;
-    
-    h1{
-      position: absolute;
-      bottom: -20px;
-    }
-    
-    ul.sub_nav{
-      position: absolute;
-      top: $header_height + 20px;
-    }
-  } 
-}
-#container #content .col_2{
-  padding-top: 2.2em !important;
-}
 
-
+.speech, .revision-body{
+  position: static !important;
+  .bubble{
+    display: none !important;
+  }
+}
 
 /*BRIEFS*/
 #container #content .main .col_1{
@@ -114,20 +69,6 @@ input[type=text] {
   }
   ul.comments li{
     border: 1px solid white;
-  }
-  li.revision{
-    .revision-body{
-      .info{
-        .buttons{
-          .toggle_revision_body{
-            display: none;
-          }
-        }
-      }
-      .body{
-        display: block;
-      }
-    }
   }
   ul.brief_item_history li, 
   .comments_area ul.comments li{
@@ -190,6 +131,9 @@ input.smartTextBox-input-elem-valueInput{
         float: left;
         margin: 0 0 1em 0;
         padding: 0;
+      }
+      p.non_found{
+        float: none;
       }
     }
   }
@@ -284,6 +228,9 @@ input.smartTextBox-input-elem-valueInput{
   margin-top: 1em;
 }
 
+.boom_box{
+  width: 630px;
+}
 
 
 #proposals{
@@ -319,5 +266,11 @@ input.smartTextBox-input-elem-valueInput{
   .submit, #forgot-password, #remember-me{
     margin-top: 0px !important;
     margin-bottom: 0 !important;
+  }
+}
+
+.title-span{
+  input[type=text]{
+    border: 1px solid transparent;
   }
 }

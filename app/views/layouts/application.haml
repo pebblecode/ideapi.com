@@ -7,7 +7,7 @@
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html;charset=utf-8"}
     %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=EmulateIE7"}
 
-    =stylesheet_link_tag %w(reset frontend textile facebox jquery.wysiwyg)
+    =stylesheet_link_tag %w(reset application textile facebox jquery.wysiwyg)
     /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
     /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
     =stylesheet_link_tag %w(reset print), :media => "print"
@@ -15,37 +15,11 @@
   %body{:id => body_ids, :class => body_classes}
     =render :partial => 'user_feedback/feedback_form'  
     #container
-      #header
-        = render :partial => 'partials/logo'
-        - if logged_in? 
-          %p#top-menu
-            Logged in as:
-            %span.name= current_user.full_name
-            |
-            = link_unless_current 'Profile', profile_path
-            - if admin?
-              |
-              = link_unless_current 'Account', account_path
-            | 
-            = link_unless_current "Help", help_path
-            |
-            =link_to 'Logout', delete_user_session_path
-          / #list-of-accounts
-          %ul.navigation
-            %li=link_unless_current 'dashboard', '/dashboard'
-            -if current_user && current_user_can_create_briefs?
-              %li=link_unless_current 'templates', template_briefs_path
-            %li=link_unless_current 'contacts', users_path
+      = render :partial => 'partials/header'
+      #content
         .clear
         %ul{:class => "sub_nav #{app_logo_class}"}
           =yield :sub_nav
-          
-        - if (flash[:error])
-          %p.flash.error=flash[:error]
-        - elsif (flash[:notice])
-          %p.flash.notice=flash[:notice]
-          
-      #content
         =yield :title_holder
         =yield :side_bar
         .main
