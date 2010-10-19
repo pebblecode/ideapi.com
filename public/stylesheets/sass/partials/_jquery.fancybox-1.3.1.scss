@@ -214,9 +214,10 @@
   background-position: 0px -40px;*/
 	color: #FFF;
 	background-color: #32401a;
-	padding: 10px 20px 7px;
+	padding: 10px 20px 8px;
 	font-size: 1.333em;
 	line-height: 1em;
+	font-weight: normal;
 	
 	@include border_radius(15px);
 }
@@ -281,73 +282,73 @@
 	right: 0;
 }
 
-.fancy-bg {
-	position: absolute;
-	padding: 0;
-	margin: 0;
-	border: 0;
-	width: 20px;
-	height: 20px;
-	z-index: 1001;
+/*.fancy-bg {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 20px;
+  height: 20px;
+  z-index: 1001;
 }
 
 #fancy-bg-n {
-	top: -20px;
-	left: 0;
-	width: 100%;
-	background-image: url('/images/fancybox/fancybox-x.png');
+  top: -20px;
+  left: 0;
+  width: 100%;
+  background-image: url('/images/fancybox/fancybox-x.png');
 }
 
 #fancy-bg-ne {
-	top: -20px;
-	right: -20px;
-	background-image: url('/images/fancybox/fancybox.png');
-	background-position: -40px -162px;
+  top: -20px;
+  right: -20px;
+  background-image: url('/images/fancybox/fancybox.png');
+  background-position: -40px -162px;
 }
 
 #fancy-bg-e {
-	top: 0;
-	right: -20px;
-	height: 100%;
-	background-image: url('/images/fancybox/fancybox-y.png');
-	background-position: -20px 0px;
+  top: 0;
+  right: -20px;
+  height: 100%;
+  background-image: url('/images/fancybox/fancybox-y.png');
+  background-position: -20px 0px;
 }
 
 #fancy-bg-se {
-	bottom: -20px;
-	right: -20px;
-	background-image: url('/images/fancybox/fancybox.png');
-	background-position: -40px -182px; 
+  bottom: -20px;
+  right: -20px;
+  background-image: url('/images/fancybox/fancybox.png');
+  background-position: -40px -182px; 
 }
 
 #fancy-bg-s {
-	bottom: -20px;
-	left: 0;
-	width: 100%;
-	background-image: url('/images/fancybox/fancybox-x.png');
-	background-position: 0px -20px;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  background-image: url('/images/fancybox/fancybox-x.png');
+  background-position: 0px -20px;
 }
 
 #fancy-bg-sw {
-	bottom: -20px;
-	left: -20px;
-	background-image: url('/images/fancybox/fancybox.png');
-	background-position: -40px -142px;
+  bottom: -20px;
+  left: -20px;
+  background-image: url('/images/fancybox/fancybox.png');
+  background-position: -40px -142px;
 }
 
 #fancy-bg-w {
-	top: 0;
-	left: -20px;
-	height: 100%;
-	background-image: url('/images/fancybox/fancybox-y.png');
+  top: 0;
+  left: -20px;
+  height: 100%;
+  background-image: url('/images/fancybox/fancybox-y.png');
 }
 
 #fancy-bg-nw {
-	top: -20px;
-	left: -20px;
-	background-image: url('/images/fancybox/fancybox.png');
-	background-position: -40px -122px;
-}
+  top: -20px;
+  left: -20px;
+  background-image: url('/images/fancybox/fancybox.png');
+  background-position: -40px -122px;
+}*/
 
 /* IE */
 
@@ -359,16 +360,17 @@
 .fancybox-ie #fancybox-title-main { background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_title_main.png', sizingMethod='scale'); }
 .fancybox-ie #fancybox-title-right  { background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_title_right.png', sizingMethod='scale'); }*/
 
-.fancybox-ie #fancybox-left-ico		{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_nav_left.png', sizingMethod='scale'); }
-.fancybox-ie #fancybox-right-ico	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_nav_right.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-left-ico		{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/prev.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-right-ico	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/next.png', sizingMethod='scale'); }
 
-.fancybox-ie .fancy-bg { background: transparent !important; }
+/*.fancybox-ie .fancy-bg { background: transparent !important; }
 
-.fancybox-ie #fancy-bg-n	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_n.png', sizingMethod='scale'); }
-.fancybox-ie #fancy-bg-ne	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_ne.png', sizingMethod='scale'); }
-.fancybox-ie #fancy-bg-e	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_e.png', sizingMethod='scale'); }
-.fancybox-ie #fancy-bg-se	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_se.png', sizingMethod='scale'); }
-.fancybox-ie #fancy-bg-s	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_s.png', sizingMethod='scale'); }
-.fancybox-ie #fancy-bg-sw	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_sw.png', sizingMethod='scale'); }
-.fancybox-ie #fancy-bg-w	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_w.png', sizingMethod='scale'); }
-.fancybox-ie #fancy-bg-nw	{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_nw.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-n  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_n.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-ne { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_ne.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-e  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_e.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-se { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_se.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-s  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_s.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-sw { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_sw.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-w  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_w.png', sizingMethod='scale'); }
+.fancybox-ie #fancy-bg-nw { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_nw.png', sizingMethod='scale'); }
+*/
