@@ -771,7 +771,8 @@ span.left {
 
 .tour-page #content p {
   color: #676767;
-  margin: 0 0 10px; }
+  margin: 0 0 10px;
+  padding-right: 0; }
 .tour-page .features {
   list-style: none;
   padding: 0;
@@ -781,20 +782,27 @@ span.left {
     overflow: auto;
     margin-bottom: 85px; }
   .tour-page .features .content {
-    width: 464px; }
+    width: 270px; }
     .tour-page .features .content p {
       font-size: 1.333em;
       line-height: 1.5em; }
   .tour-page .features img {
-    width: 300px; }
+    width: 340px;
+    border: 10px solid #7e9d3a;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px; }
   .tour-page .features .odd .content {
-    float: left; }
+    float: left;
+    text-align: right;
+    margin-left: 140px; }
   .tour-page .features .odd img {
     float: right;
     margin-right: 0; }
   .tour-page .features .even .content {
     float: right;
-    margin-right: 0; }
+    margin-right: 0;
+    margin-right: 140px; }
   .tour-page .features .even img {
     float: left; }
 

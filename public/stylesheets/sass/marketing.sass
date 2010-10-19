@@ -505,6 +505,7 @@ span.left
     p
       color: #676767
       margin: 0 0 10px
+      padding-right: 0    
       
   .features
     list-style: none
@@ -517,24 +518,30 @@ span.left
       margin-bottom: 85px
     
     .content
-      width: 464px
+      width: 270px
       
       p
         font-size: 1.3333em
         line-height: 1.5em
       
     img
-      width: 300px
+      width: 340px
+      border: 10px solid !nav_current_bg
+      @include border-radius(10px)
+      
     .odd
       .content
-        float: left        
+        float: left
+        text-align: right     
+        margin-left: 140px
       img
         float: right
         margin-right: 0
     .even
       .content
         float: right
-        margin-right: 0        
+        margin-right: 0     
+        margin-right: 140px
       img
         float: left      
 
