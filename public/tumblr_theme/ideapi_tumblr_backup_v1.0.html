@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- 
+  Theme: ideapi  v1.0
+  Author: pebble.it  [http://pebbleit.com/]
+  For: Tumblr  [http://tumblr.com/]
+  Terms: Non-free
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
+  
+  {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+  <meta name="if:Show notes" content="1" />
+  <meta name="text:Disqus Shortname" content="" />
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+  <link rel="icon" href="{Favicon}"/>
+  
+  <!-- iPhone -->
+  <meta name="viewport" content="width=575"/>
+  <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+  
+  <link href='http://ideapi.com/stylesheets/marketing.css' media='screen' rel='stylesheet' type='text/css' />
+    <style type="text/css" media="screen">
+        html{font-size:87.5%}
+        .clear-left{clear: left;}
+        body {
+          background-color: white;
+          text-align: justify;
+          color: #4c4c4c;
+          padding: 0px;
+          margin: 0px;
+          line-height: 20px;
+          font-size: 12px;
+          font-family: "Lucida Grande", Verdana, Arial, sans-serif; }
+          #banner #header #logo{ width: 250px;}
+          #banner #header ul.navigation{ width: 400px;}
+          
+        /* POSTS */
+        #posts { 
+          clear: left;
+          width: 50em;
+          }
+        .text,.link,.quote,.photo,.video,.audio,.chat,.photoset-post{margin-bottom:.5em;}
+        .link .link-description{margin:0 0 1.5em}
+        .quote .words{border:0;font:normal 1.2em/1.3 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;margin:0 0 1em;padding:0}
+        .quote .source{font-style:italic}
+        .photo .caption,.video .caption,.audio .caption,.quote .source,.photoset-post .caption{clear: right;margin-bottom:1.5em;margin-top:0.75em;text-align:left}
+        .photo a img{border:0;}
+        .chat ul.convo{list-style-type:none;padding:0;}
+        .chat ul.convo li{line-height:2;}
+        .chat ul.convo li .person { font-weight: bold; }
+        .audio .playcount { float: right; }
+        
+        .post h3{ font-size: 1.5em; margin-bottom: 0;}
+        /* POST FOOTERS */
+        .post-footer{
+          list-style:none;
+          font-size:0.857em;
+          margin:.5em 0;
+          padding:0;
+          }
+        .post-footer li{display:inline;margin-left:1em;padding:0}
+        
+        /* REBLOG */
+        .post-footer li.reblog{display:block;font-style:italic;margin-bottom:0.25em}
+        .post-footer li.date h3{display:inline;font-family:Helvetica,Arial,sans-serif;font-size:1em}
+        
+        /* TAGS */
+        .post-footer li.tags ul, .post-footer li.tags ul li{display:inline; padding: 0;}
+        .post-footer li.tags ul li {margin-left: 0.4em;}
+        
+        /* NOTES */
+        ol.notes { margin: 0; padding: 0; }
+        ol.notes li.note { margin: 0 0 0.75em 0; padding: 0 0 0.75em 0 }
+        ol.notes img.avatar { display: none; }
+        
+        #sidebar{
+          float: right;
+          width: 220px;
+          padding: 0 15px;
+          background: #f1f1f1;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+        }
+
+        #content #sidebar p.actions{margin: 2em 0;}
+        #content #sidebar p.actions span{margin: 0;}
+
+
+      </style>
+</head>
+<body>
+  <div id='container'>
+    <div id='banner'>
+      <div id='header'>
+        <div id='logo'>
+          <a alt='home' href='http://ideapi.com/'>
+            <img alt='ideapi Logo' src='http://ideapi.com/images/ideapi-logo.gif' />
+          </a>
+        </div>
+        <ul class='navigation'>
+          <li><a href="http://ideapi.com" class="current">overview</a></li>
+          <li><a href="http://ideapi.com/tour" class="current">tour</a></li>
+          <!--<li><a href="http://ideapi.com/pricing" class="current">pricing</a></li>-->
+          <li><a href="http://ideapi.com/signup" class="current">signup</a></li>
+          <li><span class="current">blog</span></li>
+        </ul>
+        <div class='clear'></div>
+      </div>
+    </div>
+    <div id='middle-section'>
+      <div id="content">  
+
+       <div id="sidebar">
+          <h1>Blog.</h1>
+          <p>ideapi is a tool that helps groups of people work together better.</p>
+          <p>You can collaborate on and agree a clear brief, as well as manage the process of submitting and approving ideas.</p>
+          <p>Brief &amp; idea collaboration for clients, agencies &amp; production.</p>
+          <p class="actions">
+            <span><a class="button-ideapi" href="http://ideapi.com/signup">FREE <strong>BETA</strong> - TRY IT</a></span>
+          </p>
+          <p align="center">[<a href="http://twitter.com/ideapi">twitter</a>] [<a href="http://blog.ideapi.com/rss">rss</a>]</p>
+        </div>
+
+      <div id="posts" class="autopagerize_page_element">
+				
+        {block:Posts}
+        <div class="post">
+          {block:Text}
+          <div class="regular">
+            {block:Title}<h3>{Title}</h3>{/block:Title}
+            <div class="post-footer">
+              {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
+              {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
+
+              {block:IfDisqusShortname}
+              <a href="{Permalink}#disqus_thread" class="permalink">Comments</a>
+              {block:IfDisqusShortname}
+
+              <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+              
+            </div>
+            {Body}
+          </div>
+          {/block:Text}
+
+          {block:Quote}
+          <div class="post-footer">
+            {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
+            {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
+
+            {block:IfDisqusShortname}
+            <a href="{Permalink}#disqus_thread" class="permalink">Comments</a>
+            {block:IfDisqusShortname}
+
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+            
+          </div>
+          <div class="quote">
+            <span class="words">&#0147;{Quote}&#0148;</span>
+            {block:Source}<span class="source">{Source}</span>{/block:Source}
+          </div>
+          {/block:Quote}
+
+          {block:Link}
+          <div class="link">
+            <h3><a href="{URL}" {Target}>{Name}</a></h3>
+            <div class="post-footer">
+              {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
+              {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
+
+              {block:IfDisqusShortname}
+              <a href="{Permalink}#disqus_thread" class="permalink">Comments</a>
+              {block:IfDisqusShortname}
+
+              <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+              
+            </div>
+            <div class="link-body">
+            {block:Description}{Description}{/block:Description}
+            </div>
+          </div>
+          {/block:Link}
+        
+          {block:Chat}
+          <div class="conversation">
+            {block:Title}<h3>{Title}</h3>{/block:Title}
+            <ul>
+              {block:Lines}
+              <li>
+                {block:Label}<span class="person">{Label}</span>{/block:Label}
+                <span class="line">{Line}</span></li>
+              {/block:Lines}
+            </ul>
+          </div>
+          <div class="post-footer">
+            {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
+            {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
+
+            {block:IfDisqusShortname}
+            <a href="{Permalink}#disqus_thread" class="permalink">Comments</a>
+            {block:IfDisqusShortname}
+
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+            
+          </div>
+          {/block:Chat}
+
+          {block:Photo}
+          <div class="post-footer">
+            {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
+            {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
+
+            {block:IfDisqusShortname}
+            <a href="{Permalink}#disqus_thread" class="permalink">Comments</a>
+            {block:IfDisqusShortname}
+
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+            
+          </div>
+          
+          <div class="photo">
+            {LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          </div>
+          {/block:Photo}
+
+          {block:Video}
+          <div class="post-footer">
+            {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
+            {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
+
+            {block:IfDisqusShortname}
+            <a href="{Permalink}#disqus_thread" class="permalink">Comments</a>
+            {block:IfDisqusShortname}
+
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+            
+          </div>
+          
+          <div class="video">
+            
+            {Video-400}
+            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          </div>
+          {/block:Video}
+          
+          {block:Audio}
+          <div class="post-footer">
+            {block:Date}<span class="when">{Month} {DayOfMonth}, {12Hour}:{Minutes}{AmPm}</span>{/block:Date}
+            {block:NoteCount}{block:IfShowNotes}<span class="when">{NoteCountWithLabel}</span>{/block:IfShowNotes}{/block:NoteCount}
+
+            {block:IfDisqusShortname}
+            <a href="{Permalink}#disqus_thread" class="permalink">Comments</a>
+            {block:IfDisqusShortname}
+
+            <a href="{Permalink}" class="permalink">Permalink &#8734;</a>
+            
+          </div>
+          
+          <div class="audio">
+            {AudioPlayerGrey}
+            {block:Caption}<span class="caption">{Caption}</span>{/block:Caption}
+          </div>
+          {/block:Audio}
+          <br style="clear-left"/>
+        </div> <!-- end single post -->
+        {/block:Posts}
+        <br clear="all"/>
+        {block:Permalink}
+        {block:IfDisqusShortname}
+        <div id="disqus_thread"></div>
+        <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+        <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+        {/block:IfDisqusShortname}
+
+        {block:IfShowNotes}{PostNotes}{/block:IfShowNotes}
+        {/block:Permalink}
+        </div>
+        
+        {block:Pagination}
+        <div id="prev-next" class="autopagerize_insert_before">
+          {block:NextPage}<a href="{NextPage}" id="prev" rel="next">&#8592; Older Posts</a>{/block:NextPage}
+          Page {CurrentPage} of {TotalPages}
+          {block:PreviousPage}<a href="{PreviousPage}" id="next">Newer Posts &#8594;</a>{/block:PreviousPage}
+        </div>
+        {/block:Pagination}
+    {block:IfDisqusShortname}
+    {/block:IfDisqusShortname}
+        </div>
+      </div>
+      <div id='footer'>
+        <div id='footer-content'>
+          <div id='footer-content-left'>
+            <p>
+              <a alt='Terms of Service' href='/terms'>
+                Terms of Service
+              </a>
+              |
+              <a alt='Privacy Policy' href='/privacy'>
+                Privacy Policy
+              </a>
+              |
+              <a href='mailto:info[at]pebbleit' onclick="this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" rel='ideapi.com' title='info'>Contact</a>
+              |
+              <a alt='Follow us on Twitter' href='http://twitter.com/ideapi'>
+                Twitter
+              </a>
+            </p>
+          </div>
+        </div>
+        <div id='footer-content-right'>
+          <p>
+            &copy; 2010 Ideapi Limited
+          </p>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+    (function() {
+        var links = document.getElementsByTagName('a');
+        var query = '?';
+        for(var i = 0; i < links.length; i++) {
+        if(links[i].href.indexOf('#disqus_thread') >= 0) {
+            query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+        }
+        }
+        document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+    })();
+    
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-691295-5']);
+    _gaq.push(['_setDomainName', '.ideapi.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    //]]>
+    </script>
+  </body>
+</html>
