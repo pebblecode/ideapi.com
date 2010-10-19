@@ -1,13 +1,9 @@
 - @brief = @question.brief
-Account:
-= @brief.account.name
-Brief: 
-= truncate(@brief.title, :length => 40)
-Link:
-= brief_url(@brief, :host => @brief.account.full_domain)
+:plain
+  Account:#{@brief.account.name}
+  Brief: #{truncate(@brief.title, :length => 40)}
+  Link: #{brief_url(@brief, :host => @brief.account.full_domain)}
 
+  A question you asked has been answered by #{@question.answered_by.full_name}.
 
-A question you asked has been answered by#{@question.answered_by.full_name}.
-
-
-"#{@question.author_answer}"
+  "#{@question.author_answer}"
