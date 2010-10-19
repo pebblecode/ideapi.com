@@ -781,6 +781,14 @@ span.left {
     clear: both;
     overflow: auto;
     margin-bottom: 85px; }
+    .tour-page .features li.dashboard .content {
+      margin-top: 15px; }
+    .tour-page .features li.brief .content {
+      margin-top: 40px; }
+    .tour-page .features li.edit-brief .content {
+      margin-top: 60px; }
+    .tour-page .features li.idea .content {
+      margin-top: 65px; }
   .tour-page .features .content {
     width: 270px; }
     .tour-page .features .content p {
@@ -795,14 +803,14 @@ span.left {
   .tour-page .features .odd .content {
     float: left;
     text-align: right;
-    margin-left: 140px; }
+    margin-left: 130px; }
   .tour-page .features .odd img {
     float: right;
     margin-right: 0; }
   .tour-page .features .even .content {
     float: right;
     margin-right: 0;
-    margin-right: 140px; }
+    margin-right: 130px; }
   .tour-page .features .even img {
     float: left; }
 
