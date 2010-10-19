@@ -77,7 +77,11 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: #FFF; }
+  background: #FFF;
+  border: 10px solid #7E9D3A;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px; }
 
 #fancybox-inner {
   position: absolute;
@@ -100,8 +104,8 @@
 
 #fancybox-close {
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: -17px;
+  right: -17px;
   width: 22px;
   height: 22px;
   background: transparent url("/images/fancybox/lightbox-close.png") no-repeat 0 0;
