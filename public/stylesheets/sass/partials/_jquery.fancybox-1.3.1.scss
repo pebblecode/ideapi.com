@@ -237,10 +237,10 @@
 
 #fancybox-left-ico, #fancybox-right-ico {
 	position: absolute;
-	top: 50%;
+	top: 30%;
 	left: -9999px;
-	width: 30px;
-	height: 30px;
+	width: 63px;
+	height: 32px;
 	margin-top: -15px;
 	cursor: pointer;
 	z-index: 1102;
@@ -248,13 +248,11 @@
 }
 
 #fancybox-left-ico {
-	background-image: url('/images/fancybox/fancybox.png');
-	background-position: -40px -30px;
+	background: transparent url('/images/fancybox/prev.png') no-repeat 0 0;
 }
 
 #fancybox-right-ico {
-	background-image: url('/images/fancybox/fancybox.png');
-	background-position: -40px -60px;
+	background: transparent url('/images/fancybox/next.png') no-repeat 0 0;
 }
 
 #fancybox-left:hover, #fancybox-right:hover {
@@ -262,12 +260,12 @@
 }
 
 #fancybox-left:hover span {
-	left: 20px;
+	left: 0;
 }
 
 #fancybox-right:hover span {
 	left: auto;
-	right: 20px;
+	right: 0;
 }
 
 .fancy-bg {
