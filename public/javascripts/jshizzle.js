@@ -326,13 +326,11 @@ jQuery.fn.update_collab_link = function () {
 jQuery.fn.fire_collab_action = function (action_type) {
   
   var _link = jQuery(this);
-  
+  var _list = $(this).parents('ul.collaborators');
   _link.hide().spin(false, 'spinner_e1');
   var _date = new Date();
   var serialized_data = jQuery(this).parents('li.collaboration_user').find('input').serialize().replace(/%5B/g, '[').replace(/%5D/g, ']');
-  var clicked_id = $(this).parents('li.collaboration_user').find('input[name="brief[approver_id]"]').val();
-  var target_span = $(this).parents('li.collaboration_user').find('span.user_role');
-  console.log(target_span.html());
+  
   $.ajax({
     type: 'PUT',
     url: jQuery(this).parents().filter('form').attr('action'),
@@ -343,11 +341,9 @@ jQuery.fn.fire_collab_action = function (action_type) {
     },
     success: function(response){
       $.each(response.brief.user_briefs, function(index, value){
-        if( value.user_id == clicked_id ){
-          target_span.html(value.brief_role.label);
-          console.log(value.brief_role.label);
-        }
+        var target_span = _list.find('li.collaboration_user input[name="brief[user_briefs_attributes]['+ index +'][id]"][value="'+ value.id +'"]').parent().find('span.user_role');
         
+        target_span.html(value.brief_role.label);
       });
       
       _link.fadeIn().next('.spinner').remove();
