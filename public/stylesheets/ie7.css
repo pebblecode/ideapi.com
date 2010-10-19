@@ -7,27 +7,11 @@ input[type=text] {
   font-size: 1em;
   line-height: 1.2em; }
 
-#banner #header ul.navigation, #container #header ul.navigation {
-  padding-bottom: 3px; }
-
 #middle-section {
   clear: both !important;
   padding-top: 2.5em; }
   #middle-section .section h1 {
     padding-top: 1em; }
-
-/*NAVIGATION*/
-#container #header ul.navigation {
-  bottom: -1px;
-  width: 340px;
-  right: 10px;
-  float: right; }
-  #container #header ul.navigation li {
-    display: inline; }
-  #container #header ul.navigation a, #container #header ul.navigation span {
-    display: inline;
-    padding: 15px;
-    margin-left: 5px; }
 
 /*  LOGIN   */
 #user_session_email, #user_session_password {
@@ -47,29 +31,16 @@ input[type=text] {
   padding: 2px 10px; }
 
 /*Layout fixes*/
-#container #header {
-  position: relative;
-  padding-top: 0px;
-  height: 130px; }
-  #container #header h1 {
-    position: absolute;
-    bottom: -20px; }
-  #container #header ul.sub_nav {
-    position: absolute;
-    top: 150px; }
-
-#container #content .col_2 {
-  padding-top: 2.2em !important; }
+.speech, .revision-body {
+  position: static !important; }
+  .speech .bubble, .revision-body .bubble {
+    display: none !important; }
 
 /*BRIEFS*/
 #container #content .main .col_1 .brief_item_history li {
   border: 1px solid #f7f7f7; }
 #container #content .main .col_1 ul.comments li {
   border: 1px solid white; }
-#container #content .main .col_1 li.revision .revision-body .info .buttons .toggle_revision_body {
-  display: none; }
-#container #content .main .col_1 li.revision .revision-body .body {
-  display: block; }
 #container #content .main .col_1 ul.brief_item_history li .brief_item_question .speech,
 #container #content .main .col_1 ul.brief_item_history li .comment .speech,
 #container #content .main .col_1 .comments_area ul.comments li .brief_item_question .speech,
@@ -110,6 +81,8 @@ input.smartTextBox-input-elem-valueInput {
     float: left;
     margin: 0 0 1em 0;
     padding: 0; }
+  #container #content .side_box ul.overview li p.non_found, #container #content .side_box ul.proposals li p.non_found {
+    float: none; }
 #container #content .side_box #collaboration_form.contents ul.collaborators li.collaboration_user {
   clear: both; }
   #container #content .side_box #collaboration_form.contents ul.collaborators li.collaboration_user img.avatar {
@@ -160,6 +133,9 @@ input.smartTextBox-input-elem-valueInput {
 #top-menu {
   margin-top: 1em; }
 
+.boom_box {
+  width: 630px; }
+
 #proposals .boom_box {
   width: 600px; }
 
@@ -177,3 +153,6 @@ input.smartTextBox-input-elem-valueInput {
 .login_form .submit, .login_form #forgot-password, .login_form #remember-me {
   margin-top: 0px !important;
   margin-bottom: 0 !important; }
+
+.title-span input[type=text] {
+  border: 1px solid transparent; }
