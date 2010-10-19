@@ -23,6 +23,14 @@ $(document).ready(function(){
     });
   }
 
+  // Lightbox
+  $("a[rel=lightbox]").lightBox({
+    imageLoading: '/images/lightbox-images/lightbox-ico-loading.gif',
+    imageBtnClose: '/images/lightbox-images/lightbox-btn-close.gif',
+    imageBtnPrev: '/images/lightbox-images/lightbox-btn-prev.gif',
+    imageBtnNext: '/images/lightbox-images/lightbox-btn-next.gif',
+    imageBlank: '/images/lightbox-images/lightbox-blank.gif'
+  }); // Select all links that contains lightbox in the attribute rel
   
 });
 
