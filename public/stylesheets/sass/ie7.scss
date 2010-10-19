@@ -17,13 +17,6 @@ input[type=text] {
   line-height: 1.2em;
 }
 
-#banner, #container {
-  #header {
-    ul.navigation {
-      padding-bottom: 3px;
-    }
-  }
-}
 
 #middle-section {
   clear: both !important;
@@ -35,28 +28,6 @@ input[type=text] {
   }
 }
 
-/*NAVIGATION*/
-#container{
-  #header{
-    ul.navigation{
-      bottom: -1px;
-      width: 340px;
-      right: 10px;
-      float: right;
-      li{
-        display: inline;
-      }
-      a, span{
-        display: inline;
-        padding: 15px;
-        margin-left: 5px;
-        
-        
-      }
-    }
-    
-  }
-}
 
 /*  LOGIN   */
 #user_session_email, #user_session_password{
@@ -82,29 +53,6 @@ input[type=text] {
   
 }
 
-/*Layout fixes*/
-
-#container{
-  #header{
-    position: relative;
-    padding-top: 0px;
-    height: $header_height;
-    
-    h1{
-      position: absolute;
-      bottom: -20px;
-    }
-    
-    ul.sub_nav{
-      position: absolute;
-      top: $header_height + 20px;
-    }
-  } 
-}
-#container #content .col_2{
-  padding-top: 2.2em !important;
-}
-
 
 
 /*BRIEFS*/
@@ -116,16 +64,8 @@ input[type=text] {
     border: 1px solid white;
   }
   li.revision{
-    .revision-body{
-      .info{
-        .buttons{
-          .toggle_revision_body{
-            display: none;
-          }
-        }
-      }
-      .body{
-        display: block;
+    .speech, .revision-body{
+      position: static;
       }
     }
   }

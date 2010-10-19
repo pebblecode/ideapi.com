@@ -1,0 +1,14 @@
+#header
+  - if (flash[:error])
+    %p.flash.error=flash[:error]
+  - elsif (flash[:notice])
+    %p.flash.notice=flash[:notice]
+
+  - if logged_in?
+    = render :partial => 'partials/top_menu'
+    = render :partial => 'partials/logo'
+    %ul.navigation
+      %li=link_unless_current 'dashboard', '/dashboard'
+      -if current_user && current_user_can_create_briefs?
+        %li=link_unless_current 'templates', template_briefs_path
+      %li=link_unless_current 'contacts', users_path

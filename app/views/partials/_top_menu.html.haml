@@ -1,0 +1,12 @@
+#top-menu
+  Logged in as:
+  %span.name= current_user.full_name
+  |
+  = link_unless_current 'Profile', profile_path
+  - if admin?
+    |
+    = link_unless_current 'Account', account_path
+  | 
+  = link_unless_current "Help", help_path
+  |
+  =link_to 'Logout', delete_user_session_path

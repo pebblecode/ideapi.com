@@ -1,9 +1,9 @@
 body {
-  color: #000;
-  background: #FFF;
+  color: black;
+  background: white;
   margin: 0;
   padding: 0;
-  font: 13px/1.22 arial,helvetica,clean,sans-serif;
+  font: 13px/1.22 arial, helvetica, clean, sans-serif;
   *font-size: small;
   *font: x-small; }
 
@@ -96,7 +96,7 @@ cite, dfn, em, strong, var {
   font-weight: normal; }
 
 q:before, q:after {
-  content: ''; }
+  content: ""; }
 
 abbr, acronym {
   border: 0;
