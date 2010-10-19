@@ -2027,6 +2027,10 @@ span.timestamp {
   float: none !important;
   padding: 0; }
 
+#accounts #container #content .sub_nav {
+  display: none; }
+#accounts #container #content .main {
+  padding-top: 0; }
 #accounts #container #content h3 {
   margin: 0.5em 0 0.5em 0; }
 #accounts #container #content #update_domain_name {
@@ -2098,8 +2102,6 @@ ul.sub_nav {
   padding: 0 2em 0.8em 2em;
   margin-top: 1em;
   height: 20px; }
-  ul.sub_nav.custom {
-    padding-top: 2em; }
   ul.sub_nav li {
     display: inline;
     margin-right: 2em; }

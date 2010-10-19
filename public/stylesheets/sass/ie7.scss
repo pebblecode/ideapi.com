@@ -28,7 +28,6 @@ input[type=text] {
   }
 }
 
-
 /*  LOGIN   */
 #user_session_email, #user_session_password{
   padding:5px;
@@ -53,7 +52,15 @@ input[type=text] {
   
 }
 
+/*Layout fixes*/
 
+
+.speech, .revision-body{
+  position: static !important;
+  .bubble{
+    display: none !important;
+  }
+}
 
 /*BRIEFS*/
 #container #content .main .col_1{
@@ -62,12 +69,6 @@ input[type=text] {
   }
   ul.comments li{
     border: 1px solid white;
-  }
-  li.revision{
-    .speech, .revision-body{
-      position: static;
-      }
-    }
   }
   ul.brief_item_history li, 
   .comments_area ul.comments li{
@@ -130,6 +131,9 @@ input.smartTextBox-input-elem-valueInput{
         float: left;
         margin: 0 0 1em 0;
         padding: 0;
+      }
+      p.non_found{
+        float: none;
       }
     }
   }
@@ -224,6 +228,9 @@ input.smartTextBox-input-elem-valueInput{
   margin-top: 1em;
 }
 
+.boom_box{
+  width: 630px;
+}
 
 
 #proposals{
@@ -259,5 +266,11 @@ input.smartTextBox-input-elem-valueInput{
   .submit, #forgot-password, #remember-me{
     margin-top: 0px !important;
     margin-bottom: 0 !important;
+  }
+}
+
+.title-span{
+  input[type=text]{
+    border: 1px solid transparent;
   }
 }

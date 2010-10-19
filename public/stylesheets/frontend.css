@@ -2083,6 +2083,10 @@ span.timestamp {
   float: none !important;
   padding: 0; }
 
+#accounts #container #content .sub_nav {
+  display: none; }
+#accounts #container #content .main {
+  padding-top: 0; }
 #accounts #container #content h3 {
   margin: 0.5em 0 0.5em 0; }
 #accounts #container #content #update_domain_name {
