@@ -77,7 +77,11 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: #FFF; }
+  background: #FFF;
+  border: 10px solid #7E9D3A;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px; }
 
 #fancybox-inner {
   position: absolute;
@@ -100,11 +104,11 @@
 
 #fancybox-close {
   position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 22px;
-  height: 22px;
-  background: transparent url("/images/fancybox/lightbox-close.png") no-repeat 0 0;
+  top: -25px;
+  right: -25px;
+  width: 35px;
+  height: 35px;
+  background: transparent url("/images/fancybox/lightbox-close-med.png") no-repeat 0 0;
   cursor: pointer;
   z-index: 1103;
   display: none; }
@@ -320,7 +324,7 @@
 
 .fancybox-ie #fancybox-close {
   background: transparent;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/lightbox-close.png', sizingMethod='scale'); }
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/lightbox-close-med.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancybox-title-over {
   background: transparent;
@@ -771,7 +775,8 @@ span.left {
 
 .tour-page #content p {
   color: #676767;
-  margin: 0 0 10px; }
+  margin: 0 0 10px;
+  padding-right: 0; }
 .tour-page .features {
   list-style: none;
   padding: 0;
@@ -780,21 +785,37 @@ span.left {
     clear: both;
     overflow: auto;
     margin-bottom: 85px; }
+    .tour-page .features li.dashboard .content {
+      margin-top: 23px; }
+    .tour-page .features li.brief .content {
+      margin-top: 50px; }
+    .tour-page .features li.edit-brief .content {
+      margin-top: 65px; }
+    .tour-page .features li.idea .content {
+      margin-top: 70px; }
   .tour-page .features .content {
-    width: 464px; }
+    width: 270px; }
     .tour-page .features .content p {
       font-size: 1.333em;
       line-height: 1.5em; }
   .tour-page .features img {
-    width: 300px; }
+    width: 340px;
+    border: 10px solid #7e9d3a;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 11px; }
   .tour-page .features .odd .content {
-    float: left; }
+    float: left;
+    text-align: right;
+    margin-left: 111px; }
   .tour-page .features .odd img {
     float: right;
     margin-right: 0; }
   .tour-page .features .even .content {
     float: right;
-    margin-right: 0; }
+    margin-right: 0;
+    margin-right: 111px; }
   .tour-page .features .even img {
     float: left; }
 

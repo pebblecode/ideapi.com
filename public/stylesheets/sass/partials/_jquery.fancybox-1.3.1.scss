@@ -89,6 +89,9 @@
 	width: 100%;
 	height: 100%;
 	background: #FFF;
+	
+	border: 10px solid #7E9D3A;
+	@include border_radius(15px);	
 }
 
 #fancybox-inner {
@@ -114,11 +117,11 @@
 
 #fancybox-close {
 	position: absolute;
-	top: -12px;
-	right: -12px;
-	width: 22px;
-	height: 22px;
-	background: transparent url('/images/fancybox/lightbox-close.png') no-repeat 0 0;
+	top: -25px;
+	right: -25px;
+	width: 35px;
+	height: 35px;
+	background: transparent url('/images/fancybox/lightbox-close-med.png') no-repeat 0 0;
 	cursor: pointer;
 	z-index: 1103;
 	display: none;
@@ -353,7 +356,7 @@
 /* IE */
 
 #fancybox-loading.fancybox-ie div	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_loading.png', sizingMethod='scale'); }
-.fancybox-ie #fancybox-close		{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/lightbox-close.png', sizingMethod='scale'); }
+.fancybox-ie #fancybox-close		{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/lightbox-close-med.png', sizingMethod='scale'); }
 
 .fancybox-ie #fancybox-title-over	{ background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_title_over.png', sizingMethod='scale'); zoom: 1; }
 /*.fancybox-ie #fancybox-title-left { background: transparent; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_title_left.png', sizingMethod='scale'); }

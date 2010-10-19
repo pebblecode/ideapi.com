@@ -24,7 +24,7 @@ $(document).ready(function(){
   }
 
   // Lightbox
-  $("a[rel=lightbox]").fancybox(); // Select all links that contains lightbox in the attribute rel
+  $("a[rel=lightbox]").fancybox({overlayOpacity: 0.9}); // Select all links that contains lightbox in the attribute rel
   
 });
 
