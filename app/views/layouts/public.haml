@@ -17,7 +17,7 @@
     /[if IE 8]
       %link{ :href => "/stylesheets/marketing_ie8.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
         
-    =javascript_include_tag %w(jquery jquery.infieldlabel.min jquery.lightbox-0.5.min marketing)
+    =javascript_include_tag %w(jquery jquery.infieldlabel.min fancybox/jquery.fancybox-1.3.1.pack.js fancybox/jquery.mousewheel-3.0.2.pack.js fancybox/jquery.easing-1.3.pack.js marketing)
   
   - if controller_name == "pages"
   -   @body_class = action_name + "-page page-template"
