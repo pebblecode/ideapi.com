@@ -157,12 +157,12 @@ blockquote {
   margin: 0.8em 0;
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
-  quotes: "" ""; }
-  blockquote p {
+  quotes: "" "";
+  p {
     margin: 0;
     padding: 0.8em;
     color: #666666;
-    background: inherit; }
+    background: inherit; } }
 
 pre {
   margin: 0;
@@ -181,10 +181,10 @@ pre {
   outline: none;
   margin: 0.8em 0;
   font-family: "Palatino Linotype", "Courier New", monospace;
-  line-height: 1.5em; }
-  pre strong {
+  line-height: 1.5em;
+  strong {
     color: #cc3333;
-    background: inherit; }
+    background: inherit; } }
 
 a {
   margin: 0;
@@ -203,16 +203,16 @@ a {
   outline: none;
   color: #0066ff;
   background-color: inherit;
-  text-decoration: underline; }
-  a:visited {
+  text-decoration: underline;
+  &:visited {
     color: #454545;
     background: inherit; }
-  a:hover {
+  &:hover {
     color: #222222;
     background: inherit; }
-  a:active {
+  &:active {
     color: #333333;
-    background: inherit; }
+    background: inherit; } }
 
 abbr {
   margin: 0;
@@ -303,10 +303,10 @@ code {
   outline: none;
   margin: 0.8em 0;
   font-family: "Palatino Linotype", "Courier New", monospace;
-  line-height: 1.5em; }
-  code strong {
+  line-height: 1.5em;
+  strong {
     color: #cc3333;
-    background: inherit; }
+    background: inherit; } }
 
 del {
   margin: 0;
@@ -394,12 +394,12 @@ q {
   margin: 0.8em 0;
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
-  quotes: "" ""; }
-  q p {
+  quotes: "" "";
+  p {
     margin: 0;
     padding: 0.8em;
     color: #666666;
-    background: inherit; }
+    background: inherit; } }
 
 s {
   margin: 0;
@@ -533,10 +533,10 @@ var {
   outline: none;
   margin: 0.8em 0;
   font-family: "Palatino Linotype", "Courier New", monospace;
-  line-height: 1.5em; }
-  var strong {
+  line-height: 1.5em;
+  strong {
     color: #cc3333;
-    background: inherit; }
+    background: inherit; } }
 
 dl {
   margin: 0;
@@ -669,17 +669,17 @@ label {
   display: block;
   float: left;
   padding: 3px;
-  font-weight: bold; }
-  label.xs {
+  font-weight: bold;
+  &.xs {
     width: 50px; }
-  label.s {
+  &.s {
     width: 100px; }
-  label.m {
+  &.m {
     width: 150px; }
-  label.l {
+  &.l {
     width: 200px; }
-  label.xl {
-    width: 250px; }
+  &.xl {
+    width: 250px; } }
 
 legend {
   margin: 0;
@@ -713,9 +713,9 @@ table {
   border: 0;
   outline: none;
   border-collapse: separate;
-  border-spacing: 0; }
-  table th {
-    font-weight: bold; }
+  border-spacing: 0;
+  th {
+    font-weight: bold; } }
 
 caption, tbody, tfoot, thead, tr, th, td, .x, * {
   margin: 0;
@@ -770,9 +770,9 @@ hr {
   clear: right; }
 
 .navigation {
-  list-style: none; }
-  .navigation li {
-    display: inline; }
+  list-style: none;
+  li {
+    display: inline; } }
 
 .debug {
   border: 1px solid red; }
@@ -780,10 +780,10 @@ hr {
 .monospace {
   margin: 0.8em 0;
   font-family: "Palatino Linotype", "Courier New", monospace;
-  line-height: 1.5em; }
-  .monospace strong {
+  line-height: 1.5em;
+  strong {
     color: #cc3333;
-    background: inherit; }
+    background: inherit; } }
 
 i {
   font-style: italic; }
@@ -798,22 +798,23 @@ u {
 .input {
   clear: left; }
 
-input.default {
-  float: left;
-  padding: 3px;
-  border: 1px solid #aaaaaa;
-  border-right: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd; }
-input.xs {
-  width: 20px; }
-input.s {
-  width: 50px; }
-input.m {
-  width: 125px; }
-input.l {
-  width: 200px; }
-input.xl {
-  width: 300px; }
+input {
+  &.default {
+    float: left;
+    padding: 3px;
+    border: 1px solid #aaaaaa;
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd; }
+  &.xs {
+    width: 20px; }
+  &.s {
+    width: 50px; }
+  &.m {
+    width: 125px; }
+  &.l {
+    width: 200px; }
+  &.xl {
+    width: 300px; } }
 
 textarea.default, select.default {
   float: left;
@@ -829,14 +830,14 @@ button {
   font-weight: bold;
   text-align: center;
   border: 0;
-  cursor: pointer; }
-  button.xs {
+  cursor: pointer;
+  &.xs {
     width: 15px; }
-  button.s {
+  &.s {
     width: 30px; }
-  button.m {
+  &.m {
     width: 50px; }
-  button.l {
+  &.l {
     width: 80px; }
-  button.xl {
-    width: 120px; }
+  &.xl {
+    width: 120px; } }
