@@ -1330,14 +1330,16 @@ span.field_with_errors input, span.field_with_errors input:focus {
     margin: 1px 0 0 0; }
   #container #content .brief .most_important_thing, #container #content .proposal .most_important_thing, #container #content .brief_list .most_important_thing {
     /*padding: 1em 1em 1em 3em;*/
-    padding: 0em 3em;
+    padding: 0;
     text-align: center; }
     #container #content .brief .most_important_thing p, #container #content .proposal .most_important_thing p, #container #content .brief_list .most_important_thing p {
+      width: 500px;
       font-size: 2.2em;
       font-weight: bold;
       color: #333333;
       padding: 1em 2em;
-      margin: 0;
+      margin: 0 auto;
+      text-align: center;
       position: relative; }
       #container #content .brief .most_important_thing p span, #container #content .proposal .most_important_thing p span, #container #content .brief_list .most_important_thing p span {
         font-size: 4em;
@@ -1356,6 +1358,8 @@ span.field_with_errors input, span.field_with_errors input:focus {
     background: #ffffdf; }
   #container #content .brief .brief_item.extended, #container #content .proposal .brief_item.extended, #container #content .brief_list .brief_item.extended {
     background: transparent; }
+#container #content .edit_brief .most_important_thing textarea {
+  width: 16em !important; }
 #container #content .edit_brief h2 input#brief_title {
   font-size: 1.5em;
   width: 31em; }
