@@ -4,7 +4,7 @@
   Brief: #{truncate(@brief.title, :length => 40)}
   Link: #{brief_url(@brief, :host => @brief.account.full_domain)}
 
-  A comment has been left on the brief #{link_to @comment.commentable.title, brief_url(@comment.commentable, :host => @comment.commentable.account.full_domain)} by #{@comment.user.full_name}.
+  A comment has been left on the brief "#{@comment.commentable.title}" by #{@comment.user.full_name}.
   
   #{@comment.user.full_name} wrote:
   "#{@comment.comment}"

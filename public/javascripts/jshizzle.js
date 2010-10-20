@@ -335,23 +335,25 @@ jQuery.fn.fire_collab_action = function (action_type) {
     type: 'PUT',
     url: jQuery(this).parents().filter('form').attr('action'),
     data: serialized_data,
-    complete: function(){
-    },
-    error: function(data){
-    },
     success: function(response){
       $.each(response.brief.user_briefs, function(index, value){
         var target_span = _list.find('li.collaboration_user input[name="brief[user_briefs_attributes]['+ index +'][id]"][value="'+ value.id +'"]').parent().find('span.user_role');
-        
         target_span.html(value.brief_role.label);
       });
-      
       _link.fadeIn().next('.spinner').remove();
       if (action_type == "remove") {
-        _link.parents().filter('li.collaboration_user').fadeOut(500,  function () { $(this).remove(); $('ul.add_collaborators').append(data); $('ul.add_collaborators li:last').hide().fadeIn(); $('.add_collaborators li:last a.add_collaborator').add_collab_link(); $('.add_collaborators').update_add_collab_widget(); });
+        _link.parents().filter('li.collaboration_user').fadeOut(500,  function (){
+          $(this).remove(); $('ul.add_collaborators').append(data); 
+          $('ul.add_collaborators li:last').hide().fadeIn(); 
+          $('.add_collaborators li:last a.add_collaborator').add_collab_link(); 
+          $('.add_collaborators').update_add_collab_widget(); 
+        });
       }
-      // state = response.proposal.state.replace('_',' ');
-      // $('#widget_proposal_status').html(state);
+    },
+    beforeSend: function(x) {
+      if(x && x.overrideMimeType) {
+        x.overrideMimeType("application/j-son;charset=UTF-8");
+      }
     },
     dataType: "json",
     cache: false
