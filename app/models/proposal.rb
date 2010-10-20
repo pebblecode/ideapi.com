@@ -78,7 +78,7 @@ class Proposal < ActiveRecord::Base
   become_schizophrenic
 
   before_save :ensure_default_state
-  after_create :notify_approvers_of_idea_creation
+  after_update :notify_approvers_of_idea_creation
   after_update :notify_if_state_changed
   after_save   :update_brief
   
@@ -123,12 +123,13 @@ class Proposal < ActiveRecord::Base
   end
   
   def notify_approvers_of_idea_creation
-    # [DEPRECATED]
-    # NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver, self)
-
-    # As this is now being processed by Resque we need to pass
-    # the id as it gets processed by a worker
-    NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver.id, self.id) unless self.approver.pending? or self.draft?
+    if state_changed? and (self.state_change | ['draft', :published] == self.state_change)
+      # [DEPRECATED]
+      # NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver, self)
+      # As this is now being processed by Resque we need to pass
+      # the id as it gets processed by a worker
+      NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver.id, self.id) unless self.approver.pending? or self.draft?
+    end
   end
   
   def update_status
