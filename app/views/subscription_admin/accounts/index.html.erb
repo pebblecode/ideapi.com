@@ -1,5 +1,52 @@
+
 <h1><%= @page_title = 'Accounts' %></h1>
-<table id="accounts">
+
+<div id="account-stats" class="">
+  <div class="column lfloat rborder">
+    <ul class="statistical-data">
+      <li>
+        <span class="data-label">Last account signup:</span>
+        <span class="data-value date"><%= Account.last.name%></span>
+      </li>
+      <li>
+        <span class="data-label"># of signups today:</span>
+        <span class="data-value"><%= Account.today.count%></span>
+      </li>
+      <li>
+        <span class="data-label"># of signups in last week:</span>
+        <span class="data-value"><%= Account.last_week.count%></span>
+      </li>
+      <li>
+        <span class="data-label"># of signups total:</span>
+        <span class="data-value"><%= Account.count%></span>
+      </li>
+    </ul>
+  </div>
+  <div class="column lfloat ">
+    <ul class="statistical-data">
+      <li class="hidden">
+        <span>&nbsp;</span>
+      </li>
+      <li>
+        <span class="data-label"># of users total:</span>
+        <span class="data-value date"><%= User.count %></span>
+      </li>
+      <li>
+        <span class="data-label"># of briefs total:</span>
+        <span class="data-value"><%= Brief.count %></span>
+      </li>
+      <li>
+        <span class="data-label"># of ideas total:</span>
+        <span class="data-value"><%= Proposal.count%></span>
+      </li>
+    </ul>
+  </div>
+  <div class="clear-both">
+    
+  </div>
+</div>
+
+<table id="accounts" class="clear-both">
   <tr>
     <th>Name</th>
     <th>Domain</th>
@@ -13,5 +60,3 @@
     </tr>
   <% end %>
 </table>
-
-<%= will_paginate(@accounts) %>

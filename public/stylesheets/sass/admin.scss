@@ -1,0 +1,81 @@
+body.subscription_admin table {
+  margin: 1em;
+  td {
+    padding: 1em 1em 0 0; }
+  th {
+    padding-right: 1em;
+    font-weight: bold; } }
+
+h2 {
+  margin-top: 1em; }
+
+h3, h4 {
+  margin-top: 2em; }
+
+.hr {
+  border-top: 1px solid #eeeeee;
+  margin: 2em 0; }
+
+input[type=submit] {
+  margin-top: 1em; }
+
+.edit_template_brief {
+  table {
+    td.heading {
+      color: gray; } } }
+
+#account-stats{
+  margin-bottom: 3em;
+  .column{
+    padding: 0 1em;
+  }
+  .rborder{
+    border-width: 2px;
+  }
+  
+  .statistical-data{
+
+    font-size: 1.3em;
+    color: #555;
+    padding: 0;
+    list-style-position: inside;
+    li{
+      margin: 0;
+      list-style: none;
+      clear: both;
+      text-align: right;
+      margin-bottom: 0.5em;
+    }
+    
+    .data-label{
+      display: inline-block;
+      margin-right: 1em;
+      float: left;
+    }
+    
+    .data-value{
+      color: green;
+      display: inline-block;
+    }
+  }
+  
+}
+
+
+.debug{
+  border: 1px solid red;
+}
+.clear-both{
+  clear: both;
+}
+.lfloat{
+  float: left;
+}
+
+.rfloat{
+  float: right;
+}
+.rborder{
+  border-right: 1px solid #ccc;
+}
+

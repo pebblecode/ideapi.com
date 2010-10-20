@@ -160,7 +160,29 @@ class Account < ActiveRecord::Base
   def admin?(a_user)
     self.users.admins.include?(a_user)
   end
- 
+  
+  
+  named_scope :today, :conditions => {:created_at => Date.today}
+  named_scope :last_week, :conditions => {:created_at => Date.today.advance(:weeks => -1)..Date.today}
+  named_scope :last_month, :conditions => {:created_at => Date.today.advance(:months => -1)..Date.today}
+  class << self
+    
+    def today
+      Account.find(:all, :conditions => {:created_at => Date.today})
+    end
+    
+    def last_week
+      Account.find(:all, :conditions => {:created_at => Date.today.advance(:weeks => -1)..Date.today})
+    end
+    
+    def last_month
+      Account.find(:all, :conditions => {:created_at => Date.today.advance(:months => -1)..Date.today})
+    end
+    
+  end
+  
+  
+  
   protected
   
     def valid_domain?
