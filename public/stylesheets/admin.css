@@ -47,6 +47,17 @@ input[type=submit] {
       color: green;
       display: inline-block; }
 
+#account-list th, #account-list td {
+  padding: 0.5em 1em;
+  border: 1px solid #bbb; }
+#account-list th.headerSortDown, #account-list th.headerSortUp {
+  background: #bbb; }
+#account-list th {
+  background-color: #ccc;
+  cursor: pointer; }
+#account-list tr:nth-child(2n+2) {
+  background-color: #eee; }
+
 .debug {
   border: 1px solid red; }
 
