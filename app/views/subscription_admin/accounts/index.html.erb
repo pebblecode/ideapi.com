@@ -59,7 +59,7 @@
     <tr class="<%= cycle('odd','even')%>">
       <td class="account-name"><%= link_to(h(account.name), [:admin, account]) %></td>
       <td class="account-domain"><%= account.full_domain %></td>
-      <td class="account-date"><%= account.created_at.strftime '%d/%m/%Y' %></td>
+      <td class="account-date"><%= account.created_at.strftime '%Y-%m-%d' %></td>
     </tr>
     
   <% end %>
