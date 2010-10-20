@@ -5,7 +5,7 @@ class UserFeedback < ActionMailer::Base
     @body[:feedback] = feedback
     #@recipients = 'ticket+abutcher.32755-u8cs2ma4@lighthouseapp.com'
     @recipients = 'support@ideapi.net'
-    @from = 'alex@abutcher.co.uk'
+    @from = 'support@ideapi.com'
     @sent_on = sent_at
   end
 
