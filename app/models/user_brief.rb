@@ -50,7 +50,7 @@ class UserBrief < ActiveRecord::Base
       # NotificationMailer.deliver_user_added_to_brief(self)
       # As this is now being processed by Resque we need to pass
       # the id as it gets processed by a worker
-      NotificationMailer.deliver_user_added_to_brief(self.id)
+      NotificationMailer.deliver_user_added_to_brief(self.id) unless self.user.pending?
     end
   end
   
