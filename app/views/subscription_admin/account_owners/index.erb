@@ -1,0 +1,42 @@
+<h1><%= @page_title = 'Account owners' %></h1>
+
+
+<table class="tabular-data">
+  <thead>
+    <tr>
+      <th>Emails</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @account_owners.each do |user| %>
+      <tr>
+        <td><%= user.first_name%> <%= user.last_name%> &lt;<%=user.email%>&gt;</td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+</table>
+
+<!-- <table class="tabular-data">
+  <caption>List of Account Owners</caption>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>email</th>
+      <th>account</th>
+      <th>domain</th>
+      <th>created</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @account_owners.each do |user| %>
+      <tr>
+        <td><%= user.first_name + ' ' + user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= user.full_domain %></td>
+        <td><%= user.created_at.strftime('%Y-%m-%d')%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> -->

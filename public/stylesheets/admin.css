@@ -47,15 +47,15 @@ input[type=submit] {
       color: green;
       display: inline-block; }
 
-#account-list th, #account-list td {
+.subscription_admin #account-list th, .subscription_admin #account-list td, .subscription_admin .tabular-data th, .subscription_admin .tabular-data td {
   padding: 0.5em 1em;
   border: 1px solid #bbb; }
-#account-list th.headerSortDown, #account-list th.headerSortUp {
+.subscription_admin #account-list th.headerSortDown, .subscription_admin #account-list th.headerSortUp, .subscription_admin .tabular-data th.headerSortDown, .subscription_admin .tabular-data th.headerSortUp {
   background: #bbb; }
-#account-list th {
+.subscription_admin #account-list th, .subscription_admin .tabular-data th {
   background-color: #ccc;
   cursor: pointer; }
-#account-list tr:nth-child(2n+2) {
+.subscription_admin #account-list tr:nth-child(2n+2), .subscription_admin .tabular-data tr:nth-child(2n+2) {
   background-color: #eee; }
 
 .debug {

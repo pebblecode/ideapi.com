@@ -27,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
     subdom.with_options(:namespace => 'subscription_admin/', :name_prefix => 'admin_', :path_prefix => nil) do |admin|
       admin.resources :subscriptions, :member => { :charge => :post }
       admin.resources :accounts
+      admin.resources :account_owners
       admin.resources :subscription_plans, :as => 'plans'
       admin.resources :subscription_discounts, :as => 'discounts'
       admin.resources :subscription_affiliates, :as => 'affiliates'

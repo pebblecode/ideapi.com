@@ -60,23 +60,25 @@ input[type=submit] {
   }
   
 }
-
-#account-list{
-  th, td{
-    padding: 0.5em 1em;
-    border: 1px solid #bbb;
-  }
-  th.headerSortDown, th.headerSortUp{
-    background: #bbb;
-  }
-  th{
-    background-color: #ccc;
-    cursor: pointer;
-  }
-  tr:nth-child(2n+2){
-    background-color: #eee;
+.subscription_admin {
+  #account-list, .tabular-data{
+    th, td{
+      padding: 0.5em 1em;
+      border: 1px solid #bbb;
+    }
+    th.headerSortDown, th.headerSortUp{
+      background: #bbb;
+    }
+    th{
+      background-color: #ccc;
+      cursor: pointer;
+    }
+    tr:nth-child(2n+2){
+      background-color: #eee;
+    }
   }
 }
+
 
 .debug{
   border: 1px solid red;
