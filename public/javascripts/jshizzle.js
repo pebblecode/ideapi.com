@@ -672,6 +672,7 @@ jQuery.fn.document_ready_extras = function () {
   });
   
   $('#content div.title a.show-options-menu').click(function(){
+    $(this).toggleClass('active');
     toggle_brief_options_menu();
     return false;
   });

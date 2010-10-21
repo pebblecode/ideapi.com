@@ -4,7 +4,7 @@
 <table class="tabular-data">
   <thead>
     <tr>
-      <th>Emails</th>
+      <th>Account Owners</th>
     </tr>
   </thead>
   <tbody>
@@ -17,26 +17,19 @@
   </tbody>
 </table>
 
-<!-- <table class="tabular-data">
-  <caption>List of Account Owners</caption>
+<table class="tabular-data">
   <thead>
     <tr>
-      <th>name</th>
-      <th>email</th>
-      <th>account</th>
-      <th>domain</th>
-      <th>created</th>
+      <th>All Users</th>
     </tr>
   </thead>
   <tbody>
-    <% @account_owners.each do |user| %>
+    <% User.all.each do |user| %>
       <tr>
-        <td><%= user.first_name + ' ' + user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.name %></td>
-        <td><%= user.full_domain %></td>
-        <td><%= user.created_at.strftime('%Y-%m-%d')%></td>
+        <td><%= user.first_name%> <%= user.last_name%> &lt;<%=user.email%>&gt;</td>
       </tr>
     <% end %>
+    
   </tbody>
-</table> -->
+</table>
+
