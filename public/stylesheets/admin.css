@@ -58,6 +58,12 @@ input[type=submit] {
 .subscription_admin #account-list tr:nth-child(2n+2), .subscription_admin .tabular-data tr:nth-child(2n+2) {
   background-color: #eee; }
 
+.gt-cols .gt-content {
+  width: 900px; }
+
+.tabular-data {
+  float: left; }
+
 .debug {
   border: 1px solid red; }
 

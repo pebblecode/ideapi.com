@@ -78,7 +78,12 @@ input[type=submit] {
     }
   }
 }
-
+.gt-cols .gt-content{
+  width: 900px;
+}
+.tabular-data{
+  float: left;
+}
 
 .debug{
   border: 1px solid red;
