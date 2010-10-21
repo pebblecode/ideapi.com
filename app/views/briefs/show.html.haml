@@ -28,7 +28,7 @@
         =current_object.title
       -if current_user.owns?(current_object)
         .actions
-          = link_to "- Actions", "#", :class => "show-options-menu"
+          = link_to "Actions", "#", :class => "show-options-menu"
     - if current_user.owns?(current_object)
       = render :partial => 'brief_options_menu', :locals => {:object => current_object}
     #brief-tags
