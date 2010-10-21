@@ -91,7 +91,7 @@
       .contents          
         #update_proposal_status.update_proposal
           - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
-            %p=f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s)
+            %p=f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s), :include_blank => 'Please select'
             %p.align-right
               / loading gif... for ajax submissions. hidden by default
               %span.ajax-loading

@@ -29,7 +29,7 @@ class Account < ActiveRecord::Base
   has_many :template_briefs, :through => :account_template_briefs
   
   has_many :account_users, :dependent => :destroy
-  
+  has_many :proposals, :through => :briefs
   has_many :users, :through => :account_users do    
     def admins
       all(:conditions => "account_users.admin = true")
