@@ -89,7 +89,7 @@ class UsersController < ApplicationController
         current_object.activate!
         if current_object.save
           if @user_session = attempt_signin(current_object)
-            redirect_back_or_default '/'
+            redirect_to '/'
           end
         end  
       end
