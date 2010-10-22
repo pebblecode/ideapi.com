@@ -1703,28 +1703,32 @@ ul#notifications {
 /*  Some Icons are Copyright © Yusuke Kamiyamane. 
     All rights reserved. 
     Licensed under a Creative Commons Attribution 3.0 license.  */
-#content .main .title .actions a.show-options-menu {
+#container #content .main .title .actions a.show-options-menu {
+  margin-top: 0;
   /* 16x16 pixel icons from http://p.yusukekamiyamane.com/ */
   display: block;
-  background: url("/images/ui/plus-minus.png") no-repeat 0 1px;
-  height: 16px;
-  padding-left: 16px; }
-#content .main .title .actions a.show-options-menu.active {
-  background-position: 0 -15px; }
-#content .main #brief-tags {
+  background: url("/images/ui/up-down-arrows.png") no-repeat 0 0;
+  height: 24px;
+  /*padding-left: 24px;*/
+  width: 24px;
+  text-indent: -9999px;
+  /*padding-top: 3px;*/ }
+#container #content .main .title .actions a.show-options-menu.active {
+  background-position: 0 -24px; }
+#container #content .main #brief-tags {
   border-width: 0 1px 1px 1px;
   border-color: #ccc;
   border-style: solid;
   padding: 3px 5px; }
-  #content .main #brief-tags label {
+  #container #content .main #brief-tags label {
     display: none; }
-  #content .main #brief-tags .smartTextBox-box-elem {
+  #container #content .main #brief-tags .smartTextBox-box-elem {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px; }
-  #content .main #brief-tags .smartTextBox {
+  #container #content .main #brief-tags .smartTextBox {
     float: left; }
-  #content .main #brief-tags .inline-submit {
+  #container #content .main #brief-tags .inline-submit {
     display: inline;
     margin-left: 10px;
     padding: 2px 5px;
@@ -1762,6 +1766,18 @@ ul#notifications {
     font-weight: bold; }
     #options-menu input[type=submit]:hover {
       color: #333 !important; }
+
+#container #content .col_2 .side_box .contents a.toggle_add_collab {
+  /* 16x16 pixel icons from http://p.yusukekamiyamane.com/ */
+  display: block;
+  background: url("/images/ui/plus-minus-big.png") no-repeat 0 0px;
+  height: 24px;
+  width: 24px;
+  top: -28px;
+  right: 5px;
+  text-indent: -9999px; }
+#container #content .col_2 .side_box .contents a.toggle_add_collab.active {
+  background-position: 0 -24px; }
 
 #container #content .main .comments {
   padding-top: 1em;

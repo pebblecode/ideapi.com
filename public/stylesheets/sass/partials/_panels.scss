@@ -6,17 +6,21 @@
     Licensed under a Creative Commons Attribution 3.0 license.  */
  
 
-#content .main{
+#container #content .main{
   .title .actions{
     a.show-options-menu{
+      margin-top: 0;
       /* 16x16 pixel icons from http://p.yusukekamiyamane.com/ */
       display: block;
-      background: url('/images/ui/plus-minus.png') no-repeat 0 1px;
-      height: 16px;
-      padding-left: 16px;
+      background: url('/images/ui/up-down-arrows.png') no-repeat 0 0;
+      height: 24px;
+      /*padding-left: 24px;*/
+      width: 24px;
+      text-indent: -9999px;
+      /*padding-top: 3px;*/    
     }
     a.show-options-menu.active{
-      background-position: 0 -15px;
+      background-position: 0 -24px;
     }
   }
   
@@ -89,5 +93,22 @@
     &:hover{
       color: #333 !important;
     }
+  }
+}
+
+
+#container #content .col_2 .side_box .contents {
+  a.toggle_add_collab{
+    /* 16x16 pixel icons from http://p.yusukekamiyamane.com/ */
+    display: block;
+    background: url('/images/ui/plus-minus-big.png') no-repeat 0 0px;
+    height: 24px;
+    width: 24px;
+    top: -28px;
+    right: 5px;
+    text-indent: -9999px;
+  }
+  a.toggle_add_collab.active{
+    background-position: 0 -24px;
   }
 }

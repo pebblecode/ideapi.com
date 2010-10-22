@@ -290,6 +290,7 @@ jQuery.fn.toggle_add_collab_link = function (object_to_toggle) {
   
   $(this).click(function () {
     $(this).text(($(this).text() == on) ? off : on);
+    $(this).toggleClass('active');
     object_to_toggle.toggle();
   });
 };
