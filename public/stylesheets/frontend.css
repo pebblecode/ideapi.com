@@ -1697,6 +1697,30 @@ ul#notifications {
   margin: auto; }
 #briefs #content .brief_item .body .item-revision-body img {
   max-width: 420px; }
+#briefs #content .side_box .add_collaborators li.available_collaborator {
+  position: relative; }
+  #briefs #content .side_box .add_collaborators li.available_collaborator .add_user_brief_button {
+    -webkit-transition-property: background-color, color, border-color;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-property: background-color, color, border-color;
+    -moz-transition-duration: 300ms;
+    -o-transition-property: background-color, color, border-color;
+    -o-transition-duration: 300ms;
+    transition-property: background-color, color, border-color;
+    transition-duration: 300ms;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    background: #ccc;
+    margin: 0;
+    padding: 0px 4px;
+    border: 1px solid #bbb;
+    color: black;
+    font-weight: bold;
+    font-size: 0.9em; }
+    #briefs #content .side_box .add_collaborators li.available_collaborator .add_user_brief_button:hover {
+      background: #bbb;
+      border-color: #aaa; }
 
 /* Contains styles for various panels across the app. 
  * The first being the brief show view actions (dropdown panel) */

@@ -1062,19 +1062,21 @@ ul.error_messages {
                 li.author {
                   a {
                     background: url(/images/collab_options.png) no-repeat; }
-                  a:hover, a:focus, a.selected {
-                    background: url(/images/collab_options.png) no-repeat 0 -30px; } }
+                  &.selected a, a:hover, a:focus, a.selected {
+                    background: url(/images/collab_options.png) no-repeat 0 -30px;
+                  }
+                }
                 li.approver {
                   a {
                     background: url(/images/collab_options.png) no-repeat -28px 0; }
-                  a:hover, a:focus, a.selected {
+                  &.selected a, a:hover, a:focus, a.selected {
                     background: url(/images/collab_options.png) no-repeat -28px -30px; } }
                 li.remove {
                   float: right;
                   padding: 0.5em 0 0 0;
                   a {
                     background: url(/images/collab_options.png) no-repeat -58px 0; }
-                  a:hover, a:focus, a.selected {
+                  &.selected a, a:hover, a:focus, a.selected {
                     background: url(/images/collab_options.png) no-repeat -58px -30px; } } } }
             li:last-child {
               border-bottom: 0; } }

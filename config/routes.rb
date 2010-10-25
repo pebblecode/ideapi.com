@@ -5,7 +5,10 @@ ActionController::Routing::Routes.draw do |map|
     :member => { :delete => :get, :watch => :post, :collaborators => :get, :clean => :post, :update_collaborators => :post} do |briefs|
       briefs.resources :questions
       briefs.resources :proposals, :member => { :delete_asset => :delete }
-    end
+      briefs.resources :user_briefs
+  end
+  
+  map.resources :user_briefs
   map.resources :template_briefs, :collection => { :sort => :put } 
   map.resources :comments
   map.resources :questions

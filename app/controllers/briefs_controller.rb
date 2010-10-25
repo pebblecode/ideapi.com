@@ -25,7 +25,12 @@ class BriefsController < ApplicationController
   end
   
   def current_object    
-    @current_object ||= current_user.briefs.find(params[:id], :include => [ { :user_briefs => :user}, { :brief_items_answered => [:brief, :questions, { :timeline_events => :subject }], :comments => [:user] } ])
+    begin
+      @current_object ||= current_user.briefs.find(params[:id], :include => [ { :user_briefs => :user}, { :brief_items_answered => [:brief, :questions, { :timeline_events => :subject }], :comments => [:user] } ])
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = "The brief you're trying to access can't be found. You may have been removed from this brief, or typed an incorrect URL"
+      redirect_to dashboard_url and return
+    end
   end
   
   make_resourceful do
@@ -127,11 +132,12 @@ class BriefsController < ApplicationController
       format.json { render :json => current_object.reload.to_json(:include => [:user_briefs], :methods => [:json_errors, :brief_role]) }
       
       format.js {
-        if (removed = current_object.user_briefs.select(&:marked_for_destruction?).map(&:user)).present?
-          render :partial => 'collaboration_user', :collection => removed
-        else
-          render :nothing => true
-        end
+        # if (removed = current_object.user_briefs.select(&:marked_for_destruction?).map(&:user)).present?
+        #           render :partial => 'collaboration_user', :collection => removed
+        #         else
+        #           render :nothing => true
+        #         end
+        render :partial => 'briefs/update_collaborators_form', :locals => {:current_object => @brief}
       }
     end
   

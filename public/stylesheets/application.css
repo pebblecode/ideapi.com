@@ -1881,18 +1881,18 @@ ul.error_messages li p {
               display: none; }
           #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a {
             background: url(/images/collab_options.png) no-repeat; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a.selected {
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author.selected a, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.author a.selected {
             background: url(/images/collab_options.png) no-repeat 0 -30px; }
           #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a {
             background: url(/images/collab_options.png) no-repeat -28px 0; }
-          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a.selected {
+          #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver.selected a, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.approver a.selected {
             background: url(/images/collab_options.png) no-repeat -28px -30px; }
           #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove {
             float: right;
             padding: 0.5em 0 0 0; }
             #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a {
               background: url(/images/collab_options.png) no-repeat -58px 0; }
-            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a.selected {
+            #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove.selected a, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a:hover, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a:focus, #container #content .col_2 .side_box .contents ul.collaborators li ul.options li.remove a.selected {
               background: url(/images/collab_options.png) no-repeat -58px -30px; }
       #container #content .col_2 .side_box .contents ul.collaborators li:last-child {
         border-bottom: 0; }
@@ -2490,6 +2490,30 @@ ul#notifications {
   margin: auto; }
 #briefs #content .brief_item .body .item-revision-body img {
   max-width: 420px; }
+#briefs #content .side_box .add_collaborators li.available_collaborator {
+  position: relative; }
+  #briefs #content .side_box .add_collaborators li.available_collaborator .add_user_brief_button {
+    -webkit-transition-property: background-color, color, border-color;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-property: background-color, color, border-color;
+    -moz-transition-duration: 300ms;
+    -o-transition-property: background-color, color, border-color;
+    -o-transition-duration: 300ms;
+    transition-property: background-color, color, border-color;
+    transition-duration: 300ms;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    background: #ccc;
+    margin: 0;
+    padding: 0px 4px;
+    border: 1px solid #bbb;
+    color: black;
+    font-weight: bold;
+    font-size: 0.9em; }
+    #briefs #content .side_box .add_collaborators li.available_collaborator .add_user_brief_button:hover {
+      background: #bbb;
+      border-color: #aaa; }
 
 /* Contains styles for various panels across the app. 
  * The first being the brief show view actions (dropdown panel) */

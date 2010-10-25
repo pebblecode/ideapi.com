@@ -1,0 +1,42 @@
+- collaborator = user_brief.user if defined?(user_brief)
+%li.collaboration_user.available_collaborator{:class => (current_object.author?(current_user) ? "is_author" : "")}
+  =small_avatar(collaborator)
+  %p
+    - if not collaborator.pending?
+      =link_to truncate(given_name(collaborator), :lenght => 10), user_path(collaborator)
+    - else
+      =truncate(given_name(collaborator), :lenght => 10)
+    %br
+    %span.user_role
+      = #current_object.role?(collaborator)
+      = current_object.user_briefs.for_user(collaborator).brief_role[:label] if current_object.user_briefs.for_user(collaborator).present?
+  - if defined?(available)
+    -form_for UserBrief.new, brief_user_briefs_path(current_object), :html => {:method => :post, :class => 'submit_with_js new_user_brief', :id => "new_user_brief_#{collaborator.id}"} do |form|
+      = hidden_field_tag 'user_brief[brief_id]', current_object.id, {:id => "user_brief_brief_id_#{collaborator.id}"}
+      = hidden_field_tag 'user_brief[user_id]', collaborator.id.to_s, {:id => "user_brief_user_id_#{collaborator.id}"}
+      = hidden_field_tag 'user_brief[author]', 0, {:id => "user_brief_author_#{collaborator.id}"}
+      = hidden_field_tag 'user_brief[added_by_user_id]', current_user.id, {:id => "user_brief_added_by_user_id_#{collaborator.id}"}
+      = form.submit 'Add', :id => "user_brief_submit_#{collaborator.id}", :class => 'add_user_brief_button'
+    
+  -if defined?(user_brief)
+    = link_to 'options', 'javascript:void(0)', :class => 'options_toggle'
+    %ul.options
+      %li{:class => "author #{current_object.author?(user_brief.user) ? 'selected' : ''}"}
+        -form_for user_brief, user_brief_path(user_brief), :html => {:class => "submit_with_js update_user_brief #{current_object.author?(user_brief.user) ? 'is_author' : ''}", :id => "update_user_brief_#{user_brief.id}"} do |author_form|
+          = author_form.hidden_field :author, :value => user_brief.author == true ? '0' : '1'
+          = author_form.hidden_field :author, :value => user_brief.author == true ? '0' : '1'
+          %span Author
+  
+      
+      %li{:class => "approver #{current_object.approver?(user_brief.user) ? 'selected' : ''}"}
+        - # form for the brief: only sending a post with the approver_id
+        - form_for current_object, :html => {:id => "brief_approver_#{user_brief.id}", :class => "brief_approver_form", :method => :put } do |approver_form|
+          = approver_form.hidden_field :approver_id, :value => user_brief.user.id
+          = approver_form.submit 'approver'
+          %span Approver
+
+      %li.remove
+        -form_for user_brief, :url => user_brief_path(user_brief), :html => {:method => :delete, :class => 'submit_with_js delete_user_brief', :id => "delete_user_brief_#{user_brief.id}"} do |delete_form|
+          = delete_form.submit 'submit', :id => "delete_user_brief_#{user_brief.id}"
+          %span Remove
+    .clear
