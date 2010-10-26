@@ -25,18 +25,19 @@
         -form_for user_brief, user_brief_path(user_brief), :html => {:class => "submit_with_js update_user_brief #{current_object.author?(user_brief.user) ? 'is_author' : ''}", :id => "update_user_brief_#{user_brief.id}"} do |author_form|
           = author_form.hidden_field :author, :value => user_brief.author == true ? '0' : '1'
           = author_form.hidden_field :author, :value => user_brief.author == true ? '0' : '1'
+          = author_form.submit 'toggle', :id => "author_form_submit_#{user_brief.id}"
           %span Author
   
       
-      %li{:class => "approver #{current_object.approver?(user_brief.user) ? 'selected' : ''}"}
+      %li{:class => "approver #{(current_object.approver_id == user_brief.user_id) ? 'selected' : ''}"}
         - # form for the brief: only sending a post with the approver_id
         - form_for current_object, :html => {:id => "brief_approver_#{user_brief.id}", :class => "brief_approver_form", :method => :put } do |approver_form|
           = approver_form.hidden_field :approver_id, :value => user_brief.user.id
-          = approver_form.submit 'approver'
+          = approver_form.submit 'approver', :id => "approver_form_submit_#{user_brief.id}"
           %span Approver
 
       %li.remove
         -form_for user_brief, :url => user_brief_path(user_brief), :html => {:method => :delete, :class => 'submit_with_js delete_user_brief', :id => "delete_user_brief_#{user_brief.id}"} do |delete_form|
-          = delete_form.submit 'submit', :id => "delete_user_brief_#{user_brief.id}"
+          = delete_form.submit 'remove', :id => "delete_user_brief_#{user_brief.id}"
           %span Remove
     .clear

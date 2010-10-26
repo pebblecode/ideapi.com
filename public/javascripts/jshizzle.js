@@ -435,13 +435,8 @@ jQuery.fn.document_ready = function() {
       }
     });
     
-    $('#briefs li.revision a.toggle_revision_body').click(function(){
+    $('#briefs li.revision .toggle_revision_body').click(function(){
       $(this).parents().filter('.revision-body').find('.body').toggle();
-      if($(this).text() == 'show'){
-        $(this).text('hide');
-      } else{
-        $(this).text('show');
-      }
       return false;
     });
     
@@ -652,7 +647,7 @@ jQuery.fn.document_ready_extras = function () {
   });
   
   
-  $('a.remote-delete').click(function(){
+  $('a.remote-delete').live('click', function(){
     var answer = confirm("Are you sure you want to delete this comment?");
     if(answer){
       $(this).append('<img src="/images/spinner.gif" alt="Deleting..." />');
@@ -662,12 +657,9 @@ jQuery.fn.document_ready_extras = function () {
         url: this.href,
         type: "delete", 
         dataType: 'script',
-        success: hide_element($(this).parents('li').filter(':first')),
+        success: hide_element($(this).parents('li')),
         error: null
       });
-      $('ul.comments').slideUp();
-      $('ul.comments').slideDown();
-      
     }
     return false;
   });
@@ -695,9 +687,7 @@ function toggle_brief_options_menu(selected){
 }
 
 function hide_element(element){
-  element.fadeOut('slow', function(){
-    element.remove();
-  });
+  element.slideUp('slow');
 }
 
 $(document).ready(function(){
@@ -722,6 +712,10 @@ $(document).ready(function(){
   // Proposals. Maybe we should start putting things in a better arrangement...
   
   $('#update_proposal_status #proposal_submit').click(function(){
+    if($('#proposal_state').val() === ''){
+      alert("You must select a status");
+      return false;
+    }
     var submit_button = $(this);
     var form = $(this).parents('form');
     var loading_gif = $(this).siblings('.ajax-loading');

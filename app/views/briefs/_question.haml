@@ -2,10 +2,10 @@
   .brief_item_question
     =small_avatar(question.user)
     .speech
+      -if question.user == current_user or owner?(current_object)
+        - form_for question, :html => {:method => :delete, :class => "delete_question_form", :id => "delete_question_#{question.id}"} do |f|
+          = f.submit 'delete', :class => 'question-delete ajaxify', :id => "delete_question_#{question.id}_submit"
       %p
-        -if question.user == current_user or owner?(current_object)
-          %span.delete-comment
-            = link_to "delete", question_url(question), :class => "remote-delete"
         %strong="#{given_name(question.user)}:"
         =question.body_parsed
         %span.timestamp
@@ -15,10 +15,11 @@
     .author_answer
       =medium_avatar(question.brief.author)
       .speech
+        - if owner?(current_object) # owner? is true for authors, and only authors can answer
+          - form_for question, :html => {:method => :put, :id => "delete_question_answer_#{question.id}", :class => "delete_question_form"} do |f|
+            = f.hidden_field :author_answer, :value => ''
+            = f.submit 'delete', :class => 'question-delete answer ajaxify', :id => "delete_question_answer_#{question.id}_submit"
         %p
-          - if owner?(current_object) # owner? is true for authors, and only authors can answer
-            %span.delete-comment
-              = link_to "delete", question_url(question), :class => "remote-delete-answer"
           %strong
             =given_name(question.brief.author)
             answered:

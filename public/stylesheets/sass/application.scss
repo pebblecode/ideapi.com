@@ -190,7 +190,7 @@ a:hover {
   p.notice {
     background: #b3d335;
     color: white;
-  } 
+  }
 }
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
   background: #f9f9f9;
@@ -1670,7 +1670,18 @@ ul#notifications {
         margin: 0 0 10px;
         font-size: 1.333em;
         line-height: 1.5em; } } } }
-
+.error_message{
+  color: #F66;
+}
+.close-button, .close-button:hover{
+  display: block;
+  height: 16px;
+  width: 16px;
+  text-indent: -9999px;
+  background: url('/images/ui/cross-button.png') no-repeat 0 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
 // Imports
 
 @import "partials/briefs";

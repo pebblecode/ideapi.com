@@ -21,13 +21,13 @@ a {
   text-decoration: none;
   color: #b3d335;
   font-weight: bold;
-  -webkit-transition-property: background-color, color, border-color;
+  -webkit-transition-property: background-color, color, border-color, opacity;
   -webkit-transition-duration: 300ms;
-  -moz-transition-property: background-color, color, border-color;
+  -moz-transition-property: background-color, color, border-color, opacity;
   -moz-transition-duration: 300ms;
-  -o-transition-property: background-color, color, border-color;
+  -o-transition-property: background-color, color, border-color, opacity;
   -o-transition-duration: 300ms;
-  transition-property: background-color, color, border-color;
+  transition-property: background-color, color, border-color, opacity;
   transition-duration: 300ms; }
 
 a:hover {
@@ -840,13 +840,13 @@ textarea {
       font-size: 1.2em; }
     .login .footer a, .app_error .footer a {
       color: #888888;
-      -webkit-transition-property: background-color, color, border-color;
+      -webkit-transition-property: background-color, color, border-color, opacity;
       -webkit-transition-duration: 600ms;
-      -moz-transition-property: background-color, color, border-color;
+      -moz-transition-property: background-color, color, border-color, opacity;
       -moz-transition-duration: 600ms;
-      -o-transition-property: background-color, color, border-color;
+      -o-transition-property: background-color, color, border-color, opacity;
       -o-transition-duration: 600ms;
-      transition-property: background-color, color, border-color;
+      transition-property: background-color, color, border-color, opacity;
       transition-duration: 600ms; }
       .login .footer a:hover, .app_error .footer a:hover {
         color: #333333; }
@@ -1569,13 +1569,13 @@ ul#notifications {
     color: #32401a;
     font-weight: bold; }
   #top-menu a {
-    -webkit-transition-property: background-color, color, border-color;
+    -webkit-transition-property: background-color, color, border-color, opacity;
     -webkit-transition-duration: 400ms;
-    -moz-transition-property: background-color, color, border-color;
+    -moz-transition-property: background-color, color, border-color, opacity;
     -moz-transition-duration: 400ms;
-    -o-transition-property: background-color, color, border-color;
+    -o-transition-property: background-color, color, border-color, opacity;
     -o-transition-duration: 400ms;
-    transition-property: background-color, color, border-color;
+    transition-property: background-color, color, border-color, opacity;
     transition-duration: 400ms; }
     #top-menu a:visited {
       color: #b3d335; }
@@ -1598,13 +1598,13 @@ ul#notifications {
     font-size: 1.1em; }
     #footer p a {
       color: #888888;
-      -webkit-transition-property: background-color, color, border-color;
+      -webkit-transition-property: background-color, color, border-color, opacity;
       -webkit-transition-duration: 600ms;
-      -moz-transition-property: background-color, color, border-color;
+      -moz-transition-property: background-color, color, border-color, opacity;
       -moz-transition-duration: 600ms;
-      -o-transition-property: background-color, color, border-color;
+      -o-transition-property: background-color, color, border-color, opacity;
       -o-transition-duration: 600ms;
-      transition-property: background-color, color, border-color;
+      transition-property: background-color, color, border-color, opacity;
       transition-duration: 600ms; }
       #footer p a:hover {
         color: #333333; }
@@ -1700,13 +1700,13 @@ ul#notifications {
 #briefs #content .side_box .add_collaborators li.available_collaborator {
   position: relative; }
   #briefs #content .side_box .add_collaborators li.available_collaborator .add_user_brief_button {
-    -webkit-transition-property: background-color, color, border-color;
+    -webkit-transition-property: background-color, color, border-color, opacity;
     -webkit-transition-duration: 300ms;
-    -moz-transition-property: background-color, color, border-color;
+    -moz-transition-property: background-color, color, border-color, opacity;
     -moz-transition-duration: 300ms;
-    -o-transition-property: background-color, color, border-color;
+    -o-transition-property: background-color, color, border-color, opacity;
     -o-transition-duration: 300ms;
-    transition-property: background-color, color, border-color;
+    transition-property: background-color, color, border-color, opacity;
     transition-duration: 300ms;
     position: absolute;
     top: 5px;
@@ -1856,6 +1856,11 @@ ul#notifications {
   #container #content .main .comment .submit input[type=submit] {
     font-size: 0.9em;
     padding: 2px 10px; }
+#container #content .main .brief_item .toggle_revision_body {
+  cursor: pointer; }
+#container #content .main .brief_item .delete-item-revision {
+  float: right;
+  margin-right: -0.5em; }
 #container #content .main .brief_item .brief_item_activity {
   background: #f7f7f7;
   margin: 0;
@@ -1960,6 +1965,34 @@ span.timestamp {
   font-size: .85em;
   font-style: italic; }
 
+.brief_item_history .speech:hover .delete_question_form .question-delete {
+  display: block; }
+.brief_item_history .speech .delete_question_form {
+  float: right; }
+  .brief_item_history .speech .delete_question_form .question-delete {
+    display: none;
+    background: url("/images/ui/cross-button.png") no-repeat 0 0;
+    text-indent: -9999px;
+    width: 15px;
+    height: 15px;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0; }
+
+#comments_area .delete_comment_form {
+  float: right;
+  display: none; }
+  #comments_area .delete_comment_form .comment-delete {
+    background: url("/images/ui/cross-button.png") no-repeat 0 0;
+    text-indent: -9999px;
+    width: 15px;
+    height: 15px;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0; }
+#comments_area .speech:hover .delete_comment_form {
+  display: block; }
+
 #proposal_state {
   font-size: 1em;
   display: block;
@@ -2043,13 +2076,13 @@ span.timestamp {
 #proposals #content p.submit {
   margin-right: 20px; }
 #proposals #content .proposal_asset {
-  -webkit-transition-property: background-color, color, border-color;
+  -webkit-transition-property: background-color, color, border-color, opacity;
   -webkit-transition-duration: 500ms;
-  -moz-transition-property: background-color, color, border-color;
+  -moz-transition-property: background-color, color, border-color, opacity;
   -moz-transition-duration: 500ms;
-  -o-transition-property: background-color, color, border-color;
+  -o-transition-property: background-color, color, border-color, opacity;
   -o-transition-duration: 500ms;
-  transition-property: background-color, color, border-color;
+  transition-property: background-color, color, border-color, opacity;
   transition-duration: 500ms;
   margin: 0.5em 0 0 0;
   padding: 10px;

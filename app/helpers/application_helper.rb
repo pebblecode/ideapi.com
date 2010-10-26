@@ -22,7 +22,7 @@ module ApplicationHelper
     end
   end
   
-  def comment_date(time)
+  def comment_date(time = Date.today)
     if time.to_date == Date.today
       time.strftime("at %R")
     else

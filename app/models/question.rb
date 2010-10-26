@@ -13,8 +13,9 @@ class Question < ActiveRecord::Base
   named_scope :unanswered, :conditions => ["author_answer IS NULL"], :order => "created_at ASC"
   
   validates_presence_of :brief_id, :user_id
-  
+  validates_presence_of :body, :message => "You didn't ask a question"
   validates_presence_of :brief_item_id, :message => "Please select the brief section to which you are responding."
+  
   
   before_validation :ensure_brief_present
   

@@ -2,10 +2,10 @@
   .revision-body
     .info
       .buttons
-        = link_to "show", "#", :class => 'toggle_revision_body'
         - if owner?(current_object)
-          = link_to "delete", timeline_event_url(object), :class => "remote-delete"
-      %h5 Section Update
+          - form_for object, :html => {:method => :delete, :id => "delete_item_revision_#{object.id}", :class => 'delete-item-revision ajax-submit'} do |f|
+            = f.submit('delete', :class => 'delete-item-revision-submit close-button', :id => "delete_item_revision_#{object.id}_submit")
+      %h5{:class => 'toggle_revision_body' } Section Update
     .body
       %p
     

@@ -10,13 +10,24 @@ class CommentsController < ApplicationController
     before :create do
       current_object.user = current_user
     end
-
-    response_for(:create, :update, :create_fails, :update_fails) do |format|
+    response_for( :create_fails, :update_fails) do |format|
       format.html { redirect_to parent_path(:anchor => dom_id(current_object)) }
+      format.js{ render :nothing => true}
+    end
+    response_for(:create, :update) do |format|
+      format.html { redirect_to parent_path(:anchor => dom_id(current_object)) }
+      format.js{
+        current_object = nil
+        render :partial => 'briefs/comment', :locals => {:comment => current_object} 
+      }
     end 
     
     response_for(:destroy) do |format|
-      format.html{ redirect_to session[:return_to] }
+      format.html{ 
+        flash[:notice] = 'Comment deleted successfully.'
+        redirect_to current_object.commentable 
+      }
+      format.js{ render :json => current_object.to_json}
     end
   end
   

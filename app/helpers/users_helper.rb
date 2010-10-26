@@ -35,7 +35,7 @@ module UsersHelper
   end
   
   def salutation
-    (%w(alright hello welcome hey hi).rand << " " << current_user.screename).titleize
+    (%w(alright hello welcome hey hi).random_element << " " << current_user.screename).titleize
   end
   
   def brief_item_updated_for_user?(brief_item)
