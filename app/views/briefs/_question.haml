@@ -16,9 +16,9 @@
       =medium_avatar(question.brief.author)
       .speech
         - if owner?(current_object) # owner? is true for authors, and only authors can answer
-          - form_for question, :html => {:method => :put, :id => "delete_question_answer_#{question.id}", :class => "delete_question_form"} do |f|
+          - form_for question, :html => {:method => :put, :id => "delete_question_answer_#{question.id}", :class => "delete-question-answer-form"} do |f|
             = f.hidden_field :author_answer, :value => ''
-            = f.submit 'delete', :class => 'question-delete answer ajaxify', :id => "delete_question_answer_#{question.id}_submit"
+            = f.submit 'delete', :class => 'delete-question-answer close-button', :id => "delete_question_answer_#{question.id}_submit"
         %p
           %strong
             =given_name(question.brief.author)
@@ -32,5 +32,5 @@
     -if owner?(question.brief) && (question.user != current_user)
       .author_answer_form
         =medium_avatar
-        =render :partial => 'question_answer_form', :locals => { :question => question }
+        =render :partial => 'briefs/question_answer_form', :locals => { :question => question }
         

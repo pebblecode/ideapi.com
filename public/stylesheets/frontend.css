@@ -1887,7 +1887,8 @@ ul#notifications {
       clear: both; }
   #container #content .main .brief_item .brief_item_activity .submit {
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    text-align: right; }
   #container #content .main .brief_item .brief_item_activity .show_author_answer_form {
     margin: 0;
     padding: 0;
@@ -1909,6 +1910,11 @@ ul#notifications {
     position: absolute;
     left: -7px;
     top: 10px; }
+  #container #content .main .brief_item .brief_item_activity .toggle_author_answer_form {
+    display: block;
+    width: 450px;
+    text-align: right;
+    margin: 3px auto 0 auto; }
   #container #content .main .brief_item .brief_item_activity .author_answer, #container #content .main .brief_item .brief_item_activity .author_answer_form {
     margin-top: 1em; }
     #container #content .main .brief_item .brief_item_activity .author_answer .avatar, #container #content .main .brief_item .brief_item_activity .author_answer_form .avatar {
@@ -1923,22 +1929,25 @@ ul#notifications {
       position: absolute;
       right: -7px;
       top: 20px; }
-  #container #content .main .brief_item .brief_item_activity .author_answer_form .speech, #container #content .main .brief_item .brief_item_activity .question_form .speech {
+  #container #content .main .brief_item .brief_item_activity .author_answer_form {
+    margin-top: 0.5em; }
+  #container #content .main .brief_item .brief_item_activity .author_answer_form img.spinner, #container #content .main .brief_item .brief_item_activity .question_form img.spinner, #container #content .main .brief_item .brief_item_activity .question-answer-form img.spinner {
+    display: inline; }
+  #container #content .main .brief_item .brief_item_activity .author_answer_form .speech, #container #content .main .brief_item .brief_item_activity .question_form .speech, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech {
     padding-bottom: 10px; }
-    #container #content .main .brief_item .brief_item_activity .author_answer_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question_form .speech textarea {
+    #container #content .main .brief_item .brief_item_activity .author_answer_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech textarea {
       width: 425px;
       margin: 0;
       height: 80px; }
-    #container #content .main .brief_item .brief_item_activity .author_answer_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question_form .speech p.button {
+    #container #content .main .brief_item .brief_item_activity .author_answer_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech p.button {
       text-align: right;
       margin: 0.8em auto 0 auto; }
-    #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit] {
+    #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit] {
       padding: 2px 10px; }
-  #container #content .main .brief_item .brief_item_activity .author_answer_form .submit, #container #content .main .brief_item .brief_item_activity .question_form .submit {
+  #container #content .main .brief_item .brief_item_activity .author_answer_form .submit, #container #content .main .brief_item .brief_item_activity .question_form .submit, #container #content .main .brief_item .brief_item_activity .question-answer-form .submit {
     width: 432px;
-    margin: 0.5em auto;
-    text-align: right; }
-    #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit] {
+    margin: 0.5em auto; }
+    #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit] {
       font-size: 0.9em;
       padding: 2px 10px; }
   #container #content .main .brief_item .brief_item_activity .question_form .avatar {
@@ -1965,8 +1974,12 @@ span.timestamp {
   font-size: .85em;
   font-style: italic; }
 
-.brief_item_history .speech:hover .delete_question_form .question-delete {
+.brief_item_history .speech:hover .delete_question_form .question-delete, .brief_item_history .speech:hover .delete-question-answer {
   display: block; }
+.brief_item_history .speech .delete-question-answer {
+  display: none; }
+.brief_item_history .speech .delete-question-answer-form {
+  float: right; }
 .brief_item_history .speech .delete_question_form {
   float: right; }
   .brief_item_history .speech .delete_question_form .question-delete {

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     end
     response_for( :create_fails, :update_fails) do |format|
       format.html { redirect_to parent_path(:anchor => dom_id(current_object)) }
-      format.js{ render :nothing => true}
+      format.js{ render :text => "We're sorry we couldn't submit your comment. Please try again.", :status => 500}
     end
     response_for(:create, :update) do |format|
       format.html { redirect_to parent_path(:anchor => dom_id(current_object)) }

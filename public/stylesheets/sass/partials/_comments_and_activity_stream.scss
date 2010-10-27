@@ -135,6 +135,7 @@ $speechbox-textarea-width: $speechbox-width - 7;
         .submit{
           margin: 0;
           padding: 0;
+          text-align: right;
         }
       
         .show_author_answer_form {
@@ -169,6 +170,12 @@ $speechbox-textarea-width: $speechbox-width - 7;
             top: 10px;
           }
         }
+        .toggle_author_answer_form{
+          display: block;
+          width: 450px;
+          text-align: right;
+          margin: 3px auto 0 auto;
+        }
         .author_answer, .author_answer_form{
           margin-top: 1em;
           .avatar{
@@ -186,8 +193,14 @@ $speechbox-textarea-width: $speechbox-width - 7;
             top: 20px;
           }
         }
+        .author_answer_form{
+          margin-top: 0.5em;
+        }
       
-        .author_answer_form, .question_form{
+        .author_answer_form, .question_form, .question-answer-form{
+          img.spinner{
+            display: inline;
+          }
           .speech{
             padding-bottom: 10px;
             textarea{
@@ -206,8 +219,6 @@ $speechbox-textarea-width: $speechbox-width - 7;
           .submit{
             width: $speechbox-width;
             margin: 0.5em auto;
-            text-align: right;
-          
             input[type=submit]{
               font-size: 0.9em;
               padding: 2px 10px;
@@ -260,9 +271,15 @@ span.timestamp{
 .brief_item_history{
   .speech{
     &:hover{
-      .delete_question_form .question-delete{
+      .delete_question_form .question-delete, .delete-question-answer{
         display: block;
       }
+    }
+    .delete-question-answer{
+      display: none;
+    }
+    .delete-question-answer-form{
+      float: right;
     }
     .delete_question_form{
       float: right;

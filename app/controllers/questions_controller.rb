@@ -48,7 +48,7 @@ class QuestionsController < ApplicationController
         redirect_to brief_path(current_object.brief, :anchor => dom_id(current_object.brief_item)) 
       }
       format.js{
-        render :partial => 'briefs/question', :locals => {:current_object => current_object.brief, :question => current_object}
+        render :partial => 'briefs/question', :locals => {:current_object => current_object.brief_item.brief, :question => current_object}
       }
     end
     
@@ -61,6 +61,7 @@ class QuestionsController < ApplicationController
     
     response_for(:destroy) do |format|
       format.html{ redirect_to current_object.brief }
+      format.js{ render :nothing => true}
     end
     
 

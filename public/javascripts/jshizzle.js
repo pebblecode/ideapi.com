@@ -441,26 +441,26 @@ jQuery.fn.document_ready = function() {
     });
     
         
-    jQuery('.question .author_answer_form').each(function () { 
-       
-      jQuery(this).before('<div class="submit show_author_answer_form"><input type="submit" value="respond"/></div>');
-      
-      jQuery(this).prev('.submit').find('input[type=submit]').click(function () {
-        jQuery(this).parent().next('.author_answer_form').fadeIn();
-        jQuery(this).fadeOut();
-        return false;
-      });
-      
-      jQuery(this).mouseover(function () { jQuery(this).addClass('active'); });
-      jQuery(this).mouseout(function () { jQuery(this).removeClass('active'); });
-
-      jQuery(this).find('textarea').blur(function () {
-        if (!jQuery(this).parents().filter('.author_answer_form').hasClass('active')) {
-          jQuery(this).parents().filter('.author_answer_form').fadeOut().prev('.submit').fadeIn();
-        }
-      });
-      
-    }).hide();
+    // jQuery('.question .author_answer_form').each(function () { 
+    //        
+    //       jQuery(this).before('<div class="submit show_author_answer_form"><input type="submit" value="respond"/></div>');
+    //       
+    //       jQuery(this).prev('.submit').find('input[type=submit]').click(function () {
+    //         jQuery(this).parent().next('.author_answer_form').fadeIn();
+    //         jQuery(this).fadeOut();
+    //         return false;
+    //       });
+    //       
+    //       jQuery(this).mouseover(function () { jQuery(this).addClass('active'); });
+    //       jQuery(this).mouseout(function () { jQuery(this).removeClass('active'); });
+    // 
+    //       jQuery(this).find('textarea').blur(function () {
+    //         if (!jQuery(this).parents().filter('.author_answer_form').hasClass('active')) {
+    //           jQuery(this).parents().filter('.author_answer_form').fadeOut().prev('.submit').fadeIn();
+    //         }
+    //       });
+    //       
+    //     }).hide();
 
     jQuery('ul.actions li a').live("click", function(){
       jQuery(this).parent("li").toggleClass("selected");
