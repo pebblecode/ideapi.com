@@ -9,8 +9,6 @@ function ajax_submit(form, success, error){
     type: 'POST',
     url: form.attr('action'),
     data: form.serialize(),
-    complete: function(){
-    },
     error: function(response){
       error(response);
     },
@@ -63,7 +61,6 @@ function ajax_submit_json(form, success, error){
   };
 })(jQuery);
 
-
 jQuery.update_item_history_tabs = function(){
   var _brief_items = $('#content div.col_1 div.brief_item');
   _brief_items.each(function(){
@@ -76,12 +73,18 @@ jQuery.update_item_history_tabs = function(){
 };
 
 jQuery.update_collaborators = function (){
+  var _form, _link = null;
   
   var success = function(data){
     $('#update_collaborators').fadeOut().html(data).fadeIn();
     $.setup_collaboration_widget();
   };
-  var error = function(data){ alert('The server responded with an error. Please reload and try again.');};
+  var error = function(data){
+    _form.find('.spinner').hide();
+    _link.show();
+    console.log(data);
+    alert(data.responseText);
+  };
   
   $('#briefs ul.add_collaborators form.new_user_brief').live('submit', function(){
     // replace ADD button with spinner
@@ -92,8 +95,8 @@ jQuery.update_collaborators = function (){
   });
   
   $('#update_collaborators ul.options a.collab_action').live('click', function(){
-    var _link = $(this);
-    var _form = $(this).parents('form');
+    _link = $(this);
+    _form = $(this).parents('form');
     _link.hide().spin(false, 'ui/loading');
     ajax_submit(_form, success, error);
     return false;
@@ -193,7 +196,7 @@ jQuery.ajaxify_questions_and_answers = function(){
     }
     _current_list.append(data).find('li:last').hide();
     _current_form.find('.loading-gif').hide();
-    _current_form.find('.new_question_submit').removeAttr('disabled');
+    _current_form.find('.new_question_submit').show();
     _current_form.find('textarea').val('');
     _current_list.find('li:last').fadeIn(1000).append_bubble();
     
@@ -306,6 +309,21 @@ jQuery.ajaxify_questions_and_answers = function(){
   });
 };
 
+jQuery.user_links_external = function(){
+  $('div.body p a').each(function(){
+    $(this).attr('target', '_blank');
+  });
+  $('div.speech p a').each(function(){
+    $(this).attr('target', '_blank');
+  });
+  $('div.comments_area p a').each(function(){
+    $(this).attr('target', '_blank');
+  });
+  $('div.proposal p a').each(function(){
+    $(this).attr('target', '_blank');
+  });
+};
+
 $(document).ready(function(){
   jQuery.update_collaborators();
   jQuery.ajaxify_comments();
@@ -315,4 +333,5 @@ $(document).ready(function(){
   jQuery('.question').each(function () {
     $(this).setup_answer_form();
   });
+  jQuery.user_links_external();
 });

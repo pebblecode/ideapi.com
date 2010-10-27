@@ -10,7 +10,7 @@
             %span.base_domain=".#{AppConfig['base_domain']}"
           - if domain_form.object.errors[:domain].present?
             %p.errors= domain_form.object.errors[:name] 
-          %p.desc
+          .desc
             :markdown
               **You can change your account subdomain here**. The subdomain must be at least 3 characters, lowercase letters and numbers only. 
               You may change this later on. By changing your subdomain, all users of this account will need to login using the new url. 

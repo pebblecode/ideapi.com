@@ -41,7 +41,18 @@ class UserBrief < ActiveRecord::Base
     brief.author?(user)
   end
   
+  def update
+    if(self.user == self.brief.author and self.brief.authors.count == 1)
+      raise "A brief cannot be left without authors" if self.author == false
+    end
+    logger.info(self.to_json)
+    super
+  end
   
+  def destroy
+    raise "Cannot delete the only author in a brief" if (self.brief.authors.count == 1 and self.brief.author == self.user)
+    super
+  end
   private
   
   def notify_user

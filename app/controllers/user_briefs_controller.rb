@@ -49,6 +49,20 @@ class UserBriefsController < ApplicationController
           render :text => 'Record not found.' and return
         }
       end
+    rescue RuntimeError => e
+      respond_to do |format|
+        format.html{
+          flash[:error] = e
+          if @brief.present? 
+            redirect_to @brief
+          else
+            redirect_to dashboard_path
+          end
+        }
+        format.js{
+          render :text => e, :status => 500
+        }
+      end
     end
   end
   
@@ -75,6 +89,20 @@ class UserBriefsController < ApplicationController
         }
         format.js{
           render :text => 'Record not found.' and return
+        }
+      end
+    rescue RuntimeError => e
+      respond_to do |format|
+        format.html{
+          flash[:error] = e.message
+          if @brief.present? 
+            redirect_to @brief
+          else
+            redirect_to dashboard_path
+          end
+        }
+        format.js{
+          render :text => e.message, :status => 500
         }
       end
     end
