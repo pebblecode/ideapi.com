@@ -104,7 +104,8 @@ jQuery.ajaxify_comments = function(){
   var _container, _submit, _comment = null;
   
   var success_new = function(data){
-    $('#new_coment_li').before(data);
+    console.log(data);
+    $('#new_comment_li').before(data);
     $("#comment_submit").show();
     $("#new_comment_form .loading-gif").hide();
     $("#comment_comment").val('');
@@ -120,12 +121,11 @@ jQuery.ajaxify_comments = function(){
   };
   
   var error_new = function(data){
-    console.log(data);
-    $('#new_coment_li').before(data);
+    $('#new_comment_li').before(data);
     $("#comment_submit").show();
     $("#new_comment_form .loading-gif").hide();
     $("#comment_comment").val('');
-    $('#new_coment_li').find('p.error_message').remove();
+    $('#new_comment_li').find('p.error_message').remove();
     $('#new_comment_form').append('<p class="error_message">' + data.responseText + '</p>');
     $('#new_comment_form').find('p.error_message').hide().flashNotice();
     
@@ -258,7 +258,6 @@ jQuery.ajaxify_questions_and_answers = function(){
   var success_answer_new = function(data){
     _parent.replaceWith($(data).setup_answer_form());
     $.update_item_history_tabs();
-    console.log('hi');
   };
   var success_answer_delete = function(data){
     // first fade the answer away... 

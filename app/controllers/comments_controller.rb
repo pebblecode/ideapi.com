@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   # needs login for all actions
   before_filter :require_user
+  before_filter :store_object, :only => :destroy
 
   make_resourceful do
     belongs_to :brief, :proposal
@@ -22,13 +23,28 @@ class CommentsController < ApplicationController
       }
     end 
     
+    after(:destroy) do
+      logger.info('PARENT OBJECT : ', parent_object)
+      logger.info('CURRENT OBJECT : ',  current_object)
+    end
+    
     response_for(:destroy) do |format|
-      format.html{ 
+      format.html{
+
         flash[:notice] = 'Comment deleted successfully.'
-        redirect_to current_object.commentable 
+        if @commentable.is_a?(Proposal)
+          redirect_to brief_proposal_path(@commentable.brief, @commentable)
+        elsif @commentable.is_a?(Brief)
+          redirect_to brief_path(@commentable)
+        else
+          redirect_to dashboard_url
+        end
       }
       format.js{ render :json => current_object.to_json}
     end
+  end
+  def store_object
+    @commentable = current_object.commentable
   end
   
   def parent_path(path = nil)
