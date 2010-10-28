@@ -22,12 +22,7 @@ class CommentsController < ApplicationController
         render :partial => 'briefs/comment', :locals => {:comment => current_object} 
       }
     end 
-    
-    after(:destroy) do
-      logger.info('PARENT OBJECT : ', parent_object)
-      logger.info('CURRENT OBJECT : ',  current_object)
-    end
-    
+        
     response_for(:destroy) do |format|
       format.html{
 
@@ -43,6 +38,7 @@ class CommentsController < ApplicationController
       format.js{ render :json => current_object.to_json}
     end
   end
+  
   def store_object
     @commentable = current_object.commentable
   end

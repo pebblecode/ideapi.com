@@ -1975,7 +1975,8 @@ span.timestamp {
   font-style: italic; }
 
 .brief_item_history .speech:hover .delete_question_form .question-delete, .brief_item_history .speech:hover .delete-question-answer {
-  display: block; }
+  display: block;
+  border: none !important; }
 .brief_item_history .speech .delete-question-answer {
   display: none; }
 .brief_item_history .speech .delete-question-answer-form {
@@ -1984,25 +1985,25 @@ span.timestamp {
   float: right; }
   .brief_item_history .speech .delete_question_form .question-delete {
     display: none;
-    background: url("/images/ui/cross-button.png") no-repeat 0 0;
+    background: transparent url("/images/ui/cross-button.png") no-repeat 0 0 !important;
     text-indent: -9999px;
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     padding: 0 !important;
     margin: 0 !important;
-    border: 0; }
+    border: 0 !important; }
 
 #comments_area .delete_comment_form {
-  float: right;
-  display: none; }
+  float: right; }
   #comments_area .delete_comment_form .comment-delete {
-    background: url("/images/ui/cross-button.png") no-repeat 0 0;
+    background: transparent url("/images/ui/cross-button.png") no-repeat 0 0;
     text-indent: -9999px;
-    width: 15px;
-    height: 15px;
+    display: block;
+    width: 16px;
+    height: 16px;
     padding: 0 !important;
     margin: 0 !important;
-    border: 0; }
+    border: 0 !important; }
 #comments_area .speech:hover .delete_comment_form {
   display: block; }
 

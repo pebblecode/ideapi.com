@@ -5,10 +5,12 @@ module BriefHelper
   end
   
   def comments_tab(item)
+    # The tab name should also be changed in ajaxify.js, since it's updated via ajax.
+    
     if item.timeline_events.length > 0
-      "Comment (#{item.total_activity_count})"
+      "Discussion / History (#{item.total_activity_count})"
     else
-      "Comment"
+      "Discussion / History"
     end
   end
 end

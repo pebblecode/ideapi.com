@@ -273,6 +273,7 @@ span.timestamp{
     &:hover{
       .delete_question_form .question-delete, .delete-question-answer{
         display: block;
+        border: none !important;
       }
     }
     .delete-question-answer{
@@ -285,13 +286,13 @@ span.timestamp{
       float: right;
       .question-delete{
         display: none;
-        background: url('/images/ui/cross-button.png') no-repeat 0 0;
+        background: transparent url('/images/ui/cross-button.png') no-repeat 0 0 !important;
         text-indent: -9999px;
-        width: 15px;
-        height: 15px;
+        width: 16px;
+        height: 16px;
         padding: 0 !important;
         margin: 0 !important;
-        border: 0;
+        border: 0 !important;
       }
     }
   }
@@ -299,15 +300,15 @@ span.timestamp{
 #comments_area{
   .delete_comment_form{
     float: right;
-    display: none;
     .comment-delete{
-      background: url('/images/ui/cross-button.png') no-repeat 0 0;
+      background: transparent url('/images/ui/cross-button.png') no-repeat 0 0 ;
       text-indent: -9999px;
-      width: 15px;
-      height: 15px;
+      display: block;
+      width: 16px;
+      height: 16px;
       padding: 0 !important;
       margin: 0 !important;
-      border: 0;
+      border: 0 !important;
     }
   }
   .speech:hover{
