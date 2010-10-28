@@ -82,7 +82,6 @@ jQuery.update_collaborators = function (){
   var error = function(data){
     _form.find('.spinner').hide();
     _link.show();
-    console.log(data);
     alert(data.responseText);
   };
   
@@ -107,7 +106,6 @@ jQuery.ajaxify_comments = function(){
   var _container, _submit, _comment = null;
   
   var success_new = function(data){
-    console.log(data);
     $('#new_comment_li').before(data);
     $("#comment_submit").show();
     $("#new_comment_form .loading-gif").hide();
