@@ -25,12 +25,7 @@ class BriefsController < ApplicationController
   end
   
   def current_object    
-    begin
-      @current_object ||= current_user.briefs.find(params[:id], :include => [ { :user_briefs => :user}, { :brief_items_answered => [:brief, :questions, { :timeline_events => :subject }], :comments => [:user] } ])
-    rescue ActiveRecord::RecordNotFound
-      flash[:notice] = "The brief you're trying to access can't be found. You may have been removed from this brief, or typed an incorrect URL"
-      redirect_to dashboard_url and return
-    end
+    @current_object ||= current_user.briefs.find(params[:id], :include => [ { :user_briefs => :user}, { :brief_items_answered => [:brief, :questions, { :timeline_events => :subject }], :comments => [:user] } ])
   end
   
   make_resourceful do

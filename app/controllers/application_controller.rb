@@ -12,4 +12,6 @@ class ApplicationController < ActionController::Base
   require_dependency 'application/subscription'  
   require_dependency 'application/brief_security'
   
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
+  
 end
