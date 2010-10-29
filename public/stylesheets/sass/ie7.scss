@@ -68,13 +68,16 @@ input[type=text] {
     border: 1px solid $activity_bg_color;
   }
   ul.comments li{
-    border: 1px solid white;
+    border: 1px solid transparent;
+    
   }
   ul.brief_item_history li, 
-  .comments_area ul.comments li{
+  #comments_area ul.comments li{
     .brief_item_question, 
     .comment{
+      border: 1px solid transparent;
       .speech{
+        border: 1px solid transparent;
         margin-top: -17px;
       }
     }
@@ -140,9 +143,9 @@ input.smartTextBox-input-elem-valueInput{
   
   #collaboration_form.contents{
     ul.collaborators{
-      li.collaboration_user{
+      .collaboration_user{
         clear: both;
-        img.avatar{
+        .avatar{
           position: absolute;
           top: 0em;
           left: 0em;
@@ -273,4 +276,31 @@ input.smartTextBox-input-elem-valueInput{
   input[type=text]{
     border: 1px solid transparent;
   }
+}
+
+
+/* Revisions */
+.revision-body{
+  &:hover{
+    .delete-item-revision{
+      input{
+        display: block;
+      }
+    }
+  }
+  .buttons{
+    float: right;
+    width: 20px;
+  }
+  form.delete-item-revision{
+    margin: 0 !important;
+    input {
+      display: none;
+    }
+  }
+  .close-button{}
+}
+
+.close-button{
+  border: none !important;
 }

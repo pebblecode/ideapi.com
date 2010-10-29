@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   # needs login for all actions
   before_filter :require_user
   before_filter :store_object, :only => :destroy
-
+  
   make_resourceful do
     belongs_to :brief, :proposal
     
@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     before :create do
       current_object.user = current_user
     end
+    
     response_for( :create_fails, :update_fails) do |format|
       format.html { redirect_to parent_path(:anchor => dom_id(current_object)) }
       format.js{ render :text => "We're sorry we couldn't submit your comment. Please try again.", :status => 500}
@@ -38,6 +39,15 @@ class CommentsController < ApplicationController
       format.js{ render :json => current_object.to_json}
     end
   end
+  
+  rescue_from RuntimeError do |exception|
+      respond_to do |format|
+        format.html{render :text => exception.message, :status => 500}
+        format.js{render :text => exception.message, :status => 500}
+      end
+      # render :text => exception.message, :status => 500
+  end
+  
   
   def store_object
     @commentable = current_object.commentable

@@ -76,7 +76,7 @@ jQuery.update_collaborators = function (){
   var _form, _link = null;
   
   var success = function(data){
-    $('#update_collaborators').fadeOut().html(data).fadeIn();
+    $('#update_collaborators').html(data);
     $.setup_collaboration_widget();
   };
   var error = function(data){
@@ -113,10 +113,7 @@ jQuery.ajaxify_comments = function(){
     $("#comment_comment").val('');
   };
   var success_delete = function(data){
-    var _parent = $("#comment_"+data.comment.id).parents('li');
-    _parent.fadeOut('slow', function(){
-      _parent.remove();
-    });
+    _container.remove();
   };
   var error_delete = function(data){
     
@@ -135,6 +132,7 @@ jQuery.ajaxify_comments = function(){
   
   $('#comments_area .delete_comment_form input.comment-delete').live('click', function(e){
     _form = $(this).parents('form.delete_comment_form');
+    _container = _form.parents('li');
     _submit = $(this);
     _submit.hide().spin(false, 'ui/loading');
     ajax_submit_json(_form, success_delete, error_delete);
@@ -160,11 +158,7 @@ jQuery.ajaxify_item_revisions = function(){
 
   var success = function(data){
     // update the count on the tab
-    _container.fadeOut(500, function(){
-      $(this).remove();
-      jQuery.update_item_history_tabs();
-    });
-    
+    _container.remove();
   };
   var error = function(data){
     alert("Could not delete this item. Please try again or reload the page.");
@@ -196,20 +190,16 @@ jQuery.ajaxify_questions_and_answers = function(){
       _current_form.parents('.question_form').before('<ul class="brief_item_history"></ul>');
       _current_list = _current_form.parents('.brief_item_activity').find('ul.brief_item_history');
     }
-    _current_list.append(data).find('li:last').hide();
+    _current_list.append(data).append_bubble();
     _current_form.find('.loading-gif').hide();
     _current_form.find('.new_question_submit').show();
     _current_form.find('textarea').val('');
-    _current_list.find('li:last').fadeIn(1000).append_bubble();
-    
     $.update_item_history_tabs();
   };
   var success_delete_question = function(data){
     // if successful, we simply hide then delete the node. this is the easiest.
-    _deleted.fadeOut(500, function(){
-      $(this).remove();
-      $.update_item_history_tabs();
-    });
+    _deleted.remove();
+    $.update_item_history_tabs();
     
   };
   var error_delete_question = function(data){

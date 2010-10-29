@@ -40,14 +40,20 @@ input[type=text] {
 #container #content .main .col_1 .brief_item_history li {
   border: 1px solid #f7f7f7; }
 #container #content .main .col_1 ul.comments li {
-  border: 1px solid white; }
-#container #content .main .col_1 ul.brief_item_history li .brief_item_question .speech,
-#container #content .main .col_1 ul.brief_item_history li .comment .speech,
-#container #content .main .col_1 .comments_area ul.comments li .brief_item_question .speech,
-#container #content .main .col_1 .comments_area ul.comments li .comment .speech {
-  margin-top: -17px; }
+  border: 1px solid transparent; }
+#container #content .main .col_1 ul.brief_item_history li .brief_item_question,
+#container #content .main .col_1 ul.brief_item_history li .comment,
+#container #content .main .col_1 #comments_area ul.comments li .brief_item_question,
+#container #content .main .col_1 #comments_area ul.comments li .comment {
+  border: 1px solid transparent; }
+  #container #content .main .col_1 ul.brief_item_history li .brief_item_question .speech,
+  #container #content .main .col_1 ul.brief_item_history li .comment .speech,
+  #container #content .main .col_1 #comments_area ul.comments li .brief_item_question .speech,
+  #container #content .main .col_1 #comments_area ul.comments li .comment .speech {
+    border: 1px solid transparent;
+    margin-top: -17px; }
 #container #content .main .col_1 ul.brief_item_history li .show_author_answer_form input[type=submit],
-#container #content .main .col_1 .comments_area ul.comments li .show_author_answer_form input[type=submit] {
+#container #content .main .col_1 #comments_area ul.comments li .show_author_answer_form input[type=submit] {
   width: 60px;
   top: -2.5em; }
 
@@ -83,13 +89,13 @@ input.smartTextBox-input-elem-valueInput {
     padding: 0; }
   #container #content .side_box ul.overview li p.non_found, #container #content .side_box ul.proposals li p.non_found {
     float: none; }
-#container #content .side_box #collaboration_form.contents ul.collaborators li.collaboration_user {
+#container #content .side_box #collaboration_form.contents ul.collaborators .collaboration_user {
   clear: both; }
-  #container #content .side_box #collaboration_form.contents ul.collaborators li.collaboration_user img.avatar {
+  #container #content .side_box #collaboration_form.contents ul.collaborators .collaboration_user .avatar {
     position: absolute;
     top: 0em;
     left: 0em; }
-  #container #content .side_box #collaboration_form.contents ul.collaborators li.collaboration_user p {
+  #container #content .side_box #collaboration_form.contents ul.collaborators .collaboration_user p {
     margin: -15px 0 0 50px !important; }
 
 #template_briefs #container .new_template_brief .actions, #template_briefs #container .edit_template_brief .actions {
@@ -156,3 +162,17 @@ input.smartTextBox-input-elem-valueInput {
 
 .title-span input[type=text] {
   border: 1px solid transparent; }
+
+/* Revisions */
+.revision-body:hover .delete-item-revision input {
+  display: block; }
+.revision-body .buttons {
+  float: right;
+  width: 20px; }
+.revision-body form.delete-item-revision {
+  margin: 0 !important; }
+  .revision-body form.delete-item-revision input {
+    display: none; }
+
+.close-button {
+  border: none !important; }
