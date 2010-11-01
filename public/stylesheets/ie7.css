@@ -89,13 +89,17 @@ input.smartTextBox-input-elem-valueInput {
     padding: 0; }
   #container #content .side_box ul.overview li p.non_found, #container #content .side_box ul.proposals li p.non_found {
     float: none; }
-#container #content .side_box #collaboration_form.contents ul.collaborators .collaboration_user {
+#container #content .side_box #update_collaborators ul.add_collaborators {
+  padding-top: 1em; }
+#container #content .side_box #update_collaborators li.available_collaborator {
+  padding-bottom: 0.5em; }
+#container #content .side_box #update_collaborators ul.collaborators .collaboration_user {
   clear: both; }
-  #container #content .side_box #collaboration_form.contents ul.collaborators .collaboration_user .avatar {
+  #container #content .side_box #update_collaborators ul.collaborators .collaboration_user .avatar {
     position: absolute;
     top: 0em;
     left: 0em; }
-  #container #content .side_box #collaboration_form.contents ul.collaborators .collaboration_user p {
+  #container #content .side_box #update_collaborators ul.collaborators .collaboration_user p {
     margin: -15px 0 0 50px !important; }
 
 #template_briefs #container .new_template_brief .actions, #template_briefs #container .edit_template_brief .actions {

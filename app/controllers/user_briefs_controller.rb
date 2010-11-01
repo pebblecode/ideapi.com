@@ -2,7 +2,6 @@ class UserBriefsController < ApplicationController
   def create
     @user_brief = UserBrief.create(params[:user_brief])
     if @user_brief.save
-      
       respond_to do |format|
         format.html{
           flash[:notice] = "#{@user_brief.user.full_name} has been added to the brief."

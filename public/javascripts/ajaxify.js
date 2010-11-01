@@ -54,11 +54,45 @@ function ajax_submit_json(form, success, error){
       _answer_form.before('<div class="toggle_author_answer_form"><a class="toggle" href="javascript:void(0)">respond</a></div>');
       _answer_form.hide();
       _answer_form.siblings('div.toggle_author_answer_form').find('a.toggle').click(function(){
-        _answer_form.toggle();
+        _answer_form.fade_toggle();
       });
     }
     return this;
   };
+  
+  $.fn.fade_out = function(duration, callback){
+    if(!duration) duration = 'slow';
+    if(!callback) callback = function(){};
+    
+    if($.browser.msie){
+      this.hide();
+    }else{
+      this.fadeOut(duration, callback);
+    }
+  };
+  $.fn.fade_in = function(duration, callback){
+    if(!duration) duration = 'slow';
+    if(!callback) callback = function(){};
+    
+    if($.browser.msie){
+      this.show();
+    }else{
+      this.fadeIn(duration, callback);
+    }
+  };
+  
+  $.fn.fade_toggle = function(duration, callback){
+    if(!duration) duration = 'fast';
+    if(!callback) callback = function(){};
+
+    if($.browser.msie){
+      this.toggle();
+    }else{
+      this.fadeToggle(duration, callback);
+    }
+  };
+  
+  
 })(jQuery);
 
 jQuery.update_item_history_tabs = function(){
@@ -87,6 +121,7 @@ jQuery.update_collaborators = function (){
   
   $('#briefs ul.add_collaborators form.new_user_brief .add_user_brief_button').live('click', function(){
     _form = $(this).parents('form');
+    _link = $(this);
     // replace ADD button with spinner
     $(this).hide().spin(false, 'ui/loading');
 

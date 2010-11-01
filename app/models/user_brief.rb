@@ -57,20 +57,26 @@ class UserBrief < ActiveRecord::Base
   
   def notify_user
     unless brief_author?
-      # [DEPRECATED]
-      # NotificationMailer.deliver_user_added_to_brief(self)
       # As this is now being processed by Resque we need to pass
       # the id as it gets processed by a worker
-      NotificationMailer.deliver_user_added_to_brief(self.id) unless self.user.pending?
+      begin
+        NotificationMailer.deliver_user_added_to_brief(self.id) unless self.user.pending?
+      rescue Errno::ECONNREFUSED
+        nil
+      end
     end
   end
   
   def notify_if_role_changed
-    # [DEPRECATED]
-    # NotificationMailer.deliver_user_added_to_brief(self)
     # As this is now being processed by Resque we need to pass
     # the id as it gets processed by a worker
-    NotificationMailer.deliver_user_role_changed_on_brief(self.id) if author_changed?
+    begin
+      NotificationMailer.deliver_user_role_changed_on_brief(self.id) if author_changed?
+    rescue Errno::ECONNREFUSED
+      nil
+    end
+    
+    
   end
   
   # This method checks whether the virtual attribute approver

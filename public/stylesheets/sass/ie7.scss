@@ -141,7 +141,13 @@ input.smartTextBox-input-elem-valueInput{
     }
   }
   
-  #collaboration_form.contents{
+  #update_collaborators{
+    ul.add_collaborators{
+      padding-top: 1em;
+    }
+    li.available_collaborator{
+      padding-bottom: 0.5em;
+    }
     ul.collaborators{
       .collaboration_user{
         clear: both;
