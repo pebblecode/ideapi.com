@@ -356,6 +356,82 @@ jQuery.user_links_external = function(){
   });
 };
 
+
+/* Inline editing briefs */
+(function($){
+  
+  $.fn.inline_edit_briefs = function(){
+    var _brief = this.find('div.brief');
+    
+    var _submit, _form, _parent, _spinner = null;
+    /* BEGIN Title */
+    _brief.find('div.title a.toggle-inline-edit').live('click', function(){
+      $(this).parents('div.title').find('h2.show').toggle();
+      $(this).parents('div.title').find('div.inline-edit').toggle();
+    });
+    
+    // Ajax form submit
+    var title_success = function(data){
+      _parent.replaceWith(data);
+      $('ul.breadcrumbs li:last span').text($(data).find('input.title').val());
+    };
+    
+    var title_error = function(data){
+    };
+    
+    _brief.find('div.title form.edit_brief input.submit').live('click',function(e){
+      _submit = $(this);
+      _submit.hide().spin(false, 'ui/loading');
+      _form = $(this).parents('form');
+      _parent = $(this).parents('div.title');
+      _spinner = _submit.siblings('.spinner');
+      
+      ajax_submit(_form, title_success, title_error);
+      
+      e.preventDefault();
+    });
+    
+    
+    /* END Title */
+    
+    /* BEGIN Sections */
+    
+    $.fn.hide_activity = function(){
+      this.find('.brief_item_activity').hide();
+      return this;
+    };
+    
+    var generic_success = function(data){
+      _parent.replaceWith($(data).hide_activity());
+      
+    };
+    var generic_error = function(data){
+      _submit.show();
+      _spinner.remove();
+      $(this).siblings('.show').toggle();
+      $(this).siblings('.edit').toggle();
+    };
+
+    _brief.find("a.toggle-inline-edit").live('click', function(e){
+      $(this).siblings('.show').toggle();
+      $(this).siblings('.edit').toggle();
+    });
+    
+    _brief.find('form.inline-edit-form input.inline-edit-submit').live('click', function(e){
+      _submit = $(this);
+      _submit.hide().spin(false, 'ui/loading');
+      _form = $(this).parents('form.inline-edit-form');
+      _parent = $(this).parents('div.section');
+      _spinner = _submit.siblings('.spinner');
+      
+      ajax_submit(_form, generic_success, generic_error);
+      e.preventDefault();
+    });
+    /* END Sections */
+  };
+  
+})(jQuery);
+
 $(document).ready(function(){
   jQuery.update_collaborators();
   jQuery.ajaxify_comments();
@@ -366,4 +442,6 @@ $(document).ready(function(){
     $(this).setup_answer_form();
   });
   jQuery.user_links_external();
+  
+  jQuery('body#briefs.show').inline_edit_briefs();
 });

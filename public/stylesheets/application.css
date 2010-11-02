@@ -2529,6 +2529,131 @@ ul#notifications {
       background: #bbb;
       border-color: #aaa; }
 
+#briefs.show #content .toggle-inline-edit {
+  display: block;
+  background: url("/images/ui/edit-green.png") 0 0;
+  width: 18px;
+  height: 18px;
+  text-indent: -9999px; }
+  #briefs.show #content .toggle-inline-edit:hover {
+    background-position: -18px 0; }
+#briefs.show #content .title .toggle-inline-edit {
+  background: url("/images/ui/edit-white.png") 0 0;
+  display: block;
+  float: left;
+  margin-right: 5px; }
+#briefs.show #content .edit p.submit {
+  text-align: right;
+  margin-top: 5px; }
+#briefs.show #content .inline-edit {
+  display: none; }
+#briefs.show #content h2.show {
+  padding-left: 1em; }
+  #briefs.show #content h2.show .toggle-inline-edit {
+    margin-top: 1px;
+    margin-left: 1px; }
+#briefs.show #content .title .inline-edit h2 {
+  padding-left: 1em; }
+#briefs.show #content .title .inline-edit form {
+  padding: 0; }
+  #briefs.show #content .title .inline-edit form input.title {
+    padding: 0;
+    margin: 0 5px 0 0;
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    border: 1px solid #aaa;
+    height: 17px;
+    width: 40em; }
+  #briefs.show #content .title .inline-edit form input.submit {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: url("/images/ui/save-button.png") 0 0;
+    border: none;
+    cursor: pointer;
+    height: 18px;
+    width: 36px;
+    padding: 0;
+    margin: 0;
+    text-indent: -9999px; }
+    #briefs.show #content .title .inline-edit form input.submit:active {
+      background-position: -36px 0; }
+#briefs.show #content .section:hover .toggle-inline-edit {
+  display: block; }
+#briefs.show #content .section .toggle-inline-edit {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0; }
+#briefs.show #content .section .edit {
+  display: none;
+  padding: 1em 0;
+  text-align: center; }
+  #briefs.show #content .section .edit .spinner {
+    display: inline; }
+  #briefs.show #content .section .edit .field {
+    width: 500px;
+    margin-bottom: 1em; }
+  #briefs.show #content .section .edit input.inline-edit-title {
+    padding: 0 0.5em;
+    display: block; }
+  #briefs.show #content .section .edit .inline-edit-body {
+    display: block;
+    width: 478px;
+    height: 100px;
+    padding: 0 10px; }
+  #briefs.show #content .section .edit p.submit {
+    float: none;
+    margin: 0; }
+#briefs.show #content .most_important_thing .edit {
+  display: none;
+  padding: 1em 0;
+  text-align: center; }
+  #briefs.show #content .most_important_thing .edit .spinner {
+    display: inline; }
+  #briefs.show #content .most_important_thing .edit form {
+    text-align: center; }
+  #briefs.show #content .most_important_thing .edit span, #briefs.show #content .most_important_thing .edit .field {
+    display: inline-block; }
+  #briefs.show #content .most_important_thing .edit span {
+    font-size: 8em;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    height: 0.4em;
+    line-height: 0.8em; }
+  #briefs.show #content .most_important_thing .edit span.left {
+    vertical-align: top;
+    margin-top: 0px; }
+  #briefs.show #content .most_important_thing .edit span.right {
+    vertical-align: bottom; }
+  #briefs.show #content .most_important_thing .edit .field {
+    text-align: right;
+    width: 500px; }
+    #briefs.show #content .most_important_thing .edit .field p {
+      padding: 0; }
+    #briefs.show #content .most_important_thing .edit .field textarea {
+      display: block;
+      width: 478px;
+      height: 100px;
+      padding: 10px; }
+#briefs.show #content input.inline-edit-submit {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: url("/images/ui/save-button.png") 0 0;
+  border: none;
+  cursor: pointer;
+  height: 18px;
+  width: 36px;
+  padding: 0;
+  margin: 0;
+  text-indent: -9999px; }
+  #briefs.show #content input.inline-edit-submit:active {
+    background-position: -36px 0; }
+
 /* Contains styles for various panels across the app. 
  * The first being the brief show view actions (dropdown panel) */
 /*  Some Icons are Copyright © Yusuke Kamiyamane. 

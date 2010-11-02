@@ -44,3 +44,176 @@
     }
   }
 }
+
+
+
+#briefs.show #content{
+  .toggle-inline-edit{
+    display: block;
+    background: url('/images/ui/edit-green.png') 0 0;
+    width: 18px;
+    height: 18px;
+    text-indent: -9999px;
+    &:hover{
+      background-position: -18px 0;
+    }
+  }
+  .title{
+    .toggle-inline-edit{
+      background: url('/images/ui/edit-white.png') 0 0;
+      display: block;
+      float: left;
+      margin-right: 5px;
+    }
+  }
+  
+  .edit{
+    p.submit{
+      text-align: right;
+      margin-top: 5px;
+    }
+  }
+  .inline-edit{
+    display: none;
+  }
+  h2.show{
+    padding-left: 1em;
+    .toggle-inline-edit{
+      margin-top: 1px;
+      margin-left: 1px;
+    }
+  }
+  .title .inline-edit{
+    h2{
+      padding-left: 1em;
+    }
+    form{
+      padding: 0;
+      input.title{
+        padding: 0;
+        margin: 0 5px 0 0;
+        float: left;
+        font-size: 0.9em;
+        font-weight: bold;
+        color: #555;
+        border: 1px solid #aaa;
+        height: 17px;
+        width: 40em;
+        
+
+      }
+      input.submit{
+        @include rounded-corners-all(0);
+        background: url('/images/ui/save-button.png') 0 0;
+        border: none;
+        cursor: pointer;
+        height: 18px;
+        width: 36px;
+        padding: 0;
+        margin: 0;
+        text-indent: -9999px;
+        &:active{
+          background-position: -36px 0;
+        }
+      }
+    }
+  }
+  
+  
+  .section{
+    &:hover{
+      .toggle-inline-edit{
+        display: block;
+      }
+    }
+    .toggle-inline-edit{
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .edit{
+      display: none;
+      padding: 1em 0;
+      text-align: center;
+      .spinner{
+        display: inline;
+      }
+      .field{
+        width: 500px;
+        margin-bottom: 1em;
+      }
+      input.inline-edit-title{
+        padding: 0 0.5em;
+        display: block;
+      }
+      .inline-edit-body{
+        display: block;
+        width: 478px;
+        height: 100px;
+        padding: 0 10px;
+      }
+      p.submit{
+        float: none;
+        margin: 0;
+      }
+    }
+  }
+  .most_important_thing{
+    .edit{
+      display: none;
+      padding: 1em 0;
+      text-align: center;
+      .spinner{display: inline;}
+      form{
+        text-align: center;
+      }
+      span, .field{
+        display: inline-block;
+      }
+      span {
+        font-size: 8em;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        height: 0.4em;
+        line-height: 0.8em; }
+      span.left {
+        vertical-align: top;
+        margin-top: 0px;
+      }
+      span.right {
+        vertical-align: bottom;
+      }
+      .field{
+        text-align: right;
+        width: 500px;
+        p{
+          padding: 0;
+        }
+        textarea{
+          display: block;
+          width: 478px;
+          height: 100px;
+          padding: 10px;
+        }
+      }
+    }
+    
+  }
+  
+  input.inline-edit-submit{
+    @include rounded-corners-all(0);
+    background: url('/images/ui/save-button.png') 0 0;
+    border: none;
+    cursor: pointer;
+    height: 18px;
+    width: 36px;
+    padding: 0;
+    margin: 0;
+    text-indent: -9999px;
+    &:active{
+      background-position: -36px 0;
+    }
+  }
+}

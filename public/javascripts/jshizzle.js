@@ -5,7 +5,7 @@
 * Added by George Ornbo for template_briefs 07/07/10
 */
 $(function() {
-  $('form a.add_child').click(function() {
+  $('form a.add_child').live('click', function() {
     var assoc   = $(this).attr('data-association');
     var content = $('#' + assoc + '_fields_template').html();
     var regexp  = new RegExp('new_' + assoc, 'g');
@@ -167,7 +167,7 @@ jQuery.fn.edit_brief_item = function () {
       jQuery(this).parent().prev('h3').prepend('<a class="toggle_brief_edit" href="#'+jQuery(this).attr("id")+'">'+ link_on_state +'</a>');
       jQuery(this).parent().prev('h3').addClass('empty active');
       
-      jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').click(function () {
+      jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').live('click', function () {
         
         jQuery(this).parent().parent().find('.body').toggle();
         
@@ -193,7 +193,6 @@ jQuery.fn.edit_brief_item = function () {
         }
       });
       
-      //.click( function () { jQuery(this).next('textarea').show(); } );
     };
     
     jQuery(this).change(function () {
@@ -211,25 +210,12 @@ jQuery.fn.edit_brief_item = function () {
 
 jQuery.fn.fold_activity_stream = function () {
   jQuery(this).hide();
-  // 
-  // jQuery('a.toggle_activity_stream').click(function () {
-  //   
-  //   if (jQuery(this).hasClass('active')) {
-  //     jQuery(this).removeClass('active');
-  //   } else {
-  //     jQuery(this).addClass('active');
-  //   };
-  //   
-  //   jQuery(this).prev().toggle();
-  //   
-  //   return false;
-  // });
 };
 
 jQuery.fn.delete_item = function (remove_item_class, action) {
   jQuery(this).after('<a href="#" class="trash">Remove</a>');
   
-  jQuery(this).next('.trash').click(function () {
+  jQuery(this).next('.trash').live('click', function () {
     jQuery(this).prev('input:checkbox.remove_item').attr('checked', true);
     
     //disable this action
@@ -435,7 +421,7 @@ jQuery.fn.document_ready = function() {
       }
     });
     
-    $('#briefs li.revision .toggle_revision_body').click(function(){
+    $('#briefs li.revision .toggle_revision_body').live('click',function(){
       $(this).parents().filter('.revision-body').find('.body').toggle();
       return false;
     });
@@ -664,7 +650,7 @@ jQuery.fn.document_ready_extras = function () {
     return false;
   });
   
-  $('#content div.title a.show-options-menu').click(function(){
+  $('#content div.title a.show-options-menu').live('click', function(){
     $(this).toggleClass('active');
     toggle_brief_options_menu();
     return false;
@@ -691,7 +677,7 @@ function hide_element(element){
 }
 
 $(document).ready(function(){
-  $('#idea-attachments a.js-toggle-edit').click(function(){
+  $('#idea-attachments a.js-toggle-edit').live('click', function(){
     $(this).parent().find('.description-text').toggle();
     $(this).parents('.proposal_asset').find('.description-textarea').toggle();
     return false;
@@ -701,7 +687,7 @@ $(document).ready(function(){
   
   
   // Override delete, etc in actions bar. 
-  $('#options-menu li form a').click(function(){
+  $('#options-menu li form a').live('click', function(){
     var answer = confirm("Are you sure?");
     if(answer){
       $(this).parent().submit();

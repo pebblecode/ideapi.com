@@ -72,14 +72,22 @@ class User < ActiveRecord::Base
     # NotificationMailer.deliver_password_reset_instructions(self, self.accounts.first)
     # We are sending mail jobs to Resque now so need to send the id
     # so workers can handle it
-    NotificationMailer.deliver_password_reset_instructions(self.id, self.accounts.first.id)
+    begin
+      NotificationMailer.deliver_password_reset_instructions(self.id, self.accounts.first.id)
+    rescue Errno::ECONNREFUSED
+      nil
+    end
   end
   
   def deliver_invite_code!(account)
     create_invite_code
     #[DEPRECATED]
     # NotificationMailer.deliver_user_invited_to_account(self, account)
-    NotificationMailer.deliver_user_invited_to_account(self.id, account.id, "")
+    begin
+      NotificationMailer.deliver_user_invited_to_account(self.id, account.id, "")
+    rescue Errno::ECONNREFUSED
+      nil
+    end
   end
   
   private

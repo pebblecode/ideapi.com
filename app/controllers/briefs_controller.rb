@@ -137,7 +137,11 @@ class BriefsController < ApplicationController
         #         else
         #           render :nothing => true
         #         end
-        render :partial => 'briefs/update_collaborators_form', :locals => {:current_object => @brief}
+        if params[:render].present?
+          render :partial => 'briefs/brief_partials/' << params[:render], :locals => {:current_object => @brief}
+        else
+          render :partial => 'briefs/update_collaborators_form', :locals => {:current_object => @brief}
+        end
       }
     end
   

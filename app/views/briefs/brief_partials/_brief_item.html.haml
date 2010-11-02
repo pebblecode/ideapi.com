@@ -1,0 +1,41 @@
+%div[brief_item]{:class => (brief_item_updated_for_user?(brief_item) ? "updated section" : "section")}
+  = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
+  -if brief_item.is_heading?
+    .show
+      %h3
+        =brief_item.title
+    .edit
+      - form_for brief_item, :html => {:id => "section_edit_form_#{brief_item.id}", :class => "inline-edit-form section-form"} do |form|
+        = hidden_field_tag 'render', 'brief_item'
+        %h3
+          = form.text_field :title, :class => 'inline-edit-title'
+          = form.submit 'save', :class => 'submit inline-edit-submit'
+  -else
+    .show
+      %h4
+        =brief_item.title
+      %div.body
+        -if brief_item.body.present?
+          :textile
+            #{brief_item.body.lstrip}
+
+      -unless brief_item.is_heading? or @print_mode.present?
+        %ul.actions
+      
+          -if current_object.active? 
+        
+            %li=link_to comments_tab(brief_item), '#', {:class => 'toggle_brief_item_activity'}
+    
+        -if current_object.active?
+          = render :partial => "briefs/activity_stream", :locals => {:brief_item => brief_item, :current_object => brief_item.brief}
+      .clear
+    .edit
+      - form_for brief_item, :html => {:id => "section_edit_form_#{brief_item.id}", :class => "inline-edit-form section-form"} do |form|
+        = hidden_field_tag 'render', 'brief_item'
+        .field
+          %h4
+            = form.text_field :title, :class => 'inline-edit-title'
+        .field
+          = form.text_area :body, :class => 'inline-edit-body'
+        .field
+          %p.submit= form.submit 'save', :class => 'submit inline-edit-submit'

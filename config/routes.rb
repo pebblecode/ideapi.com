@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :template_briefs, :collection => { :sort => :put } 
   map.resources :comments
   map.resources :questions
+  map.resources :brief_items
       
   map.resources :tags
 

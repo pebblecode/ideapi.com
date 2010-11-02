@@ -53,7 +53,7 @@ module LayoutHelper
   end
   
   def body_classes
-    @body_classes ||= []
+    @body_classes ||= [controller.action_name]
   end
   
   private

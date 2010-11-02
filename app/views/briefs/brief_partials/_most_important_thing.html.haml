@@ -1,0 +1,15 @@
+.most_important_thing.section
+  = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
+  .show
+    %p
+      %span.left &ldquo;
+      =current_object.most_important_message
+      %span.right &rdquo;
+  .edit
+    - form_for current_object, :html =>{ :class => 'inline-edit-form', :id => "brief_mit_form_#{current_object.id}"} do |brief_form|
+      %span.left &ldquo;
+      .field
+        = hidden_field_tag 'render', 'most_important_thing'
+        %p= brief_form.text_area :most_important_message, :rows => "5", :id => "brief_mit_form_#{current_object.id}_textarea"
+        %p.submit= brief_form.submit 'save', :id => "brief_mit_form_#{current_object.id}_submit", :class => 'submit inline-edit-submit'
+      %span.right &rdquo;
