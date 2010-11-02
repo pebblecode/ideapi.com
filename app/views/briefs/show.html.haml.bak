@@ -4,7 +4,18 @@
 .clear
 
 .col_1
-  = render :partial => 'briefs/brief_partials/text_brief_info', :locals => {}    
+  %div{:id => "show_brief_info_#{current_object.id}", :class => 'note'}
+    :markdown
+      You can see the history of each brief section and collaborate by leaving comments or asking questions.
+      All comments and questions that you leave on the brief will cause brief authors to be notified by email.
+      Other brief options are available from the brief actions menu.
+      
+      The Brief Collaborators box shows the other collaborators working on this brief.
+      Click the “+” button to add more people to the brief (authors only).
+      To mark a user as an author or approver for the brief, click the “options” link (authors only).
+      
+      Comments and updates can be seen by all collaborators.
+      
   -unless current_object.active?
     %div{:id => "reactivate_tooltip_#{current_object.id}", :class => 'note'}
       %p 
@@ -13,7 +24,7 @@
       
   %div[current_object]
     .title
-      %h2.show
+      %h2.show.roundify
         =current_object.title
       -if current_user.owns?(current_object)
         .actions
