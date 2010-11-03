@@ -1722,6 +1722,24 @@ ul#notifications {
       background: #bbb;
       border-color: #aaa; }
 
+#dashboard .brief_item .flag {
+  border: 1px solid #aaa;
+  background: #eee;
+  color: #555;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));
+  background: -moz-linear-gradient(top, #eeeeee, #cccccc);
+  font-size: 8pt !important;
+  margin-top: 9px;
+  margin-right: 5px;
+  padding: 0 5px;
+  height: 15px;
+  line-height: 15px;
+  display: block;
+  float: left; }
+
 #briefs.show #content .toggle-inline-edit {
   display: block;
   background: url("/images/ui/edit-green.png") 0 0;

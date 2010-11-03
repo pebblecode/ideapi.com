@@ -840,3 +840,7 @@ button {
     width: 80px; }
   button.xl {
     width: 120px; }
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }

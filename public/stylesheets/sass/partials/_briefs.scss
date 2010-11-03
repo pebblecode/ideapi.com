@@ -1,5 +1,7 @@
 #briefs{
   #content{
+    
+    
     .brief_item{
       .body{
         img{
@@ -45,7 +47,23 @@
   }
 }
 
-
+#dashboard{
+  .brief_item .flag{
+    border: 1px solid #aaa;
+    background: #eee;
+    color: #555;
+    @include rounded-corners-all(3px);
+    @include linear-gradient(#eee, #ccc);
+    font-size: 8pt !important;
+    margin-top: 9px;
+    margin-right: 5px;
+    padding: 0 5px;
+    height: 15px;
+    line-height: 15px;
+    display: block;
+    float: left;
+  }
+}
 
 #briefs.show #content{
   .toggle-inline-edit{

@@ -841,8 +841,3 @@ button {
     width: 80px; }
   &.xl {
     width: 120px; } }
-input::-moz-focus-inner /*Remove button padding in FF*/
-{ 
-    border: 0;
-    padding: 0;
-}
