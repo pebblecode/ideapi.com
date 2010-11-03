@@ -140,16 +140,17 @@
         display: inline;
       }
       .field{
-        width: 500px;
-        margin-bottom: 1em;
+        width: 100%;
+        margin-bottom: 5px;
       }
       input.inline-edit-title{
-        padding: 0 0.5em;
+        padding: 0 10px;
         display: block;
+        width: 590px;
       }
       .inline-edit-body{
         display: block;
-        width: 478px;
+        width: 590px;
         height: 100px;
         padding: 0 10px;
       }

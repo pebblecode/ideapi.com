@@ -1787,14 +1787,15 @@ ul#notifications {
   #briefs.show #content .section .edit .spinner {
     display: inline; }
   #briefs.show #content .section .edit .field {
-    width: 500px;
-    margin-bottom: 1em; }
+    width: 100%;
+    margin-bottom: 5px; }
   #briefs.show #content .section .edit input.inline-edit-title {
-    padding: 0 0.5em;
-    display: block; }
+    padding: 0 10px;
+    display: block;
+    width: 590px; }
   #briefs.show #content .section .edit .inline-edit-body {
     display: block;
-    width: 478px;
+    width: 590px;
     height: 100px;
     padding: 0 10px; }
   #briefs.show #content .section .edit p.submit {
