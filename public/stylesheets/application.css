@@ -842,6 +842,10 @@ button {
   button.xl {
     width: 120px; }
 
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
 /* Mixins */
 /* Colours */
 body {
@@ -2566,20 +2570,6 @@ ul#notifications {
     border: 1px solid #aaa;
     height: 17px;
     width: 40em; }
-  #briefs.show #content .title .inline-edit form input.submit {
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    background: url("/images/ui/save-button.png") 0 0;
-    border: none;
-    cursor: pointer;
-    height: 18px;
-    width: 36px;
-    padding: 0;
-    margin: 0;
-    text-indent: -9999px; }
-    #briefs.show #content .title .inline-edit form input.submit:active {
-      background-position: -36px 0; }
 #briefs.show #content .section:hover .toggle-inline-edit {
   display: block; }
 #briefs.show #content .section .toggle-inline-edit {
@@ -2634,7 +2624,8 @@ ul#notifications {
     text-align: right;
     width: 500px; }
     #briefs.show #content .most_important_thing .edit .field p {
-      padding: 0; }
+      padding: 0;
+      margin-bottom: 5px; }
     #briefs.show #content .most_important_thing .edit .field textarea {
       display: block;
       width: 478px;
@@ -2644,16 +2635,22 @@ ul#notifications {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
-  background: url("/images/ui/save-button.png") 0 0;
+  background: url("/images/ui/save-button-big.png") 0 0 no-repeat;
   border: none;
   cursor: pointer;
   height: 18px;
-  width: 36px;
+  width: 45px;
   padding: 0;
+  padding-bottom: 2px;
+  line-height: 18px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
   margin: 0;
-  text-indent: -9999px; }
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10pt; }
   #briefs.show #content input.inline-edit-submit:active {
-    background-position: -36px 0; }
+    background-position: -45px 0; }
 
 /* Contains styles for various panels across the app. 
  * The first being the brief show view actions (dropdown panel) */
@@ -2809,6 +2806,10 @@ ul#notifications {
     margin: 0 auto;
     padding: 0.5em 1em;
     background: #fcfcfc; }
+    #container #content .main .brief_item .brief_item_activity .revision-body .close-button {
+      display: none; }
+    #container #content .main .brief_item .brief_item_activity .revision-body:hover .close-button {
+      display: block; }
     #container #content .main .brief_item .brief_item_activity .revision-body .info h5 {
       font-size: 1.1em; }
     #container #content .main .brief_item .brief_item_activity .revision-body .info .buttons {

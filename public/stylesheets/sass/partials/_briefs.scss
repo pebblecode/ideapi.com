@@ -99,22 +99,6 @@
         border: 1px solid #aaa;
         height: 17px;
         width: 40em;
-        
-
-      }
-      input.submit{
-        @include rounded-corners-all(0);
-        background: url('/images/ui/save-button.png') 0 0;
-        border: none;
-        cursor: pointer;
-        height: 18px;
-        width: 36px;
-        padding: 0;
-        margin: 0;
-        text-indent: -9999px;
-        &:active{
-          background-position: -36px 0;
-        }
       }
     }
   }
@@ -191,6 +175,7 @@
         width: 500px;
         p{
           padding: 0;
+          margin-bottom: 5px;
         }
         textarea{
           display: block;
@@ -205,16 +190,22 @@
   
   input.inline-edit-submit{
     @include rounded-corners-all(0);
-    background: url('/images/ui/save-button.png') 0 0;
+    background: url('/images/ui/save-button-big.png') 0 0 no-repeat;
     border: none;
     cursor: pointer;
     height: 18px;
-    width: 36px;
+    width: 45px;
     padding: 0;
+    padding-bottom: 2px;
+    line-height: 18px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
     margin: 0;
-    text-indent: -9999px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 10pt;
     &:active{
-      background-position: -36px 0;
+      background-position: -45px 0;
     }
   }
 }

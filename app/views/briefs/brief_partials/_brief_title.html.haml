@@ -11,4 +11,4 @@
         = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
         = hidden_field_tag 'render', 'brief_title'
         = brief_title_form.text_field :title, :size => '60', :class => "inplace title", :id => "brief_title_form_#{current_object.id}_title"
-        = brief_title_form.submit 'save', :id => "brief_title_form_#{current_object.id}_submit", :class => 'submit'
+        = brief_title_form.submit 'submit', :id => "brief_title_form_#{current_object.id}_submit", :class => 'inline-edit-submit'

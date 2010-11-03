@@ -11,5 +11,5 @@
       .field
         = hidden_field_tag 'render', 'most_important_thing'
         %p= brief_form.text_area :most_important_message, :rows => "5", :id => "brief_mit_form_#{current_object.id}_textarea"
-        %p.submit= brief_form.submit 'save', :id => "brief_mit_form_#{current_object.id}_submit", :class => 'submit inline-edit-submit'
+        %p.submit= brief_form.submit 'submit', :id => "brief_mit_form_#{current_object.id}_submit", :class => 'submit inline-edit-submit'
       %span.right &rdquo;

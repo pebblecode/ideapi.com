@@ -9,7 +9,7 @@
         = hidden_field_tag 'render', 'brief_item'
         %h3
           = form.text_field :title, :class => 'inline-edit-title'
-          = form.submit 'save', :class => 'submit inline-edit-submit'
+          = form.submit 'submit', :class => 'submit inline-edit-submit'
   -else
     .show
       %h4
@@ -38,4 +38,4 @@
         .field
           = form.text_area :body, :class => 'inline-edit-body'
         .field
-          %p.submit= form.submit 'save', :class => 'submit inline-edit-submit'
+          %p.submit= form.submit 'submit', :class => 'submit inline-edit-submit'

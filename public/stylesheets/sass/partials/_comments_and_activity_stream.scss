@@ -113,6 +113,14 @@ $speechbox-textarea-width: $speechbox-width - 7;
           margin: 0 auto;
           padding: 0.5em 1em;
           background: #fcfcfc;
+          .close-button{
+            display: none;
+          }
+          &:hover{
+            .close-button{
+              display: block;
+            }
+          }
           .info{
             h5{
               font-size: 1.1em;
