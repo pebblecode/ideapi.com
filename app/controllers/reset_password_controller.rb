@@ -2,7 +2,7 @@ class ResetPasswordController < ApplicationController
   
   layout "login"
   
-  before_filter :require_no_user
+  before_filter :may_require_no_user
   before_filter :load_user_using_perishable_token, :only => [:edit, :update]  
   
   def index
@@ -10,7 +10,7 @@ class ResetPasswordController < ApplicationController
   end
   
   def new
-    render
+    
   end
   
   def create
@@ -50,5 +50,10 @@ class ResetPasswordController < ApplicationController
       flash[:notice] = "We're sorry, but we could not locate your account. If you are having issues try copying and pasting the URL from your email into your browser or restarting the reset password process."  
       redirect_to "/"
     end  
+  end
+  def may_require_no_user
+    if account_present? 
+      require_no_user
+    end
   end
 end
