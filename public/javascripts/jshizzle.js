@@ -167,7 +167,7 @@ jQuery.fn.edit_brief_item = function () {
       jQuery(this).parent().prev('h3').prepend('<a class="toggle_brief_edit" href="#'+jQuery(this).attr("id")+'">'+ link_on_state +'</a>');
       jQuery(this).parent().prev('h3').addClass('empty active');
       
-      jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').live('click', function () {
+      jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').click(function () {
         
         jQuery(this).parent().parent().find('.body').toggle();
         
