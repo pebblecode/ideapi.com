@@ -25,9 +25,10 @@
           =change_state_form.hidden_field '_call_state', :value => 'reactivate'
           = submit_tag "Reactivate", :class => 'remove_with_js'
           = link_to "Reactivate", "#", :class => 'show_with_js'
-    %li.delete-brief
-      -form_for current_object, :html => { :method => :delete, :id => 'brief_delete' } do |f|
-        =hidden_field_tag '_flash[notice]', 'Brief deleted', :id => 'brief_flash_notice'
-        = submit_tag "delete", :class => 'remove_with_js'
-        = link_to "delete", "#", :class => 'show_with_js'
+    -if owner?(current_object) and current_object.active?
+      %li.delete-brief
+        -form_for current_object, :html => { :method => :delete, :id => 'brief_delete' } do |f|
+          =hidden_field_tag '_flash[notice]', 'Brief deleted', :id => 'brief_flash_notice'
+          = submit_tag "delete", :class => 'remove_with_js'
+          = link_to "delete", "#", :class => 'show_with_js'
         
