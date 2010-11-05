@@ -50,10 +50,14 @@
       = brief_form.label :tag_field, "Tags:"
       = brief_form.text_field :tag_field, :value => current_object.tags_from(current_account)
     -if current_object.draft?
-      %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'    
+      
+      %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'
       %p.submit=brief_form.submit 'save draft'
     -else 
       %p.submit=brief_form.submit 'update'
+  - if current_object.draft?
+    -form_for current_object, :html => {:method => :delete } do |df|
+      %p.submit=df.submit 'delete', :confirm => 'Are you sure?'
   
   .clear
   .hr
