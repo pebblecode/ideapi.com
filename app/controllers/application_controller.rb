@@ -13,11 +13,4 @@ class ApplicationController < ActionController::Base
   require_dependency 'application/brief_security'
   
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
-  before_filter :set_current_user
-  
-  def set_current_user
-    if logged_in?
-      User.current = current_user
-    end
-  end
 end
