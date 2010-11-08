@@ -28,9 +28,18 @@ class Proposal < ActiveRecord::Base
     handle :publish! do
       self.published_at = Time.now
       stored_transition_to(:published)
-    end  
+    end
+    handle :approve! do 
+      nil
+    end
+    handle :drop! do 
+      nil
+    end
+    handle :needs_work! do 
+      nil
+    end
   end
-  
+    
   state :published do
     handle :needs_work! do
       stored_transition_to(:needs_work)
@@ -43,6 +52,10 @@ class Proposal < ActiveRecord::Base
     handle :drop! do
       stored_transition_to(:dropped)
     end
+    
+    handle :publish! do
+      nil
+    end
   end
   
   state :needs_work do
@@ -52,6 +65,12 @@ class Proposal < ActiveRecord::Base
     
     handle :drop! do
       stored_transition_to(:dropped)
+    end
+    handle :needs_work! do 
+      nil
+    end
+    handle :publish! do
+      nil
     end
   end
   
@@ -63,6 +82,12 @@ class Proposal < ActiveRecord::Base
     handle :drop! do
       stored_transition_to(:dropped)
     end
+    handle :approve! do
+      nil
+    end
+    handle :publish! do
+      nil
+    end
   end
   
   state :dropped do
@@ -72,6 +97,12 @@ class Proposal < ActiveRecord::Base
     
     handle :approve! do
       stored_transition_to(:approved)
+    end
+    handle :drop! do
+      nil
+    end
+    handle :publish! do
+      nil
     end
   end
   
@@ -113,22 +144,25 @@ class Proposal < ActiveRecord::Base
   
   def notify_if_state_changed
     if state_changed? && self.class.approval_state_names.include?(self.state.to_s)
-      # [DEPRECATED]
-      # NotificationMailer.deliver_user_idea_reviewed_on_brief(self) 
-
       # As this is now being processed by Resque we need to pass
       # the id as it gets processed by a worker
-      NotificationMailer.deliver_user_idea_reviewed_on_brief(self.id) unless self.user.pending? or self.draft?
+      begin
+        NotificationMailer.deliver_user_idea_reviewed_on_brief(self.id) unless self.user.pending? or self.draft?
+      rescue Errno::ECONNREFUSED
+        nil #maybe we should handle this properly
+      end
     end
   end
   
   def notify_approvers_of_idea_creation
     if state_changed? and (self.state_change | ['draft', :published] == self.state_change)
-      # [DEPRECATED]
-      # NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver, self)
       # As this is now being processed by Resque we need to pass
       # the id as it gets processed by a worker
-      NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver.id, self.id) unless self.approver.pending? or self.draft?
+      begin
+        NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver.id, self.id) unless self.approver.pending? or self.draft?
+      rescue Errno::ECONNREFUSED
+        nil #maybe we should handle this properly
+      end
     end
   end
   
