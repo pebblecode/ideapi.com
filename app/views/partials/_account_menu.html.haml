@@ -17,7 +17,7 @@
 - else
   #account-menu.logged-in 
     %a#account-button{:href => "/login"}
-      = @user.screename
+      = @user.full_name
       
     - if @user.accounts.present?  
       #account-contents
