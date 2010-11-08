@@ -7,7 +7,11 @@ class Brief < ActiveRecord::Base
   state :draft, :default => true do
     handle :publish! do
       stored_transition_to(:published)
-    end  
+    end
+    handle :complete! do nil end
+    handle :review! do nil end
+    handle :reactivate! do nil end
+    handle :archive! do nil end
   end
 
   state :published do
@@ -18,12 +22,19 @@ class Brief < ActiveRecord::Base
     handle :review! do
       stored_transition_to(:under_review)
     end
+    
+    handle :publish! do nil end
+    handle :reactivate! do nil end
+    handle :archive! do nil end
   end
 
   state :under_review do
     handle :complete! do
       stored_transition_to(:complete)
     end
+    handle :review! do nil end
+    handle :reactivate! do nil end
+    handle :archive! do nil end
   end
 
   state :complete do
@@ -34,6 +45,8 @@ class Brief < ActiveRecord::Base
     handle :archive! do
       stored_transition_to(:archived)
     end
+    handle :complete! do nil end
+    handle :review! do nil end
   end
 
   state :archived
