@@ -29,15 +29,9 @@ class Proposal < ActiveRecord::Base
       self.published_at = Time.now
       stored_transition_to(:published)
     end
-    handle :approve! do 
-      nil
-    end
-    handle :drop! do 
-      nil
-    end
-    handle :needs_work! do 
-      nil
-    end
+    handle :approve! do nil end
+    handle :drop! do nil end
+    handle :needs_work! do nil end
   end
     
   state :published do

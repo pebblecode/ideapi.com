@@ -45,7 +45,6 @@ class UserBrief < ActiveRecord::Base
     if(self.user == self.brief.author and self.brief.authors.count == 1)
       raise "A brief cannot be left without authors" if self.author == false
     end
-    logger.info(self.to_json)
     super
   end
   

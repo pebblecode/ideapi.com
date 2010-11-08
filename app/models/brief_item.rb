@@ -56,6 +56,10 @@ class BriefItem < ActiveRecord::Base
   def latest
     revisions.latest
   end
+  
+  def current_user
+    User.current
+  end
  
   # This provides the ability to see when brief items were changed 
   # via timeline_fu. There's probably a reason why this is on top of 
@@ -63,7 +67,7 @@ class BriefItem < ActiveRecord::Base
   # stored in two places
   # See timeline_fu - http://github.com/jamesgolick/timeline_fu 
   fires :brief_item_changed, :on => :update,
-                             :actor => 'author',
+                             :actor => 'current_user',
                              :subject => 'latest',
                              :secondary_subject => :self,
                              :log_level => 1,

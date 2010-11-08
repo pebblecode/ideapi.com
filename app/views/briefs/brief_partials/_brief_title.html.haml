@@ -1,14 +1,15 @@
 .title
   %h2.show
-    = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
+    = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit' if owner?(current_object) and current_object.active?
     =current_object.title
   -if current_user.owns?(current_object)
     .actions
       = link_to "Actions", "#", :class => "show-options-menu"
-  .inline-edit
-    - form_for current_object, :html => {:id => "brief_title_edit_#{current_object.id}"} do |brief_title_form|
-      %h2
-        = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
-        = hidden_field_tag 'render', 'brief_title'
-        = brief_title_form.text_field :title, :size => '60', :class => "inplace title", :id => "brief_title_form_#{current_object.id}_title"
-        = brief_title_form.submit 'submit', :id => "brief_title_form_#{current_object.id}_submit", :class => 'inline-edit-submit'
+  -if owner?(current_object) and current_object.active?
+    .inline-edit
+      - form_for current_object, :html => {:id => "brief_title_edit_#{current_object.id}"} do |brief_title_form|
+        %h2
+          = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
+          = hidden_field_tag 'render', 'brief_title'
+          = brief_title_form.text_field :title, :size => '60', :class => "inplace title", :id => "brief_title_form_#{current_object.id}_title"
+          = brief_title_form.submit 'submit', :id => "brief_title_form_#{current_object.id}_submit", :class => 'inline-edit-submit'

@@ -174,7 +174,8 @@ input.smartTextBox-input-elem-valueInput {
   float: right;
   width: 20px; }
 .revision-body form.delete-item-revision {
-  margin: 0 !important; }
+  margin: 0 !important;
+  width: 30px; }
   .revision-body form.delete-item-revision input {
     display: none; }
 

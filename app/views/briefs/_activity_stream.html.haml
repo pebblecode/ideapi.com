@@ -8,7 +8,6 @@
           =render :partial => 'briefs/brief_item_version', :locals => {:subject => event.subject, :object => event, :current_object => @brief}
   .question_form
     =medium_avatar
-    - logger.info(brief_item.brief)
     -current_object = brief_item.brief
     - form_for(@user_question, :url => brief_questions_path(current_object), :html => { :id => "new_user_question_#{brief_item.id}"}) do |f|
       = render :partial => "briefs/question_form", :locals => {:f => f, :brief_item => brief_item}
