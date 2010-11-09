@@ -58,7 +58,7 @@ class Comment < ActiveRecord::Base
         NotificationMailer.deliver_new_comment_on_idea(self.id, idea_recipients) if idea_recipients.present?
       end
     rescue Errno::ECONNREFUSED
-      raise "Could not send email"
+      nil
     end
   end
   
