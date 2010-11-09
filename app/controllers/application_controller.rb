@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     begin
       User.current = current_user if logged_in?
     rescue
-      logger.info('not logged in / no current account')
+      nil
     end
   end
 end

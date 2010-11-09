@@ -1,5 +1,5 @@
 class SubscriptionAdmin::TemplateQuestionsController < ApplicationController
-  
+  before_filter :reject_unauthorized_hosts
   # include ModelControllerMethods
   include AdminControllerMethods
     

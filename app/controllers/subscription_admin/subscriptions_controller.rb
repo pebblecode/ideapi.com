@@ -1,6 +1,7 @@
 class SubscriptionAdmin::SubscriptionsController < ApplicationController
   include ModelControllerMethods
   include AdminControllerMethods
+  before_filter :reject_unauthorized_hosts
   
   def index
     @stats = SubscriptionPayment.stats if params[:page].blank?

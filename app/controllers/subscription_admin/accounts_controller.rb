@@ -4,6 +4,7 @@ class SubscriptionAdmin::AccountsController < ApplicationController
   
   before_filter :load_templates, :only => [:edit, :update]
   before_filter :build_template, :only => [:edit]
+  before_filter :reject_unauthorized_hosts
   
   def index
     @accounts = Account.paginate(:include => :subscription, :page => params[:page], :per_page => 30, :order => 'accounts.name')
