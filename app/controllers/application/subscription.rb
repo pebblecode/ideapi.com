@@ -54,6 +54,7 @@ class ApplicationController < ActionController::Base
   
   def reject_unauthorized_hosts
     admin_authorized_hosts = ['78.86.163.223', '127.0.0.1']
+    logger.info(request.remote_ip)
     not_found unless admin_authorized_hosts.include?(request.remote_ip)
   end
 end
