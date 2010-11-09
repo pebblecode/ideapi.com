@@ -308,6 +308,7 @@ span.timestamp{
 #comments_area{
   .delete_comment_form{
     float: right;
+    display: none;
     .comment-delete{
       background: transparent url('/images/ui/cross-button.png') no-repeat 0 0 ;
       text-indent: -9999px;
