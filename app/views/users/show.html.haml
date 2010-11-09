@@ -2,47 +2,44 @@
   =breadcrumb_list
 
 .col_1
+  - if current_object.blank?
+    %h3 User does not exist
+  - else
+    %h2=name_or_screename(current_object).titleize
   
-  %h2=name_or_screename(current_object).titleize
-  
-  .boom_box
+    .boom_box
 
-    %div[current_object]
-      =large_avatar(current_object)
+      %div[current_object]
+        =large_avatar(current_object)
 
-      %p
-        %strong Nickname:
-        =current_object.screename
+        %p
+          %strong Nickname:
+          =current_object.screename
 
-      %p
-        %strong Name:
-        -if current_object.full_name.present?
-          =current_object.full_name.titleize
-        -else
-          unknown
+        %p
+          %strong Name:
+          -if current_object.full_name.present?
+            =current_object.full_name.titleize
+          -else
+            unknown
       
-      %p
-        %strong Email:
-        =mail_to(current_object.email)        
+        %p
+          %strong Email:
+          =mail_to(current_object.email)        
       
-      -%w(job_title telephone telephone_ext).each do |extra|
+        -%w(job_title telephone telephone_ext).each do |extra|
 
-        -if current_object.send(extra).present?
-          %p
-            %strong
-              = succeed ':' do
-                = extra.titleize
-            =current_object.send(extra)
+          -if current_object.send(extra).present?
+            %p
+              %strong
+                = succeed ':' do
+                  = extra.titleize
+              =current_object.send(extra)
         
       
-      -if current_object == current_user
-        %p.edit= link_to 'Edit', edit_user_path(current_user)
+        -if current_object == current_user
+          %p.edit= link_to 'Edit', edit_user_path(current_user)
         
-      .clear
-  
--#  -if current_object == current_user
--#    %p 
--#      Know someone who might like an ideapi account? 
--#      = link_to 'Send us an email', "#beta_feedback" 
-              
+        .clear
+        
 .col_2.profile
