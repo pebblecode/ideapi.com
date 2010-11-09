@@ -3,7 +3,7 @@
   %div[comment]
     =small_avatar(comment.user)
     .speech
-      -if comment.user == current_user or current_object.author == current_user
+      -if comment.user == current_user or owner?(current_object)
         - form_for comment, :html => {:method => :delete, :class => "delete_comment_form" } do |form|
           = form.submit 'delete', :class => 'comment-delete ajaxify', :id => "delete_comment_#{comment.id}_submit"
       %p
