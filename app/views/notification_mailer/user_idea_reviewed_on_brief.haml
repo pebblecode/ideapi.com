@@ -1,0 +1,11 @@
+- @brief = @proposal.brief
+:plain
+  Account : #{@brief.account.name}
+  Brief   : #{truncate(@brief.title, :length => 40)}
+  Link    : #{brief_proposal_url(@brief, @proposal, :host => @brief.account.full_domain)}
+  
+  Your idea “#{@proposal.title}” has been reviewed by #{@proposal.approver.full_name}.
+  
+  Status: #{@proposal.state.to_s.humanize}
+
+=render :partial => 'footer'

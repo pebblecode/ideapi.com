@@ -1,8 +1,8 @@
-:plain 
+:plain
   Account : #{@brief.account.name}
   Brief   : #{truncate(@brief.title, :length => 40)}
   Link    : #{brief_url(@brief, :host => @brief.account.full_domain)}
 
-  Your role has been changed to #{@user_brief.role} on the brief “#{@brief.title}” #{'by ' + @user_brief.added_by_user.full_name if @user_brief.added_by_user.present?}
+  You've been made an approver on the brief #{@brief.title}
 
 =render :partial => 'footer'

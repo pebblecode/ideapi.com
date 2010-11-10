@@ -18,6 +18,7 @@ Rails::Initializer.run do |config|
   config.gem 'resque_mailer'
   config.gem 'SystemTimer', :lib => 'system_timer'
   config.gem "rdiscount", :source => 'http://gemcutter.org' # For Markdown
+  config.gem "aws-s3", :lib => "aws/s3" 
   
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 

@@ -1,7 +1,0 @@
-- @brief = @proposal.brief
-:plain
-  Account: #{@brief.account.name}
-  Brief: #{truncate(@brief.title, :length => 40)}
-  Link: #{brief_proposal_url(:id => @proposal.id, :brief_id => @brief.id, :host => @brief.account.full_domain)}
-
-  #{@proposal.user.full_name.capitalize} has submitted an idea “#{@proposal.title}” for your review.

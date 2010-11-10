@@ -1,0 +1,12 @@
+- @brief = @comment.commentable
+:plain
+  Account : #{@brief.account.name}
+  Brief   : #{truncate(@brief.title, :length => 40)}
+  Link    : #{brief_url(@brief, :host => @brief.account.full_domain)}
+
+  A comment has been left on the brief "#{@comment.commentable.title}" by #{@comment.user.full_name}.
+  
+  #{@comment.user.full_name} wrote:
+  "#{@comment.comment}"
+
+=render :partial => 'footer'

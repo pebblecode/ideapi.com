@@ -49,5 +49,5 @@ Haml::Template.options[:ugly] = true
 #   Bullet.disable_browser_cache = true
 # end
 
-# config.action_mailer.delivery_method = :sendmail
+config.action_mailer.delivery_method = :sendmail
 Paperclip.options[:command_path] = '/usr/local/bin'

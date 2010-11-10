@@ -10,9 +10,9 @@ class NotificationMailer < ActionMailer::Base
   
   def email_address(account_name, simple = false)
     if simple
-      "support@ideapi.com"
+      "no-reply@ideapi.com"
     else
-      "#{account_name} <support@ideapi.com>"
+      "#{account_name} <no-reply@ideapi.com>"
     end
   end
   
