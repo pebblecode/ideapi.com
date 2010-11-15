@@ -16,7 +16,18 @@
     %li Approve
   
   #homepage-footer
-    %h2 What our Customers think...
+    = link_to "Try it for free. Signup in seconds", "/signup", :class => "try-button try-button-secondary"
+    %h2 Who is ideapi for?
+    %ul 
+      %li Creative agencies
+      %li Lawyers
+      %li Service providers 
+      %li Consultancies
+      %li Recruitment agencies / headhunters
+      %li Educational institutions, business schools
+      %li Any group of people that needs to collaborate on documents and ideas.
+      %li
+        =link_to "More info", "http://blog.ideapi.com/post/1544447885/who-is-ideapi-for"
     // #why-ideapi
     //   %h2 Why ideapi?      
     //   %ul
@@ -26,7 +37,6 @@
     //     %li Manage multiple stakeholders.
     //     %li Keep everyone up to speed on projects real time.        
   
-    = link_to "Try it for free. Signup in seconds", "/signup", :class => "try-button try-button-secondary"
     
     #testimonials
       %h3 Breaking International Barriers!

@@ -1,40 +1,86 @@
-/* variables */
-/* mixins */
-/* Homepage */
-.home-page .try-button-primary {
-  top: 148px; }
+/*
+Syntax error: Invalid CSS after "  padding-left": expected ";", was ": 40px"
+        on line 50 of /Users/george/Sites/ideapi/public/stylesheets/sass/marketing_ie7.scss
 
-/* Navigation */
-ul.navigation li a, ul.navigation li span {
-  padding-top: 10px;
-  padding-bottom: 10px; }
+45: #content #homepage-footer ul {
+46:   border: 1px solid #000
+47: }
+48: #content #homepage-footer ul li {
+49:   width: 150px !important
+50:   padding-left: 40px
+51: }
+52: /* FAQ */
+53: .faq-page #contents {
+54:   padding: 20px 5px 5px;
+55: }
 
-/* Account menu */
-#account-menu {
-  padding-bottom: 5px; }
-  #account-menu fieldset#account-contents {
-    padding-bottom: 0;
-    margin-bottom: -10px; }
-
-/* Content */
-#content #testimonials h2 {
-  padding-top: 25px; }
-#content #testimonials .listing {
-  margin-top: 40px; }
-
-#content #homepage-footer #testimonials .body {
-  margin-top: 15px; }
-
-/* FAQ */
-.faq-page #contents {
-  padding: 20px 5px 5px; }
-
-/* Blog */
-.blog #sidebar h1 {
-  margin-top: 20px; }
-.blog #sidebar .social-links {
-  margin-top: 15px; }
-
-/* Footer */
-#footer #footer-content-right .social-links {
-  margin-top: 3px; }
+Backtrace:
+/Users/george/Sites/ideapi/public/stylesheets/sass/marketing_ie7.scss:50
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:821:in `expected'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:796:in `expected'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:792:in `tok!'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:374:in `declaration_or_ruleset'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:340:in `block_child'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:330:in `block_contents'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:322:in `block'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:316:in `ruleset'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:339:in `block_child'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:333:in `block_contents'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:57:in `stylesheet'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/scss/parser.rb:26:in `parse'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/engine.rb:205:in `_to_tree'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/engine.rb:178:in `to_tree'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/lib/haml/util.rb:289:in `silence_haml_warnings'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/engine.rb:178:in `to_tree'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/files.rb:44:in `tree_for'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:220:in `update_stylesheet'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:85:in `update_stylesheets'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:78:in `each'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:78:in `update_stylesheets'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:76:in `each'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:76:in `update_stylesheets'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:50:in `check_for_updates'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@global/gems/haml-3.0.21/rails/../lib/sass/plugin/rack.rb:40:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/george/Sites/ideapi/vendor/gems/hoptoad_notifier-2.2.2/lib/hoptoad_notifier/rack.rb:27:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/george/.rvm/gems/ree-1.8.7-2010.02@ideapi/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/utils.rb:479:in `safe_fork'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server.rb:180:in `start'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+/Users/george/.passenger/standalone/3.0.0-x86_64-ruby1.8.7-macosx-10.6/support/helper-scripts/passenger-spawn-server:99
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"  padding-left\": expected \";\", was \": 40px\"\A         on line 50 of /Users/george/Sites/ideapi/public/stylesheets/sass/marketing_ie7.scss\A \A 45: #content #homepage-footer ul {\A 46:   border: 1px solid #000\A 47: }\A 48: #content #homepage-footer ul li {\A 49:   width: 150px !important\A 50:   padding-left: 40px\A 51: }\A 52: /* FAQ */\A 53: .faq-page #contents {\A 54:   padding: 20px 5px 5px;\A 55: }"; }

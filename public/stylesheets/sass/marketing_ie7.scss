@@ -42,7 +42,13 @@ ul.navigation li {
 #content #homepage-footer #testimonials .body {
   margin-top: 15px;
 }
-
+#content #homepage-footer ul {
+  border: 1px solid #000
+}
+#content #homepage-footer ul li {
+  width: 150px !important
+  padding-left: 40px
+}
 /* FAQ */
 .faq-page #contents {
   padding: 20px 5px 5px;

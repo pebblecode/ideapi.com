@@ -556,6 +556,22 @@ img {
   #content #homepage-footer {
     position: relative;
     overflow: auto; }
+    #content #homepage-footer h2 {
+      margin-bottom: 0.25em; }
+    #content #homepage-footer ul {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+      font-size: 1.333em;
+      float: left;
+      margin-bottom: 1.5em; }
+      #content #homepage-footer ul li {
+        width: 350px;
+        margin-bottom: 0.5em;
+        float: left;
+        display: inline;
+        padding-left: 40px;
+        background: url("/images/bullet_arrow.png") center left no-repeat; }
     #content #homepage-footer #why-ideapi {
       float: left;
       width: 456px;
@@ -580,6 +596,7 @@ img {
       right: 0;
       top: 30px; }
     #content #homepage-footer #testimonials {
+      clear: both;
       border-radius: 10px;
       -moz-border-radius: 10px;
       -webkit-border-radius: 10px;

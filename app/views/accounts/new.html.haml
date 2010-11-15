@@ -2,6 +2,7 @@
 
   %h2 Create an account
 
+  %div.signup-form
   -form_tag :action => 'create' do
     = hidden_field_tag 'plan', params[:plan] || @freeplan.id
     :markdown
@@ -92,3 +93,29 @@
           = @account.plan.renewal_period == 1 ? 'every month' : "every #{@account.plan.renewal_period} months."
         
       %p.second-column= submit_tag 'Create my account'
+.col_2
+  .side_box
+    %h2 FAQs
+    .signup-faqs
+      %p 
+        %strong
+          How long will the free trial last?
+      %p
+        We are committed to always offering a free plan on ideapi.com
+
+      %p 
+        %strong
+          When are you going to start charging for ideapi?
+      %p 
+        Right now we're busy working on new features, and have no immediate plans to start charging users. There will be plenty of notice for higher usage users when we do introduce paid plans, and we're committed to providing a free plan.
+
+      %p 
+        %strong
+          How much will it cost?
+      %p 
+        ideapi pricing be comparable to other web-based tools with similar functionality sets.
+      %p 
+        %strong
+          If you were to have a paid subscription what would you get on top of the free plan?
+      %p 
+        It's likely that paid plans will be differentiated on the number of collaborating users and/or brief documents that can be created.

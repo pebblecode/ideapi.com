@@ -919,6 +919,11 @@ ul.error_messages li p {
       padding: 5px 10px;
       font-size: 1em;
       color: #555555; }
+  #container #content .col_2 .side_box .signup-faqs {
+    border: 1px solid #cccccc;
+    border-top: 0;
+    padding: 7px;
+    font-size: 0.9em; }
   #container #content .col_2 .side_box .contents {
     border: 1px solid #cccccc;
     border-top: 0;
