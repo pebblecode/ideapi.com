@@ -51,7 +51,7 @@ class Brief < ActiveRecord::Base
   
   def notify_if_approver_changed
     begin
-      NotificationMailer.deliver_user_made_approver_on_brief(self.id) if approver_id_changed? and not self.approver.pending?
+      NotificationMailer.deliver_user_made_approver_on_brief(self.id) if approver_id_changed? and not self.approver.pending? and not User.current == approver
     rescue Errno::ECONNREFUSED
       nil
     end

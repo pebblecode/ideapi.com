@@ -32,7 +32,7 @@ Haml::Template.options[:ugly] = true
 #   :user_name => "dev@ideapi.net",
 #   :password => "createarevolution$"
 # }
-
+config.action_mailer.delivery_method = :sendmail
 
 # config.gem 'bullet', :source => 'http://gemcutter.org'
 # config.after_initialize do
