@@ -7,19 +7,17 @@ RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem "haml"
-  config.gem "authlogic"
-  config.gem "alter-ego", :lib => "alter_ego"
-  config.gem "will_paginate", :lib => "will_paginate"
-  config.gem "RedCloth"
-  config.gem "acts-as-taggable-on", :source => "http://gemcutter.org", :version => '2.0.0.rc1'
-  config.gem 'hoptoad_notifier'
-  config.gem 'resque' 
-  config.gem 'resque_mailer'
-  config.gem 'SystemTimer', :lib => 'system_timer'
-  config.gem "rdiscount", :source => 'http://gemcutter.org' # For Markdown
-  config.gem "aws-s3", :lib => "aws/s3" 
-  
+  # config.gem "haml"
+  # config.gem "authlogic"
+  # config.gem "alter-ego", :lib => "alter_ego"
+  # config.gem "will_paginate", :lib => "will_paginate"
+  # config.gem "RedCloth"
+  # config.gem "acts-as-taggable-on", :source => "http://gemcutter.org", :version => '2.0.0.rc1'
+  # config.gem 'hoptoad_notifier'
+  # config.gem 'resque' 
+  # config.gem 'resque_mailer'
+  # config.gem 'SystemTimer', :lib => 'system_timer'
+  # config.gem "rdiscount", :source => 'http://gemcutter.org' # For Markdown  
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
   # Skip frameworks
