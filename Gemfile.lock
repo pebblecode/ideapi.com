@@ -1,0 +1,112 @@
+GIT
+  remote: http://github.com/mislav/will_paginate.git
+  revision: 260c1c45ed8c31917614710015a9dcab7981943a
+  specs:
+    will_paginate (2.3.15)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    RedCloth (4.2.3)
+    SystemTimer (1.2.1)
+    actionmailer (2.3.8)
+      actionpack (= 2.3.8)
+    actionpack (2.3.8)
+      activesupport (= 2.3.8)
+      rack (~> 1.1.0)
+    activerecord (2.3.8)
+      activesupport (= 2.3.8)
+    activeresource (2.3.8)
+      activesupport (= 2.3.8)
+    activesupport (2.3.8)
+    acts-as-taggable-on (2.0.0.rc1)
+    alter-ego (1.0.1)
+      fail-fast (~> 1.1.0)
+      hookr (~> 1.0.0)
+    authlogic (2.1.6)
+      activesupport
+    builder (3.0.0)
+    capistrano (2.5.19)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.0.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
+    fail-fast (1.1.0)
+    faker (0.3.1)
+    haml (3.0.24)
+    highline (1.6.1)
+    hookr (1.0.1)
+      fail-fast (>= 1.0.0)
+    hoptoad_notifier (2.3.12)
+      activesupport
+      builder
+    json (1.4.6)
+    machinist (1.0.6)
+    mysql (2.8.1)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.0.23)
+    net-ssh-gateway (1.0.1)
+      net-ssh (>= 1.99.1)
+    nokogiri (1.4.4)
+    rack (1.1.0)
+    rack-test (0.5.6)
+      rack (>= 1.0)
+    rails (2.3.8)
+      actionmailer (= 2.3.8)
+      actionpack (= 2.3.8)
+      activerecord (= 2.3.8)
+      activeresource (= 2.3.8)
+      activesupport (= 2.3.8)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    rdiscount (1.6.5)
+    redis (2.1.1)
+    redis-namespace (0.8.0)
+      redis (< 3.0.0)
+    resque (1.10.0)
+      json (~> 1.4.6)
+      redis-namespace (~> 0.8.0)
+      sinatra (>= 0.9.2)
+      vegas (~> 0.1.2)
+    resque_mailer (1.0.0)
+    shoulda (2.11.3)
+    sinatra (1.1.0)
+      rack (~> 1.1)
+      tilt (~> 1.1)
+    tilt (1.1)
+    vegas (0.1.8)
+      rack (>= 1.0.0)
+    webrat (0.7.2)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  RedCloth
+  SystemTimer
+  acts-as-taggable-on (= 2.0.0.rc1)
+  alter-ego
+  authlogic
+  capistrano
+  capistrano-ext
+  faker
+  haml
+  hoptoad_notifier
+  machinist
+  mysql
+  rails (= 2.3.8)
+  rdiscount
+  resque
+  resque_mailer
+  shoulda
+  webrat
+  will_paginate!
