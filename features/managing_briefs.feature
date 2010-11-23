@@ -44,7 +44,8 @@ Feature: Managing briefs
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
         When I go to the dashboard 
         And I follow "Advert brief"
-        And I follow "edit"
+        Then I follow "Actions"
+        And I follow "Edit brief"
         And I fill in "brief_most_important_message" with "New most important message"
         And I press "update"
         Then I should see "Brief was successfully edited"

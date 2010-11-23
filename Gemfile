@@ -21,9 +21,9 @@ gem 'ci_reporter'
 
 group :staging do 
   gem "faker"
-  gem "shoulda"
+  gem "shoulda", "2.10.3"
   gem "machinist"
-  gem "webrat"
+  gem "webrat", "0.7.0"
   gem "cucumber"
 end
 
@@ -32,9 +32,11 @@ group :test do
   gem "shoulda", "2.10.3"
   gem "machinist"
   gem "webrat", "0.7.0"
+  gem "gherkin"
+  gem "cucumber"
   gem "cucumber-rails"
   gem "spork"
-  gem "capybara"
+  gem "capybara", "0.3.9"
   gem 'rspec-rails'
   gem "factory_girl"
   gem 'email_spec', "0.6.2"
@@ -42,4 +44,5 @@ group :test do
   gem 'test-unit'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'ruby-debug'
 end

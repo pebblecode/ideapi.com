@@ -9,19 +9,13 @@ module NavigationHelpers
     case page_name
 
     when /the home\s?page/
-      '/'
-
+      "http://#{Capybara.app_host}"
     when /the sign\s?up page/ 
       plans_path      
     when /the dashboard/
       dashboard_path
-      
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
-
+    when /the account subdomain/
+      "http://#{@account.full_domain}"
     else
       begin
         page_name =~ /the (.*) page/
