@@ -12,15 +12,34 @@ gem 'authlogic'
 gem 'will_paginate', :git => "http://github.com/mislav/will_paginate.git", :require => 'will_paginate'
 gem 'acts-as-taggable-on', '2.0.0.rc1'
 gem 'SystemTimer'
-gem "alter-ego"
+gem "alter-ego", :require => "alter_ego"
 gem "RedCloth"
 gem 'hoptoad_notifier'
 gem "rdiscount"
-gem 'aws-s3', :git => "https://github.com/marcel/aws-s3.git", :require => "aws/s3"
+gem 'aws-s3', :require => "aws/s3"
+gem 'ci_reporter'
 
-group :test do 
+group :staging do 
   gem "faker"
   gem "shoulda"
   gem "machinist"
   gem "webrat"
+  gem "cucumber"
+end
+
+group :test do 
+  gem "faker"
+  gem "shoulda", "2.10.3"
+  gem "machinist"
+  gem "webrat", "0.7.0"
+  gem "cucumber-rails"
+  gem "spork"
+  gem "capybara"
+  gem 'rspec-rails'
+  gem "factory_girl"
+  gem 'email_spec', "0.6.2"
+  gem 'rspec'
+  gem 'test-unit'
+  gem 'database_cleaner'
+  gem 'launchy'
 end

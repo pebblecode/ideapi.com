@@ -10,6 +10,7 @@ Rails::Initializer.run do |config|
   # config.gem "haml"
   # config.gem "authlogic"
   # config.gem "alter-ego", :lib => "alter_ego"
+  
   # config.gem "will_paginate", :lib => "will_paginate"
   # config.gem "RedCloth"
   # config.gem "acts-as-taggable-on", :source => "http://gemcutter.org", :version => '2.0.0.rc1'
@@ -28,6 +29,7 @@ Rails::Initializer.run do |config|
 
   # Set Time.zone 
   config.time_zone = 'London'
+  require "alter_ego"
 end
 
 # override the default rails error wrapper (div) until this patch gets applied
