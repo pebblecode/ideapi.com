@@ -19,7 +19,6 @@ gem "rdiscount"
 gem 'aws-s3', :require => "aws/s3"
 gem 'ci_reporter'
 
-
 group :staging do 
   gem "faker"
   gem "shoulda", "2.10.3"
