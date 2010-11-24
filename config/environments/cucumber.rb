@@ -29,4 +29,4 @@ config.gem 'spork',            :lib => false, :version => '>=0.7.5' unless File.
 
 # Load factories in 
 config.gem 'factory_girl', :lib => false
-
+APPLICATION_URL = "http://smackaho.st/"
