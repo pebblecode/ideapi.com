@@ -68,15 +68,34 @@
 #briefs.show #content{
   .toggle-inline-edit{
     display: block;
-    margin-right: 5px;
     font-weight: normal;
+    float: right;
+    margin-right: 5px;
   }
   .title{
-    .toggle-inline-edit{
-      display: none;
-      float: left;
-      margin-right: 5px;
+    h2{
+      position: static;
     }
+    .toggle-inline-edit{
+      display: block;
+      color: #333;
+      text-shadow: none;
+      margin-left: 5px;
+      margin-right: 0px;
+    }
+    .show{
+      .toggle-inline-edit{
+        display: none;
+      }
+    }
+    &:hover{
+      .show{
+        .toggle-inline-edit{
+          display: block;
+        }
+      }
+    }
+    
   }
   
   .edit{
@@ -120,6 +139,8 @@
     &:hover{
       .toggle-inline-edit{
         display: block;
+        margin-right: 1em;
+        margin-top: 0.5em;
       }
     }
     .toggle-inline-edit{

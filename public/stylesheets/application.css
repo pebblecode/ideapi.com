@@ -1214,7 +1214,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
     background: #b3d335;
     color: #32401a;
     font-size: 1.2em;
-    padding: 1em 70px 1em 1.8em;
+    padding: 1em 50px 1em 1.8em;
     position: relative;
     text-shadow: 0 1px 1px white;
     -moz-border-radius-topright: 6px;
@@ -1224,7 +1224,7 @@ span.field_with_errors input, span.field_with_errors input:focus {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px; }
     #container #content .brief h2.show, #container #content .proposal h2.show, #container #content .brief_list h2.show {
-      padding: 1em 130px 1em 1.8em; }
+      padding: 1em 50px 1em 1.8em; }
   #container #content .brief .title, #container #content .proposal .title, #container #content .brief_list .title {
     position: relative; }
   #container #content .brief div.actions, #container #content .proposal div.actions, #container #content .brief_list div.actions {
@@ -2024,9 +2024,9 @@ ul.error_messages li p {
   #container #content .invitations th, #container #content .friends th {
     background: #dddddd;
     border-bottom: 1px solid #cccccc; }
-  #container #content .invitations tr:nth-child(even), #container #content .friends tr:nth-child(even) {
+  #container #content .invitations tr:nth-child(even), #container #content .invitations tr.even, #container #content .friends tr:nth-child(even), #container #content .friends tr.even {
     background: #e4e4e4; }
-  #container #content .invitations tr:nth-child(odd), #container #content .friends tr:nth-child(odd) {
+  #container #content .invitations tr:nth-child(odd), #container #content .invitations tr.odd, #container #content .friends tr:nth-child(odd), #container #content .friends tr.odd {
     background: #eeeeee; }
 #container #content .profile .invite_users {
   margin-top: 4.8em; }
@@ -2549,12 +2549,21 @@ ul#notifications {
 
 #briefs.show #content .toggle-inline-edit {
   display: block;
-  margin-right: 5px;
-  font-weight: normal; }
-#briefs.show #content .title .toggle-inline-edit {
-  display: none;
-  float: left;
+  font-weight: normal;
+  float: right;
   margin-right: 5px; }
+#briefs.show #content .title h2 {
+  position: static; }
+#briefs.show #content .title .toggle-inline-edit {
+  display: block;
+  color: #333;
+  text-shadow: none;
+  margin-left: 5px;
+  margin-right: 0px; }
+#briefs.show #content .title .show .toggle-inline-edit {
+  display: none; }
+#briefs.show #content .title:hover .show .toggle-inline-edit {
+  display: block; }
 #briefs.show #content .edit p.submit {
   text-align: right;
   margin-top: 5px; }
@@ -2580,7 +2589,9 @@ ul#notifications {
     height: 17px;
     width: 40em; }
 #briefs.show #content .section:hover .toggle-inline-edit {
-  display: block; }
+  display: block;
+  margin-right: 1em;
+  margin-top: 0.5em; }
 #briefs.show #content .section .toggle-inline-edit {
   display: none;
   position: absolute;

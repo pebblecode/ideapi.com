@@ -384,12 +384,12 @@ span.field_with_errors {
         background: #b3d335;
         color: #32401a;
         font-size: 1.2em;
-        padding: 1em 70px 1em 1.8em;
+        padding: 1em 50px 1em 1.8em;
         position: relative;
         text-shadow: 0 1px 1px white;
         @include rounded-top-6px;
         &.show {
-          padding: 1em 130px 1em 1.8em; } }
+          padding: 1em 50px 1em 1.8em; } }
       .title {
         position: relative; }
       div.actions {
@@ -1210,9 +1210,9 @@ ul.error_messages {
       th {
         background: #dddddd;
         border-bottom: 1px solid #cccccc; }
-      tr:nth-child(even) {
+      tr:nth-child(even), tr.even {
         background: #e4e4e4; }
-      tr:nth-child(odd) {
+      tr:nth-child(odd), tr.odd {
         background: #eeeeee; } }
     .profile {
       .invite_users {

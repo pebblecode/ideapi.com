@@ -68,6 +68,27 @@ input[type=text] {
 
 /*BRIEFS*/
 #container #content .main .col_1{
+  
+  .title{
+    overflow: hidden;
+    a{ height: 1px;}
+    h2{
+      position: static;
+    }
+    &:hover{
+      .toggle-inline-edit{
+        height: 5px;
+        display: block;
+        float: right;
+        margin-right: 50px;
+        margin-top: -35px;
+      }
+    }
+    .toggle-inline-edit{
+      display: none;
+    }
+  }
+  
   .most_important_thing{
     position: relative;
     .edit{
@@ -335,4 +356,8 @@ input.smartTextBox-input-elem-valueInput{
 
 .close-button{
   border: none !important;
+}
+
+.clear{
+  clear: both;
 }

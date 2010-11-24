@@ -40,6 +40,20 @@ input[type=text] {
   display: none; }
 
 /*BRIEFS*/
+#container #content .main .col_1 .title {
+  overflow: hidden; }
+  #container #content .main .col_1 .title a {
+    height: 1px; }
+  #container #content .main .col_1 .title h2 {
+    position: static; }
+  #container #content .main .col_1 .title:hover .toggle-inline-edit {
+    height: 5px;
+    display: block;
+    float: right;
+    margin-right: 50px;
+    margin-top: -35px; }
+  #container #content .main .col_1 .title .toggle-inline-edit {
+    display: none; }
 #container #content .main .col_1 .most_important_thing {
   position: relative; }
   #container #content .main .col_1 .most_important_thing .edit {
@@ -198,3 +212,6 @@ input.smartTextBox-input-elem-valueInput {
 
 .close-button {
   border: none !important; }
+
+.clear {
+  clear: both; }

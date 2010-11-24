@@ -1747,12 +1747,21 @@ ul#notifications {
 
 #briefs.show #content .toggle-inline-edit {
   display: block;
-  margin-right: 5px;
-  font-weight: normal; }
-#briefs.show #content .title .toggle-inline-edit {
-  display: none;
-  float: left;
+  font-weight: normal;
+  float: right;
   margin-right: 5px; }
+#briefs.show #content .title h2 {
+  position: static; }
+#briefs.show #content .title .toggle-inline-edit {
+  display: block;
+  color: #333;
+  text-shadow: none;
+  margin-left: 5px;
+  margin-right: 0px; }
+#briefs.show #content .title .show .toggle-inline-edit {
+  display: none; }
+#briefs.show #content .title:hover .show .toggle-inline-edit {
+  display: block; }
 #briefs.show #content .edit p.submit {
   text-align: right;
   margin-top: 5px; }
@@ -1778,7 +1787,9 @@ ul#notifications {
     height: 17px;
     width: 40em; }
 #briefs.show #content .section:hover .toggle-inline-edit {
-  display: block; }
+  display: block;
+  margin-right: 1em;
+  margin-top: 0.5em; }
 #briefs.show #content .section .toggle-inline-edit {
   display: none;
   position: absolute;

@@ -33,7 +33,7 @@
       
       - f.fields_for :account_users do |account_user|
         - if account_user.object.user
-          %tr
+          %tr{:class => cycle('even', 'odd')}
             %td
               =user_link(account_user.object.user)
               -if account_user.object.user.pending? and admin?

@@ -13,15 +13,23 @@
       
   %div[current_object]
     = render :partial => 'briefs/brief_partials/brief_title', :locals => { :brief => current_object } 
+    .clear
+      // comment clear
     - if current_user.owns?(current_object)
       = render :partial => 'brief_options_menu', :locals => {:object => current_object}
+      .clear
+        // comment clear
     #brief-tags
       - form_for(current_object, :html => { :method => :put, :id => 'inline_brief_tags_form' }) do |brief_form|
         = brief_form.label :tag_field, "Tags:"
         = brief_form.text_field :tag_field, :value => current_object.tags_from(current_account)
         = brief_form.submit "save tags", :class => "inline-submit", :id => 'inline_brief_tags_submit'
+        .clear
+          / comment clear
     
     = render :partial => 'briefs/brief_partials/most_important_thing'
+    .clear
+      / comment clear
     -if current_object.brief_items_answered.empty?
       %p This document is empty
     -else
