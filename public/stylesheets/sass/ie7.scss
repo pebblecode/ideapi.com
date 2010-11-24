@@ -62,8 +62,32 @@ input[type=text] {
   }
 }
 
+#brief-tags{
+  display: none;
+}
+
 /*BRIEFS*/
 #container #content .main .col_1{
+  .most_important_thing{
+    position: relative;
+    .edit{
+      position: relative;
+      .left{
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+      
+      }
+      .right{
+        position: absolute;
+        right: 20px;
+        bottom: 40px;
+        display: block;
+      
+      }
+    }
+  }
   .brief_item_history li{
     border: 1px solid $activity_bg_color;
   }
@@ -253,6 +277,7 @@ input.smartTextBox-input-elem-valueInput{
 
 #briefs #content .edit_brief{
   .most_important_thing{
+
     p{
       display: inline;
     }

@@ -68,18 +68,12 @@
 #briefs.show #content{
   .toggle-inline-edit{
     display: block;
-    background: url('/images/ui/edit-green.png') 0 0;
-    width: 18px;
-    height: 18px;
-    text-indent: -9999px;
-    &:hover{
-      background-position: -18px 0;
-    }
+    margin-right: 5px;
+    font-weight: normal;
   }
   .title{
     .toggle-inline-edit{
-      background: url('/images/ui/edit-white.png') 0 0;
-      display: block;
+      display: none;
       float: left;
       margin-right: 5px;
     }

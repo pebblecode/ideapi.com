@@ -36,7 +36,24 @@ input[type=text] {
   .speech .bubble, .revision-body .bubble {
     display: none !important; }
 
+#brief-tags {
+  display: none; }
+
 /*BRIEFS*/
+#container #content .main .col_1 .most_important_thing {
+  position: relative; }
+  #container #content .main .col_1 .most_important_thing .edit {
+    position: relative; }
+    #container #content .main .col_1 .most_important_thing .edit .left {
+      display: block;
+      position: absolute;
+      left: 20px;
+      top: 10px; }
+    #container #content .main .col_1 .most_important_thing .edit .right {
+      position: absolute;
+      right: 20px;
+      bottom: 40px;
+      display: block; }
 #container #content .main .col_1 .brief_item_history li {
   border: 1px solid #f7f7f7; }
 #container #content .main .col_1 ul.comments li {
