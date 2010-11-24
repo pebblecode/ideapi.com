@@ -156,9 +156,15 @@
       .spinner{
         display: inline;
       }
+      .toggle-inline-edit{
+        display: none !important;
+      }
       .field{
         width: 100%;
         margin-bottom: 5px;
+        .toggle-inline-edit{
+          display: inline;
+        }
       }
       input.inline-edit-title{
         padding: 0 10px;

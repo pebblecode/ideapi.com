@@ -1801,9 +1801,13 @@ ul#notifications {
   text-align: center; }
   #briefs.show #content .section .edit .spinner {
     display: inline; }
+  #briefs.show #content .section .edit .toggle-inline-edit {
+    display: none !important; }
   #briefs.show #content .section .edit .field {
     width: 100%;
     margin-bottom: 5px; }
+    #briefs.show #content .section .edit .field .toggle-inline-edit {
+      display: inline; }
   #briefs.show #content .section .edit input.inline-edit-title {
     padding: 0 10px;
     display: block;
