@@ -3,8 +3,9 @@
 @import "partials/variables";
 /* Importing partials / snippets */
 @import "partials/reset";
-@import "snippets/header";
 @import "snippets/feedback";
+@import "snippets/header";
+@import "snippets/subnav";
 
 body {
   font-size: 62.5%;
@@ -41,7 +42,7 @@ h4{ font-size: 1.15em; }
 #content, #header{
   font-size: 1.2em;
 }
-.navigation, .sub_nav, .breadcrumbs{
+.navigation{
   display: inline;
   li{
     display: inline;
@@ -52,11 +53,6 @@ h4{ font-size: 1.15em; }
   clear: both;
   display: block;
 }
-.sub_nav{
-  display: block;
-  margin-bottom: 1em;
-}
-
 
 #content{
   background: #fcfcfc;
