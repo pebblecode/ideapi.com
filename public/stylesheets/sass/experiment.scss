@@ -1,68 +1,24 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-weight: inherit;
-	font-style: inherit;
-	font-size: 100%;
-	font-family: inherit;
-	vertical-align: baseline;
-}
-/* remember to define focus styles! */
-:focus {
-	outline: 0;
-}
-body {
-	line-height: 1;
-	color: black;
-	background: white;
-}
-ol, ul {
-	list-style: none;
-}
-/* tables still need 'cellspacing="0"' in the markup */
-table {
-	border-collapse: separate;
-	border-spacing: 0;
-}
-caption, th, td {
-	text-align: left;
-	font-weight: normal;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: "";
-}
-blockquote, q {
-	quotes: "" "";
-}
-
-// 
+/* Initialize variables */ 
 @import "mixins";
 @import "partials/variables";
+/* Importing partials / snippets */
+@import "partials/reset";
+@import "snippets/header";
+@import "snippets/feedback";
 
 body {
-  background: #f1f1f1;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  color: #555;
-}
+  font-size: 62.5%;
+  text-align: center;
+  background: #dddddd; }
 
 a {
   text-decoration: none;
   color: $link_colour;
-  @include color-transitions; 
-}
-
-a:hover {
-  color: $link_hover_colour; 
+  font-weight: bold;
+  @include color-transitions;
+  &:hover {
+    color: $link_hover_colour; 
+  }
 }
 
 p{
@@ -76,89 +32,14 @@ h1{ font-size: 1.5em; }
 h2{ font-size: 1.3em; }
 h3{ font-size: 1.15em; }
 h4{ font-size: 1.15em; }
-#beta_feedback {
-  background: white;
-  background: #fefefe;
-  min-width: 980px;
-  width: 100%;
-  .title {
-    background: #333333;
-    padding: 1em;
-    h2 {
-      color: white;
-      font-size: 1.4em;
-      width: 65em;
-      margin: 0 auto;
-      span {
-        padding-left: 1em;
-        font-size: 0.8em;
-        color: #aaaaaa;
-        a {
-          color: #eeeeee;
-        }
-        a:hover {
-          color: #b3d335;
-        }
-      }
-    }
-  }
-  h3 {
-    border-bottom: 1px solid #cccccc;
-    margin-bottom: 1em;
-  }
-  .wrap {
-    display: none;
-    width: 92em;
-    margin: 0 auto; 
-  }
-  .user_input, .info {
-    padding: 1em 2em;
-    background: #ffffdf;
-    border: 1px solid #cccccc;
-    height: 24em;
-  }
-  .user_input {
-    float: left;
-    margin: 2em 0 2em 2em;
-    border-right: none;
-    textarea {
-      height: 10em; 
-    }
-    p.submit {
-      text-align: right; 
-    }
-  }
-  .info {
-    float: left;
-    margin: 2em 2em 2em 0;
-    border-left: none;
-    p {
-      font-size: 1.2em; 
-    }
-    ul {
-      padding: 0 3em 1em 3em;
-      li {
-        list-style: disc; 
-      } 
-    } 
-  }
-}
 
 #container{
-  clear: both;
-  width: 910px;
-  margin: 0 auto 1em auto;
+  width: 94em;
+  margin: 1em auto;
   position: relative;
-  background: #fff;
-  padding: 20px;
 }
-
-#header{
-  border-bottom: 1px solid black;
-  margin-bottom: 1em;
-}
-#logo{
-  float: right;
+#content, #header{
+  font-size: 1.2em;
 }
 .navigation, .sub_nav, .breadcrumbs{
   display: inline;
@@ -178,7 +59,10 @@ h4{ font-size: 1.15em; }
 
 
 #content{
-  
+  background: #fcfcfc;
+  border-top: 1px solid $ideapi_green_light;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   .col_1, .col_2{
     float: left;
   }

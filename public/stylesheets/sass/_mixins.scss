@@ -77,7 +77,7 @@
     background: url("/images/ui/button_background_white.png") repeat-x right -36px; } }
 
 @mixin color-transitions($duration: 300ms) {
-  -webkit-transition-property: background-color, color, border-color, opacity;
+  -webkit-transition-property: background-color, color, border-color, opacity, background-image;
   -webkit-transition-duration: $duration;
   -moz-transition-property: background-color, color, border-color, opacity;
   -moz-transition-duration: $duration;

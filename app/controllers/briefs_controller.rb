@@ -1,7 +1,6 @@
 class BriefsController < ApplicationController
   include ActionView::Helpers::TextHelper
-  layout 'briefs'
-  
+    
   # needs login for all actions
   before_filter :require_user
   
@@ -156,8 +155,10 @@ class BriefsController < ApplicationController
           if params[:print_mode].present?
             @print_mode = params[:print_mode]
             render(:action => 'print', :layout => false) 
+          elsif params[:vanilla].present?
+            render :layout => 'application'
           else
-            render 
+            render :layout => 'briefs'
           end
         end
         
