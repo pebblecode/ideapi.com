@@ -1,12 +1,9 @@
 .title
-  %h2.show
-    =current_object.title
-    = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit' if owner?(current_object) and current_object.active?
-  -if current_user.owns?(current_object)
-    .actions
-      = link_to "Actions", "#", :class => "show-options-menu"
+  .show
+    %h2.show
+      =current_object.title
   -if owner?(current_object) and current_object.active?
-    .inline-edit
+    .edit
       - form_for current_object, :html => {:id => "brief_title_edit_#{current_object.id}"} do |brief_title_form|
         %h2
           = hidden_field_tag 'render', 'brief_title'

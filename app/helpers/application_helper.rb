@@ -2,6 +2,7 @@ module ApplicationHelper
 
   # These methods support dynamic adding and removing of nested objects
   # Taken from http://github.com/timriley/complex-form-examples
+    
   def remove_child_link(name, f)
     f.hidden_field(:_destroy) + link_to(name, "javascript:void(0)", :class => "remove_child")
   end

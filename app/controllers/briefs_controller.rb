@@ -1,5 +1,6 @@
 class BriefsController < ApplicationController
   include ActionView::Helpers::TextHelper
+  layout 'briefs'
   
   # needs login for all actions
   before_filter :require_user
@@ -14,7 +15,7 @@ class BriefsController < ApplicationController
   # ensure brief is active
   before_filter :require_active_brief, :only => [:edit]
 
-  helper_method :completed_briefs, :available_templates
+  helper_method :completed_briefs, :available_templates, :page_title
   
   add_breadcrumb 'dashboard', "/dashboard"
   
