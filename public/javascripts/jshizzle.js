@@ -452,8 +452,8 @@ jQuery.fn.document_ready = function() {
       jQuery(this).parent("li").toggleClass("selected");
       var container = jQuery(this).parents().filter('.brief_item').find(this.className.replace("toggle_", "."));
       if(jQuery(this).parent("li").hasClass('selected')){
-        container.show();
-      } else { container.hide();}
+        container.toggle('blind', {}, 500);
+      } else { container.toggle('blind', {}, 500);}
       
       return false;
     });

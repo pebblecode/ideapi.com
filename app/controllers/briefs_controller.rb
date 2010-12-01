@@ -124,7 +124,13 @@ class BriefsController < ApplicationController
     end
     
     response_for(:index) do |format|
-      format.html
+      format.html{
+        if params[:vanilla].present?
+          render :layout => 'application'
+        else
+          render :layout => 'briefs'
+        end
+      }
     end
     
     response_for(:update, :update_fails) do |format|

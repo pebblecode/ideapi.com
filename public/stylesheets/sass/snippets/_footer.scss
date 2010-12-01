@@ -1,0 +1,12 @@
+#footer {
+  margin-top: 1em;
+  background: url("/images/logo-small.png") no-repeat 2.2em 7px;
+  padding: 3px 2em 0px 7.2em;
+  border: 1px solid #dddddd;
+  p {
+    font-size: 1.1em;
+    a {
+      color: #888888;
+      @include color-transitions(600ms);
+      &:hover {
+        color: #333333; } } } }

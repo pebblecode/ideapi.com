@@ -1,0 +1,10 @@
+#sidebar, .col_2{
+  background: #f8f8f8;
+  @include linear-gradient(#f8f8f8, #f3f3f3);
+  border: 1px solid #eee;
+  @include border-radius(3px);
+  padding: 1em;
+  margin: 0;
+  float: right;
+  width: 200px;
+}

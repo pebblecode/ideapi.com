@@ -9,8 +9,8 @@
     =render :partial => 'user_feedback/feedback_form'
     #container
       = render :partial => 'partials/header'
-      = render :partial => 'partials/page_help'
       #content
+        = render :partial => 'partials/page_help'
         %ul{:class => "sub_nav #{app_logo_class}"}
           =yield :sub_nav
         =yield :title_holder
@@ -42,7 +42,16 @@
         })();
         
     /[if IE 6]<script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+    = javascript_include_tag %w(jquery.qtip smartTextBox facebox jquery.cookie jquery.infieldlabel.min jshizzle ajaxify onload )
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 
 
-    =javascript_include_tag %w(jquery facebox jquery.cookie jquery.wysiwyg SmartTextBox jquery.infieldlabel.min jshizzle ajaxify onload)
-    =javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"
-    =javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 
+
+
+
+
+
+
+
+

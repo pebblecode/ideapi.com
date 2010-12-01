@@ -15,9 +15,15 @@
   -webkit-border-bottom-right-radius: $size;
   border-bottom-right-radius: $size; }
 
-@mixin bottom_border_radius($size) {
+@mixin border-radius-bottom($size) {
   @include bottom_left_border_radius($size);
-  @include bottom_right_border_radius($size); }
+  @include bottom_right_border_radius($size);
+}
+@mixin border-radius-top($size) {
+  border-radius: $size $size 0 0;
+  -moz-border-radius: $size $size 0 0;
+  -webkit-border-radius: $size $size 0 0;
+}
 
 @mixin rounded-top-3px {
   -moz-border-radius-topleft: 3px;
@@ -77,7 +83,7 @@
     background: url("/images/ui/button_background_white.png") repeat-x right -36px; } }
 
 @mixin color-transitions($duration: 300ms) {
-  -webkit-transition-property: background-color, color, border-color, opacity, background-image;
+  -webkit-transition-property: background-color, color, border-color, opacity;
   -webkit-transition-duration: $duration;
   -moz-transition-property: background-color, color, border-color, opacity;
   -moz-transition-duration: $duration;

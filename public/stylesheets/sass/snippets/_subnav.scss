@@ -1,0 +1,28 @@
+.sub_nav, .breadcrumbs{
+  display: inline;
+  li{
+    display: inline;
+    margin-right: 1em;
+  }
+}
+
+.breadcrumbs{
+  margin-left: 1em;
+  color: #333;
+  a{
+    color: $ideapi_green_light;
+    &:hover{
+      color: $ideapi_green_light - #333;
+    }
+  }
+}
+.sub_nav{
+  color: #888;
+  display: block;
+  margin: 1em 0;
+  border: 1px solid #eee;
+  background: #f8f8f8;
+  padding: 1px 1em;
+  @include linear-gradient(#f8f8f8, #f3f3f3);
+  @include border-radius(3px);
+}

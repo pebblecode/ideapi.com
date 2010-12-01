@@ -1,8 +1,6 @@
 =sub_nav do
   =breadcrumb_list 
 
-.clear
-
 .col_1
   = render :partial => 'briefs/brief_partials/text_brief_info', :locals => {}    
   -unless current_object.active?
@@ -28,12 +26,7 @@
         = brief_form.label :tag_field, "Tags:"
         = brief_form.text_field :tag_field, :value => current_object.tags_from(current_account)
         = brief_form.submit "save tags", :class => "inline-submit", :id => 'inline_brief_tags_submit'
-        .clear
-          / comment clear
-    
     = render :partial => 'briefs/brief_partials/most_important_thing'
-    .clear
-      / comment clear
     -if current_object.brief_items_answered.empty?
       %p This document is empty
     -else

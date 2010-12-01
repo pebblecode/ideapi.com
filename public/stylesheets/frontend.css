@@ -21,7 +21,7 @@ a {
   text-decoration: none;
   color: #b3d335;
   font-weight: bold;
-  -webkit-transition-property: background-color, color, border-color, opacity, background-image;
+  -webkit-transition-property: background-color, color, border-color, opacity;
   -webkit-transition-duration: 300ms;
   -moz-transition-property: background-color, color, border-color, opacity;
   -moz-transition-duration: 300ms;
@@ -840,7 +840,7 @@ textarea {
       font-size: 1.2em; }
     .login .footer a, .app_error .footer a {
       color: #888888;
-      -webkit-transition-property: background-color, color, border-color, opacity, background-image;
+      -webkit-transition-property: background-color, color, border-color, opacity;
       -webkit-transition-duration: 600ms;
       -moz-transition-property: background-color, color, border-color, opacity;
       -moz-transition-duration: 600ms;
@@ -1574,7 +1574,7 @@ ul#notifications {
     color: #32401a;
     font-weight: bold; }
   #top-menu a {
-    -webkit-transition-property: background-color, color, border-color, opacity, background-image;
+    -webkit-transition-property: background-color, color, border-color, opacity;
     -webkit-transition-duration: 400ms;
     -moz-transition-property: background-color, color, border-color, opacity;
     -moz-transition-duration: 400ms;
@@ -1603,7 +1603,7 @@ ul#notifications {
     font-size: 1.1em; }
     #footer p a {
       color: #888888;
-      -webkit-transition-property: background-color, color, border-color, opacity, background-image;
+      -webkit-transition-property: background-color, color, border-color, opacity;
       -webkit-transition-duration: 600ms;
       -moz-transition-property: background-color, color, border-color, opacity;
       -moz-transition-duration: 600ms;
@@ -1705,7 +1705,7 @@ ul#notifications {
 #briefs #content .side_box .add_collaborators li.available_collaborator {
   position: relative; }
   #briefs #content .side_box .add_collaborators li.available_collaborator .add_user_brief_button {
-    -webkit-transition-property: background-color, color, border-color, opacity, background-image;
+    -webkit-transition-property: background-color, color, border-color, opacity;
     -webkit-transition-duration: 300ms;
     -moz-transition-property: background-color, color, border-color, opacity;
     -moz-transition-duration: 300ms;
@@ -1873,6 +1873,19 @@ ul#notifications {
   font-size: 10pt; }
   #briefs.show #content input.inline-edit-submit:active {
     background-position: -45px 0; }
+
+#dashboard .brief_list {
+  width: 655px; }
+#dashboard .brief_overviews h2 {
+  padding: 0;
+  font-size: 1.1em;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin: -0.8em auto 1.5em auto;
+  background: white;
+  width: 7.5em;
+  color: #454545; }
 
 /* Contains styles for various panels across the app. 
  * The first being the brief show view actions (dropdown panel) */
@@ -2247,7 +2260,7 @@ span.timestamp {
 #proposals #content p.submit {
   margin-right: 20px; }
 #proposals #content .proposal_asset {
-  -webkit-transition-property: background-color, color, border-color, opacity, background-image;
+  -webkit-transition-property: background-color, color, border-color, opacity;
   -webkit-transition-duration: 500ms;
   -moz-transition-property: background-color, color, border-color, opacity;
   -moz-transition-duration: 500ms;

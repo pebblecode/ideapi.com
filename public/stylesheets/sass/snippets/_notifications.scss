@@ -1,0 +1,39 @@
+// Notifications for dashboard
+ul#notifications {
+  float: left;
+  width: 620px;
+  li {
+    float: left;
+    padding: 0.5em 0.25em;
+    width: 100%;
+    border-bottom: 1px dotted #cccccc;
+    
+    &.even {
+      background: #f6f6f6;
+    }
+    
+    span {
+      &.notification_label {
+        float: left;
+        padding: 1px 3px;
+        background: #32401a;
+        color: white;
+        margin-right: 5px;
+        @include rounded-corners-all(3px);
+        a {
+          color: white !important;
+          font-weight: normal !important;
+        }
+      }
+      &.notification_meta {
+        float: left;
+        clear: left;
+        font-style: italic;
+        color: #999999;
+      }
+      &.notification_action {
+        float: right; 
+      }
+    } 
+  }
+}

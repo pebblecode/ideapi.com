@@ -2,23 +2,30 @@
 @import "mixins";
 @import "partials/variables";
 /* Importing partials / snippets */
-@import "partials/reset";
+@import "snippets/reset";
+@import "snippets/classes";
 @import "snippets/feedback";
 @import "snippets/header";
 @import "snippets/subnav";
+@import "snippets/sidebar";
+@import "snippets/notifications";
+@import "snippets/briefs";
+@import "snippets/footer";
 
 body {
   font-size: 62.5%;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   text-align: center;
-  background: #dddddd; }
+  background: #dddddd;
+}
 
 a {
   text-decoration: none;
-  color: $link_colour;
+  color: $ideapi_green_light;
   font-weight: bold;
   @include color-transitions;
-  &:hover {
-    color: $link_hover_colour; 
+  &:hover{
+    color: $ideapi_green_light - #444;
   }
 }
 
@@ -59,29 +66,10 @@ h4{ font-size: 1.15em; }
   border-top: 1px solid $ideapi_green_light;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
-  .col_1, .col_2{
-    float: left;
-  }
+  padding: 0 1em 1em 1em;
   .col_1{
-    width: 600px;
-    padding: 1.5em 2em;
-    border: 1px solid #ccc;
-    @include border_radius(3px);
-    font-size: 0.8em;
-  }
-  .col_2{
-    margin-left: 20px;
-    width: 200px;
-  }
-  
-  .brief{
-    .edit, .inline-edit{ display: none;}
-    .actions{
-      text-align: right;
-    }
-    .title{
-      margin-bottom: 1em;
-    }
+    float: left;
+    width: 670px;
   }
 }
 
@@ -117,3 +105,6 @@ h4{ font-size: 1.15em; }
 .add_collaborators{
   display: none;
 }
+
+@import "partials/comments_and_activity_stream";
+

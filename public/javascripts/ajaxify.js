@@ -365,26 +365,32 @@ jQuery.user_links_external = function(){
     
     var _submit, _form, _parent, _spinner = null;
     /* BEGIN Title */
-    _brief.find('div.title a.toggle-inline-edit').live('click', function(){
-      $(this).parents('div.title').find('h2.show').toggle();
-      $(this).parents('div.title').find('div.inline-edit').toggle();
+    $('#content-header a.toggle-inline-edit').live('click', function(){
+      $('#content-header .show').toggle();
+      $(this).parents('.edit').toggle(0, function(){
+        $(this).find('input.title').val($('#content-header .show h2').text());
+      });
     });
-    
+    $('#content-header .show h2').live('click', function(){
+      $('#content-header .show').toggle();
+      $('#content-header .edit').toggle();
+    });
     // Ajax form submit
     var title_success = function(data){
       _parent.replaceWith(data);
+      console.log(_parent.attr('id'));
       $('ul.breadcrumbs li:last span').text($(data).find('input.title').val());
     };
     
     var title_error = function(data){
     };
     
-    _brief.find('div.title form.edit_brief input.submit').live('click',function(e){
-      _submit = $(this);
+    $('#content-header form').live('submit',function(e){
+      _form = $(this);
+      _submit = $(this).find('input.inline-edit-submit');
       _submit.hide().spin(false, 'ui/loading');
-      _form = $(this).parents('form');
-      _parent = $(this).parents('div.title');
       _spinner = _submit.siblings('.spinner');
+      _parent = $('#content-header');
       
       ajax_submit(_form, title_success, title_error);
       
@@ -411,10 +417,16 @@ jQuery.user_links_external = function(){
       $(this).siblings('.show').toggle();
       $(this).siblings('.edit').toggle();
     };
+    
+    $("#briefs.show .section .editable").live('click', function(e){
+      $(this).siblings('div.edit').toggleClass('revealed');
+      $(this).toggle();
+      
+    });
 
-    _brief.find("a.toggle-inline-edit").live('click', function(e){
-      $(this).siblings('.show').toggle();
-      $(this).siblings('.edit').toggle();
+    $("#briefs.show .section .edit a.toggle-inline-edit").live('click', function(e){
+      $(this).parents('.edit').toggleClass('revealed');
+      $(this).parents('.section').find('.editable').toggle();
     });
     
     _brief.find('form.inline-edit-form input.inline-edit-submit').live('click', function(e){

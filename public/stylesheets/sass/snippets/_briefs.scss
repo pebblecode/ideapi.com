@@ -1,0 +1,256 @@
+/* Header / Title for Briefs, proposals... */
+
+.brief, .proposal, .brief_list {
+  background: #fffffe;
+  margin: 0 0 1em 0;
+  position: relative;
+}
+#content-header{
+  color: $ideapi_green_dark;
+  padding: 0.5em 80px 0.5em 1em;
+  position: relative;
+  text-shadow: 0 1px 1px white;
+  @include border-radius-top(3px);
+  background: #b3d335;
+  @include linear-gradient($ideapi_green_light, $ideapi_green_light - #181818);
+
+  h2 {
+    font-size: 1.4em;
+  }
+}
+
+.brief .section{
+  border: 1px solid #eee;
+  border-top: 0;
+  padding: 0.5em 1em;
+  .edit{display: none;}
+}
+
+div.actions {
+  z-index: 10;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  a {
+    color: $off_white;
+    text-shadow: 1px 1px 1px #666;
+    display: block;
+    float: right;
+    margin-left: 1em;
+    @include border-radius(3px);
+
+    padding: 0 5px;
+    height: 15px;
+    line-height: 15px;
+    display: block;
+    
+  }
+  a:hover {
+    color: #fefefe;
+  }
+  a.edit_brief, a.edit_icon, a.edit_template {
+    background: url("/images/page_edit.png") no-repeat center right;
+    height: 16px;
+    text-indent: -9999px;
+    width: 40px;
+    &:hover {
+      text-indent: 0;
+      color: #32401a;
+      font-weight: normal;
+    }
+  }
+  a.print_brief {
+    display: block;
+    float: right;
+    background: url("/images/printer.png");
+    width: 16px;
+    height: 16px;
+    text-indent: -3000px;
+  }
+  form {
+    float: right;
+  }
+  .clean_brief {
+    @include rounded-all-3px;
+    background: url("/images/ui/button_background_red.png") 0 0;
+    border: 1px solid #32401a;
+    padding: 1px 5px 0px 5px;
+    font-weight: normal;
+    font-size: 1em;
+    margin-top: 0;
+    color: white;
+    text-shadow: none;
+    &:active {
+      background-position: 0 -36px; 
+    }
+  }
+}
+.brief, .proposal, .brief_list {
+  .brief_heading {
+    h3 {
+      margin-left: 20px; } }
+    
+  .proposal_item, .brief_heading {
+    border: 1px solid #cccccc;
+    border-bottom: 1px solid #eeeeee;
+    border-top: 0;
+    h3 {
+      span.updated {
+        font-size: 0.2em;
+        color: #999999;
+        font-weight: bold;
+        text-transform: uppercase;
+        position: relative;
+        top: -0.4em;
+        left: 0; } }
+    h4.activity_snapshot {
+      font-size: 1.1em;
+      padding: 0;
+      margin: 0;
+      line-height: 1.2em;
+      color: #666666; }
+    .activity_stream {
+      border-top: 1px solid #cccccc;
+      margin-top: 1em;
+      padding: 1em;
+      li {
+        padding: 1em; }
+      li.date {
+        color: #aaaaaa;
+        text-transform: uppercase;
+        margin-top: 1em;
+        padding: 0; } } }
+  .help_message {
+    width: 18em;
+    border: 1px solid #cccccc;
+    background: rgb(252, 252, 252);
+    background: rgba(245, 245, 245, 0.9);
+    padding: 1em;
+    position: absolute;
+    top: 4em;
+    left: 51.5em;
+    z-index: 5; }
+  .brief_item:last-child, .proposal_item:last-child {
+    border-bottom: 1px solid #cccccc; }
+  .proposal_item {
+    p.asset {
+      width: 120px; }
+    p.asset, p.description {
+      float: left; }
+    p.description {
+      width: 36em;
+      padding: 0 0 0 2em;
+      margin: 1px 0 0 0; } }
+  .most_important_thing {
+    /*padding: 1em 1em 1em 3em;*/
+    padding: 0;
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #333333;
+    padding: 1em 2em;
+    position: relative;
+    .show, .edit{
+      max-width: 360px;
+      display: inline-block;
+      padding: 0 1em;
+      font-weight: bold;
+    }
+    .edit{display: none;}
+    span.left, span.right {
+      font-size: 4em;
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      height: 0.4em;
+      line-height: 0.8em; 
+    }
+    span.left {
+      top: 20px;
+      left: 60px;
+    }
+    span.right {
+      position: absolute;
+      bottom: 20px;
+      right: 60px;
+      vertical-align: middle;
+      margin-top: 10px;
+    }
+  }
+  .brief_item.updated {
+    h3, h4 {
+      background: #ffffdf; } }
+  .brief_item.extended {
+    background: transparent; 
+  } 
+}
+
+
+#dashboard {
+  h2.salu {}
+  .brief_overviews {
+    h2 {
+      padding: 0;
+      font-size: 1.1em;
+      font-weight: normal;
+      text-transform: uppercase;
+      text-align: center;
+      margin: -0.8em auto 1.5em auto;
+      background: white;
+      width: 7.5em;
+      color: #454545;
+    }
+  }
+  .brief_item{
+    padding: 0.5em 1em;
+    border: 1px solid #eee;
+    border-bottom: 1px solid #eeeeee;
+    border-top: 0;
+    .body{
+      img{
+        max-width: 600px;
+        border: 5px solid #eee;
+        display: block;
+        margin: auto;
+      }
+
+      .item-revision-body{
+        img{
+          max-width: 420px;
+        }
+      }
+    }
+  } 
+  
+}
+
+.side_box{
+  .add_collaborators{
+    
+    li.available_collaborator{
+      position: relative;
+      .add_user_brief_button{
+        @include color-transitions;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        background: #ccc;
+        margin: 0;
+        padding: 0px 4px;
+        border: 1px solid #bbb;
+        color: black;
+        font-weight: bold;
+        font-size: 0.9em;
+        &:hover{
+          background: #bbb;
+          border-color: #aaa;
+        }
+      }
+    }
+  }
+}
+
+@import "snippets/inlineedit";

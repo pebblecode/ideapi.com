@@ -44,10 +44,11 @@
             -else
               =link_to "Answer this question", brief_path(q.brief, :anchor => "brief_item_#{q.brief_item_id.to_s}")
   .brief_list
-    %h2 
-      Your active briefs
-      -if params[:t]
-        tagged as "#{params[:t]}"
+    #content-header
+      %h2 
+        Your active briefs
+        -if params[:t]
+          tagged as "#{params[:t]}"
     -if current_objects.empty?
       .brief_item
         %h3 

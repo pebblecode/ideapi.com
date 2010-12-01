@@ -6,7 +6,7 @@
   border-left: 1px solid #cccccc;
   border-top: 1px solid #cccccc;
   position: relative;
-  border-bottom: 2px solid #b3d335;
+  border-bottom: 3px solid #b3d335;
   padding: 1em 1em 0 1em;
 }
 #logo{
@@ -37,10 +37,10 @@ ul.navigation {
   padding: 0;
   
   li {
-    display: inline-block;
+    display: inline;
     margin: 0;
     a, span.current {
-      display: block;
+      display: inline-block;
       @include rounded-top-3px;
       color: $link_header;
       font-size: 1.1em;
@@ -52,20 +52,22 @@ ul.navigation {
       padding: 3px 0.8em 3px 0.8em;
     }
     a:hover {
-      @include linear-gradient($ideapi_green_dark, $ideapi_green_dark + #222);
+      background: $ideapi_green_dark + #222;
+      @include linear-gradient($ideapi_green_dark , $ideapi_green_dark + #222);
     }
     span.current, a:focus, a:active {
       @include rounded-top-3px;
-      background: #b3d335;
-      @include linear-gradient($ideapi_green_light + #111, $ideapi_green_light - #111);
+      background: $ideapi_green_light;
+      @include linear-gradient($ideapi_green_light + #191919, $ideapi_green_light);
       color: $off_white;
     }
     a.toggle-page-help{
-      display: block;
+      display: inline-block;
       width: 32px;
       text-align: center;
       padding: 4px 0.5em 2px 0.5em;
       &.selected{
+        background: $ideapi_blue_dark;
         @include linear-gradient($ideapi_blue_dark + #111, $ideapi_blue_dark - #111);
       }
       span{
@@ -82,17 +84,23 @@ ul.navigation {
 
 #page-help{
   display: none;
-  
-  background: $ideapi_green_dark;
-  @include linear-gradient($ideapi_green_dark, $ideapi_green_dark - #0a0a0a);
-  color: $off_white;
+  border: 1px solid $ideapi_green_light;
   margin: 0;
-  padding: 2em;
-  font-size: 1.2em;
-  border-top: 1px solid $ideapi_green_light;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  h1, h2, h3, h4, h5, h6, p, strong, em{
-    color: $off_white;
+  padding: 1em 2em;
+  background: $ideapi_green_light;
+  @include linear-gradient($ideapi_green_light, $ideapi_green_light - #111);
+  @include border-radius-bottom(3px);
+  color: $off_white;
+  
+  p, h1, h2, h3, h4, h5, h6, strong, em{
+    color: white;
+    text-shadow: 1px 1px 1px $ideapi_green_dark;
+  }
+  a{
+    color: $ideapi_green_dark;
+    text-shadow: none;
+    &:hover{
+      border-bottom: 1px solid $ideapi_green_dark;
+    }
   }
 }

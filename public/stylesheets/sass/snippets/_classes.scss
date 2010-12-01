@@ -1,0 +1,29 @@
+.block { display: block; }
+.align-right { text-align: right; }
+.warning { color: #ff3333; }
+
+.flag, .user_context{
+  @include border-radius(3px);
+  font-size: 0.8em !important;
+  margin: 3px 0.5em 0 0;
+  padding: 0 5px;
+  height: 15px;
+  line-height: 15px;
+  display: block;
+}
+.flag{ 
+  border: 1px solid #aaa;
+  color: #555;
+  float: left;
+  background: #eee;
+  @include linear-gradient(#eee, #ccc);
+}
+.user_context{
+  margin-right: 0;
+  margin-left: 0.5em;
+  float: right;
+  border: 1px solid $ideapi_green_light + #111;
+  background: $ideapi_green_light + #333;
+  @include linear-gradient($ideapi_green_light + #333, $ideapi_green_light + #222);
+  color: #555;
+}

@@ -269,21 +269,6 @@ span.field_with_errors {
       font-size: 1.2em;
       font-weight: bold;
       line-height: 2em; }
-    #dashboard {
-      .brief_list {
-        width: 655px; }
-      h2.salu {}
-      .brief_overviews {
-        h2 {
-          padding: 0;
-          font-size: 1.1em;
-          font-weight: normal;
-          text-transform: uppercase;
-          text-align: center;
-          margin: -0.8em auto 1.5em auto;
-          background: white;
-          width: 7.5em;
-          color: #454545; } } }
     .required_actions {
       border: 1px solid #cccccc;
       h3 {
@@ -1593,7 +1578,8 @@ ul#notifications {
       max-width: 100%; } } }
 
 .show_with_js {
-  display: none; }
+  display: none; 
+}
 
 #container #content #idea_users {
   .contents {

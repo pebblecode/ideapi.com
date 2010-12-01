@@ -3,8 +3,10 @@
     - if brief.draft?
       %span.flag
         draft
+    - if brief.user_briefs.for_user(current_user).present? and brief.active?
+      - brief.user_briefs.for_user(current_user).brief_role[:label].split(',').each do |lbl|
+        %span.user_context= lbl
     =link_to truncate(brief.title, :length => 55), show_brief_path(brief)
-    -if brief.active? and not brief.role_for_user?(current_user)[:label] == 'collaborator'
-      %span.user_context=brief.role_for_user?(current_user)[:label]
+        
   - unless brief.active?
     =render :partial => 'change_state', :locals => { :brief => brief }
