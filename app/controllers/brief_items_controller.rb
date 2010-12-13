@@ -1,5 +1,9 @@
 class BriefItemsController < ApplicationController
   
+  def create
+    
+  end
+  
   def update
     @brief_item = BriefItem.find(params[:id])
     

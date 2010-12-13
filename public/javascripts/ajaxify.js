@@ -378,7 +378,6 @@ jQuery.user_links_external = function(){
     // Ajax form submit
     var title_success = function(data){
       _parent.replaceWith(data);
-      console.log(_parent.attr('id'));
       $('ul.breadcrumbs li:last span').text($(data).find('input.title').val());
     };
     

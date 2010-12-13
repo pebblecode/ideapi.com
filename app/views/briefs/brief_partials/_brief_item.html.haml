@@ -34,7 +34,10 @@
           .field
             %p.submit
               = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-inline-edit' if owner?(current_object) and current_object.active?
+              or
               = form.submit 'submit', :class => 'submit inline-edit-submit'
+
+
     - else
       .show
         %h4=brief_item.title
@@ -50,6 +53,6 @@
           %li=link_to comments_tab(brief_item), '#', {:class => 'toggle_brief_item_activity'}
 
       -if current_object.active?
-        = render :partial => "briefs/activity_stream", :locals => {:brief_item => brief_item, :current_object => brief_item.brief}
+        = render :partial => "briefs/activity_stream", :locals => {:brief_item => brief_item, :current_object => current_object}
     .clear
     

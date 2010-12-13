@@ -1,0 +1,7 @@
+#add-new-section
+  %p
+    = link_to 'Add new section', 'javascript:void(0)', :class => 'toggle-add-new-section'
+  #new_section
+    - @item = @brief.brief_items.build
+    - form_for [@brief, @item], :html => {:method => 'put'} do |f|
+      = f.submit 'submit'

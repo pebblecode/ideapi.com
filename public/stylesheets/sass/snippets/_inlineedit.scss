@@ -30,11 +30,12 @@
         }
       }
       input:focus, textarea:focus{
-        outline: #fcc dotted 3px;
+        outline: #D6DC77 dotted 1px;
       }
       input.inline-edit-title{
-        padding: 0 4px;
-        font-size: 1.5em;
+        padding: 3px 6px;
+        font-size: 1.3em;
+        font-weight: bold;
         display: block;
         width: 590px;
         background: #ffd;
@@ -44,10 +45,10 @@
         display: block;
         width: 590px;
         height: 100px;
-        padding: 2px 4px;
+        padding: 0.5em;
         background: #ffd;
         border: 1px solid #ffc;
-        font-size: 1.2em;        
+        font-size: 1em;
       }
       p.submit{
         float: none;
@@ -55,7 +56,7 @@
       }
       input[type=text]{}
     }
-    .toggle-inline-edit{
+/*    .toggle-inline-edit{
       display: inline-block;
       font-weight: normal;
       font-size: 0.9em;
@@ -73,8 +74,8 @@
         @include linear-gradient(#f7f7f7-#111, #f7f7f7);
       }
     }
-
-    input.inline-edit-submit{
+*/
+/*    input.inline-edit-submit{
       @include rounded-corners-all(0);
       background-color: $ideapi_green_light;
       border: 1px solid $ideapi_green_light - #222;
@@ -91,7 +92,7 @@
         @include linear-gradient($ideapi_green_light - #222, $ideapi_green_light);
       }
     }
-    .spinner{display: inline;}
+*/    .spinner{display: inline;}
   }
   .most_important_thing{
     .show{

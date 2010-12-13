@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
     end
     
     before :update do
+      @brief = current_object.brief
       if params[:question][:author_answer].present?
         current_object.answered_by = current_user
       else

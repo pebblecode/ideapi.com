@@ -2,7 +2,7 @@
   .brief_item_question
     =small_avatar(question.user)
     .speech
-      -if question.user == current_user or owner?(current_object)
+      -if question.user == current_user or owner?(@brief)
         - form_for question, :html => {:method => :delete, :class => "delete_question_form", :id => "delete_question_#{question.id}"} do |f|
           = f.submit 'delete', :class => 'question-delete ajaxify', :id => "delete_question_#{question.id}_submit"
       %p
@@ -15,7 +15,7 @@
     .author_answer
       =medium_avatar(question.brief.author)
       .speech
-        - if owner?(current_object) # owner? is true for authors, and only authors can answer
+        - if owner?(@brief) # owner? is true for authors, and only authors can answer
           - form_for question, :html => {:method => :put, :id => "delete_question_answer_#{question.id}", :class => "delete-question-answer-form"} do |f|
             = f.hidden_field :author_answer, :value => ''
             = f.submit 'delete', :class => 'delete-question-answer close-button', :id => "delete_question_answer_#{question.id}_submit"
