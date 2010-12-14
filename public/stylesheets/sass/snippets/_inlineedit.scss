@@ -11,11 +11,18 @@
   }
 
   .section{
+    .editable{
+      @include color-transitions();
+    }
     .editable:hover{
       cursor: pointer;
-      background: #ffd;
+      background: #f8f8f8;
     }
     .edit.revealed{display: inline-block;}
+    &.brief_item{
+      .edit.revealed{display: block;}
+      p.submit{width: 600px;}
+    }
     .edit{
       padding: 1em 0;
       text-align: center;
@@ -38,23 +45,22 @@
         font-weight: bold;
         display: block;
         width: 590px;
-        background: #ffd;
-        border: 1px solid #ffc;
+        background: #fafafa;
+        border: 1px solid #eee;
       }
       .inline-edit-body{
         display: block;
         width: 590px;
         height: 100px;
         padding: 0.5em;
-        background: #ffd;
-        border: 1px solid #ffc;
+        background: #fafafa;
+        border: 1px solid #eee;
         font-size: 1em;
       }
       p.submit{
         float: none;
         margin: 0;
       }
-      input[type=text]{}
     }
 /*    .toggle-inline-edit{
       display: inline-block;
@@ -113,8 +119,8 @@
         text-align: center;
         input[type=text]{
           display: block;
-          background: #ffe;
-          border: 1px solid #ffc;
+          background: #fafafa;
+          border: 1px solid #eee;
           padding: 0.5em 1em;
           font-size: 1em;
           font-weight: bold;
@@ -145,7 +151,7 @@
 }
 
 #content-header{
-  .show{
+  .editable{
     &:hover{
       background-color: $ideapi_green_light + #222;
       cursor: pointer;
@@ -175,4 +181,48 @@
       font-weight: normal;
     }
   }
+}
+#add-new-section{
+  p{margin-left: 1em;}
+}
+#new-section{
+  display: none;
+  border: 1px solid #ddd;
+  padding: 1em;
+  .field{
+    clear: both;
+    label{
+      display: block;
+      float: none;
+    }
+    input.title{
+      padding: 3px 6px;
+      font-size: 1.3em;
+      font-weight: bold;
+      display: block;
+      width: 590px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+    }
+    .body{
+      display: block;
+      height: 100px;
+      padding: 0.5em;
+      width: 590px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      font-size: 1em;
+    }
+  }
+  .submit{
+    width: 600px;
+    text-align: right;
+    margin-top: 0.5em;
+  }
+}
+
+
+.section-delete-form{
+  float: right;
+  
 }

@@ -16,7 +16,7 @@ class BriefItem < ActiveRecord::Base
 
   # Relationships
   belongs_to :brief, :touch => true
-  has_many :questions
+  has_many :questions, :dependent => :destroy
   has_many :timeline_events, :as => :secondary_subject, :order => 'created_at ASC, id ASC', :group => "subject_id, subject_type"
   
   # Delegation takes some methods and sends them off to another 

@@ -15,7 +15,7 @@
   @include linear-gradient($ideapi_green_light, $ideapi_green_light - #181818);
 
   h2 {
-    font-size: 1.4em;
+    font-size: 1.2em;
   }
 }
 
@@ -29,8 +29,8 @@
 div.actions {
   z-index: 10;
   position: absolute;
-  top: 1em;
-  right: 1em;
+  top: 9px;
+  right: 9px;
   text-align: right;
   padding: 0;
   margin: 0;
@@ -253,4 +253,62 @@ div.actions {
   }
 }
 
+ul.actions{
+  li{
+    text-align: right;
+  }
+}
+
+#options-menu, #brief-tags{
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #fcfcfc;
+  background: #fcfcfc;
+  .object-actions{
+    @include rounded-corners-all();
+    background: #fafafa;
+    border: 1px solid #eee;
+    margin: 0.5em;
+    form, li, a, input{
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+    text-align: right;
+    li{
+      display: inline;
+    }
+  }
+}
+
+#brief-tags{
+  
+  border: 0;
+  padding: 0 0.5em;
+  .smartTextBox-items{
+    width: 550px;
+  }
+  label{
+    display: none;
+  }
+  .smartTextBox-box-elem{
+    @include rounded-corners-all(3px);
+  }
+  .smartTextBox-input-elem-valueInput{
+    line-height: 18px;
+    outline: none;
+  }
+  
+  .smartTextBox{
+    display: inline-block;
+  }
+  
+  .inline-submit{
+    display: inline-block;
+    @extend .funky-button;
+  }
+  .smartTextBox-elem-valueContainer{
+    font-size: 0.9em;
+  }
+}
+
 @import "snippets/inlineedit";
+@import "snippets/smartbox";

@@ -106,5 +106,31 @@ h4{ font-size: 1.15em; }
   display: none;
 }
 
+.funky-button{
+  font-size: 1em;
+  color: $ideapi_green_dark;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;
+  border: solid 1px $ideapi_green_light - #222;
+  background: url('/images/ui/btn-bg-green.png') repeat-x 0px 0px;
+  height: 27px;
+  line-height: 26px;
+  text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px;
+  display: inline;
+  float: left;
+  margin-right: 5px;
+  padding: 0 10px;
+  border-top-left-radius: 2px 2px;
+  border-top-right-radius: 2px 2px;
+  border-bottom-right-radius: 2px 2px;
+  border-bottom-left-radius: 2px 2px;
+  cursor: pointer;
+  &:active{background-position: 0px bottom}
+  
+}
 @import "partials/comments_and_activity_stream";
 

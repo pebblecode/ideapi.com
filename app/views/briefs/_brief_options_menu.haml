@@ -31,4 +31,8 @@
           =hidden_field_tag '_flash[notice]', 'Brief deleted', :id => 'brief_flash_notice'
           = submit_tag "delete", :class => 'remove_with_js'
           = link_to "delete", "#", :class => 'show_with_js'
-        
+  #brief-tags
+    - form_for(current_object, :html => { :method => :put, :id => 'inline_brief_tags_form' }) do |brief_form|
+      = brief_form.label :tag_field, "Tags:"
+      = brief_form.text_field :tag_field, :value => current_object.tags_from(current_account)
+      = brief_form.submit "save tags", :class => "inline-submit", :id => 'inline_brief_tags_submit'

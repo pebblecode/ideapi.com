@@ -669,7 +669,7 @@ jQuery.fn.document_ready_extras = function () {
 jQuery(document).ready(jQuery.fn.document_ready);
 
 function toggle_brief_options_menu(selected){
-  $('#options-menu').toggle();
+  $('#options-menu').toggle('blind', {}, 400);
 }
 
 function hide_element(element){

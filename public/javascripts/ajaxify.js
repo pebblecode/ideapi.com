@@ -371,7 +371,7 @@ jQuery.user_links_external = function(){
         $(this).find('input.title').val($('#content-header .show h2').text());
       });
     });
-    $('#content-header .show h2').live('click', function(){
+    $('#content-header .editable h2').live('click', function(){
       $('#content-header .show').toggle();
       $('#content-header .edit').toggle();
     });
@@ -439,6 +439,61 @@ jQuery.user_links_external = function(){
       e.preventDefault();
     });
     /* END Sections */
+    
+    /* BEGIN delete sections*/
+    var generic_delete_success = function(data){
+      _parent.fadeOut(100, function(){
+        _parent.remove();
+      });
+    };
+    var generic_delete_failure = function(data){
+      alert('Error');
+    };
+    
+    $('form.section-delete-form').live('submit', function(e){
+      _form = $(this);
+      _submit = $(this).find('input.delete-section-submit');
+      _submit.hide().spin(false, 'ui/loading');
+      _spinner = _submit.siblings('.spinner');
+      _parent = $(this).parents('div.brief_item');
+      
+      ajax_submit(_form, generic_delete_success, generic_delete_failure);
+      
+      e.preventDefault();
+    });
+    /* END delete sections */
+    
+    /* BEGIN new sections */
+    $('.toggle-add-new-section').live('click', function(e){
+      $('#new-section').toggle('blind', {}, 500);
+      e.preventDefault();
+    });
+    var new_section_success = function(data){
+      $('#new-section-title').val('');
+      $('#new-section-body').text('');
+      var _data = $(data);
+      _data.hide();
+      _data.find(".brief_item_activity").hide();
+      $('#add-new-section').before(_data);
+      _data.fadeIn();
+      _submit.show();
+      _spinner.remove();
+    };
+    var new_section_error = function(data){
+      _submit.show();
+      _spinner.remove();
+    };
+    
+    $("#new-section form").live('submit', function(e){
+      _form = $(this);      
+      _submit = $("#new-section-submit");
+      _submit.hide().spin(false, 'ui/loading');
+      _spinner = _submit.siblings('.spinner');
+      
+      ajax_submit(_form, new_section_success, new_section_error);
+      e.preventDefault();
+    });
+    /* END new sections */
   };
   
 })(jQuery);

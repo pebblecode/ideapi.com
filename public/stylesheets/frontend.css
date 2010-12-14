@@ -2172,7 +2172,8 @@ span.timestamp {
   width: 16px;
   height: 16px;
   border: 0;
-  padding: 0; }
+  padding: 0;
+  cursor: pointer; }
 
 #proposal_state {
   font-size: 1em;

@@ -1,7 +1,17 @@
 #add-new-section
   %p
     = link_to 'Add new section', 'javascript:void(0)', :class => 'toggle-add-new-section'
-  #new_section
+  #new-section
     - @item = @brief.brief_items.build
-    - form_for [@brief, @item], :html => {:method => 'put'} do |f|
-      = f.submit 'submit'
+    - form_for @item, :html => {:method => 'post'} do |f|
+      = f.hidden_field :brief_id, :value => @brief.id
+      .field
+        = f.label :title, 'Section Title'
+        = f.text_field :title, :class => 'title', :id => 'new-section-title'
+      .field
+        = f.label :body, 'Content'
+        = f.text_area :body, :class => 'body', :id => 'new-section-body'
+      .submit
+        = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-add-new-section'
+        or
+        = f.submit 'submit', :id => 'new-section-submit'
