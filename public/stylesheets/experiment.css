@@ -973,38 +973,60 @@ ul.navigation {
       text-shadow: #333333 1px 1px 2px; }
       .side_box .contents a.toggle_add_collab:hover {
         background: none; }
-    .side_box .contents ul.collaborators {
+    .side_box .contents ul.collaborators, .side_box .contents .add_collaborators {
       margin: 0;
-      padding: 0; }
-      .side_box .contents ul.collaborators span.user_role {
+      padding: 0;
+      border-bottom: 1px solid #ccc; }
+      .side_box .contents ul.collaborators span.user_role, .side_box .contents .add_collaborators span.user_role {
         text-transform: uppercase; }
-      .side_box .contents ul.collaborators li.collaboration_user {
+      .side_box .contents ul.collaborators .available_collaborator, .side_box .contents .add_collaborators .available_collaborator {
+        padding: 1em;
+        border-bottom: 1px solid #ccc; }
+        .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button {
+          margin: 0;
+          padding: 0px 4px;
+          border: 1px solid #bbb;
+          color: black;
+          font-weight: bold;
+          font-size: 0.9em; }
+        .side_box .contents ul.collaborators .available_collaborator .name, .side_box .contents .add_collaborators .available_collaborator .name {
+          margin: 0;
+          padding: 0; }
+        .side_box .contents ul.collaborators .available_collaborator .info form label, .side_box .contents .add_collaborators .available_collaborator .info form label {
+          float: none;
+          display: inline;
+          font-weight: normal; }
+        .side_box .contents ul.collaborators .available_collaborator .add, .side_box .contents ul.collaborators .available_collaborator .remove, .side_box .contents .add_collaborators .available_collaborator .add, .side_box .contents .add_collaborators .available_collaborator .remove {
+          float: right; }
+        .side_box .contents ul.collaborators .available_collaborator .add, .side_box .contents .add_collaborators .available_collaborator .add {
+          font-size: 0.8em; }
+      .side_box .contents ul.collaborators li.collaboration_user, .side_box .contents .add_collaborators li.collaboration_user {
         padding: 0;
         margin: 0;
         border-bottom: 1px solid #cccccc;
         position: relative; }
-        .side_box .contents ul.collaborators li.collaboration_user p {
+        .side_box .contents ul.collaborators li.collaboration_user p, .side_box .contents .add_collaborators li.collaboration_user p {
           line-height: 1em;
           padding: 0;
           margin: 0;
           padding: 0.5em 1em 1em 1em; }
-        .side_box .contents ul.collaborators li.collaboration_user img.avatar {
+        .side_box .contents ul.collaborators li.collaboration_user img.avatar, .side_box .contents .add_collaborators li.collaboration_user img.avatar {
           margin-top: 0.8em;
           margin-left: 0.9em; }
-        .side_box .contents ul.collaborators li.collaboration_user a.options_toggle {
+        .side_box .contents ul.collaborators li.collaboration_user a.options_toggle, .side_box .contents .add_collaborators li.collaboration_user a.options_toggle {
           position: absolute;
           right: 1em;
           top: 2.5em;
           font-size: 0.8em;
           color: #cccccc; }
-        .side_box .contents ul.collaborators li.collaboration_user a.options_toggle:hover {
+        .side_box .contents ul.collaborators li.collaboration_user a.options_toggle:hover, .side_box .contents .add_collaborators li.collaboration_user a.options_toggle:hover {
           color: #333333; }
-        .side_box .contents ul.collaborators li.collaboration_user ul.options {
+        .side_box .contents ul.collaborators li.collaboration_user ul.options, .side_box .contents .add_collaborators li.collaboration_user ul.options {
           padding: 0;
           margin: 0;
           background: #e1e1e1 url(/images/collab_option_bg.png) repeat-x;
           height: 50px; }
-          .side_box .contents ul.collaborators li.collaboration_user ul.options li {
+          .side_box .contents ul.collaborators li.collaboration_user ul.options li, .side_box .contents .add_collaborators li.collaboration_user ul.options li {
             float: left;
             top: 0;
             padding: 0;
@@ -1014,42 +1036,42 @@ ul.navigation {
             padding: 0.5em 0 0 0;
             background: transparent;
             text-align: center; }
-            .side_box .contents ul.collaborators li.collaboration_user ul.options li img.spinner {
+            .side_box .contents ul.collaborators li.collaboration_user ul.options li img.spinner, .side_box .contents .add_collaborators li.collaboration_user ul.options li img.spinner {
               width: 16px;
               height: 16px;
               margin: 12px 0 0 15px;
               padding: 0; }
-            .side_box .contents ul.collaborators li.collaboration_user ul.options li a {
+            .side_box .contents ul.collaborators li.collaboration_user ul.options li a, .side_box .contents .add_collaborators li.collaboration_user ul.options li a {
               height: 0px;
               width: 29px;
               display: block;
               margin-left: 9px;
               padding-top: 32px; }
-              .side_box .contents ul.collaborators li.collaboration_user ul.options li a span {
+              .side_box .contents ul.collaborators li.collaboration_user ul.options li a span, .side_box .contents .add_collaborators li.collaboration_user ul.options li a span {
                 color: #aaaaaa;
                 margin-left: -2px; }
-            .side_box .contents ul.collaborators li.collaboration_user ul.options li a:hover span, .side_box .contents ul.collaborators li.collaboration_user ul.options li a.selected span {
+            .side_box .contents ul.collaborators li.collaboration_user ul.options li a:hover span, .side_box .contents ul.collaborators li.collaboration_user ul.options li a.selected span, .side_box .contents .add_collaborators li.collaboration_user ul.options li a:hover span, .side_box .contents .add_collaborators li.collaboration_user ul.options li a.selected span {
               color: #333333; }
-          .side_box .contents ul.collaborators li.collaboration_user ul.options li.with_js {
+          .side_box .contents ul.collaborators li.collaboration_user ul.options li.with_js, .side_box .contents .add_collaborators li.collaboration_user ul.options li.with_js {
             font-size: 8px; }
-            .side_box .contents ul.collaborators li.collaboration_user ul.options li.with_js input {
+            .side_box .contents ul.collaborators li.collaboration_user ul.options li.with_js input, .side_box .contents .add_collaborators li.collaboration_user ul.options li.with_js input {
               display: none; }
-          .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a {
+          .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author a {
             background: url(/images/collab_options.png) no-repeat; }
-          .side_box .contents ul.collaborators li.collaboration_user ul.options li.author.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a.selected {
+          .side_box .contents ul.collaborators li.collaboration_user ul.options li.author.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a.selected, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author.selected a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author a:hover, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author a:focus, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author a.selected {
             background: url(/images/collab_options.png) no-repeat 0 -30px; }
-          .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a {
+          .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver a {
             background: url(/images/collab_options.png) no-repeat -28px 0; }
-          .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a.selected {
+          .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a.selected, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver.selected a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver a:hover, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver a:focus, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver a.selected {
             background: url(/images/collab_options.png) no-repeat -28px -30px; }
-          .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove {
+          .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove {
             float: right;
             padding: 0.5em 0 0 0; }
-            .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a {
+            .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove a {
               background: url(/images/collab_options.png) no-repeat -58px 0; }
-            .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a.selected {
+            .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a.selected, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove.selected a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove a:hover, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove a:focus, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove a.selected {
               background: url(/images/collab_options.png) no-repeat -58px -30px; }
-      .side_box .contents ul.collaborators li:last-child {
+      .side_box .contents ul.collaborators li:last-child, .side_box .contents .add_collaborators li:last-child {
         border-bottom: 0; }
     .side_box .contents input.action {
       text-align: center;
@@ -1377,31 +1399,6 @@ div.actions {
     margin: auto; }
   #dashboard .brief_item .body .item-revision-body img {
     max-width: 420px; }
-
-.side_box .add_collaborators li.available_collaborator {
-  position: relative; }
-  .side_box .add_collaborators li.available_collaborator .add_user_brief_button {
-    -webkit-transition-property: background-color, color, border-color, opacity;
-    -webkit-transition-duration: 300ms;
-    -moz-transition-property: background-color, color, border-color, opacity;
-    -moz-transition-duration: 300ms;
-    -o-transition-property: background-color, color, border-color, opacity;
-    -o-transition-duration: 300ms;
-    transition-property: background-color, color, border-color, opacity;
-    transition-duration: 300ms;
-    position: absolute;
-    top: 5px;
-    right: 0;
-    background: #ccc;
-    margin: 0;
-    padding: 0px 4px;
-    border: 1px solid #bbb;
-    color: black;
-    font-weight: bold;
-    font-size: 0.9em; }
-    .side_box .add_collaborators li.available_collaborator .add_user_brief_button:hover {
-      background: #bbb;
-      border-color: #aaa; }
 
 ul.actions li {
   text-align: right; }
@@ -1868,7 +1865,7 @@ h4 {
 .add_collaborators {
   display: none; }
 
-.funky-button, #brief-tags .inline-submit {
+.btn-shizzle, .funky-button, #brief-tags .inline-submit, .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button {
   font-size: 1em;
   color: #32401a;
   border-radius: 2px;
@@ -1879,20 +1876,24 @@ h4 {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;
   border: solid 1px #91b113;
   background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px;
-  height: 27px;
-  line-height: 26px;
   text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px;
   display: inline;
-  float: left;
-  margin-right: 5px;
   padding: 0 10px;
   border-top-left-radius: 2px 2px;
   border-top-right-radius: 2px 2px;
   border-bottom-right-radius: 2px 2px;
   border-bottom-left-radius: 2px 2px;
   cursor: pointer; }
-  .funky-button:active, #brief-tags .inline-submit:active {
+  .btn-shizzle:active, .funky-button:active, #brief-tags .inline-submit:active, .funky-button-small:active, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button:active {
     background-position: 0px bottom; }
+
+.funky-button, #brief-tags .inline-submit {
+  height: 27px;
+  line-height: 26px; }
+
+.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button {
+  height: 20px;
+  line-height: 18px; }
 
 #container #content .main .comments {
   padding-top: 1em;

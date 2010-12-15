@@ -1,23 +1,16 @@
 !!!
 %html{ :xmlns => "http://www.w3.org/1999/xhtml" }
   %head
-    %title
-      ideapi
-    %script{ :type => "text/javascript" }  
+    %title ideapi
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html;charset=utf-8"}
     
-    =stylesheet_link_tag %w(application textile facebox jquery.wysiwyg)
-    /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
-    
-    /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
-    =stylesheet_link_tag %w(reset print), :media => "print"
-     
+    =stylesheet_link_tag %w(experiment http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT&subset=latin)
   %body{:id => body_ids, :class => body_classes}
-    =render :partial => 'user_feedback/feedback_form'  
+    =render :partial => 'user_feedback/feedback_form'
     #container
       = render :partial => 'partials/header'
       #content
-        .clear
+        = render :partial => 'partials/page_help'
         %ul{:class => "sub_nav #{app_logo_class}"}
           =yield :sub_nav
         =yield :title_holder
@@ -49,10 +42,16 @@
         })();
         
     /[if IE 6]<script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+    = javascript_include_tag %w(jquery.qtip smartTextBox facebox jquery.cookie jquery.infieldlabel.min jshizzle ajaxify onload )
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 
 
-    =javascript_include_tag %w(jquery jcorners facebox jquery.cookie jquery.wysiwyg SmartTextBox jquery.infieldlabel.min jshizzle ajaxify)
-    - # / For rounded corners in IE8... 
-    - # /[if lte IE 8]<script type="text/javascript" src="/javascripts/dd_roundies.js"></script>
-    - # /[if lte IE 8]<script type="text/javascript" src="/javascripts/ie.js"></script>
-    =javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
-    =javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 
+
+
+
+
+
+
+
+

@@ -1,27 +1,8 @@
 - if current_object.available_collaborators.present?
-  .collaborator_search
-    - form_tag '#' do
-      .search-field
-        = text_field_tag 'keywords'
-  -# %ul.add_collaborators
-  -#   - current_object.available_collaborators.each do |available_collaborator|
-  -#     -if available_collaborator.present?
-  -#       = render :partial => 'briefs/collaborator', :locals => {:collaborator => available_collaborator, :current_object => current_object, :available => true}
+  %ul.add_collaborators
+    - current_object.available_collaborators.each do |available_collaborator|
+      -if available_collaborator.present?
+        = render :partial => 'briefs/available_collaborator', :locals => {:collaborator => available_collaborator, :current_object => current_object, :available => true}
 
 %ul.collaborators
-  %li.collaborator
-    .avatar.inline-block.debug
-      = image_tag "http://surestack.smackaho.st/avatars/small/missing.png?1282148819", :class => 'avatar'
-    .info.inline-block.debug
-      %p.name= link_to "John Doe", '#'
-      - form_tag '#' do
-        .field
-          = check_box_tag 'author', 'Author'
-          = label_tag 'author'
-        .field
-          = check_box_tag 'approver', 'Approver'
-          = label_tag 'approver'
-    .remove.inline-block.debug
-      = link_to 'remove', '#', :class => 'close-button'
-      
   =render :partial => 'briefs/collaborator', :collection => current_object.user_briefs, :as => :user_brief, :locals => {:current_object => current_object}

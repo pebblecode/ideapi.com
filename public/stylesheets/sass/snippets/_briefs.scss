@@ -227,32 +227,6 @@ div.actions {
   
 }
 
-.side_box{
-  .add_collaborators{
-    
-    li.available_collaborator{
-      position: relative;
-      .add_user_brief_button{
-        @include color-transitions;
-        position: absolute;
-        top: 5px;
-        right: 0;
-        background: #ccc;
-        margin: 0;
-        padding: 0px 4px;
-        border: 1px solid #bbb;
-        color: black;
-        font-weight: bold;
-        font-size: 0.9em;
-        &:hover{
-          background: #bbb;
-          border-color: #aaa;
-        }
-      }
-    }
-  }
-}
-
 ul.actions{
   li{
     text-align: right;

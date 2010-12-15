@@ -2492,30 +2492,6 @@ ul#notifications {
   margin: auto; }
 #briefs #content .brief_item .body .item-revision-body img {
   max-width: 420px; }
-#briefs #content .side_box .add_collaborators li.available_collaborator {
-  position: relative; }
-  #briefs #content .side_box .add_collaborators li.available_collaborator .add_user_brief_button {
-    -webkit-transition-property: background-color, color, border-color, opacity;
-    -webkit-transition-duration: 300ms;
-    -moz-transition-property: background-color, color, border-color, opacity;
-    -moz-transition-duration: 300ms;
-    -o-transition-property: background-color, color, border-color, opacity;
-    -o-transition-duration: 300ms;
-    transition-property: background-color, color, border-color, opacity;
-    transition-duration: 300ms;
-    position: absolute;
-    top: 5px;
-    right: 0;
-    background: #ccc;
-    margin: 0;
-    padding: 0px 4px;
-    border: 1px solid #bbb;
-    color: black;
-    font-weight: bold;
-    font-size: 0.9em; }
-    #briefs #content .side_box .add_collaborators li.available_collaborator .add_user_brief_button:hover {
-      background: #bbb;
-      border-color: #aaa; }
 
 #dashboard .brief_item .flag {
   border: 1px solid #aaa;

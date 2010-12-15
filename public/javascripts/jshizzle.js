@@ -255,7 +255,7 @@ jQuery.fn.collaboration_widget = function () {
    $(this).find('.user_brief_id_helper').after(input_element);
   }).collab_control();
   
-  $('.collaborator_search').add_collaborator_widget();
+  $('.add_collaborators').add_collaborator_widget();
 };
 
 jQuery.fn.add_collaborator_widget = function () { 
