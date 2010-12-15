@@ -14,4 +14,10 @@ $(document).ready(function(){
     $(this).toggleClass('selected');
     $('#page-help').toggle('blind', {}, 500);
   });
+  
+  $('.collaborator_search input').focus(function(){
+    $(this).parent().toggleClass('active');
+  }).blur(function(){
+    $(this).parent().toggleClass('active');
+  });
 });

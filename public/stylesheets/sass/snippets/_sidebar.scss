@@ -73,21 +73,28 @@
         font-weight: bold; } }
     a.toggle_add_collab {
       position: absolute;
-      top: -1.7em;
-      right: 0;
+      top: -1.2em;
+      right: 0.5em;
       font-size: 2em;
       text-align: center;
-      width: 2em;
-      height: 1.5em;
+      width: 1em;
+      height: 1em;
       color: white;
-      text-shadow: #333333 1px 1px 2px; }
+      text-shadow: #333333 1px 1px 2px; 
+      &:hover{
+        background: none;
+      }
+    }
     ul.collaborators {
       margin: 0;
       padding: 0;
       span.user_role{
         text-transform: uppercase;
       }
-      li {
+      .collaborator{
+        
+      }
+      li.collaboration_user{
         padding: 0;
         margin: 0;
         border-bottom: 1px solid #cccccc;
@@ -208,33 +215,6 @@
       color: #e77b29; }
     span.dropped {
       color: #ed1c24; } } }
-.invite_users {
-  padding: 0.5em 1em 0.5em 1em;
-  position: relative;
-  border: 1px solid #cccccc;
-  background: #eeeeee;
-  h4 {
-    font-size: 1.2em; }
-  textarea {
-    font-size: 1em;
-    width: 19em;
-    height: 4em; } }
-.invite_contacts {
-  margin-top: 2em;
-  border: none;
-  background: white;
-  border-bottom: 1px solid #eeeeee;
-  h4 {
-    font-size: 1.2em;
-    padding-bottom: 0; }
-  input[type=submit] {
-    margin: 0.5em 0 0 0; }
-  select {
-    width: 12em;
-    margin-right: 0.5em; } }
-.invite_users {
-  input[type=submit] {
-    margin: 0.5em 0 0 0; } }
 #brief_reference {
   .most_important_thing {
     font-size: 1.1em;
@@ -276,6 +256,30 @@
         font-weight: normal; } }
     li:last-child {
       border-bottom: 0;
+    }
+  }
+}
+
+.collaborator_search{
+  border-bottom: 1px solid #ccc;
+  padding: 1em;
+  .search-field{
+    background: #fcfcfc;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    &.active{
+      border-color: #aaa;
+    }
+  }
+  
+  input{
+    border: 0;
+    background: #fcfcfc;
+    width: 98%;
+    padding: 0;
+    font-size: 1.1em;
+    &:focus{
+      outline: none;
     }
   }
 }

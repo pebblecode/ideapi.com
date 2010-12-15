@@ -98,9 +98,9 @@ h4{ font-size: 1.15em; }
 .clear{ clear: both;}
 .cleft{ clear: left;}
 .cright{ clear: right;}
-.hide{
-  display: none;
-}
+.hide{ display: none; }
+.inline-block{ display: inline-block; vertical-align: top;}
+.block{ display: block;}
 
 .add_collaborators{
   display: none;

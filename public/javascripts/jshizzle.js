@@ -255,7 +255,7 @@ jQuery.fn.collaboration_widget = function () {
    $(this).find('.user_brief_id_helper').after(input_element);
   }).collab_control();
   
-  $('.add_collaborators').add_collaborator_widget();
+  $('.collaborator_search').add_collaborator_widget();
 };
 
 jQuery.fn.add_collaborator_widget = function () { 
@@ -277,16 +277,11 @@ jQuery.fn.toggle_add_collab_link = function (object_to_toggle) {
   $(this).click(function () {
     $(this).text(($(this).text() == on) ? off : on);
     $(this).toggleClass('active');
-    object_to_toggle.toggle();
+    object_to_toggle.toggle('blind',{},300);
   });
 };
 
 jQuery.fn.update_add_collab_widget = function () {
-  if (jQuery(this).find('li').size() == 0) {
-    $(this).prev('a.toggle_add_collab').hide();
-  } else {
-    $(this).prev('a.toggle_add_collab').show();
-  }
 };
 
 jQuery.fn.add_collab_link = function () {
