@@ -113,13 +113,17 @@
           margin: 0;
           padding: 0;
         }
-        .info form{
-          label{
-            float: none;
-            display: inline;
-            font-weight: normal;
+        
+        .info{
+          form{
+            label{
+              float: none;
+              display: inline;
+              font-weight: normal;
+            }
           }
         }
+          
         .add, .remove{
           float: right;
         }
