@@ -990,10 +990,12 @@ ul.navigation {
         .side_box .contents ul.collaborators .available_collaborator .name, .side_box .contents .add_collaborators .available_collaborator .name {
           margin: 0;
           padding: 0; }
-        .side_box .contents ul.collaborators .available_collaborator .info form label, .side_box .contents .add_collaborators .available_collaborator .info form label {
-          float: none;
-          display: inline;
-          font-weight: normal; }
+        .side_box .contents ul.collaborators .available_collaborator .info, .side_box .contents .add_collaborators .available_collaborator .info {
+          width: 115px; }
+          .side_box .contents ul.collaborators .available_collaborator .info form label, .side_box .contents .add_collaborators .available_collaborator .info form label {
+            float: none;
+            display: inline;
+            font-weight: normal; }
         .side_box .contents ul.collaborators .available_collaborator .add, .side_box .contents ul.collaborators .available_collaborator .remove, .side_box .contents .add_collaborators .available_collaborator .add, .side_box .contents .add_collaborators .available_collaborator .remove {
           float: right; }
         .side_box .contents ul.collaborators .available_collaborator .add, .side_box .contents .add_collaborators .available_collaborator .add {
