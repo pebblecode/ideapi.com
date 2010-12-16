@@ -153,6 +153,9 @@ pre {
 a {
   text-decoration: none; }
 
+textarea {
+  resize: vertical; }
+
 abbr {
   background: transparent;
   font-size: 101%;
@@ -1207,7 +1210,7 @@ ul#notifications {
   margin: 0 0 1em 0;
   position: relative; }
 
-#content-header {
+#content-header, .proposal h2 {
   color: #32401a;
   padding: 0.5em 80px 0.5em 1em;
   position: relative;
@@ -1218,7 +1221,7 @@ ul#notifications {
   background: #b3d335;
   background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#9bbb1d));
   background: -moz-linear-gradient(top, #b3d335, #9bbb1d); }
-  #content-header h2 {
+  #content-header h2, .proposal h2 h2 {
     font-size: 1.2em; }
 
 .brief .section {
@@ -1569,12 +1572,12 @@ ul.actions li {
   #briefs.show .most_important_thing .edit span.right {
     vertical-align: bottom; }
 
-#content-header .editable:hover {
+#content-header .editable:hover, .proposal h2 .editable:hover {
   background-color: #d5f557;
   cursor: pointer; }
-#content-header .edit {
+#content-header .edit, .proposal h2 .edit {
   margin: 2px 0; }
-  #content-header .edit input[type=text] {
+  #content-header .edit input[type=text], .proposal h2 .edit input[type=text] {
     font-size: 1.2em;
     display: inline-block;
     font-weight: bold;
@@ -1583,11 +1586,11 @@ ul.actions li {
     border: 1px solid #ee8;
     background-color: #FFC;
     width: 75%; }
-  #content-header .edit input[type=submit] {
+  #content-header .edit input[type=submit], .proposal h2 .edit input[type=submit] {
     display: inline-block;
     vertical-align: middle;
     margin-top: -4px; }
-  #content-header .edit .toggle-inline-edit {
+  #content-header .edit .toggle-inline-edit, .proposal h2 .edit .toggle-inline-edit {
     display: inline;
     color: #fff;
     text-shadow: 1px 1px 1px #888;
@@ -1734,6 +1737,221 @@ ul.actions li {
 .smartTextBox-autocomplete-result-focus {
   background: #a0c11e; }
 
+#proposal_state {
+  font-size: 1em;
+  display: block;
+  width: 100%;
+  margin: auto; }
+
+#proposals #content .ajax-loading {
+  display: none; }
+#proposals #content .edit_proposal .infield-label, #proposals #content .new_proposal .infield-label {
+  display: block;
+  float: none;
+  color: #aaa;
+  z-index: 5;
+  position: absolute;
+  padding-left: 0.5em;
+  font-size: 1em;
+  font-style: italic; }
+#proposals #content .edit_proposal textarea, #proposals #content .new_proposal textarea {
+  font-size: 1em;
+  width: 625px; }
+#proposals #content .edit_proposal h2 .title-span, #proposals #content .new_proposal h2 .title-span {
+  background: white;
+  position: relative;
+  display: block;
+  width: 640px; }
+#proposals #content .edit_proposal h2 input[type=text], #proposals #content .new_proposal h2 input[type=text] {
+  width: 618px;
+  font-size: 1.2em;
+  padding: 3px 0.5em;
+  display: block;
+  background: transparent;
+  z-index: 5;
+  position: relative;
+  font-weight: bold;
+  border: 0; }
+#proposals #content .edit_proposal .fields, #proposals #content .new_proposal .fields {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0; }
+#proposals #content .edit_proposal .field, #proposals #content .new_proposal .field {
+  padding: 0 1em;
+  position: relative; }
+  #proposals #content .edit_proposal .field .infield-label, #proposals #content .new_proposal .field .infield-label {
+    left: 20px;
+    padding-top: 5px; }
+#proposals #content .edit_proposal #proposal_long_description, #proposals #content .new_proposal #proposal_long_description {
+  display: block;
+  width: 627px;
+  padding: 0.5em; }
+#proposals #content #new_proposal #proposal_title {
+  padding: 3px 0.5em; }
+#proposals #content #proposal_long_description {
+  display: block;
+  width: 400px;
+  padding: 0.5em; }
+#proposals #content #idea-attachments {
+  padding: 0;
+  margin: 2em 1em; }
+  #proposals #content #idea-attachments label {
+    width: 80px;
+    margin: 0;
+    text-align: right;
+    padding-right: 1em; }
+  #proposals #content #idea-attachments .asset-description {
+    width: 470px;
+    font-size: 1em; }
+  #proposals #content #idea-attachments p.submit {
+    text-align: right; }
+  #proposals #content #idea-attachments .actions {
+    position: static;
+    margin-top: 0.7em; }
+    #proposals #content #idea-attachments .actions a {
+      display: inline;
+      float: none;
+      background: url("/images/ui/plus-button.png") no-repeat left center;
+      padding-left: 20px;
+      padding-bottom: 2px; }
+      #proposals #content #idea-attachments .actions a:hover {
+        color: #000; }
+#proposals #content p.submit {
+  margin: 0 1em; }
+#proposals #content .proposal_asset {
+  -webkit-transition-property: background-color, color, border-color, opacity;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-property: background-color, color, border-color, opacity;
+  -moz-transition-duration: 500ms;
+  -o-transition-property: background-color, color, border-color, opacity;
+  -o-transition-duration: 500ms;
+  transition-property: background-color, color, border-color, opacity;
+  transition-duration: 500ms;
+  margin: 0.5em 0 0 0;
+  padding: 10px;
+  position: relative;
+  font-size: 0.9em;
+  border: 1px solid #fff;
+  background: #fafafa;
+  border: 1px solid #f1f1f1; }
+  #proposals #content .proposal_asset .remove_asset {
+    position: absolute;
+    top: 10px;
+    right: 10px; }
+    #proposals #content .proposal_asset .remove_asset a.delete, #proposals #content .proposal_asset .remove_asset .close-box {
+      text-indent: -9999px;
+      display: block;
+      height: 16px;
+      width: 16px;
+      background: url("/images/ui/cross-button.png") no-repeat 0 0; }
+  #proposals #content .proposal_asset .asset-file {
+    text-align: left; }
+    #proposals #content .proposal_asset .asset-file span {
+      margin-left: 0;
+      text-align: left;
+      width: 480px; }
+  #proposals #content .proposal_asset p {
+    margin: 0 0 0.5em 0;
+    clear: both; }
+  #proposals #content .proposal_asset p.asset-desc {
+    margin-bottom: 0.7em; }
+  #proposals #content .proposal_asset .update-proposal-assets input {
+    margin: 0;
+    padding: 0px 4px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px; }
+  #proposals #content .proposal_asset a.js-toggle-edit {
+    text-indent: -9999px;
+    float: left;
+    margin-right: 4px;
+    background: url("/images/ui/tag-pencil.png") no-repeat;
+    width: 16px;
+    height: 16px; }
+  #proposals #content .proposal_asset .description-textarea input[type=text] {
+    padding: 1px 5px;
+    width: 30em; }
+#proposals #content .proposal_asset:hover, #proposals #content .proposal_asset.hovered {
+  background: #f3f3f3;
+  border-color: #eee; }
+#proposals #content .proposal_asset.new {
+  background: #fcffeb;
+  border: 1px solid #D3DAB8; }
+#proposals #content .proposal_asset.new.hovered, #proposals #content .proposal_asset.new:hover {
+  background: #eff6ce;
+  border: 1px solid #D3DAB8; }
+#proposals #content .side_box .update_proposal {
+  padding: 0.5em 1em 1em 1em; }
+  #proposals #content .side_box .update_proposal p {
+    margin: 0.5em 0; }
+  #proposals #content .side_box .update_proposal p + p {
+    margin-top: 1em;
+    margin-bottom: 0; }
+#proposals #content .main .proposal .proposal_item .asset {
+  float: none !important;
+  width: auto !important;
+  margin-right: 10px;
+  margin-bottom: 0.5em; }
+  #proposals #content .main .proposal .proposal_item .asset img {
+    width: auto !important;
+    max-width: 400px;
+    max-height: 100px;
+    vertical-align: top; }
+#proposals #content .main .proposal .proposal_item p.description {
+  float: none !important;
+  padding: 0; }
+
+.proposal h2 span.status {
+  background: #eeeeee;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: black;
+  padding: 0.1em 0.5em;
+  margin-left: 0.5em; }
+
+.update_proposal {
+  padding: 1em 0.5em; }
+
+.proposal a.edit_icon {
+  right: 1em; }
+
+.proposal {
+  background: #fffffe;
+  margin: 0 0 1em 0; }
+  .proposal h2 {
+    font-size: 1.2em; }
+    .proposal h2.show {
+      padding: 1em 50px 1em 1.8em; }
+  .proposal .title {
+    position: relative; }
+  .proposal .proposal_item, .proposal .brief {
+    padding: 1em;
+    z-index: 10; }
+  .proposal .brief_heading h3 {
+    margin-left: 20px; }
+  .proposal .help_message {
+    width: 18em;
+    border: 1px solid #cccccc;
+    background: #fcfcfc;
+    background: rgba(245, 245, 245, 0.9);
+    padding: 1em;
+    position: absolute;
+    top: 4em;
+    left: 51.5em;
+    z-index: 5; }
+  .proposal .brief_item:last-child, .proposal .proposal_item:last-child {
+    border-bottom: 1px solid #cccccc; }
+  .proposal .proposal_item p.asset {
+    width: 120px; }
+  .proposal .proposal_item p.asset, .proposal .proposal_item p.description {
+    float: left; }
+  .proposal .proposal_item p.description {
+    width: 36em;
+    padding: 0 0 0 2em;
+    margin: 1px 0 0 0; }
+
 #footer {
   margin-top: 1em;
   background: url("/images/logo-small.png") no-repeat 2.2em 7px;
@@ -1804,141 +2022,6 @@ ul.actions li {
 #container #content .brief_overview.draft h3 {
   background: #dddddd;
   color: #333333; }
-#container #content .proposal h2 span.status {
-  background: #eeeeee;
-  font-size: 0.9em;
-  font-weight: bold;
-  text-transform: capitalize;
-  color: black;
-  padding: 0.1em 0.5em;
-  margin-left: 0.5em; }
-#container #content .update_proposal {
-  padding: 1em 0.5em; }
-#container #content .proposal a.edit_icon {
-  right: 1em; }
-#container #content .proposal {
-  background: #fffffe;
-  margin: 0 0 1em 0; }
-  #container #content .proposal h2 {
-    background: #b3d335;
-    color: #32401a;
-    font-size: 1.2em;
-    padding: 1em 50px 1em 1.8em;
-    position: relative;
-    text-shadow: 0 1px 1px white;
-    -moz-border-radius-topright: 6px;
-    -webkit-border-top-right-radius: 6px;
-    -moz-border-radius-topleft: 6px;
-    -webkit-border-top-left-radius: 6px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px; }
-    #container #content .proposal h2.show {
-      padding: 1em 50px 1em 1.8em; }
-  #container #content .proposal .title {
-    position: relative; }
-  #container #content .proposal div.actions {
-    z-index: 100;
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    text-align: right;
-    padding: 0;
-    margin: 0; }
-    #container #content .proposal div.actions a {
-      color: #666666;
-      display: block;
-      float: right;
-      margin-left: 1em;
-      margin-top: 3px; }
-    #container #content .proposal div.actions a:hover {
-      color: #fefefe; }
-    #container #content .proposal div.actions a.edit_brief, #container #content .proposal div.actions a.edit_icon, #container #content .proposal div.actions a.edit_template {
-      background: url("/images/page_edit.png") no-repeat center right;
-      height: 16px;
-      text-indent: -9999px;
-      width: 40px; }
-      #container #content .proposal div.actions a.edit_brief:hover, #container #content .proposal div.actions a.edit_icon:hover, #container #content .proposal div.actions a.edit_template:hover {
-        text-indent: 0;
-        color: #32401a;
-        font-weight: normal; }
-    #container #content .proposal div.actions a.print_brief {
-      display: block;
-      float: right;
-      background: url("/images/printer.png");
-      width: 16px;
-      height: 16px;
-      text-indent: -3000px; }
-    #container #content .proposal div.actions form {
-      float: right; }
-    #container #content .proposal div.actions .clean_brief {
-      -moz-border-radius: 3px;
-      -webkit-border-radius: 3px;
-      border-radius: 3px;
-      background: url("/images/ui/button_background_red.png") 0 0;
-      border: 1px solid #32401a;
-      padding: 1px 5px 0px 5px;
-      font-weight: normal;
-      font-size: 1em;
-      margin-top: 0;
-      color: white;
-      text-shadow: none; }
-      #container #content .proposal div.actions .clean_brief:active {
-        background-position: 0 -36px; }
-  #container #content .proposal .proposal_item, #container #content .proposal .brief {
-    padding: 1em 2em;
-    z-index: 10; }
-  #container #content .proposal .brief_heading h3 {
-    margin-left: 20px; }
-  #container #content .proposal .help_message {
-    width: 18em;
-    border: 1px solid #cccccc;
-    background: #fcfcfc;
-    background: rgba(245, 245, 245, 0.9);
-    padding: 1em;
-    position: absolute;
-    top: 4em;
-    left: 51.5em;
-    z-index: 5; }
-  #container #content .proposal .brief_item:last-child, #container #content .proposal .proposal_item:last-child {
-    border-bottom: 1px solid #cccccc; }
-  #container #content .proposal .proposal_item p.asset {
-    width: 120px; }
-  #container #content .proposal .proposal_item p.asset, #container #content .proposal .proposal_item p.description {
-    float: left; }
-  #container #content .proposal .proposal_item p.description {
-    width: 36em;
-    padding: 0 0 0 2em;
-    margin: 1px 0 0 0; }
-  #container #content .proposal .most_important_thing {
-    /*padding: 1em 1em 1em 3em;*/
-    padding: 0;
-    text-align: center; }
-    #container #content .proposal .most_important_thing p {
-      width: 500px;
-      font-size: 2.2em;
-      font-weight: bold;
-      color: #333333;
-      padding: 1em 2em;
-      margin: 0 auto;
-      text-align: center;
-      position: relative; }
-      #container #content .proposal .most_important_thing p span {
-        font-size: 4em;
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-        height: 0.4em;
-        line-height: 0.8em; }
-      #container #content .proposal .most_important_thing p span.left {
-        vertical-align: top;
-        margin-top: -10px; }
-      #container #content .proposal .most_important_thing p span.right {
-        vertical-align: middle;
-        margin-top: 10px; }
-  #container #content .proposal .brief_item.updated h3, #container #content .proposal .brief_item.updated h4 {
-    background: #ffffdf; }
-  #container #content .proposal .brief_item.extended {
-    background: transparent; }
 #container #content .edit_brief .most_important_thing textarea {
   width: 16em !important; }
 #container #content .edit_brief h2 input#brief_title {
@@ -3170,171 +3253,6 @@ span.timestamp {
     margin-right: 1em; }
 #accounts #container #content #delete-account {
   padding: 0 1em 1em 1em; }
-
-#proposal_state {
-  font-size: 1em;
-  display: block;
-  width: 100%;
-  margin: auto; }
-
-#proposals #content .ajax-loading {
-  display: none; }
-#proposals #content .edit_proposal .infield-label, #proposals #content .new_proposal .infield-label {
-  display: block;
-  float: none;
-  color: #aaa;
-  z-index: 5;
-  position: absolute;
-  left: 1px;
-  top: 1px;
-  font-size: 1.5em;
-  padding-left: 10px;
-  font-style: italic; }
-#proposals #content .edit_proposal textarea, #proposals #content .new_proposal textarea {
-  font-size: 1.2em; }
-#proposals #content .edit_proposal h2 .title-span, #proposals #content .new_proposal h2 .title-span {
-  background: white;
-  position: relative;
-  display: block;
-  width: 610px; }
-#proposals #content .edit_proposal h2 input[type=text], #proposals #content .new_proposal h2 input[type=text] {
-  font-size: 1.5em;
-  padding: 3px 10px;
-  display: block;
-  width: 590px;
-  background: transparent;
-  z-index: 5;
-  position: relative;
-  font-weight: bold; }
-#proposals #content .edit_proposal .fields, #proposals #content .new_proposal .fields {
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  padding: 15px 0; }
-#proposals #content .edit_proposal .field, #proposals #content .new_proposal .field {
-  padding: 0 20px;
-  position: relative; }
-  #proposals #content .edit_proposal .field .infield-label, #proposals #content .new_proposal .field .infield-label {
-    left: 20px;
-    padding-top: 5px; }
-#proposals #content .edit_proposal #proposal_long_description, #proposals #content .new_proposal #proposal_long_description {
-  display: block;
-  width: 590px;
-  padding: 10px; }
-#proposals #content #new_proposal #proposal_title {
-  padding: 3px 10px; }
-#proposals #content #proposal_long_description {
-  display: block;
-  width: 400px;
-  padding: 10px; }
-#proposals #content #idea-attachments {
-  padding: 0;
-  margin: 2em 20px; }
-  #proposals #content #idea-attachments label {
-    width: 80px;
-    margin: 0;
-    text-align: right;
-    padding-right: 1em; }
-  #proposals #content #idea-attachments .asset-description {
-    width: 470px;
-    font-size: 1em; }
-  #proposals #content #idea-attachments p.submit {
-    text-align: right; }
-  #proposals #content #idea-attachments .actions {
-    position: static;
-    margin-top: 0.7em; }
-    #proposals #content #idea-attachments .actions a {
-      display: inline;
-      float: none;
-      background: url("/images/ui/plus-button.png") no-repeat left center;
-      padding-left: 20px;
-      padding-bottom: 2px; }
-      #proposals #content #idea-attachments .actions a:hover {
-        color: #000; }
-#proposals #content p.submit {
-  margin-right: 20px; }
-#proposals #content .proposal_asset {
-  -webkit-transition-property: background-color, color, border-color, opacity;
-  -webkit-transition-duration: 500ms;
-  -moz-transition-property: background-color, color, border-color, opacity;
-  -moz-transition-duration: 500ms;
-  -o-transition-property: background-color, color, border-color, opacity;
-  -o-transition-duration: 500ms;
-  transition-property: background-color, color, border-color, opacity;
-  transition-duration: 500ms;
-  margin: 0.5em 0 0 0;
-  padding: 10px;
-  position: relative;
-  font-size: 0.9em;
-  border: 1px solid #fff;
-  background: #fafafa;
-  border: 1px solid #f1f1f1; }
-  #proposals #content .proposal_asset .remove_asset {
-    position: absolute;
-    top: 10px;
-    right: 10px; }
-    #proposals #content .proposal_asset .remove_asset a.delete, #proposals #content .proposal_asset .remove_asset .close-box {
-      text-indent: -9999px;
-      display: block;
-      height: 16px;
-      width: 16px;
-      background: url("/images/ui/cross-button.png") no-repeat 0 0; }
-  #proposals #content .proposal_asset .asset-file {
-    text-align: left; }
-    #proposals #content .proposal_asset .asset-file span {
-      margin-left: 0;
-      text-align: left;
-      width: 480px; }
-  #proposals #content .proposal_asset p {
-    margin: 0 0 0.5em 0;
-    clear: both; }
-  #proposals #content .proposal_asset p.asset-desc {
-    margin-bottom: 0.7em; }
-  #proposals #content .proposal_asset .update-proposal-assets input {
-    margin: 0;
-    padding: 0px 4px;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px; }
-  #proposals #content .proposal_asset a.js-toggle-edit {
-    text-indent: -9999px;
-    float: left;
-    margin-right: 4px;
-    background: url("/images/ui/tag-pencil.png") no-repeat;
-    width: 16px;
-    height: 16px; }
-  #proposals #content .proposal_asset .description-textarea input[type=text] {
-    padding: 1px 5px;
-    width: 30em; }
-#proposals #content .proposal_asset:hover, #proposals #content .proposal_asset.hovered {
-  background: #f3f3f3;
-  border-color: #eee; }
-#proposals #content .proposal_asset.new {
-  background: #fcffeb;
-  border: 1px solid #D3DAB8; }
-#proposals #content .proposal_asset.new.hovered, #proposals #content .proposal_asset.new:hover {
-  background: #eff6ce;
-  border: 1px solid #D3DAB8; }
-#proposals #content .side_box .update_proposal {
-  padding: 0.5em 1em 1em 1em; }
-  #proposals #content .side_box .update_proposal p {
-    margin: 0.5em 0; }
-  #proposals #content .side_box .update_proposal p + p {
-    margin-top: 1em;
-    margin-bottom: 0; }
-#proposals #content .main .proposal .proposal_item .asset {
-  float: none !important;
-  width: auto !important;
-  margin-right: 10px;
-  margin-bottom: 0.5em; }
-  #proposals #content .main .proposal .proposal_item .asset img {
-    width: auto !important;
-    max-width: 400px;
-    max-height: 100px;
-    vertical-align: top; }
-#proposals #content .main .proposal .proposal_item p.description {
-  float: none !important;
-  padding: 0; }
 
 /* Mixins */
 /*

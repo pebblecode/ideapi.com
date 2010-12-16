@@ -19,19 +19,6 @@
 
   - form_for(current_object, :url => objects_url, :html => { :multipart => true }) do |f|
     = render :partial => "form", :locals => {:f => f}
-    / %h2 Draft new idea
-    /     .boom_box
-    /       %p
-    /         = f.label :title
-    /         = f.text_field :title
-    /       %p
-    /         = f.label :long_description
-    /         = f.text_area :long_description, :rows => "17", :cols => '60'
-    /     
-    / = render :partial => "form", :locals => {:f => f}
-      
-    %p.submit
-      = submit_tag "Save"
     .clear
         
 .col_2

@@ -1,7 +1,7 @@
 // variables
-$field_padding: 20px;
-$textfield_padding: 10px;
-$textfield_width: 590px;
+$field_padding: 1em;
+$textfield_padding: 0.5em;
+$textfield_width: 627px;
 
 #proposal_state{
   font-size: 1em;
@@ -19,32 +19,32 @@ $textfield_width: 590px;
       color: #aaa;
       z-index: 5;
       position: absolute;
-      left: 1px;
-      top: 1px;
-      font-size: 1.5em;
       padding-left: $textfield_padding;
+      font-size: 1em;
       font-style: italic;
     }
     textarea{
-      font-size: 1.2em;
+      font-size: 1em;
+      width: 625px;
     }
     h2{
       .title-span{
         background: white;
         position: relative;
         display: block;
-        width: $textfield_width + $textfield_padding + $textfield_padding;
+        width: 640px;
         
       }  
       input[type=text]{
-        font-size: 1.5em;
+        width: 618px;
+        font-size: 1.2em;
         padding: 3px $textfield_padding;
         display: block;
-        width: $textfield_width;
         background: transparent;
         z-index: 5;
         position: relative;
         font-weight: bold;
+        border: 0;
       }
       
     }
@@ -116,7 +116,7 @@ $textfield_width: 590px;
     }
   }
   p.submit{
-    margin-right: 20px;
+    margin: 0 1em;
   }
   .proposal_asset{
     @include color-transitions(500ms);
@@ -145,7 +145,7 @@ $textfield_width: 590px;
         margin-left: 0;
         text-align: left;
         width: 480px;
-      } 
+      }
       
     }
     p{
@@ -232,3 +232,73 @@ $textfield_width: 590px;
   }
 }
 
+
+.proposal {
+  h2 {
+    span.status {
+      background: #eeeeee;
+      font-size: 0.9em;
+      font-weight: bold;
+      text-transform: capitalize;
+      color: black;
+      padding: 0.1em 0.5em;
+      margin-left: 0.5em;
+    }
+  }    
+}
+.update_proposal {
+  padding: 1em 0.5em;
+}
+.proposal a.edit_icon {
+  right: 1em; 
+}
+.proposal{
+  background: #fffffe;
+  margin: 0 0 1em 0;
+  h2 {
+    @extend #content-header;
+    font-size: 1.2em;
+    &.show {
+      padding: 1em 50px 1em 1.8em; 
+    }
+  }
+  .title {
+    position: relative; 
+  }
+  .proposal_item, .brief {
+    padding: 1em;
+    z-index: 10; 
+  }
+  .brief_heading {
+    h3 {
+      margin-left: 20px; 
+    } 
+  }
+  .help_message {
+    width: 18em;
+    border: 1px solid #cccccc;
+    background: rgb(252, 252, 252);
+    background: rgba(245, 245, 245, 0.9);
+    padding: 1em;
+    position: absolute;
+    top: 4em;
+    left: 51.5em;
+    z-index: 5; 
+  }
+  .brief_item:last-child, .proposal_item:last-child {
+    border-bottom: 1px solid #cccccc; 
+  }
+  .proposal_item {
+    p.asset {
+      width: 120px; 
+    }
+    p.asset, p.description {
+      float: left; 
+    }
+    p.description {
+      width: 36em;
+      padding: 0 0 0 2em;
+      margin: 1px 0 0 0;
+    }
+  }
+}

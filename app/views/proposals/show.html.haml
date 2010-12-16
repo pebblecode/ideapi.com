@@ -49,7 +49,7 @@
     - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
       =f.hidden_field '_call_state', :value => 'publish'
       %p.submit
-        = submit_tag "Submit"
+        = submit_tag "Submit", :class => 'funky-button-small'
       .clear
   
   - unless current_object.draft?
@@ -84,7 +84,7 @@
                   =f.text_area :comment, :rows => 5, :cols => 80
                   %p.button
                     %img{:src => "/images/ui/loading.gif", :alt => 'Submitting comment...', :class => "loading-gif hide"}
-                    =f.submit "submit"
+                    =f.submit "submit", :class => 'funky-button-small'
         
         
 .col_2
@@ -96,8 +96,7 @@
           - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
             %p=f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s), :include_blank => 'Please select'
             %p.align-right
-              / loading gif... for ajax submissions. hidden by default
               %span.ajax-loading
                 %img{:src => '/images/ui/loading.gif', :alt => 'Loading...'}/
-              =f.submit "update"
+              =f.submit "update", :class => 'funky-button-small'
   = render :partial => 'proposals/idea_users'
