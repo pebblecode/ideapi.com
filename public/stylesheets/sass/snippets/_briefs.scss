@@ -277,6 +277,8 @@ ul.actions{
   
   .inline-submit{
     display: inline-block;
+    float: left;
+    margin-right: 0.5em;
     @extend .funky-button;
   }
   .smartTextBox-elem-valueContainer{

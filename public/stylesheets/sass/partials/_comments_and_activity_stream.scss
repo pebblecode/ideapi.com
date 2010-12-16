@@ -1,7 +1,7 @@
 // Variables
 
 $speechbox-width: 432px;
-$speechbox-textarea-width: $speechbox-width - 7;
+$speechbox-textarea-width: $speechbox-width - 14;
 
 // Styles
 
@@ -60,6 +60,8 @@ $speechbox-textarea-width: $speechbox-width - 7;
       }
       textarea{
         width: $speechbox-textarea-width;
+        max-width: $speechbox-textarea-width;
+        min-width: $speechbox-textarea-width;
         margin: 0;
       }
       p.button{
@@ -67,7 +69,8 @@ $speechbox-textarea-width: $speechbox-width - 7;
         margin: 0.8em auto 0 auto;
       }
       #comment_submit{
-        padding: 2px 10px;
+        @extend .funky-button-small;
+        font-size: 0.9em;
       }
     }
     .submit{
@@ -211,6 +214,8 @@ $speechbox-textarea-width: $speechbox-width - 7;
             
             textarea{
               width: $speechbox-textarea-width;
+              max-width: $speechbox-textarea-width;
+              min-width: $speechbox-textarea-width;
               margin: 0;
               height: 80px;
             }
@@ -219,15 +224,16 @@ $speechbox-textarea-width: $speechbox-width - 7;
               margin: 0.8em auto 0 auto;
             }
             input[type=submit]{
-              padding: 2px 10px;
+              @extend .funky-button-small;
+              font-size: 0.9em;
             }
           }
           .submit{
             width: $speechbox-width;
             margin: 0.5em auto;
             input[type=submit]{
+              @extend .funky-button-small;
               font-size: 0.9em;
-              padding: 2px 10px;
             }
           }
         }
@@ -321,3 +327,4 @@ span.timestamp{
   padding: 0;
   cursor: pointer;
 }
+

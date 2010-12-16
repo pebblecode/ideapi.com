@@ -36,9 +36,6 @@
           display: inline;
         }
       }
-      input:focus, textarea:focus{
-        outline: #D6DC77 dotted 1px;
-      }
       input.inline-edit-title{
         padding: 3px 6px;
         font-size: 1.3em;
@@ -51,6 +48,8 @@
       .inline-edit-body{
         display: block;
         width: 590px;
+        min-width: 590px;
+        max-width: 590px;
         height: 100px;
         padding: 0.5em;
         background: #fafafa;

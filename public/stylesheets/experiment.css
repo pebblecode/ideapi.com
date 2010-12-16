@@ -152,13 +152,6 @@ pre {
 
 a {
   text-decoration: none; }
-  a:visited {
-    background: inherit;
-    color: #9b9b1d; }
-  a:hover {
-    background: inherit; }
-  a:active {
-    background: inherit; }
 
 abbr {
   background: transparent;
@@ -1440,7 +1433,9 @@ ul.actions li {
   #brief-tags .smartTextBox {
     display: inline-block; }
   #brief-tags .inline-submit {
-    display: inline-block; }
+    display: inline-block;
+    float: left;
+    margin-right: 0.5em; }
   #brief-tags .smartTextBox-elem-valueContainer {
     font-size: 0.9em; }
 
@@ -1515,8 +1510,6 @@ ul.actions li {
       margin-bottom: 5px; }
       #briefs.show .section .edit .field .toggle-inline-edit {
         display: inline; }
-    #briefs.show .section .edit input:focus, #briefs.show .section .edit textarea:focus {
-      outline: #D6DC77 dotted 1px; }
     #briefs.show .section .edit input.inline-edit-title {
       padding: 3px 6px;
       font-size: 1.3em;
@@ -1528,6 +1521,8 @@ ul.actions li {
     #briefs.show .section .edit .inline-edit-body {
       display: block;
       width: 590px;
+      min-width: 590px;
+      max-width: 590px;
       height: 100px;
       padding: 0.5em;
       background: #fafafa;
@@ -2115,9 +2110,6 @@ p.submit.left {
       display: none; }
     #facebox .content .fb .brief .brief_item:hover {
       background: #ffffdf; }
-
-textarea {
-  resize: none; }
 
 .login, .app_error {
   margin: 15% auto 0 auto;
@@ -2834,7 +2826,7 @@ h4 {
 .add_collaborators {
   display: none; }
 
-.btn-shizzle, .funky-button, #brief-tags .inline-submit, .ideapi_button, .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button {
+.btn-shizzle, .funky-button, #brief-tags .inline-submit, .ideapi_button, .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button, #container #content .main .comment .speech #comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit] {
   font-size: 1em;
   color: #32401a;
   border-radius: 2px;
@@ -2853,16 +2845,50 @@ h4 {
   border-bottom-right-radius: 2px 2px;
   border-bottom-left-radius: 2px 2px;
   cursor: pointer; }
-  .btn-shizzle:active, .funky-button:active, #brief-tags .inline-submit:active, .ideapi_button:active, .funky-button-small:active, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button:active {
+  .btn-shizzle:active, .funky-button:active, #brief-tags .inline-submit:active, .ideapi_button:active, .funky-button-small:active, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button:active, #container #content .main .comment .speech #comment_submit:active, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit]:active {
     background-position: 0px bottom; }
 
 .funky-button, #brief-tags .inline-submit, .ideapi_button {
-  height: 27px;
-  line-height: 26px; }
+  height: 26px;
+  line-height: 24px; }
 
-.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button {
+.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button, #container #content .main .comment .speech #comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit] {
   height: 20px;
   line-height: 18px; }
+
+p.submit {
+  text-align: right; }
+
+form input[type=text]:focus, form input[type=password]:focus, form textarea:focus {
+  background: #f9f9f9;
+  outline: 1px solid #b3d335; }
+form input[type=text], form input[type=password], form textarea {
+  border: 1px solid #cccccc;
+  padding: 0.2em 0.3em;
+  background: white; }
+form input[type=text]:focus, form input[type=password]:focus, form textarea:focus {
+  background: #f9f9f9; }
+form p label {
+  margin-right: 1em;
+  line-height: 1.1em;
+  width: 8em;
+  clear: left; }
+form p input[type=checkbox] {
+  margin-top: 5px; }
+
+/* Minor Section Customization */
+#users .user .avatar {
+  float: left;
+  margin: 0 1em 1em 0; }
+#users.edit .sub_nav, #users.index .sub_nav {
+  display: none; }
+#users.edit #content, #users.index #content {
+  padding-top: 1em; }
+
+#pages .sub_nav {
+  display: none; }
+#pages #content {
+  padding-top: 1em; }
 
 #container #content .main .comments {
   padding-top: 1em;
@@ -2902,13 +2928,15 @@ h4 {
   margin-bottom: 0.5em;
   margin-right: 1em; }
 #container #content .main .comment .speech textarea {
-  width: 425px;
+  width: 418px;
+  max-width: 418px;
+  min-width: 418px;
   margin: 0; }
 #container #content .main .comment .speech p.button {
   text-align: right;
   margin: 0.8em auto 0 auto; }
 #container #content .main .comment .speech #comment_submit {
-  padding: 2px 10px; }
+  font-size: 0.9em; }
 #container #content .main .comment .submit {
   width: 432px;
   margin: 0.5em auto;
@@ -3000,20 +3028,21 @@ h4 {
   #container #content .main .brief_item .brief_item_activity .author_answer_form .speech, #container #content .main .brief_item .brief_item_activity .question_form .speech, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech {
     padding-bottom: 10px; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech textarea {
-      width: 425px;
+      width: 418px;
+      max-width: 418px;
+      min-width: 418px;
       margin: 0;
       height: 80px; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech p.button {
       text-align: right;
       margin: 0.8em auto 0 auto; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit] {
-      padding: 2px 10px; }
+      font-size: 0.9em; }
   #container #content .main .brief_item .brief_item_activity .author_answer_form .submit, #container #content .main .brief_item .brief_item_activity .question_form .submit, #container #content .main .brief_item .brief_item_activity .question-answer-form .submit {
     width: 432px;
     margin: 0.5em auto; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit] {
-      font-size: 0.9em;
-      padding: 2px 10px; }
+      font-size: 0.9em; }
   #container #content .main .brief_item .brief_item_activity .question_form .avatar {
     position: absolute;
     left: 1em;
@@ -3141,6 +3170,171 @@ span.timestamp {
     margin-right: 1em; }
 #accounts #container #content #delete-account {
   padding: 0 1em 1em 1em; }
+
+#proposal_state {
+  font-size: 1em;
+  display: block;
+  width: 100%;
+  margin: auto; }
+
+#proposals #content .ajax-loading {
+  display: none; }
+#proposals #content .edit_proposal .infield-label, #proposals #content .new_proposal .infield-label {
+  display: block;
+  float: none;
+  color: #aaa;
+  z-index: 5;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  font-size: 1.5em;
+  padding-left: 10px;
+  font-style: italic; }
+#proposals #content .edit_proposal textarea, #proposals #content .new_proposal textarea {
+  font-size: 1.2em; }
+#proposals #content .edit_proposal h2 .title-span, #proposals #content .new_proposal h2 .title-span {
+  background: white;
+  position: relative;
+  display: block;
+  width: 610px; }
+#proposals #content .edit_proposal h2 input[type=text], #proposals #content .new_proposal h2 input[type=text] {
+  font-size: 1.5em;
+  padding: 3px 10px;
+  display: block;
+  width: 590px;
+  background: transparent;
+  z-index: 5;
+  position: relative;
+  font-weight: bold; }
+#proposals #content .edit_proposal .fields, #proposals #content .new_proposal .fields {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0; }
+#proposals #content .edit_proposal .field, #proposals #content .new_proposal .field {
+  padding: 0 20px;
+  position: relative; }
+  #proposals #content .edit_proposal .field .infield-label, #proposals #content .new_proposal .field .infield-label {
+    left: 20px;
+    padding-top: 5px; }
+#proposals #content .edit_proposal #proposal_long_description, #proposals #content .new_proposal #proposal_long_description {
+  display: block;
+  width: 590px;
+  padding: 10px; }
+#proposals #content #new_proposal #proposal_title {
+  padding: 3px 10px; }
+#proposals #content #proposal_long_description {
+  display: block;
+  width: 400px;
+  padding: 10px; }
+#proposals #content #idea-attachments {
+  padding: 0;
+  margin: 2em 20px; }
+  #proposals #content #idea-attachments label {
+    width: 80px;
+    margin: 0;
+    text-align: right;
+    padding-right: 1em; }
+  #proposals #content #idea-attachments .asset-description {
+    width: 470px;
+    font-size: 1em; }
+  #proposals #content #idea-attachments p.submit {
+    text-align: right; }
+  #proposals #content #idea-attachments .actions {
+    position: static;
+    margin-top: 0.7em; }
+    #proposals #content #idea-attachments .actions a {
+      display: inline;
+      float: none;
+      background: url("/images/ui/plus-button.png") no-repeat left center;
+      padding-left: 20px;
+      padding-bottom: 2px; }
+      #proposals #content #idea-attachments .actions a:hover {
+        color: #000; }
+#proposals #content p.submit {
+  margin-right: 20px; }
+#proposals #content .proposal_asset {
+  -webkit-transition-property: background-color, color, border-color, opacity;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-property: background-color, color, border-color, opacity;
+  -moz-transition-duration: 500ms;
+  -o-transition-property: background-color, color, border-color, opacity;
+  -o-transition-duration: 500ms;
+  transition-property: background-color, color, border-color, opacity;
+  transition-duration: 500ms;
+  margin: 0.5em 0 0 0;
+  padding: 10px;
+  position: relative;
+  font-size: 0.9em;
+  border: 1px solid #fff;
+  background: #fafafa;
+  border: 1px solid #f1f1f1; }
+  #proposals #content .proposal_asset .remove_asset {
+    position: absolute;
+    top: 10px;
+    right: 10px; }
+    #proposals #content .proposal_asset .remove_asset a.delete, #proposals #content .proposal_asset .remove_asset .close-box {
+      text-indent: -9999px;
+      display: block;
+      height: 16px;
+      width: 16px;
+      background: url("/images/ui/cross-button.png") no-repeat 0 0; }
+  #proposals #content .proposal_asset .asset-file {
+    text-align: left; }
+    #proposals #content .proposal_asset .asset-file span {
+      margin-left: 0;
+      text-align: left;
+      width: 480px; }
+  #proposals #content .proposal_asset p {
+    margin: 0 0 0.5em 0;
+    clear: both; }
+  #proposals #content .proposal_asset p.asset-desc {
+    margin-bottom: 0.7em; }
+  #proposals #content .proposal_asset .update-proposal-assets input {
+    margin: 0;
+    padding: 0px 4px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px; }
+  #proposals #content .proposal_asset a.js-toggle-edit {
+    text-indent: -9999px;
+    float: left;
+    margin-right: 4px;
+    background: url("/images/ui/tag-pencil.png") no-repeat;
+    width: 16px;
+    height: 16px; }
+  #proposals #content .proposal_asset .description-textarea input[type=text] {
+    padding: 1px 5px;
+    width: 30em; }
+#proposals #content .proposal_asset:hover, #proposals #content .proposal_asset.hovered {
+  background: #f3f3f3;
+  border-color: #eee; }
+#proposals #content .proposal_asset.new {
+  background: #fcffeb;
+  border: 1px solid #D3DAB8; }
+#proposals #content .proposal_asset.new.hovered, #proposals #content .proposal_asset.new:hover {
+  background: #eff6ce;
+  border: 1px solid #D3DAB8; }
+#proposals #content .side_box .update_proposal {
+  padding: 0.5em 1em 1em 1em; }
+  #proposals #content .side_box .update_proposal p {
+    margin: 0.5em 0; }
+  #proposals #content .side_box .update_proposal p + p {
+    margin-top: 1em;
+    margin-bottom: 0; }
+#proposals #content .main .proposal .proposal_item .asset {
+  float: none !important;
+  width: auto !important;
+  margin-right: 10px;
+  margin-bottom: 0.5em; }
+  #proposals #content .main .proposal .proposal_item .asset img {
+    width: auto !important;
+    max-width: 400px;
+    max-height: 100px;
+    vertical-align: top; }
+#proposals #content .main .proposal .proposal_item p.description {
+  float: none !important;
+  padding: 0; }
 
 /* Mixins */
 /*

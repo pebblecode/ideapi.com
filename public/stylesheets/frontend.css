@@ -1982,13 +1982,15 @@ ul#notifications {
   margin-bottom: 0.5em;
   margin-right: 1em; }
 #container #content .main .comment .speech textarea {
-  width: 425px;
+  width: 418px;
+  max-width: 418px;
+  min-width: 418px;
   margin: 0; }
 #container #content .main .comment .speech p.button {
   text-align: right;
   margin: 0.8em auto 0 auto; }
 #container #content .main .comment .speech #comment_submit {
-  padding: 2px 10px; }
+  font-size: 0.9em; }
 #container #content .main .comment .submit {
   width: 432px;
   margin: 0.5em auto;
@@ -2080,20 +2082,21 @@ ul#notifications {
   #container #content .main .brief_item .brief_item_activity .author_answer_form .speech, #container #content .main .brief_item .brief_item_activity .question_form .speech, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech {
     padding-bottom: 10px; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech textarea {
-      width: 425px;
+      width: 418px;
+      max-width: 418px;
+      min-width: 418px;
       margin: 0;
       height: 80px; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech p.button {
       text-align: right;
       margin: 0.8em auto 0 auto; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit] {
-      padding: 2px 10px; }
+      font-size: 0.9em; }
   #container #content .main .brief_item .brief_item_activity .author_answer_form .submit, #container #content .main .brief_item .brief_item_activity .question_form .submit, #container #content .main .brief_item .brief_item_activity .question-answer-form .submit {
     width: 432px;
     margin: 0.5em auto; }
     #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit] {
-      font-size: 0.9em;
-      padding: 2px 10px; }
+      font-size: 0.9em; }
   #container #content .main .brief_item .brief_item_activity .question_form .avatar {
     position: absolute;
     left: 1em;

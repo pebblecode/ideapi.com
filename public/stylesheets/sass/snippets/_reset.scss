@@ -146,17 +146,7 @@ pre {
     color: #cc3333;
     background: inherit; } }
 
-a {
-  text-decoration: none;
-  
-  &:visited {
-    background: inherit;
-    color: $ideapi_green_light - #183818;
-  }
-  &:hover {
-    background: inherit; }
-  &:active {
-      background: inherit; } }
+a {  text-decoration: none;}
 
 abbr {
   background: transparent;
