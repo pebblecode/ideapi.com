@@ -125,11 +125,7 @@ class BriefsController < ApplicationController
     
     response_for(:index) do |format|
       format.html{
-        if params[:vanilla].present?
-          render :layout => 'application'
-        else
-          render :layout => 'briefs'
-        end
+        render
       }
     end
     
@@ -160,11 +156,9 @@ class BriefsController < ApplicationController
         else
           if params[:print_mode].present?
             @print_mode = params[:print_mode]
-            render(:action => 'print', :layout => false) 
-          elsif params[:vanilla].present?
-            render :layout => 'application'
+            render(:action => 'print', :layout => false)
           else
-            render :layout => 'briefs'
+            render
           end
         end
         

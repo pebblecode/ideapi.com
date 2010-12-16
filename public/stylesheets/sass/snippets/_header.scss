@@ -85,22 +85,25 @@ ul.navigation {
 #page-help{
   display: none;
   border: 1px solid $ideapi_green_light;
-  margin: 0;
-  padding: 1em 2em;
-  background: $ideapi_green_light;
+  margin: 0;  background: $ideapi_green_light;
   @include linear-gradient($ideapi_green_light, $ideapi_green_light - #111);
   @include border-radius-bottom(3px);
   color: $off_white;
   
-  p, h1, h2, h3, h4, h5, h6, strong, em{
-    color: white;
-    text-shadow: 1px 1px 1px $ideapi_green_dark;
-  }
   a{
     color: $ideapi_green_dark;
     text-shadow: none;
     &:hover{
       border-bottom: 1px solid $ideapi_green_dark;
     }
+  }
+  .blind{
+    
+  }
+  .box{
+    padding: 1em;
+    width: 400px;
+    color: #333;
+    p{text-align: justify;}
   }
 }

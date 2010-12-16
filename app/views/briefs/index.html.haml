@@ -1,11 +1,7 @@
-=sub_nav do
-  =breadcrumb_list
-  -if current_user_can_create_briefs?
-    %li{:class => "secondary"}
-      =link_to 'Create brief', new_brief_path
-
-#dashboard.col_1
-  #dashboard_introduction.note
+= title 'Dashboard |'
+= page_help do
+  .box
+    %h3 The Dashboard
     - if current_user_can_create_briefs?
       %p
         From the dashboard you can access all your active briefs or filter briefs by tag. If you are an author or approver on any brief, your role will be visible here. 
@@ -17,6 +13,14 @@
       %p
         From the dashboard you can access all your active briefs or filter briefs by tag. If you are an author or approver on any brief, your role will be visible here. 
         = link_to 'View role descriptions', help_path
+  
+=sub_nav do
+  =breadcrumb_list
+  -if current_user_can_create_briefs?
+    %li{:class => "secondary"}
+      =link_to 'Create brief', new_brief_path
+
+#dashboard.col_1
   -if @merged_questions.present?
     %ul#notifications
       -@merged_questions.each do |q|

@@ -1,19 +1,25 @@
 - body_classes << "contacts"
-.col_1
-  %h2 Contacts
-  #contacts_note.note
-    - if current_account.admin.present? and current_account.admin == current_user
+- title "Contacts"
+
+- if current_account.admin.present? and current_account.admin == current_user
+  = page_help do 
+    .box 
       :markdown
+        ## Users
         You must add users to your account before you can invite anyone to collaborate on a brief. 
         When adding new users you can opt to allow them to create new briefs, 
         as well as adding them straight onto existing briefs.
-    - else 
+- else 
+  = page_help do
+    .box
       :markdown
+        ## Users
         Users must be added to the account before anyone can be invited to collaborate on a brief.
         To add users to this account, please contact your account holder 
         (#{link_to current_account.admin.full_name, user_path(current_account.admin.screename)}) with the details.
-      
-  
+
+.col_1
+  %h2 Contacts  
   -form_for current_account, :url => account_path do |f|
     
     %table.friends

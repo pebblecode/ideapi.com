@@ -3,6 +3,7 @@ module LayoutHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
+  
   def side_bar(&block)
     capture_content_from_haml :side_bar, &block
   end
@@ -13,6 +14,12 @@ module LayoutHelper
   
   def sub_nav(&block)
     capture_haml_into(:sub_nav) do
+      capture(&block)
+    end
+  end
+  
+  def page_help(&block)
+    capture_haml_into(:page_help) do
       capture(&block)
     end
   end

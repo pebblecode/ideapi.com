@@ -1,8 +1,10 @@
+= title "#{current_object.title} |"
+= render :partial => 'briefs/brief_partials/text_brief_info'
 =sub_nav do
   =breadcrumb_list 
 
 .col_1
-  = render :partial => 'briefs/brief_partials/text_brief_info', :locals => {}    
+  
   -unless current_object.active?
     %div{:id => "reactivate_tooltip_#{current_object.id}", :class => 'note'}
       %p 
