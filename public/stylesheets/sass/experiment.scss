@@ -11,6 +11,7 @@
 @import "snippets/notifications";
 @import "snippets/briefs";
 @import "snippets/footer";
+@import "snippets/legacy";
 
 body {
   font-size: 62.5%;
@@ -139,5 +140,9 @@ h4{ font-size: 1.15em; }
   height: 20px;
   line-height: 18px;
 }
+
 @import "partials/comments_and_activity_stream";
+@import "partials/account_form";
+@import "partials/account_form";
+@import "partials/jquery.fancybox-1.3.1"
 
