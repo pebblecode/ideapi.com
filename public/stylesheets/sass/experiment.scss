@@ -11,6 +11,7 @@
 @import "snippets/notifications";
 @import "snippets/briefs";
 @import "snippets/proposals";
+@import "snippets/template_briefs";
 @import "snippets/footer";
 @import "snippets/legacy";
 
@@ -152,7 +153,7 @@ form {
   
   input[type=text], input[type=password], textarea {
     border: 1px solid #cccccc;
-    padding: 0.2em 0.3em;
+    padding: 0.5em;
     background: white;
   }
   input[type=text]:focus, input[type=password]:focus, textarea:focus {
@@ -192,4 +193,4 @@ form {
 
 @import "partials/comments_and_activity_stream";
 @import "partials/account_form";
-@import "partials/jquery.fancybox-1.3.1"
+@import "partials/jquery.fancybox-1.3.1";

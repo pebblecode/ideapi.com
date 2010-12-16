@@ -26,7 +26,7 @@
   .edit{display: none;}
 }
 
-div.actions {
+.brief div.actions {
   z-index: 10;
   position: absolute;
   top: 9px;
@@ -189,8 +189,7 @@ div.actions {
 }
 
 
-#dashboard {
-  h2.salu {}
+#dashboard, #sortable {
   .brief_overviews {
     h2 {
       padding: 0;

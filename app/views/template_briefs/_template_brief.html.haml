@@ -1,7 +1,6 @@
 
 .brief_item
   %h3
+    =link_to template_brief.template_questions.length, template_brief_path(template_brief), :class => "number-bubble"
     =link_to truncate(template_brief.title, :length => 48), template_brief_path(template_brief)
-
-  =link_to template_brief.template_questions.length, template_brief_path(template_brief), :class => "toggle_activity_stream"
 

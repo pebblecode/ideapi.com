@@ -3,14 +3,15 @@
 
 .col_1
   
-  #write_new_brief.note
-    :markdown
-      You can reorder the template sections by dragging them up and down.
-      This will only change future briefs based on this template – briefs 
-      that have already been created with this template will not be affected.
+  = page_help do
+    .box
+      :markdown
+        You can reorder the template sections by dragging them up and down.
+        This will only change future briefs based on this template – briefs 
+        that have already been created with this template will not be affected.
       
   .brief
-    .title
+    #content-header
       %h2
         =@template_brief.title
       .actions

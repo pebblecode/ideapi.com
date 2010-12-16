@@ -652,7 +652,7 @@ button {
 .warning {
   color: #ff3333; }
 
-.flag, .user_context {
+.flag, .user_context, .brief_list .number-bubble {
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -671,7 +671,7 @@ button {
   background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc));
   background: -moz-linear-gradient(top, #eeeeee, #cccccc); }
 
-.user_context {
+.user_context, .brief_list .number-bubble {
   margin-right: 0;
   margin-left: 0.5em;
   float: right;
@@ -1231,7 +1231,7 @@ ul#notifications {
   .brief .section .edit {
     display: none; }
 
-div.actions {
+.brief div.actions {
   z-index: 10;
   position: absolute;
   top: 9px;
@@ -1239,7 +1239,7 @@ div.actions {
   text-align: right;
   padding: 0;
   margin: 0; }
-  div.actions a {
+  .brief div.actions a {
     color: #fcfcfc;
     text-shadow: 1px 1px 1px #666;
     display: block;
@@ -1252,27 +1252,27 @@ div.actions {
     height: 15px;
     line-height: 15px;
     display: block; }
-  div.actions a:hover {
+  .brief div.actions a:hover {
     color: #fefefe; }
-  div.actions a.edit_brief, div.actions a.edit_icon, div.actions a.edit_template {
+  .brief div.actions a.edit_brief, .brief div.actions a.edit_icon, .brief div.actions a.edit_template {
     background: url("/images/page_edit.png") no-repeat center right;
     height: 16px;
     text-indent: -9999px;
     width: 40px; }
-    div.actions a.edit_brief:hover, div.actions a.edit_icon:hover, div.actions a.edit_template:hover {
+    .brief div.actions a.edit_brief:hover, .brief div.actions a.edit_icon:hover, .brief div.actions a.edit_template:hover {
       text-indent: 0;
       color: #32401a;
       font-weight: normal; }
-  div.actions a.print_brief {
+  .brief div.actions a.print_brief {
     display: block;
     float: right;
     background: url("/images/printer.png");
     width: 16px;
     height: 16px;
     text-indent: -3000px; }
-  div.actions form {
+  .brief div.actions form {
     float: right; }
-  div.actions .clean_brief {
+  .brief div.actions .clean_brief {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
@@ -1284,7 +1284,7 @@ div.actions {
     margin-top: 0;
     color: white;
     text-shadow: none; }
-    div.actions .clean_brief:active {
+    .brief div.actions .clean_brief:active {
       background-position: 0 -36px; }
 
 .brief .brief_heading h3, .proposal .brief_heading h3, .brief_list .brief_heading h3 {
@@ -1375,7 +1375,7 @@ div.actions {
 .brief .brief_item.extended, .proposal .brief_item.extended, .brief_list .brief_item.extended {
   background: transparent; }
 
-#dashboard .brief_overviews h2 {
+#dashboard .brief_overviews h2, #sortable .brief_overviews h2 {
   padding: 0;
   font-size: 1.1em;
   font-weight: normal;
@@ -1385,17 +1385,17 @@ div.actions {
   background: white;
   width: 7.5em;
   color: #454545; }
-#dashboard .brief_item {
+#dashboard .brief_item, #sortable .brief_item {
   padding: 0.5em 1em;
   border: 1px solid #eee;
   border-bottom: 1px solid #eeeeee;
   border-top: 0; }
-  #dashboard .brief_item .body img {
+  #dashboard .brief_item .body img, #sortable .brief_item .body img {
     max-width: 600px;
     border: 5px solid #eee;
     display: block;
     margin: auto; }
-  #dashboard .brief_item .body .item-revision-body img {
+  #dashboard .brief_item .body .item-revision-body img, #sortable .brief_item .body .item-revision-body img {
     max-width: 420px; }
 
 ul.actions li {
@@ -1951,6 +1951,31 @@ ul.actions li {
     width: 36em;
     padding: 0 0 0 2em;
     margin: 1px 0 0 0; }
+
+/*lost in translation*/
+.brief_list .number-bubble {
+  float: right; }
+.brief_list .toggle_activity_stream {
+  position: absolute;
+  top: 0.8em;
+  right: 1em;
+  width: 28px;
+  height: 28px;
+  background: url(/images/ico_circle_green.png) no-repeat;
+  color: white;
+  text-align: center;
+  font-size: 1.4em;
+  padding-top: 2px; }
+.brief_list .toggle_activity_stream.active {
+  background: url(/images/ico_minus.png) no-repeat;
+  text-indent: -3000px; }
+
+#sortable .brief_heading {
+  padding: 0.5em 1em;
+  background: #f8f8f8; }
+  #sortable .brief_heading h3 {
+    margin-left: 0;
+    text-align: center; }
 
 #footer {
   margin-top: 1em;
@@ -2537,6 +2562,22 @@ body#users.contacts #header ul.sub_nav {
       background: url("/images/ui/button_background.png") repeat-x right top; }
     #template_briefs #container .new_template_brief .actions a.add_child:active, #template_briefs #container .edit_template_brief .actions a.add_child:active {
       background: url("/images/ui/button_background.png") repeat-x right -36px; }
+  #template_briefs #container .new_template_brief .actions #template_brief_submit, #template_briefs #container .edit_template_brief .actions #template_brief_submit {
+    font-weight: normal;
+    color: white;
+    padding: 5px 10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #32401a;
+    background: url("/images/ui/button_background.png") repeat-x right top;
+    font-size: 1em; }
+    #template_briefs #container .new_template_brief .actions #template_brief_submit:hover, #template_briefs #container .edit_template_brief .actions #template_brief_submit:hover {
+      border: 1px solid #32401a; }
+    #template_briefs #container .new_template_brief .actions #template_brief_submit:hover, #template_briefs #container .edit_template_brief .actions #template_brief_submit:hover {
+      background: url("/images/ui/button_background.png") repeat-x right top; }
+    #template_briefs #container .new_template_brief .actions #template_brief_submit:active, #template_briefs #container .edit_template_brief .actions #template_brief_submit:active {
+      background: url("/images/ui/button_background.png") repeat-x right -36px; }
 #template_briefs #container a.delete_template {
   display: block;
   float: right;
@@ -2947,7 +2988,7 @@ form input[type=text]:focus, form input[type=password]:focus, form textarea:focu
   outline: 1px solid #b3d335; }
 form input[type=text], form input[type=password], form textarea {
   border: 1px solid #cccccc;
-  padding: 0.2em 0.3em;
+  padding: 0.5em;
   background: white; }
 form input[type=text]:focus, form input[type=password]:focus, form textarea:focus {
   background: #f9f9f9; }

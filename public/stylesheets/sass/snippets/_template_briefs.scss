@@ -1,0 +1,31 @@
+/*lost in translation*/
+.brief_list {
+  .number-bubble{
+    float: right;
+    @extend .user_context;
+  }
+  .toggle_activity_stream {
+    position: absolute;
+    top: 0.8em;
+    right: 1em;
+    width: 28px;
+    height: 28px;
+    background: url(/images/ico_circle_green.png) no-repeat;
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    padding-top: 2px; }
+  .toggle_activity_stream.active {
+    background: url(/images/ico_minus.png) no-repeat;
+    text-indent: -3000px; } 
+}
+
+#sortable .brief_heading{
+  padding: 0.5em 1em;
+  background: #f8f8f8;
+  
+  h3{
+    margin-left: 0;
+    text-align: center;
+  }
+}

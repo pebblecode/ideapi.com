@@ -3,11 +3,12 @@
 
 .col_1
   - unless current_object.draft?
-    #idea_show_notes.note
-      :markdown
-        Idea approvers can update the status of an idea to: 
-        ‘Approved’, ‘Needs Work’ or ‘Rejected’. 
-        Approvers and the idea owner can collaborate using the comments.
+    = page_help do
+      .box
+        :markdown
+          Idea approvers can update the status of an idea to: 
+          ‘Approved’, ‘Needs Work’ or ‘Rejected’. 
+          Approvers and the idea owner can collaborate using the comments.
   .proposal
     .title
       %h2

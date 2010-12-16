@@ -7,21 +7,23 @@
 #dashboard.col_1
 
   - # if flash[:note].present?
-  #templates_dashboard_note.note
-    :markdown
-      Briefs are created from templates.
+  = page_help do
+    .note.box
+      :markdown
+        Briefs are created from templates.
 
-      The templates dashboard lists all of your custom brief templates. 
-      Your ideapi account has been created with a default template that contains 
-      some common brief sections (not shown on the templates dashboard).
+        The templates dashboard lists all of your custom brief templates. 
+        Your ideapi account has been created with a default template that contains 
+        some common brief sections (not shown on the templates dashboard).
 
-      To create your own templates click “create template”.
+        To create your own templates click “create template”.
 
         
       
   .brief_list
-    %h2 
-      Your templates
+    #content-header
+      %h2 
+        Your templates
     -if @template_briefs.empty?
       .brief_item
         %h3 
