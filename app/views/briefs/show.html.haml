@@ -24,11 +24,7 @@
       .clear
         // comment clear
     = render :partial => 'briefs/brief_partials/most_important_thing'
-    -if current_object.brief_items_answered.empty?
-      %p This document is empty
-    -else
-      =render :partial => 'briefs/brief_partials/brief_item', :collection => (current_object.brief_items.answered_or_heading)  
-      
+    = render :partial => 'briefs/brief_partials/brief_item', :collection => (current_object.brief_items)
     = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief}
   =render :partial => 'comments'
   

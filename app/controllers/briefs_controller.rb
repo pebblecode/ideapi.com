@@ -80,7 +80,6 @@ class BriefsController < ApplicationController
               
     before(:edit, :update) do
       add_breadcrumb truncate(current_object.title, :length => 30), object_path
-      add_breadcrumb 'edit brief', :edit_object_path
     end
 
     # We need to apply the current_account for acts_as_taggable_on so a virtual attribute is used
@@ -120,7 +119,7 @@ class BriefsController < ApplicationController
     end
     
     response_for(:create) do |format|
-      format.html { redirect_to edit_object_path }
+      format.html { redirect_to object_path }
     end
     
     response_for(:index) do |format|
@@ -130,7 +129,7 @@ class BriefsController < ApplicationController
     end
     
     response_for(:update, :update_fails) do |format|
-      format.html { redirect_to :action => current_object.draft? ? 'edit' : 'show' }
+      format.html { redirect_to :action => 'show' }
       format.json { render :json => current_object.reload.to_json(:include => [:user_briefs], :methods => [:json_errors, :brief_role]) }
       
       format.js {
@@ -149,19 +148,13 @@ class BriefsController < ApplicationController
   
     response_for(:show, :show_fails) do |format|
     
-      format.html { 
-                
-        if current_object.draft? 
-          redirect_to(:action => 'edit') 
+      format.html {
+        if params[:print_mode].present?
+          @print_mode = params[:print_mode]
+          render(:action => 'print', :layout => false)
         else
-          if params[:print_mode].present?
-            @print_mode = params[:print_mode]
-            render(:action => 'print', :layout => false)
-          else
-            render
-          end
+          render
         end
-        
       }
       
       format.js { render :layout => false }
