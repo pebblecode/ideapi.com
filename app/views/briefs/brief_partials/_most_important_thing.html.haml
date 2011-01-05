@@ -1,8 +1,10 @@
 .most_important_thing.section
+  - if owner?(current_object) and current_object.active?
+    = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
   %span.left &ldquo;
   -if owner?(current_object) and current_object.active?
     .show.editable
-      %span.with-tooltip{:title => "Click to edit..."}=current_object.most_important_message
+      %span.with-tooltip=current_object.most_important_message
     .edit
       - form_for current_object, :html =>{ :class => 'inline-edit-form', :id => "brief_mit_form_#{current_object.id}"} do |brief_form|
         = hidden_field_tag 'render', 'most_important_thing', :id => "mostimportantthing_render"
