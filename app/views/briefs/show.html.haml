@@ -15,7 +15,7 @@
   %div[current_object]
     -if current_user.owns?(current_object)
       .actions
-        = link_to "Actions", "javascript:void(0)", :class => "show-options-menu", :id => 'toggle-brief-options-menu'
+        = link_to "Actions", "javascript:void(0)", :class => "show-options-menu green-button-link", :id => 'toggle-brief-options-menu'
     
     = render :partial => 'briefs/brief_partials/brief_title', :locals => { :brief => current_object } 
     .clear

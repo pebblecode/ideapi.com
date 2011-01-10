@@ -131,7 +131,7 @@ h4{ font-size: 1.15em; }
   border-bottom-right-radius: 2px 2px;
   border-bottom-left-radius: 2px 2px;
   cursor: pointer;
-  &:active{background-position: 0px bottom}
+  &:active, &.active{background-position: 0px bottom}
 }
 
 .funky-button{
@@ -221,7 +221,6 @@ form {
   font-weight: normal;
   font-size: 1em;
   padding-top: 1px;
-  
   &:hover{
     color: #eee;
   }
