@@ -5,7 +5,12 @@
       = yield :title
       ideapi
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html;charset=utf-8"}
-    =stylesheet_link_tag %w(main)
+    =stylesheet_link_tag %w(main http://fonts.googleapis.com/css?family=Ubuntu)
+    /[if IE 6]<script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+    = javascript_include_tag %w(jquery.qtip stb facebox jquery.cookie jquery.infieldlabel.min jshizzle ajaxify onload )
+    
   %body{:id => body_ids, :class => body_classes}
     =render :partial => 'user_feedback/feedback_form'
     #container
@@ -42,14 +47,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
         
-    /[if IE 6]<script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
-    = javascript_include_tag %w(jquery.qtip stb facebox jquery.cookie jquery.infieldlabel.min jshizzle ajaxify onload )
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? 
-
-
-
 
 
 

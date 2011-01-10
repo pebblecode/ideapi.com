@@ -1,7 +1,8 @@
+
 = title "#{current_object.title} |"
 = render :partial => 'briefs/brief_partials/text_brief_info'
 =sub_nav do
-  =breadcrumb_list 
+  =breadcrumb_list
 
 .col_1
   
@@ -25,9 +26,26 @@
         // comment clear
     = render :partial => 'briefs/brief_partials/most_important_thing'
     = render :partial => 'briefs/brief_partials/brief_item', :collection => (current_object.brief_items)
-    = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief}
+    = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief} if owner?(current_object)
+    -if current_object.draft? and owner?(current_object)
+      .publish-draft
+        - form_for(current_object, :html => { :method => :put }) do |brief_form|
+          %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'
+  
   =render :partial => 'comments'
   
-.col_2  
-  =render :partial => 'update_collaborators'
-  =render :partial => 'responses'
+.col_2
+  - unless current_object.draft?
+    =render :partial => 'update_collaborators'
+    =render :partial => 'responses'
+  - else
+    .big-ass-text
+      D
+      %br/
+      R
+      %br/
+      A
+      %br/
+      F
+      %br/
+      T

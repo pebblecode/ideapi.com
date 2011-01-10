@@ -88,8 +88,9 @@
       border: 1px solid #cccccc;
       padding: 1em;
       background: #f6f6f6;
-      margin-top: 1em;
-      margin-bottom: 2em; } }
+      margin-bottom: 2em;
+    }
+  }
   .discussion {
     .brief_item {
       padding: 1em 2em;
@@ -113,31 +114,6 @@
 }
 
 #container {
-  #content {
-    .brief_item {
-      ul.actions {
-        text-align: right;
-        li {
-          @include rounded-top-3px;
-          border-bottom: 1px solid #eeeeee;
-          background: #b2d234;
-          display: inline;
-          padding: 0.2em 1em;
-          &.selected {
-            background: #32401a; }
-          span {
-            color: #cccccc;
-            padding-left: 1em; }
-          a {
-            color: white;
-          } 
-        }
-      }
-      ul.actions.active {
-        border-bottom: 1px solid #eeeeee; 
-      }
-    }
-  }
   #content {
     .title_holder {
       .brief_timeline {
@@ -417,7 +393,6 @@ ul.error_messages {
           li:last-child {
             border-bottom: 0; } } } }
     .invitations, .friends {
-      padding: 1em 0 0 0;
       width: 100%;
       td, th {
         padding: 0.5em 1em; }
@@ -596,12 +571,8 @@ body#users.contacts {
       .right {
         float: right; }
       a.add_child {
-        color: white;
-        display: block;
-        float: left;
-        margin-right: 1em;
-        @include button-style;
-        @include green-button; 
+        @extend .green-button-link;
+        display: inline-block;
       } 
       #template_brief_submit{
         @include button-style;
@@ -611,10 +582,11 @@ body#users.contacts {
     }
   }
   a.delete_template {
-    display: block;
-    float: right;
-    @include button-style;
-    @include red-button; } }
+    display: inline-block;
+    @extend .delete-button;
+    float: left;
+  }
+}
 
 // Notifications for dashboard
 ul#notifications {

@@ -10,7 +10,7 @@
         = hidden_field_tag 'render', 'most_important_thing', :id => "mostimportantthing_render"
         = brief_form.text_field :most_important_message, :rows => "5", :id => "brief_mit_form_#{current_object.id}_textarea"
         %p.submit
-          = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-inline-edit'
+          = link_to 'cancel', 'javascript:void(0)', :class => 'cancel-inline-edit'
           or 
           = brief_form.submit 'submit', :id => "brief_mit_form_#{current_object.id}_submit", :class => 'submit inline-edit-submit'
   -else 

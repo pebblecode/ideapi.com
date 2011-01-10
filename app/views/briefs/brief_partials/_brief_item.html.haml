@@ -1,7 +1,9 @@
 %div[brief_item]{:class => (brief_item_updated_for_user?(brief_item) ? "updated section" : "section")}
   -if brief_item.is_heading?
     -if owner?(current_object) and current_object.active?
-      .show.editable{:title => 'Click to edit...'}
+      - if owner?(current_object) and current_object.active?
+        = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
+      .show.editable
         %h3=brief_item.title
       .edit
         - form_for brief_item, :html => {:id => "section_edit_form_#{brief_item.id}", :class => "inline-edit-form section-form"} do |form|
@@ -17,7 +19,9 @@
           =brief_item.title
   -else
     - if owner?(current_object) and current_object.active?
-      .show.editable{:title => 'Click to edit...'}
+      - if owner?(current_object) and current_object.active?
+        = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
+      .show.editable
         %h4=brief_item.title
         %div.body
           -if brief_item.body.present?
@@ -32,13 +36,13 @@
           .field
             = form.text_area :body, :class => 'inline-edit-body'
           .field
-            %p.submit              
-              = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-inline-edit' if owner?(current_object) and current_object.active?
+            %p.submit.fright            
+              = link_to 'cancel', 'javascript:void(0)', :class => 'cancel-inline-edit' if owner?(current_object) and current_object.active?
               or
               = form.submit 'submit', :class => 'submit inline-edit-submit'
 
         - form_for brief_item, :html => {:method => 'delete', :id => "section_delete_form_#{brief_item.id}", :class => "section-delete-form"} do |form|
-          = form.submit 'delete', :id => "delete_section_#{brief_item.id}_submit", :class => 'delete-section-submit close-button', :confirm => "Are you sure you want to delete this section?"
+          = form.submit 'delete', :id => "delete_section_#{brief_item.id}_submit", :class => 'delete-section-submit', :confirm => "Are you sure you want to delete this section?"
 
 
     - else
@@ -48,10 +52,10 @@
           -if brief_item.body.present?
             :textile
               #{brief_item.body.lstrip}
-    - unless brief_item.is_heading? or @print_mode.present?
+    - unless brief_item.is_heading? or @print_mode.present? or current_object.draft?
       %ul.actions
   
-        -if current_object.active? 
+        -if current_object.active?
     
           %li=link_to comments_tab(brief_item), '#', {:class => 'toggle_brief_item_activity'}
 

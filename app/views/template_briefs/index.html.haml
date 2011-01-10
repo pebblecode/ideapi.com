@@ -1,9 +1,6 @@
 
 =sub_nav do
   =breadcrumb_list
-  -if current_user_can_create_briefs?
-    %li{:class => "secondary"}
-      =link_to 'Create template', new_template_brief_path
 #dashboard.col_1
 
   - # if flash[:note].present?
@@ -22,6 +19,9 @@
       
   .brief_list
     #content-header
+      - if current_user_can_create_briefs?
+        = link_to 'Create template', new_template_brief_path, :class => 'green-button-link fright'
+    
       %h2 
         Your templates
     -if @template_briefs.empty?

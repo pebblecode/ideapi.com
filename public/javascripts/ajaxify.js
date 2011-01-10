@@ -102,7 +102,7 @@ jQuery.update_item_history_tabs = function(){
     var _list = $(this).find('ul.brief_item_history');
     var _size = _list.children().size() + _list.find('div.author_answer').size();
     if (_size == 0) _tab.text('Discussion / History');
-    else _tab.text('Discussion / History ('+ _size +')');    
+    else _tab.text('('+ _size +') Discussion / History');    
   });
 };
 
@@ -226,7 +226,7 @@ jQuery.ajaxify_questions_and_answers = function(){
       _current_list = _current_form.parents('.brief_item_activity').find('ul.brief_item_history');
     }
     _current_list.append(data).append_bubble();
-    _current_form.find('.loading-gif').hide();
+    _current_form.find('.loading-gif').addClass('hide');
     _current_form.find('.new_question_submit').show();
     _current_form.find('textarea').val('');
     $.update_item_history_tabs();
@@ -247,7 +247,7 @@ jQuery.ajaxify_questions_and_answers = function(){
   var error_new = function(data){
     var _container = _current_form.find('div.speech');
     _container.find('p.error_message').remove();
-    _current_form.find('.loading-gif').hide();
+    _current_form.find('.loading-gif').addClass('hide');
     _current_form.find('.new_question_submit').show();
     _container.append('<p class="error_message">' + data.responseText + '</p>');
     _container.find('p.error_message').hide().flashNotice();
@@ -258,7 +258,7 @@ jQuery.ajaxify_questions_and_answers = function(){
     _submit = $(this);
     _current_list = _current_form.parents('.question_form').siblings('ul.brief_item_history');
     _submit.hide();
-    _current_form.find('.loading-gif').show();
+    _current_form.find('img.loading-gif').removeClass('hide');
     ajax_submit(_current_form, success_new, error_new);
     e.preventDefault();
     return false;
@@ -417,15 +417,35 @@ jQuery.user_links_external = function(){
       $(this).siblings('.edit').toggle();
     };
     
-    $("#briefs.show .section .editable").live('click', function(e){
-      $(this).siblings('div.edit').toggleClass('revealed');
-      $(this).toggle();
+    $("#briefs.show .section a.toggle-inline-edit").live('click', function(e){
+      $(this).siblings('div.edit').toggle('blind', {}, 200);
+      $(this).siblings('div.editable').toggle('blind', {}, 200);
+      
+      if($(this).text() == 'edit'){
+        $(this).text('show');
+      }else{
+        $(this).text('edit'); 
+      }
+      
+      $(this).siblings('ul.actions').toggleClass('hide');
+      $(this).siblings('div.brief_item_activity').toggleClass('hide');
       
     });
 
-    $("#briefs.show .section .edit a.toggle-inline-edit").live('click', function(e){
-      $(this).parents('.edit').toggleClass('revealed');
-      $(this).parents('.section').find('.editable').toggle();
+    $("#briefs.show .section .edit a.cancel-inline-edit").live('click', function(e){
+      $(this).parents('div.edit').toggleClass('revealed');
+      $(this).parents('div.section').find('div.editable').toggle();
+      var _toggle_link = $(this).parents('div.section').find('a.toggle-inline-edit');
+      
+      if(_toggle_link.text() == 'edit'){
+        _toggle_link.text('show');
+      }else{
+        _toggle_link.text('edit'); 
+      }
+      _toggle_link.siblings('ul.actions').toggleClass('hide');
+      _toggle_link.siblings('div.brief_item_activity').toggleClass('hide');
+      
+      
     });
     
     _brief.find('form.inline-edit-form input.inline-edit-submit').live('click', function(e){
@@ -464,6 +484,15 @@ jQuery.user_links_external = function(){
     /* END delete sections */
     
     /* BEGIN new sections */
+    $('#brief_item_is_heading').live('click', function(e){
+      if($(this).attr('checked') == true){
+        $("#new-section-body").slideUp();
+        console.log('fadeOut');
+      }else{
+        $("#new-section-body").slideDown();
+        console.log('fadeIn');
+      }
+    });
     $('.toggle-add-new-section').live('click', function(e){
       $('#new-section').toggle('blind', {}, 500);
       e.preventDefault();

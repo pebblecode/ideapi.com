@@ -18,59 +18,65 @@
         To add users to this account, please contact your account holder 
         (#{link_to current_account.admin.full_name, user_path(current_account.admin.screename)}) with the details.
 
-.col_1
-  %h2 Contacts  
-  -form_for current_account, :url => account_path do |f|
+=sub_nav do
+  =breadcrumb_list
+
+.full_page
+  #content-header
+    %h2 Contacts  
+  -   form_for current_account, :url => account_path do |f|
     
     %table.friends
-    
-      %tr
-        %th Name
-        %th Title
-        %th Telephone
-        %th Ext
-        %th Last login
-        -if admin?
-          %th Can create briefs
-        - # %th Briefs
-        -if admin?
-          %th Invited by
-          %th Remove
-      
-      - f.fields_for :account_users do |account_user|
-        - if account_user.object.user
-          %tr{:class => cycle('even', 'odd')}
-            %td
-              =user_link(account_user.object.user)
-              -if account_user.object.user.pending? and admin?
-                =link_to "(send invite)", user_send_invite_url(:id => account_user.object.user.id, :host => current_account.full_domain)
-            %td= value_or_symbol(account_user.object.user.job_title)
-            %td= value_or_symbol(account_user.object.user.telephone)
-            %td= value_or_symbol(account_user.object.user.telephone_ext)
-            %td
-              -if account_user.object.user.last_login_at.present?
-                = time_ago_in_words_with_word(account_user.object.user.last_login_at)
-              -else
-                Never
-          
-            -if admin?
+      %thead
+        %tr
+          %th Name
+          %th Title
+          %th Telephone
+          %th Ext
+          %th Last login
+          -if admin?
+            %th Can create briefs
+          - # %th Briefs
+          -if admin?
+            %th Invited by
+            %th Remove
+      %tbody
+        - f.fields_for :account_users do |account_user|
+          - if account_user.object.user
+            %tr{:class => cycle('even', 'odd')}
               %td
-                = account_user.check_box :can_create_briefs
-
-            -# %td= account_user.object.user.briefs(current_account).count
-            -if admin?
-              %td= value_or_symbol(given_name(account_user.object.user.invited_by))
+                = account_user.hidden_field :id
+                = user_link(account_user.object.user)
+                -if account_user.object.user.pending? and admin?
+                  =link_to "(send invite)", user_send_invite_url(:id => account_user.object.user.id, :host => current_account.full_domain)
+              %td= value_or_symbol(account_user.object.user.job_title)
+              %td= value_or_symbol(account_user.object.user.telephone)
+              %td= value_or_symbol(account_user.object.user.telephone_ext)
               %td
-                -if !account_user.object.admin? 
-                  = account_user.check_box :_destroy
+                -if account_user.object.user.last_login_at.present?
+                  = time_ago_in_words_with_word(account_user.object.user.last_login_at)
                 -else
-                  = value_or_symbol(nil)
+                  Never
+          
+              -if admin?
+                %td
+                  = account_user.check_box :can_create_briefs
+
+              -# %td= account_user.object.user.briefs(current_account).count
+              -if admin?
+                %td= value_or_symbol(given_name(account_user.object.user.invited_by))
+                %td
+                  -if !account_user.object.admin? 
+                    = account_user.check_box :_destroy
+                  -else
+                    = value_or_symbol(nil)
               
     =hidden_field_tag :return_to, users_path
     
         
     -if admin?
-      %p.submit=f.submit 'Update privileges' 
+      %p.submit
+        = f.submit 'Update privileges', :class => 'funky-button-small'
       .clear
   
   -# Important correct nesting  

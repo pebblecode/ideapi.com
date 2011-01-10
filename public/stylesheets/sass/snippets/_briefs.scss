@@ -13,17 +13,44 @@
   @include border-radius-top(3px);
   background: #b3d335;
   @include linear-gradient($ideapi_green_light, $ideapi_green_light - #181818);
-
+  .green-button-link{
+    margin-top: 1px;
+  }
   h2 {
     font-size: 1.2em;
   }
 }
-
+#dashboard #content-header{
+  padding-right: 0.5em;
+}
+.brief_item{
+  .show, .edit{ margin-right: 3em; }
+  .body{
+    img{
+      max-width: 600px;
+      display: block;
+      margin: auto;
+    }
+  }
+}
 .brief .section{
   border: 1px solid #eee;
   border-top: 0;
   padding: 0.5em 1em;
   .edit{display: none;}
+  .toggle-inline-edit{
+    float: right;
+    font-size: 10pt;
+    font-weight: normal;
+    color: white;
+    margin-top: 0.5em;
+  }
+  &:hover{
+    .toggle-inline-edit{ 
+      display: block;
+      color: $ideapi_green_light;
+    }
+  }
 }
 
 .brief div.actions {
@@ -89,6 +116,7 @@
   }
 }
 .brief, .proposal, .brief_list {
+  
   .brief_heading {
     h3 {
       margin-left: 20px; } }
@@ -145,19 +173,26 @@
       padding: 0 0 0 2em;
       margin: 1px 0 0 0; } }
   .most_important_thing {
-    /*padding: 1em 1em 1em 3em;*/
     padding: 0;
     text-align: center;
     font-size: 2.2em;
     font-weight: bold;
     color: #333333;
     padding: 1em 2em;
+    margin-right: 0;
     position: relative;
+    .toggle-inline-edit{
+      margin-top: -30px;
+      margin-right: -40px;
+    }
     .show, .edit{
       max-width: 360px;
       display: inline-block;
       padding: 0 1em;
       font-weight: bold;
+    }
+    .show{
+      text-align: center;
     }
     .edit{display: none;}
     span.left, span.right {
@@ -227,10 +262,19 @@
 }
 
 ul.actions{
+  margin-top: 1em;
+  clear: both;
+  text-align: right;
   li{
+    padding: 0.2em 0em;
+    display: inline;
     text-align: right;
   }
 }
+ul.actions.active {
+  border-bottom: 1px solid #eeeeee; 
+}
+
 
 #options-menu, #brief-tags{
   border-bottom: 1px solid #eee;
@@ -243,11 +287,12 @@ ul.actions{
     margin: 0.5em;
     form, li, a, input{
       display: inline-block;
-      margin-right: 0.5em;
+      margin: 0;
     }
     text-align: right;
     li{
       display: inline;
+      margin-right: 0.5em;
     }
   }
 }
@@ -282,6 +327,15 @@ ul.actions{
   }
   .smartTextBox-elem-valueContainer{
     font-size: 0.9em;
+  }
+}
+.publish-draft {
+  margin-top: 1em;
+  form{
+    input[type=submit]{
+      @extend .funky-button;
+      display: block;    
+    }
   }
 }
 

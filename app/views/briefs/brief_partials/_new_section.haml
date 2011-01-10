@@ -5,10 +5,14 @@
     - @item = @brief.brief_items.build
     - form_for @item, :html => {:method => 'post'} do |f|
       = f.hidden_field :brief_id, :value => @brief.id
-      .field
+      #new-section-title.field
+        %span.is_heading
+          = f.check_box :is_heading
+          = f.label :is_heading, 'This is a section heading', :class => 'inline'
+      
         = f.label :title, 'Section Title'
         = f.text_field :title, :class => 'title', :id => 'new-section-title'
-      .field
+      #new-section-body.field
         = f.label :body, 'Content'
         = f.text_area :body, :class => 'body', :id => 'new-section-body'
       .submit

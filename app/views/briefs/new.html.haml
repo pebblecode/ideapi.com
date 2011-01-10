@@ -1,11 +1,7 @@
 =sub_nav do
   =breadcrumb_list
-
-.col_1
-  
-  %h2 Create a new brief
-  
-  #write_new_brief.note
+=page_help do
+  #write_new_brief.box
     :markdown
       The title is how your brief will appear on the Dashboards of other users. 
       One line brief is a punchy statement about your brief, 
@@ -15,6 +11,12 @@
       
       Be careful to choose the right template. Once created, you can’t alter the structure of a brief.
   
+.col_1
+  
+  
+
+  #content-header
+    %h2 Create a new brief
   .boom_box
     = error_messages_for :brief
 

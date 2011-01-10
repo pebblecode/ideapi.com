@@ -44,12 +44,12 @@ class CompletedBriefsTest < ActionController::IntegrationTest
         end
         
         should "have button to mark as complete" do
-          assert_select 'input[type=submit][value=?]', 'Mark as completed', :count => 1
+          assert_select 'input[type=submit][value=?]', 'mark as completed', :count => 1
         end
         
         context "clicking mark as complete" do
           setup do
-            click_button 'Mark as completed'
+            click_button 'mark as completed'
           end
       
           should_respond_with :success

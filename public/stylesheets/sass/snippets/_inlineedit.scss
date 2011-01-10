@@ -14,14 +14,9 @@
     .editable{
       @include color-transitions();
     }
-    .editable:hover{
-      cursor: pointer;
-      background: #f8f8f8;
-    }
     .edit.revealed{display: inline-block;}
     &.brief_item{
       .edit.revealed{display: block;}
-      p.submit{width: 600px;}
     }
     .edit{
       padding: 1em 0;
@@ -52,52 +47,16 @@
         max-width: 590px;
         height: 100px;
         padding: 0.5em;
+        margin-bottom: 0.5em;
         background: #fafafa;
         border: 1px solid #eee;
         font-size: 1em;
       }
       p.submit{
-        float: none;
-        margin: 0;
+        margin: 0 2px 0 0;
       }
     }
-/*    .toggle-inline-edit{
-      display: inline-block;
-      font-weight: normal;
-      font-size: 0.9em;
-      padding: 0 6px 1px 6px;
-      color: #f55;
-      margin-right: 0.5em;
-      vertical-align: top;
-      border: 1px solid #ddd;
-      background: #f7f7f7;
-      @include linear-gradient(#f7f7f7, #f7f7f7 - #111);
-      
-      &:active{
-        border-color: #ddd;
-        background-color: #f7f7f7-#111;
-        @include linear-gradient(#f7f7f7-#111, #f7f7f7);
-      }
-    }
-*/
-/*    input.inline-edit-submit{
-      @include rounded-corners-all(0);
-      background-color: $ideapi_green_light;
-      border: 1px solid $ideapi_green_light - #222;
-      @include linear-gradient($ideapi_green_light, $ideapi_green_light - #222);
-      cursor: pointer;
-      text-align: center;
-      display: inline-block;
-      padding: 0 3px;
-      color: $off_white;
-      font-size: 1em;
-      vertical-align: top;
-      &:active{
-        background-color: $ideapi_green_light - #222;
-        @include linear-gradient($ideapi_green_light - #222, $ideapi_green_light);
-      }
-    }
-*/    .spinner{display: inline;}
+    .spinner{display: inline;}
   }
   .most_important_thing{
     .show{
@@ -121,7 +80,7 @@
           background: #fafafa;
           border: 1px solid #eee;
           padding: 0.5em 1em;
-          font-size: 1em;
+          font-size: .7em;
           font-weight: bold;
           width: 300px;
           text-align: center;
@@ -199,7 +158,7 @@
       font-size: 1.3em;
       font-weight: bold;
       display: block;
-      width: 590px;
+      width: 628px;
       background: #fafafa;
       border: 1px solid #ddd;
     }
@@ -207,10 +166,17 @@
       display: block;
       height: 100px;
       padding: 0.5em;
-      width: 590px;
+      width: 628px;
       background: #fafafa;
       border: 1px solid #ddd;
       font-size: 1em;
+    }
+  }
+  .is_heading{
+    float: right;
+    label{
+      display: inline;
+      font-weight: normal;
     }
   }
   .submit{
@@ -220,8 +186,10 @@
   }
 }
 
+.delete-section-submit{
+  @extend .delete-button;
+}
 
-.section-delete-form{
-  float: right;
-  
+.inline-edit-submit{
+  @extend .funky-button-small;
 }

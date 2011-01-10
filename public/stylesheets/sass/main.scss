@@ -25,16 +25,19 @@ body {
 a {
   text-decoration: none;
   color: $ideapi_green_light;
-  font-weight: bold;
   @include color-transitions;
   &:hover{
     color: $ideapi_green_light - #444;
   }
 }
-
+.main, textarea, input[type=text]{
+  font-family: "Ubuntu", Helvetica, Arial, sans-serif;
+}
 p{
+  font-family: "Ubuntu", Helvetica, Arial, sans-serif;
   margin-bottom: 0.7em;
-  line-height: 1.2em;
+  line-height: 1.3em;
+  color: #333;
 }
 h1, h2, h3, h4{
   font-weight: bold;
@@ -101,9 +104,11 @@ h4{ font-size: 1.15em; }
 .clear{ clear: both;}
 .cleft{ clear: left;}
 .cright{ clear: right;}
-.hide{ display: none; }
+.hide{ display: none !important; }
 .inline-block{ display: inline-block; vertical-align: top;}
 .block{ display: block;}
+.fright{ float: right;}
+.fleft{ float: left;}
 
 .add_collaborators{
   display: none;
@@ -115,9 +120,7 @@ h4{ font-size: 1.15em; }
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;
+  @include box_shadow(rgba(0, 0, 0, 0.15) 0px 1px 3px);
   border: solid 1px $ideapi_green_light - #222;
   background: url('/images/ui/btn-bg-green.png') repeat-x 0px 0px;
   text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px;
@@ -140,6 +143,14 @@ h4{ font-size: 1.15em; }
   @extend .btn-shizzle;
   height: 20px;
   line-height: 18px;
+  cursor: pointer;
+}
+.delete-button{
+  @extend .funky-button-small;
+  border: solid 1px #f66;
+  color: #eee;
+  background: url('/images/ui/btn-bg-red.png') repeat-x 0px 0px;
+  text-shadow: none;
 }
 
 p.submit{ text-align: right;}
@@ -181,15 +192,40 @@ form {
     }
   }
   &.edit, &.index{
-    .sub_nav{ display: none; }
     #content{ padding-top: 1em;}
   }
 }
 #pages{
-  .sub_nav{ display: none; }
   #content{ padding-top: 1em;}
 }
 
+.big-ass-text{
+  font-size: 5em;
+  font-weight: bold;
+  vertical-align: top;
+  line-height: 1em;
+  color: #ddd;
+  font-family: Ubuntu, Helvetica, Arial, sans-serif;
+  text-shadow: -1px -1px 1px #ccc;
+}
+
+.green-button-link{
+  @extend .funky-button-small;
+  @include border_radius(4px);
+  color: white;
+  border-color: $ideapi_green_dark;
+  text-shadow: none;
+  background: url('/images/ui/btn-bg-darkgreen.png') repeat-x 0px 0px;
+  display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  padding-top: 1px;
+  
+  &:hover{
+    color: #eee;
+  }
+}
 
 @import "partials/comments_and_activity_stream";
 @import "partials/account_form";

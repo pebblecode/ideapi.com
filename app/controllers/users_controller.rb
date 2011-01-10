@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   
   add_breadcrumb 'profile', :object_path, :only => [:show]
-  
+
+  add_breadcrumb 'contacts', :users_path, :only => [:index]
+
   before_filter :require_no_user, :only => :signup
   before_filter :require_user, :except => [:signup, :update]
   before_filter :require_user_unless_pending, :only => :update

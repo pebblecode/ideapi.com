@@ -2,10 +2,6 @@
   %ul.object-actions
     %li.show-tags
       = link_to "tags", "#", :id => "brief-tags-toggle"
-    -if owner?(current_object) and current_object.active?
-      %li.edit-brief
-        =link_to 'edit', edit_brief_path(current_object), :title => 'Edit brief', :class => 'edit_brief'
-      
     %li.print-brief
       =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
     
@@ -19,8 +15,8 @@
       -form_for(current_object, :html => {:id => 'brief_change_state'}) do |change_state_form|
         -if current_object.published?
           =change_state_form.hidden_field '_call_state', :value => 'complete'
-          = link_to "Mark as completed", "#", :class => 'show_with_js'
-          = submit_tag "Mark as completed", :class => 'remove_with_js', :confirm => "Are you sure?"
+          = link_to "mark as completed", "#", :class => 'show_with_js'
+          = submit_tag "mark as completed", :class => 'remove_with_js', :confirm => "Are you sure?"
         -elsif current_object.complete?
           =change_state_form.hidden_field '_call_state', :value => 'reactivate'
           = submit_tag "Reactivate", :class => 'remove_with_js'

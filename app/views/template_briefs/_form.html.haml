@@ -10,11 +10,12 @@
 
 
   .actions
+    .right
+      =f.submit "Submit"
+  
     .left
       =add_child_link "Add a Section or Heading", :template_questions
-      =f.submit "Submit"
-    - unless @template_brief.new_record?
-      .right
+      - unless @template_brief.new_record?
         =link_to "Delete template", {:action=>"destroy", :controller=>"template_briefs"}, :method => :delete, :class => "delete_template", :confirm => "Are you sure you want to delete this template - this is permanent but will NOT affect briefs already created with this template"
   .clear
   
