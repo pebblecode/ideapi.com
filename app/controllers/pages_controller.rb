@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   before_filter :user_session_setup
   before_filter :require_user, :only => :help
   layout 'public'
+
   def home
     if account_present? && current_account
       redirect_to dashboard_url
@@ -29,6 +30,7 @@ class PagesController < ApplicationController
   end
   
   def help
+      add_breadcrumb 'help', '/help'
     render :layout => 'application'
   end
 
