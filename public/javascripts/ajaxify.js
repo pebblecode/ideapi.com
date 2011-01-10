@@ -418,7 +418,7 @@ jQuery.user_links_external = function(){
     };
     
     $("#briefs.show .section a.toggle-inline-edit").live('click', function(e){
-      $(this).siblings('div.edit').toggle('blind', {}, 200);
+      $(this).siblings('div.edit').toggleClass('revealed');
       $(this).siblings('div.editable').toggle('blind', {}, 200);
       
       if($(this).text() == 'edit'){
