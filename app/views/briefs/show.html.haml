@@ -24,8 +24,10 @@
       = render :partial => 'brief_options_menu', :locals => {:object => current_object}
       .clear
         // comment clear
+    - # sorting
     = render :partial => 'briefs/brief_partials/most_important_thing'
-    = render :partial => 'briefs/brief_partials/brief_item', :collection => (current_object.brief_items)
+    #sortable_brief_items
+      = render :partial => 'briefs/brief_partials/brief_item', :collection => (current_object.brief_items)
     = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief} if owner?(current_object)
     -if current_object.draft? and owner?(current_object)
       .publish-draft
@@ -37,7 +39,7 @@
 .col_2
   - unless current_object.draft?
     =render :partial => 'update_collaborators'
-    =render :partial => 'responses'
+    =render :partial => 'responses'    
   - else
     .big-ass-text
       D

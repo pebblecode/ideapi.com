@@ -330,5 +330,31 @@ ul.actions.active {
   }
 }
 
+#sortable_brief_items.sortable{
+  .brief_item{
+    border-top: 1px solid #eee;
+    border-left: 2px solid #eee;
+    border-right: 2px solid #eee;
+    .move-handle{
+      cursor: move;
+      margin-top: 2px;
+      height: 16px;
+      width: 16px;
+      display: block;
+      float: right;
+      text-indent: -9999px;
+      background: url('/images/ui/move-handle.png') no-repeat 0 0;
+    }
+  }
+  .body, .edit, .toggle-inline-edit, .actions, .brief_item_activity{
+    display: none;
+  }
+}
+.extra{
+
+  
+}
+.normal{
+}
 @import "snippets/inlineedit";
 @import "snippets/smartbox";

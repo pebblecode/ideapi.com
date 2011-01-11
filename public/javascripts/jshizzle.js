@@ -553,7 +553,6 @@ jQuery.fn.document_ready = function() {
       $.post('/template_briefs/sort', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$(this).sortable('serialize'));
       }
     });
-
     /*
     * Shows and hides items when creating template briefs
     * When an item is marked as a heading this hides fields that are not relevant

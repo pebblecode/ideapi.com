@@ -83,6 +83,14 @@ class BriefItemsController < ApplicationController
     end
   end
   
+  
+  def sort
+    order = params[:brief_item]
+    BriefItem.order(order)
+    render :nothing => true
+  end
+  
+  
   def current_object
     @current_object = @brief_item.brief
   end

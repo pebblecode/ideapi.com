@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
   map.resources :briefs, 
-    :collection => { :browse => :get, :completed => :get }, 
+    :collection => { :browse => :get, :completed => :get}, 
     :member => { :delete => :get, :watch => :post, :collaborators => :get, :clean => :post, :update_collaborators => :post} do |briefs|
       briefs.resources :questions
       briefs.resources :proposals, :member => { :delete_asset => :delete }
@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :template_briefs, :collection => { :sort => :put } 
   map.resources :comments
   map.resources :questions
-  map.resources :brief_items
+  map.resources :brief_items, :collection => { :sort => :put } 
       
   map.resources :tags
 

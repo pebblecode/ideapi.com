@@ -1,5 +1,4 @@
 class BriefItem < ActiveRecord::Base
-  
   # Comments added by shapeshed for the good of developers everywhere
   # 
   # Brief Items act as a clone of template questions so that we don't 
@@ -107,5 +106,13 @@ class BriefItem < ActiveRecord::Base
   include Ideapi::GetParsed
   gp_parse_fields :body
   truncates :title
-  
+
+  # Sorting
+  def self.order(ids)
+    _ids = ids.join(',')
+    update_all(
+      ['position = FIND_IN_SET(id, ?)', _ids],
+      { :id => ids }
+    )
+  end
 end

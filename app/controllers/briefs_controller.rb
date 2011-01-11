@@ -191,7 +191,6 @@ class BriefsController < ApplicationController
     redirect_to :action => :show
   end
   
-  
   # TODO - remove this action, and look at putting a filter param in the routes
   # so you can still have briefs/completed but it actually calls index
   # and passes a param .. or even just have briefs?filter=completed meh.

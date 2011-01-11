@@ -359,7 +359,6 @@ jQuery.user_links_external = function(){
 
 /* Inline editing briefs */
 (function($){
-  
   $.fn.inline_edit_briefs = function(){
     var _brief = this.find('div.brief');
     
@@ -523,6 +522,39 @@ jQuery.user_links_external = function(){
       e.preventDefault();
     });
     /* END new sections */
+    
+    /* Reorder sections */
+    $('#reorder-sections').live('click', function(){
+      $(this).toggleClass('activated');
+      if($(this).hasClass('activated')){
+        $('#sortable_brief_items').make_sortable();
+      }
+      else{
+        $('#sortable_brief_items').unmake_sortable();
+      }
+
+
+    });
+    
+  };
+  
+  $.fn.make_sortable = function(){
+    $('.most_important_thing, #add-new-section').toggle('blind',{},300);
+    $('#sortable_brief_items').addClass('sortable');
+    $('#sortable_brief_items').sortable({
+      axis: 'y',
+      handle: 'a.move-handle',
+      update: function() {
+          $.post('/brief_items/sort', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$(this).sortable('serialize'));
+        }
+    });
+    $('#sortable_brief_items .brief_item').prepend('<a class="move-handle" href="javascript:void()">move</a>');
+  };    
+  $.fn.unmake_sortable = function(){
+    $('.most_important_thing, #add-new-section').toggle('blind',{},300);
+    $('#sortable_brief_items').removeClass('sortable');
+    $('#sortable_brief_items .move-handle').remove();
+    $('#sortable_brief_items').sortable("destroy");
   };
   
 })(jQuery);

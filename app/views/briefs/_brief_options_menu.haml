@@ -1,7 +1,9 @@
 #options-menu.remove_with_js
   %ul.object-actions
     %li.show-tags
-      = link_to "tags", "#", :id => "brief-tags-toggle"
+      = link_to "tags", "javascript:void(0)", :id => "brief-tags-toggle"
+    %li.sort-sections
+      = link_to "reorder", "javascript:void(0)", :class => "reorder-brief-items green-button-link", :id => 'reorder-sections'
     %li.print-brief
       =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
     
@@ -15,18 +17,18 @@
       -form_for(current_object, :html => {:id => 'brief_change_state'}) do |change_state_form|
         -if current_object.published?
           =change_state_form.hidden_field '_call_state', :value => 'complete'
-          = link_to "mark as completed", "#", :class => 'show_with_js'
+          = link_to "mark as completed", "javascript:void(0)", :class => 'show_with_js'
           = submit_tag "mark as completed", :class => 'remove_with_js', :confirm => "Are you sure?"
         -elsif current_object.complete?
           =change_state_form.hidden_field '_call_state', :value => 'reactivate'
           = submit_tag "Reactivate", :class => 'remove_with_js'
-          = link_to "Reactivate", "#", :class => 'show_with_js'
+          = link_to "Reactivate", "javascript:void(0)", :class => 'show_with_js'
     -if owner?(current_object) and current_object.active?
       %li.delete-brief
         -form_for current_object, :html => { :method => :delete, :id => 'brief_delete' } do |f|
           =hidden_field_tag '_flash[notice]', 'Brief deleted', :id => 'brief_flash_notice'
           = submit_tag "delete", :class => 'remove_with_js'
-          = link_to "delete", "#", :class => 'show_with_js'
+          = link_to "delete", "javascript:void(0)", :class => 'show_with_js'
   #brief-tags
     - form_for(current_object, :html => { :method => :put, :id => 'inline_brief_tags_form' }) do |brief_form|
       = brief_form.label :tag_field, "Tags:"

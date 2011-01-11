@@ -59,6 +59,7 @@
     .spinner{display: inline;}
   }
   .most_important_thing{
+    overflow: hidden;
     .show{
       span{font-weight: bold;}
       border: 1px solid #fff;
