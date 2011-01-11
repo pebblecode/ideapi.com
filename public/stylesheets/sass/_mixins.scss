@@ -100,3 +100,31 @@
   background: -webkit-gradient(linear, left top, left bottom, from($start), to($end)); 
   background: -moz-linear-gradient(top, $start, $end);
 }
+@mixin horizontal-gradient($start: #eeeeee, $end: #cccccc) {
+  background: -webkit-gradient(linear, left center, right center, from($start), to($end), from($end), to($start)); 
+  background: -moz-linear-gradient(0deg, $start, $end);
+}
+@mixin animate-color($duration: 300ms) {
+  -webkit-transition-property: color;
+  -webkit-transition-duration: $duration;
+  -moz-transition-property: color;
+  -moz-transition-duration: $duration;
+  -o-transition-property: color;
+  -o-transition-duration: $duration;
+  transition-property: color;
+  transition-duration: $duration; 
+}
+@mixin animate-background-color($duration: 300ms) {
+  -webkit-transition-property: background-color;
+  -webkit-transition-duration: $duration;
+  -moz-transition-property: background-color;
+  -moz-transition-duration: $duration;
+  -o-transition-property: background-color;
+  -o-transition-duration: $duration;
+  transition-property: background-color;
+  transition-duration: $duration; 
+}
+
+@mixin box-shadow($args){
+  
+}

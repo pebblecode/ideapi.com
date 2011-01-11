@@ -18,6 +18,7 @@ gem 'hoptoad_notifier'
 gem "rdiscount"
 gem 'aws-s3', :require => "aws/s3"
 gem 'ci_reporter'
+gem "compass", ">= 0.10.6"
 
 group :staging do 
   gem "faker"

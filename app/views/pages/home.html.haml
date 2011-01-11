@@ -1,52 +1,44 @@
-.section
-  
-  %p.intro-text
-    != "<strong>Take control</strong> of your briefs, proposals, articles and essays. <strong>Collaborate</strong> better, <strong>prevent</strong> duplication and <strong>supercharge</strong> your ideas."
-  
-  = link_to "Try it for free. Signup in seconds", "/signup", :class => "try-button try-button-primary"
-      
-  
+#intro
+  .text
+    %h2.title Create better documents
+    %p
+      <strong>Take control</strong> of your briefs, proposals, articles and essays. <strong>Collaborate</strong> better, <strong>prevent</strong> duplication and <strong>supercharge</strong> your ideas.
+    .signup
+      = link_to "Try it for free &raquo;", "/signup", :class => "try-button try-button-primary"
   #promo-video
     != '<iframe src="http://player.vimeo.com/video/11616621?title=0&amp;byline=0&amp;portrait=0&amp;color=b3d335" width="557" height="418" frameborder="0"></iframe>'
 
-  %ol#workflow
-    %li Create brief
-    %li Collaborate
-    %li Brainstorm
-    %li Approve
+%hr.faded/
+
+%ul.features.clearfix
+  %li.collaborate
+    %h4 Work together on your documents.
+    %p.desc Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus.
   
-  #homepage-footer
-    = link_to "Try it for free. Signup in seconds", "/signup", :class => "try-button try-button-secondary"
-    %h2 Who is ideapi for?
-    %ul 
-      %li Creative agencies
-      %li Lawyers
-      %li Service providers 
-      %li Consultancies
-      %li Recruitment agencies / headhunters
-      %li Educational institutions, business schools
-      %li Any group of people that needs to collaborate on documents and ideas.
-      %li
-        =link_to "More info", "http://blog.ideapi.com/post/1544447885/who-is-ideapi-for"
-    // #why-ideapi
-    //   %h2 Why ideapi?      
-    //   %ul
-    //     %li Manage your briefs and ideas in one place, online.
-    //     %li No more lost information in hundreds of emails.
-    //     %li Progress your briefs and ideas without losing original information.
-    //     %li Manage multiple stakeholders.
-    //     %li Keep everyone up to speed on projects real time.        
+  %li.create
+    %h4 Create new documents your way.
+    %p.desc Quisque lacus quam, egestas ac tincidunt a, lacinia vel.
   
+  %li.boost.last
+    %h4 Boost Your Creativity.
+    %p.desc Morbi a enim in magna semper bibendum. Etiam scelerisque, nunc.
     
-    #testimonials
-      %h3 Breaking International Barriers!
-      .body
-        // %p The International Exchange is a UK charity based in Brazil that “brings together the world of communications and the world of development in order to achieve social change.”
-        // %p TIE uses ideapi to create and collaborate on a clear brief internally before sending it out to agencies in the UK and US to get candidates on to their programmes.
-        %p ideapi is "a new tool that is perfect for allowing us to collaborate more efficiently and effectively on all our project briefs and proposals." 
-        %p "The easy to use system allows anyone to create their own bespoke templates and invite whoever they wish to work with to join in and co-create - perfect for an organisation like ours working with many different groups and individuals all in different time zones!"
-      .meta
-        %img{:class => "logo", :src => "/images/tie-logo.png", :alt => "The International Exchange"}/
-        %p.author Philippa White, Founder & Managing Director, The International Exchange
-        %p.read-more 
-          != "Full article on the <a href='http://www.theinternationalexchange.co.uk/news/news/111/1'>TIE website</a>"
+  %li.updated.clear
+    %h4 Stay up to date with changes to your documents.
+    %p.desc Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam.
+  
+  %li.control
+    %h4 Control who sees what
+    %p.desc Aenean facilisis nulla vitae urna tincidunt congue sed ut.
+  
+  %li.last.testimonial
+    %span.lquote.span-1 
+      %img{:src => '/images/icons/lquote.png', :alt=> ""}/
+      
+    %p.quote
+      ='...perfect for an organisation like ours working with many different groups and individuals all in different time zones...'
+      %span.rquote
+        %img{:src => '/images/icons/rquote.png', :alt=> ""}/
+    %p.clear
+      %cite Philippa White, Founder &amp; Managing Director, The International Exchange
+

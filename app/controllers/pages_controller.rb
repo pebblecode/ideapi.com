@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_filter :user_session_setup
   before_filter :require_user, :only => :help
-  layout 'public'
+  layout 'landing'
 
   def home
     if account_present? && current_account

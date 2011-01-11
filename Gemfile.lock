@@ -50,6 +50,8 @@ GEM
     ci_reporter (1.6.3)
       builder (>= 2.1.2)
     columnize (0.3.2)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     configuration (1.2.0)
     cucumber (0.9.4)
       builder (~> 2.1.2)
@@ -167,6 +169,7 @@ DEPENDENCIES
   capistrano-ext
   capybara (= 0.3.9)
   ci_reporter
+  compass (>= 0.10.6)
   cucumber
   cucumber-rails
   database_cleaner
