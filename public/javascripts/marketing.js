@@ -10,7 +10,7 @@ $(document).ready(function(){
   	prevId: "slider-prev"
   });
   // jQuery SmoothScroll | Version 10-04-30
-  $('a[href*=#]').click(function() {
+  $('a[href*=#]').click(function(e) {
 
      // duration in ms
      var duration=1000;
@@ -40,6 +40,7 @@ $(document).ready(function(){
         });
 
         // cancel default click action
+        e.preventDefault();
         return false;
      }
   });

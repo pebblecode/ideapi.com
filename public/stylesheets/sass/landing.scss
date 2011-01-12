@@ -93,6 +93,12 @@ cite{ font-size: 0.8em;}
     margin-left: 1em;
     padding: 0.5em 0 0.5em 1em;
     font-weight: bold;
+    a{
+      color: $ideapi_green_light;
+      &:hover{
+        color: $ideapi_green_light + #333;
+      }
+    }
   }
   a.login-link{
     color: #333;
@@ -106,6 +112,7 @@ cite{ font-size: 0.8em;}
       -webkit-box-shadow: rgba(255,255,255, 0.3) 0px 0px 3px, rgba(0,0,0, 0.3) 1px 1px 3px inset;
       -moz-box-shadow: rgba(0,0,0, 0.3) 1px 1px 3px;
       box-shadow: rgba(0,0,0, 0.3) 1px 1px 3px;
+      
     }
     
   }

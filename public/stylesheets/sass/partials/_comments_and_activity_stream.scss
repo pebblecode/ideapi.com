@@ -44,7 +44,7 @@ $speechbox-textarea-width: $speechbox-width - 14;
     }
   
     span.bubble {
-      background: url(/images/speech.png);
+      background: url(/images/ui/speech.png);
       width: 7px;
       height: 16px;
       display: block;
@@ -169,7 +169,7 @@ $speechbox-textarea-width: $speechbox-width - 14;
           }
         
           span.bubble {
-            background: url(/images/speech.png);
+            background: url(/images/ui/speech.png);
             width: 7px;
             height: 16px;
             display: block;
@@ -192,7 +192,7 @@ $speechbox-textarea-width: $speechbox-width - 14;
             top: 1px;
           }
           span.bubble {
-            background: url(/images/speech.png) 8px 0;
+            background: url(/images/ui/speech.png) 8px 0;
             width: 7px;
             height: 16px;
             display: block;

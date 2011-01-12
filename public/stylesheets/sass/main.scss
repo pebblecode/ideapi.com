@@ -226,6 +226,58 @@ form {
   }
 }
 
+/* LOGIN */ 
+#user_session_email, #user_session_password{
+  width: 225px;
+}
+.login, .app_error {
+  margin: 15% auto 0 auto;
+  width: 45em;
+  border: 10px solid #dddddd;
+  background: #f6f6f6;
+  .footer {
+    background: #dddddd;
+    padding: 0.5em 0 0 0;
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 1.2em; }
+    a {
+      color: #888888;
+      @include color-transitions(600ms);
+      &:hover {
+        color: #333333; } } }
+  a {
+    text-decoration: none;
+    color: $link_colour;
+    font-weight: bold; }
+  a:hover {
+    color: #32401a; }
+  h3 {
+    @include rounded-top-3px;
+    background: #32401a;
+    border-bottom: 4px solid #b3d335;
+    color: white;
+    padding: 0.2em 1em;
+    font-size: 2em;
+  }
+  .login_form, .friendship_form {
+    padding: 1em 1em;
+    font-size: 1.4em; }
+  .friendship_form {
+    p {
+      text-align: center; } } }
+
+.app_error {
+  h3 {
+    background: #d81f26;
+    color: white; }
+  p {
+    padding: 0.5em 2em;
+    font-size: 1.2em;
+    font-weight: bold; } }
+
+
 @import "partials/comments_and_activity_stream";
 @import "partials/account_form";
 @import "partials/jquery.fancybox-1.3.1";

@@ -513,7 +513,6 @@ jQuery.fn.document_ready = function() {
       jQuery("#" + jQuery(this).attr('href').split('#')[1]).find('.brief_item_history').show();
     });
 
-    // $('#proposal_long_description').wysiwyg({ css: '/stylesheets/wysiwyg_body.css' });
     
     if (document.URL.split('#')[1] != "") {
       //jQuery("#" + document.URL.split('#')[1]).scrollTo();
