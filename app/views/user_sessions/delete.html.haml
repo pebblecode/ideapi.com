@@ -3,6 +3,6 @@
 .login_form  
   -form_for current_user_session, :url => user_session_path, :html => {:method => :delete} do |f|
     %p
-      =submit_tag "Yes log me out"
+      =submit_tag "Yes log me out", :class => 'funky-button'
       or return to 
       =link_to "dashboard", dashboard_url

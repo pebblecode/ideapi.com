@@ -1,1 +1,487 @@
-html,body{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}html{font-size:100.01%}div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,pre,a,abbr,acronym,address,code,del,dfn,em,img,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,caption,tbody,tfoot,thead,tr{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}blockquote,q{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;quotes:"" ""}blockquote:before,blockquote:after,q:before,q:after{content:""}th,td,caption{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;text-align:left;font-weight:normal;vertical-align:middle}table{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;border-collapse:separate;border-spacing:0;vertical-align:middle}a img{border:none}.container{width:960px;margin:0 auto}.showgrid{background:url(/images/bg/grid.png)}.column,.span-1,#footer .left .large-quote .before,#footer .left .large-quote .after,#footer .social ul,.span-2,.home-page .features .boost,.home-page .features .control,.home-page .features .create,.home-page .features .updated,.home-page .features .collaborate,#footer .social h4,#footer .copyright,.span-3,#intro .signup,#tour-intro .signup,.home-page .features .testimonial cite,.home-page .features .testimonial .quote,.home-page .features .testimonial p.with-rquote,#footer .right,.span-4,#intro .text,#tour-intro .text,.home-page .features .testimonial,.span-5,#footer .left .large-quote .content,#footer .left .large-quote .cite,.span-6,#intro #promo-video,#tour-intro #promo-video,.faq-page .faq-listing,.span-7,#footer .left,.span-8,.tour-page #tour-slides #slider li,.span-9,.span-10,.tour-page #tour-slides{float:left;margin-right:10px}.last,#intro #promo-video,#tour-intro #promo-video,.home-page .features .testimonial,.home-page .features .testimonial .quote,.home-page .features .testimonial p.with-rquote,.tour-page #tour-slides,.tour-page #tour-slides #slider,.tour-page #tour-slides #slider li,#footer .left .large-quote .after,#footer .right,#footer .social ul{margin-right:0}.span-1,#footer .left .large-quote .before,#footer .left .large-quote .after,#footer .social ul{width:87px}.span-2,.home-page .features .boost,.home-page .features .control,.home-page .features .create,.home-page .features .updated,.home-page .features .collaborate,#footer .social h4,#footer .copyright{width:184px}.span-3,#intro .signup,#tour-intro .signup,.home-page .features .testimonial cite,.home-page .features .testimonial .quote,.home-page .features .testimonial p.with-rquote,#footer .right{width:281px}.span-4,#intro .text,#tour-intro .text,.home-page .features .testimonial{width:378px}.span-5,#footer .left .large-quote .content,#footer .left .large-quote .cite{width:475px}.span-6,#intro #promo-video,#tour-intro #promo-video,.faq-page .faq-listing{width:572px}.span-7,#footer .left{width:669px}.span-8,.tour-page #tour-slides #slider li{width:766px}.span-9{width:863px}.span-10,.tour-page #tour-slides{width:960px;margin-right:0}input.span-1,#footer .left .large-quote input.before,#footer .left .large-quote input.after,textarea.span-1,#footer .left .large-quote textarea.before,#footer .left .large-quote textarea.after,input.span-2,.home-page .features input.boost,.home-page .features input.control,.home-page .features input.create,.home-page .features input.updated,.home-page .features input.collaborate,#footer input.copyright,textarea.span-2,.home-page .features textarea.boost,.home-page .features textarea.control,.home-page .features textarea.create,.home-page .features textarea.updated,.home-page .features textarea.collaborate,#footer textarea.copyright,input.span-3,#intro input.signup,#tour-intro input.signup,.home-page .features .testimonial input.quote,#footer input.right,textarea.span-3,#intro textarea.signup,#tour-intro textarea.signup,.home-page .features .testimonial textarea.quote,#footer textarea.right,input.span-4,#intro input.text,#tour-intro input.text,.home-page .features input.testimonial,textarea.span-4,#intro textarea.text,#tour-intro textarea.text,.home-page .features textarea.testimonial,input.span-5,#footer .left .large-quote input.content,#footer .left .large-quote input.cite,textarea.span-5,#footer .left .large-quote textarea.content,#footer .left .large-quote textarea.cite,input.span-6,#intro input#promo-video,#tour-intro input#promo-video,.faq-page input.faq-listing,textarea.span-6,#intro textarea#promo-video,#tour-intro textarea#promo-video,.faq-page textarea.faq-listing,input.span-7,#footer input.left,textarea.span-7,#footer textarea.left,input.span-8,textarea.span-8,input.span-9,textarea.span-9,input.span-10,.tour-page input#tour-slides,textarea.span-10,.tour-page textarea#tour-slides{border-left-width:1px;border-right-width:1px;padding-left:5px;padding-right:5px}input.span-1,#footer .left .large-quote input.before,#footer .left .large-quote input.after,textarea.span-1,#footer .left .large-quote textarea.before,#footer .left .large-quote textarea.after{width:75px}input.span-2,.home-page .features input.boost,.home-page .features input.control,.home-page .features input.create,.home-page .features input.updated,.home-page .features input.collaborate,#footer input.copyright,textarea.span-2,.home-page .features textarea.boost,.home-page .features textarea.control,.home-page .features textarea.create,.home-page .features textarea.updated,.home-page .features textarea.collaborate,#footer textarea.copyright{width:172px}input.span-3,#intro input.signup,#tour-intro input.signup,.home-page .features .testimonial input.quote,#footer input.right,textarea.span-3,#intro textarea.signup,#tour-intro textarea.signup,.home-page .features .testimonial textarea.quote,#footer textarea.right{width:269px}input.span-4,#intro input.text,#tour-intro input.text,.home-page .features input.testimonial,textarea.span-4,#intro textarea.text,#tour-intro textarea.text,.home-page .features textarea.testimonial{width:366px}input.span-5,#footer .left .large-quote input.content,#footer .left .large-quote input.cite,textarea.span-5,#footer .left .large-quote textarea.content,#footer .left .large-quote textarea.cite{width:463px}input.span-6,#intro input#promo-video,#tour-intro input#promo-video,.faq-page input.faq-listing,textarea.span-6,#intro textarea#promo-video,#tour-intro textarea#promo-video,.faq-page textarea.faq-listing{width:560px}input.span-7,#footer input.left,textarea.span-7,#footer textarea.left{width:657px}input.span-8,textarea.span-8{width:754px}input.span-9,textarea.span-9{width:851px}input.span-10,.tour-page input#tour-slides,textarea.span-10,.tour-page textarea#tour-slides{width:948px}.append-1{padding-right:97px}.append-2{padding-right:194px}.append-3{padding-right:291px}.append-4{padding-right:388px}.append-5{padding-right:485px}.append-6{padding-right:582px}.append-7{padding-right:679px}.append-8{padding-right:776px}.append-9{padding-right:873px}.prepend-1,#intro .signup,#tour-intro .signup,.home-page .features .boost,.home-page .features .control,.home-page .features .create,.home-page .features .updated,.home-page .features .collaborate,.home-page .features .testimonial cite,#footer .left .large-quote .cite{padding-left:97px}.prepend-2{padding-left:194px}.prepend-3{padding-left:291px}.prepend-4{padding-left:388px}.prepend-5{padding-left:485px}.prepend-6{padding-left:582px}.prepend-7{padding-left:679px}.prepend-8{padding-left:776px}.prepend-9{padding-left:873px}.border{padding-right:4px;margin-right:5px;border-right:1px solid #eee}.colborder{padding-right:53px;margin-right:53px;border-right:1px solid #eee}.pull-1{margin-left:-97px}.pull-2{margin-left:-194px}.pull-3{margin-left:-291px}.pull-4{margin-left:-388px}.pull-5{margin-left:-485px}.pull-6{margin-left:-582px}.pull-7{margin-left:-679px}.pull-8{margin-left:-776px}.pull-9{margin-left:-873px}.pull-10{margin-left:-970px}.pull-1,.pull-2,.pull-3,.pull-4,.pull-5,.pull-6,.pull-7,.pull-8,.pull-9,.pull-10{float:left;position:relative}.push-1{margin:0 -97px 1.5em 97px}.push-2{margin:0 -194px 1.5em 194px}.push-3{margin:0 -291px 1.5em 291px}.push-4{margin:0 -388px 1.5em 388px}.push-5{margin:0 -485px 1.5em 485px}.push-6{margin:0 -582px 1.5em 582px}.push-7{margin:0 -679px 1.5em 679px}.push-8{margin:0 -776px 1.5em 776px}.push-9{margin:0 -873px 1.5em 873px}.push-10{margin:0 -970px 1.5em 970px}.push-1,.push-2,.push-3,.push-4,.push-5,.push-6,.push-7,.push-8,.push-9,.push-10{float:right;position:relative}.prepend-top{margin-top:1.5em}.append-bottom{margin-bottom:1.5em}.box{padding:1.5em;margin-bottom:1.5em;background:#E5ECF9}hr{background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:.1em;margin:0 0 1.45em;border:none}hr.space{background:#fff;color:#fff;visibility:hidden}.clearfix:after,#intro:after,#tour-intro:after,.tour-page #tour-slides:after,.faq-page .faq-listing:after,#footer:after,#footer .left .large-quote .quote:after,#footer .social:after,.container:after{content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden}.clearfix,#intro,#tour-intro,.tour-page #tour-slides,.faq-page .faq-listing,#footer,#footer .left .large-quote .quote,#footer .social,.container{display:block}.clear{clear:both}#header > .container,#content > .container,#footer > .container{margin:auto;position:relative}.debug{border:1px solid pink}body{background-color:#474747;font-size:12pt;font-family:"Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif;color:white}a{text-decoration:none;color:#91b113;-webkit-transition-property:color;-webkit-transition-duration:300ms;-moz-transition-property:color;-moz-transition-duration:300ms;-o-transition-property:color;-o-transition-duration:300ms;transition-property:color;transition-duration:300ms}a:hover{color:#5e7e00}a:focus{outline:none}em{font-style:italic}strong,b{font-weight:bold;font-weight:#222}ul{list-style-type:none}ol{list-style-position:inside}h1,h2,h3,h4{font-size:1.2em;font-family:'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;font-weight:bold;padding-bottom:0.5em}h1.title,h2.title,h3.title,h4.title{color:#b3d335}h2{font-size:1.2em}h3{font-size:1em}h4{font-size:1em}p{margin-bottom:0.5em;line-height:1.5em;font-size:1em}cite{font-size:0.8em}#header{background:#474747;color:#eee;position:relative}#logo{padding-top:0.5em}#navigation{list-style-position:inside;position:absolute;bottom:0;right:0}#navigation li{font-family:"Ubuntu", sans-serif;display:inline-block;margin-left:1em;padding:0.5em 0 0.5em 1em;font-weight:bold}#navigation li a{color:#b3d335}#navigation li a:hover{color:#e6ff68}#navigation a.login-link{color:#333;font-weight:bold;font-size:0.9em;background:#b3d335;background:-webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#91b113));background:-moz-linear-gradient(top, #b3d335, #91b113);border:1px solid #b3d335}#navigation a.login-link:active{-webkit-box-shadow:rgba(255, 255, 255, 0.3) 0px 0px 3px, rgba(0, 0, 0, 0.3) 1px 1px 3px inset;-moz-box-shadow:rgba(0, 0, 0, 0.3) 1px 1px 3px;box-shadow:rgba(0, 0, 0, 0.3) 1px 1px 3px}#content{font-family:"Ubuntu";background:#f3f3f3;color:#555;min-height:400px;padding:50px 0}#intro,#tour-intro{padding:0 0 50px 0;position:relative}#intro .text,#tour-intro .text{font-family:'Ubuntu', sans-serif}#intro #promo-video,#tour-intro #promo-video{text-align:right}#intro #promo-video iframe,#tour-intro #promo-video iframe{-webkit-box-shadow:rgba(0, 0, 0, 0.2) 3px 3px 10px;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px;height:200px}#intro .signup,#tour-intro .signup{padding-top:1em}.signup .try-button{background:#b3d335;height:46px;text-align:center;text-shadow:rgba(255, 255, 255, 0.398) 0px 1px 1px;font-size:1em;line-height:44px;background:-webkit-gradient(linear, left top, left bottom, from(#9ebe20), to(#c4e446));background:-moz-linear-gradient(top, #9ebe20, #c4e446);color:#333;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;display:inline-block;padding:0 1em;-webkit-box-shadow:rgba(0, 0, 0, 0.3) 1px 1px 3px;-moz-box-shadow:rgba(0, 0, 0, 0.3) 1px 1px 3px;box-shadow:rgba(0, 0, 0, 0.3) 1px 1px 3px;font-family:'Ubuntu', sans-serif}.signup .try-button:hover{color:#222}.signup .try-button:active{-webkit-box-shadow:rgba(0, 0, 0, 0.3) 0px 2px 10px inset;-moz-box-shadow:rgba(0, 0, 0, 0.3) 0px 2px 10px inset;box-shadow:rgba(0, 0, 0, 0.3) 0px 2px 10px inset}.home-page .features{margin-top:2em}.home-page .features li{margin-bottom:1em;display:block;background:no-repeat 30px 8px;min-height:70px}.home-page .features li p.desc{font-size:0.8em}.home-page .features .testimonial .rquote{margin-left:0.5em}.home-page .features .testimonial img{vertical-align:bottom}.home-page .features .testimonial .lquote{display:block;font-size:5em;text-align:right}.home-page .features .testimonial .rquote{vertical-align:bottom;margin-top:1em;float:right;margin-top:0.4em;margin-right:2em}.home-page .features .boost{background-image:url("/images/icons/boost.png")}.home-page .features .control{background-image:url("/images/icons/control.png")}.home-page .features .updated{background-image:url("/images/icons/updated.png")}.home-page .features .testimonial{background-image:none}.home-page .features .create{background-image:url("/images/icons/create.png")}.home-page .features .collaborate{background-image:url("/images/icons/collab.png")}hr.faded{background:#333333 url("/images/bg/horizontal-bar.png") repeat-y 0 0;height:1px;margin-bottom:0}.tour-page #tour-slides{position:relative}.tour-page #tour-slides #slider{margin-left:97px}.tour-page #tour-slides #slider li{height:500px}.tour-page #tour-slides #slider li .content .screenshot{max-width:700px;display:block}.tour-page #tour-slides #slider-next,.tour-page #tour-slides #slider-prev{position:absolute;top:150px}.tour-page #tour-slides #slider-next a,.tour-page #tour-slides #slider-prev a{height:56px;width:56px;display:block;text-indent:-9999px}.tour-page #tour-slides #slider-next a:focus,.tour-page #tour-slides #slider-prev a:focus{outline:none}.tour-page #tour-slides #slider-next{right:10px}.tour-page #tour-slides #slider-next a{background:url("/images/ui/circle-arrow-east.png") no-repeat 0 0}.tour-page #tour-slides #slider-prev{left:10px}.tour-page #tour-slides #slider-prev a{background:url("/images/ui/circle-arrow-west.png") no-repeat 0 0}.faq-page .title{margin-bottom:1.5em}.faq-page .listing{margin-bottom:2em;font-size:.9em}.faq-page .listing li{margin-bottom:.5em}.faq-page .faq-listing{list-style-position:outside;margin-top:2em;font-size:0.9em}.faq-page .faq-listing .faq-item{margin-bottom:1.5em}.faq-page .faq-listing .faq-item li{list-style:disc inside}.faq-page .faq-listing .faq-item .back-to-top{border-radius:10px 3px 3px 10px;-moz-border-radius:10px 3px 3px 10px;-webkit-border-radius:10px 3px 3px 10px;padding:0 5px 2px 25px;font-size:0.8em;line-height:20px;background:white url("/images/ui/arrow-north-tiny.png") no-repeat 5px 3px;border:1px solid #fafafa;-webkit-transition-property:background-color, color, border-color, opacity;-webkit-transition-duration:300ms;-moz-transition-property:background-color, color, border-color, opacity;-moz-transition-duration:300ms;-o-transition-property:background-color, color, border-color, opacity;-o-transition-duration:300ms;transition-property:background-color, color, border-color, opacity;transition-duration:300ms}.faq-page .faq-listing .faq-item .back-to-top:hover{color:#888;background-color:#fafafa;border:1px solid #f1f1f1}#footer{background:#222222 url("/images/bg/gradient-dark.png") repeat-x;background:-webkit-gradient(linear, left top, left bottom, from(#333333), to(#222222));background:-moz-linear-gradient(top, #333333, #222222);font-family:'Ubuntu', sans-serif;min-height:200px;padding-top:25px}#footer .left .large-quote .before{background:url("/images/icons/lquote.png") no-repeat top right;text-indent:-9990px}#footer .left .large-quote .content{text-align:justify;color:#ffff8a}#footer .left .large-quote .after{margin-top:2em;background:url("/images/icons/rquote.png") no-repeat bottom left;text-indent:-9990px}#footer .social{margin-bottom:1em}#footer .social h4{padding-top:.2em}#footer .social ul li{display:inline}#footer .copyright{font-size:0.8em}#footer .copyright ul{list-style:none}#footer .quick-links{font-size:0.8em}#footer .quick-links .navigation{padding-top:1em}.btn-shizzle,.funky-button,.funky-button-small,.green-button-link{font-size:1em;color:#32401a;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;border:solid 1px #91b113;background:url("/images/ui/btn-bg-green.png") repeat-x 0px 0px;text-shadow:rgba(255, 255, 255, 0.5) 0px 1px 0px;display:inline;padding:0 10px;border-top-left-radius:2px 2px;border-top-right-radius:2px 2px;border-bottom-right-radius:2px 2px;border-bottom-left-radius:2px 2px;cursor:pointer}.btn-shizzle:active,.funky-button:active,.funky-button-small:active,.green-button-link:active,.btn-shizzle.active,.active.funky-button,.active.funky-button-small,.active.green-button-link{background-position:0px bottom}.funky-button{height:26px;line-height:24px}.funky-button-small,.green-button-link{height:20px;line-height:18px;cursor:pointer}.green-button-link{border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;color:white;border-color:#32401a;text-shadow:none;display:block;font-family:Helvetica, Arial, sans-serif;font-weight:normal;font-size:1em;padding-top:1px}.green-button-link:hover{color:#eee}
+/* line 4, ../../../../../../.rvm/gems/ree-1.8.7-head@ideapi/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+html, body { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+
+/* line 6, ../../../../../../.rvm/gems/ree-1.8.7-head@ideapi/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+html { font-size: 100.01%; }
+
+/* line 16, ../../../../../../.rvm/gems/ree-1.8.7-head@ideapi/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, a, abbr, acronym, address, code, del, dfn, em, img, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, tr { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+
+/* line 18, ../../../../../../.rvm/gems/ree-1.8.7-head@ideapi/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+blockquote, q { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; quotes: "" ""; }
+/* line 45, ../../../../../../.rvm/gems/ree-1.8.7-head@ideapi/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+
+/* line 20, ../../../../../../.rvm/gems/ree-1.8.7-head@ideapi/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+th, td, caption { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; text-align: left; font-weight: normal; vertical-align: middle; }
+
+/* line 22, ../../../../../../.rvm/gems/ree-1.8.7-head@ideapi/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+table { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; border-collapse: separate; border-spacing: 0; vertical-align: middle; }
+
+/* line 24, ../../../../../../.rvm/gems/ree-1.8.7-head@ideapi/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+a img { border: none; }
+
+/* Initialize variables */
+/* Mixins */
+/* Colours */
+/* --------------------------------------------------------------
+		Blueprint grid.css file for version 0.9.1
+		Width: 960px
+		Columns: 10
+		Column width: 87px
+		Gutter width: 10px
+		
+		This file was generated with GridCalc (http://www.problem.se/labs/gridcalc/)
+---------------------------------------------------------------*/
+/* --------------------------------------------------------------
+ grid.css Sets up an easy-to-use grid of 24 columns.
+ By default, the grid is 950px wide, with 24 columns spanning 30px, and a 10px margin between columns.
+ If you need fewer or more columns, namespaces or semantic element names, use the compressor script (lib/compress.rb)
+
+-------------------------------------------------------------- */
+/* A container should group all your columns. */
+/* line 25, ../sass/partials/_960grid.scss */
+.container { width: 960px; margin: 0 auto; }
+
+/* Use this class on any .span / container to see the grid. */
+/* line 31, ../sass/partials/_960grid.scss */
+.showgrid { background: url(/images/bg/grid.png); }
+
+/* Columns
+-------------------------------------------------------------- */
+/* Sets up basic grid floating and margin. */
+/* line 40, ../sass/partials/_960grid.scss */
+.column, .span-1, #footer .left .large-quote .before, #footer .left .large-quote .after, #footer .social ul, .span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, #footer .social h4, #footer .copyright, .span-3, #intro .signup, #tour-intro .signup, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right, .span-4, #intro .text, #tour-intro .text, .home-page .features .testimonial, .span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite, .span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing, .span-7, #footer .left, .span-8, .tour-page #tour-slides #slider li, .span-9, .span-10, .tour-page #tour-slides { float: left; margin-right: 10px; }
+
+/* The last column in a row needs this class. */
+/* line 46, ../sass/partials/_960grid.scss */
+.last, #intro #promo-video, #tour-intro #promo-video, .home-page .features .testimonial, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, .tour-page #tour-slides, .tour-page #tour-slides #slider, .tour-page #tour-slides #slider li, #footer .left .large-quote .after, #footer .right, #footer .social ul { margin-right: 0; }
+
+/* Use these classes to set the width of a column. */
+/* line 49, ../sass/partials/_960grid.scss */
+.span-1, #footer .left .large-quote .before, #footer .left .large-quote .after, #footer .social ul { width: 87px; }
+
+/* line 50, ../sass/partials/_960grid.scss */
+.span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, #footer .social h4, #footer .copyright { width: 184px; }
+
+/* line 51, ../sass/partials/_960grid.scss */
+.span-3, #intro .signup, #tour-intro .signup, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right { width: 281px; }
+
+/* line 52, ../sass/partials/_960grid.scss */
+.span-4, #intro .text, #tour-intro .text, .home-page .features .testimonial { width: 378px; }
+
+/* line 53, ../sass/partials/_960grid.scss */
+.span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite { width: 475px; }
+
+/* line 54, ../sass/partials/_960grid.scss */
+.span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing { width: 572px; }
+
+/* line 55, ../sass/partials/_960grid.scss */
+.span-7, #footer .left { width: 669px; }
+
+/* line 56, ../sass/partials/_960grid.scss */
+.span-8, .tour-page #tour-slides #slider li { width: 766px; }
+
+/* line 57, ../sass/partials/_960grid.scss */
+.span-9 { width: 863px; }
+
+/* line 58, ../sass/partials/_960grid.scss */
+.span-10, .tour-page #tour-slides { width: 960px; margin-right: 0; }
+
+/* Use these classes to set the width of an input. */
+/* line 61, ../sass/partials/_960grid.scss */
+input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after, input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, #footer input.copyright, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, #footer textarea.copyright, input.span-3, #intro input.signup, #tour-intro input.signup, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features .testimonial textarea.quote, #footer textarea.right, input.span-4, #intro input.text, #tour-intro input.text, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, .home-page .features textarea.testimonial, input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite, input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing, input.span-7, #footer input.left, textarea.span-7, #footer textarea.left, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, .tour-page input#tour-slides, textarea.span-10, .tour-page textarea#tour-slides { border-left-width: 1px; border-right-width: 1px; padding-left: 5px; padding-right: 5px; }
+
+/* line 68, ../sass/partials/_960grid.scss */
+input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after { width: 75px; }
+
+/* line 69, ../sass/partials/_960grid.scss */
+input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, #footer input.copyright, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, #footer textarea.copyright { width: 172px; }
+
+/* line 70, ../sass/partials/_960grid.scss */
+input.span-3, #intro input.signup, #tour-intro input.signup, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features .testimonial textarea.quote, #footer textarea.right { width: 269px; }
+
+/* line 71, ../sass/partials/_960grid.scss */
+input.span-4, #intro input.text, #tour-intro input.text, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, .home-page .features textarea.testimonial { width: 366px; }
+
+/* line 72, ../sass/partials/_960grid.scss */
+input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite { width: 463px; }
+
+/* line 73, ../sass/partials/_960grid.scss */
+input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing { width: 560px; }
+
+/* line 74, ../sass/partials/_960grid.scss */
+input.span-7, #footer input.left, textarea.span-7, #footer textarea.left { width: 657px; }
+
+/* line 75, ../sass/partials/_960grid.scss */
+input.span-8, textarea.span-8 { width: 754px; }
+
+/* line 76, ../sass/partials/_960grid.scss */
+input.span-9, textarea.span-9 { width: 851px; }
+
+/* line 77, ../sass/partials/_960grid.scss */
+input.span-10, .tour-page input#tour-slides, textarea.span-10, .tour-page textarea#tour-slides { width: 948px; }
+
+/* Add these to a column to append empty cols. */
+/* line 81, ../sass/partials/_960grid.scss */
+.append-1 { padding-right: 97px; }
+
+/* line 82, ../sass/partials/_960grid.scss */
+.append-2 { padding-right: 194px; }
+
+/* line 83, ../sass/partials/_960grid.scss */
+.append-3 { padding-right: 291px; }
+
+/* line 84, ../sass/partials/_960grid.scss */
+.append-4 { padding-right: 388px; }
+
+/* line 85, ../sass/partials/_960grid.scss */
+.append-5 { padding-right: 485px; }
+
+/* line 86, ../sass/partials/_960grid.scss */
+.append-6 { padding-right: 582px; }
+
+/* line 87, ../sass/partials/_960grid.scss */
+.append-7 { padding-right: 679px; }
+
+/* line 88, ../sass/partials/_960grid.scss */
+.append-8 { padding-right: 776px; }
+
+/* line 89, ../sass/partials/_960grid.scss */
+.append-9 { padding-right: 873px; }
+
+/* Add these to a column to prepend empty cols. */
+/* line 93, ../sass/partials/_960grid.scss */
+.prepend-1, #intro .signup, #tour-intro .signup, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .testimonial cite, #footer .left .large-quote .cite { padding-left: 97px; }
+
+/* line 94, ../sass/partials/_960grid.scss */
+.prepend-2 { padding-left: 194px; }
+
+/* line 95, ../sass/partials/_960grid.scss */
+.prepend-3 { padding-left: 291px; }
+
+/* line 96, ../sass/partials/_960grid.scss */
+.prepend-4 { padding-left: 388px; }
+
+/* line 97, ../sass/partials/_960grid.scss */
+.prepend-5 { padding-left: 485px; }
+
+/* line 98, ../sass/partials/_960grid.scss */
+.prepend-6 { padding-left: 582px; }
+
+/* line 99, ../sass/partials/_960grid.scss */
+.prepend-7 { padding-left: 679px; }
+
+/* line 100, ../sass/partials/_960grid.scss */
+.prepend-8 { padding-left: 776px; }
+
+/* line 101, ../sass/partials/_960grid.scss */
+.prepend-9 { padding-left: 873px; }
+
+/* Border on right hand side of a column. */
+/* line 104, ../sass/partials/_960grid.scss */
+.border { padding-right: 4px; margin-right: 5px; border-right: 1px solid #eee; }
+
+/* Border with more whitespace, spans one column. */
+/* line 111, ../sass/partials/_960grid.scss */
+.colborder { padding-right: 53px; margin-right: 53px; border-right: 1px solid #eee; }
+
+/* Use these classes on an element to push it into the
+next column, or to pull it into the previous column.  */
+/* line 121, ../sass/partials/_960grid.scss */
+.pull-1 { margin-left: -97px; }
+
+/* line 122, ../sass/partials/_960grid.scss */
+.pull-2 { margin-left: -194px; }
+
+/* line 123, ../sass/partials/_960grid.scss */
+.pull-3 { margin-left: -291px; }
+
+/* line 124, ../sass/partials/_960grid.scss */
+.pull-4 { margin-left: -388px; }
+
+/* line 125, ../sass/partials/_960grid.scss */
+.pull-5 { margin-left: -485px; }
+
+/* line 126, ../sass/partials/_960grid.scss */
+.pull-6 { margin-left: -582px; }
+
+/* line 127, ../sass/partials/_960grid.scss */
+.pull-7 { margin-left: -679px; }
+
+/* line 128, ../sass/partials/_960grid.scss */
+.pull-8 { margin-left: -776px; }
+
+/* line 129, ../sass/partials/_960grid.scss */
+.pull-9 { margin-left: -873px; }
+
+/* line 130, ../sass/partials/_960grid.scss */
+.pull-10 { margin-left: -970px; }
+
+/* line 132, ../sass/partials/_960grid.scss */
+.pull-1, .pull-2, .pull-3, .pull-4, .pull-5, .pull-6, .pull-7, .pull-8, .pull-9, .pull-10 { float: left; position: relative; }
+
+/* line 134, ../sass/partials/_960grid.scss */
+.push-1 { margin: 0 -97px 1.5em 97px; }
+
+/* line 135, ../sass/partials/_960grid.scss */
+.push-2 { margin: 0 -194px 1.5em 194px; }
+
+/* line 136, ../sass/partials/_960grid.scss */
+.push-3 { margin: 0 -291px 1.5em 291px; }
+
+/* line 137, ../sass/partials/_960grid.scss */
+.push-4 { margin: 0 -388px 1.5em 388px; }
+
+/* line 138, ../sass/partials/_960grid.scss */
+.push-5 { margin: 0 -485px 1.5em 485px; }
+
+/* line 139, ../sass/partials/_960grid.scss */
+.push-6 { margin: 0 -582px 1.5em 582px; }
+
+/* line 140, ../sass/partials/_960grid.scss */
+.push-7 { margin: 0 -679px 1.5em 679px; }
+
+/* line 141, ../sass/partials/_960grid.scss */
+.push-8 { margin: 0 -776px 1.5em 776px; }
+
+/* line 142, ../sass/partials/_960grid.scss */
+.push-9 { margin: 0 -873px 1.5em 873px; }
+
+/* line 143, ../sass/partials/_960grid.scss */
+.push-10 { margin: 0 -970px 1.5em 970px; }
+
+/* line 145, ../sass/partials/_960grid.scss */
+.push-1, .push-2, .push-3, .push-4, .push-5, .push-6, .push-7, .push-8, .push-9, .push-10 { float: right; position: relative; }
+
+/* Misc classes and elements
+-------------------------------------------------------------- */
+/* In case you need to add a gutter above/below an element */
+/* line 152, ../sass/partials/_960grid.scss */
+.prepend-top { margin-top: 1.5em; }
+
+/* line 155, ../sass/partials/_960grid.scss */
+.append-bottom { margin-bottom: 1.5em; }
+
+/* Use a .box to create a padded box inside a column.  */
+/* line 160, ../sass/partials/_960grid.scss */
+.box { padding: 1.5em; margin-bottom: 1.5em; background: #E5ECF9; }
+
+/* Use this to create a horizontal ruler across a column. */
+/* line 167, ../sass/partials/_960grid.scss */
+hr { background: #ddd; color: #ddd; clear: both; float: none; width: 100%; height: .1em; margin: 0 0 1.45em; border: none; }
+
+/* line 178, ../sass/partials/_960grid.scss */
+hr.space { background: #fff; color: #fff; visibility: hidden; }
+
+/* Clearing floats without extra markup Based on How To Clear Floats Without Structural Markup by PiE [http://www.positioniseverything.net/easyclearing.html] */
+/* line 189, ../sass/partials/_960grid.scss */
+.clearfix:after, #intro:after, #tour-intro:after, .tour-page #tour-slides:after, .faq-page .faq-listing:after, #footer:after, #footer .left .large-quote .quote:after, #footer .social:after, .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+
+/* line 197, ../sass/partials/_960grid.scss */
+.clearfix, #intro, #tour-intro, .tour-page #tour-slides, .faq-page .faq-listing, #footer, #footer .left .large-quote .quote, #footer .social, .container { display: block; }
+
+/* Regular clearing apply to column that should drop below previous ones. */
+/* line 202, ../sass/partials/_960grid.scss */
+.clear { clear: both; }
+
+/* line 9, ../sass/landing.scss */
+#header > .container, #content > .container, #footer > .container { margin: auto; position: relative; }
+
+/* line 16, ../sass/landing.scss */
+.debug { border: 1px solid pink; }
+
+/* line 21, ../sass/landing.scss */
+body { background-color: #474747; font-size: 12pt; font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; color: white; }
+
+/* Extra reset: links, etc */
+/* line 29, ../sass/landing.scss */
+a { text-decoration: none; color: #91b113; -webkit-transition-property: color; -webkit-transition-duration: 300ms; -moz-transition-property: color; -moz-transition-duration: 300ms; -o-transition-property: color; -o-transition-duration: 300ms; transition-property: color; transition-duration: 300ms; }
+/* line 33, ../sass/landing.scss */
+a:hover { color: #5e7e00; }
+/* line 36, ../sass/landing.scss */
+a:focus { outline: none; }
+
+/* line 40, ../sass/landing.scss */
+em { font-style: italic; }
+
+/* line 43, ../sass/landing.scss */
+strong, b { font-weight: bold; font-weight: #222; }
+
+/* line 47, ../sass/landing.scss */
+ul { list-style-type: none; }
+
+/* line 48, ../sass/landing.scss */
+ol { list-style-position: inside; }
+
+/* line 49, ../sass/landing.scss */
+h1, h2, h3, h4 { font-size: 1.2em; font-family: 'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; font-weight: bold; padding-bottom: 0.5em; }
+/* line 53, ../sass/landing.scss */
+h1.title, h2.title, h3.title, h4.title { color: #b3d335; }
+
+/* line 56, ../sass/landing.scss */
+h2 { font-size: 1.2em; }
+
+/* line 59, ../sass/landing.scss */
+h3 { font-size: 1em; }
+
+/* line 63, ../sass/landing.scss */
+h4 { font-size: 1em; }
+
+/* line 65, ../sass/landing.scss */
+p { margin-bottom: 0.5em; line-height: 1.5em; font-size: 1em; }
+
+/* line 71, ../sass/landing.scss */
+cite { font-size: 0.8em; }
+
+/* Header, Logotype, and Main Menu */
+/* line 76, ../sass/landing.scss */
+#header { background: #474747; color: #eee; position: relative; }
+
+/* line 81, ../sass/landing.scss */
+#logo { padding-top: 0.5em; }
+
+/* line 84, ../sass/landing.scss */
+#navigation { list-style-position: inside; position: absolute; bottom: 0; right: 0; }
+/* line 89, ../sass/landing.scss */
+#navigation li { font-family: "Ubuntu", sans-serif; display: inline-block; margin-left: 1em; padding: 0.5em 0 0.5em 1em; font-weight: bold; }
+/* line 95, ../sass/landing.scss */
+#navigation li a { color: #b3d335; }
+/* line 97, ../sass/landing.scss */
+#navigation li a:hover { color: #e6ff68; }
+/* line 102, ../sass/landing.scss */
+#navigation a.login-link { color: #333; font-weight: bold; font-size: 0.9em; background: #b3d335; background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#91b113)); background: -moz-linear-gradient(top, #b3d335, #91b113); border: 1px solid #b3d335; }
+/* line 110, ../sass/landing.scss */
+#navigation a.login-link:active { -webkit-box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 3px, rgba(0, 0, 0, 0.3) 1px 1px 3px inset; -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; }
+
+/* Content */
+/* line 122, ../sass/landing.scss */
+#content { font-family: "Ubuntu"; background: #f3f3f3; color: #555; min-height: 400px; padding: 50px 0; }
+
+/* line 129, ../sass/landing.scss */
+#intro, #tour-intro { padding: 0 0 50px 0; position: relative; }
+/* line 134, ../sass/landing.scss */
+#intro .text, #tour-intro .text { font-family: 'Ubuntu', sans-serif; }
+/* line 138, ../sass/landing.scss */
+#intro #promo-video, #tour-intro #promo-video { text-align: right; }
+/* line 142, ../sass/landing.scss */
+#intro #promo-video iframe, #tour-intro #promo-video iframe { -webkit-box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 10px; border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; height: 200px; }
+/* line 148, ../sass/landing.scss */
+#intro .signup, #tour-intro .signup { padding-top: 1em; }
+
+/* line 154, ../sass/landing.scss */
+.signup .try-button { background: #b3d335; height: 46px; text-align: center; text-shadow: rgba(255, 255, 255, 0.398) 0px 1px 1px; font-size: 1em; line-height: 44px; background: -webkit-gradient(linear, left top, left bottom, from(#9ebe20), to(#c4e446)); background: -moz-linear-gradient(top, #9ebe20, #c4e446); color: #333; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; display: inline-block; padding: 0 1em; -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; font-family: 'Ubuntu', sans-serif; }
+/* line 171, ../sass/landing.scss */
+.signup .try-button:hover { color: #222; }
+/* line 174, ../sass/landing.scss */
+.signup .try-button:active { -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; }
+
+/* line 181, ../sass/landing.scss */
+.home-page .features { margin-top: 2em; }
+/* line 183, ../sass/landing.scss */
+.home-page .features li { margin-bottom: 1em; display: block; background: no-repeat 30px 8px; min-height: 70px; }
+/* line 188, ../sass/landing.scss */
+.home-page .features li p.desc { font-size: 0.8em; }
+/* line 197, ../sass/landing.scss */
+.home-page .features .testimonial .rquote { margin-left: 0.5em; }
+/* line 198, ../sass/landing.scss */
+.home-page .features .testimonial img { vertical-align: bottom; }
+/* line 201, ../sass/landing.scss */
+.home-page .features .testimonial .lquote { display: block; font-size: 5em; text-align: right; }
+/* line 206, ../sass/landing.scss */
+.home-page .features .testimonial .rquote { vertical-align: bottom; margin-top: 1em; float: right; margin-top: 0.4em; margin-right: 2em; }
+/* line 219, ../sass/landing.scss */
+.home-page .features .boost { background-image: url("/images/icons/boost.png"); }
+/* line 220, ../sass/landing.scss */
+.home-page .features .control { background-image: url("/images/icons/control.png"); }
+/* line 221, ../sass/landing.scss */
+.home-page .features .updated { background-image: url("/images/icons/updated.png"); }
+/* line 222, ../sass/landing.scss */
+.home-page .features .testimonial { background-image: none; }
+/* line 223, ../sass/landing.scss */
+.home-page .features .create { background-image: url("/images/icons/create.png"); }
+/* line 224, ../sass/landing.scss */
+.home-page .features .collaborate { background-image: url("/images/icons/collab.png"); }
+
+/* line 226, ../sass/landing.scss */
+hr.faded { /*background: -webkit-gradient(linear, left center, right center, from($content_bg), color-stop(20%, $content_bg), color-stop(50%, #555), color-stop(80%, $content_bg), to($content_bg));*/ background: #333333 url("/images/bg/horizontal-bar.png") repeat-y 0 0; height: 1px; margin-bottom: 0; }
+
+/* line 234, ../sass/landing.scss */
+.tour-page #tour-slides { position: relative; }
+/* line 239, ../sass/landing.scss */
+.tour-page #tour-slides #slider { margin-left: 97px; }
+/* line 243, ../sass/landing.scss */
+.tour-page #tour-slides #slider li { height: 500px; }
+/* line 248, ../sass/landing.scss */
+.tour-page #tour-slides #slider li .content .screenshot { max-width: 700px; display: block; }
+/* line 256, ../sass/landing.scss */
+.tour-page #tour-slides #slider-next, .tour-page #tour-slides #slider-prev { position: absolute; top: 150px; }
+/* line 259, ../sass/landing.scss */
+.tour-page #tour-slides #slider-next a, .tour-page #tour-slides #slider-prev a { height: 56px; width: 56px; display: block; text-indent: -9999px; }
+/* line 265, ../sass/landing.scss */
+.tour-page #tour-slides #slider-next a:focus, .tour-page #tour-slides #slider-prev a:focus { outline: none; }
+/* line 268, ../sass/landing.scss */
+.tour-page #tour-slides #slider-next { right: 10px; }
+/* line 270, ../sass/landing.scss */
+.tour-page #tour-slides #slider-next a { background: url("/images/ui/circle-arrow-east.png") no-repeat 0 0; }
+/* line 274, ../sass/landing.scss */
+.tour-page #tour-slides #slider-prev { left: 10px; }
+/* line 276, ../sass/landing.scss */
+.tour-page #tour-slides #slider-prev a { background: url("/images/ui/circle-arrow-west.png") no-repeat 0 0; }
+
+/* line 285, ../sass/landing.scss */
+.faq-page .title { margin-bottom: 1.5em; }
+/* line 288, ../sass/landing.scss */
+.faq-page .listing { margin-bottom: 2em; font-size: .9em; }
+/* line 291, ../sass/landing.scss */
+.faq-page .listing li { margin-bottom: .5em; }
+/* line 295, ../sass/landing.scss */
+.faq-page .faq-listing { list-style-position: outside; margin-top: 2em; font-size: 0.9em; }
+/* line 301, ../sass/landing.scss */
+.faq-page .faq-listing .faq-item { margin-bottom: 1.5em; }
+/* line 303, ../sass/landing.scss */
+.faq-page .faq-listing .faq-item li { list-style: disc inside; }
+/* line 306, ../sass/landing.scss */
+.faq-page .faq-listing .faq-item .back-to-top { border-radius: 10px 3px 3px 10px; -moz-border-radius: 10px 3px 3px 10px; -webkit-border-radius: 10px 3px 3px 10px; padding: 0 5px 2px 25px; font-size: 0.8em; line-height: 20px; background: white url("/images/ui/arrow-north-tiny.png") no-repeat 5px 3px; border: 1px solid #fafafa; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
+/* line 314, ../sass/landing.scss */
+.faq-page .faq-listing .faq-item .back-to-top:hover { color: #888; background-color: #fafafa; border: 1px solid #f1f1f1; }
+
+/* Footer */
+/* line 326, ../sass/landing.scss */
+#footer { background: #222222 url("/images/bg/gradient-dark.png") repeat-x; background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#222222)); background: -moz-linear-gradient(top, #333333, #222222); font-family: 'Ubuntu', sans-serif; min-height: 200px; padding-top: 25px; }
+/* line 337, ../sass/landing.scss */
+#footer .left .large-quote .before { background: url("/images/icons/lquote.png") no-repeat top right; text-indent: -9990px; }
+/* line 342, ../sass/landing.scss */
+#footer .left .large-quote .content { text-align: justify; color: #ffff8a; }
+/* line 347, ../sass/landing.scss */
+#footer .left .large-quote .after { margin-top: 2em; background: url("/images/icons/rquote.png") no-repeat bottom left; text-indent: -9990px; }
+/* line 364, ../sass/landing.scss */
+#footer .social { margin-bottom: 1em; }
+/* line 367, ../sass/landing.scss */
+#footer .social h4 { padding-top: .2em; }
+/* line 374, ../sass/landing.scss */
+#footer .social ul li { display: inline; }
+/* line 377, ../sass/landing.scss */
+#footer .copyright { font-size: 0.8em; }
+/* line 380, ../sass/landing.scss */
+#footer .copyright ul { list-style: none; }
+/* line 382, ../sass/landing.scss */
+#footer .quick-links { font-size: 0.8em; }
+/* line 385, ../sass/landing.scss */
+#footer .quick-links .navigation { padding-top: 1em; }
+
+/* line 392, ../sass/landing.scss */
+.btn-shizzle, .funky-button, .funky-button-small, .green-button-link { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
+/* line 409, ../sass/landing.scss */
+.btn-shizzle:active, .funky-button:active, .funky-button-small:active, .green-button-link:active, .btn-shizzle.active, .active.funky-button, .active.funky-button-small, .active.green-button-link { background-position: 0px bottom; }
+
+/* line 412, ../sass/landing.scss */
+.funky-button { height: 26px; line-height: 24px; }
+
+/* line 417, ../sass/landing.scss */
+.funky-button-small, .green-button-link { height: 20px; line-height: 18px; cursor: pointer; }
+
+/* line 424, ../sass/landing.scss */
+.green-button-link { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
+/* line 435, ../sass/landing.scss */
+.green-button-link:hover { color: #eee; }

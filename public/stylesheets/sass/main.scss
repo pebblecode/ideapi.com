@@ -1,6 +1,8 @@
 /* Initialize variables */ 
 @import "mixins";
 @import "partials/variables";
+@import "partials/960grid";
+
 /* Importing partials / snippets */
 @import "snippets/reset";
 @import "snippets/classes";
@@ -263,11 +265,18 @@ form {
   }
   .login_form, .friendship_form {
     padding: 1em 1em;
-    font-size: 1.4em; }
+    font-size: 1.4em;
+  }
+  .login_form{
+    label{ 
+    }
+  }
   .friendship_form {
     p {
-      text-align: center; } } }
-
+      text-align: center; 
+    } 
+  }
+}
 .app_error {
   h3 {
     background: #d81f26;
@@ -275,7 +284,8 @@ form {
   p {
     padding: 0.5em 2em;
     font-size: 1.2em;
-    font-weight: bold; } }
+    font-weight: bold; }
+}
 
 
 @import "partials/comments_and_activity_stream";

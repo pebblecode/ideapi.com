@@ -23,7 +23,7 @@
         =f.check_box :remember_me
 
       %p.submit
-        =submit_tag "Login"
+        =submit_tag "Login", :class => 'funky-button'
       .clear
     %p#forgot-password
       = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
