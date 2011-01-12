@@ -1,30 +1,51 @@
 - title "Tour"
 
-%h1 Tour
-= link_to "Try it for free. Signup in seconds", "/signup", :class => "try-button try-button-primary"
-  
-%ol.features
-  %li.odd.dashboard
-    .content  
-      %h2 Dashboard
-      %p Overview of the briefs that you are working on.   
-    %a{:href => "../images/screenshots/dashboard.png", :rel => "lightbox"}
-      %img{:src => "../images/screenshots/dashboard.png", :alt => "Dashboard - Overview of the briefs"}/
-  %li.even.brief
-    .content
-      %h2 Brief
-      %p Collaborate on your brief with others and let ideapi capture a full history of all iterations and discussions.
-    %a{:href => "../images/screenshots/brief.png", :rel => "lightbox"}
-      %img{:src => "../images/screenshots/brief.png", :alt => "Content - Collaborate on your brief with others"}/
-  %li.odd.edit-brief
-    .content
-      %h2 Edit Brief
-      %p Take on board comments and suggestions from others, update your brief and add formatting if required.
-    %a{:href => "../images/screenshots/edit_brief.png", :rel => "lightbox"}  
-      %img{:src => "../images/screenshots/edit_brief.png", :alt => "Edit Brief - Commenting and formatting"}/
-  %li.even.idea
-    .content
-      %h2 Idea
-      %p Submit your response to a brief - when you are ready, submit your idea for approval. 
-    %a{:href => "../images/screenshots/idea.png", :rel => "lightbox"}  
-      %img{:src => "../images/screenshots/idea.png", :alt => "Idea - Submit your ideas for approval"}/
+#tour-intro
+  %h2.title Take a tour
+  .span-6
+    :markdown
+      **Quisque** commodo hendrerit lorem quis egestas. *Maecenas quis tortor arcu*. Vivamus rutrum nunc non neque consectetur quis placerat neque lobortis. 
+      Nam vestibulum, _arcu sodales_ feugiat consectetur.
+      
+      Nimur orci bibendum elit, eu euismod magna sapien ut nibh. Donec semper quam scelerisque tortor dictum gravida.
+
+#tour-slides
+  #slider
+    %ul.features
+      %li
+        .content
+          %h2 Dashboard (1/4)
+          %p Overview of the briefs that you are working on.   
+          %img.screenshot{:src => "../images/screenshots/dashboard.png", :alt => "Dashboard - Overview of the briefs"}/
+      %li
+        .content
+          %h2 Create (2/4)
+          Collaborate on your brief with others and let ideapi capture a full history of all iterations and discussions.
+          %img.screenshot{:src => "../images/screenshots/brief.png", :alt => "Content - Collaborate on your brief with others"}/
+      %li
+        .content
+          %h2 Editing (3/4)
+          %p Take on board comments and suggestions from others, update your brief and add formatting if required.
+          %img.screenshot{:src => "../images/screenshots/edit_brief.png", :alt => "Edit Brief - Commenting and formatting"}/
+      %li
+        .content 
+          %h2 Share your ideas (4/4)
+          %p Submit your response to a brief - when you are ready, submit your idea for approval. 
+          %img.screenshot{:src => "../images/screenshots/idea.png", :alt => "Idea - Submit your ideas for approval"}/
+
+
+
+
+= custom_footer do
+  .large-quote
+    .quote
+      .before
+        %img{:src => '/images/icons/lquote.png', :alt=> ""}/
+      .content
+        :markdown
+          …perfect for an organisation like ours working with many different groups and individuals all in different time zones…
+    
+      .after
+        %img{:src => '/images/icons/rquote.png', :alt=> ""}/
+    .cite
+      %cite Philippa White, Founder &amp; Managing Director, <br/>The International Exchange

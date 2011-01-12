@@ -1,7 +1,7 @@
 #intro
   .text
     %h2.title Create better documents
-    %p
+    %p.clearfix
       <strong>Take control</strong> of your briefs, proposals, articles and essays. <strong>Collaborate</strong> better, <strong>prevent</strong> duplication and <strong>supercharge</strong> your ideas.
     .signup
       = link_to "Try it for free &raquo;", "/signup", :class => "try-button try-button-primary"
@@ -36,9 +36,22 @@
       %img{:src => '/images/icons/lquote.png', :alt=> ""}/
       
     %p.quote
-      ='...perfect for an organisation like ours working with many different groups and individuals all in different time zones...'
+      ='… perfect for an organisation like ours working with many different groups and individuals all in different time zones…'
       %span.rquote
         %img{:src => '/images/icons/rquote.png', :alt=> ""}/
     %p.clear
-      %cite Philippa White, Founder &amp; Managing Director, The International Exchange
+      %cite Philippa White, Founder &amp; Managing Director, The International Exchange
 
+= custom_footer do
+  .large-quote
+    .quote
+      .before
+        %img{:src => '/images/icons/lquote.png', :alt=> ""}/
+      .content
+        :markdown
+          …perfect for an organisation like ours working with many different groups and individuals all in different time zones…
+    
+      .after
+        %img{:src => '/images/icons/rquote.png', :alt=> ""}/
+    .cite
+      %cite Philippa White, Founder &amp; Managing Director, <br/>The International Exchange

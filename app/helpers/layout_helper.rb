@@ -18,6 +18,12 @@ module LayoutHelper
     end
   end
   
+  def custom_footer(&block)
+    capture_haml_into(:custom_footer) do
+      capture(&block)
+    end
+  end
+  
   def page_help(&block)
     capture_haml_into(:page_help) do
       capture(&block)

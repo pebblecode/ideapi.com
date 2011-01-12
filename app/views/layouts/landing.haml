@@ -21,7 +21,7 @@
     /[if IE 8]
       %link{ :href => "/stylesheets/marketing_ie8.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
         
-    =javascript_include_tag %w(jquery jquery.infieldlabel.min fancybox/jquery.fancybox-1.3.1.pack.js fancybox/jquery.mousewheel-3.0.2.pack.js fancybox/jquery.easing-1.3.pack.js marketing)
+    =javascript_include_tag %w(jquery jquery.infieldlabel.min marketing jquery.easyslider)
   
   - if controller_name == "pages"
   -   @body_class = action_name + "-page page-template"
@@ -33,7 +33,7 @@
           %h1
             = link_to image_tag('/images/logo-white.png'), "/", :class => 'logo'
         
-        %ul#navigation
+        %ul#navigation.navigation
           %li=link_unless_current 'overview', home_path
           %li=link_unless_current 'features', tour_path
           %li=link_unless_current 'faq', faq_path
@@ -47,31 +47,54 @@
     
     #footer
       .container
-        #footer-content-left
-          %p
-            \&copy; 2010 Ideapi Limited 
-            | 
-            %a{ :href => terms_path, :title => "Terms of Service" }
-              Terms of Service
-            |
-            %a{ :href => privacy_path, :title => "Privacy Policy" }
-              Privacy Policy
-            |
-            %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
-
-        #footer-content-right
-          %span.text Follow us on: 
-          %ul.social-links                
-            %li
-              %a{ :href => "http://twitter.com/ideapi/", :title => "follow us on twitter" }
-                %img{:src => "/images/twitter_icon.jpg", :alt => "twitter", :height => "24"}
-            %li
-              %a{ :href => "http://www.facebook.com/ideapi/", :title => "ideapi @ Facebook" }
-                %img{:src => "/images/facebook_icon.jpg", :alt => "facebook", :height => "24"}
-            %li
-              %a{ :href => "http://blog.ideapi.com/rss/", :title => "RSS" }
-                %img{:src => "/images/rss_icon.jpg", :alt => "rss", :height => "24" }
-
+        .left
+          - if yield(:custom_footer)
+            = yield :custom_footer
+          - else 
+            %p
+              \&copy;2010 Ideapi Limited 
+              | 
+              %a{ :href => terms_path, :title => "Terms of Service" }
+                Terms of Service
+              |
+              %a{ :href => privacy_path, :title => "Privacy Policy" }
+                Privacy Policy
+              |
+              %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
+        
+          
+        .right
+          .social
+            %h4 Follow us on:
+            %ul.social-links              
+              %li
+                %a{ :href => "http://twitter.com/ideapi/", :title => "follow us on twitter" }
+                  %img{:src => "/images/social/twitter.png", :alt => "twitter", :height => "24"}
+              %li
+                %a{ :href => "http://www.facebook.com/ideapi/", :title => "ideapi @ Facebook" }
+                  %img{:src => "/images/social/facebook.png", :alt => "facebook", :height => "24"}
+              %li
+                %a{ :href => "http://blog.ideapi.com/rss/", :title => "RSS" }
+                  %img{:src => "/images/social/rss.png", :alt => "rss", :height => "24" }
+          .copyright
+            %p
+              :markdown
+                &copy;2010 Ideapi Limited. <br/>
+                A [pebble.it](http://pebbleit.com) product.
+            %ul 
+              %li
+                %a{ :href => terms_path, :title => "Terms of Service" }Terms of Service
+              %li
+                %a{ :href => privacy_path, :title => "Privacy Policy" }Privacy Policy
+              %li
+                %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
+          .quick-links
+            %ul.navigation
+              %li= link_to 'overview', home_path
+              %li= link_to 'features', tour_path
+              %li= link_to 'faq', faq_path
+              %li= link_to 'who', 'javascript:void()'
+              %li= link_to 'login', login_path
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-691295-5']);
