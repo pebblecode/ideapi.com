@@ -124,6 +124,16 @@
   transition-property: background-color;
   transition-duration: $duration; 
 }
+@mixin animate-border-color($duration: 300ms){
+  -webkit-transition-property: border-color;
+  -webkit-transition-duration: $duration;
+  -moz-transition-property: border-color;
+  -moz-transition-duration: $duration;
+  -o-transition-property: border-color;
+  -o-transition-duration: $duration;
+  transition-property: border-color;
+  transition-duration: $duration;
+}
 
 @mixin box-shadow($args){
   

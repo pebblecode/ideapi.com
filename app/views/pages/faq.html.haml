@@ -1,7 +1,7 @@
 - title "FAQ"
 
-%h1 FAQ
-= link_to "Try it for free. Signup in seconds", "/signup", :class => "try-button try-button-primary"
+%h2.title Frequently Asked Questions
+-# = link_to "Try it for free. Signup in seconds", "/signup", :class => "try-button try-button-primary"
 
 :ruby 
   faq = [
@@ -82,25 +82,22 @@
             :ans => "<p>In short ideapi will not share any of your information with anyone, ever. Please see the full <a href='/privacy'>privacy policy</a> for reassurance.</p>"
           }       
         ]
-
-#contents
-  %h2 Contents
-  - unless faq.empty?
-    %ol.listing
-      - faq.each_with_index do |item, index|
-        - q_num = index + 1      
-        %li
-          = link_to item[:question], "#question_#{q_num}"
-
 - unless faq.empty?
+  %ol.listing
+    - faq.each_with_index do |item, index|
+      - q_num = index + 1      
+      %li
+        = link_to item[:question], "#question_#{q_num}"
+  %hr.faded
+
   %ol.faq-listing
     - faq.each_with_index do |item, index|
       - q_num = index + 1
-      %li{:id => "question_#{q_num}"}
+      %li.faq-item{:id => "question_#{q_num}"}
         %h3.question
           = item[:question]
-        = link_to "Back to top", "#contents", :class => "back-to-top"  
         .ans
           = item[:ans]
+        = link_to "to top", "#content", :class => "back-to-top"  
 
-      
+    

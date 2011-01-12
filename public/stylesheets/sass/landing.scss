@@ -29,10 +29,13 @@ body{
 /* Extra reset: links, etc */
 a{ 
   text-decoration: none; 
-  color: $ideapi_green_light;
+  color: $ideapi_green_light - #222;
   @include animate-color;
   &:hover{
-    color: $ideapi_green_light + #333;
+    color: $ideapi_green_light - #555;
+  }
+  &:focus{
+    outline: none;
   }
 }
 em{
@@ -43,6 +46,7 @@ strong, b{
   font-weight: #222;
 }
 ul{ list-style-type: none;}
+ol{ list-style-position: inside;}
 h1, h2, h3, h4{
   font-size: 1.2em;
   font-family: 'Ubuntu', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -108,10 +112,10 @@ cite{ font-size: 0.8em;}
 }
 
 /* Content */
-$content_bg: #efefef;
+$content_bg: #f3f3f3;
 #content{
   font-family: "Ubuntu";
-  background: $content_bg url('/images/bg/gradient-light.png') repeat-y;
+  background: $content_bg;
   color: #555;
   min-height: 400px;
   padding: 50px 0;
@@ -214,10 +218,10 @@ $content_bg: #efefef;
   .collaborate{ background-image: url('/images/icons/collab.png'); }
 }
 hr.faded{
-  background: #333;
-/*  background: -webkit-gradient(linear, left center, right center, from($content_bg), color-stop(20%, $content_bg), color-stop(50%, #555), color-stop(80%, $content_bg), to($content_bg));*/
+  /*background: -webkit-gradient(linear, left center, right center, from($content_bg), color-stop(20%, $content_bg), color-stop(50%, #555), color-stop(80%, $content_bg), to($content_bg));*/
   background: #333 url('/images/bg/horizontal-bar.png') repeat-y 0 0;
   height: 1px;
+  margin-bottom: 0;
 }
 
 .tour-page{
@@ -268,14 +272,48 @@ hr.faded{
       }
     }
   }
-  .features{
-    li{
-    }
-  }  
 }
 
 
-
+.faq-page{
+  .title{
+    margin-bottom: 1.5em;
+  }
+  .listing{
+    margin-bottom: 2em;
+    font-size: .9em;
+    li{
+      margin-bottom: .5em;
+    }
+  }
+  .faq-listing{
+    list-style-position: outside;
+    margin-top: 2em;
+    font-size: 0.9em;
+    @extend .span-6;
+    @extend .clearfix;
+    .faq-item{ 
+      margin-bottom: 1.5em;
+      li{
+        list-style: disc inside;
+      }
+      .back-to-top{
+        @include border_radius(10px 3px 3px 10px);
+        padding: 0 5px 2px 25px;
+        font-size: 0.8em;
+        line-height: 20px;
+        background: white url('/images/ui/arrow-north-tiny.png') no-repeat 5px 3px;
+        border: 1px solid #fafafa;
+        @include color-transitions();
+        &:hover{
+          color: #888;
+          background-color: #fafafa;
+          border: 1px solid #f1f1f1;
+        }
+      }
+    }
+  }
+}
 
 
 /* Footer */
