@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserDashboardTest < ActionController::IntegrationTest
+class UserDocumentsTest < ActionController::IntegrationTest
   include BriefWorkflowHelper
   
   context "" do
@@ -25,7 +25,7 @@ class UserDashboardTest < ActionController::IntegrationTest
           visit briefs_path
         end
 
-        should "get dashboard" do
+        should "get documents" do
           assert_equal briefs_path, path
         end
         

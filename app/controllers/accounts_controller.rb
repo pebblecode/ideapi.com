@@ -24,7 +24,7 @@ class AccountsController < ApplicationController
     render :layout => 'signup'
   end
   
-  def dashboard
+  def documents
     
   end
   
@@ -50,7 +50,7 @@ class AccountsController < ApplicationController
   
     
     if current_user != current_account.admin
-      redirect_to '/dashboard'
+      redirect_to '/documents'
     elsif params[:return_to].present?
       redirect_to params[:return_to]
     else
@@ -232,13 +232,13 @@ class AccountsController < ApplicationController
     def admin_required
       unless admin?
         flash[:error] = "You don't have access to that .."
-        redirect_to dashboard_path and return
+        redirect_to documents_path and return
       end
     end
     
     def authorized?
       %w(new create plans cancelled thanks).include?(self.action_name) || 
-      (self.action_name == 'dashboard' && logged_in?) ||
+      (self.action_name == 'documents' && logged_in?) ||
       admin?
     end
     

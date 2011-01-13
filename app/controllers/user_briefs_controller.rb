@@ -42,7 +42,7 @@ class UserBriefsController < ApplicationController
       respond_to do |format|
         format.html{
           flash[:error] = 'The user is no longer in this brief.'
-          redirect_to dashboard_url and return
+          redirect_to documents_url and return
         }
         format.js{
           render :text => 'Record not found.' and return
@@ -55,7 +55,7 @@ class UserBriefsController < ApplicationController
           if @brief.present? 
             redirect_to @brief
           else
-            redirect_to dashboard_path
+            redirect_to documents_path
           end
         }
         format.js{
@@ -84,7 +84,7 @@ class UserBriefsController < ApplicationController
       respond_to do |format|
         format.html{
           flash[:error] = 'The user is no longer in this brief.'
-          redirect_to dashboard_url and return
+          redirect_to documents_url and return
         }
         format.js{
           render :text => 'Record not found.' and return
@@ -97,7 +97,7 @@ class UserBriefsController < ApplicationController
           if @brief.present? 
             redirect_to @brief
           else
-            redirect_to dashboard_path
+            redirect_to documents_path
           end
         }
         format.js{

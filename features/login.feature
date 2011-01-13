@@ -29,7 +29,7 @@ Feature: Allow users to sign up and register
         | Email     | donald@acmeco.com |
         | Password  | foobar            |
       And I press "Log in"
-      And I should see "dashboard"
+      And I should see "documents"
     
     ####### Doesn't work for some weird reason
     #
@@ -40,4 +40,4 @@ Feature: Allow users to sign up and register
     #     | Email     | donald@acmeco.com |
     #     | Password  | foobar            |
     #   And I press "Login"
-    #   And I should see "dashboard"
+    #   And I should see "documents"

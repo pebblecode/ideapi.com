@@ -48,7 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   map.create '/signup/create/:discount', :controller => 'accounts', :action => 'create', :discount => nil
   
   map.resource :account, :collection => { 
-      :dashboard => :get, 
+      :documents => :get, 
       :thanks => :get, 
       :plans => :get, 
       :billing => :any, 
@@ -60,7 +60,7 @@ ActionController::Routing::Routes.draw do |map|
     }
 
   map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
-  map.dashboard 'dashboard', :controller => "briefs", :action => "index"
+  map.documents 'documents', :controller => "briefs", :action => "index"
   map.root :controller => "pages", :action => "home"
     
   # static pages

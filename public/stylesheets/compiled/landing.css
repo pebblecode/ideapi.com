@@ -265,7 +265,7 @@ next column, or to pull it into the previous column.  */
 
 /* Use a .box to create a padded box inside a column.  */
 /* line 160, ../sass/partials/_960grid.scss */
-.box { padding: 1.5em; margin-bottom: 1.5em; background: #E5ECF9; }
+.gridbox { padding: 1.5em; margin-bottom: 1.5em; background: #E5ECF9; }
 
 /* Use this to create a horizontal ruler across a column. */
 /* line 167, ../sass/partials/_960grid.scss */

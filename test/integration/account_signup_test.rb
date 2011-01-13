@@ -68,8 +68,8 @@ class AccountSignupTest < ActionController::IntegrationTest
               visit "http://" + @created_account.full_domain
             end
             
-            should "redirect to dashboard" do
-              assert_equal(dashboard_path, path)
+            should "redirect to documents" do
+              assert_equal(documents_path, path)
             end
             
             context "account owner" do
@@ -145,8 +145,8 @@ class AccountSignupTest < ActionController::IntegrationTest
           click_button 'Login'
         end
 
-        should "take user to dashboard" do
-          assert_equal(dashboard_path, path)
+        should "take user to documents" do
+          assert_equal(documents_path, path)
         end
         
         should "not have an account link" do
@@ -158,8 +158,8 @@ class AccountSignupTest < ActionController::IntegrationTest
             visit account_path
           end
 
-          should "redirect back to dashboard" do
-            assert_equal(dashboard_path, path)
+          should "redirect back to documents" do
+            assert_equal(documents_path, path)
           end
         end
         

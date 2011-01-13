@@ -9,7 +9,7 @@ class ProposalsController < ApplicationController
   before_filter :require_owner_if_draft, :only => :show
   before_filter :require_owner, :only => :edit
   
-  add_breadcrumb 'dashboard', "/dashboard"
+  add_breadcrumb 'documents', "/documents"
   
   make_resourceful do
     belongs_to :brief

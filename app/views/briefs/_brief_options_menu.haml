@@ -2,8 +2,6 @@
   %ul.object-actions
     %li.show-tags
       = link_to "tags", "javascript:void(0)", :id => "brief-tags-toggle"
-    %li.sort-sections
-      = link_to "reorder", "javascript:void(0)", :class => "reorder-brief-items green-button-link", :id => 'reorder-sections'
     %li.print-brief
       =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
     

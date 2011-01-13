@@ -36,6 +36,9 @@ class TemplateBriefsController < ApplicationController
   
   def edit
     @template_brief = TemplateBrief.find(params[:id])
+    add_breadcrumb @template_brief.title, template_brief_path(@template_brief)
+    add_breadcrumb 'edit template'
+    
   end
   
   def update

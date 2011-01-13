@@ -1,6 +1,8 @@
 #add-new-section
   %p
+
     = link_to 'Add new section', 'javascript:void(0)', :class => 'toggle-add-new-section'
+    = link_to "reorder", "javascript:void(0)", :class => "reorder-brief-items", :id => 'reorder-sections'
   #new-section
     - @item = @brief.brief_items.build
     - form_for @item, :html => {:method => 'post'} do |f|

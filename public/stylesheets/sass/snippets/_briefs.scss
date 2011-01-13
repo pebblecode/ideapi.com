@@ -20,7 +20,7 @@
     font-size: 1.2em;
   }
 }
-#dashboard #content-header{
+#documents #content-header{
   padding-right: 0.5em;
 }
 .brief_item{
@@ -217,7 +217,7 @@
 }
 
 
-#dashboard, #sortable {
+#documents, #sortable {
   .brief_overviews {
     h2 {
       padding: 0;
@@ -352,11 +352,13 @@ ul.actions.active {
     display: none;
   }
 }
-.extra{
 
-  
+#reorder-sections{
+  padding: 2px 4px;
+  @extend .btn-shizzle;
+  text-transform: capitalize;
+  margin-left: 5px;
 }
-.normal{
-}
+
 @import "snippets/inlineedit";
 @import "snippets/smartbox";

@@ -3,7 +3,7 @@
 =page_help do
   #write_new_brief.box
     :markdown
-      The title is how your brief will appear on the Dashboards of other users. 
+      The title is how your brief will appear in the Documents view of other users. 
       One line brief is a punchy statement about your brief, 
       maybe a strap line or just the most important thing that you want to say. 
       Tags can be used to categorise your brief, e.g. Client names, Brief types, 
@@ -16,7 +16,7 @@
   
 
   #content-header
-    %h2 Create a new brief
+    %h2 Create a new document
   .boom_box
     = error_messages_for :brief
 
@@ -25,7 +25,7 @@
       
       - if available_templates.count > 0
         %p.combo-choose-template
-          = f.label :template_brief_id, 'Choose template'
+          = f.label :template_brief_id, 'Template:'
           = f.select :template_brief_id, available_templates.map{|t| [t.title, t.id]}
           
           or 

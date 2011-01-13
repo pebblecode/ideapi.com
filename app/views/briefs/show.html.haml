@@ -28,6 +28,7 @@
     = render :partial => 'briefs/brief_partials/most_important_thing'
     #sortable_brief_items
       = render :partial => 'briefs/brief_partials/brief_item', :collection => (current_object.brief_items)
+    
     = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief} if owner?(current_object)
     -if current_object.draft? and owner?(current_object)
       .publish-draft

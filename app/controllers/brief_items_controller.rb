@@ -75,7 +75,7 @@ class BriefItemsController < ApplicationController
     respond_to do |format|
       format.html{
         flash[:error] = 'Illegal request'
-        redirect_to dashboard_path
+        redirect_to documents_path
       }
       format.js{
         render :nothingthing => true

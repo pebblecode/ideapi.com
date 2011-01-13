@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
         elsif @commentable.is_a?(Brief)
           redirect_to brief_path(@commentable)
         else
-          redirect_to dashboard_url
+          redirect_to documents_url
         end
       }
       format.js{ render :json => current_object.to_json}

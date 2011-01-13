@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   
-  add_breadcrumb 'profile', :object_path, :only => [:show]
-
-  add_breadcrumb 'contacts', :users_path, :only => [:index]
-
+  
   before_filter :require_no_user, :only => :signup
   before_filter :require_user, :except => [:signup, :update]
   before_filter :require_user_unless_pending, :only => :update
@@ -31,13 +28,24 @@ class UsersController < ApplicationController
     end
     
     actions :all
-
+    before :index do
+      add_breadcrumb 'contacts', :users_path
+    end
     before :new do
       current_account.briefs.active.ordered("title ASC").each do |b|
         current_object.user_briefs.build(:brief => b, :user => current_object)
       end
     end 
+    before :show do 
+      add_breadcrumb 'contacts', :object_path
+      add_breadcrumb current_object.screename
+    end
     
+    before :edit do
+      add_breadcrumb contacts, users_path
+      add_breadcrumb current_object.screename, :object_path
+      add_breadcrumb 'blabla'
+    end
     before :create do
       current_object.invited_by = current_user
       # This allows us to add existing users to a project
@@ -125,7 +133,7 @@ class UsersController < ApplicationController
   end
   
   def require_record_owner
-    not_found unless current_object == current_user
+    not_found unless (current_object == current_user ) or ( current_account.admins.include? current_user )
   end
   
   def check_user_limit

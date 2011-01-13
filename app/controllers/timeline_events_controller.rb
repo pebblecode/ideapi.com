@@ -9,7 +9,7 @@ class TimelineEventsController < ApplicationController
         elsif current_object.subject.respond_to? 'brief_items' # it's a brief
           redirect_to current_object.subject
         else
-          redirect_to dashboard_url
+          redirect_to documents_url
         end
           
       }

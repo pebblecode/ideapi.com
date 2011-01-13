@@ -34,7 +34,7 @@
         %p
           = f.label :admin, 'Account Holder'
           = f.collection_select :admin, current_account.users, :id, :full_name, :prompt => true, :selected => @account.admin.id
-        %p.warning NB. By changing the account holder, you will no longer have access to this page and will be redirected to the dashboard.
+        %p.warning NB. By changing the account holder, you will no longer have access to this page and will be redirected to the documents.
       .field.logo
         %p
           = f.label :logo, 'Logo' 

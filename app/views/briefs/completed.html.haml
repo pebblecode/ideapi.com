@@ -4,7 +4,7 @@
     %li{:class => "secondary"}
       =link_to 'Create brief', new_brief_path
 
-#dashboard.col_1
+#documents.col_1
       
   .brief_list
     %h2 
@@ -18,4 +18,4 @@
     -else  
       =render :partial => 'brief', :collection => completed_briefs
       
-.col_2.dashboard
+.col_2.documents
