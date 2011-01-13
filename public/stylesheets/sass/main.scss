@@ -11,7 +11,6 @@
 @import "snippets/subnav";
 @import "snippets/sidebar";
 @import "snippets/notifications";
-@import "snippets/briefs";
 @import "snippets/proposals";
 @import "snippets/template_briefs";
 @import "snippets/footer";
@@ -33,10 +32,10 @@ a {
   }
 }
 .main, textarea, input[type=text]{
-  font-family: "Ubuntu", Helvetica, Arial, sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 p{
-  font-family: "Ubuntu", Helvetica, Arial, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin-bottom: 0.7em;
   line-height: 1.3em;
   color: #333;
@@ -291,3 +290,4 @@ form {
 @import "partials/comments_and_activity_stream";
 @import "partials/account_form";
 @import "partials/jquery.fancybox-1.3.1";
+@import "snippets/briefs";

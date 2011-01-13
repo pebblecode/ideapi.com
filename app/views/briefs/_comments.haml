@@ -1,10 +1,7 @@
 - unless current_object.draft?    
   #comments_area
-    %h4 Brief comments
+    %h4 Comments
     %ul.comments
-      - if current_object.comments.blank?
-        %li
-          %p There have been no comments
       = render :partial => 'comment', :collection => current_object.comments, :as => :comment
       -if current_object.active?
         %li#new_comment_li

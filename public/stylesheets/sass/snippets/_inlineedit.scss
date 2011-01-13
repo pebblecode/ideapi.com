@@ -143,7 +143,14 @@
   }
 }
 #add-new-section{
-  p{margin-left: 1em;}
+  p{
+    margin: 1em;
+    text-align: right;
+  }
+  .toggle-add-new-section{
+    padding: 2px 4px;
+    @extend .btn-shizzle;
+  }
 }
 #new-section{
   display: none;
