@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     end
     
     before :edit do
-      add_breadcrumb contacts, users_path
+      add_breadcrumb 'contacts', users_path
       add_breadcrumb current_object.screename, :object_path
       add_breadcrumb 'blabla'
     end
