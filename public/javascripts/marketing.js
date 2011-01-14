@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
   // For debugging: Add grid on logo click
-  turn_on_logo_grid_toggle();
+  // turn_on_logo_grid_toggle();
   
   $("#slider").easySlider({
   	auto: false,

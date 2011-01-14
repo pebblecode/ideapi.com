@@ -152,7 +152,7 @@ input.span-10, .tour-page input#tour-slides, textarea.span-10, .tour-page textar
 
 /* Add these to a column to prepend empty cols. */
 /* line 93, sass/partials/_960grid.scss */
-.prepend-1, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .testimonial cite, #footer .left .large-quote .cite { padding-left: 97px; }
+.prepend-1, #tour-intro, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .testimonial cite, #footer .left .large-quote .cite { padding-left: 97px; }
 
 /* line 94, sass/partials/_960grid.scss */
 .prepend-2 { padding-left: 194px; }
@@ -336,165 +336,165 @@ cite { font-size: 0.8em; }
 
 /* Borders and backgrounds */
 /* line 76, sass/landing.scss */
-body { background: #222222 url("/images/bg/hgradient-dark.png") repeat 50% 0; }
+body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; }
 
 /* line 79, sass/landing.scss */
-#header { background: #474747; color: #eee; border-bottom: 2px solid #333; }
+#header { color: #eee; border-bottom: 2px solid #555; }
 
-/* line 86, sass/landing.scss */
-#content { background: #f3f3f3; }
+/* line 85, sass/landing.scss */
+#content { background: #f3f3f3 url("/images/bg/shadow-top.png") repeat-x top left; }
 
-/* line 89, sass/landing.scss */
-#footer { border-top: 3px solid #222; }
+/* line 88, sass/landing.scss */
+#footer { border-top: 2px solid #888; }
 
 /* Header, Logotype, and Main Menu */
-/* line 98, sass/landing.scss */
+/* line 97, sass/landing.scss */
 #header { position: relative; }
 
-/* line 101, sass/landing.scss */
+/* line 100, sass/landing.scss */
 #logo { padding-top: 0.5em; }
 
-/* line 104, sass/landing.scss */
+/* line 103, sass/landing.scss */
 #navigation { list-style-position: inside; position: absolute; bottom: 0; right: 0; }
-/* line 109, sass/landing.scss */
+/* line 108, sass/landing.scss */
 #navigation li { font-family: "Ubuntu", sans-serif; display: inline-block; margin-left: 1em; padding: 0.5em 0 0.5em 1em; font-weight: bold; }
-/* line 115, sass/landing.scss */
+/* line 114, sass/landing.scss */
 #navigation li a { color: #b3d335; }
-/* line 117, sass/landing.scss */
+/* line 116, sass/landing.scss */
 #navigation li a:hover { color: #e6ff68; }
-/* line 122, sass/landing.scss */
+/* line 121, sass/landing.scss */
 #navigation a.login-link { color: #333; font-weight: bold; font-size: 0.9em; background: #b3d335; background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#91b113)); background: -moz-linear-gradient(top, #b3d335, #91b113); border: 1px solid #b3d335; }
-/* line 130, sass/landing.scss */
+/* line 129, sass/landing.scss */
 #navigation a.login-link:active { -webkit-box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 3px, rgba(0, 0, 0, 0.3) 1px 1px 3px inset; -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; }
 
 /* Content */
-/* line 142, sass/landing.scss */
-#content { font-family: "Ubuntu"; background: #f3f3f3; color: #555; min-height: 400px; padding: 50px 0; }
+/* line 141, sass/landing.scss */
+#content { font-family: "Ubuntu"; color: #555; min-height: 400px; padding: 50px 0; }
 
-/* line 149, sass/landing.scss */
-#intro, #tour-intro { display: none; padding: 0 0 50px 0; position: relative; }
-/* line 155, sass/landing.scss */
+/* line 151, sass/landing.scss */
+#intro, #tour-intro { padding-bottom: 50px; position: relative; }
+/* line 156, sass/landing.scss */
 #intro .text, #tour-intro .text { font-family: 'Ubuntu', sans-serif; }
-/* line 159, sass/landing.scss */
+/* line 160, sass/landing.scss */
 #intro #promo-video, #tour-intro #promo-video { text-align: right; }
-/* line 163, sass/landing.scss */
+/* line 164, sass/landing.scss */
 #intro #promo-video iframe, #tour-intro #promo-video iframe { -webkit-box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 10px; border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; height: 200px; }
-/* line 169, sass/landing.scss */
+/* line 170, sass/landing.scss */
 #intro .signup, #tour-intro .signup { padding-top: 1em; }
 
-/* line 174, sass/landing.scss */
+/* line 175, sass/landing.scss */
 .signup .try-button { background: #b3d335; height: 46px; text-align: center; text-shadow: rgba(255, 255, 255, 0.398) 0px 1px 1px; font-size: 1em; line-height: 44px; background: -webkit-gradient(linear, left top, left bottom, from(#9ebe20), to(#c4e446)); background: -moz-linear-gradient(top, #9ebe20, #c4e446); color: #333; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; display: inline-block; padding: 0 1em; -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; font-family: 'Ubuntu', sans-serif; }
-/* line 191, sass/landing.scss */
+/* line 192, sass/landing.scss */
 .signup .try-button:hover { color: #222; }
-/* line 194, sass/landing.scss */
+/* line 195, sass/landing.scss */
 .signup .try-button:active { -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; }
 
-/* line 201, sass/landing.scss */
+/* line 202, sass/landing.scss */
 .home-page .features { margin-top: 2em; }
-/* line 203, sass/landing.scss */
+/* line 204, sass/landing.scss */
 .home-page .features li { margin-bottom: 1em; display: block; background: no-repeat 30px 8px; min-height: 70px; }
-/* line 208, sass/landing.scss */
+/* line 209, sass/landing.scss */
 .home-page .features li p.desc { font-size: 0.8em; }
-/* line 217, sass/landing.scss */
-.home-page .features .testimonial .rquote { margin-left: 0.5em; }
 /* line 218, sass/landing.scss */
+.home-page .features .testimonial .rquote { margin-left: 0.5em; }
+/* line 219, sass/landing.scss */
 .home-page .features .testimonial img { vertical-align: bottom; }
-/* line 221, sass/landing.scss */
+/* line 222, sass/landing.scss */
 .home-page .features .testimonial .lquote { display: block; font-size: 5em; text-align: right; }
-/* line 226, sass/landing.scss */
+/* line 227, sass/landing.scss */
 .home-page .features .testimonial .rquote { vertical-align: bottom; margin-top: 1em; float: right; margin-top: 0.4em; margin-right: 2em; }
-/* line 239, sass/landing.scss */
-.home-page .features .boost { background-image: url("/images/icons/boost.png"); }
 /* line 240, sass/landing.scss */
-.home-page .features .control { background-image: url("/images/icons/control.png"); }
+.home-page .features .boost { background-image: url("/images/icons/boost.png"); }
 /* line 241, sass/landing.scss */
-.home-page .features .updated { background-image: url("/images/icons/updated.png"); }
+.home-page .features .control { background-image: url("/images/icons/control.png"); }
 /* line 242, sass/landing.scss */
-.home-page .features .testimonial { background-image: none; }
+.home-page .features .updated { background-image: url("/images/icons/updated.png"); }
 /* line 243, sass/landing.scss */
-.home-page .features .create { background-image: url("/images/icons/create.png"); }
+.home-page .features .testimonial { background-image: none; }
 /* line 244, sass/landing.scss */
+.home-page .features .create { background-image: url("/images/icons/create.png"); }
+/* line 245, sass/landing.scss */
 .home-page .features .collaborate { background-image: url("/images/icons/collab.png"); }
 
-/* line 246, sass/landing.scss */
+/* line 247, sass/landing.scss */
 hr.faded { /*background: -webkit-gradient(linear, left center, right center, from($content_bg), color-stop(20%, $content_bg), color-stop(50%, #555), color-stop(80%, $content_bg), to($content_bg));*/ background: #333333 url("/images/bg/horizontal-bar.png") repeat-y 0 0; height: 1px; margin-bottom: 0; }
 
-/* line 254, sass/landing.scss */
+/* line 255, sass/landing.scss */
 .tour-page #tour-slides { position: relative; }
-/* line 259, sass/landing.scss */
+/* line 260, sass/landing.scss */
 .tour-page #tour-slides #slider { margin-left: 97px; }
-/* line 263, sass/landing.scss */
+/* line 264, sass/landing.scss */
 .tour-page #tour-slides #slider li { height: 500px; }
-/* line 268, sass/landing.scss */
+/* line 269, sass/landing.scss */
 .tour-page #tour-slides #slider li .content .screenshot { max-width: 700px; display: block; }
-/* line 276, sass/landing.scss */
+/* line 277, sass/landing.scss */
 .tour-page #tour-slides #slider-next, .tour-page #tour-slides #slider-prev { position: absolute; top: 150px; }
-/* line 279, sass/landing.scss */
+/* line 280, sass/landing.scss */
 .tour-page #tour-slides #slider-next a, .tour-page #tour-slides #slider-prev a { height: 56px; width: 56px; display: block; text-indent: -9999px; }
-/* line 285, sass/landing.scss */
+/* line 286, sass/landing.scss */
 .tour-page #tour-slides #slider-next a:focus, .tour-page #tour-slides #slider-prev a:focus { outline: none; }
-/* line 288, sass/landing.scss */
+/* line 289, sass/landing.scss */
 .tour-page #tour-slides #slider-next { right: 10px; }
-/* line 290, sass/landing.scss */
+/* line 291, sass/landing.scss */
 .tour-page #tour-slides #slider-next a { background: url("/images/ui/circle-arrow-east.png") no-repeat 0 0; }
-/* line 294, sass/landing.scss */
+/* line 295, sass/landing.scss */
 .tour-page #tour-slides #slider-prev { left: 10px; }
-/* line 296, sass/landing.scss */
+/* line 297, sass/landing.scss */
 .tour-page #tour-slides #slider-prev a { background: url("/images/ui/circle-arrow-west.png") no-repeat 0 0; }
 
-/* line 305, sass/landing.scss */
+/* line 306, sass/landing.scss */
 .faq-page .title { margin-bottom: 1.5em; }
-/* line 308, sass/landing.scss */
+/* line 309, sass/landing.scss */
 .faq-page .listing { margin-bottom: 2em; font-size: .9em; }
-/* line 311, sass/landing.scss */
+/* line 312, sass/landing.scss */
 .faq-page .listing li { margin-bottom: .5em; }
-/* line 315, sass/landing.scss */
+/* line 316, sass/landing.scss */
 .faq-page .faq-listing { list-style-position: outside; margin-top: 2em; font-size: 0.9em; }
-/* line 321, sass/landing.scss */
+/* line 322, sass/landing.scss */
 .faq-page .faq-listing .faq-item { margin-bottom: 1.5em; }
-/* line 323, sass/landing.scss */
+/* line 324, sass/landing.scss */
 .faq-page .faq-listing .faq-item li { list-style: disc inside; }
-/* line 326, sass/landing.scss */
+/* line 327, sass/landing.scss */
 .faq-page .faq-listing .faq-item .back-to-top { border-radius: 10px 3px 3px 10px; -moz-border-radius: 10px 3px 3px 10px; -webkit-border-radius: 10px 3px 3px 10px; padding: 0 5px 2px 25px; font-size: 0.8em; line-height: 20px; background: white url("/images/ui/arrow-north-tiny.png") no-repeat 5px 3px; border: 1px solid #fafafa; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
-/* line 334, sass/landing.scss */
+/* line 335, sass/landing.scss */
 .faq-page .faq-listing .faq-item .back-to-top:hover { color: #888; background-color: #fafafa; border: 1px solid #f1f1f1; }
 
 /* Footer */
-/* line 346, sass/landing.scss */
+/* line 347, sass/landing.scss */
 #footer { font-family: 'Ubuntu', sans-serif; height: 200px; padding-top: 25px; }
-/* line 355, sass/landing.scss */
+/* line 356, sass/landing.scss */
 #footer .left .large-quote .before { background: url("/images/icons/lquote.png") no-repeat top right; text-indent: -9990px; }
-/* line 360, sass/landing.scss */
+/* line 361, sass/landing.scss */
 #footer .left .large-quote .content { text-align: justify; color: #ffff8a; }
-/* line 365, sass/landing.scss */
+/* line 366, sass/landing.scss */
 #footer .left .large-quote .after { margin-top: 2em; background: url("/images/icons/rquote.png") no-repeat bottom left; text-indent: -9990px; }
-/* line 382, sass/landing.scss */
+/* line 383, sass/landing.scss */
 #footer .social { margin-bottom: 1em; }
-/* line 385, sass/landing.scss */
+/* line 386, sass/landing.scss */
 #footer .social h4 { padding-top: .2em; }
-/* line 392, sass/landing.scss */
+/* line 393, sass/landing.scss */
 #footer .social ul li { display: inline; }
-/* line 395, sass/landing.scss */
+/* line 396, sass/landing.scss */
 #footer .copyright { font-size: 0.8em; }
-/* line 398, sass/landing.scss */
+/* line 399, sass/landing.scss */
 #footer .copyright ul { list-style: none; }
-/* line 400, sass/landing.scss */
+/* line 401, sass/landing.scss */
 #footer .quick-links { font-size: 0.8em; }
-/* line 403, sass/landing.scss */
+/* line 404, sass/landing.scss */
 #footer .quick-links .navigation { padding-top: 1em; }
 
-/* line 410, sass/landing.scss */
+/* line 411, sass/landing.scss */
 .btn-shizzle, .funky-button, .funky-button-small, .green-button-link { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
-/* line 427, sass/landing.scss */
+/* line 428, sass/landing.scss */
 .btn-shizzle:active, .funky-button:active, .funky-button-small:active, .green-button-link:active, .btn-shizzle.active, .active.funky-button, .active.funky-button-small, .active.green-button-link { background-position: 0px bottom; }
 
-/* line 430, sass/landing.scss */
+/* line 431, sass/landing.scss */
 .funky-button { height: 26px; line-height: 24px; }
 
-/* line 435, sass/landing.scss */
+/* line 436, sass/landing.scss */
 .funky-button-small, .green-button-link { height: 20px; line-height: 18px; cursor: pointer; }
 
-/* line 442, sass/landing.scss */
+/* line 443, sass/landing.scss */
 .green-button-link { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
-/* line 453, sass/landing.scss */
+/* line 454, sass/landing.scss */
 .green-button-link:hover { color: #eee; }

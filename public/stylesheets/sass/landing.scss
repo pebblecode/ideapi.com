@@ -74,20 +74,19 @@ cite{ font-size: 0.8em;}
 
 /* Borders and backgrounds */
 body{
-  background: #222 url('/images/bg/hgradient-dark.png') repeat 50% 0;
+  background: #222 url('/images/bg/hgradient-dark.png') repeat-y 50% 0;
 }
 #header{
-  background: #474747;
   color: #eee;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #555;
   
 }
 $content_bg: #f3f3f3;
 #content{
-  background: $content_bg;  
+  background: $content_bg url('/images/bg/shadow-top.png') repeat-x top left;
 }
 #footer{
-  border-top: 3px solid #222;
+  border-top: 2px solid #888;
 
 }
 
@@ -141,15 +140,17 @@ $content_bg: #f3f3f3;
 
 #content{
   font-family: "Ubuntu";
-  background: $content_bg;
   color: #555;
   min-height: 400px;
   padding: 50px 0;
 }
+
+#tour-intro{
+  @extend .prepend-1;
+}
 #intro, #tour-intro{
-  display: none;
   // this might be better in container, but let's see
-  padding: 0 0 50px 0;
+  padding-bottom: 50px;
   position: relative;
   @extend  .clearfix;
   .text{
