@@ -1,22 +1,22 @@
-= title 'Dashboard |'
+= title 'Documents |'
 = page_help do
   .box
-    %h3 The Dashboard
+    %h3 Documents
     - if current_user_can_create_briefs?
       %p
-        From the dashboard you can access all your active briefs or filter briefs by tag. If you are an author or approver on any brief, your role will be visible here. 
+        From the documents you can access all your active briefs or filter briefs by tag. If you are an author or approver on any brief, your role will be visible here. 
         = link_to "View role descriptions", help_path
       %p
         = link_to "Create your first brief", new_brief_path
         using the default ideapi template, or start by #{link_to "creating your own template", new_template_brief_path}. Before you can collaborate on briefs, you’ll also need to #{ link_to "add some users to your account", users_path}.
     - else
       %p
-        From the dashboard you can access all your active briefs or filter briefs by tag. If you are an author or approver on any brief, your role will be visible here. 
+        From the documents you can access all your active briefs or filter briefs by tag. If you are an author or approver on any brief, your role will be visible here. 
         = link_to 'View role descriptions', help_path
   
 =sub_nav do
   =breadcrumb_list
-#dashboard.col_1
+#documents.col_1
   -if @merged_questions.present?
     %ul#notifications
       -@merged_questions.each do |q|
@@ -46,9 +46,9 @@
   .brief_list
     #content-header
       -if current_user_can_create_briefs?
-        =link_to 'Create brief', new_brief_path, :class => 'green-button-link fright'
+        =link_to 'Create document', new_brief_path, :class => 'green-button-link fright'
       %h2 
-        Your active briefs
+        Your active documents
         -if params[:t]
           tagged as "#{params[:t]}"
   
@@ -56,8 +56,8 @@
       .brief_item
         %h3 
           -if current_user_can_create_briefs?
-            You have no briefs - either 
-            =link_to 'create a brief', new_brief_path
+            You have no documents - either 
+            =link_to 'create a document', new_brief_path
             using the standard template or 
             =link_to 'create your own specific template', new_template_brief_path
             first.
@@ -65,7 +65,7 @@
             You have no briefs. Contact your account owner if you need the ability to create briefs
     -else  
       =render :partial => 'brief', :collection => current_objects 
-.col_2.dashboard
+.col_2.documents
   -if @tags.present?
     .side_box
       %h2
@@ -73,10 +73,10 @@
       .contents
         %ul.tag-list
           %li
-            =link_to "all briefs", dashboard_path
+            =link_to "all briefs", documents_path
           -@tags.each do |tag|
             %li
-              =link_to "<span>#{tag.count}</span>#{tag.name}", dashboard_path(:t => tag.name)
+              =link_to "<span>#{tag.count}</span>#{tag.name}", documents_path(:t => tag.name)
   - else 
     .side_box
       %h2

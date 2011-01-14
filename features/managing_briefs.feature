@@ -9,7 +9,7 @@ Feature: Managing briefs
         And I am logged in as an account admin
 
     Scenario: Creating a brief and publishing it
-        When I go to the dashboard 
+        When I go to the documents 
         And I follow "Create brief"
         Then I should see "Create a new brief"
         And I fill in the following:
@@ -21,7 +21,7 @@ Feature: Managing briefs
         Then I should see "Brief has been saved and marked as published"
 
     Scenario: Creating a brief and marking it as a draft
-        When I go to the dashboard 
+        When I go to the documents 
         And I follow "Create brief"
         Then I should see "Create a new brief"
         And I fill in the following:
@@ -35,14 +35,14 @@ Feature: Managing briefs
     Scenario: Publishing a draft brief
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
         And "Advert brief" is marked as "draft"
-        When I go to the dashboard
+        When I go to the documents
         And I follow "Advert brief"
         And I press "publish"
         Then I should see "Brief has been saved and marked as published."
 
     Scenario: Editing a brief
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
-        When I go to the dashboard 
+        When I go to the documents 
         And I follow "Advert brief"
         Then I follow "Actions"
         And I follow "Edit brief"
@@ -52,7 +52,7 @@ Feature: Managing briefs
         And I should see "New most important message"
 
     Scenario: Deleting a brief after creating it
-        When I go to the dashboard 
+        When I go to the documents 
         And I follow "Create brief"
         Then I should see "Create a new brief"
         And I fill in the following:
@@ -66,7 +66,7 @@ Feature: Managing briefs
         
     Scenario: Deleting an existing brief
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
-        When I go to the dashboard 
+        When I go to the documents 
         And I follow "Website brief"
         And I press "delete"
         Then I should see "Brief deleted"
@@ -74,7 +74,7 @@ Feature: Managing briefs
 
     Scenario: Marking a brief as complete
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
-        When I go to the dashboard 
+        When I go to the documents 
         And I follow "Website brief"
         And I press "mark as completed"
         Then I should see "Brief has been saved and marked as complete."
@@ -82,7 +82,7 @@ Feature: Managing briefs
     Scenario: Reactivating a completed brief
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
         And "Advert Brief" is marked as "complete"
-        When I go to the dashboard
+        When I go to the documents
         And I should see "Advert ..." within ".side_box"
         And I follow "Advert ..."
         Then I should see "This brief has been marked as complete, and therefore is read-only."        

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def home
     if account_present? && current_account
-      redirect_to dashboard_url
+      redirect_to documents_url
     end    
   end
 

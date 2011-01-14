@@ -21,8 +21,8 @@ class UserSessionsController < ApplicationController
       if session[:return_to]
         redirect_to session[:return_to]
       else
-        # Redirect to dashboard if there's no return_to path.
-        redirect_to dashboard_url
+        # Redirect to documents if there's no return_to path.
+        redirect_to documents_url
       end
     else
       render :action => 'new'

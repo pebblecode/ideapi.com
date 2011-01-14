@@ -66,10 +66,11 @@ ul.navigation {
       width: 32px;
       text-align: center;
       padding: 4px 0.5em 2px 0.5em;
-      &.selected{
+      background: transparent;
+/*      &.selected{
         background: $ideapi_blue_dark;
         @include linear-gradient($ideapi_blue_dark + #111, $ideapi_blue_dark - #111);
-      }
+      }*/
       span{
         background: url('/images/ui/help.png') no-repeat 0 0;
         text-indent: -9999px;
@@ -84,9 +85,9 @@ ul.navigation {
 
 #page-help{
   display: none;
-  border: 1px solid $ideapi_green_light;
-  margin: 0;  background: $ideapi_green_light;
-  @include linear-gradient($ideapi_green_light, $ideapi_green_light - #111);
+/*  border: 1px solid $ideapi_green_light;*/
+  margin: 0;  
+  background: $ideapi_green_dark;
   @include border-radius-bottom(3px);
   color: $off_white;
   
@@ -98,12 +99,28 @@ ul.navigation {
     }
   }
   .blind{
-    
+    padding: 1em;
   }
   .box{
-    padding: 1em;
-    width: 400px;
-    color: #333;
-    p{text-align: justify;}
+    width: 570px;
+    color: #eee;
+  }
+  
+  p{
+    text-align: left;
+    color: #eee;
+  }
+  
+  a{
+    color: $ideapi_green_light;
+    &:hover{
+      color: $ideapi_green_light - #222;
+      text-decoration: none;
+      border-bottom: none;
+    }
+  }
+  .right-column{
+    float: right;
+    width: 250px;
   }
 }

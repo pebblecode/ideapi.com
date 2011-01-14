@@ -13,11 +13,11 @@ class ManageTemplatesTest < ActionController::IntegrationTest
     context "as a user who can create briefs" do
       setup do
         login_to_account_as(@account, @user)
-        visit dashboard_path
+        visit documents_path
       end
 
-      should "show a link to the dashboard" do
-        assert_contain("dashboard")
+      should "show a link to the documents" do
+        assert_contain("documents")
       end
 
     end

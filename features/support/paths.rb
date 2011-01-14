@@ -12,8 +12,8 @@ module NavigationHelpers
       "http://#{Capybara.app_host}"
     when /the sign\s?up page/ 
       plans_path      
-    when /the dashboard/
-      dashboard_path
+    when /the documents/
+      documents_path
     when /the account subdomain/
       "http://#{@account.full_domain}"
     else

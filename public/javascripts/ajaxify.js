@@ -539,7 +539,10 @@ jQuery.user_links_external = function(){
   };
   
   $.fn.make_sortable = function(){
-    $('.most_important_thing, #add-new-section').toggle('blind',{},300);
+    $('.most_important_thing').toggle('blind',{},300);
+    $('#new-section').hide();
+    $('#comments_area').fadeOut();
+    $('a.toggle-add-new-section').hide();
     $('#sortable_brief_items').addClass('sortable');
     $('#sortable_brief_items').sortable({
       axis: 'y',
@@ -551,7 +554,9 @@ jQuery.user_links_external = function(){
     $('#sortable_brief_items .brief_item').prepend('<a class="move-handle" href="javascript:void()">move</a>');
   };    
   $.fn.unmake_sortable = function(){
-    $('.most_important_thing, #add-new-section').toggle('blind',{},300);
+    $('.most_important_thing').toggle('blind',{},300);
+    $('a.toggle-add-new-section').show();
+    $('#comments_area').fadeIn();
     $('#sortable_brief_items').removeClass('sortable');
     $('#sortable_brief_items .move-handle').remove();
     $('#sortable_brief_items').sortable("destroy");

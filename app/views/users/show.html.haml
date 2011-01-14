@@ -37,7 +37,7 @@
               =current_object.send(extra)
         
       
-        -if current_object == current_user
+        -if current_object == current_user or current_account.admins.include? current_user
           %p.edit= link_to 'Edit', edit_user_path(current_user)
         
         .clear

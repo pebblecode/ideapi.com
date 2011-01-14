@@ -1,17 +1,17 @@
 
 =sub_nav do
   =breadcrumb_list
-#dashboard.col_1
+#documents.col_1
 
   - # if flash[:note].present?
   = page_help do
-    .note.box
+    .box
       :markdown
         Briefs are created from templates.
 
-        The templates dashboard lists all of your custom brief templates. 
+        The templates documents lists all of your custom brief templates. 
         Your ideapi account has been created with a default template that contains 
-        some common brief sections (not shown on the templates dashboard).
+        some common brief sections (not shown on the templates documents).
 
         To create your own templates click “create template”.
 
@@ -36,4 +36,4 @@
     -else  
       =render :partial => 'template_brief', :collection => @template_briefs
       
-.col_2.dashboard
+.col_2.documents

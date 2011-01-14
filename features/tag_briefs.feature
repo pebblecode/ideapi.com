@@ -9,7 +9,7 @@ Feature: Allow users to tag briefs
         And I am logged in as an account admin
 
     Scenario: Creating and tagging a new brief
-        When I go to the dashboard
+        When I go to the documents
         And I follow "Create brief"
         Then I should see "Create a new brief"
         And I fill in the following:
@@ -17,14 +17,14 @@ Feature: Allow users to tag briefs
             | brief_most_important_message  | This is my brief      |
             | brief_tag_field               | tag1, tag2, tag3      |
         And I press "Create"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1"
         And I follow "tag1"
         Then I should see "My awesome brief"
 
     Scenario: Editing a brief and deleting a tag
         Given I have a brief called "My brief" tagged with "tag1, tag2"
-        When I go to the dashboard
+        When I go to the documents
         Then I should see "tag2"
         And I follow "My brief"
         And I follow "Edit brief"
@@ -32,12 +32,12 @@ Feature: Allow users to tag briefs
         Then the "brief_tag_field" field should contain "tag1, tag2"
         When I fill in "brief_tag_field" with "tag1"
         And I press "update"
-        And I go to the dashboard
+        And I go to the documents
         Then I should not see "tag2"
 
     Scenario: Editing a brief and replacing all tags
         Given I have a brief called "My brief" tagged with "tag1, tag2"
-        When I go to the dashboard
+        When I go to the documents
         Then I should see "tag2"
         And I should see "tag1"
         And I follow "My brief"
@@ -46,14 +46,14 @@ Feature: Allow users to tag briefs
         Then the "brief_tag_field" field should contain "tag1, tag2"
         When I fill in "brief_tag_field" with "tag3"
         And I press "update"
-        And I go to the dashboard
+        And I go to the documents
         Then I should not see "tag1"
         And I should not see "tag2"
         And I should see "tag3"
 
     Scenario: Editing a brief and adding a tag
         Given I have a brief called "My brief" tagged with "tag1, tag2"
-        When I go to the dashboard
+        When I go to the documents
         Then I should see "tag2"
         And I should see "tag1"
         And I follow "My brief"
@@ -62,7 +62,7 @@ Feature: Allow users to tag briefs
         Then the "brief_tag_field" field should contain "tag1, tag2"
         When I fill in "brief_tag_field" with "tag1, tag2, tag3"
         And I press "update"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1"
         And I should see "tag2"
         And I should see "tag3"
@@ -70,7 +70,7 @@ Feature: Allow users to tag briefs
     Scenario: Viewing a list of briefs with a tag
         Given I have a brief called "My brief" tagged with "tag1, tag2"
         And I have a brief called "Another brief" tagged with "tag1, tag3"
-        When I go to the dashboard 
+        When I go to the documents 
         And I follow "tag2"
         Then I should see "My brief"
         And I should not see "Another brief"
@@ -80,7 +80,7 @@ Feature: Allow users to tag briefs
 
     Scenario: Deleting a brief with an existing tag
         Given I have a brief called "My brief" tagged with "tag1, tag2"
-        When I go to the dashboard
+        When I go to the documents
         Then I should see "tag1"
         And I should see "tag2"
         And I follow "My brief"
@@ -91,7 +91,7 @@ Feature: Allow users to tag briefs
     Scenario: Incrementing the tag count
         Given I have a brief called "My brief" tagged with "tag1, tag2"
         And I have a brief called "Another brief" tagged with "tag3"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1"
         And I should see "tag1" within ".tag-list li:nth-child(2)"
         And I should see "1" within ".tag-list li:nth-child(2) span"
@@ -99,14 +99,14 @@ Feature: Allow users to tag briefs
         And I follow "Edit brief"
         And I fill in "brief_tag_field" with "tag3, tag1"
         And I press "update"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1" within ".tag-list li:nth-child(2)"
         And I should see "2" within ".tag-list li:nth-child(2) span"
 
     Scenario: Decrementing the tag count
         Given I have a brief called "My brief" tagged with "tag1, tag2"
         And I have a brief called "Another brief" tagged with "tag1, tag3"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1"
         And I should see "tag1" within ".tag-list li:nth-child(2)"
         And I should see "2" within ".tag-list li:nth-child(2) span"
@@ -114,25 +114,25 @@ Feature: Allow users to tag briefs
         And I follow "Edit brief"
         And I fill in "brief_tag_field" with "tag3"
         And I press "update"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1" within ".tag-list li:nth-child(2)"
         And I should see "1" within ".tag-list li:nth-child(2) span"
 
     Scenario: Moving a brief from active to completed
         Given I have a brief called "My brief" tagged with "tag1, tag2"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1"
         And I follow "My brief"
         And I press "mark as completed"
         Then I should see "Brief has been saved and marked as complete."
-        And I go to the dashboard
+        And I go to the documents
         Then I should not see "tag1"
 
     Scenario: Another user tags a brief
         Given I have a brief called "My brief" tagged with "tag1, tag2"
         And I have a user called "Chuck Norris" with the email "chuck@norris.com"
         And "chuck@norris.com" is an author on "My brief"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1"
         And I should see "tag2"
         And I follow "Logout"
@@ -142,6 +142,6 @@ Feature: Allow users to tag briefs
             | Email     | chuck@norris.com |
             | Password  | testing          |
         And I press "Login"
-        And I go to the dashboard
+        And I go to the documents
         Then I should see "tag1"
         And I should see "tag2"

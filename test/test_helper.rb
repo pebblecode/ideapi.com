@@ -161,7 +161,7 @@ class ActiveSupport::TestCase
         
         should_respond_with :success
         
-        should "be showing the dashboard if logged in" do
+        should "be showing the documents if logged in" do
           assert_equal(briefs_path, path)
         end
         

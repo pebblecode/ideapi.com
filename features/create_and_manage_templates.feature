@@ -9,8 +9,8 @@
 #    
 #    Scenario: Managing templates
 #        Given I am logged in as an account admin
-#        When I go to the dashboard
-#        Then I should see "dashboard"
+#        When I go to the documents
+#        Then I should see "documents"
 #        And I follow "templates"
 #        Then I should see "You have no templates - create a template to get started."
 #

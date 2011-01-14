@@ -16,7 +16,7 @@ class BriefsController < ApplicationController
 
   helper_method :completed_briefs, :available_templates, :page_title
   
-  add_breadcrumb 'dashboard', "/dashboard"
+  add_breadcrumb 'documents', "/documents"
   
   add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   

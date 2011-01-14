@@ -25,8 +25,8 @@ class UserSignupTest < ActionController::IntegrationTest
         click_button "Complete registration"
       end
 
-      should "redirect to dashboard" do        
-        assert_equal(dashboard_path, path)
+      should "redirect to documents" do        
+        assert_equal(documents_path, path)
       end
       
       should "now be active" do
