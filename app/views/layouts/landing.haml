@@ -39,8 +39,10 @@
           %li=link_unless_current 'faq', faq_path
           %li=link_unless_current 'who', 'javascript:void()'
           -# %li=link_to 'blog', 'http://blog.ideapi.com'
-          %li= link_to 'login', login_path, :class => 'green-button-link login-link'
-          
+          - if @usersession.present? and @user.present? 
+            %li= link_to 'account', login_path, :class => 'green-button-link login-link'
+          - else
+            %li= link_to 'logout', login_path, :class => 'green-button-link login-link'
     #content
       .container
         =yield

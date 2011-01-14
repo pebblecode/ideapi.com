@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
   end
   
   def logged_in?
-    !current_user.blank?
+    !current_user.blank? if defined?(current_account)
+    
   end
     
   def owner?(object)

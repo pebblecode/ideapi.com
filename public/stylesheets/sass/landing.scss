@@ -19,7 +19,6 @@
 
 
 body{
-  background-color: #474747;
   font-size: 12pt;
   font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   color: white;
@@ -72,10 +71,31 @@ cite{ font-size: 0.8em;}
 
 
 
-/* Header, Logotype, and Main Menu */
+
+/* Borders and backgrounds */
+body{
+  background: #222 url('/images/bg/hgradient-dark.png') repeat 50% 0;
+}
 #header{
   background: #474747;
   color: #eee;
+  border-bottom: 2px solid #333;
+  
+}
+$content_bg: #f3f3f3;
+#content{
+  background: $content_bg;  
+}
+#footer{
+  border-top: 3px solid #222;
+
+}
+
+
+
+
+/* Header, Logotype, and Main Menu */
+#header{
   position: relative;
 }
 #logo{
@@ -118,7 +138,7 @@ cite{ font-size: 0.8em;}
 }
 
 /* Content */
-$content_bg: #f3f3f3;
+
 #content{
   font-family: "Ubuntu";
   background: $content_bg;
@@ -127,6 +147,7 @@ $content_bg: #f3f3f3;
   padding: 50px 0;
 }
 #intro, #tour-intro{
+  display: none;
   // this might be better in container, but let's see
   padding: 0 0 50px 0;
   position: relative;
@@ -146,7 +167,6 @@ $content_bg: #f3f3f3;
     }
   }
   .signup{
-    @extend .prepend-1;
     @extend .span-3;
     padding-top: 1em;
   }
@@ -324,10 +344,8 @@ hr.faded{
 
 /* Footer */
 #footer{
-  background: #222 url('/images/bg/gradient-dark.png') repeat-x;
-  @include linear-gradient(#333, #222);
   font-family: 'Ubuntu', sans-serif;
-  min-height: 200px;
+  height: 200px;
   padding-top: 25px;
   @extend .clearfix;
   .left{
@@ -436,3 +454,4 @@ hr.faded{
     color: #eee;
   }
 }
+
