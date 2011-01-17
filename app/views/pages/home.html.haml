@@ -6,7 +6,9 @@
     .signup
       = link_to "Try it for free &raquo;", "/signup", :class => "try-button try-button-primary"
   #promo-video
-    != '<iframe src="http://player.vimeo.com/video/11616621?title=0&amp;byline=0&amp;portrait=0&amp;color=b3d335" width="557" height="418" frameborder="0"></iframe>'
+    = link_to image_tag('/images/resources/video-overlay.png'), 'javascript:void()', :class => 'overlay-video-trigger', :rel => '#ideapi-video'
+    #ideapi-video.simple_overlay
+      != '<iframe src="http://player.vimeo.com/video/11616621?title=0&amp;byline=0&amp;portrait=0&amp;color=b3d335" width="557" height="418" frameborder="0"></iframe>'
 
 %hr.faded/
 

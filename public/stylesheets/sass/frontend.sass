@@ -1,0 +1,1979 @@
+/* Mixins */
+
+@import "mixins"
+
+
+/*
+  1. General
+    1.1 Forms
+    1.2 Links
+    1.3 Type
+    
+  2. Masthead
+  3. Content
+  4. Footer
+
+/*
+  General
+
+body
+  :font-size 62.5%
+  :text-align center
+  :background #ddd
+
+/* Colours
+  
+  link-colour   = #2b3087
+  
+!link_colour        = #b3d335
+!link_hover_colour  = #32401a
+!link_pink          = #32401a
+!off_white          = #fcfcfc
+!link_header        = #eeeeee
+!link_purple        = #2b3087
+
+a
+  :text-decoration none
+  :color = !link_colour
+  :font-weight bold
+  +color-transitions
+  
+a:hover
+  :color = !link_hover_colour
+  
+#container
+  :width 94em
+  :margin 1em auto
+  :position relative
+  #header
+    +rounded-top-6px
+    :background white
+    :border-right 1px solid #ccc
+    :border-left 1px solid #ccc
+    :border-top 1px solid #ccc
+
+    :padding 4em 0 0 0
+    :position relative
+    :border-bottom 3px solid #b3d335
+    :height 85px
+    
+    h1
+      :float left
+      :display block
+      :height 82px
+      :width 190px
+      :margin-top 15px
+      :padding-left 1em
+      :padding-bottom 0.4em
+      :font-size 1.7em
+      :line-height 1em
+      :font-weight normal
+      &.custom
+        :margin-top -10px
+      a
+        :display block
+        
+        
+        
+        
+    ul.navigation
+      :padding-top 1em
+      :padding-right 2em
+      :padding-bottom 0.1em
+      :width 40em  
+      :position absolute
+      :bottom 2px
+      :right 0
+      :z-index 100
+      :text-align right
+
+      li
+        
+        span
+          +rounded-top-3px
+        
+        a, span
+          +rounded-top-3px
+          :color = !link_header
+          :font-size 1.2em
+          :font-weight normal
+          :background-color #32401a
+          :padding 0.5em 0.8em 0.5em 0.8em
+
+        a:hover, span.current
+          +rounded-top-3px
+          :font-size 1.2em
+          :background #b3d335
+          :color = !off_white
+      
+        a:focus, a:active
+          +rounded-top-3px
+          :top 1px
+          :color #32401a
+          :background #b3d335
+          
+    ul.sub_nav
+      :padding 0.5em 2em 0.8em 2em
+      :height 20px
+      &.custom
+        padding-top: 2em
+      li
+        :display inline
+        :margin-right 2em
+                
+        span
+          :font-size 1.2em
+          :font-weight bold    
+          :color #aaa
+          
+        span
+          :color #666
+        
+      li.search
+        :position absolute
+        :right 0
+        :top 0
+        
+        form
+          :display inline
+        
+          input[type=submit]
+            :height 24px
+            :padding-top 4px
+
+    
+      .breadcrumbs
+        :display inline
+        :margin-left 0.5em
+             
+        li
+          :margin 0
+          :padding 0 0.2em
+          
+          span, a
+            :font-size 1.2em
+            :font-weight bold    
+            :color #b3d335
+
+          span
+            :color #b3d335
+            
+      li.watch_form
+        form
+          :display inline
+        
+          input
+            :height 24px
+            :padding-top 4px
+          
+        div
+          :display none
+          
+        
+        
+    p.flash
+      :position absolute
+      :top 0
+      :left 5px
+      :font-weight bold
+      :font-size 1.2em
+      :padding 8px 8px
+      :height 17px
+      :width 930px
+      +rounded-all-6px
+      
+    p.error
+      :background #d81f26
+      :color white
+      
+    p.notice
+      :background #b3d335
+      :color white
+      
+      
+  #content
+    :background #fcfcfc
+    a
+      :text-decoration none
+      :color = !link_colour
+      :font-weight bold
+
+    a:hover
+      :color = !link_pink
+    
+    a.awesome
+      :color white
+    
+    p
+      :font-size 1.2em
+    
+    .title_holder
+      :border-bottom 2px solid #bbbbbb
+      :border-top 1px solid #505050
+      :background #f9f9f9
+      :position relative
+      :height 4.5em
+      :padding 0.8em 0 0.3em 0
+
+      h2
+        :float left
+        
+      a.button
+        :margin-right 0.5em
+        
+      form
+        :margin-top -10px
+        :float right      
+
+  
+    .main
+      :padding 4em 0 0 0
+      :border-bottom 2px solid #ddd
+      :background #fcfcfc
+      :border-right 1px solid #ccc
+      :border-left 1px solid #ccc
+    a.button
+      :font-size 1.3em
+      :text-transform uppercase
+      :float right
+      :display block
+      :height 19px
+      :background url(/images/button/bg.png) repeat-x
+      :padding 10px
+      :position relative
+      :margin 0.2em 1em 0 2.5em
+
+    a.button, .submit_button
+      /* applied by javascript 
+      span.btn_left, span.btn_right
+        :display block
+        :height 39px
+        :width 18px
+        :position absolute
+        :top 0
+
+      .btn_left
+        :left -18px
+        :background url(/images/button/left.png) no-repeat
+
+      .btn_right
+        :right -18px
+        :background url(/images/button/right.png) no-repeat
+        
+input[type=text], input[type=password], textarea
+  :border 1px solid #ccc
+  :padding 0.2em 0.3em
+  :background white
+  
+input[type=text]:focus, input[type=password]:focus, textarea:focus
+  :background #f9f9f9
+  
+
+form
+  p
+    label
+      :margin-right 1em
+      :line-height 1.1em
+      :width 8em
+      :clear left
+    input[type=checkbox]
+      :margin-top 5px
+  
+.wysiwyg
+  :margin-left 9.5em
+
+.error_info
+  :padding 0.5em 1em
+  :border 1px solid #990007
+  :margin 1em 0 2em 0
+  :background #FAE6E6
+  
+  h4
+    
+  ul
+    :padding 0.5em 1em
+    
+    li
+      :font-size 1.1em
+      :font-weight bold
+      :color #990007
+  
+span.field_with_errors
+  label
+    :color #d81f26
+  
+  input, input:focus
+    :background #d81f26
+    :color white
+
+#container
+  #content
+    
+    h3
+      span
+        :font-size 0.8em
+    
+    .col_1
+      :width 655px
+      :padding 0 0 0 2em 
+      :float left
+      :padding-bottom 2em
+      
+      h2
+        :padding-top 0.5em
+    
+    .col_2
+      :width 22em
+      :margin-right 1em
+      :padding 1.5em 1em
+      :float right
+      
+      .emphasise
+        :border 1px solid #eee
+        :padding 0.8em 0.5em
+        :text-align center
+        :background white
+    
+    legend
+      :font-size 1.2em
+      :font-weight bold
+      :line-height 2em
+    
+    #dashboard
+      
+      .brief_list
+        width: 655px
+      h2.salu
+      
+      .brief_overviews
+  
+        h2
+          :padding 0
+          :font-size 1.1em
+          :font-weight normal
+          :text-transform uppercase
+          :text-align center
+          :margin -0.8em auto 1.5em auto
+          :background white
+          :width 7.5em
+          :color #454545
+          
+          
+    .required_actions
+      :border 1px solid #ccc
+      
+      h3
+        :font-size 1.7em
+        :color #f9f9f9
+        :background #21286c
+        :margin 0
+        :padding 0.2em 0.5em
+        :font-weight normal
+        :border-bottom 1px solid #ccc
+    
+      ul
+          
+        li
+          :background #f2f2f2
+          :padding 0.5em 1em
+    
+          p
+            :margin 0
+            :padding 0
+    
+    .brief_overview
+      :margin 0 0 2em 0
+      :padding 0
+      :border 1px solid #ccc
+      
+      h3
+        :font-size 1.7em
+        :color #f9f9f9
+        :background #21286c
+        :margin 0
+        :padding 0.2em 0.5em
+        :font-weight normal
+        :border-bottom 1px solid #ccc
+    
+      ul
+    
+        li
+          :background #f2f2f2
+          :padding 0.5em 1em
+          
+    
+          p
+            :margin 0
+            :padding 0
+            
+      .brief
+        :border none
+        :border-bottom 1px solid #ccc
+        :margin 0
+      
+      .brief:last-child
+        :border-bottom none
+              
+      .brief:hover
+        :background #ffffdf
+        
+        h5
+          a
+            :display block
+        
+        
+    .brief_overview.published, .brief_overview.watching
+      
+      h3
+        :background #333333
+        :color #fcfcfc
+        
+    .brief_overview.draft
+      
+      h3
+        :background #ddd
+        :color #333
+        
+    
+    // brief_path
+
+    ul.tabbed_links
+      :background #fffffe
+      :border 1px solid #ccc
+      :padding 0.5em 0
+      :height 22px
+    
+      li
+        :float left
+        
+        a, span
+          :font-size 1.3em
+          :text-transform uppercase
+          :padding 0.6em 2em
+          :background #eeeeee
+          :border 1px solid #ccc
+          :border-left 0
+          :font-weight normal
+          :color #666
+          
+        span.current, a:hover
+          :border 1px solid #21286c
+          :border-left 0
+          :background #21286c
+          :color white
+        
+        a:hover
+          :background-color rgba(33, 40, 108, .9)
+            
+    .proposal
+      h2
+        span.status
+          :background #eee
+          :font-size 0.9em
+          :font-weight bold
+          :text-transform capitalize
+          :color black
+          :padding 0.1em 0.5em
+          :margin-left 0.5em
+    
+    .update_proposal
+      :padding 1em 0.5em
+    .proposal a.edit_icon
+      right: 1em
+    .brief, .proposal, .brief_list
+      :background #fffffe
+      :margin 2em 0 1em 0
+      
+      h2
+        :background #b3d335
+        :color #32401a
+        :font-size 1.2em
+        :padding 1em 70px 1em 1.8em
+        :position relative
+        :text-shadow 0 1px 1px #FFFFFF
+        +rounded-top-6px
+        &.show
+          :padding 1em 130px 1em 1.8em
+      .title
+        position: relative
+      div.actions
+        z-index: 100
+        position: absolute
+        top: 1em
+        right: 1em
+        text-align: right
+        padding: 0
+        margin: 0
+        a
+          :color #666
+          display: block
+          float: right
+          margin-left: 1em
+          margin-top: 3px
+        a:hover
+          :color #fefefe
+        a.edit_brief, a.edit_icon, a.edit_template
+          background: url('/images/page_edit.png') no-repeat center right
+          height: 16px
+          text-indent: -9999px
+          width: 40px
+          &:hover
+            text-indent: 0
+            color: #32401a
+            font-weight: normal
+        a.print_brief
+          display: block
+          float: right
+          :background url('/images/printer.png')
+          :width 16px
+          :height 16px
+          :text-indent -3000px
+        form
+          float: right
+        .clean_brief
+          +rounded-all-3px
+          background: url('/images/ui/button_background_red.png') 0 0
+          border: 1px solid #32401a
+          padding: 1px 5px 0px 5px
+          font-weight: normal
+          font-size: 1em
+          margin-top: 0
+          color: #fff
+          text-shadow: none
+          &:active
+            background-position: 0 -36px
+
+
+      .most_important_thing, .proposal_item, .brief
+        :padding 1em 2em
+        z-index: 10
+
+      .brief_heading
+        h3
+          :margin-left 20px
+
+      .brief_item, .most_important_thing, .proposal_item, .brief, .brief_heading
+        :border 1px solid #ccc
+        :border-bottom 1px solid #eee
+        :border-top 0
+        :position relative
+        
+        h3
+          
+          span.updated
+            :font-size 0.2em
+            :color #999
+            :font-weight bold
+            :text-transform uppercase
+            :position relative
+            :top -0.4em
+            :left 0
+            
+        
+        h4.activity_snapshot
+          :font-size 1.1em
+          :padding 0
+          :margin 0
+          :line-height 1.2em
+          :color #666
+        
+        .activity_stream
+          :border-top 1px solid #ccc
+          :margin-top 1em
+          :padding 1em
+          
+          li
+            :padding 1em
+            
+          li.date
+            :color #aaa
+            :text-transform uppercase
+            :margin-top 1em 
+            :padding 0
+        
+      .help_message
+        :width 18em
+        :border 1px solid #ccc
+        :background rgb(252, 252, 252)
+        :background rgba(245, 245, 245, 0.9)
+        :padding 1em
+        :position absolute
+        :top 4em
+        :left 51.5em
+        :z-index 5
+
+        
+      .brief_item:last-child, .proposal_item:last-child
+        :border-bottom 1px solid #ccc
+            
+      .proposal_item
+        
+        p.asset
+          :width 120px
+      
+        p.asset, p.description
+          :float left
+          
+        p.description   
+          :width 36em
+          :padding 0 0 0 2em
+          :margin 1px 0 0 0
+      .most_important_thing
+        :padding 1em 1em 1em 3em
+        
+        p
+          :font-size 2.2em
+          :font-weight bold
+          :color #333333
+          :padding 0 2em
+          :position relative
+          
+          span
+            :font-size 4em
+            :position absolute
+            :padding 0
+            :margin 0
+            :height 0.4em
+            :line-height 0.8em
+          
+          span.left
+            :top 0
+            :left 0
+            
+          span.right
+            :bottom -0.15em
+            :padding-right 0em
+            :right 0.1em
+        
+      .brief_item.updated
+        h3, h4
+          :background #ffffdf
+        
+      .brief_item.extended
+        :background transparent
+              
+    
+    .edit_brief
+      h2
+        input#brief_title
+          :font-size 1.5em
+          :width 31em
+          
+      .body
+        textarea
+          :width 50em
+          :height 10em
+          :font-size 1.1em
+    
+    
+    .brief_list
+      :float left
+      .brief_item
+        :padding-bottom 1em
+      
+      .brief_item:hover
+        :background transparent
+        
+      h3
+        :width 28.5em
+        :position relative
+        
+        .user_context
+          text-align: right
+          :margin-left 1em
+          :text-transform uppercase
+          :color #666
+          :font-size 0.5em
+          :width 10em
+          :position absolute
+          :bottom 0.5em
+          :right 0
+      
+      .toggle_activity_stream
+        :position absolute
+        :top 0.8em
+        :right 1em
+        :width 28px
+        :height 28px
+        :background url(/images/ico_circle_green.png) no-repeat
+        :color white
+        :text-align center
+        :font-size 1.4em
+        :padding-top 2px
+        
+      .toggle_activity_stream.active
+        :background url(/images/ico_minus.png) no-repeat
+        :text-indent -3000px
+    
+    .note
+      :padding 0.5em 2em 0.5em 2em
+      :margin 2em 0 0.5em 0
+      :line-height 1.8em
+      :background #ffffdf
+      :border 1px solid #ddd
+      :position relative
+      
+      a.hide_message
+        :position absolute
+        :top 0
+        :right 1em
+        :text-align center
+
+    .boom_box
+      :border 1px solid #ccc
+      :padding 1em
+      :background #f6f6f6
+      :margin-top 1em
+      :margin-bottom 2em
+      
+  .search_results
+    :padding-top 1em
+    ul.brief_list
+      li
+        :padding 1em 2em
+        :border-top 1px solid #ddd
+        
+  .discussion
+    .brief_item
+      :padding 1em 2em
+      :border-right 1px solid #ccc
+      :border-left 1px solid #ccc
+      
+      
+        
+    
+  
+  // USER PROFILE
+
+  .avatar
+    :border 6px solid #ddd
+  
+  .creative, .author
+    
+    :padding 0 0 1em 0
+    
+    :position relative
+    
+    p.edit
+      :position absolute
+      :top 0
+      :right 1em
+    
+    .avatar
+      :float left
+      :margin-right 1em
+      
+  .hr
+    :border-top 1px solid #bbb
+    :margin 2em 0
+    
+  // CREATIVE QUESTIONS
+
+#container
+  #content    
+
+      
+    .brief_item
+      :position relative
+      :border 1px solid red
+      :padding 1em 2em 0 2em
+      
+      ul.actions
+        :text-align right
+        
+        li
+          +rounded-top-3px
+          :border-bottom 1px solid #eee
+          :background #b2d234
+          :display inline
+          :padding 0.2em 1em
+          
+          &.selected
+            :background #32401a
+          
+          span
+            :color #ccc
+            :padding-left 1em
+            
+          a
+            :color #fff
+      
+      ul.actions.active
+        :border-bottom 1px solid #eee
+        
+      h3
+        
+        a.toggle_brief_edit
+          :float left
+          :margin-right 0.5em
+          :margin-top 0.2em
+          :width 28px
+          :height 28px
+          :text-align center
+          :display block
+          :text-indent -3000px
+          :background url(/images/edit_plus_minus.png) no-repeat -30px -28px
+          
+        a.toggle_brief_edit:hover
+          :background url(/images/edit_plus_minus.png) no-repeat -30px 0
+        
+      h3.empty
+        :color #ccc
+        
+        a.toggle_brief_edit
+          :background url(/images/edit_plus_minus.png) no-repeat 0 -28px
+          
+        a.toggle_brief_edit:hover
+          :background url(/images/edit_plus_minus.png) no-repeat 0 0
+
+    
+  #content
+    .title_holder
+      .brief_timeline
+        :padding 0.1em 0 0 0.5em
+        :margin 0
+        
+        li
+          :text-transform uppercase
+          :width 158px
+          :padding 0
+          :float left
+          
+          span
+            :display block
+            :text-align center
+            :margin 0 2px
+            :padding 4px 8px
+            :color #ccc
+            :font-weight normal
+            :font-size 1.8em
+            
+          span.selected
+            :background #e9e9e9
+            :color #555
+    
+  
+    .user
+      .avatar
+        :float left
+        :margin-right 2em
+      p
+        :margin-left 135px
+  
+p.subs
+  :float right
+
+div.submit
+  :padding 1em 0
+  :font-size 1.2em
+
+p.submit_comment
+  :width auto
+  :display inline
+  :margin 0 6em 2em 1em
+  :float right
+
+  label
+    :width auto
+
+p.submit
+  :float right
+  :margin-left 1em
+
+p.cancel
+  :float right
+span.cancel
+  margin-right: .5em
+  
+// overriding the previous style...
+
+input[type=submit], .ideapi_button
+  cursor: pointer
+  background: #b3d335 url('/images/ui/button_background.png') repeat-x right top
+  :color #fff
+  :padding 0.3em 0.5em
+  +rounded-corners-all(3px)
+  border: 1px solid #32401A
+  &:hover
+    background: #b3d335 url('/images/ui/button_background.png') repeat-x right top
+    border: 1px solid #32401A
+  &:active
+    background: #b3d335 url('/images/ui/button_background.png') repeat-x right -36px
+.ideapi_button
+  :color #fff !important
+  font-weight: normal !important
+  display: inline-block
+  *display: inline
+  padding: 0.3em 0.5em !important
+
+p.submit.left
+  :float left
+  :margin 0 1em 1em 0
+    
+  
+#facebox
+  .content
+    img
+      max-width: 600px
+    .fb
+      :width 60em
+
+      p.message
+        :padding 0.5em 1em 0 1em 
+        :font-size 1.2em
+        :font-weight bold
+  
+      .brief
+        :border-top none
+      
+        h2
+          :background #333
+          :color white
+          :font-size 1.2em
+          :padding 1em 1.8em
+          +rounded-top-6px
+          :position relative
+
+          a
+            :color #666
+            :position absolute
+            :right 4em
+            :top 1em
+
+          a:hover
+            :color #fefefe
+          
+          a.print_brief
+            :top 1.2em
+            :right 1.8em
+            :background url(/images/printer_empty.png)
+            :width 16px
+            :height 16px
+            :text-indent -3000px
+
+        .brief_item, .most_important_thing
+          :border 1px solid #ccc
+          :border-bottom 1px solid #ccc
+          :border-top 0
+          :position relative
+
+          h3
+            span.updated
+              :font-size 0.2em
+              :color #999
+              :font-weight bold
+              :text-transform uppercase
+              :position relative
+              :top -0.4em
+              :left 0
+  
+        .most_important_thing
+          :padding 1em 1em 1em 3em
+
+          p
+            :font-size 2.2em
+            :font-weight bold
+            :color #333333
+            :padding 0 2em
+            :position relative
+
+            span
+              :font-size 4em
+              :position absolute
+              :padding 0
+              :margin 0
+              :height 0.4em
+              :line-height 0.8em
+
+            span.left
+              :top 0
+              :left 0
+
+            span.right
+              :bottom -0.2em
+              :padding-right 0.5em
+        
+        .brief_item  
+        
+          .body
+            :background transparent
+            :font-size 1.2em
+            :width 100%
+            :margin 0
+            :padding 0.5em 0
+          .actions, .ask_question
+            display: none
+        .brief_item:hover
+          :background #ffffdf
+
+textarea
+  :resize none
+
+.login, .app_error
+  :margin 15% auto 0 auto
+  :width 45em
+  :border 10px solid #ddd
+  :background #f6f6f6    
+  .footer
+    background: #ddd
+    padding: 0.5em 0 0 0
+    p
+      margin: 0
+      padding: 0
+      font-size: 1.2em
+    a
+      
+      color: #888
+      +color-transitions(600ms)
+      &:hover
+        color: #333
+  a
+    :text-decoration none
+    :color = !link_colour
+    :font-weight bold
+
+  a:hover
+    :color #32401a
+    
+  h3
+    +rounded-top-3px
+    :background #32401a
+    :border-bottom 4px solid #b3d335
+    :color #fff
+    :padding 0.2em 1em
+  
+  .login_form, .friendship_form
+    :padding 1em 1em
+    :font-size 1.4em
+    
+  .friendship_form
+    p
+      :text-align center
+    
+.app_error
+  h3
+    :background #d81f26
+    :color white
+    
+  p
+    :padding 0.5em 2em
+    :font-size 1.2em
+    :font-weight bold
+    
+a.trash
+  :background url(/images/trash.png) no-repeat
+  :width 16px
+  :height 17px
+  :display block
+  :text-indent -3000px
+  
+a.trash:hover
+  :background url(/images/trash.png) no-repeat 0 -17px
+
+img.spinner
+  :display block
+  
+ul.error_messages
+  li
+    p
+      :color #d81f26
+      
+//side bar
+
+#container
+  #content
+    .col_2
+
+      .side_box
+        :margin 0.5em 0 2em 0
+  
+        h2
+          :background #b3d335
+          :color #32401A
+          :font-size 1.2em
+          :padding 0.5em 1em
+          +rounded-top-6px
+          :text-shadow 0 1px 1px #FFFFFF
+        .always-visible-help
+          :border 1px solid #ccc
+          :background #efefef
+          p
+            margin: 0
+            padding: 5px 10px
+            font-size: 1em
+            color: #555
+        
+        .signup-faqs
+          :border 1px solid #ccc
+          :border-top 0
+          :padding 7px
+          :font-size .9em
+          
+        .contents
+          :border 1px solid #ccc
+          :border-top 0
+          :background #efefef
+          :padding 0
+          :margin 0
+          :position relative
+          h3
+            :padding 0.5em 1em 0 1em
+            :margin 0
+            :font-size 1em
+          
+          ul  
+            :padding 0.5em 1em
+            
+            li
+              :margin 0 0 0 0
+              :padding 0
+            
+              img.avatar
+                :border 0
+                :float left
+                :margin-right 1em
+            
+              p.non_found
+                :color #aaa
+          
+              p
+                :font-size 1em
+                :font-weight bold
+            
+                span
+                  :font-size 0.9em
+                  :color #aaa
+                  :font-weight normal
+          
+                  strong
+                    :color #aaa
+
+            &.tag-list
+              li 
+                :padding .25em 0
+                :clear left
+                a
+                  :display block
+                  span
+                    :float right
+          
+            span.author
+              :color #0099CC
+              :font-weight bold
+          
+          
+          a.toggle_add_collab
+            :position absolute
+            :top -1.7em
+            :right 0
+            :font-size 2em
+            :text-align center
+            :width 2em
+            :height 1.5em
+            :color #fff
+            :text-shadow #333 1px 1px 2px
+            
+          ul.add_collaborators
+            :background #e1e1e1 url(/images/collab_option_bg.png) repeat-x
+            :border-bottom 1px solid #ddd
+            :padding 0.2em 1em
+            
+            li
+              :position relative
+              :height 40px
+                
+              a.add_collaborator
+                :display block
+                :width 3em
+                :position absolute
+                :top 1em
+                :right 0
+                :padding 0.2em 0.3em
+                :background #ccc
+                :text-align center
+                +rounded-all-3px
+                :font-size 0.9em
+                :color #444
+                :text-shadow #aaa 1px 1px 1px
+
+                input
+                  :width auto
+
+              a.add_collaborator:hover
+                :background #bbb
+                :color #333
+                
+          ul.collaborators
+            margin: 0
+            padding: 0
+            
+            li
+              :padding 0
+              :margin 0
+              :border-bottom 1px solid #ccc
+              :position relative
+              
+              p
+                :line-height 1em
+                :padding 0
+                :margin 0
+                :padding 0.5em 1em 1em 1em
+                
+              img.avatar
+                :margin-top 0.8em
+                :margin-left 0.9em
+                
+              a.options_toggle
+                :position absolute
+                :right 1em
+                :top 2.5em
+                :font-size 0.8em
+                :color #ccc
+                
+              a.options_toggle:hover
+                :color #333
+              
+              ul.options
+                :padding 0
+                :margin 0
+                :background #e1e1e1 url(/images/collab_option_bg.png) repeat-x
+                :height 50px
+                
+                li
+                  :float left
+                  :top 0
+                  :padding 0
+                  :width 50px
+                  :border 0
+                  :text-transform uppercase
+                  :padding 0.5em 0 0 0
+                  :background transparent
+                  :text-align center
+                  
+                  img.spinner
+                    :width 16px
+                    :height 16px
+                    :margin 12px 0 0 15px
+                    :padding 0
+                    
+                  a
+                    :height 0px
+                    :width 29px
+                    :display block
+                    :margin-left 9px
+                    :padding-top 32px
+                    
+                    span
+                      :color #aaa
+                      :margin-left -2px
+                      
+                  a:hover, a.selected
+                    span
+                      :color #333
+                  
+                li.with_js
+                  :font-size 8px
+                  
+                  input
+                    :display none
+                
+                li.author
+                  a
+                    :background url(/images/collab_options.png) no-repeat
+                    
+                  a:hover, a:focus, a.selected
+                    :background url(/images/collab_options.png) no-repeat 0 -30px
+                  
+                  
+                li.approver
+                  a
+                    :background url(/images/collab_options.png) no-repeat -28px 0
+                  
+                  a:hover, a:focus, a.selected
+                    :background url(/images/collab_options.png) no-repeat -28px -30px
+                      
+                li.remove
+                  :float right
+                  :padding 0.5em 0 0 0
+                  
+                  a
+                    :background url(/images/collab_options.png) no-repeat -58px 0
+                    
+                  a:hover, a:focus, a.selected
+                    :background url(/images/collab_options.png) no-repeat -58px -30px
+              
+            li:last-child
+              :border-bottom 0
+              
+          .disable_screen
+            :background-color #fff
+            :background-color rgba(255,255,255,0.7)
+            :position absolute
+            :top 0
+            :left 0
+            :width 100%
+            :height 100%
+            
+            img.spinner
+              :margin 45% auto
+              
+                    
+          
+          input.action
+            :text-align center
+            :display block
+            :border-top 1px solid #ccc
+            :line-height 1em
+            :padding 0.6em 1em 1em 1em
+            :background #f6f6f6
+            :width 100%
+            :-moz-border-radius-topright 0
+            :-webkit-border-top-right-radius 0
+            :-moz-border-radius-topleft 0
+            :-webkit-border-top-left-radius 0
+            :color = !link_colour
+            :font-weight bold
+            
+          input.action:hover
+            :color = !link_pink
+            
+          a.action
+            :text-align center
+            :display block
+            :border-top 1px solid #ccc
+            :line-height 1em
+            :padding 0.6em 1em 1em 1em
+            :background #f6f6f6
+
+      .ideas
+        .user_idea
+          :position relative
+          :padding-left 2em
+          
+          span.draft, span.published, span.needs_work, span.approved, span.dropped
+            :font-size 30px
+            :line-height 1em
+            :position absolute
+            :top -4px
+            :left 0
+          
+          span.draft
+            :color #aaa
+          
+          span.published
+            :color #ebde0a
+            
+          span.approved
+            :color #63bb46
+            
+          span.needs_work 
+            :color #e77b29
+          
+          span.dropped
+            :color #ed1c24
+          
+      .invite_users
+        :padding 0.5em 1em 0.5em 1em
+        :position relative
+        :border 1px solid #ccc
+        :background #eee
+        
+        h4
+          :font-size 1.2em
+      
+        
+        textarea
+          :font-size 1em
+          :width 19em
+          :height 4em
+        
+      .invite_contacts
+        :margin-top 2em
+        :border none
+        :background #fff
+        :border-bottom 1px solid #eee
+        
+        h4
+          :font-size 1.2em
+          :padding-bottom 0
+        
+        input[type=submit]
+          :margin 0.5em 0 0 0
+          
+        select
+          :width 12em
+          :margin-right 0.5em
+      
+      .invite_users
+        input[type=submit]
+          :margin 0.5em 0 0 0
+      
+      #brief_reference
+        .most_important_thing
+          :font-size 1.1em
+          :position relative
+          :padding 0 0 0 0.5em
+          :font-weight bold
+          
+          span
+            :font-size 3em
+            :padding 0
+            :margin 0
+            :height 0.4em
+            
+          span.left
+            float: left
+            position: relative
+            top: -0.4em
+            left: -0.1em
+            
+          span.right
+            :position absolute
+            :line-height 0.8em
+            :bottom -0.1em
+            :padding-right 0.2em
+            :padding-left 0.1em
+            
+        ul
+          :padding-left 0
+          :padding-right 0
+          :padding-bottom 0
+          
+          li
+            :border-bottom 1px solid #ccc
+            :padding 0 1em
+    
+            h3
+              :padding 0.5em 0 0 0
+              :font-size 1.2em
+              :color inherit
+              
+            h3.js
+              :padding-bottom 0.5em
+              
+            h3.active
+              :padding-bottom 0
+          
+            p
+              :font-weight normal
+                      
+          li:last-child
+            :border-bottom 0
+                
+    .invitations, .friends
+      :padding 1em 0 0 0
+      :width 100%
+      
+      td, th
+        :padding 0.5em 1em
+      
+      th
+        :background #ddd
+        :border-bottom 1px solid #ccc
+        
+      tr:nth-child(even) 
+        :background #e4e4e4
+      tr:nth-child(odd) 
+        :background #eee
+    
+    .profile
+      .invite_users
+        :margin-top 4.8em
+        
+    .dashboard
+      .invite_users
+        :margin-top 6.2em
+      
+#beta_feedback
+  :background white
+  :background #fefefe
+  :min-width 980px
+  :width 100%
+  
+  .title
+    :background #333
+    :padding 1em
+    
+    h2
+      :color white
+      :font-size 1.4em
+      :width 65em
+      :margin 0 auto
+      
+      span
+        :padding-left 1em
+        :font-size 0.8em
+        :color #aaa
+        a
+          :color #eee
+        a:hover
+          :color = #b3d335
+  h3
+    :border-bottom 1px solid #ccc
+    :margin-bottom 1em
+  
+  .wrap
+    :width 92em
+    :margin 0 auto
+    
+    
+  .user_input, .info
+    :padding 1em 2em
+    :background #ffffdf
+    :border 1px solid #ccc
+    :height 24em
+        
+  .user_input
+    :float left
+    :margin 2em 0 2em 2em
+    :border-right none
+    
+    textarea
+      :height 10em
+      
+    p.submit
+      :text-align right
+    
+  .info
+    :float left
+    :margin 2em 2em 2em 0
+    :border-left none
+    
+    p
+      :font-size 1.2em
+    
+    ul
+      :padding 0 3em 1em 3em
+      li
+        :list-style disc
+    
+    
+.second-column
+  :margin-left 9.5em 
+  
+.errorExplanation
+  h4
+    :color red
+  ul
+    :padding-left 1em
+    :margin-bottom 2em
+    li
+      color: #CD251B
+      
+#container #content .main .user a.submit-button
+  :background #b3d335
+  :color #fff !important
+  +rounded-all-6px
+  font-weight: normal
+  margin-top: 1px 
+  :padding 0.3em 1em 0.5em 1em
+  height: 20px
+  display: block
+  &:hover
+    background-color: #32401a
+
+
+#content .main .brief .brief_item 
+  h1
+    font-size: 1.4em !important
+  h2
+    font-size: 1.2em !important
+
+.textile-help
+  li
+    margin-bottom: .5em
+  .textile
+    margin-left: 2em
+  .html
+    h1, h2, h3, h4, h5, h6
+      border: none !important
+      background: none !important
+      padding: none !important
+    h1
+      font-size: 1.4em
+    h2
+      font-size: 1.2em
+      padding: 0 !important
+    ul, ol
+      list-style-position: inside
+      list-style-type: auto
+      padding: 0 !important
+    ul
+      list-style-type: disc
+    ol
+      list-style-type: decimal
+  span.asterisk
+    font-family: serif
+    font-size: 1.2em
+#textile-help-box
+  h2
+    position: relative
+  a.help-toggle
+    position: absolute
+    top: -7px
+    right: 15px
+    color: #fff !important
+    background: transparent !important
+    font-size: 2em
+    padding: 0
+    margin: 0
+    :text-shadow #333 1px 1px 2px
+    &:hover
+      color: white
+  .contents
+    display: none
+
+
+#container #content .col_2
+  .change-state
+    position: relative
+    .info
+      position: absolute
+      top: 30px
+      +rounded-corners-all(3px)
+      display: none
+      font-size: 1em
+      background: #eee
+      border-color: #ddd
+      border-style: solid
+      border-width: 1px
+      padding: 5px 10px
+
+  .message
+    border-top: 1px solid #ddd
+    margin-top: 6em
+
+
+body#users.contacts
+  #header
+    ul.sub_nav
+      display: none
+
+.fields
+  padding-top: 1em
+  border-top: 1px solid #CCCCCC
+  margin-bottom: 1em
+
+#sortable
+  .brief_item:hover, .brief_heading:hover
+    cursor: move
+
+#brief-privileges
+  .brief-title
+    label
+      float: none
+    input
+      float: left
+      margin: 5px
+
+//////// STYLING FOR BRIEFS AND BRIEF ITEMS (Textile, trying to override other styles)
+//////// Everything would go under here. I've tried to be specific enough in order to override
+//////// previous styling.
+
+#container #content .main .col_1 .brief
+  .body, .body .item-revision-body
+    h1, h2, h3, h4
+      font-weight: bold
+      span
+        font-weight: bold
+    strong
+      font-weight: bold
+      span
+        font-weight: bold
+
+#list-of-accounts
+  padding: 1em
+  h2
+    padding-left: 1em
+    
+#template_briefs #container
+  .new_template_brief, .edit_template_brief
+    .actions
+      border-top: 1px solid #ddd
+      padding-top: 1.5em
+      .left
+        float: left
+      .right
+        float: right
+      a.add_child
+        color: #fff
+        display: block
+        float: left
+        margin-right: 1em
+        +button-style
+        +green-button
+  a.delete_template
+    display: block
+    float: right
+    +button-style
+    +red-button
+
+
+// Notifications for dashboard
+ul#notifications
+  :float left
+  :width 620px
+  li
+    :float left
+    :padding .5em .25em
+    :width 100%
+    :border-bottom 1px dotted #ccc
+    &.even
+      :background #F6F6F6
+    span
+      &.notification_label
+        :float left
+        :padding 1px 3px
+        :background #32401A
+        :color #fff
+        :margin-right 5px
+        +rounded-corners-all(3px)
+        a
+          :color #fff !important
+          :font-weight normal !important
+      &.notification_meta
+        :float left
+        :clear left
+        :font-style italic
+        :color #999
+      &.notification_action
+        :float right
+
+// Facebook style tagging boxes
+
+.smartTextBox
+  :cursor text
+.smartTextBox-items
+  :zoom 1
+  :overflow hidden
+  :margin 0
+  :padding 3px 4px 0
+  :border 1px solid #ccc
+  :background #fff
+  :width 430px
+
+.smartTextBox-elem
+  :list-style-type none
+  :line-height 18px
+  :float left
+  :display block
+  :padding 0
+  :margin 0 5px 3px 0
+  :cursor default
+
+.smartTextBox-box-elem
+  :position relative
+  :padding 0 5px
+  :border 1px solid #B3D335
+  :background #c6e355
+  :cursor default
+  :-moz-border-radius 9px
+  :-webkit-border-radius 9px
+  :border-radius 9px
+
+.smartTextBox-input-elem
+  :backgound-color transparent
+
+.smartTextBox-input-elem-valueInput
+  :border none
+
+.smartTextBox-elem-hover
+
+.smartTextBox-elem-box-hover
+  :background-color #B3D335
+
+.smartTextBox-elem-input-hover, .smartTextBox-elem-focus
+
+.smartTextBox-elem-box-focus
+  :background-color #a0c11e
+
+.smartTextBox-elem-input-focus
+
+.smartTextBox-elem-valueContainer
+  :margin-right 8px
+  :white-space nowrap
+
+.smartTextBox-elem-deleteButton
+  :position absolute
+  :right 4px
+  :top 6px
+  :display block
+  :width 7px
+  :height 7px
+  :font-size 1px
+  :background url('/images/close.gif')
+  &:hover
+    :border none
+    :background-position 7px
+    :text-decoration none
+
+/* AutoComplete
+
+.smartTextBox-autocomplete
+  :width 430px
+  :position absolute
+  :z-index 10
+
+.smartTextBox-autocomplete-placeholder
+  :opacity 0.9
+  :filter alpha(opacity = 90)
+  :background #eee
+  :border 1px solid #999
+  :border-top none
+  :padding 5px 7px
+  :margin-left 122px
+  :width 424px
+
+.smartTextBox-autocomplete-results
+  :opacity 0.9
+  :filter alpha(opacity = 90)
+  :background #eee
+  :border 1px solid #999
+  :border-top none
+  :margin 0
+  :padding 0
+  :margin-left 122px
+  :width 438px
+
+.smartTextBox-autocomplete-result
+  :margin 0
+  :padding 5px
+  :list-style-type none
+  :background #eee
+  :cursor pointer
+  :.width 100%
+
+.smartTextBox-autocomplete-value
+  :display none
+
+.smartTextBox-autocomplete-highligh
+  :font-weight bold
+
+.smartTextBox-autocomplete-result-focus
+  :background #a0c11e
+
+#top-menu
+  color: #888
+  font-size: 1.2em
+  text-align: right
+  margin-top: -2.6em
+  position: relative
+  padding: 0 1.8em
+  span.current
+    color: #32401a
+    font-weight: bold
+  a
+    +color-transitions(400ms)
+    &:visited
+      color: #B3D335
+    &:hover
+      color: #32401a
+  .name
+    color: #333
+    font-weight: bold
+    padding: 2px 4px
+    +rounded-corners-all(3px)
+  
+
+#footer
+  margin-top: 1em
+  background: url('/images/logo-small.png') no-repeat 2.2em 7px
+  padding: 3px 2em 0px 7.2em
+  border: 1px solid #ddd
+  p
+    font-size: 1.1em
+    a
+      color: #888
+      +color-transitions(600ms)
+      &:hover
+        color: #333
+
+#proposals
+  #brief_reference
+    img
+      max-width: 100%
+      
+.show_with_js
+  display: none
+
+#container #content #idea_users
+  .contents
+    border-bottom: 0
+  ul
+    padding: 0
+    margin: 0
+    
+  li.idea_user
+    margin: 0
+    padding: 1em
+    border-bottom: 1px solid #ccc
+    p
+      margin: 0
+    .idea_user_link
+      display: block
+  
+.block
+  display: block
+.align-right
+  text-align: right
+.warning
+  color: #F33
+  
+  
+  
+// Help / FAQ
+
+#help_and_faq
+  .try-button
+    display: none
+  h1
+    margin-bottom: 40px
+    
+  #contents
+    border: 1px solid #b3d335
+    padding: 10px 5px 10px 0
+    margin-bottom: 50px
+    width: 70%
+
+    @include border-radius(10px)
+    
+    h2
+      display: none
+    h3
+      font-weight: normal
+    .listing
+      padding-left: 35px
+    li
+      font-size: 1.333em
+      line-height: 1.5em
+      list-style: disc
+    
+  .faq-listing
+    list-style: none
+    padding: 0
+    margin: 0
+    >li
+      font-size: 90%
+      p a
+        font-size: 90%
+      padding-bottom: 20px
+      margin-bottom: 3em
+      border-bottom: 1px solid #B3D335
+      position: relative      
+      .question
+        margin-bottom: 10px
+        font-weight: normal
+        padding-right: 4em
+      .back-to-top  
+        color: #b3d335
+        font-size: 110%
+        position: absolute
+        top: 0
+        right: 0
+        padding-right: 20px
+        background: transparent url(/images/up-arrow.png) no-repeat right 4px
+      .ans
+        color: #676767
+        margin: 0 0 10px
+        font-size: 1.333em
+        line-height: 1.5em  

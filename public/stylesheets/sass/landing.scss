@@ -164,7 +164,8 @@ $content_bg: #f3f3f3;
     iframe{
       -webkit-box-shadow: rgba(0,0,0,0.2) 3px 3px 10px;
       @include border_radius(7px);
-      height: 200px;
+      height: 450px;
+      width: 800px;
     }
   }
   .signup{
@@ -456,3 +457,41 @@ hr.faded{
   }
 }
 
+
+#promo-video{
+  
+  /* the overlayed element */
+  .simple_overlay {
+
+  	/* must be initially hidden */
+  	display:none;
+
+  	/* place overlay on top of other elements */
+  	z-index:10000;
+
+  	/* styling */
+  	background-color:#333;
+
+  	width:800px;	
+  	height:450px;
+  	border:1px solid #666;
+
+  	/* CSS3 styling for latest browsers */
+  	-moz-box-shadow:0 0 90px 5px #000;
+  	-webkit-box-shadow: 0 0 90px #000;	
+  	
+  	
+  	margin-top: 7em;
+  }
+
+  /* close button positioned on upper right corner */
+  .simple_overlay .close {
+  	background-image:url(../images/ui/circle-x.png);
+  	position:absolute;
+  	right:-15px;
+  	top:-15px;
+  	cursor:pointer;
+  	height:30px;
+  	width:30px;
+  }
+}

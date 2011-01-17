@@ -44,6 +44,8 @@ $(document).ready(function(){
         return false;
      }
   });
+  $("a.overlay-video-trigger").overlay();  
+  
 });
 
 // For debugging

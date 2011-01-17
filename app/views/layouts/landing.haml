@@ -21,7 +21,7 @@
     /[if IE 8]
       %link{ :href => "/stylesheets/marketing_ie8.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
         
-    =javascript_include_tag %w(jquery jquery.infieldlabel.min marketing jquery.easyslider)
+    =javascript_include_tag %w(jquery http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js jquery.infieldlabel.min marketing jquery.easyslider)
   
   - if controller_name == "pages"
   -   @body_class = action_name + "-page page-template"
