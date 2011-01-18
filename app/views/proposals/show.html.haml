@@ -10,14 +10,16 @@
           ‘Approved’, ‘Needs Work’ or ‘Rejected’. 
           Approvers and the idea owner can collaborate using the comments.
   .proposal
-    .title
+    #content-header
+      -if current_user.owns?(current_object)
+        .actions
+          = link_to "Actions", "#", :class => "green-button-link fright"
+      
       %h2
         =current_object.title
         %span#widget_proposal_status.status=current_object.state.to_s.titleize
+
         
-      -if current_user.owns?(current_object)
-        .actions
-          = link_to "Actions", "#", :class => "show-options-menu"
     - if current_user.owns?(current_object)
       #options-menu.remove_with_js
         %ul.object-actions

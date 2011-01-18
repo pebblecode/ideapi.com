@@ -317,6 +317,18 @@ form {
   }
 }
 
+#content-header{
+  color: $ideapi_green_dark;
+  padding: 0.5em 0.5em 0.5em 1em;
+  position: relative;
+  text-shadow: 0 1px 1px white;
+  @include border-radius-top(3px);
+  background: #b3d335;
+  @include linear-gradient($ideapi_green_light, $ideapi_green_light - #181818);
+  h2 {
+    font-size: 1.2em;
+  }
+}
 
 @import "partials/comments_and_activity_stream";
 @import "partials/account_form";

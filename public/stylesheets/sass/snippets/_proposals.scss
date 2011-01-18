@@ -256,7 +256,6 @@ $textfield_width: 627px;
   background: #fffffe;
   margin: 0 0 1em 0;
   h2 {
-    @extend #content-header;
     font-size: 1.2em;
     &.show {
       padding: 1em 50px 1em 1.8em; 

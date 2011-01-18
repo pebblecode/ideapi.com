@@ -12,10 +12,11 @@
       
   .brief
     #content-header
+      .actions
+        = link_to "Actions", "#", :class => "show-options-menu green-button-link"
       %h2
         =@template_brief.title
-      .actions
-        = link_to "Actions", "#", :class => "show-options-menu"
+
     #options-menu.remove_with_js
       %ul.object-actions
         %li

@@ -1,13 +1,10 @@
 =sub_nav do
   =breadcrumb_list
-
-.col_1
-
-  #content-header
-    %h2 Create a new template
-  #new_template_brief_note.note
+= page_help do
+  .box
     :markdown
       **Template title** is how you will refer to the template when creating briefs. 
+
       Enter a **section** (and optionally a **help message**) for each of the sections to appear in briefs based on this template. 
       Add additional sections by clicking **“Add a Section or Heading”**
 
@@ -16,7 +13,10 @@
 
       Sections and Section Headings can be reordered once the template has been submitted. 
       There is no limit to the number of Sections that you can have.
-  
+
+.col_1
+  #content-header
+    %h2 Create a new template
   .boom_box
     =render :partial => 'form'        
 .col_2

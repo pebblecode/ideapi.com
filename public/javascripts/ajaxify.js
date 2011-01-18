@@ -520,6 +520,12 @@ jQuery.user_links_external = function(){
     
     /* Reorder sections */
     $('#reorder-sections').live('click', function(){
+      if($(this).text() == 'Reorder Sections'){
+        $(this).text('Finish Reordering');
+      }else{
+        $(this).text('Reorder Sections');
+        
+      }
       $(this).toggleClass('activated');
       if($(this).hasClass('activated')){
         $('#sortable_brief_items').make_sortable();
