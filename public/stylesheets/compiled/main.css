@@ -1432,236 +1432,238 @@ span.timestamp { color: #999; font-size: .85em; font-style: italic; }
 .brief #content-header { color: #32401a; padding: 0.5em 80px 0.5em 1em; position: relative; text-shadow: 0 1px 1px white; border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; -webkit-border-radius: 3px 3px 0 0; background: #b3d335; background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#9bbb1d)); background: -moz-linear-gradient(top, #b3d335, #9bbb1d); }
 /* line 16, ../sass/snippets/_briefs.scss */
 .brief #content-header h2 { font-size: 1.2em; }
+/* line 19, ../sass/snippets/_briefs.scss */
+.brief #content-header .spinner { display: inline; }
 
-/* line 20, ../sass/snippets/_briefs.scss */
+/* line 21, ../sass/snippets/_briefs.scss */
 #documents #content-header { padding-right: 0.5em; }
 
-/* line 24, ../sass/snippets/_briefs.scss */
+/* line 25, ../sass/snippets/_briefs.scss */
 .brief_item .show, .brief_item .edit { margin-right: 3em; }
-/* line 26, ../sass/snippets/_briefs.scss */
+/* line 27, ../sass/snippets/_briefs.scss */
 .brief_item .body img { max-width: 600px; display: block; margin: auto; }
 
-/* line 33, ../sass/snippets/_briefs.scss */
+/* line 34, ../sass/snippets/_briefs.scss */
 .brief .section { border: 1px solid #eee; border-top: 0; padding: 0.5em 0.5em .5em 1em; }
-/* line 37, ../sass/snippets/_briefs.scss */
+/* line 38, ../sass/snippets/_briefs.scss */
 .brief .section .edit { display: none; }
 
-/* line 40, ../sass/snippets/_briefs.scss */
+/* line 41, ../sass/snippets/_briefs.scss */
 .brief div.actions { z-index: 10; position: absolute; top: 9px; right: 9px; text-align: right; padding: 0; margin: 0; }
-/* line 48, ../sass/snippets/_briefs.scss */
+/* line 49, ../sass/snippets/_briefs.scss */
 .brief div.actions a { display: block; margin-top: -2px; margin-right: -2px; }
-/* line 53, ../sass/snippets/_briefs.scss */
+/* line 54, ../sass/snippets/_briefs.scss */
 .brief div.actions a:hover { color: #fefefe; }
-/* line 56, ../sass/snippets/_briefs.scss */
+/* line 57, ../sass/snippets/_briefs.scss */
 .brief div.actions a.edit_brief, .brief div.actions a.edit_icon, .brief div.actions a.edit_template { background: url("/images/page_edit.png") no-repeat center right; height: 16px; text-indent: -9999px; width: 40px; }
-/* line 61, ../sass/snippets/_briefs.scss */
+/* line 62, ../sass/snippets/_briefs.scss */
 .brief div.actions a.edit_brief:hover, .brief div.actions a.edit_icon:hover, .brief div.actions a.edit_template:hover { text-indent: 0; color: #32401a; font-weight: normal; }
-/* line 67, ../sass/snippets/_briefs.scss */
+/* line 68, ../sass/snippets/_briefs.scss */
 .brief div.actions a.print_brief { display: block; float: right; background: url("/images/printer.png"); width: 16px; height: 16px; text-indent: -3000px; }
-/* line 75, ../sass/snippets/_briefs.scss */
+/* line 76, ../sass/snippets/_briefs.scss */
 .brief div.actions form { float: right; }
-/* line 78, ../sass/snippets/_briefs.scss */
+/* line 79, ../sass/snippets/_briefs.scss */
 .brief div.actions .clean_brief { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: url("/images/ui/button_background_red.png") 0 0; border: 1px solid #32401a; padding: 1px 5px 0px 5px; font-weight: normal; font-size: 1em; margin-top: 0; color: white; text-shadow: none; }
-/* line 88, ../sass/snippets/_briefs.scss */
+/* line 89, ../sass/snippets/_briefs.scss */
 .brief div.actions .clean_brief:active { background-position: 0 -36px; }
 
-/* line 96, ../sass/snippets/_briefs.scss */
+/* line 97, ../sass/snippets/_briefs.scss */
 .brief .brief_heading h3, .proposal .brief_heading h3, .brief_list .brief_heading h3 { margin-left: 20px; }
-/* line 99, ../sass/snippets/_briefs.scss */
+/* line 100, ../sass/snippets/_briefs.scss */
 .brief .proposal_item, .brief .brief_heading, .proposal .proposal_item, .proposal .brief_heading, .brief_list .proposal_item, .brief_list .brief_heading { border: 1px solid #cccccc; border-bottom: 1px solid #eeeeee; border-top: 0; }
-/* line 104, ../sass/snippets/_briefs.scss */
+/* line 105, ../sass/snippets/_briefs.scss */
 .brief .proposal_item h3 span.updated, .brief .brief_heading h3 span.updated, .proposal .proposal_item h3 span.updated, .proposal .brief_heading h3 span.updated, .brief_list .proposal_item h3 span.updated, .brief_list .brief_heading h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
-/* line 112, ../sass/snippets/_briefs.scss */
+/* line 113, ../sass/snippets/_briefs.scss */
 .brief .proposal_item h4.activity_snapshot, .brief .brief_heading h4.activity_snapshot, .proposal .proposal_item h4.activity_snapshot, .proposal .brief_heading h4.activity_snapshot, .brief_list .proposal_item h4.activity_snapshot, .brief_list .brief_heading h4.activity_snapshot { font-size: 1.1em; padding: 0; margin: 0; line-height: 1.2em; color: #666666; }
-/* line 118, ../sass/snippets/_briefs.scss */
+/* line 119, ../sass/snippets/_briefs.scss */
 .brief .proposal_item .activity_stream, .brief .brief_heading .activity_stream, .proposal .proposal_item .activity_stream, .proposal .brief_heading .activity_stream, .brief_list .proposal_item .activity_stream, .brief_list .brief_heading .activity_stream { border-top: 1px solid #cccccc; margin-top: 1em; padding: 1em; }
-/* line 122, ../sass/snippets/_briefs.scss */
+/* line 123, ../sass/snippets/_briefs.scss */
 .brief .proposal_item .activity_stream li, .brief .brief_heading .activity_stream li, .proposal .proposal_item .activity_stream li, .proposal .brief_heading .activity_stream li, .brief_list .proposal_item .activity_stream li, .brief_list .brief_heading .activity_stream li { padding: 1em; }
-/* line 124, ../sass/snippets/_briefs.scss */
+/* line 125, ../sass/snippets/_briefs.scss */
 .brief .proposal_item .activity_stream li.date, .brief .brief_heading .activity_stream li.date, .proposal .proposal_item .activity_stream li.date, .proposal .brief_heading .activity_stream li.date, .brief_list .proposal_item .activity_stream li.date, .brief_list .brief_heading .activity_stream li.date { color: #aaaaaa; text-transform: uppercase; margin-top: 1em; padding: 0; }
-/* line 129, ../sass/snippets/_briefs.scss */
+/* line 130, ../sass/snippets/_briefs.scss */
 .brief .help_message, .proposal .help_message, .brief_list .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
-/* line 139, ../sass/snippets/_briefs.scss */
+/* line 140, ../sass/snippets/_briefs.scss */
 .brief .brief_item:last-child, .brief .proposal_item:last-child, .proposal .brief_item:last-child, .proposal .proposal_item:last-child, .brief_list .brief_item:last-child, .brief_list .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
-/* line 142, ../sass/snippets/_briefs.scss */
+/* line 143, ../sass/snippets/_briefs.scss */
 .brief .proposal_item p.asset, .proposal .proposal_item p.asset, .brief_list .proposal_item p.asset { width: 120px; }
-/* line 144, ../sass/snippets/_briefs.scss */
+/* line 145, ../sass/snippets/_briefs.scss */
 .brief .proposal_item p.asset, .brief .proposal_item p.description, .proposal .proposal_item p.asset, .proposal .proposal_item p.description, .brief_list .proposal_item p.asset, .brief_list .proposal_item p.description { float: left; }
-/* line 146, ../sass/snippets/_briefs.scss */
+/* line 147, ../sass/snippets/_briefs.scss */
 .brief .proposal_item p.description, .proposal .proposal_item p.description, .brief_list .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
-/* line 150, ../sass/snippets/_briefs.scss */
+/* line 151, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing, .proposal .most_important_thing, .brief_list .most_important_thing { padding: 0; text-align: center; font-size: 2.2em; font-weight: bold; color: #333333; padding: 1em 2em; margin-right: 0; position: relative; }
-/* line 159, ../sass/snippets/_briefs.scss */
+/* line 160, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing .show, .brief .most_important_thing .edit, .proposal .most_important_thing .show, .proposal .most_important_thing .edit, .brief_list .most_important_thing .show, .brief_list .most_important_thing .edit { max-width: 360px; display: inline-block; padding: 0 1em; font-weight: bold; }
-/* line 165, ../sass/snippets/_briefs.scss */
+/* line 166, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing .show, .proposal .most_important_thing .show, .brief_list .most_important_thing .show { text-align: center; }
-/* line 168, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing .edit, .proposal .most_important_thing .edit, .brief_list .most_important_thing .edit { display: none; }
 /* line 169, ../sass/snippets/_briefs.scss */
+.brief .most_important_thing .edit, .proposal .most_important_thing .edit, .brief_list .most_important_thing .edit { display: none; }
+/* line 170, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing span.left, .brief .most_important_thing span.right, .proposal .most_important_thing span.left, .proposal .most_important_thing span.right, .brief_list .most_important_thing span.left, .brief_list .most_important_thing span.right { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 177, ../sass/snippets/_briefs.scss */
+/* line 178, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing span.left, .proposal .most_important_thing span.left, .brief_list .most_important_thing span.left { top: 20px; left: 60px; }
-/* line 181, ../sass/snippets/_briefs.scss */
+/* line 182, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing span.right, .proposal .most_important_thing span.right, .brief_list .most_important_thing span.right { position: absolute; bottom: 20px; right: 60px; vertical-align: middle; margin-top: 10px; }
-/* line 190, ../sass/snippets/_briefs.scss */
+/* line 191, ../sass/snippets/_briefs.scss */
 .brief .brief_item.updated h3, .brief .brief_item.updated h4, .proposal .brief_item.updated h3, .proposal .brief_item.updated h4, .brief_list .brief_item.updated h3, .brief_list .brief_item.updated h4 { background: #ffffdf; }
-/* line 192, ../sass/snippets/_briefs.scss */
+/* line 193, ../sass/snippets/_briefs.scss */
 .brief .brief_item.extended, .proposal .brief_item.extended, .brief_list .brief_item.extended { background: transparent; }
 
-/* line 200, ../sass/snippets/_briefs.scss */
+/* line 201, ../sass/snippets/_briefs.scss */
 #documents .brief_overviews h2, #sortable .brief_overviews h2 { padding: 0; font-size: 1.1em; font-weight: normal; text-transform: uppercase; text-align: center; margin: -0.8em auto 1.5em auto; background: white; width: 7.5em; color: #454545; }
-/* line 212, ../sass/snippets/_briefs.scss */
+/* line 213, ../sass/snippets/_briefs.scss */
 #documents .brief_item, #sortable .brief_item { padding: 0.5em 1em; border: 1px solid #eee; border-bottom: 1px solid #eeeeee; border-top: 0; }
-/* line 218, ../sass/snippets/_briefs.scss */
+/* line 219, ../sass/snippets/_briefs.scss */
 #documents .brief_item .body img, #sortable .brief_item .body img { max-width: 600px; border: 5px solid #eee; display: block; margin: auto; }
-/* line 226, ../sass/snippets/_briefs.scss */
+/* line 227, ../sass/snippets/_briefs.scss */
 #documents .brief_item .body .item-revision-body img, #sortable .brief_item .body .item-revision-body img { max-width: 420px; }
 
-/* line 235, ../sass/snippets/_briefs.scss */
+/* line 236, ../sass/snippets/_briefs.scss */
 ul.actions { margin-top: 1em; clear: both; text-align: right; }
-/* line 239, ../sass/snippets/_briefs.scss */
+/* line 240, ../sass/snippets/_briefs.scss */
 ul.actions li { padding: 0.2em 0em; display: inline; text-align: right; }
 
-/* line 245, ../sass/snippets/_briefs.scss */
+/* line 246, ../sass/snippets/_briefs.scss */
 ul.actions.active { border-bottom: 1px solid #eeeeee; }
 
-/* line 250, ../sass/snippets/_briefs.scss */
+/* line 251, ../sass/snippets/_briefs.scss */
 #options-menu, #brief-tags { border-bottom: 1px solid #eee; border-top: 1px solid #fcfcfc; background: #fcfcfc; }
-/* line 254, ../sass/snippets/_briefs.scss */
+/* line 255, ../sass/snippets/_briefs.scss */
 #options-menu .object-actions, #brief-tags .object-actions { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #fafafa; border: 1px solid #eee; margin: 0.5em; text-align: right; }
-/* line 259, ../sass/snippets/_briefs.scss */
+/* line 260, ../sass/snippets/_briefs.scss */
 #options-menu .object-actions form, #options-menu .object-actions li, #options-menu .object-actions a, #options-menu .object-actions input, #brief-tags .object-actions form, #brief-tags .object-actions li, #brief-tags .object-actions a, #brief-tags .object-actions input { display: inline-block; margin: 0; }
-/* line 264, ../sass/snippets/_briefs.scss */
+/* line 265, ../sass/snippets/_briefs.scss */
 #options-menu .object-actions li, #brief-tags .object-actions li { display: inline; margin-right: 0.5em; }
 
-/* line 271, ../sass/snippets/_briefs.scss */
+/* line 272, ../sass/snippets/_briefs.scss */
 #brief-tags { border: 0; padding: 0 0.5em; }
-/* line 275, ../sass/snippets/_briefs.scss */
+/* line 276, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox-items { width: 550px; }
-/* line 278, ../sass/snippets/_briefs.scss */
+/* line 279, ../sass/snippets/_briefs.scss */
 #brief-tags label { display: none; }
-/* line 281, ../sass/snippets/_briefs.scss */
+/* line 282, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox-box-elem { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-/* line 284, ../sass/snippets/_briefs.scss */
+/* line 285, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox-input-elem-valueInput { line-height: 18px; outline: none; }
-/* line 289, ../sass/snippets/_briefs.scss */
+/* line 290, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox { display: inline-block; }
-/* line 293, ../sass/snippets/_briefs.scss */
+/* line 294, ../sass/snippets/_briefs.scss */
 #brief-tags .inline-submit { display: inline-block; float: left; margin-right: 0.5em; }
-/* line 299, ../sass/snippets/_briefs.scss */
+/* line 300, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox-elem-valueContainer { font-size: 0.9em; }
 
-/* line 303, ../sass/snippets/_briefs.scss */
+/* line 304, ../sass/snippets/_briefs.scss */
 .publish-draft { margin-top: 10px; float: right; }
-/* line 306, ../sass/snippets/_briefs.scss */
+/* line 307, ../sass/snippets/_briefs.scss */
 .publish-draft p { margin: 0; }
 
-/* line 310, ../sass/snippets/_briefs.scss */
+/* line 311, ../sass/snippets/_briefs.scss */
 #sortable_brief_items.sortable .brief_item { border-top: 1px solid #eee; border-left: 2px solid #eee; border-right: 2px solid #eee; }
-/* line 314, ../sass/snippets/_briefs.scss */
+/* line 315, ../sass/snippets/_briefs.scss */
 #sortable_brief_items.sortable .brief_item .move-handle { cursor: move; margin-top: 2px; height: 16px; width: 16px; display: block; float: right; text-indent: -9999px; background: url("/images/ui/move-handle.png") no-repeat 0 0; }
-/* line 325, ../sass/snippets/_briefs.scss */
+/* line 326, ../sass/snippets/_briefs.scss */
 #sortable_brief_items.sortable .body, #sortable_brief_items.sortable .edit, #sortable_brief_items.sortable .toggle-inline-edit, #sortable_brief_items.sortable .actions, #sortable_brief_items.sortable .brief_item_activity { display: none; }
 
-/* line 330, ../sass/snippets/_briefs.scss */
+/* line 331, ../sass/snippets/_briefs.scss */
 #reorder-sections { padding: 2px 4px; text-transform: capitalize; margin-left: 5px; }
 
-/* line 338, ../sass/snippets/_briefs.scss */
+/* line 339, ../sass/snippets/_briefs.scss */
 #briefs.show .inline-edit, #briefs.show .edit { display: none; }
-/* line 343, ../sass/snippets/_briefs.scss */
+/* line 344, ../sass/snippets/_briefs.scss */
 #briefs.show .edit p.submit { text-align: right; margin-top: 5px; }
-/* line 350, ../sass/snippets/_briefs.scss */
+/* line 351, ../sass/snippets/_briefs.scss */
 #briefs.show .section .editable { -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
-/* line 353, ../sass/snippets/_briefs.scss */
+/* line 354, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit.revealed { display: inline-block; }
-/* line 355, ../sass/snippets/_briefs.scss */
+/* line 356, ../sass/snippets/_briefs.scss */
 #briefs.show .section.brief_item .edit.revealed { display: block; }
-/* line 357, ../sass/snippets/_briefs.scss */
+/* line 358, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit { padding: 1em 0; text-align: center; }
-/* line 360, ../sass/snippets/_briefs.scss */
+/* line 361, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit .spinner { display: inline; }
-/* line 363, ../sass/snippets/_briefs.scss */
+/* line 364, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit .field { width: 100%; margin-bottom: 5px; }
-/* line 368, ../sass/snippets/_briefs.scss */
+/* line 369, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit input.inline-edit-title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 590px; background: #fafafa; border: 1px solid #eee; }
-/* line 377, ../sass/snippets/_briefs.scss */
+/* line 378, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit .inline-edit-body { display: block; width: 590px; min-width: 590px; max-width: 590px; height: 100px; padding: 0.5em; margin-bottom: 0.5em; background: #fafafa; border: 1px solid #eee; font-size: 1em; }
-/* line 389, ../sass/snippets/_briefs.scss */
+/* line 390, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit p.submit { margin: 0 2px 0 0; }
-/* line 393, ../sass/snippets/_briefs.scss */
+/* line 394, ../sass/snippets/_briefs.scss */
 #briefs.show .section .spinner { display: inline; }
-/* line 395, ../sass/snippets/_briefs.scss */
+/* line 396, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing { overflow: hidden; }
-/* line 397, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .show { border: 1px solid #fff; }
 /* line 398, ../sass/snippets/_briefs.scss */
+#briefs.show .most_important_thing .show { border: 1px solid #fff; }
+/* line 399, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .show span { font-weight: bold; }
-/* line 402, ../sass/snippets/_briefs.scss */
+/* line 403, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit { text-align: center; padding: 0; margin: auto; }
-/* line 406, ../sass/snippets/_briefs.scss */
+/* line 407, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit p.submit { margin-top: 0.5em; font-size: 0.5em; }
-/* line 412, ../sass/snippets/_briefs.scss */
+/* line 413, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit form { text-align: center; }
-/* line 414, ../sass/snippets/_briefs.scss */
+/* line 415, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit form input[type=text] { display: block; background: #fafafa; border: 1px solid #eee; padding: 0.5em 1em; font-size: .7em; font-weight: bold; width: 300px; text-align: center; }
-/* line 425, ../sass/snippets/_briefs.scss */
+/* line 426, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit span, #briefs.show .most_important_thing .edit .field { display: inline-block; }
-/* line 428, ../sass/snippets/_briefs.scss */
+/* line 429, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit span { font-size: 8em; display: inline-block; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 435, ../sass/snippets/_briefs.scss */
+/* line 436, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit span.left { vertical-align: top; margin-top: 0px; }
-/* line 439, ../sass/snippets/_briefs.scss */
+/* line 440, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit span.right { vertical-align: bottom; }
 
-/* line 450, ../sass/snippets/_briefs.scss */
+/* line 451, ../sass/snippets/_briefs.scss */
 #content-header .editable:hover { background-color: #d5f557; cursor: pointer; }
-/* line 455, ../sass/snippets/_briefs.scss */
+/* line 456, ../sass/snippets/_briefs.scss */
 #content-header .edit { margin: 2px 0; }
-/* line 457, ../sass/snippets/_briefs.scss */
+/* line 458, ../sass/snippets/_briefs.scss */
 #content-header .edit input[type=text] { font-size: 1.2em; display: inline-block; font-weight: bold; padding: 2px 3px; margin-right: .5em; border: 1px solid #ee8; background-color: #FFC; width: 75%; }
-/* line 467, ../sass/snippets/_briefs.scss */
+/* line 468, ../sass/snippets/_briefs.scss */
 #content-header .edit input[type=submit] { display: inline-block; vertical-align: middle; margin-top: -4px; }
 
 /*  inline edit toggle triggers:  the "edit" button that appears when you hover a section the "cancel" button when editing a section
 */
-/* line 480, ../sass/snippets/_briefs.scss */
-.brief .section { /* This is the "cancel" button when in the edit view. */ }
 /* line 481, ../sass/snippets/_briefs.scss */
+.brief .section { /* This is the "cancel" button when in the edit view. */ }
+/* line 482, ../sass/snippets/_briefs.scss */
 .brief .section .toggle-inline-edit { /* in IE we will need to display: none; as there are no CSS transitions anyway */ -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 500ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 500ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 500ms; transition-property: background-color, color, border-color, opacity; transition-duration: 500ms; font-size: 8pt; opacity: 0; float: right; height: 16px; line-height: 14px; display: block; padding-left: 4px; padding-right: 4px; }
-/* line 495, ../sass/snippets/_briefs.scss */
+/* line 496, ../sass/snippets/_briefs.scss */
 .brief .section:hover .toggle-inline-edit { opacity: 1; }
-/* line 501, ../sass/snippets/_briefs.scss */
+/* line 502, ../sass/snippets/_briefs.scss */
 .brief .section .edit .toggle-inline-edit { display: inline; color: #fff; text-shadow: 1px 1px 1px #888; font-weight: normal; }
 
 /* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */
-/* line 512, ../sass/snippets/_briefs.scss */
+/* line 513, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing.section .toggle-inline-edit { font-weight: normal; top: 0.5em; right: 0.5em; position: absolute; opacity: 0; display: block; }
-/* line 521, ../sass/snippets/_briefs.scss */
+/* line 522, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing.section:hover .toggle-inline-edit { opacity: 1; }
 
 /* Adding new sections dynamically */
-/* line 532, ../sass/snippets/_briefs.scss */
+/* line 533, ../sass/snippets/_briefs.scss */
 #add-new-section p { margin: 1em 0; }
-/* line 535, ../sass/snippets/_briefs.scss */
+/* line 536, ../sass/snippets/_briefs.scss */
 #add-new-section .toggle-add-new-section { padding: 2px 4px; }
 
-/* line 539, ../sass/snippets/_briefs.scss */
+/* line 540, ../sass/snippets/_briefs.scss */
 #new-section { display: none; border: 1px solid #ddd; padding: 1em; }
-/* line 543, ../sass/snippets/_briefs.scss */
+/* line 544, ../sass/snippets/_briefs.scss */
 #new-section .field { clear: both; }
-/* line 545, ../sass/snippets/_briefs.scss */
+/* line 546, ../sass/snippets/_briefs.scss */
 #new-section .field label { display: block; float: none; }
-/* line 549, ../sass/snippets/_briefs.scss */
+/* line 550, ../sass/snippets/_briefs.scss */
 #new-section .field input.title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 628px; background: #fafafa; border: 1px solid #ddd; }
-/* line 558, ../sass/snippets/_briefs.scss */
+/* line 559, ../sass/snippets/_briefs.scss */
 #new-section .field .body { display: block; height: 100px; padding: 0.5em; width: 628px; background: #fafafa; border: 1px solid #ddd; font-size: 1em; }
-/* line 568, ../sass/snippets/_briefs.scss */
+/* line 569, ../sass/snippets/_briefs.scss */
 #new-section .is_heading { float: right; }
-/* line 570, ../sass/snippets/_briefs.scss */
+/* line 571, ../sass/snippets/_briefs.scss */
 #new-section .is_heading label { display: inline; font-weight: normal; }
-/* line 575, ../sass/snippets/_briefs.scss */
+/* line 576, ../sass/snippets/_briefs.scss */
 #new-section .submit { text-align: right; margin-top: 0.5em; }
-/* line 578, ../sass/snippets/_briefs.scss */
+/* line 579, ../sass/snippets/_briefs.scss */
 #new-section .submit .spinner { display: inline; }
 
 /* Deleting a section */
