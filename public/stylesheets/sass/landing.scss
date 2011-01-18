@@ -99,6 +99,7 @@ $content_bg: #f3f3f3;
 }
 #logo{
   padding-top: 0.5em;
+  h1{ margin-left: -5px;}
 }
 #navigation{
   list-style-position: inside;
@@ -145,9 +146,6 @@ $content_bg: #f3f3f3;
   padding: 50px 0;
 }
 
-#tour-intro{
-  @extend .prepend-1;
-}
 #intro, #tour-intro{
   // this might be better in container, but let's see
   padding-bottom: 50px;
@@ -161,12 +159,6 @@ $content_bg: #f3f3f3;
     @extend .span-6;
     @extend .last;
     text-align: right;
-    iframe{
-      -webkit-box-shadow: rgba(0,0,0,0.2) 3px 3px 10px;
-      @include border_radius(7px);
-      height: 450px;
-      width: 800px;
-    }
   }
   .signup{
     @extend .span-3;
@@ -394,17 +386,18 @@ hr.faded{
       li{ display: inline;}
     }
   }
+  .getsatisfaction-icon{
+    margin-top: -18px;
+  }
+  .getsatisfaction{
+    font-size: 0.8em;
+  }
   .copyright{
     font-size: 0.8em;
-    @extend .span-2;
     ul{ list-style: none;}
   }
   .quick-links{
-    font-size: 0.8em;
-    @extend .span-1.last;
-    .navigation{
-      padding-top: 1em;
-    }
+    li{     font-size: 0.8em;display: inline;}
   }
 }
 
@@ -472,8 +465,8 @@ hr.faded{
   	/* styling */
   	background-color:#333;
 
-  	width:800px;	
-  	height:450px;
+  	width:557px;	
+  	height:418px;
   	border:1px solid #666;
 
   	/* CSS3 styling for latest browsers */
@@ -493,5 +486,33 @@ hr.faded{
   	cursor:pointer;
   	height:30px;
   	width:30px;
+  }
+}
+
+.large-copy{
+  max-width: 45em;
+  font-size: 1em;
+  .title{
+
+    margin-bottom: 1em;
+    font-size: 1.4em;
+  }
+  h3{
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    padding: 0;
+    color: #333;
+  }
+  p, ul{
+    margin-bottom: 1.4em;
+  }
+  li{
+    margin-bottom: 1em;
+    list-style-type: disc;
+    margin-left: 1.5em;
+    line-height: 1.4em;
+  }
+  p{
+    line-height: 1.4em;
   }
 }

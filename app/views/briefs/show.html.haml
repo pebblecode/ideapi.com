@@ -6,11 +6,11 @@
 
 .col_1
   
-  -unless current_object.active?
-    %div{:id => "reactivate_tooltip_#{current_object.id}", :class => 'note'}
-      %p 
-        This brief has been marked as complete, and therefore is read-only.
-        =render :partial => 'change_state', :locals => { :brief => current_object }
+  -# -unless current_object.active?
+  -#   %div{:id => "reactivate_tooltip_#{current_object.id}", :class => 'note'}
+  -#     %p 
+  -#       This brief has been archived, and therefore is read-only.
+  -#       =render :partial => 'change_state', :locals => { :brief => current_object }
       
   %div[current_object]
     -if current_user.owns?(current_object)
@@ -24,12 +24,10 @@
       = render :partial => 'brief_options_menu', :locals => {:object => current_object}
       .clear
         // comment clear
-    - # sorting
     = render :partial => 'briefs/brief_partials/most_important_thing'
     #sortable_brief_items
       = render :partial => 'briefs/brief_partials/brief_item', :collection => (current_object.brief_items)
-    
-    = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief} if owner?(current_object)
+    = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief} if owner?(current_object) and current_object.active?
     -if current_object.draft? and owner?(current_object)
       .publish-draft
         - form_for(current_object, :html => { :method => :put }) do |brief_form|

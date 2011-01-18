@@ -14,14 +14,14 @@
     %link{:href=>'http://fonts.googleapis.com/css?family=Cabin:bold', :rel=>'stylesheet', :type=>'text/css'}/
     /For body text, the Ubuntu font has good curves
     %link{:href=>'http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold', :rel=>'stylesheet', :type=>'text/css'}/
-    /[if IE 6]
-      %link{ :href => "/stylesheets/marketing_ie6.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
+    -# /[if IE 6]
+    -#   %link{ :href => "/stylesheets/landing-ie6.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
     /[if IE 7]
-      %link{ :href => "/stylesheets/marketing_ie7.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }        
+      %link{ :href => "/stylesheets/landing-ie7.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }        
     /[if IE 8]
-      %link{ :href => "/stylesheets/marketing_ie8.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
+      %link{ :href => "/stylesheets/landing-ie8.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
         
-    =javascript_include_tag %w(jquery http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js jquery.infieldlabel.min marketing jquery.easyslider)
+    =javascript_include_tag %w(jquery http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js jquery.easyslider marketing)
   
   - if controller_name == "pages"
   -   @body_class = action_name + "-page page-template"
@@ -37,12 +37,12 @@
           %li=link_unless_current 'overview', home_path
           %li=link_unless_current 'features', tour_path
           %li=link_unless_current 'faq', faq_path
-          %li=link_unless_current 'who', 'javascript:void()'
+          %li=link_unless_current 'who is ideapi for?', 'javascript:void()'
           -# %li=link_to 'blog', 'http://blog.ideapi.com'
           - if @usersession.present? and @user.present? 
             %li= link_to 'account', login_path, :class => 'green-button-link login-link'
           - else
-            %li= link_to 'logout', login_path, :class => 'green-button-link login-link'
+            %li= link_to 'login', login_path, :class => 'green-button-link login-link'
     #content
       .container
         =yield
@@ -52,22 +52,22 @@
         .left
           - if yield(:custom_footer)
             = yield :custom_footer
-          - else 
-            %p
-              \&copy;2010 Ideapi Limited 
-              | 
-              %a{ :href => terms_path, :title => "Terms of Service" }
-                Terms of Service
-              |
-              %a{ :href => privacy_path, :title => "Privacy Policy" }
-                Privacy Policy
-              |
-              %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
-        
+          - else
+            .large-quote
+              .quote
+                .before
+                  %img{:src => '/images/icons/lquote.png', :alt=> ""}/
+                .content
+                  :markdown
+                    …perfect for an organisation like ours working with many different groups and individuals all in different time zones…
+
+                .after
+                  %img{:src => '/images/icons/rquote.png', :alt=> ""}/
+              .cite
+                %cite Philippa White, Founder &amp; Managing Director, <br/>The International Exchange        
           
         .right
-          .social
-            %h4 Follow us on:
+          .social.span-1.last
             %ul.social-links              
               %li
                 %a{ :href => "http://twitter.com/ideapi/", :title => "follow us on twitter" }
@@ -78,24 +78,27 @@
               %li
                 %a{ :href => "http://blog.ideapi.com/rss/", :title => "RSS" }
                   %img{:src => "/images/social/rss.png", :alt => "rss", :height => "24" }
-          .copyright
+          .getsatisfaction-icon.span-2
             :markdown
-              &copy;2010 Ideapi Limited. <br/>
+              <a href="http://getsatisfaction.com/ideapi"><img src="/images/resources/getsatisfaction2.png" alt="GetSatisfaction" /></a>
+          .getsatisfaction.span-3
+            :markdown
+              Got a question? Need support? Want to give feedback? Visit our [GetSatisfaction community](http://getsatisfaction.com/ideapi), or try our [FAQs](#).
+          
+          .copyright.clearfix.span-3
+            :markdown
+              &copy;2010 Ideapi Limited.
               A [pebble.it](http://pebbleit.com) product.
+          .quick-links.span-3
             %ul 
               %li
                 %a{ :href => terms_path, :title => "Terms of Service" }Terms of Service
+                |
               %li
                 %a{ :href => privacy_path, :title => "Privacy Policy" }Privacy Policy
+                |
               %li
                 %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
-          .quick-links
-            %ul.navigation
-              %li= link_to 'overview', home_path
-              %li= link_to 'features', tour_path
-              %li= link_to 'faq', faq_path
-              %li= link_to 'who', 'javascript:void()'
-              %li= link_to 'login', login_path
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-691295-5']);

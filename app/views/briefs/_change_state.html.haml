@@ -2,10 +2,10 @@
   -if brief.published?
     =f.hidden_field '_call_state', :value => 'complete'
     .change-state
-      =f.submit 'mark as completed', :class => "action_button"
+      =f.submit 'archive', :class => "action_button"
       %p.info
         Mark you brief as completed to prevent it being changed by other users.  
     
   -elsif brief.complete?
     =f.hidden_field '_call_state', :value => 'reactivate'
-    =f.submit 'Reactivate', :class => "action_button"
+    =f.submit 'reactivate', :class => "action_button"

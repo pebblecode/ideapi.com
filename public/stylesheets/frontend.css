@@ -829,7 +829,7 @@ ul#notifications li span.notification_action { float: right; }
 #top-menu .name { color: #333333; font-weight: bold; padding: 2px 4px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 
 /* line 1878, sass/frontend.sass */
-#footer { margin-top: 1em; background: url("/images/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
+#footer { margin-top: 1em; background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
 /* line 1883, sass/frontend.sass */
 #footer p { font-size: 1.1em; }
 /* line 1885, sass/frontend.sass */

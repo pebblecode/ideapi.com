@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :user_session, :member => { :delete => :get }
   map.resource :profile, :controller => "users"
+  
 
   map.resources :users
   map.resources :user_feedbacks

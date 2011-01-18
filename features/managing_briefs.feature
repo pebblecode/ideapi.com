@@ -76,7 +76,7 @@ Feature: Managing briefs
         Given I have briefs called Advert brief, Website brief, Photoshoot brief
         When I go to the documents 
         And I follow "Website brief"
-        And I press "mark as completed"
+        And I press "archive"
         Then I should see "Brief has been saved and marked as complete."
 
     Scenario: Reactivating a completed brief
@@ -86,5 +86,5 @@ Feature: Managing briefs
         And I should see "Advert ..." within ".side_box"
         And I follow "Advert ..."
         Then I should see "This brief has been marked as complete, and therefore is read-only."        
-        And I press "Reactivate"
+        And I press "reactivate"
         Then I should see "Brief has been saved and marked as published."

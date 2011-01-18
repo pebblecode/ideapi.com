@@ -50,7 +50,7 @@ if template
     questions = [
       ["Mandatories", "e.g. Pack shots, logos, brand guidelines.", false],
       ["Target Audience", "Who do you want to reach? Paint a picture of the target?", true],
-      ["Media", "Diital? Traditional? Ambient? Are the specifications known?", true]
+      ["Media", "Digital? Traditional? Ambient? Are the specifications known?", true]
     ]
 
     questions.each do |question|

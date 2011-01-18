@@ -123,7 +123,7 @@ Feature: Allow users to tag briefs
         And I go to the documents
         Then I should see "tag1"
         And I follow "My brief"
-        And I press "mark as completed"
+        And I press "archive"
         Then I should see "Brief has been saved and marked as complete."
         And I go to the documents
         Then I should not see "tag1"

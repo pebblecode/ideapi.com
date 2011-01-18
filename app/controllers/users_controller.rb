@@ -37,14 +37,14 @@ class UsersController < ApplicationController
       end
     end 
     before :show do 
-      add_breadcrumb 'contacts', :object_path
-      add_breadcrumb current_object.screename
+      add_breadcrumb 'contacts', users_path
+      add_breadcrumb current_object.screename, :object_path
     end
     
     before :edit do
       add_breadcrumb 'contacts', users_path
       add_breadcrumb current_object.screename, :object_path
-      add_breadcrumb 'blabla'
+      add_breadcrumb 'edit', :edit_object_path
     end
     before :create do
       current_object.invited_by = current_user

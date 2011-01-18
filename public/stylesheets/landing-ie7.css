@@ -1,0 +1,8 @@
+/* line 2, sass/landing-ie7.scss */
+#navigation { list-style-position: inside; position: absolute; bottom: 0; right: 0; }
+/* line 8, sass/landing-ie7.scss */
+#navigation li { display: inline; }
+/* line 11, sass/landing-ie7.scss */
+#navigation a.login-link { color: #333; font-weight: bold; font-size: 0.9em; }
+/* line 15, sass/landing-ie7.scss */
+#navigation a.login-link:active { -webkit-box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 3px, rgba(0, 0, 0, 0.3) 1px 1px 3px inset; -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; }

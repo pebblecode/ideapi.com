@@ -10,35 +10,36 @@
     .boom_box
 
       %div[current_object]
-        =large_avatar(current_object)
+        .avatar
+          =large_avatar(current_object)
+        .info
+          %p
+            %strong Nickname:
+            =current_object.screename
 
-        %p
-          %strong Nickname:
-          =current_object.screename
-
-        %p
-          %strong Name:
-          -if current_object.full_name.present?
-            =current_object.full_name.titleize
-          -else
-            unknown
+          %p
+            %strong Name:
+            -if current_object.full_name.present?
+              =current_object.full_name.titleize
+            -else
+              unknown
       
-        %p
-          %strong Email:
-          =mail_to(current_object.email)        
+          %p
+            %strong Email:
+            =mail_to(current_object.email)        
       
-        -%w(job_title telephone telephone_ext).each do |extra|
+          -%w(job_title telephone telephone_ext).each do |extra|
 
-          -if current_object.send(extra).present?
-            %p
-              %strong
-                = succeed ':' do
-                  = extra.titleize
-              =current_object.send(extra)
+            -if current_object.send(extra).present?
+              %p
+                %strong
+                  = succeed ':' do
+                    = extra.titleize
+                =current_object.send(extra)
         
       
-        -if current_object == current_user or current_account.admins.include? current_user
-          %p.edit= link_to 'Edit', edit_user_path(current_user)
+          -if current_object == current_user or current_account.admins.include? current_user
+            %p.edit= link_to 'Edit', edit_user_path(current_object), :class => 'link-as-button'
         
         .clear
         

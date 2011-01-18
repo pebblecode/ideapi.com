@@ -19,9 +19,9 @@
           %span.right &rdquo;
       -if current_object.brief_items.empty? && current_object.published?
         %p This document is empty
-      =render :partial => 'brief_item', :collection => (current_object.draft? ? current_object.brief_items : current_object.brief_items.answered), :locals => { :draft => current_object.draft?, :print => true}
+      =render :partial => 'brief_item', :collection => current_object.brief_items, :locals => { :draft => current_object.draft?, :print => true}
     #footer
       %p
-        %img{:src => "/images/logo-small.png", :alt => "ideapi"}/
+        %img{:src => "/images/logos/logo-small.png", :alt => "ideapi"}/
         &copy; 2010
     

@@ -264,8 +264,15 @@ form {
     font-size: 1.4em;
   }
   .login_form{
-    label{ 
+    label{
+      width: auto;
     }
+    p{
+      text-align: right;
+      #user_session_email, #user_session_password{ display: inline; width: 275px;}
+      #user_session_remember_me{ display: inline; margin-right: 275px;}
+    }
+    #forgot-password{ text-align: left;}
   }
   .friendship_form {
     p {
@@ -281,6 +288,33 @@ form {
     padding: 0.5em 2em;
     font-size: 1.2em;
     font-weight: bold; }
+}
+
+.back-to-homepage{
+  background: url('/images/ui/arrow-west-16.png') no-repeat 0 0;
+  &:hover{background: url('/images/ui/arrow-west-16.png') no-repeat 0 0;}
+  padding-left: 20px;
+  height: 16px;
+  line-height: 14px;
+  margin-top: 0.5em;
+  margin-left: 1em;
+  display: block;
+}
+
+/* Users profile page (/views/users/show,edit etc) */
+#users.show{
+  .user{
+    .info{
+      margin-left: 120px;
+    }
+  }
+}
+
+.link-as-button{
+  @extend .btn-shizzle;
+  &:hover{
+    color: $ideapi_green_dark;
+  }
 }
 
 

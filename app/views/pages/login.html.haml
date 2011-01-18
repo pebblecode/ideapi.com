@@ -1,4 +1,4 @@
-- if @usersession.present? and @user.present? 
+- if @usersession.present? and @user.present?
 
 
   %h3 Where do we go from here?
@@ -10,7 +10,7 @@
 
 - else
   %h3 Please login to ideapi
-  .login_form{:style => "margin: 0 1em; width: 28em"}  
+  .login_form
     -form_for @user_session, :url => "/login" do |f|
       %p
         =f.label :email
@@ -31,5 +31,4 @@
     
 .footer
   %p
-    Back to  
-    = link_to "ideapi Homepage", "http://#{request.domain}"
+    = link_to "ideapi Homepage", "http://#{request.domain}", :class => 'back-to-homepage'

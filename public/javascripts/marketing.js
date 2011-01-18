@@ -5,7 +5,7 @@ $(document).ready(function(){
   
   $("#slider").easySlider({
   	auto: false,
-  	continuous: false,
+  	continuous: true,
   	nextId: "slider-next",
   	prevId: "slider-prev"
   });

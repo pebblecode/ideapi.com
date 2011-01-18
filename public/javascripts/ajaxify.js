@@ -486,10 +486,8 @@ jQuery.user_links_external = function(){
     $('#brief_item_is_heading').live('click', function(e){
       if($(this).attr('checked') == true){
         $("#new-section-body").slideUp();
-        console.log('fadeOut');
       }else{
         $("#new-section-body").slideDown();
-        console.log('fadeIn');
       }
     });
     $('.toggle-add-new-section').live('click', function(e){

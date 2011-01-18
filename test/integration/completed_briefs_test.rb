@@ -20,8 +20,8 @@ class CompletedBriefsTest < ActionController::IntegrationTest
     context "draft brief" do
       # https://abutcher.lighthouseapp.com/projects/32755/tickets/41-bug-reactive-button-visible
       
-      should "not have link to Reactivate" do
-        assert_select 'input[type=submit][value=?]', 'Reactivate', :count => 0
+      should "not have link to reactivate" do
+        assert_select 'input[type=submit][value=?]', 'reactivate', :count => 0
       end
       
     end
@@ -43,13 +43,13 @@ class CompletedBriefsTest < ActionController::IntegrationTest
           visit edit_brief_path(@brief)
         end
         
-        should "have button to mark as complete" do
-          assert_select 'input[type=submit][value=?]', 'mark as completed', :count => 1
+        should "have button to archive" do
+          assert_select 'input[type=submit][value=?]', 'archive', :count => 1
         end
         
         context "clicking mark as complete" do
           setup do
-            click_button 'mark as completed'
+            click_button 'archive'
           end
       
           should_respond_with :success

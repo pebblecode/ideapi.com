@@ -68,7 +68,7 @@ module ActiveMerchant #:nodoc:
       end
 
       def reactivate_profile(profile_id, options = {})
-        commit 'ManageRecurringPaymentsProfileStatus', build_manage_profile_request(profile_id, 'Reactivate', options)
+        commit 'ManageRecurringPaymentsProfileStatus', build_manage_profile_request(profile_id, 'reactivate', options)
       end
 
       def bill_outstanding_amount(profile_id, options = {})
