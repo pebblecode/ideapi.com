@@ -23,6 +23,8 @@ module ProposalsHelper
       "Approved"
     when :draft
       "Not yet submitted"
+    when :dropped
+      "Dropped"
     end
   end
   
