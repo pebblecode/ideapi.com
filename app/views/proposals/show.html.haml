@@ -13,7 +13,7 @@
     #content-header
       -if current_user.owns?(current_object)
         .actions
-          = link_to "Actions", "#", :class => "green-button-link fright"
+          = link_to "Actions", "#", :class => "show-options-menu green-button-link fright"
       
       %h2
         =current_object.title

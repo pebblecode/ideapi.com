@@ -1,8 +1,9 @@
 %div[current_object]
-  %h2
-    %span.title-span
-      = f.label :title, 'Add a title...', :class => 'infield-label'
-      = f.text_field :title, :class => 'has-infield-label'
+  #content-header
+    %h2
+      %span.title-span
+        = f.label :title, 'Add a title...', :class => 'infield-label'
+        = f.text_field :title, :class => 'has-infield-label'
   .fields
     .field
       = f.label :long_description, 'Describe your idea...', :class => 'infield-label'
