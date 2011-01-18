@@ -1,4 +1,6 @@
 class BriefItem < ActiveRecord::Base
+  
+  before_create :set_position
   # Comments added by shapeshed for the good of developers everywhere
   # 
   # Brief Items act as a clone of template questions so that we don't 
@@ -17,6 +19,8 @@ class BriefItem < ActiveRecord::Base
   belongs_to :brief, :touch => true
   has_many :questions, :dependent => :destroy
   has_many :timeline_events, :as => :secondary_subject, :order => 'created_at ASC, id ASC', :group => "subject_id, subject_type"
+  
+  validates_presence_of :title
   
   # Delegation takes some methods and sends them off to another 
   # model to be processed. This means if you want to debug something 
@@ -114,5 +118,13 @@ class BriefItem < ActiveRecord::Base
       ['position = FIND_IN_SET(id, ?)', _ids],
       { :id => ids }
     )
+  end
+  
+  def set_position
+    items = self.brief.brief_items
+    if items.present?
+      last_item = items.last
+      self.position = last_item.position + 1 if last_item.position.present?
+    end
   end
 end

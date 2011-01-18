@@ -36,21 +36,8 @@
 .brief .section{
   border: 1px solid #eee;
   border-top: 0;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.5em .5em 1em;
   .edit{display: none;}
-  .toggle-inline-edit{
-    @extend .btn-shizzle;
-    display: none ;
-    float: right;
-    height: 16px;
-    line-height: 14px;
-  }
-  &:hover{
-    .toggle-inline-edit{ 
-      display: block !important;
-      opacity: 1;
-    }
-  }
 }
 
 .brief div.actions {
@@ -172,21 +159,6 @@
     padding: 1em 2em;
     margin-right: 0;
     position: relative;
-    &:hover{
-      .toggle-inline-edit{
-        opacity: 0.5;
-      }
-    }
-    .toggle-inline-edit{
-      @include color-transitions();
-      font-size: 10pt;
-      font-weight: normal;
-      top: 0.5em;
-      right: 1em;
-      position: absolute;
-      opacity: 0;
-      display: block;
-    }
     .show, .edit{
       max-width: 360px;
       display: inline-block;
@@ -332,13 +304,9 @@ ul.actions.active {
   }
 }
 .publish-draft {
-  margin-top: 1em;
-  form{
-    input[type=submit]{
-      @extend .funky-button;
-      display: block;    
-    }
-  }
+  margin-top: 10px;
+  float: right;
+  p{ margin: 0;}
 }
 
 #sortable_brief_items.sortable{
@@ -398,10 +366,8 @@ ul.actions.active {
       .field{
         width: 100%;
         margin-bottom: 5px;
-        .toggle-inline-edit{
-          display: inline;
-        }
       }
+
       input.inline-edit-title{
         padding: 3px 6px;
         font-size: 1.3em;
@@ -481,6 +447,7 @@ ul.actions.active {
   }
 }
 
+
 #content-header{
   .editable{
     &:hover{
@@ -505,67 +472,117 @@ ul.actions.active {
       vertical-align: middle;
       margin-top: -4px;
     }
+  }
+}
+
+/* 
+  inline edit toggle triggers: 
+    * the "edit" button that appears when you hover a section
+    * the "cancel" button when editing a section
+*/
+.brief .section{
+  .toggle-inline-edit{
+    /* in IE we will need to display: none; as there are no CSS transitions anyway */
+    @include color-transitions(500ms);
+    font-size: 8pt;
+    opacity: 0;
+    float: right;
+    height: 16px;
+    line-height: 14px;
+    display: block;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  
+  &:hover{
+    .toggle-inline-edit{ 
+      opacity: 1;
+    }
+  }
+  /* This is the "cancel" button when in the edit view. */ 
+  .edit{
     .toggle-inline-edit{
       display: inline;
       color: #fff;
       text-shadow: 1px 1px 1px #888;
       font-weight: normal;
     }
+    
   }
 }
-#add-new-section{
-  p{
-    margin: 1em;
-    text-align: right;
+/* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */ 
+.brief .most_important_thing.section{
+  .toggle-inline-edit{
+    font-weight: normal;
+    top: 0.5em;
+    right: 0.5em;
+    position: absolute;
+    opacity: 0;
+    display: block;
   }
-  .toggle-add-new-section{
-    padding: 2px 4px;
-    @extend .btn-shizzle;
-  }
-}
-#new-section{
-  display: none;
-  border: 1px solid #ddd;
-  padding: 1em;
-  .field{
-    clear: both;
-    label{
-      display: block;
-      float: none;
-    }
-    input.title{
-      padding: 3px 6px;
-      font-size: 1.3em;
-      font-weight: bold;
-      display: block;
-      width: 628px;
-      background: #fafafa;
-      border: 1px solid #ddd;
-    }
-    .body{
-      display: block;
-      height: 100px;
-      padding: 0.5em;
-      width: 628px;
-      background: #fafafa;
-      border: 1px solid #ddd;
-      font-size: 1em;
+  &:hover{
+    .toggle-inline-edit{ 
+      opacity: 1;
     }
   }
-  .is_heading{
-    float: right;
-    label{
-      display: inline;
-      font-weight: normal;
-    }
-  }
-  .submit{
-    width: 600px;
-    text-align: right;
-    margin-top: 0.5em;
-  }
+  
 }
 
+
+/* Adding new sections dynamically */
+
+  #add-new-section{
+    p{
+      margin: 1em 0;
+    }
+    .toggle-add-new-section{
+      padding: 2px 4px;
+    }
+  }
+  #new-section{
+    display: none;
+    border: 1px solid #ddd;
+    padding: 1em;
+    .field{
+      clear: both;
+      label{
+        display: block;
+        float: none;
+      }
+      input.title{
+        padding: 3px 6px;
+        font-size: 1.3em;
+        font-weight: bold;
+        display: block;
+        width: 628px;
+        background: #fafafa;
+        border: 1px solid #ddd;
+      }
+      .body{
+        display: block;
+        height: 100px;
+        padding: 0.5em;
+        width: 628px;
+        background: #fafafa;
+        border: 1px solid #ddd;
+        font-size: 1em;
+      }
+    }
+    .is_heading{
+      float: right;
+      label{
+        display: inline;
+        font-weight: normal;
+      }
+    }
+    .submit{
+      text-align: right;
+      margin-top: 0.5em;
+      .spinner{ display: inline;}
+    }
+  }
+
+/* Deleting a section */
 .delete-section-submit{
   @extend .delete-button;
 }

@@ -1001,12 +1001,12 @@ h4 { font-size: 1.15em; }
 .add_collaborators { display: none; }
 
 /* line 118, ../sass/main.scss */
-.btn-shizzle, .funky-button, #brief-tags .inline-submit, .publish-draft form input[type=submit], .ideapi_button, .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button, .delete-button, .delete-section-submit, #template_briefs #container a.delete_template, .green-button-link, #template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit, .link-as-button, .brief .section .toggle-inline-edit, #reorder-sections, #add-new-section .toggle-add-new-section { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
+.btn-shizzle, .funky-button, #brief-tags .inline-submit, .ideapi_button, .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button, .delete-button, .delete-section-submit, #template_briefs #container a.delete_template, .green-button-link, #template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit, .link-as-button, #reorder-sections { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
 /* line 135, ../sass/main.scss */
-.btn-shizzle:active, .funky-button:active, #brief-tags .inline-submit:active, .publish-draft form input[type=submit]:active, .ideapi_button:active, .funky-button-small:active, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button:active, .delete-button:active, .delete-section-submit:active, #template_briefs #container a.delete_template:active, .green-button-link:active, #template_briefs #container .new_template_brief .actions a.add_child:active, #template_briefs #container .edit_template_brief .actions a.add_child:active, #container #content .main .comment .speech #comment_submit:active, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit]:active, .inline-edit-submit:active, .link-as-button:active, .brief .section .toggle-inline-edit:active, #reorder-sections:active, #add-new-section .toggle-add-new-section:active, .btn-shizzle.active, .active.funky-button, #brief-tags .active.inline-submit, .publish-draft form input.active[type=submit], .active.ideapi_button, .active.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .active.add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .active.add_user_brief_button, .active.delete-button, .active.delete-section-submit, #template_briefs #container a.active.delete_template, .active.green-button-link, #template_briefs #container .new_template_brief .actions a.active.add_child, #template_briefs #container .edit_template_brief .actions a.active.add_child, #container #content .main .comment .speech .active#comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input.active[type=submit], .active.inline-edit-submit, .active.link-as-button, .brief .section .active.toggle-inline-edit, .active#reorder-sections, #add-new-section .active.toggle-add-new-section { background-position: 0px bottom; }
+.btn-shizzle:active, .funky-button:active, #brief-tags .inline-submit:active, .ideapi_button:active, .funky-button-small:active, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button:active, .delete-button:active, .delete-section-submit:active, #template_briefs #container a.delete_template:active, .green-button-link:active, #template_briefs #container .new_template_brief .actions a.add_child:active, #template_briefs #container .edit_template_brief .actions a.add_child:active, #container #content .main .comment .speech #comment_submit:active, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit]:active, .inline-edit-submit:active, .link-as-button:active, #reorder-sections:active, .btn-shizzle.active, .active.funky-button, #brief-tags .active.inline-submit, .active.ideapi_button, .active.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .active.add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .active.add_user_brief_button, .active.delete-button, .active.delete-section-submit, #template_briefs #container a.active.delete_template, .active.green-button-link, #template_briefs #container .new_template_brief .actions a.active.add_child, #template_briefs #container .edit_template_brief .actions a.active.add_child, #container #content .main .comment .speech .active#comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input.active[type=submit], .active.inline-edit-submit, .active.link-as-button, .active#reorder-sections { background-position: 0px bottom; }
 
 /* line 138, ../sass/main.scss */
-.funky-button, #brief-tags .inline-submit, .publish-draft form input[type=submit], .ideapi_button { height: 26px; line-height: 24px; }
+.funky-button, #brief-tags .inline-submit, .ideapi_button { height: 26px; line-height: 24px; }
 
 /* line 143, ../sass/main.scss */
 .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button, .delete-button, .delete-section-submit, #template_briefs #container a.delete_template, .green-button-link, #template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit { height: 20px; line-height: 18px; cursor: pointer; }
@@ -1439,220 +1439,229 @@ span.timestamp { color: #999; font-size: .85em; font-style: italic; }
 .brief_item .body img { max-width: 600px; display: block; margin: auto; }
 
 /* line 36, ../sass/snippets/_briefs.scss */
-.brief .section { border: 1px solid #eee; border-top: 0; padding: 0.5em 1em; }
+.brief .section { border: 1px solid #eee; border-top: 0; padding: 0.5em 0.5em .5em 1em; }
 /* line 40, ../sass/snippets/_briefs.scss */
 .brief .section .edit { display: none; }
-/* line 41, ../sass/snippets/_briefs.scss */
-.brief .section .toggle-inline-edit { display: none; float: right; height: 16px; line-height: 14px; }
-/* line 49, ../sass/snippets/_briefs.scss */
-.brief .section:hover .toggle-inline-edit { display: block !important; opacity: 1; }
 
-/* line 56, ../sass/snippets/_briefs.scss */
+/* line 43, ../sass/snippets/_briefs.scss */
 .brief div.actions { z-index: 10; position: absolute; top: 9px; right: 9px; text-align: right; padding: 0; margin: 0; }
-/* line 64, ../sass/snippets/_briefs.scss */
+/* line 51, ../sass/snippets/_briefs.scss */
 .brief div.actions a { display: block; margin-top: -2px; margin-right: -2px; }
-/* line 69, ../sass/snippets/_briefs.scss */
+/* line 56, ../sass/snippets/_briefs.scss */
 .brief div.actions a:hover { color: #fefefe; }
-/* line 72, ../sass/snippets/_briefs.scss */
+/* line 59, ../sass/snippets/_briefs.scss */
 .brief div.actions a.edit_brief, .brief div.actions a.edit_icon, .brief div.actions a.edit_template { background: url("/images/page_edit.png") no-repeat center right; height: 16px; text-indent: -9999px; width: 40px; }
-/* line 77, ../sass/snippets/_briefs.scss */
+/* line 64, ../sass/snippets/_briefs.scss */
 .brief div.actions a.edit_brief:hover, .brief div.actions a.edit_icon:hover, .brief div.actions a.edit_template:hover { text-indent: 0; color: #32401a; font-weight: normal; }
-/* line 83, ../sass/snippets/_briefs.scss */
+/* line 70, ../sass/snippets/_briefs.scss */
 .brief div.actions a.print_brief { display: block; float: right; background: url("/images/printer.png"); width: 16px; height: 16px; text-indent: -3000px; }
-/* line 91, ../sass/snippets/_briefs.scss */
+/* line 78, ../sass/snippets/_briefs.scss */
 .brief div.actions form { float: right; }
-/* line 94, ../sass/snippets/_briefs.scss */
+/* line 81, ../sass/snippets/_briefs.scss */
 .brief div.actions .clean_brief { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: url("/images/ui/button_background_red.png") 0 0; border: 1px solid #32401a; padding: 1px 5px 0px 5px; font-weight: normal; font-size: 1em; margin-top: 0; color: white; text-shadow: none; }
-/* line 104, ../sass/snippets/_briefs.scss */
+/* line 91, ../sass/snippets/_briefs.scss */
 .brief div.actions .clean_brief:active { background-position: 0 -36px; }
 
-/* line 112, ../sass/snippets/_briefs.scss */
+/* line 99, ../sass/snippets/_briefs.scss */
 .brief .brief_heading h3, .proposal .brief_heading h3, .brief_list .brief_heading h3 { margin-left: 20px; }
-/* line 115, ../sass/snippets/_briefs.scss */
+/* line 102, ../sass/snippets/_briefs.scss */
 .brief .proposal_item, .brief .brief_heading, .proposal .proposal_item, .proposal .brief_heading, .brief_list .proposal_item, .brief_list .brief_heading { border: 1px solid #cccccc; border-bottom: 1px solid #eeeeee; border-top: 0; }
-/* line 120, ../sass/snippets/_briefs.scss */
+/* line 107, ../sass/snippets/_briefs.scss */
 .brief .proposal_item h3 span.updated, .brief .brief_heading h3 span.updated, .proposal .proposal_item h3 span.updated, .proposal .brief_heading h3 span.updated, .brief_list .proposal_item h3 span.updated, .brief_list .brief_heading h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
-/* line 128, ../sass/snippets/_briefs.scss */
+/* line 115, ../sass/snippets/_briefs.scss */
 .brief .proposal_item h4.activity_snapshot, .brief .brief_heading h4.activity_snapshot, .proposal .proposal_item h4.activity_snapshot, .proposal .brief_heading h4.activity_snapshot, .brief_list .proposal_item h4.activity_snapshot, .brief_list .brief_heading h4.activity_snapshot { font-size: 1.1em; padding: 0; margin: 0; line-height: 1.2em; color: #666666; }
-/* line 134, ../sass/snippets/_briefs.scss */
+/* line 121, ../sass/snippets/_briefs.scss */
 .brief .proposal_item .activity_stream, .brief .brief_heading .activity_stream, .proposal .proposal_item .activity_stream, .proposal .brief_heading .activity_stream, .brief_list .proposal_item .activity_stream, .brief_list .brief_heading .activity_stream { border-top: 1px solid #cccccc; margin-top: 1em; padding: 1em; }
-/* line 138, ../sass/snippets/_briefs.scss */
+/* line 125, ../sass/snippets/_briefs.scss */
 .brief .proposal_item .activity_stream li, .brief .brief_heading .activity_stream li, .proposal .proposal_item .activity_stream li, .proposal .brief_heading .activity_stream li, .brief_list .proposal_item .activity_stream li, .brief_list .brief_heading .activity_stream li { padding: 1em; }
-/* line 140, ../sass/snippets/_briefs.scss */
+/* line 127, ../sass/snippets/_briefs.scss */
 .brief .proposal_item .activity_stream li.date, .brief .brief_heading .activity_stream li.date, .proposal .proposal_item .activity_stream li.date, .proposal .brief_heading .activity_stream li.date, .brief_list .proposal_item .activity_stream li.date, .brief_list .brief_heading .activity_stream li.date { color: #aaaaaa; text-transform: uppercase; margin-top: 1em; padding: 0; }
-/* line 145, ../sass/snippets/_briefs.scss */
+/* line 132, ../sass/snippets/_briefs.scss */
 .brief .help_message, .proposal .help_message, .brief_list .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
-/* line 155, ../sass/snippets/_briefs.scss */
+/* line 142, ../sass/snippets/_briefs.scss */
 .brief .brief_item:last-child, .brief .proposal_item:last-child, .proposal .brief_item:last-child, .proposal .proposal_item:last-child, .brief_list .brief_item:last-child, .brief_list .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
-/* line 158, ../sass/snippets/_briefs.scss */
+/* line 145, ../sass/snippets/_briefs.scss */
 .brief .proposal_item p.asset, .proposal .proposal_item p.asset, .brief_list .proposal_item p.asset { width: 120px; }
-/* line 160, ../sass/snippets/_briefs.scss */
+/* line 147, ../sass/snippets/_briefs.scss */
 .brief .proposal_item p.asset, .brief .proposal_item p.description, .proposal .proposal_item p.asset, .proposal .proposal_item p.description, .brief_list .proposal_item p.asset, .brief_list .proposal_item p.description { float: left; }
-/* line 162, ../sass/snippets/_briefs.scss */
+/* line 149, ../sass/snippets/_briefs.scss */
 .brief .proposal_item p.description, .proposal .proposal_item p.description, .brief_list .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
-/* line 166, ../sass/snippets/_briefs.scss */
+/* line 153, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing, .proposal .most_important_thing, .brief_list .most_important_thing { padding: 0; text-align: center; font-size: 2.2em; font-weight: bold; color: #333333; padding: 1em 2em; margin-right: 0; position: relative; }
-/* line 176, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing:hover .toggle-inline-edit, .proposal .most_important_thing:hover .toggle-inline-edit, .brief_list .most_important_thing:hover .toggle-inline-edit { opacity: 0.5; }
-/* line 180, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing .toggle-inline-edit, .proposal .most_important_thing .toggle-inline-edit, .brief_list .most_important_thing .toggle-inline-edit { -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; font-size: 10pt; font-weight: normal; top: 0.5em; right: 1em; position: absolute; opacity: 0; display: block; }
-/* line 190, ../sass/snippets/_briefs.scss */
+/* line 162, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing .show, .brief .most_important_thing .edit, .proposal .most_important_thing .show, .proposal .most_important_thing .edit, .brief_list .most_important_thing .show, .brief_list .most_important_thing .edit { max-width: 360px; display: inline-block; padding: 0 1em; font-weight: bold; }
-/* line 196, ../sass/snippets/_briefs.scss */
+/* line 168, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing .show, .proposal .most_important_thing .show, .brief_list .most_important_thing .show { text-align: center; }
-/* line 199, ../sass/snippets/_briefs.scss */
+/* line 171, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing .edit, .proposal .most_important_thing .edit, .brief_list .most_important_thing .edit { display: none; }
-/* line 200, ../sass/snippets/_briefs.scss */
+/* line 172, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing span.left, .brief .most_important_thing span.right, .proposal .most_important_thing span.left, .proposal .most_important_thing span.right, .brief_list .most_important_thing span.left, .brief_list .most_important_thing span.right { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 208, ../sass/snippets/_briefs.scss */
+/* line 180, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing span.left, .proposal .most_important_thing span.left, .brief_list .most_important_thing span.left { top: 20px; left: 60px; }
-/* line 212, ../sass/snippets/_briefs.scss */
+/* line 184, ../sass/snippets/_briefs.scss */
 .brief .most_important_thing span.right, .proposal .most_important_thing span.right, .brief_list .most_important_thing span.right { position: absolute; bottom: 20px; right: 60px; vertical-align: middle; margin-top: 10px; }
-/* line 221, ../sass/snippets/_briefs.scss */
+/* line 193, ../sass/snippets/_briefs.scss */
 .brief .brief_item.updated h3, .brief .brief_item.updated h4, .proposal .brief_item.updated h3, .proposal .brief_item.updated h4, .brief_list .brief_item.updated h3, .brief_list .brief_item.updated h4 { background: #ffffdf; }
-/* line 223, ../sass/snippets/_briefs.scss */
+/* line 195, ../sass/snippets/_briefs.scss */
 .brief .brief_item.extended, .proposal .brief_item.extended, .brief_list .brief_item.extended { background: transparent; }
 
-/* line 231, ../sass/snippets/_briefs.scss */
+/* line 203, ../sass/snippets/_briefs.scss */
 #documents .brief_overviews h2, #sortable .brief_overviews h2 { padding: 0; font-size: 1.1em; font-weight: normal; text-transform: uppercase; text-align: center; margin: -0.8em auto 1.5em auto; background: white; width: 7.5em; color: #454545; }
-/* line 243, ../sass/snippets/_briefs.scss */
+/* line 215, ../sass/snippets/_briefs.scss */
 #documents .brief_item, #sortable .brief_item { padding: 0.5em 1em; border: 1px solid #eee; border-bottom: 1px solid #eeeeee; border-top: 0; }
-/* line 249, ../sass/snippets/_briefs.scss */
+/* line 221, ../sass/snippets/_briefs.scss */
 #documents .brief_item .body img, #sortable .brief_item .body img { max-width: 600px; border: 5px solid #eee; display: block; margin: auto; }
-/* line 257, ../sass/snippets/_briefs.scss */
+/* line 229, ../sass/snippets/_briefs.scss */
 #documents .brief_item .body .item-revision-body img, #sortable .brief_item .body .item-revision-body img { max-width: 420px; }
 
-/* line 266, ../sass/snippets/_briefs.scss */
+/* line 238, ../sass/snippets/_briefs.scss */
 ul.actions { margin-top: 1em; clear: both; text-align: right; }
-/* line 270, ../sass/snippets/_briefs.scss */
+/* line 242, ../sass/snippets/_briefs.scss */
 ul.actions li { padding: 0.2em 0em; display: inline; text-align: right; }
 
-/* line 276, ../sass/snippets/_briefs.scss */
+/* line 248, ../sass/snippets/_briefs.scss */
 ul.actions.active { border-bottom: 1px solid #eeeeee; }
 
-/* line 281, ../sass/snippets/_briefs.scss */
+/* line 253, ../sass/snippets/_briefs.scss */
 #options-menu, #brief-tags { border-bottom: 1px solid #eee; border-top: 1px solid #fcfcfc; background: #fcfcfc; }
-/* line 285, ../sass/snippets/_briefs.scss */
+/* line 257, ../sass/snippets/_briefs.scss */
 #options-menu .object-actions, #brief-tags .object-actions { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #fafafa; border: 1px solid #eee; margin: 0.5em; text-align: right; }
-/* line 290, ../sass/snippets/_briefs.scss */
+/* line 262, ../sass/snippets/_briefs.scss */
 #options-menu .object-actions form, #options-menu .object-actions li, #options-menu .object-actions a, #options-menu .object-actions input, #brief-tags .object-actions form, #brief-tags .object-actions li, #brief-tags .object-actions a, #brief-tags .object-actions input { display: inline-block; margin: 0; }
-/* line 295, ../sass/snippets/_briefs.scss */
+/* line 267, ../sass/snippets/_briefs.scss */
 #options-menu .object-actions li, #brief-tags .object-actions li { display: inline; margin-right: 0.5em; }
 
-/* line 302, ../sass/snippets/_briefs.scss */
+/* line 274, ../sass/snippets/_briefs.scss */
 #brief-tags { border: 0; padding: 0 0.5em; }
-/* line 306, ../sass/snippets/_briefs.scss */
+/* line 278, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox-items { width: 550px; }
-/* line 309, ../sass/snippets/_briefs.scss */
+/* line 281, ../sass/snippets/_briefs.scss */
 #brief-tags label { display: none; }
-/* line 312, ../sass/snippets/_briefs.scss */
+/* line 284, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox-box-elem { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-/* line 315, ../sass/snippets/_briefs.scss */
+/* line 287, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox-input-elem-valueInput { line-height: 18px; outline: none; }
-/* line 320, ../sass/snippets/_briefs.scss */
+/* line 292, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox { display: inline-block; }
-/* line 324, ../sass/snippets/_briefs.scss */
+/* line 296, ../sass/snippets/_briefs.scss */
 #brief-tags .inline-submit { display: inline-block; float: left; margin-right: 0.5em; }
-/* line 330, ../sass/snippets/_briefs.scss */
+/* line 302, ../sass/snippets/_briefs.scss */
 #brief-tags .smartTextBox-elem-valueContainer { font-size: 0.9em; }
 
-/* line 334, ../sass/snippets/_briefs.scss */
-.publish-draft { margin-top: 1em; }
-/* line 337, ../sass/snippets/_briefs.scss */
-.publish-draft form input[type=submit] { display: block; }
+/* line 306, ../sass/snippets/_briefs.scss */
+.publish-draft { margin-top: 10px; float: right; }
+/* line 309, ../sass/snippets/_briefs.scss */
+.publish-draft p { margin: 0; }
 
-/* line 345, ../sass/snippets/_briefs.scss */
+/* line 313, ../sass/snippets/_briefs.scss */
 #sortable_brief_items.sortable .brief_item { border-top: 1px solid #eee; border-left: 2px solid #eee; border-right: 2px solid #eee; }
-/* line 349, ../sass/snippets/_briefs.scss */
+/* line 317, ../sass/snippets/_briefs.scss */
 #sortable_brief_items.sortable .brief_item .move-handle { cursor: move; margin-top: 2px; height: 16px; width: 16px; display: block; float: right; text-indent: -9999px; background: url("/images/ui/move-handle.png") no-repeat 0 0; }
-/* line 360, ../sass/snippets/_briefs.scss */
+/* line 328, ../sass/snippets/_briefs.scss */
 #sortable_brief_items.sortable .body, #sortable_brief_items.sortable .edit, #sortable_brief_items.sortable .toggle-inline-edit, #sortable_brief_items.sortable .actions, #sortable_brief_items.sortable .brief_item_activity { display: none; }
 
-/* line 365, ../sass/snippets/_briefs.scss */
+/* line 333, ../sass/snippets/_briefs.scss */
 #reorder-sections { padding: 2px 4px; text-transform: capitalize; margin-left: 5px; }
 
-/* line 2, ../sass/snippets/_inlineedit.scss */
+/* line 341, ../sass/snippets/_briefs.scss */
 #briefs.show .inline-edit, #briefs.show .edit { display: none; }
-/* line 7, ../sass/snippets/_inlineedit.scss */
+/* line 346, ../sass/snippets/_briefs.scss */
 #briefs.show .edit p.submit { text-align: right; margin-top: 5px; }
-/* line 14, ../sass/snippets/_inlineedit.scss */
+/* line 353, ../sass/snippets/_briefs.scss */
 #briefs.show .section .editable { -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
-/* line 17, ../sass/snippets/_inlineedit.scss */
+/* line 356, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit.revealed { display: inline-block; }
-/* line 19, ../sass/snippets/_inlineedit.scss */
+/* line 358, ../sass/snippets/_briefs.scss */
 #briefs.show .section.brief_item .edit.revealed { display: block; }
-/* line 21, ../sass/snippets/_inlineedit.scss */
+/* line 360, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit { padding: 1em 0; text-align: center; }
-/* line 24, ../sass/snippets/_inlineedit.scss */
+/* line 363, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit .spinner { display: inline; }
-/* line 27, ../sass/snippets/_inlineedit.scss */
+/* line 366, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit .field { width: 100%; margin-bottom: 5px; }
-/* line 30, ../sass/snippets/_inlineedit.scss */
-#briefs.show .section .edit .field .toggle-inline-edit { display: inline; }
-/* line 34, ../sass/snippets/_inlineedit.scss */
+/* line 371, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit input.inline-edit-title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 590px; background: #fafafa; border: 1px solid #eee; }
-/* line 43, ../sass/snippets/_inlineedit.scss */
+/* line 380, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit .inline-edit-body { display: block; width: 590px; min-width: 590px; max-width: 590px; height: 100px; padding: 0.5em; margin-bottom: 0.5em; background: #fafafa; border: 1px solid #eee; font-size: 1em; }
-/* line 55, ../sass/snippets/_inlineedit.scss */
+/* line 392, ../sass/snippets/_briefs.scss */
 #briefs.show .section .edit p.submit { margin: 0 2px 0 0; }
-/* line 59, ../sass/snippets/_inlineedit.scss */
+/* line 396, ../sass/snippets/_briefs.scss */
 #briefs.show .section .spinner { display: inline; }
-/* line 61, ../sass/snippets/_inlineedit.scss */
+/* line 398, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing { overflow: hidden; }
-/* line 63, ../sass/snippets/_inlineedit.scss */
+/* line 400, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .show { border: 1px solid #fff; }
-/* line 64, ../sass/snippets/_inlineedit.scss */
+/* line 401, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .show span { font-weight: bold; }
-/* line 68, ../sass/snippets/_inlineedit.scss */
+/* line 405, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit { text-align: center; padding: 0; margin: auto; }
-/* line 72, ../sass/snippets/_inlineedit.scss */
+/* line 409, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit p.submit { margin-top: 0.5em; font-size: 0.5em; }
-/* line 78, ../sass/snippets/_inlineedit.scss */
+/* line 415, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit form { text-align: center; }
-/* line 80, ../sass/snippets/_inlineedit.scss */
+/* line 417, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit form input[type=text] { display: block; background: #fafafa; border: 1px solid #eee; padding: 0.5em 1em; font-size: .7em; font-weight: bold; width: 300px; text-align: center; }
-/* line 91, ../sass/snippets/_inlineedit.scss */
+/* line 428, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit span, #briefs.show .most_important_thing .edit .field { display: inline-block; }
-/* line 94, ../sass/snippets/_inlineedit.scss */
+/* line 431, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit span { font-size: 8em; display: inline-block; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 101, ../sass/snippets/_inlineedit.scss */
+/* line 438, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit span.left { vertical-align: top; margin-top: 0px; }
-/* line 105, ../sass/snippets/_inlineedit.scss */
+/* line 442, ../sass/snippets/_briefs.scss */
 #briefs.show .most_important_thing .edit span.right { vertical-align: bottom; }
 
-/* line 115, ../sass/snippets/_inlineedit.scss */
+/* line 453, ../sass/snippets/_briefs.scss */
 #content-header .editable:hover, .proposal h2 .editable:hover { background-color: #d5f557; cursor: pointer; }
-/* line 120, ../sass/snippets/_inlineedit.scss */
+/* line 458, ../sass/snippets/_briefs.scss */
 #content-header .edit, .proposal h2 .edit { margin: 2px 0; }
-/* line 122, ../sass/snippets/_inlineedit.scss */
+/* line 460, ../sass/snippets/_briefs.scss */
 #content-header .edit input[type=text], .proposal h2 .edit input[type=text] { font-size: 1.2em; display: inline-block; font-weight: bold; padding: 2px 3px; margin-right: .5em; border: 1px solid #ee8; background-color: #FFC; width: 75%; }
-/* line 132, ../sass/snippets/_inlineedit.scss */
+/* line 470, ../sass/snippets/_briefs.scss */
 #content-header .edit input[type=submit], .proposal h2 .edit input[type=submit] { display: inline-block; vertical-align: middle; margin-top: -4px; }
-/* line 137, ../sass/snippets/_inlineedit.scss */
-#content-header .edit .toggle-inline-edit, .proposal h2 .edit .toggle-inline-edit { display: inline; color: #fff; text-shadow: 1px 1px 1px #888; font-weight: normal; }
 
-/* line 146, ../sass/snippets/_inlineedit.scss */
-#add-new-section p { margin: 1em; text-align: right; }
-/* line 150, ../sass/snippets/_inlineedit.scss */
+/*  inline edit toggle triggers:  the "edit" button that appears when you hover a section the "cancel" button when editing a section
+*/
+/* line 483, ../sass/snippets/_briefs.scss */
+.brief .section { /* This is the "cancel" button when in the edit view. */ }
+/* line 484, ../sass/snippets/_briefs.scss */
+.brief .section .toggle-inline-edit { /* in IE we will need to display: none; as there are no CSS transitions anyway */ -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 500ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 500ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 500ms; transition-property: background-color, color, border-color, opacity; transition-duration: 500ms; font-size: 8pt; opacity: 0; float: right; height: 16px; line-height: 14px; display: block; padding-left: 4px; padding-right: 4px; }
+/* line 498, ../sass/snippets/_briefs.scss */
+.brief .section:hover .toggle-inline-edit { opacity: 1; }
+/* line 504, ../sass/snippets/_briefs.scss */
+.brief .section .edit .toggle-inline-edit { display: inline; color: #fff; text-shadow: 1px 1px 1px #888; font-weight: normal; }
+
+/* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */
+/* line 515, ../sass/snippets/_briefs.scss */
+.brief .most_important_thing.section .toggle-inline-edit { font-weight: normal; top: 0.5em; right: 0.5em; position: absolute; opacity: 0; display: block; }
+/* line 524, ../sass/snippets/_briefs.scss */
+.brief .most_important_thing.section:hover .toggle-inline-edit { opacity: 1; }
+
+/* Adding new sections dynamically */
+/* line 535, ../sass/snippets/_briefs.scss */
+#add-new-section p { margin: 1em 0; }
+/* line 538, ../sass/snippets/_briefs.scss */
 #add-new-section .toggle-add-new-section { padding: 2px 4px; }
 
-/* line 155, ../sass/snippets/_inlineedit.scss */
+/* line 542, ../sass/snippets/_briefs.scss */
 #new-section { display: none; border: 1px solid #ddd; padding: 1em; }
-/* line 159, ../sass/snippets/_inlineedit.scss */
+/* line 546, ../sass/snippets/_briefs.scss */
 #new-section .field { clear: both; }
-/* line 161, ../sass/snippets/_inlineedit.scss */
+/* line 548, ../sass/snippets/_briefs.scss */
 #new-section .field label { display: block; float: none; }
-/* line 165, ../sass/snippets/_inlineedit.scss */
+/* line 552, ../sass/snippets/_briefs.scss */
 #new-section .field input.title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 628px; background: #fafafa; border: 1px solid #ddd; }
-/* line 174, ../sass/snippets/_inlineedit.scss */
+/* line 561, ../sass/snippets/_briefs.scss */
 #new-section .field .body { display: block; height: 100px; padding: 0.5em; width: 628px; background: #fafafa; border: 1px solid #ddd; font-size: 1em; }
-/* line 184, ../sass/snippets/_inlineedit.scss */
+/* line 571, ../sass/snippets/_briefs.scss */
 #new-section .is_heading { float: right; }
-/* line 186, ../sass/snippets/_inlineedit.scss */
+/* line 573, ../sass/snippets/_briefs.scss */
 #new-section .is_heading label { display: inline; font-weight: normal; }
-/* line 191, ../sass/snippets/_inlineedit.scss */
-#new-section .submit { width: 600px; text-align: right; margin-top: 0.5em; }
+/* line 578, ../sass/snippets/_briefs.scss */
+#new-section .submit { text-align: right; margin-top: 0.5em; }
+/* line 581, ../sass/snippets/_briefs.scss */
+#new-section .submit .spinner { display: inline; }
 
+/* Deleting a section */
 /* line 4, ../sass/snippets/_smartbox.scss */
 .smartTextBox { cursor: text; }
 

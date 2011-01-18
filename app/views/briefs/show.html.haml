@@ -27,11 +27,12 @@
     = render :partial => 'briefs/brief_partials/most_important_thing'
     #sortable_brief_items
       = render :partial => 'briefs/brief_partials/brief_item', :collection => (current_object.brief_items)
-    = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief} if owner?(current_object) and current_object.active?
     -if current_object.draft? and owner?(current_object)
       .publish-draft
         - form_for(current_object, :html => { :method => :put }) do |brief_form|
-          %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]'
+          %p.submit=brief_form.submit 'publish', :name => 'brief[_call_state]', :class => 'funky-button-small'
+    = render :partial => 'briefs/brief_partials/new_section', :locals => { :current_object => @brief} if owner?(current_object) and current_object.active?
+
   
   =render :partial => 'comments'
   

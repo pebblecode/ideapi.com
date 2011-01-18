@@ -20,7 +20,7 @@ class BriefItemsController < ApplicationController
           redirect_to @brief
         }
         format.js{
-          render :nothing => true
+          format.js{ render :text => "Something went wrong? Please try again.", :status => 500}
         }
       end
     end

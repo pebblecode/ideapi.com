@@ -417,18 +417,15 @@ jQuery.user_links_external = function(){
     };
     
     $("#briefs.show .section a.toggle-inline-edit").live('click', function(e){
-      $(this).siblings('div.edit').toggleClass('revealed');
-      $(this).siblings('div.editable').toggle('blind', {}, 200);
       
-      if($(this).text() == 'edit'){
-        $(this).text('show');
-      }else{
-        $(this).text('edit'); 
-      }
+      // $(this).siblings('div.editable').toggle('slide', {}, 1000);
+      $(this).siblings('div.editable').toggle();
+      $(this).siblings('div.edit').toggleClass('revealed');
+      if($(this).text() == 'edit'){ $(this).text('show'); }
+      else{ $(this).text('edit'); }
       
       $(this).siblings('ul.actions').toggleClass('hide');
       $(this).siblings('div.brief_item_activity').toggleClass('hide');
-      
     });
 
     $("#briefs.show .section .edit a.cancel-inline-edit").live('click', function(e){
@@ -496,11 +493,11 @@ jQuery.user_links_external = function(){
     });
     var new_section_success = function(data){
       $('#new-section-title').val('');
-      $('#new-section-body').text('');
+      $('#new-section-body').val('');
       var _data = $(data);
       _data.hide();
       _data.find(".brief_item_activity").hide();
-      $('#add-new-section').before(_data);
+      $('#sortable_brief_items').append(_data);
       _data.fadeIn();
       _submit.show();
       _spinner.remove();
