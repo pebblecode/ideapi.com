@@ -11,19 +11,19 @@
 # if RAILS_ENV != "production"
 #   require 'test/test_helper'
 #   
-#   include BriefWorkflowHelper
+#   include DocumentWorkflowHelper
 #   
 #   users = User.all
 #   
 #   users.each do |user|
 #     
 #     3.times do
-#       brief = Brief.make({:author => user, :template_brief => TemplateBrief.find_by_title('Default') })
-#       brief.brief_items.each { |b_i| b_i.update_attribute(:body, Sham.body) }
-#       brief.publish!
+#       document = Document.make({:author => user, :template_document => TemplateDocument.find_by_title('Default') })
+#       document.document_items.each { |b_i| b_i.update_attribute(:body, Sham.body) }
+#       document.publish!
 #     end
 #     
-#     user.briefs.reload.each do |b|
+#     user.documents.reload.each do |b|
 #       10.times { 
 #         asker = User.all(:conditions => ["id <> ?", user.id]).rand
 #         
@@ -31,7 +31,7 @@
 #           b.users << asker
 #         end
 #         
-#         b.brief_items.reload.rand.questions.make(:user => asker) 
+#         b.document_items.reload.rand.questions.make(:user => asker) 
 #       }
 #     end
 #     
@@ -71,12 +71,12 @@
 #   
 #   # if alex = User.find_by_screename("alex")
 #   #   
-#   #   if brief = alex.briefs.build(:template_brief => TemplateBrief.find_by_title("Default"))
+#   #   if document = alex.documents.build(:template_document => TemplateDocument.find_by_title("Default"))
 #   #     
-#   #     brief.title = "ideapi.com logo and branding"
-#   #     brief.most_important_message = "ideapi needs a logo and branding to launch it and make it a success"
+#   #     document.title = "ideapi.com logo and branding"
+#   #     document.most_important_message = "ideapi needs a logo and branding to launch it and make it a success"
 #   #     
-#   #     puts "Created sample ideapi brief" if brief.save
+#   #     puts "Created sample ideapi document" if document.save
 #   #     
 #   #   end
 #   #   

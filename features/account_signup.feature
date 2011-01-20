@@ -5,7 +5,7 @@ Feature: Allow users to sign up and use ideapi
 
     Background:
         Given there are free, basic and premium plans
-        And a default ideapi template brief exists
+        And a default ideapi template document exists
 
     Scenario: Signing up for a new account
         When I go to the signup page

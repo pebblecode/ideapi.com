@@ -19,7 +19,7 @@ h3, h4 {
 input[type=submit] {
   margin-top: 1em; }
 
-.edit_template_brief table td.heading {
+.edit_template_document table td.heading {
   color: gray; }
 
 #account-stats {

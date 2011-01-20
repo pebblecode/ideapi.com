@@ -1,9 +1,9 @@
-class AddStateToBrief < ActiveRecord::Migration
+class AddStateToDocument < ActiveRecord::Migration
   def self.up
-    add_column :briefs, :state, :string
+    add_column :documents, :state, :string
   end
 
   def self.down
-    remove_column :briefs, :state
+    remove_column :documents, :state
   end
 end

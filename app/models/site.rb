@@ -1,4 +1,4 @@
 class Site < ActiveRecord::Base
-  has_many :briefs
-  has_many :template_briefs
+  has_many :documents
+  has_many :template_documents
 end

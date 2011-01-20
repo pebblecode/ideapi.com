@@ -1,11 +1,11 @@
-Feature: Control access to briefs based on user roles
-    In order to manage the process of creating a brief
+Feature: Control access to documents based on user roles
+    In order to manage the process of creating a document
     As an ideapi user
     I should only be able to certain things based on my role
 
     Background:
         Given there are free, basic and premium plans
-        And a default ideapi template brief exists
+        And a default ideapi template document exists
         And I am logged in as an account admin
         
     Scenario: Adding a new user to an account with no privileges
@@ -35,5 +35,5 @@ Feature: Control access to briefs based on user roles
             | Telephone             | 0123456789    |
             | Telephone ext         | 123           |
         And I press "Complete registration"
-        Then I should see "You have no briefs."
+        Then I should see "You have no documents."
         

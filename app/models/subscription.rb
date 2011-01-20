@@ -23,7 +23,7 @@ class Subscription < ActiveRecord::Base
   # message for each limit to be checked.
   Limits = {
     Proc.new {|account, plan| !plan.user_limit || plan.user_limit >= Account::Limits['user_limit'].call(account) } => 'User limit for new plan would be exceeded.  Please delete some users and try again.',
-    Proc.new {|account, plan| !plan.brief_limit || plan.brief_limit >= Account::Limits['brief_limit'].call(account) } => 'Brief limit for new plan would be exceeded, plese archive or delete some briefs and try again.'
+    Proc.new {|account, plan| !plan.document_limit || plan.document_limit >= Account::Limits['document_limit'].call(account) } => 'Document limit for new plan would be exceeded, plese archive or delete some documents and try again.'
   }
   
   # Changes the subscription plan, and assigns various properties, 
@@ -45,7 +45,7 @@ class Subscription < ActiveRecord::Base
       self.state = 'active' if new_record?
     end
     
-    [:amount, :user_limit, :brief_limit, :renewal_period].each do |f|
+    [:amount, :user_limit, :document_limit, :renewal_period].each do |f|
       self.send("#{f}=", plan.send(f))
     end
     

@@ -10,42 +10,42 @@ class AddIndexes < ActiveRecord::Migration
     add_index :timeline_events, [:subject_id, :subject_type]
     add_index :timeline_events, [:actor_id, :actor_type]
     
-    add_index :brief_user_views, :brief_id
-    add_index :brief_user_views, :user_id
+    add_index :document_user_views, :document_id
+    add_index :document_user_views, :user_id
     
-    add_index :proposals, :brief_id
+    add_index :proposals, :document_id
     add_index :proposals, :user_id
     
-    add_index :questions, :brief_id
+    add_index :questions, :document_id
     add_index :questions, :user_id
-    add_index :questions, :brief_item_id
+    add_index :questions, :document_item_id
     
-    add_index :watched_briefs, :brief_id
-    add_index :watched_briefs, :user_id
+    add_index :watched_documents, :document_id
+    add_index :watched_documents, :user_id
     
     add_index :friendships, :user_id
     add_index :friendships, :friend_id
     
-    add_index :briefs, :user_id
-    add_index :briefs, :site_id
-    add_index :briefs, :template_brief_id
-    add_index :briefs, :approver_id
+    add_index :documents, :user_id
+    add_index :documents, :site_id
+    add_index :documents, :template_document_id
+    add_index :documents, :approver_id
 
-    add_index :template_brief_questions, :template_brief_id
-    add_index :template_brief_questions, :template_question_id
+    add_index :template_document_questions, :template_document_id
+    add_index :template_document_questions, :template_question_id
 
-    add_index :brief_item_versions, :brief_id
-    add_index :brief_item_versions, :template_question_id
+    add_index :document_item_versions, :document_id
+    add_index :document_item_versions, :template_question_id
 
     add_index :invitations, :user_id
     add_index :invitations, :redeemed_by_id
     add_index :invitations, :redeemable_id
 
-    add_index :brief_items, :brief_id
-    add_index :brief_items, :template_question_id
+    add_index :document_items, :document_id
+    add_index :document_items, :template_question_id
 
     add_index :template_questions, :template_section_id
-    add_index :template_briefs, :site_id
+    add_index :template_documents, :site_id
   end
 
   def self.down
@@ -56,42 +56,42 @@ class AddIndexes < ActiveRecord::Migration
     remove_index :timeline_events, [:subject_id, :subject_type]
     remove_index :timeline_events, [:actor_id, :actor_type]
     
-    remove_index :brief_user_views, :brief_id
-    remove_index :brief_user_views, :user_id
+    remove_index :document_user_views, :document_id
+    remove_index :document_user_views, :user_id
 
-    remove_index :proposals, :brief_id
+    remove_index :proposals, :document_id
     remove_index :proposals, :user_id
 
-    remove_index :questions, :brief_id
+    remove_index :questions, :document_id
     remove_index :questions, :user_id
-    remove_index :questions, :brief_item_id
+    remove_index :questions, :document_item_id
 
-    remove_index :watched_briefs, :brief_id
-    remove_index :watched_briefs, :user_id
+    remove_index :watched_documents, :document_id
+    remove_index :watched_documents, :user_id
 
     remove_index :friendships, :user_id
     remove_index :friendships, :friend_id
 
-    remove_index :briefs, :user_id
-    remove_index :briefs, :site_id
-    remove_index :briefs, :template_brief_id
-    remove_index :briefs, :approver_id
+    remove_index :documents, :user_id
+    remove_index :documents, :site_id
+    remove_index :documents, :template_document_id
+    remove_index :documents, :approver_id
 
-    remove_index :template_brief_questions, :template_brief_id
-    remove_index :template_brief_questions, :template_question_id
+    remove_index :template_document_questions, :template_document_id
+    remove_index :template_document_questions, :template_question_id
 
-    remove_index :brief_item_versions, :brief_id
-    remove_index :brief_item_versions, :template_question_id
+    remove_index :document_item_versions, :document_id
+    remove_index :document_item_versions, :template_question_id
 
     remove_index :invitations, :user_id
     remove_index :invitations, :redeemed_by_id
     remove_index :invitations, :redeemable_id
 
-    remove_index :brief_items, :brief_id
-    remove_index :brief_items, :template_question_id
+    remove_index :document_items, :document_id
+    remove_index :document_items, :template_question_id
 
     remove_index :template_questions, :template_section_id
-    remove_index :template_briefs, :site_id
+    remove_index :template_documents, :site_id
   end
   
 end

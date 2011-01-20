@@ -13,7 +13,7 @@ $speechbox-textarea-width: $speechbox-width - 14;
       margin-top: 1em;
     }
   }
-  .brief_item_question, 
+  .document_item_question, 
   .author_answer, 
   .author_answer_form, 
   .question_form, 
@@ -85,7 +85,7 @@ $speechbox-textarea-width: $speechbox-width - 14;
     
   }
   
-  .brief_item{
+  .document_item{
     .toggle_revision_body{
       cursor: pointer;
     }
@@ -93,13 +93,13 @@ $speechbox-textarea-width: $speechbox-width - 14;
       float: right;
       margin-right: -0.5em;
     }
-    .brief_item_activity{
+    .document_item_activity{
       background: #f7f7f7;
       margin: 0;
       padding: 1em 0 1em 0;
     
       // this is an Unordered List
-        .brief_item_history{
+        .document_item_history{
           margin: 0 auto 0 auto;
           padding: 0;
         }
@@ -159,7 +159,7 @@ $speechbox-textarea-width: $speechbox-width - 14;
           }
         }
       
-        .brief_item_question, .question_form{
+        .document_item_question, .question_form{
         
           .avatar{
             position: absolute;
@@ -277,7 +277,7 @@ span.timestamp{
   font-style: italic;
 }
 
-.brief_item_history{
+.document_item_history{
   .speech{
     p{ margin: 0;}
     &:hover{

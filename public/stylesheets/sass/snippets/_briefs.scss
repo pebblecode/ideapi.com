@@ -1,11 +1,11 @@
-/* Header / Title for Briefs, proposals... */
+/* Header / Title for Documents, proposals... */
 
-.brief, .proposal, .brief_list {
+.document, .proposal, .document_list {
   background: #fffffe;
   margin: 0 0 1em 0;
   position: relative;
 }
-.brief #content-header{
+.document #content-header{
   color: $ideapi_green_dark;
   padding: 0.5em 80px 0.5em 1em;
   position: relative;
@@ -21,7 +21,7 @@
 #documents #content-header{
   padding-right: 0.5em;
 }
-.brief_item{
+.document_item{
   .show, .edit{ margin-right: 3em; }
   .body{
     img{
@@ -31,14 +31,14 @@
     }
   }
 }
-.brief .section{
+.document .section{
   border: 1px solid #eee;
   border-top: 0;
   padding: 0.5em 0.5em .5em 1em;
   .edit{display: none;}
 }
 
-.brief div.actions {
+.document div.actions {
   z-index: 10;
   position: absolute;
   top: 9px;
@@ -54,7 +54,7 @@
   a:hover {
     color: #fefefe;
   }
-  a.edit_brief, a.edit_icon, a.edit_template {
+  a.edit_document, a.edit_icon, a.edit_template {
     background: url("/images/page_edit.png") no-repeat center right;
     height: 16px;
     text-indent: -9999px;
@@ -65,7 +65,7 @@
       font-weight: normal;
     }
   }
-  a.print_brief {
+  a.print_document {
     display: block;
     float: right;
     background: url("/images/printer.png");
@@ -76,7 +76,7 @@
   form {
     float: right;
   }
-  .clean_brief {
+  .clean_document {
     @include rounded-all-3px;
     background: url("/images/ui/button_background_red.png") 0 0;
     border: 1px solid #32401a;
@@ -91,13 +91,13 @@
     }
   }
 }
-.brief, .proposal, .brief_list {
+.document, .proposal, .document_list {
   
-  .brief_heading {
+  .document_heading {
     h3 {
       margin-left: 20px; } }
     
-  .proposal_item, .brief_heading {
+  .proposal_item, .document_heading {
     border: 1px solid #cccccc;
     border-bottom: 1px solid #eeeeee;
     border-top: 0;
@@ -137,7 +137,7 @@
     top: 4em;
     left: 51.5em;
     z-index: 5; }
-  .brief_item:last-child, .proposal_item:last-child {
+  .document_item:last-child, .proposal_item:last-child {
     border-bottom: 1px solid #cccccc; }
   .proposal_item {
     p.asset {
@@ -188,17 +188,17 @@
       
     }
   }
-  .brief_item.updated {
+  .document_item.updated {
     h3, h4 {
       background: #ffffdf; } }
-  .brief_item.extended {
+  .document_item.extended {
     background: transparent; 
   } 
 }
 
 
 #documents, #sortable {
-  .brief_overviews {
+  .document_overviews {
     h2 {
       padding: 0;
       font-size: 1.1em;
@@ -211,7 +211,7 @@
       color: #454545;
     }
   }
-  .brief_item{
+  .document_item{
     padding: 0.5em 1em;
     border: 1px solid #eee;
     border-bottom: 1px solid #eeeeee;
@@ -249,7 +249,7 @@ ul.actions.active {
 }
 
 
-#options-menu, #brief-tags{
+#options-menu, #document-tags{
   border-bottom: 1px solid #eee;
   border-top: 1px solid #fcfcfc;
   background: #fcfcfc;
@@ -270,7 +270,7 @@ ul.actions.active {
   }
 }
 
-#brief-tags{
+#document-tags{
   
   border: 0;
   padding: 0 0.5em;
@@ -308,8 +308,8 @@ ul.actions.active {
   p{ margin: 0;}
 }
 
-#sortable_brief_items.sortable{
-  .brief_item{
+#sortable_document_items.sortable{
+  .document_item{
     border-top: 1px solid #eee;
     border-left: 2px solid #eee;
     border-right: 2px solid #eee;
@@ -324,7 +324,7 @@ ul.actions.active {
       background: url('/images/ui/move-handle.png') no-repeat 0 0;
     }
   }
-  .body, .edit, .toggle-inline-edit, .actions, .brief_item_activity{
+  .body, .edit, .toggle-inline-edit, .actions, .document_item_activity{
     display: none;
   }
 }
@@ -336,7 +336,7 @@ ul.actions.active {
   margin-left: 5px;
 }
 
-#briefs.show{
+#documents.show{
   .inline-edit, .edit{
     display: none;
   }
@@ -353,7 +353,7 @@ ul.actions.active {
       @include color-transitions();
     }
     .edit.revealed{display: inline-block;}
-    &.brief_item{
+    &.document_item{
       .edit.revealed{display: block;}
     }
     .edit{
@@ -479,7 +479,7 @@ ul.actions.active {
     * the "edit" button that appears when you hover a section
     * the "cancel" button when editing a section
 */
-.brief .section{
+.document .section{
   .toggle-inline-edit{
     /* in IE we will need to display: none; as there are no CSS transitions anyway */
     @include color-transitions(500ms);
@@ -510,7 +510,7 @@ ul.actions.active {
   }
 }
 /* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */ 
-.brief .most_important_thing.section{
+.document .most_important_thing.section{
   .toggle-inline-edit{
     float: right;
     font-weight: normal;

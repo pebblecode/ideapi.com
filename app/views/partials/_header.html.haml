@@ -12,6 +12,6 @@
         %a{:href => 'javascript:void(0)', :class => 'toggle-page-help current'}
           %span help
       %li=link_unless_current 'documents', '/documents'
-      -if current_user && current_user_can_create_briefs?
-        %li=link_unless_current 'templates', template_briefs_path
+      -if current_user && current_user_can_create_documents?
+        %li=link_unless_current 'templates', template_documents_path
       %li=link_unless_current 'contacts', users_path

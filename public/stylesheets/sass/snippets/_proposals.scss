@@ -264,11 +264,11 @@ $textfield_width: 627px;
   .title {
     position: relative; 
   }
-  .proposal_item, .brief {
+  .proposal_item, .document {
     padding: 1em;
     z-index: 10; 
   }
-  .brief_heading {
+  .document_heading {
     h3 {
       margin-left: 20px; 
     } 
@@ -284,7 +284,7 @@ $textfield_width: 627px;
     left: 51.5em;
     z-index: 5; 
   }
-  .brief_item:last-child, .proposal_item:last-child {
+  .document_item:last-child, .proposal_item:last-child {
     border-bottom: 1px solid #cccccc; 
   }
   .proposal_item {

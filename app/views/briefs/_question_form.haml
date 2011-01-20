@@ -1,7 +1,0 @@
-=hidden_field_tag 'question[brief_item_id]', brief_item.id, :id => nil
-.speech
-  =f.text_area :body, :rows => 10, :cols => 80, :id => "question_body_#{brief_item.id}"
-  %p.button
-    %img{:src => '/images/ui/loading.gif', :alt => 'Submitting question...', :class => 'loading-gif hide'}/
-    =f.submit "submit", :class => "new_question_submit awesome large blue", :id => "question_submit_#{brief_item.id}"
-.clear

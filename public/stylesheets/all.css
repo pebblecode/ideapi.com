@@ -855,7 +855,7 @@ a:link, a:visited {
 body {
   font-size: 62.5%; }
 
-div.brief, #footer {
+div.document, #footer {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto; }
@@ -869,44 +869,44 @@ ul {
     margin-left: 0.1em;
     font-size: 1em; }
 
-.brief {
+.document {
   padding: 1em 4em; }
-  .brief h2 {
+  .document h2 {
     border-bottom: 4px solid #333333; }
-  .brief .most_important_thing {
+  .document .most_important_thing {
     font-size: 2em;
     padding: 1em 1em 0 1em; }
-    .brief .most_important_thing p {
+    .document .most_important_thing p {
       font-weight: bold; }
-  .brief img {
+  .document img {
     display: block;
     border: 5px solid #dddddd;
     margin: auto;
     max-width: 570px; }
-  .brief p {
+  .document p {
     font-size: 1.2em; }
-  .brief .brief_item {
+  .document .document_item {
     padding: 1em; }
-    .brief .brief_item h3 {
+    .document .document_item h3 {
       border-bottom: 1px solid #aaaaaa; }
-    .brief .brief_item .body {
+    .document .document_item .body {
       padding: 0; }
-    .brief .brief_item .actions {
+    .document .document_item .actions {
       display: none; }
-    .brief .brief_item .brief_item_history {
+    .document .document_item .document_item_history {
       padding: 0 2em; }
-      .brief .brief_item .brief_item_history .question {
+      .document .document_item .document_item_history .question {
         margin: 0.5em 1em;
         padding: 0 1em;
         border-bottom: 1px dashed #aaaaaa; }
-        .brief .brief_item .brief_item_history .question .question_body span.speech {
+        .document .document_item .document_item_history .question .question_body span.speech {
           font-style: italic; }
-      .brief .brief_item .brief_item_history p.updated {
+      .document .document_item .document_item_history p.updated {
         border-bottom: 1px solid #cccccc;
         font-size: 1em;
         text-transform: uppercase;
         text-align: right; }
-        .brief .brief_item .brief_item_history p.updated span {
+        .document .document_item .document_item_history p.updated span {
           color: #aaaaaa; }
 
 .col_2 {

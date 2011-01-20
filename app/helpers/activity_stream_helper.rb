@@ -1,7 +1,7 @@
 module ActivityStreamHelper
   
-  def activity_snapshot(activity_hash_from_brief)
-    activity_hash_from_brief.collect do |activity_type, collection| 
+  def activity_snapshot(activity_hash_from_document)
+    activity_hash_from_document.collect do |activity_type, collection| 
       activity_action(activity_type, collection) 
     end.join(", ")
   end
@@ -31,14 +31,14 @@ module ActivityStreamHelper
   
   def action_description(event)
     case event.event_type
-    when "brief_created"
-      "ACTOR_NAME created this brief"
-    when "brief_item_changed"
+    when "document_created"
+      "ACTOR_NAME created this document"
+    when "document_item_changed"
       "Updated by ACTOR_NAME: #{event.subject.try(:body)}"
     when "new_question"
-      "ACTOR_NAME asked a #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)} on the brief"
+      "ACTOR_NAME asked a #{link_to 'question', link_to_document_item_on_document(event.secondary_subject)} on the document"
     when "question_answered"
-      "ACTOR_NAME answered #{given_name(event.subject.user)} #{link_to 'question', link_to_brief_item_on_brief(event.secondary_subject)}"
+      "ACTOR_NAME answered #{given_name(event.subject.user)} #{link_to 'question', link_to_document_item_on_document(event.secondary_subject)}"
     when "new_proposal"
       "ACTOR_NAME submitted an idea"
     when "proposal_marked"
@@ -47,15 +47,15 @@ module ActivityStreamHelper
       if event.secondary_subject.is_a?(Proposal)
         "ACTOR_NAME commented on #{given_name(event.subject.user)} idea"
       else
-        "ACTOR_NAME commented on the brief"
+        "ACTOR_NAME commented on the document"
       end
     else
       event.event_type.humanize
     end
   end
   
-  def link_to_brief_item_on_brief(brief_item)
-    brief_path(brief_item.brief, :anchor => dom_id(brief_item))
+  def link_to_document_item_on_document(document_item)
+    document_path(document_item.document, :anchor => dom_id(document_item))
   end
   
 end

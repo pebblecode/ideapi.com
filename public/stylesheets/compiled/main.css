@@ -497,13 +497,13 @@ button.xl { width: 120px; }
 .warning { color: #ff3333; }
 
 /* line 5, ../sass/snippets/_classes.scss */
-.flag, .user_context, .brief_list .number-bubble { border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; font-size: 0.8em !important; margin: 3px 0.5em 0 0; padding: 0 5px; height: 15px; line-height: 15px; display: block; }
+.flag, .user_context, .document_list .number-bubble { border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; font-size: 0.8em !important; margin: 3px 0.5em 0 0; padding: 0 5px; height: 15px; line-height: 15px; display: block; }
 
 /* line 14, ../sass/snippets/_classes.scss */
 .flag { border: 1px solid #aaa; color: #555; float: left; background: #eee; background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc)); background: -moz-linear-gradient(top, #eeeeee, #cccccc); }
 
 /* line 21, ../sass/snippets/_classes.scss */
-.user_context, .brief_list .number-bubble { margin-right: 0; margin-left: 0.5em; float: right; border: 1px solid #c4e446; background: #e6ff68; background: -webkit-gradient(linear, left top, left bottom, from(#e6ff68), to(#d5f557)); background: -moz-linear-gradient(top, #e6ff68, #d5f557); color: #555; }
+.user_context, .document_list .number-bubble { margin-right: 0; margin-left: 0.5em; float: right; border: 1px solid #c4e446; background: #e6ff68; background: -webkit-gradient(linear, left top, left bottom, from(#e6ff68), to(#d5f557)); background: -moz-linear-gradient(top, #e6ff68, #d5f557); color: #555; }
 
 /* line 1, ../sass/snippets/_feedback.scss */
 #beta_feedback { background: white; background: #fefefe; min-width: 980px; width: 100%; }
@@ -657,7 +657,7 @@ ul.navigation li a.toggle-page-help span { background: url("/images/ui/help.png"
 /* line 95, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator, .side_box .contents .add_collaborators .available_collaborator { padding: 1em; border-bottom: 1px solid #ccc; }
 /* line 99, ../sass/snippets/_sidebar.scss */
-.side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button { margin: 0; padding: 0px 4px; border: 1px solid #bbb; color: black; font-weight: bold; font-size: 0.9em; }
+.side_box .contents ul.collaborators .available_collaborator .add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button { margin: 0; padding: 0px 4px; border: 1px solid #bbb; color: black; font-weight: bold; font-size: 0.9em; }
 /* line 112, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator .name, .side_box .contents .add_collaborators .available_collaborator .name { margin: 0; padding: 0; }
 /* line 117, ../sass/snippets/_sidebar.scss */
@@ -733,27 +733,27 @@ ul.navigation li a.toggle-page-help span { background: url("/images/ui/help.png"
 .ideas .user_idea span.dropped { color: #ed1c24; }
 
 /* line 260, ../sass/snippets/_sidebar.scss */
-#brief_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
+#document_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
 /* line 265, ../sass/snippets/_sidebar.scss */
-#brief_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
+#document_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
 /* line 270, ../sass/snippets/_sidebar.scss */
-#brief_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
+#document_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
 /* line 275, ../sass/snippets/_sidebar.scss */
-#brief_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
+#document_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
 /* line 281, ../sass/snippets/_sidebar.scss */
-#brief_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
+#document_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
 /* line 285, ../sass/snippets/_sidebar.scss */
-#brief_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
+#document_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
 /* line 288, ../sass/snippets/_sidebar.scss */
-#brief_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
+#document_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
 /* line 292, ../sass/snippets/_sidebar.scss */
-#brief_reference ul li h3.js { padding-bottom: 0.5em; }
+#document_reference ul li h3.js { padding-bottom: 0.5em; }
 /* line 294, ../sass/snippets/_sidebar.scss */
-#brief_reference ul li h3.active { padding-bottom: 0; }
+#document_reference ul li h3.active { padding-bottom: 0; }
 /* line 296, ../sass/snippets/_sidebar.scss */
-#brief_reference ul li p { font-weight: normal; }
+#document_reference ul li p { font-weight: normal; }
 /* line 298, ../sass/snippets/_sidebar.scss */
-#brief_reference ul li:last-child { border-bottom: 0; }
+#document_reference ul li:last-child { border-bottom: 0; }
 
 /* line 304, ../sass/snippets/_sidebar.scss */
 .collaborator_search { border-bottom: 1px solid #ccc; padding: 1em; }
@@ -879,13 +879,13 @@ ul#notifications li span.notification_action { float: right; }
 /* line 264, ../sass/snippets/_proposals.scss */
 .proposal .title { position: relative; }
 /* line 267, ../sass/snippets/_proposals.scss */
-.proposal .proposal_item, .proposal .brief { padding: 1em; z-index: 10; }
+.proposal .proposal_item, .proposal .document { padding: 1em; z-index: 10; }
 /* line 272, ../sass/snippets/_proposals.scss */
-.proposal .brief_heading h3 { margin-left: 20px; }
+.proposal .document_heading h3 { margin-left: 20px; }
 /* line 276, ../sass/snippets/_proposals.scss */
 .proposal .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
 /* line 287, ../sass/snippets/_proposals.scss */
-.proposal .brief_item:last-child, .proposal .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
+.proposal .document_item:last-child, .proposal .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
 /* line 291, ../sass/snippets/_proposals.scss */
 .proposal .proposal_item p.asset { width: 120px; }
 /* line 294, ../sass/snippets/_proposals.scss */
@@ -894,17 +894,17 @@ ul#notifications li span.notification_action { float: right; }
 .proposal .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
 
 /*lost in translation*/
-/* line 3, ../sass/snippets/_template_briefs.scss */
-.brief_list .number-bubble { float: right; }
-/* line 7, ../sass/snippets/_template_briefs.scss */
-.brief_list .toggle_activity_stream { position: absolute; top: 0.8em; right: 1em; width: 28px; height: 28px; background: url(/images/ico_circle_green.png) no-repeat; color: white; text-align: center; font-size: 1.4em; padding-top: 2px; }
-/* line 18, ../sass/snippets/_template_briefs.scss */
-.brief_list .toggle_activity_stream.active { background: url(/images/ico_minus.png) no-repeat; text-indent: -3000px; }
+/* line 3, ../sass/snippets/_template_documents.scss */
+.document_list .number-bubble { float: right; }
+/* line 7, ../sass/snippets/_template_documents.scss */
+.document_list .toggle_activity_stream { position: absolute; top: 0.8em; right: 1em; width: 28px; height: 28px; background: url(/images/ico_circle_green.png) no-repeat; color: white; text-align: center; font-size: 1.4em; padding-top: 2px; }
+/* line 18, ../sass/snippets/_template_documents.scss */
+.document_list .toggle_activity_stream.active { background: url(/images/ico_minus.png) no-repeat; text-indent: -3000px; }
 
-/* line 23, ../sass/snippets/_template_briefs.scss */
-#sortable .brief_heading { padding: 0.5em 1em; background: #f8f8f8; }
-/* line 27, ../sass/snippets/_template_briefs.scss */
-#sortable .brief_heading h3 { margin-left: 0; text-align: center; }
+/* line 23, ../sass/snippets/_template_documents.scss */
+#sortable .document_heading { padding: 0.5em 1em; background: #f8f8f8; }
+/* line 27, ../sass/snippets/_template_documents.scss */
+#sortable .document_heading h3 { margin-left: 0; text-align: center; }
 
 /* line 1, ../sass/snippets/_footer.scss */
 #footer { background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
@@ -1001,18 +1001,18 @@ h4 { font-size: 1.15em; }
 .add_collaborators { display: none; }
 
 /* line 118, ../sass/main.scss */
-.btn-shizzle, .funky-button, #brief-tags .inline-submit, .ideapi_button, .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button, .delete-button, .delete-section-submit, #template_briefs #container a.delete_template, .green-button-link, #template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit, .link-as-button, #reorder-sections { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
+.btn-shizzle, .funky-button, #document-tags .inline-submit, .ideapi_button, .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button, .delete-button, .delete-section-submit, #template_documents #container a.delete_template, .green-button-link, #template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit, .link-as-button, #reorder-sections { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
 /* line 135, ../sass/main.scss */
-.btn-shizzle:active, .funky-button:active, #brief-tags .inline-submit:active, .ideapi_button:active, .funky-button-small:active, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button:active, .delete-button:active, .delete-section-submit:active, #template_briefs #container a.delete_template:active, .green-button-link:active, #template_briefs #container .new_template_brief .actions a.add_child:active, #template_briefs #container .edit_template_brief .actions a.add_child:active, #container #content .main .comment .speech #comment_submit:active, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit]:active, #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit]:active, .inline-edit-submit:active, .link-as-button:active, #reorder-sections:active, .btn-shizzle.active, .active.funky-button, #brief-tags .active.inline-submit, .active.ideapi_button, .active.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .active.add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .active.add_user_brief_button, .active.delete-button, .active.delete-section-submit, #template_briefs #container a.active.delete_template, .active.green-button-link, #template_briefs #container .new_template_brief .actions a.active.add_child, #template_briefs #container .edit_template_brief .actions a.active.add_child, #container #content .main .comment .speech .active#comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input.active[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input.active[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input.active[type=submit], .active.inline-edit-submit, .active.link-as-button, .active#reorder-sections { background-position: 0px bottom; }
+.btn-shizzle:active, .funky-button:active, #document-tags .inline-submit:active, .ideapi_button:active, .funky-button-small:active, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button:active, .delete-button:active, .delete-section-submit:active, #template_documents #container a.delete_template:active, .green-button-link:active, #template_documents #container .new_template_document .actions a.add_child:active, #template_documents #container .edit_template_document .actions a.add_child:active, #container #content .main .comment .speech #comment_submit:active, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit]:active, #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit]:active, #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit]:active, .inline-edit-submit:active, .link-as-button:active, #reorder-sections:active, .btn-shizzle.active, .active.funky-button, #document-tags .active.inline-submit, .active.ideapi_button, .active.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .active.add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .active.add_user_document_button, .active.delete-button, .active.delete-section-submit, #template_documents #container a.active.delete_template, .active.green-button-link, #template_documents #container .new_template_document .actions a.active.add_child, #template_documents #container .edit_template_document .actions a.active.add_child, #container #content .main .comment .speech .active#comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input.active[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input.active[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input.active[type=submit], .active.inline-edit-submit, .active.link-as-button, .active#reorder-sections { background-position: 0px bottom; }
 
 /* line 138, ../sass/main.scss */
-.funky-button, #brief-tags .inline-submit, .ideapi_button { height: 26px; line-height: 24px; }
+.funky-button, #document-tags .inline-submit, .ideapi_button { height: 26px; line-height: 24px; }
 
 /* line 143, ../sass/main.scss */
-.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_brief_button, .side_box .contents .add_collaborators .available_collaborator .add_user_brief_button, .delete-button, .delete-section-submit, #template_briefs #container a.delete_template, .green-button-link, #template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit { height: 20px; line-height: 18px; cursor: pointer; }
+.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button, .delete-button, .delete-section-submit, #template_documents #container a.delete_template, .green-button-link, #template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit { height: 20px; line-height: 18px; cursor: pointer; }
 
 /* line 149, ../sass/main.scss */
-.delete-button, .delete-section-submit, #template_briefs #container a.delete_template { border: solid 1px #f66; color: #eee; background: url("/images/ui/btn-bg-red.png") repeat-x 0px 0px; text-shadow: none; }
+.delete-button, .delete-section-submit, #template_documents #container a.delete_template { border: solid 1px #f66; color: #eee; background: url("/images/ui/btn-bg-red.png") repeat-x 0px 0px; text-shadow: none; }
 
 /* line 157, ../sass/main.scss */
 p.submit { text-align: right; }
@@ -1039,9 +1039,9 @@ form p input[type=checkbox] { margin-top: 5px; }
 .big-ass-text { font-size: 5em; font-weight: bold; vertical-align: top; line-height: 1em; color: #ddd; font-family: Ubuntu, Helvetica, Arial, sans-serif; text-shadow: -1px -1px 1px #cccccc; }
 
 /* line 210, ../sass/main.scss */
-.green-button-link, #template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; background: url("/images/ui/btn-bg-darkgreen.png") repeat-x 0px 0px; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
+.green-button-link, #template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; background: url("/images/ui/btn-bg-darkgreen.png") repeat-x 0px 0px; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
 /* line 222, ../sass/main.scss */
-.green-button-link:hover, #template_briefs #container .new_template_brief .actions a.add_child:hover, #template_briefs #container .edit_template_brief .actions a.add_child:hover { color: #eee; }
+.green-button-link:hover, #template_documents #container .new_template_document .actions a.add_child:hover, #template_documents #container .edit_template_document .actions a.add_child:hover { color: #eee; }
 
 /* LOGIN */
 /* line 228, ../sass/main.scss */
@@ -1105,7 +1105,7 @@ form p input[type=checkbox] { margin-top: 5px; }
 /* line 12, ../sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .comments li { margin-top: 1em; }
 /* line 20, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item_question, #container #content .main .author_answer, #container #content .main .author_answer_form, #container #content .main .question_form, #container #content .main .comment { position: relative; clear: both; }
+#container #content .main .document_item_question, #container #content .main .author_answer, #container #content .main .author_answer_form, #container #content .main .question_form, #container #content .main .comment { position: relative; clear: both; }
 /* line 25, ../sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .speech, #container #content .main .revision-body { width: 432px; margin: 0 auto; padding: 1em 1em; position: relative; }
 /* line 32, ../sass/partials/_comments_and_activity_stream.scss */
@@ -1127,67 +1127,67 @@ form p input[type=checkbox] { margin-top: 5px; }
 /* line 80, ../sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .comment .submit input[type=submit] { font-size: 0.9em; padding: 2px 10px; }
 /* line 89, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .toggle_revision_body { cursor: pointer; }
+#container #content .main .document_item .toggle_revision_body { cursor: pointer; }
 /* line 92, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .delete-item-revision { float: right; margin-right: -0.5em; }
+#container #content .main .document_item .delete-item-revision { float: right; margin-right: -0.5em; }
 /* line 96, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity { background: #f7f7f7; margin: 0; padding: 1em 0 1em 0; }
+#container #content .main .document_item .document_item_activity { background: #f7f7f7; margin: 0; padding: 1em 0 1em 0; }
 /* line 102, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .brief_item_history { margin: 0 auto 0 auto; padding: 0; }
+#container #content .main .document_item .document_item_activity .document_item_history { margin: 0 auto 0 auto; padding: 0; }
 /* line 106, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity li { padding: 0 0 1em 0; margin: 0; }
+#container #content .main .document_item .document_item_activity li { padding: 0 0 1em 0; margin: 0; }
 /* line 110, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .revision-body { border: 1px dashed #ddd; margin: 0 auto; padding: 0.5em 1em; background: #fcfcfc; }
+#container #content .main .document_item .document_item_activity .revision-body { border: 1px dashed #ddd; margin: 0 auto; padding: 0.5em 1em; background: #fcfcfc; }
 /* line 115, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .revision-body .close-button { display: none; }
+#container #content .main .document_item .document_item_activity .revision-body .close-button { display: none; }
 /* line 119, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .revision-body:hover .close-button { display: block; }
+#container #content .main .document_item .document_item_activity .revision-body:hover .close-button { display: block; }
 /* line 124, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .revision-body .info h5 { font-size: 1.1em; }
+#container #content .main .document_item .document_item_activity .revision-body .info h5 { font-size: 1.1em; }
 /* line 127, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .revision-body .info .buttons { float: right; }
+#container #content .main .document_item .document_item_activity .revision-body .info .buttons { float: right; }
 /* line 129, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .revision-body .info .buttons a { margin-left: 1em; }
+#container #content .main .document_item .document_item_activity .revision-body .info .buttons a { margin-left: 1em; }
 /* line 135, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .revision-body .body { display: none; clear: both; }
+#container #content .main .document_item .document_item_activity .revision-body .body { display: none; clear: both; }
 /* line 142, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .submit { margin: 0; padding: 0; text-align: right; }
+#container #content .main .document_item .document_item_activity .submit { margin: 0; padding: 0; text-align: right; }
 /* line 148, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .show_author_answer_form { margin: 0; padding: 0; position: relative; }
+#container #content .main .document_item .document_item_activity .show_author_answer_form { margin: 0; padding: 0; position: relative; }
 /* line 153, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .show_author_answer_form input[type=submit] { position: absolute; right: 10px; top: -2em; padding: 2px 3px; }
+#container #content .main .document_item .document_item_activity .show_author_answer_form input[type=submit] { position: absolute; right: 10px; top: -2em; padding: 2px 3px; }
 /* line 164, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .brief_item_question .avatar, #container #content .main .brief_item .brief_item_activity .question_form .avatar { position: absolute; left: 2em; top: 0; }
+#container #content .main .document_item .document_item_activity .document_item_question .avatar, #container #content .main .document_item .document_item_activity .question_form .avatar { position: absolute; left: 2em; top: 0; }
 /* line 170, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .brief_item_question span.bubble, #container #content .main .brief_item .brief_item_activity .question_form span.bubble { background: url(/images/ui/speech.png); width: 7px; height: 16px; display: block; position: absolute; left: -7px; top: 10px; }
+#container #content .main .document_item .document_item_activity .document_item_question span.bubble, #container #content .main .document_item .document_item_activity .question_form span.bubble { background: url(/images/ui/speech.png); width: 7px; height: 16px; display: block; position: absolute; left: -7px; top: 10px; }
 /* line 180, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .toggle_author_answer_form { display: block; width: 450px; text-align: right; margin: 3px auto 0 auto; }
+#container #content .main .document_item .document_item_activity .toggle_author_answer_form { display: block; width: 450px; text-align: right; margin: 3px auto 0 auto; }
 /* line 186, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer, #container #content .main .brief_item .brief_item_activity .author_answer_form { margin-top: 1em; }
+#container #content .main .document_item .document_item_activity .author_answer, #container #content .main .document_item .document_item_activity .author_answer_form { margin-top: 1em; }
 /* line 188, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer .avatar, #container #content .main .brief_item .brief_item_activity .author_answer_form .avatar { position: absolute; right: 1em; top: 1px; }
+#container #content .main .document_item .document_item_activity .author_answer .avatar, #container #content .main .document_item .document_item_activity .author_answer_form .avatar { position: absolute; right: 1em; top: 1px; }
 /* line 193, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer span.bubble, #container #content .main .brief_item .brief_item_activity .author_answer_form span.bubble { background: url(/images/ui/speech.png) 8px 0; width: 7px; height: 16px; display: block; position: absolute; right: -7px; top: 20px; }
+#container #content .main .document_item .document_item_activity .author_answer span.bubble, #container #content .main .document_item .document_item_activity .author_answer_form span.bubble { background: url(/images/ui/speech.png) 8px 0; width: 7px; height: 16px; display: block; position: absolute; right: -7px; top: 20px; }
 /* line 203, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer_form { margin-top: 0.5em; }
+#container #content .main .document_item .document_item_activity .author_answer_form { margin-top: 0.5em; }
 /* line 208, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer_form img.spinner, #container #content .main .brief_item .brief_item_activity .question_form img.spinner, #container #content .main .brief_item .brief_item_activity .question-answer-form img.spinner { display: inline; }
+#container #content .main .document_item .document_item_activity .author_answer_form img.spinner, #container #content .main .document_item .document_item_activity .question_form img.spinner, #container #content .main .document_item .document_item_activity .question-answer-form img.spinner { display: inline; }
 /* line 211, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer_form .speech, #container #content .main .brief_item .brief_item_activity .question_form .speech, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech { padding-bottom: 10px; }
+#container #content .main .document_item .document_item_activity .author_answer_form .speech, #container #content .main .document_item .document_item_activity .question_form .speech, #container #content .main .document_item .document_item_activity .question-answer-form .speech { padding-bottom: 10px; }
 /* line 214, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question_form .speech textarea, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech textarea { width: 418px; max-width: 418px; min-width: 418px; margin: 0; height: 80px; }
+#container #content .main .document_item .document_item_activity .author_answer_form .speech textarea, #container #content .main .document_item .document_item_activity .question_form .speech textarea, #container #content .main .document_item .document_item_activity .question-answer-form .speech textarea { width: 418px; max-width: 418px; min-width: 418px; margin: 0; height: 80px; }
 /* line 221, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question_form .speech p.button, #container #content .main .brief_item .brief_item_activity .question-answer-form .speech p.button { text-align: right; margin: 0.8em auto 0 auto; }
+#container #content .main .document_item .document_item_activity .author_answer_form .speech p.button, #container #content .main .document_item .document_item_activity .question_form .speech p.button, #container #content .main .document_item .document_item_activity .question-answer-form .speech p.button { text-align: right; margin: 0.8em auto 0 auto; }
 /* line 225, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .speech input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .speech input[type=submit] { font-size: 0.9em; }
+#container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit] { font-size: 0.9em; }
 /* line 230, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer_form .submit, #container #content .main .brief_item .brief_item_activity .question_form .submit, #container #content .main .brief_item .brief_item_activity .question-answer-form .submit { width: 432px; margin: 0.5em auto; }
+#container #content .main .document_item .document_item_activity .author_answer_form .submit, #container #content .main .document_item .document_item_activity .question_form .submit, #container #content .main .document_item .document_item_activity .question-answer-form .submit { width: 432px; margin: 0.5em auto; }
 /* line 233, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .author_answer_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question_form .submit input[type=submit], #container #content .main .brief_item .brief_item_activity .question-answer-form .submit input[type=submit] { font-size: 0.9em; }
+#container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit] { font-size: 0.9em; }
 /* line 241, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .question_form .avatar { position: absolute; left: 1em; top: 0px; }
+#container #content .main .document_item .document_item_activity .question_form .avatar { position: absolute; left: 1em; top: 0px; }
 /* line 246, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .brief_item .brief_item_activity .question_form span.bubble { top: 20px; }
+#container #content .main .document_item .document_item_activity .question_form span.bubble { top: 20px; }
 /* line 253, ../sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .delete-comment { float: right; }
 /* line 255, ../sass/partials/_comments_and_activity_stream.scss */
@@ -1201,17 +1201,17 @@ form p input[type=checkbox] { margin-top: 5px; }
 span.timestamp { color: #999; font-size: .85em; font-style: italic; }
 
 /* line 282, ../sass/partials/_comments_and_activity_stream.scss */
-.brief_item_history .speech p { margin: 0; }
+.document_item_history .speech p { margin: 0; }
 /* line 284, ../sass/partials/_comments_and_activity_stream.scss */
-.brief_item_history .speech:hover .delete_question_form .question-delete, .brief_item_history .speech:hover .delete-question-answer { display: block; border: none !important; }
+.document_item_history .speech:hover .delete_question_form .question-delete, .document_item_history .speech:hover .delete-question-answer { display: block; border: none !important; }
 /* line 289, ../sass/partials/_comments_and_activity_stream.scss */
-.brief_item_history .speech .delete-question-answer { display: none; }
+.document_item_history .speech .delete-question-answer { display: none; }
 /* line 292, ../sass/partials/_comments_and_activity_stream.scss */
-.brief_item_history .speech .delete-question-answer-form { float: right; }
+.document_item_history .speech .delete-question-answer-form { float: right; }
 /* line 295, ../sass/partials/_comments_and_activity_stream.scss */
-.brief_item_history .speech .delete_question_form { float: right; }
+.document_item_history .speech .delete_question_form { float: right; }
 /* line 297, ../sass/partials/_comments_and_activity_stream.scss */
-.brief_item_history .speech .delete_question_form .question-delete { display: none; background: transparent url("/images/ui/cross-button.png") no-repeat 0 0 !important; text-indent: -9999px; width: 16px; height: 16px; }
+.document_item_history .speech .delete_question_form .question-delete { display: none; background: transparent url("/images/ui/cross-button.png") no-repeat 0 0 !important; text-indent: -9999px; width: 16px; height: 16px; }
 
 /* line 308, ../sass/partials/_comments_and_activity_stream.scss */
 #comments_area .delete_comment_form { float: right; display: none; }
@@ -1424,246 +1424,246 @@ span.timestamp { color: #999; font-size: .85em; font-style: italic; }
 .fancybox-ie #fancy-bg-w  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_w.png', sizingMethod='scale'); }
 .fancybox-ie #fancy-bg-nw { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/fancybox/fancy_shadow_nw.png', sizingMethod='scale'); }
 */
-/* Header / Title for Briefs, proposals... */
-/* line 3, ../sass/snippets/_briefs.scss */
-.brief, .proposal, .brief_list { background: #fffffe; margin: 0 0 1em 0; position: relative; }
+/* Header / Title for Documents, proposals... */
+/* line 3, ../sass/snippets/_documents.scss */
+.document, .proposal, .document_list { background: #fffffe; margin: 0 0 1em 0; position: relative; }
 
-/* line 8, ../sass/snippets/_briefs.scss */
-.brief #content-header { color: #32401a; padding: 0.5em 80px 0.5em 1em; position: relative; text-shadow: 0 1px 1px white; border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; -webkit-border-radius: 3px 3px 0 0; background: #b3d335; background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#9bbb1d)); background: -moz-linear-gradient(top, #b3d335, #9bbb1d); }
-/* line 16, ../sass/snippets/_briefs.scss */
-.brief #content-header h2 { font-size: 1.2em; }
-/* line 19, ../sass/snippets/_briefs.scss */
-.brief #content-header .spinner { display: inline; }
+/* line 8, ../sass/snippets/_documents.scss */
+.document #content-header { color: #32401a; padding: 0.5em 80px 0.5em 1em; position: relative; text-shadow: 0 1px 1px white; border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; -webkit-border-radius: 3px 3px 0 0; background: #b3d335; background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#9bbb1d)); background: -moz-linear-gradient(top, #b3d335, #9bbb1d); }
+/* line 16, ../sass/snippets/_documents.scss */
+.document #content-header h2 { font-size: 1.2em; }
+/* line 19, ../sass/snippets/_documents.scss */
+.document #content-header .spinner { display: inline; }
 
-/* line 21, ../sass/snippets/_briefs.scss */
+/* line 21, ../sass/snippets/_documents.scss */
 #documents #content-header { padding-right: 0.5em; }
 
-/* line 25, ../sass/snippets/_briefs.scss */
-.brief_item .show, .brief_item .edit { margin-right: 3em; }
-/* line 27, ../sass/snippets/_briefs.scss */
-.brief_item .body img { max-width: 600px; display: block; margin: auto; }
+/* line 25, ../sass/snippets/_documents.scss */
+.document_item .show, .document_item .edit { margin-right: 3em; }
+/* line 27, ../sass/snippets/_documents.scss */
+.document_item .body img { max-width: 600px; display: block; margin: auto; }
 
-/* line 34, ../sass/snippets/_briefs.scss */
-.brief .section { border: 1px solid #eee; border-top: 0; padding: 0.5em 0.5em .5em 1em; }
-/* line 38, ../sass/snippets/_briefs.scss */
-.brief .section .edit { display: none; }
+/* line 34, ../sass/snippets/_documents.scss */
+.document .section { border: 1px solid #eee; border-top: 0; padding: 0.5em 0.5em .5em 1em; }
+/* line 38, ../sass/snippets/_documents.scss */
+.document .section .edit { display: none; }
 
-/* line 41, ../sass/snippets/_briefs.scss */
-.brief div.actions { z-index: 10; position: absolute; top: 9px; right: 9px; text-align: right; padding: 0; margin: 0; }
-/* line 49, ../sass/snippets/_briefs.scss */
-.brief div.actions a { display: block; margin-top: -2px; margin-right: -2px; }
-/* line 54, ../sass/snippets/_briefs.scss */
-.brief div.actions a:hover { color: #fefefe; }
-/* line 57, ../sass/snippets/_briefs.scss */
-.brief div.actions a.edit_brief, .brief div.actions a.edit_icon, .brief div.actions a.edit_template { background: url("/images/page_edit.png") no-repeat center right; height: 16px; text-indent: -9999px; width: 40px; }
-/* line 62, ../sass/snippets/_briefs.scss */
-.brief div.actions a.edit_brief:hover, .brief div.actions a.edit_icon:hover, .brief div.actions a.edit_template:hover { text-indent: 0; color: #32401a; font-weight: normal; }
-/* line 68, ../sass/snippets/_briefs.scss */
-.brief div.actions a.print_brief { display: block; float: right; background: url("/images/printer.png"); width: 16px; height: 16px; text-indent: -3000px; }
-/* line 76, ../sass/snippets/_briefs.scss */
-.brief div.actions form { float: right; }
-/* line 79, ../sass/snippets/_briefs.scss */
-.brief div.actions .clean_brief { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: url("/images/ui/button_background_red.png") 0 0; border: 1px solid #32401a; padding: 1px 5px 0px 5px; font-weight: normal; font-size: 1em; margin-top: 0; color: white; text-shadow: none; }
-/* line 89, ../sass/snippets/_briefs.scss */
-.brief div.actions .clean_brief:active { background-position: 0 -36px; }
+/* line 41, ../sass/snippets/_documents.scss */
+.document div.actions { z-index: 10; position: absolute; top: 9px; right: 9px; text-align: right; padding: 0; margin: 0; }
+/* line 49, ../sass/snippets/_documents.scss */
+.document div.actions a { display: block; margin-top: -2px; margin-right: -2px; }
+/* line 54, ../sass/snippets/_documents.scss */
+.document div.actions a:hover { color: #fefefe; }
+/* line 57, ../sass/snippets/_documents.scss */
+.document div.actions a.edit_document, .document div.actions a.edit_icon, .document div.actions a.edit_template { background: url("/images/page_edit.png") no-repeat center right; height: 16px; text-indent: -9999px; width: 40px; }
+/* line 62, ../sass/snippets/_documents.scss */
+.document div.actions a.edit_document:hover, .document div.actions a.edit_icon:hover, .document div.actions a.edit_template:hover { text-indent: 0; color: #32401a; font-weight: normal; }
+/* line 68, ../sass/snippets/_documents.scss */
+.document div.actions a.print_document { display: block; float: right; background: url("/images/printer.png"); width: 16px; height: 16px; text-indent: -3000px; }
+/* line 76, ../sass/snippets/_documents.scss */
+.document div.actions form { float: right; }
+/* line 79, ../sass/snippets/_documents.scss */
+.document div.actions .clean_document { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: url("/images/ui/button_background_red.png") 0 0; border: 1px solid #32401a; padding: 1px 5px 0px 5px; font-weight: normal; font-size: 1em; margin-top: 0; color: white; text-shadow: none; }
+/* line 89, ../sass/snippets/_documents.scss */
+.document div.actions .clean_document:active { background-position: 0 -36px; }
 
-/* line 97, ../sass/snippets/_briefs.scss */
-.brief .brief_heading h3, .proposal .brief_heading h3, .brief_list .brief_heading h3 { margin-left: 20px; }
-/* line 100, ../sass/snippets/_briefs.scss */
-.brief .proposal_item, .brief .brief_heading, .proposal .proposal_item, .proposal .brief_heading, .brief_list .proposal_item, .brief_list .brief_heading { border: 1px solid #cccccc; border-bottom: 1px solid #eeeeee; border-top: 0; }
-/* line 105, ../sass/snippets/_briefs.scss */
-.brief .proposal_item h3 span.updated, .brief .brief_heading h3 span.updated, .proposal .proposal_item h3 span.updated, .proposal .brief_heading h3 span.updated, .brief_list .proposal_item h3 span.updated, .brief_list .brief_heading h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
-/* line 113, ../sass/snippets/_briefs.scss */
-.brief .proposal_item h4.activity_snapshot, .brief .brief_heading h4.activity_snapshot, .proposal .proposal_item h4.activity_snapshot, .proposal .brief_heading h4.activity_snapshot, .brief_list .proposal_item h4.activity_snapshot, .brief_list .brief_heading h4.activity_snapshot { font-size: 1.1em; padding: 0; margin: 0; line-height: 1.2em; color: #666666; }
-/* line 119, ../sass/snippets/_briefs.scss */
-.brief .proposal_item .activity_stream, .brief .brief_heading .activity_stream, .proposal .proposal_item .activity_stream, .proposal .brief_heading .activity_stream, .brief_list .proposal_item .activity_stream, .brief_list .brief_heading .activity_stream { border-top: 1px solid #cccccc; margin-top: 1em; padding: 1em; }
-/* line 123, ../sass/snippets/_briefs.scss */
-.brief .proposal_item .activity_stream li, .brief .brief_heading .activity_stream li, .proposal .proposal_item .activity_stream li, .proposal .brief_heading .activity_stream li, .brief_list .proposal_item .activity_stream li, .brief_list .brief_heading .activity_stream li { padding: 1em; }
-/* line 125, ../sass/snippets/_briefs.scss */
-.brief .proposal_item .activity_stream li.date, .brief .brief_heading .activity_stream li.date, .proposal .proposal_item .activity_stream li.date, .proposal .brief_heading .activity_stream li.date, .brief_list .proposal_item .activity_stream li.date, .brief_list .brief_heading .activity_stream li.date { color: #aaaaaa; text-transform: uppercase; margin-top: 1em; padding: 0; }
-/* line 130, ../sass/snippets/_briefs.scss */
-.brief .help_message, .proposal .help_message, .brief_list .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
-/* line 140, ../sass/snippets/_briefs.scss */
-.brief .brief_item:last-child, .brief .proposal_item:last-child, .proposal .brief_item:last-child, .proposal .proposal_item:last-child, .brief_list .brief_item:last-child, .brief_list .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
-/* line 143, ../sass/snippets/_briefs.scss */
-.brief .proposal_item p.asset, .proposal .proposal_item p.asset, .brief_list .proposal_item p.asset { width: 120px; }
-/* line 145, ../sass/snippets/_briefs.scss */
-.brief .proposal_item p.asset, .brief .proposal_item p.description, .proposal .proposal_item p.asset, .proposal .proposal_item p.description, .brief_list .proposal_item p.asset, .brief_list .proposal_item p.description { float: left; }
-/* line 147, ../sass/snippets/_briefs.scss */
-.brief .proposal_item p.description, .proposal .proposal_item p.description, .brief_list .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
-/* line 151, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing, .proposal .most_important_thing, .brief_list .most_important_thing { text-align: center; font-weight: bold; color: #333333; margin-right: 0; padding: .5em .5em .5em 1em; }
-/* line 158, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing .show, .brief .most_important_thing .edit, .proposal .most_important_thing .show, .proposal .most_important_thing .edit, .brief_list .most_important_thing .show, .brief_list .most_important_thing .edit { max-width: 360px; display: inline-block; padding: 0 1em; font-weight: bold; font-size: 2.2em; }
-/* line 165, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing .show, .proposal .most_important_thing .show, .brief_list .most_important_thing .show { text-align: center; }
-/* line 169, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing .edit, .proposal .most_important_thing .edit, .brief_list .most_important_thing .edit { display: none; }
-/* line 170, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing span.left, .brief .most_important_thing span.right, .proposal .most_important_thing span.left, .proposal .most_important_thing span.right, .brief_list .most_important_thing span.left, .brief_list .most_important_thing span.right { font-size: 8em; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 177, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing span.left, .proposal .most_important_thing span.left, .brief_list .most_important_thing span.left { float: left; top: 20px; left: 60px; }
-/* line 182, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing span.right, .proposal .most_important_thing span.right, .brief_list .most_important_thing span.right { clear: right; float: right; margin-top: 30px; margin-right: 20px; vertical-align: middle; }
-/* line 192, ../sass/snippets/_briefs.scss */
-.brief .brief_item.updated h3, .brief .brief_item.updated h4, .proposal .brief_item.updated h3, .proposal .brief_item.updated h4, .brief_list .brief_item.updated h3, .brief_list .brief_item.updated h4 { background: #ffffdf; }
-/* line 194, ../sass/snippets/_briefs.scss */
-.brief .brief_item.extended, .proposal .brief_item.extended, .brief_list .brief_item.extended { background: transparent; }
+/* line 97, ../sass/snippets/_documents.scss */
+.document .document_heading h3, .proposal .document_heading h3, .document_list .document_heading h3 { margin-left: 20px; }
+/* line 100, ../sass/snippets/_documents.scss */
+.document .proposal_item, .document .document_heading, .proposal .proposal_item, .proposal .document_heading, .document_list .proposal_item, .document_list .document_heading { border: 1px solid #cccccc; border-bottom: 1px solid #eeeeee; border-top: 0; }
+/* line 105, ../sass/snippets/_documents.scss */
+.document .proposal_item h3 span.updated, .document .document_heading h3 span.updated, .proposal .proposal_item h3 span.updated, .proposal .document_heading h3 span.updated, .document_list .proposal_item h3 span.updated, .document_list .document_heading h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
+/* line 113, ../sass/snippets/_documents.scss */
+.document .proposal_item h4.activity_snapshot, .document .document_heading h4.activity_snapshot, .proposal .proposal_item h4.activity_snapshot, .proposal .document_heading h4.activity_snapshot, .document_list .proposal_item h4.activity_snapshot, .document_list .document_heading h4.activity_snapshot { font-size: 1.1em; padding: 0; margin: 0; line-height: 1.2em; color: #666666; }
+/* line 119, ../sass/snippets/_documents.scss */
+.document .proposal_item .activity_stream, .document .document_heading .activity_stream, .proposal .proposal_item .activity_stream, .proposal .document_heading .activity_stream, .document_list .proposal_item .activity_stream, .document_list .document_heading .activity_stream { border-top: 1px solid #cccccc; margin-top: 1em; padding: 1em; }
+/* line 123, ../sass/snippets/_documents.scss */
+.document .proposal_item .activity_stream li, .document .document_heading .activity_stream li, .proposal .proposal_item .activity_stream li, .proposal .document_heading .activity_stream li, .document_list .proposal_item .activity_stream li, .document_list .document_heading .activity_stream li { padding: 1em; }
+/* line 125, ../sass/snippets/_documents.scss */
+.document .proposal_item .activity_stream li.date, .document .document_heading .activity_stream li.date, .proposal .proposal_item .activity_stream li.date, .proposal .document_heading .activity_stream li.date, .document_list .proposal_item .activity_stream li.date, .document_list .document_heading .activity_stream li.date { color: #aaaaaa; text-transform: uppercase; margin-top: 1em; padding: 0; }
+/* line 130, ../sass/snippets/_documents.scss */
+.document .help_message, .proposal .help_message, .document_list .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
+/* line 140, ../sass/snippets/_documents.scss */
+.document .document_item:last-child, .document .proposal_item:last-child, .proposal .document_item:last-child, .proposal .proposal_item:last-child, .document_list .document_item:last-child, .document_list .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
+/* line 143, ../sass/snippets/_documents.scss */
+.document .proposal_item p.asset, .proposal .proposal_item p.asset, .document_list .proposal_item p.asset { width: 120px; }
+/* line 145, ../sass/snippets/_documents.scss */
+.document .proposal_item p.asset, .document .proposal_item p.description, .proposal .proposal_item p.asset, .proposal .proposal_item p.description, .document_list .proposal_item p.asset, .document_list .proposal_item p.description { float: left; }
+/* line 147, ../sass/snippets/_documents.scss */
+.document .proposal_item p.description, .proposal .proposal_item p.description, .document_list .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
+/* line 151, ../sass/snippets/_documents.scss */
+.document .most_important_thing, .proposal .most_important_thing, .document_list .most_important_thing { text-align: center; font-weight: bold; color: #333333; margin-right: 0; padding: .5em .5em .5em 1em; }
+/* line 158, ../sass/snippets/_documents.scss */
+.document .most_important_thing .show, .document .most_important_thing .edit, .proposal .most_important_thing .show, .proposal .most_important_thing .edit, .document_list .most_important_thing .show, .document_list .most_important_thing .edit { max-width: 360px; display: inline-block; padding: 0 1em; font-weight: bold; font-size: 2.2em; }
+/* line 165, ../sass/snippets/_documents.scss */
+.document .most_important_thing .show, .proposal .most_important_thing .show, .document_list .most_important_thing .show { text-align: center; }
+/* line 169, ../sass/snippets/_documents.scss */
+.document .most_important_thing .edit, .proposal .most_important_thing .edit, .document_list .most_important_thing .edit { display: none; }
+/* line 170, ../sass/snippets/_documents.scss */
+.document .most_important_thing span.left, .document .most_important_thing span.right, .proposal .most_important_thing span.left, .proposal .most_important_thing span.right, .document_list .most_important_thing span.left, .document_list .most_important_thing span.right { font-size: 8em; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
+/* line 177, ../sass/snippets/_documents.scss */
+.document .most_important_thing span.left, .proposal .most_important_thing span.left, .document_list .most_important_thing span.left { float: left; top: 20px; left: 60px; }
+/* line 182, ../sass/snippets/_documents.scss */
+.document .most_important_thing span.right, .proposal .most_important_thing span.right, .document_list .most_important_thing span.right { clear: right; float: right; margin-top: 30px; margin-right: 20px; vertical-align: middle; }
+/* line 192, ../sass/snippets/_documents.scss */
+.document .document_item.updated h3, .document .document_item.updated h4, .proposal .document_item.updated h3, .proposal .document_item.updated h4, .document_list .document_item.updated h3, .document_list .document_item.updated h4 { background: #ffffdf; }
+/* line 194, ../sass/snippets/_documents.scss */
+.document .document_item.extended, .proposal .document_item.extended, .document_list .document_item.extended { background: transparent; }
 
-/* line 202, ../sass/snippets/_briefs.scss */
-#documents .brief_overviews h2, #sortable .brief_overviews h2 { padding: 0; font-size: 1.1em; font-weight: normal; text-transform: uppercase; text-align: center; margin: -0.8em auto 1.5em auto; background: white; width: 7.5em; color: #454545; }
-/* line 214, ../sass/snippets/_briefs.scss */
-#documents .brief_item, #sortable .brief_item { padding: 0.5em 1em; border: 1px solid #eee; border-bottom: 1px solid #eeeeee; border-top: 0; }
-/* line 220, ../sass/snippets/_briefs.scss */
-#documents .brief_item .body img, #sortable .brief_item .body img { max-width: 600px; border: 5px solid #eee; display: block; margin: auto; }
-/* line 228, ../sass/snippets/_briefs.scss */
-#documents .brief_item .body .item-revision-body img, #sortable .brief_item .body .item-revision-body img { max-width: 420px; }
+/* line 202, ../sass/snippets/_documents.scss */
+#documents .document_overviews h2, #sortable .document_overviews h2 { padding: 0; font-size: 1.1em; font-weight: normal; text-transform: uppercase; text-align: center; margin: -0.8em auto 1.5em auto; background: white; width: 7.5em; color: #454545; }
+/* line 214, ../sass/snippets/_documents.scss */
+#documents .document_item, #sortable .document_item { padding: 0.5em 1em; border: 1px solid #eee; border-bottom: 1px solid #eeeeee; border-top: 0; }
+/* line 220, ../sass/snippets/_documents.scss */
+#documents .document_item .body img, #sortable .document_item .body img { max-width: 600px; border: 5px solid #eee; display: block; margin: auto; }
+/* line 228, ../sass/snippets/_documents.scss */
+#documents .document_item .body .item-revision-body img, #sortable .document_item .body .item-revision-body img { max-width: 420px; }
 
-/* line 237, ../sass/snippets/_briefs.scss */
+/* line 237, ../sass/snippets/_documents.scss */
 ul.actions { margin-top: 1em; clear: both; text-align: right; }
-/* line 241, ../sass/snippets/_briefs.scss */
+/* line 241, ../sass/snippets/_documents.scss */
 ul.actions li { padding: 0.2em 0em; display: inline; text-align: right; }
 
-/* line 247, ../sass/snippets/_briefs.scss */
+/* line 247, ../sass/snippets/_documents.scss */
 ul.actions.active { border-bottom: 1px solid #eeeeee; }
 
-/* line 252, ../sass/snippets/_briefs.scss */
-#options-menu, #brief-tags { border-bottom: 1px solid #eee; border-top: 1px solid #fcfcfc; background: #fcfcfc; }
-/* line 256, ../sass/snippets/_briefs.scss */
-#options-menu .object-actions, #brief-tags .object-actions { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #fafafa; border: 1px solid #eee; margin: 0.5em; text-align: right; }
-/* line 261, ../sass/snippets/_briefs.scss */
-#options-menu .object-actions form, #options-menu .object-actions li, #options-menu .object-actions a, #options-menu .object-actions input, #brief-tags .object-actions form, #brief-tags .object-actions li, #brief-tags .object-actions a, #brief-tags .object-actions input { display: inline-block; margin: 0; }
-/* line 266, ../sass/snippets/_briefs.scss */
-#options-menu .object-actions li, #brief-tags .object-actions li { display: inline; margin-right: 0.5em; }
+/* line 252, ../sass/snippets/_documents.scss */
+#options-menu, #document-tags { border-bottom: 1px solid #eee; border-top: 1px solid #fcfcfc; background: #fcfcfc; }
+/* line 256, ../sass/snippets/_documents.scss */
+#options-menu .object-actions, #document-tags .object-actions { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #fafafa; border: 1px solid #eee; margin: 0.5em; text-align: right; }
+/* line 261, ../sass/snippets/_documents.scss */
+#options-menu .object-actions form, #options-menu .object-actions li, #options-menu .object-actions a, #options-menu .object-actions input, #document-tags .object-actions form, #document-tags .object-actions li, #document-tags .object-actions a, #document-tags .object-actions input { display: inline-block; margin: 0; }
+/* line 266, ../sass/snippets/_documents.scss */
+#options-menu .object-actions li, #document-tags .object-actions li { display: inline; margin-right: 0.5em; }
 
-/* line 273, ../sass/snippets/_briefs.scss */
-#brief-tags { border: 0; padding: 0 0.5em; }
-/* line 277, ../sass/snippets/_briefs.scss */
-#brief-tags .smartTextBox-items { width: 550px; }
-/* line 280, ../sass/snippets/_briefs.scss */
-#brief-tags label { display: none; }
-/* line 283, ../sass/snippets/_briefs.scss */
-#brief-tags .smartTextBox-box-elem { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-/* line 286, ../sass/snippets/_briefs.scss */
-#brief-tags .smartTextBox-input-elem-valueInput { line-height: 18px; outline: none; }
-/* line 291, ../sass/snippets/_briefs.scss */
-#brief-tags .smartTextBox { display: inline-block; }
-/* line 295, ../sass/snippets/_briefs.scss */
-#brief-tags .inline-submit { display: inline-block; float: left; margin-right: 0.5em; }
-/* line 301, ../sass/snippets/_briefs.scss */
-#brief-tags .smartTextBox-elem-valueContainer { font-size: 0.9em; }
+/* line 273, ../sass/snippets/_documents.scss */
+#document-tags { border: 0; padding: 0 0.5em; }
+/* line 277, ../sass/snippets/_documents.scss */
+#document-tags .smartTextBox-items { width: 550px; }
+/* line 280, ../sass/snippets/_documents.scss */
+#document-tags label { display: none; }
+/* line 283, ../sass/snippets/_documents.scss */
+#document-tags .smartTextBox-box-elem { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+/* line 286, ../sass/snippets/_documents.scss */
+#document-tags .smartTextBox-input-elem-valueInput { line-height: 18px; outline: none; }
+/* line 291, ../sass/snippets/_documents.scss */
+#document-tags .smartTextBox { display: inline-block; }
+/* line 295, ../sass/snippets/_documents.scss */
+#document-tags .inline-submit { display: inline-block; float: left; margin-right: 0.5em; }
+/* line 301, ../sass/snippets/_documents.scss */
+#document-tags .smartTextBox-elem-valueContainer { font-size: 0.9em; }
 
-/* line 305, ../sass/snippets/_briefs.scss */
+/* line 305, ../sass/snippets/_documents.scss */
 .publish-draft { margin-top: 10px; float: right; }
-/* line 308, ../sass/snippets/_briefs.scss */
+/* line 308, ../sass/snippets/_documents.scss */
 .publish-draft p { margin: 0; }
 
-/* line 312, ../sass/snippets/_briefs.scss */
-#sortable_brief_items.sortable .brief_item { border-top: 1px solid #eee; border-left: 2px solid #eee; border-right: 2px solid #eee; }
-/* line 316, ../sass/snippets/_briefs.scss */
-#sortable_brief_items.sortable .brief_item .move-handle { cursor: move; margin-top: 2px; height: 16px; width: 16px; display: block; float: right; text-indent: -9999px; background: url("/images/ui/move-handle.png") no-repeat 0 0; }
-/* line 327, ../sass/snippets/_briefs.scss */
-#sortable_brief_items.sortable .body, #sortable_brief_items.sortable .edit, #sortable_brief_items.sortable .toggle-inline-edit, #sortable_brief_items.sortable .actions, #sortable_brief_items.sortable .brief_item_activity { display: none; }
+/* line 312, ../sass/snippets/_documents.scss */
+#sortable_document_items.sortable .document_item { border-top: 1px solid #eee; border-left: 2px solid #eee; border-right: 2px solid #eee; }
+/* line 316, ../sass/snippets/_documents.scss */
+#sortable_document_items.sortable .document_item .move-handle { cursor: move; margin-top: 2px; height: 16px; width: 16px; display: block; float: right; text-indent: -9999px; background: url("/images/ui/move-handle.png") no-repeat 0 0; }
+/* line 327, ../sass/snippets/_documents.scss */
+#sortable_document_items.sortable .body, #sortable_document_items.sortable .edit, #sortable_document_items.sortable .toggle-inline-edit, #sortable_document_items.sortable .actions, #sortable_document_items.sortable .document_item_activity { display: none; }
 
-/* line 332, ../sass/snippets/_briefs.scss */
+/* line 332, ../sass/snippets/_documents.scss */
 #reorder-sections { padding: 2px 4px; text-transform: capitalize; margin-left: 5px; }
 
-/* line 340, ../sass/snippets/_briefs.scss */
-#briefs.show .inline-edit, #briefs.show .edit { display: none; }
-/* line 345, ../sass/snippets/_briefs.scss */
-#briefs.show .edit p.submit { text-align: right; margin-top: 5px; }
-/* line 352, ../sass/snippets/_briefs.scss */
-#briefs.show .section .editable { -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
-/* line 355, ../sass/snippets/_briefs.scss */
-#briefs.show .section .edit.revealed { display: inline-block; }
-/* line 357, ../sass/snippets/_briefs.scss */
-#briefs.show .section.brief_item .edit.revealed { display: block; }
-/* line 359, ../sass/snippets/_briefs.scss */
-#briefs.show .section .edit { padding: 0; text-align: center; }
-/* line 362, ../sass/snippets/_briefs.scss */
-#briefs.show .section .edit .spinner { display: inline; }
-/* line 365, ../sass/snippets/_briefs.scss */
-#briefs.show .section .edit .field { width: 100%; margin-bottom: 5px; }
-/* line 370, ../sass/snippets/_briefs.scss */
-#briefs.show .section .edit input.inline-edit-title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 590px; background: #fafafa; border: 1px solid #eee; }
-/* line 379, ../sass/snippets/_briefs.scss */
-#briefs.show .section .edit .inline-edit-body { display: block; width: 590px; min-width: 590px; max-width: 590px; height: 100px; padding: 0.5em; margin-bottom: 0.5em; background: #fafafa; border: 1px solid #eee; font-size: 1em; }
-/* line 391, ../sass/snippets/_briefs.scss */
-#briefs.show .section .edit p.submit { margin: 0 2px 0 0; }
-/* line 395, ../sass/snippets/_briefs.scss */
-#briefs.show .section .spinner { display: inline; }
-/* line 397, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing { overflow: hidden; }
-/* line 399, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .show { border: 1px solid #fff; }
-/* line 400, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .show span { font-weight: bold; }
-/* line 404, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .edit { text-align: center; padding: 0; margin: auto; }
-/* line 408, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .edit p.submit { margin-top: 0.5em; font-size: 0.5em; }
-/* line 414, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .edit form { text-align: center; }
-/* line 416, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .edit form input[type=text] { display: block; background: #fafafa; border: 1px solid #eee; padding: 0.5em 1em; font-size: .7em; font-weight: bold; width: 300px; text-align: center; }
-/* line 427, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .edit span, #briefs.show .most_important_thing .edit .field { display: inline-block; }
-/* line 430, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .edit span { font-size: 8em; display: inline-block; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 437, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .edit span.left { vertical-align: top; margin-top: 0px; }
-/* line 441, ../sass/snippets/_briefs.scss */
-#briefs.show .most_important_thing .edit span.right { vertical-align: bottom; }
+/* line 340, ../sass/snippets/_documents.scss */
+#documents.show .inline-edit, #documents.show .edit { display: none; }
+/* line 345, ../sass/snippets/_documents.scss */
+#documents.show .edit p.submit { text-align: right; margin-top: 5px; }
+/* line 352, ../sass/snippets/_documents.scss */
+#documents.show .section .editable { -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
+/* line 355, ../sass/snippets/_documents.scss */
+#documents.show .section .edit.revealed { display: inline-block; }
+/* line 357, ../sass/snippets/_documents.scss */
+#documents.show .section.document_item .edit.revealed { display: block; }
+/* line 359, ../sass/snippets/_documents.scss */
+#documents.show .section .edit { padding: 0; text-align: center; }
+/* line 362, ../sass/snippets/_documents.scss */
+#documents.show .section .edit .spinner { display: inline; }
+/* line 365, ../sass/snippets/_documents.scss */
+#documents.show .section .edit .field { width: 100%; margin-bottom: 5px; }
+/* line 370, ../sass/snippets/_documents.scss */
+#documents.show .section .edit input.inline-edit-title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 590px; background: #fafafa; border: 1px solid #eee; }
+/* line 379, ../sass/snippets/_documents.scss */
+#documents.show .section .edit .inline-edit-body { display: block; width: 590px; min-width: 590px; max-width: 590px; height: 100px; padding: 0.5em; margin-bottom: 0.5em; background: #fafafa; border: 1px solid #eee; font-size: 1em; }
+/* line 391, ../sass/snippets/_documents.scss */
+#documents.show .section .edit p.submit { margin: 0 2px 0 0; }
+/* line 395, ../sass/snippets/_documents.scss */
+#documents.show .section .spinner { display: inline; }
+/* line 397, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing { overflow: hidden; }
+/* line 399, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .show { border: 1px solid #fff; }
+/* line 400, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .show span { font-weight: bold; }
+/* line 404, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit { text-align: center; padding: 0; margin: auto; }
+/* line 408, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit p.submit { margin-top: 0.5em; font-size: 0.5em; }
+/* line 414, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit form { text-align: center; }
+/* line 416, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit form input[type=text] { display: block; background: #fafafa; border: 1px solid #eee; padding: 0.5em 1em; font-size: .7em; font-weight: bold; width: 300px; text-align: center; }
+/* line 427, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit span, #documents.show .most_important_thing .edit .field { display: inline-block; }
+/* line 430, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit span { font-size: 8em; display: inline-block; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
+/* line 437, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit span.left { vertical-align: top; margin-top: 0px; }
+/* line 441, ../sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit span.right { vertical-align: bottom; }
 
-/* line 452, ../sass/snippets/_briefs.scss */
+/* line 452, ../sass/snippets/_documents.scss */
 #content-header .editable:hover { background-color: #d5f557; cursor: pointer; }
-/* line 457, ../sass/snippets/_briefs.scss */
+/* line 457, ../sass/snippets/_documents.scss */
 #content-header .edit { margin: 2px 0; }
-/* line 459, ../sass/snippets/_briefs.scss */
+/* line 459, ../sass/snippets/_documents.scss */
 #content-header .edit input[type=text] { font-size: 1.2em; display: inline-block; font-weight: bold; padding: 2px 3px; margin-right: .5em; border: 1px solid #ee8; background-color: #FFC; width: 75%; }
-/* line 469, ../sass/snippets/_briefs.scss */
+/* line 469, ../sass/snippets/_documents.scss */
 #content-header .edit input[type=submit] { display: inline-block; vertical-align: middle; margin-top: -4px; }
 
 /*  inline edit toggle triggers:  the "edit" button that appears when you hover a section the "cancel" button when editing a section
 */
-/* line 482, ../sass/snippets/_briefs.scss */
-.brief .section { /* This is the "cancel" button when in the edit view. */ }
-/* line 483, ../sass/snippets/_briefs.scss */
-.brief .section .toggle-inline-edit { /* in IE we will need to display: none; as there are no CSS transitions anyway */ -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 500ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 500ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 500ms; transition-property: background-color, color, border-color, opacity; transition-duration: 500ms; font-size: 8pt; opacity: 0; float: right; height: 16px; line-height: 14px; display: block; padding-left: 4px; padding-right: 4px; }
-/* line 497, ../sass/snippets/_briefs.scss */
-.brief .section:hover .toggle-inline-edit { opacity: 1; }
-/* line 503, ../sass/snippets/_briefs.scss */
-.brief .section .edit .toggle-inline-edit { display: inline; color: #fff; text-shadow: 1px 1px 1px #888; font-weight: normal; }
+/* line 482, ../sass/snippets/_documents.scss */
+.document .section { /* This is the "cancel" button when in the edit view. */ }
+/* line 483, ../sass/snippets/_documents.scss */
+.document .section .toggle-inline-edit { /* in IE we will need to display: none; as there are no CSS transitions anyway */ -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 500ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 500ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 500ms; transition-property: background-color, color, border-color, opacity; transition-duration: 500ms; font-size: 8pt; opacity: 0; float: right; height: 16px; line-height: 14px; display: block; padding-left: 4px; padding-right: 4px; }
+/* line 497, ../sass/snippets/_documents.scss */
+.document .section:hover .toggle-inline-edit { opacity: 1; }
+/* line 503, ../sass/snippets/_documents.scss */
+.document .section .edit .toggle-inline-edit { display: inline; color: #fff; text-shadow: 1px 1px 1px #888; font-weight: normal; }
 
 /* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */
-/* line 514, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing.section .toggle-inline-edit { float: right; font-weight: normal; top: 0.5em; right: 0.5em; opacity: 0; display: block; }
-/* line 523, ../sass/snippets/_briefs.scss */
-.brief .most_important_thing.section:hover .toggle-inline-edit { opacity: 1; }
+/* line 514, ../sass/snippets/_documents.scss */
+.document .most_important_thing.section .toggle-inline-edit { float: right; font-weight: normal; top: 0.5em; right: 0.5em; opacity: 0; display: block; }
+/* line 523, ../sass/snippets/_documents.scss */
+.document .most_important_thing.section:hover .toggle-inline-edit { opacity: 1; }
 
 /* Adding new sections dynamically */
-/* line 534, ../sass/snippets/_briefs.scss */
+/* line 534, ../sass/snippets/_documents.scss */
 #add-new-section p { margin: 1em 0; }
-/* line 537, ../sass/snippets/_briefs.scss */
+/* line 537, ../sass/snippets/_documents.scss */
 #add-new-section .toggle-add-new-section { padding: 2px 4px; }
 
-/* line 541, ../sass/snippets/_briefs.scss */
+/* line 541, ../sass/snippets/_documents.scss */
 #new-section { display: none; border: 1px solid #ddd; padding: 1em; }
-/* line 545, ../sass/snippets/_briefs.scss */
+/* line 545, ../sass/snippets/_documents.scss */
 #new-section .field { clear: both; }
-/* line 547, ../sass/snippets/_briefs.scss */
+/* line 547, ../sass/snippets/_documents.scss */
 #new-section .field label { display: block; float: none; }
-/* line 551, ../sass/snippets/_briefs.scss */
+/* line 551, ../sass/snippets/_documents.scss */
 #new-section .field input.title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 628px; background: #fafafa; border: 1px solid #ddd; }
-/* line 560, ../sass/snippets/_briefs.scss */
+/* line 560, ../sass/snippets/_documents.scss */
 #new-section .field .body { display: block; height: 100px; padding: 0.5em; width: 628px; background: #fafafa; border: 1px solid #ddd; font-size: 1em; }
-/* line 570, ../sass/snippets/_briefs.scss */
+/* line 570, ../sass/snippets/_documents.scss */
 #new-section .is_heading { float: right; }
-/* line 572, ../sass/snippets/_briefs.scss */
+/* line 572, ../sass/snippets/_documents.scss */
 #new-section .is_heading label { display: inline; font-weight: normal; }
-/* line 577, ../sass/snippets/_briefs.scss */
+/* line 577, ../sass/snippets/_documents.scss */
 #new-section .submit { text-align: right; margin-top: 0.5em; }
-/* line 580, ../sass/snippets/_briefs.scss */
+/* line 580, ../sass/snippets/_documents.scss */
 #new-section .submit .spinner { display: inline; }
 
 /* Deleting a section */
@@ -1730,31 +1730,31 @@ ul.actions.active { border-bottom: 1px solid #eeeeee; }
 /* line 18, ../sass/snippets/_legacy.scss */
 #container #content .required_actions ul li p { margin: 0; padding: 0; }
 /* line 21, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview { margin: 0 0 2em 0; padding: 0; border: 1px solid #cccccc; }
+#container #content .document_overview { margin: 0 0 2em 0; padding: 0; border: 1px solid #cccccc; }
 /* line 25, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview h3 { font-size: 1.7em; color: #f9f9f9; background: #21286c; margin: 0; padding: 0.2em 0.5em; font-weight: normal; border-bottom: 1px solid #cccccc; }
+#container #content .document_overview h3 { font-size: 1.7em; color: #f9f9f9; background: #21286c; margin: 0; padding: 0.2em 0.5em; font-weight: normal; border-bottom: 1px solid #cccccc; }
 /* line 34, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview ul li { background: #f2f2f2; padding: 0.5em 1em; }
+#container #content .document_overview ul li { background: #f2f2f2; padding: 0.5em 1em; }
 /* line 37, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview ul li p { margin: 0; padding: 0; }
+#container #content .document_overview ul li p { margin: 0; padding: 0; }
 /* line 40, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview .brief { border: none; border-bottom: 1px solid #cccccc; margin: 0; }
+#container #content .document_overview .document { border: none; border-bottom: 1px solid #cccccc; margin: 0; }
 /* line 44, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview .brief:last-child { border-bottom: none; }
+#container #content .document_overview .document:last-child { border-bottom: none; }
 /* line 46, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview .brief:hover { background: #ffffdf; }
+#container #content .document_overview .document:hover { background: #ffffdf; }
 /* line 49, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview .brief:hover h5 a { display: block; }
+#container #content .document_overview .document:hover h5 a { display: block; }
 /* line 52, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview.published h3, #container #content .brief_overview.watching h3 { background: #333333; color: #fcfcfc; }
+#container #content .document_overview.published h3, #container #content .document_overview.watching h3 { background: #333333; color: #fcfcfc; }
 /* line 56, ../sass/snippets/_legacy.scss */
-#container #content .brief_overview.draft h3 { background: #dddddd; color: #333333; }
+#container #content .document_overview.draft h3 { background: #dddddd; color: #333333; }
 /* line 61, ../sass/snippets/_legacy.scss */
-#container #content .edit_brief .most_important_thing textarea { width: 16em !important; }
+#container #content .edit_document .most_important_thing textarea { width: 16em !important; }
 /* line 67, ../sass/snippets/_legacy.scss */
-#container #content .edit_brief h2 input#brief_title { font-size: 1.5em; width: 31em; }
+#container #content .edit_document h2 input#document_title { font-size: 1.5em; width: 31em; }
 /* line 71, ../sass/snippets/_legacy.scss */
-#container #content .edit_brief .body textarea { width: 50em; height: 10em; font-size: 1.1em; }
+#container #content .edit_document .body textarea { width: 50em; height: 10em; font-size: 1.1em; }
 /* line 75, ../sass/snippets/_legacy.scss */
 #container #content .note { padding: 0.5em 2em 0.5em 2em; margin: 0 0 1em 0; line-height: 1.8em; background: #ffffdf; border: 1px solid #dddddd; position: relative; }
 /* line 82, ../sass/snippets/_legacy.scss */
@@ -1762,7 +1762,7 @@ ul.actions.active { border-bottom: 1px solid #eeeeee; }
 /* line 87, ../sass/snippets/_legacy.scss */
 #container #content .boom_box { border: 1px solid #cccccc; padding: 1em; background: #f6f6f6; margin-bottom: 2em; }
 /* line 95, ../sass/snippets/_legacy.scss */
-#container .discussion .brief_item { padding: 1em 2em; border-right: 1px solid #cccccc; border-left: 1px solid #cccccc; }
+#container .discussion .document_item { padding: 1em 2em; border-right: 1px solid #cccccc; border-left: 1px solid #cccccc; }
 /* line 100, ../sass/snippets/_legacy.scss */
 #container .creative, #container .author { padding: 0 0 1em 0; position: relative; }
 /* line 103, ../sass/snippets/_legacy.scss */
@@ -1773,13 +1773,13 @@ ul.actions.active { border-bottom: 1px solid #eeeeee; }
 #container .hr { border-top: 1px solid #bbbbbb; margin: 2em 0; }
 
 /* line 119, ../sass/snippets/_legacy.scss */
-#container #content .title_holder .brief_timeline { padding: 0.1em 0 0 0.5em; margin: 0; }
+#container #content .title_holder .document_timeline { padding: 0.1em 0 0 0.5em; margin: 0; }
 /* line 122, ../sass/snippets/_legacy.scss */
-#container #content .title_holder .brief_timeline li { text-transform: uppercase; width: 158px; padding: 0; float: left; }
+#container #content .title_holder .document_timeline li { text-transform: uppercase; width: 158px; padding: 0; float: left; }
 /* line 127, ../sass/snippets/_legacy.scss */
-#container #content .title_holder .brief_timeline li span { display: block; text-align: center; margin: 0 2px; padding: 4px 8px; color: #cccccc; font-weight: normal; font-size: 1.8em; }
+#container #content .title_holder .document_timeline li span { display: block; text-align: center; margin: 0 2px; padding: 4px 8px; color: #cccccc; font-weight: normal; font-size: 1.8em; }
 /* line 136, ../sass/snippets/_legacy.scss */
-#container #content .title_holder .brief_timeline li span.selected { background: #e9e9e9; color: #555555; }
+#container #content .title_holder .document_timeline li span.selected { background: #e9e9e9; color: #555555; }
 
 /* line 152, ../sass/snippets/_legacy.scss */
 p.submit.left { float: left; margin: 0 1em 1em 0; }
@@ -1791,35 +1791,35 @@ p.submit.left { float: left; margin: 0 1em 1em 0; }
 /* line 162, ../sass/snippets/_legacy.scss */
 #facebox .content .fb p.message { padding: 0.5em 1em 0 1em; font-size: 1.2em; font-weight: bold; }
 /* line 166, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief { border-top: none; }
+#facebox .content .fb .document { border-top: none; }
 /* line 168, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief h2 { background: #333333; color: white; font-size: 1.2em; padding: 1em 1.8em; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; border-top-right-radius: 6px; position: relative; }
+#facebox .content .fb .document h2 { background: #333333; color: white; font-size: 1.2em; padding: 1em 1.8em; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; border-top-right-radius: 6px; position: relative; }
 /* line 175, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief h2 a { color: #666666; position: absolute; right: 4em; top: 1em; }
+#facebox .content .fb .document h2 a { color: #666666; position: absolute; right: 4em; top: 1em; }
 /* line 180, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief h2 a:hover { color: #fefefe; }
+#facebox .content .fb .document h2 a:hover { color: #fefefe; }
 /* line 182, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief h2 a.print_brief { top: 1.2em; right: 1.8em; background: url(/images/printer_empty.png); width: 16px; height: 16px; text-indent: -3000px; }
+#facebox .content .fb .document h2 a.print_document { top: 1.2em; right: 1.8em; background: url(/images/printer_empty.png); width: 16px; height: 16px; text-indent: -3000px; }
 /* line 189, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .brief_item, #facebox .content .fb .brief .most_important_thing { border: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-top: 0; position: relative; }
+#facebox .content .fb .document .document_item, #facebox .content .fb .document .most_important_thing { border: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-top: 0; position: relative; }
 /* line 195, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .brief_item h3 span.updated, #facebox .content .fb .brief .most_important_thing h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
+#facebox .content .fb .document .document_item h3 span.updated, #facebox .content .fb .document .most_important_thing h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
 /* line 206, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .most_important_thing { padding: 1em 1em 1em 3em; }
+#facebox .content .fb .document .most_important_thing { padding: 1em 1em 1em 3em; }
 /* line 208, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .most_important_thing p { font-size: 2.2em; font-weight: bold; color: #333333; padding: 0 2em; position: relative; }
+#facebox .content .fb .document .most_important_thing p { font-size: 2.2em; font-weight: bold; color: #333333; padding: 0 2em; position: relative; }
 /* line 214, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .most_important_thing p span { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
+#facebox .content .fb .document .most_important_thing p span { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
 /* line 221, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .most_important_thing p span.left { top: 0; left: 0; }
+#facebox .content .fb .document .most_important_thing p span.left { top: 0; left: 0; }
 /* line 224, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .most_important_thing p span.right { bottom: -0.2em; padding-right: 0.5em; }
+#facebox .content .fb .document .most_important_thing p span.right { bottom: -0.2em; padding-right: 0.5em; }
 /* line 228, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .brief_item .body { background: transparent; font-size: 1.2em; width: 100%; margin: 0; padding: 0.5em 0; }
+#facebox .content .fb .document .document_item .body { background: transparent; font-size: 1.2em; width: 100%; margin: 0; padding: 0.5em 0; }
 /* line 234, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .brief_item .actions, #facebox .content .fb .brief .brief_item .ask_question { display: none; }
+#facebox .content .fb .document .document_item .actions, #facebox .content .fb .document .document_item .ask_question { display: none; }
 /* line 236, ../sass/snippets/_legacy.scss */
-#facebox .content .fb .brief .brief_item:hover { background: #ffffdf; }
+#facebox .content .fb .document .document_item:hover { background: #ffffdf; }
 
 /* line 239, ../sass/snippets/_legacy.scss */
 .login, .app_error { margin: 15% auto 0 auto; width: 45em; border: 10px solid #dddddd; background: #f6f6f6; }
@@ -1890,27 +1890,27 @@ ul.error_messages li p { color: #d81f26; }
 /* line 352, ../sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users input[type=submit] { margin: 0.5em 0 0 0; }
 /* line 355, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
+#container #content .col_2 #document_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
 /* line 360, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
+#container #content .col_2 #document_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
 /* line 365, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
+#container #content .col_2 #document_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
 /* line 370, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
+#container #content .col_2 #document_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
 /* line 376, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
+#container #content .col_2 #document_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
 /* line 380, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
+#container #content .col_2 #document_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
 /* line 383, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
+#container #content .col_2 #document_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
 /* line 387, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference ul li h3.js { padding-bottom: 0.5em; }
+#container #content .col_2 #document_reference ul li h3.js { padding-bottom: 0.5em; }
 /* line 389, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference ul li h3.active { padding-bottom: 0; }
+#container #content .col_2 #document_reference ul li h3.active { padding-bottom: 0; }
 /* line 391, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference ul li p { font-weight: normal; }
+#container #content .col_2 #document_reference ul li p { font-weight: normal; }
 /* line 393, ../sass/snippets/_legacy.scss */
-#container #content .col_2 #brief_reference ul li:last-child { border-bottom: 0; }
+#container #content .col_2 #document_reference ul li:last-child { border-bottom: 0; }
 /* line 395, ../sass/snippets/_legacy.scss */
 #container #content .invitations, #container #content .friends { width: 100%; }
 /* line 397, ../sass/snippets/_legacy.scss */
@@ -2009,12 +2009,12 @@ body#users.contacts #header ul.sub_nav { display: none; }
 .fields { padding-top: 1em; border-top: 1px solid #cccccc; margin-bottom: 1em; }
 
 /* line 548, ../sass/snippets/_legacy.scss */
-#sortable .brief_item:hover, #sortable .brief_heading:hover { cursor: move; }
+#sortable .document_item:hover, #sortable .document_heading:hover { cursor: move; }
 
 /* line 553, ../sass/snippets/_legacy.scss */
-#brief-privileges .brief-title label { float: none; }
+#document-privileges .document-title label { float: none; }
 /* line 555, ../sass/snippets/_legacy.scss */
-#brief-privileges .brief-title input { float: left; margin: 5px; }
+#document-privileges .document-title input { float: left; margin: 5px; }
 
 /* line 559, ../sass/snippets/_legacy.scss */
 #list-of-accounts { padding: 1em; }
@@ -2022,23 +2022,23 @@ body#users.contacts #header ul.sub_nav { display: none; }
 #list-of-accounts h2 { padding-left: 1em; }
 
 /* line 566, ../sass/snippets/_legacy.scss */
-#template_briefs #container .new_template_brief .actions, #template_briefs #container .edit_template_brief .actions { border-top: 1px solid #dddddd; padding-top: 1.5em; }
+#template_documents #container .new_template_document .actions, #template_documents #container .edit_template_document .actions { border-top: 1px solid #dddddd; padding-top: 1.5em; }
 /* line 569, ../sass/snippets/_legacy.scss */
-#template_briefs #container .new_template_brief .actions .left, #template_briefs #container .edit_template_brief .actions .left { float: left; }
+#template_documents #container .new_template_document .actions .left, #template_documents #container .edit_template_document .actions .left { float: left; }
 /* line 571, ../sass/snippets/_legacy.scss */
-#template_briefs #container .new_template_brief .actions .right, #template_briefs #container .edit_template_brief .actions .right { float: right; }
+#template_documents #container .new_template_document .actions .right, #template_documents #container .edit_template_document .actions .right { float: right; }
 /* line 573, ../sass/snippets/_legacy.scss */
-#template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child { display: inline-block; }
+#template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child { display: inline-block; }
 /* line 577, ../sass/snippets/_legacy.scss */
-#template_briefs #container .new_template_brief .actions #template_brief_submit, #template_briefs #container .edit_template_brief .actions #template_brief_submit { font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background.png") repeat-x right top; font-size: 1em; }
+#template_documents #container .new_template_document .actions #template_document_submit, #template_documents #container .edit_template_document .actions #template_document_submit { font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background.png") repeat-x right top; font-size: 1em; }
 /* line 69, ../sass/_mixins.scss */
-#template_briefs #container .new_template_brief .actions #template_brief_submit:hover, #template_briefs #container .edit_template_brief .actions #template_brief_submit:hover { border: 1px solid #32401a; }
+#template_documents #container .new_template_document .actions #template_document_submit:hover, #template_documents #container .edit_template_document .actions #template_document_submit:hover { border: 1px solid #32401a; }
 /* line 74, ../sass/_mixins.scss */
-#template_briefs #container .new_template_brief .actions #template_brief_submit:hover, #template_briefs #container .edit_template_brief .actions #template_brief_submit:hover { background: url("/images/ui/button_background.png") repeat-x right top; }
+#template_documents #container .new_template_document .actions #template_document_submit:hover, #template_documents #container .edit_template_document .actions #template_document_submit:hover { background: url("/images/ui/button_background.png") repeat-x right top; }
 /* line 76, ../sass/_mixins.scss */
-#template_briefs #container .new_template_brief .actions #template_brief_submit:active, #template_briefs #container .edit_template_brief .actions #template_brief_submit:active { background: url("/images/ui/button_background.png") repeat-x right -36px; }
+#template_documents #container .new_template_document .actions #template_document_submit:active, #template_documents #container .edit_template_document .actions #template_document_submit:active { background: url("/images/ui/button_background.png") repeat-x right -36px; }
 /* line 584, ../sass/snippets/_legacy.scss */
-#template_briefs #container a.delete_template { display: inline-block; float: left; }
+#template_documents #container a.delete_template { display: inline-block; float: left; }
 
 /* line 592, ../sass/snippets/_legacy.scss */
 ul#notifications { float: left; width: 620px; }
@@ -2119,7 +2119,7 @@ ul#notifications li span.notification_action { float: right; }
 #footer p a:hover { color: #333333; }
 
 /* line 749, ../sass/snippets/_legacy.scss */
-#proposals #brief_reference img { max-width: 100%; }
+#proposals #document_reference img { max-width: 100%; }
 
 /* line 752, ../sass/snippets/_legacy.scss */
 .show_with_js { display: none; }

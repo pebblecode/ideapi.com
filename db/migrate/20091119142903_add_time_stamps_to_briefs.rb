@@ -1,11 +1,11 @@
-class AddTimeStampsToBriefs < ActiveRecord::Migration
+class AddTimeStampsToDocuments < ActiveRecord::Migration
   def self.up
-    add_column :briefs, :updated_at, :datetime
-    add_column :briefs, :created_at, :datetime
+    add_column :documents, :updated_at, :datetime
+    add_column :documents, :created_at, :datetime
   end
 
   def self.down
-    remove_column :briefs, :created_at
-    remove_column :briefs, :updated_at
+    remove_column :documents, :created_at
+    remove_column :documents, :updated_at
   end
 end

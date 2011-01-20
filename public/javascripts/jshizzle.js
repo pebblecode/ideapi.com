@@ -2,7 +2,7 @@
 /*
 * Dynamically add and remove elements from a complex nested form
 * Added from http://github.com/timriley/complex-form-examples/
-* Added by George Ornbo for template_briefs 07/07/10
+* Added by George Ornbo for template_documents 07/07/10
 */
 $(function() {
   $('form a.add_child').live('click', function() {
@@ -154,7 +154,7 @@ jQuery.fn.hideable_note = function () {
 };
 
 
-jQuery.fn.edit_brief_item = function () {
+jQuery.fn.edit_document_item = function () {
   
   var link_on_state = "+";
   var link_off_state = "-";
@@ -164,10 +164,10 @@ jQuery.fn.edit_brief_item = function () {
     if (jQuery(this).val() == "") {
       jQuery(this).parent().hide();
 
-      jQuery(this).parent().prev('h3').prepend('<a class="toggle_brief_edit" href="#'+jQuery(this).attr("id")+'">'+ link_on_state +'</a>');
+      jQuery(this).parent().prev('h3').prepend('<a class="toggle_document_edit" href="#'+jQuery(this).attr("id")+'">'+ link_on_state +'</a>');
       jQuery(this).parent().prev('h3').addClass('empty active');
       
-      jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').click(function () {
+      jQuery(this).parent().prev('h3').find('a.toggle_document_edit').click(function () {
         
         jQuery(this).parent().parent().find('.body').toggle();
         
@@ -186,7 +186,7 @@ jQuery.fn.edit_brief_item = function () {
       
       jQuery(this).parent().prev('h3').each(function () { jQuery(this).css("cursor", "pointer"); }).click(function () {
         if (jQuery(this).hasClass('active')) {
-          jQuery(this).find('a.toggle_brief_edit').click();
+          jQuery(this).find('a.toggle_document_edit').click();
           jQuery(this).css("cursor", "pointer");
         } else {
           jQuery(this).css("cursor", "auto");
@@ -197,10 +197,10 @@ jQuery.fn.edit_brief_item = function () {
     
     jQuery(this).change(function () {
       if (jQuery(this).val() != "") {
-        jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').hide();
+        jQuery(this).parent().prev('h3').find('a.toggle_document_edit').hide();
         jQuery(this).parent().prev('h3').removeClass('active');
       } else {
-        jQuery(this).parent().prev('h3').find('a.toggle_brief_edit').show();       
+        jQuery(this).parent().prev('h3').find('a.toggle_document_edit').show();       
         jQuery(this).parent().prev('h3').addClass('active');
       }
     });
@@ -250,9 +250,9 @@ jQuery.fn.collaboration_widget = function () {
    
    // Now, we are creating helper_elements (hidden input fields) with the ID we need to target, 
    // so we can use that to collect the correct element from the DOM... wherever it has been placed. 
-   var helper_element = $(this).find('.user_brief_id_helper');
+   var helper_element = $(this).find('.user_document_id_helper');
    var input_element = $('ul.collaborators input[name*="[id]"][value=' + helper_element.val() + ']');
-   $(this).find('.user_brief_id_helper').after(input_element);
+   $(this).find('.user_document_id_helper').after(input_element);
   }).collab_control();
   
   $('.add_collaborators').add_collaborator_widget();
@@ -318,9 +318,9 @@ jQuery.fn.fire_collab_action = function (action_type) {
     url: jQuery(this).parents().filter('form').attr('action'),
     data: serialized_data,
     success: function(response){
-      $.each(response.brief.user_briefs, function(index, value){
-        var target_span = _list.find('li.collaboration_user input[name="brief[user_briefs_attributes]['+ index +'][id]"][value="'+ value.id +'"]').parent().find('span.user_role');
-        target_span.html(value.brief_role.label);
+      $.each(response.document.user_documents, function(index, value){
+        var target_span = _list.find('li.collaboration_user input[name="document[user_documents_attributes]['+ index +'][id]"][value="'+ value.id +'"]').parent().find('span.user_role');
+        target_span.html(value.document_role.label);
       });
       _link.fadeIn().next('.spinner').remove();
       if (action_type == "remove") {
@@ -400,23 +400,23 @@ jQuery.fn.document_ready = function() {
     
     jQuery('.help_message').hide();
     
-    jQuery('.brief_item textarea').trigger_help_message('.brief_item');
+    jQuery('.document_item textarea').trigger_help_message('.document_item');
     
     jQuery('.note').hideable_note();
     jQuery('.speech').append('<span class="bubble"></span>');
     
     
-    jQuery('.brief_item_activity').hide();
-    jQuery('.brief_item_activity').each(function () {            
+    jQuery('.document_item_activity').hide();
+    jQuery('.document_item_activity').each(function () {            
       var selected_item = document.URL.split('#')[1];
-      var parent_item = $(this).parents().filter('.brief_item');
+      var parent_item = $(this).parents().filter('.document_item');
       if (parent_item.attr('id') == selected_item){
         parent_item.children().filter('ul.actions').find('a').parent().toggleClass('selected');
         $(this).show();
       }
     });
     
-    $('#briefs li.revision .toggle_revision_body').live('click',function(){
+    $('#documents li.revision .toggle_revision_body').live('click',function(){
       $(this).parents().filter('.revision-body').find('.body').toggle();
       return false;
     });
@@ -445,7 +445,7 @@ jQuery.fn.document_ready = function() {
 
     jQuery('ul.actions li a').live("click", function(){
       jQuery(this).parent("li").toggleClass("selected");
-      var container = jQuery(this).parents().filter('.brief_item').find(this.className.replace("toggle_", "."));
+      var container = jQuery(this).parents().filter('.document_item').find(this.className.replace("toggle_", "."));
       if(jQuery(this).parent("li").hasClass('selected')){
         container.toggle('blind', {}, 500);
       } else { container.toggle('blind', {}, 500);}
@@ -498,7 +498,7 @@ jQuery.fn.document_ready = function() {
     
     jQuery('.feedback_form').feedback_form();
     
-    jQuery('.edit_brief .brief_item').edit_brief_item();
+    jQuery('.edit_document .document_item').edit_document_item();
     
     jQuery('a[href=#beta_feedback]').click(function () {
       jQuery('.feedback_form').find('.wrap').fadeIn();
@@ -510,7 +510,7 @@ jQuery.fn.document_ready = function() {
     jQuery(document).bind('afterReveal.facebox', jQuery.fn.document_ready_extras);
     
     jQuery('a.just_to_question').click(function () {
-      jQuery("#" + jQuery(this).attr('href').split('#')[1]).find('.brief_item_history').show();
+      jQuery("#" + jQuery(this).attr('href').split('#')[1]).find('.document_item_history').show();
     });
 
     
@@ -518,7 +518,7 @@ jQuery.fn.document_ready = function() {
       //jQuery("#" + document.URL.split('#')[1]).scrollTo();
     }
     
-    jQuery('#brief_reference h3').wrap('<a href="#"></a>').click(function () {
+    jQuery('#document_reference h3').wrap('<a href="#"></a>').click(function () {
       $(this).parent().next('div').toggle();
       $(this).toggleClass('active');
       return false;
@@ -549,11 +549,11 @@ jQuery.fn.document_ready = function() {
     * See http://docs.jquery.com/UI/Sortable
     */ 
     $('#sortable').sortable({update: function() {
-      $.post('/template_briefs/sort', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$(this).sortable('serialize'));
+      $.post('/template_documents/sort', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$(this).sortable('serialize'));
       }
     });
     /*
-    * Shows and hides items when creating template briefs
+    * Shows and hides items when creating template documents
     * When an item is marked as a heading this hides fields that are not relevant
     */ 
     $('.is-heading').live('click', function(){
@@ -571,22 +571,22 @@ jQuery.fn.document_ready = function() {
     * http://wayofspark.com/projects/smarttextbox/
     * 
     */
-    $('#brief_tag_field').smartTextBox({autocompleteUrl : "/tags.json", separator : ",", placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags." });
+    $('#document_tag_field').smartTextBox({autocompleteUrl : "/tags.json", separator : ",", placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags." });
 
     /*
     * Hides checkboxes on add user form on User#show
     */
-    $('table#brief-privileges td.brief-title input').parent().siblings().children().hide();
+    $('table#document-privileges td.document-title input').parent().siblings().children().hide();
 
     /*
     * Show any checkboxes that are checked on page load (form errors etc)
     */
-    $('table#brief-privileges td.brief-title input:checked').parent().siblings().children().show();
+    $('table#document-privileges td.document-title input:checked').parent().siblings().children().show();
 
     /*
     * Toggle show and hide of author & approver links
     */
-    $('table#brief-privileges td.brief-title input[type=checkbox]').click (function (){
+    $('table#document-privileges td.document-title input[type=checkbox]').click (function (){
       if ($(this).is (':checked')){
           $(this).parent().siblings().children().fadeIn();
         }
@@ -645,14 +645,14 @@ jQuery.fn.document_ready_extras = function () {
   
   $('#content a.show-options-menu').live('click', function(){
     $(this).toggleClass('active');
-    toggle_brief_options_menu();
+    toggle_document_options_menu();
     return false;
   });
   
-  $('#brief-tags').hide();
+  $('#document-tags').hide();
   
-  $('#brief-tags-toggle').click(function(){
-    $('#brief-tags').toggle();
+  $('#document-tags-toggle').click(function(){
+    $('#document-tags').toggle();
     $(this).toggleClass('selected');
     return false;
   });
@@ -661,7 +661,7 @@ jQuery.fn.document_ready_extras = function () {
 
 jQuery(document).ready(jQuery.fn.document_ready);
 
-function toggle_brief_options_menu(selected){
+function toggle_document_options_menu(selected){
   $('#options-menu').toggle('blind', {}, 400);
 }
 

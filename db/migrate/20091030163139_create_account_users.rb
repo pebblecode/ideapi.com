@@ -6,7 +6,7 @@ class CreateAccountUsers < ActiveRecord::Migration
       t.string   "code"
       t.string   "state"
       t.datetime "redeemed_at"
-      t.boolean  "brief_creation", :default => false
+      t.boolean  "document_creation", :default => false
       t.timestamps
     end
     

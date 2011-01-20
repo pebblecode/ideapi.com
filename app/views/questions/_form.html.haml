@@ -1,10 +1,10 @@
 %p
-  =f.label :brief_item_id, "In response to: "
-  -if params[:brief_item_id].blank?
-    =f.select :brief_item_id, brief_items.map {|ba| [ba.title, ba.id] }, {:include_blank => 'Select ...'}
-  -elsif defined?(brief_item)
-    %span=brief_item.title
-    =hidden_field_tag 'question[brief_item_id]', brief_item.id
+  =f.label :document_item_id, "In response to: "
+  -if params[:document_item_id].blank?
+    =f.select :document_item_id, document_items.map {|ba| [ba.title, ba.id] }, {:include_blank => 'Select ...'}
+  -elsif defined?(document_item)
+    %span=document_item.title
+    =hidden_field_tag 'question[document_item_id]', document_item.id
 
 %p=f.text_area :body, :rows => 10, :cols => 80
 %p=f.submit "submit", :class => "awesome large blue"

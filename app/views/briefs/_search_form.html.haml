@@ -1,6 +1,0 @@
-.briefs_search
-  -form_for :briefs, :url => browse_briefs_path, :html => { :method => :get } do |f|
-    %p
-      =text_field_tag 'q', params[:q]
-      =submit_tag 'Search', :name => "", :class => "awesome small"
-    

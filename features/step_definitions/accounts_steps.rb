@@ -6,8 +6,8 @@ Given /^there are free, basic and premium plans$/ do
   end
 end
 
-Given /^a default ideapi template brief exists$/ do
-  should_have_template_brief # see test_helper.rb
+Given /^a default ideapi template document exists$/ do
+  should_have_template_document # see test_helper.rb
 end
 
 Given /^I am logged in as an account admin$/ do
@@ -22,14 +22,14 @@ Given /^I am logged in as an account admin$/ do
     click_button 'Login'
 end
 
-Given /^I have briefs called (.+)$/ do |briefs|
-  briefs.split(', ').each do |brief|
-    @published = Brief.make(:published, :author => @user, :account => @account, :title => brief)
+Given /^I have documents called (.+)$/ do |documents|
+  documents.split(', ').each do |document|
+    @published = Document.make(:published, :author => @user, :account => @account, :title => document)
   end
 end
 
-Given /^I have a document called "([^"]*)" tagged with "([^"]*)"$/ do |brief, tags|
-  @published = Brief.make(:published, :author => @user, :account => @account, :title => brief)
+Given /^I have a document called "([^"]*)" tagged with "([^"]*)"$/ do |document, tags|
+  @published = Document.make(:published, :author => @user, :account => @account, :title => document)
   @account.tag(@published, :with => tags, :on => :tags)
 end
 

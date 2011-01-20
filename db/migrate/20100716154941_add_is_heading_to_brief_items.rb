@@ -1,9 +1,9 @@
-class AddIsHeadingToBriefItems < ActiveRecord::Migration
+class AddIsHeadingToDocumentItems < ActiveRecord::Migration
   def self.up
-    add_column :brief_items, :is_heading, :boolean, :default => false
+    add_column :document_items, :is_heading, :boolean, :default => false
   end
 
   def self.down
-    remove_column :brief_items, :is_heading
+    remove_column :document_items, :is_heading
   end
 end

@@ -1,18 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.resources :briefs, 
+  map.resources :documents, 
     :collection => { :browse => :get, :completed => :get}, 
-    :member => { :delete => :get, :watch => :post, :collaborators => :get, :clean => :post, :update_collaborators => :post} do |briefs|
-      briefs.resources :questions
-      briefs.resources :proposals, :member => { :delete_asset => :delete }
-      briefs.resources :user_briefs
+    :member => { :delete => :get, :watch => :post, :collaborators => :get, :clean => :post, :update_collaborators => :post} do |documents|
+      documents.resources :questions
+      documents.resources :proposals, :member => { :delete_asset => :delete }
+      documents.resources :user_documents
   end
   
-  map.resources :user_briefs
-  map.resources :template_briefs, :collection => { :sort => :put } 
+  map.resources :user_documents
+  map.resources :template_documents, :collection => { :sort => :put } 
   map.resources :comments
   map.resources :questions
-  map.resources :brief_items, :collection => { :sort => :put } 
+  map.resources :document_items, :collection => { :sort => :put } 
       
   map.resources :tags
 
@@ -36,7 +36,7 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :subscription_plans, :as => 'plans'
       admin.resources :subscription_discounts, :as => 'discounts'
       admin.resources :subscription_affiliates, :as => 'affiliates'
-      admin.resources :template_briefs
+      admin.resources :template_documents
       admin.resources :template_questions
     end
   end
@@ -61,7 +61,7 @@ ActionController::Routing::Routes.draw do |map|
     }
 
   map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
-  map.documents 'documents', :controller => "briefs", :action => "index"
+  map.documents 'documents', :controller => "documents", :action => "index"
   map.root :controller => "pages", :action => "home"
     
   # static pages

@@ -1,18 +1,18 @@
-class AddDefaultFlagToTemplateBriefs < ActiveRecord::Migration
+class AddDefaultFlagToTemplateDocuments < ActiveRecord::Migration
   def self.up
-    add_column :template_briefs, :default, :boolean, :default => false
+    add_column :template_documents, :default, :boolean, :default => false
     
-    if template = TemplateBrief.first
+    if template = TemplateDocument.first
       template.default = true
       if template.save
         Account.all.each do |account|
-          account.template_briefs << template
+          account.template_documents << template
         end 
       end
     end  
   end
 
   def self.down
-    remove_column :template_briefs, :default
+    remove_column :template_documents, :default
   end
 end

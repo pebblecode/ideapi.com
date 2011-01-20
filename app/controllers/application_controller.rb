@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   require_dependency 'application/redirection'  
   require_dependency 'application/authentication'  
   require_dependency 'application/subscription'  
-  require_dependency 'application/brief_security'
+  require_dependency 'application/document_security'
   
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   

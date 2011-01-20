@@ -11,9 +11,9 @@
 
 ActiveRecord::Schema.define(:version => 20110113165404) do
 
-  create_table "account_template_briefs", :force => true do |t|
+  create_table "account_template_documents", :force => true do |t|
     t.integer "account_id"
-    t.integer "template_brief_id"
+    t.integer "template_document_id"
   end
 
   create_table "account_users", :force => true do |t|
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.string   "code"
     t.string   "state"
     t.datetime "redeemed_at"
-    t.boolean  "brief_creation",    :default => false
+    t.boolean  "document_creation",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",             :default => false
-    t.boolean  "can_create_briefs", :default => false
+    t.boolean  "can_create_documents", :default => false
   end
 
   add_index "account_users", ["account_id"], :name => "index_account_users_on_account_id"
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
   add_index "assets", ["attachable_id", "attachable_type"], :name => "index_assets_on_attachable_id_and_attachable_type"
   add_index "assets", ["attachable_id"], :name => "index_assets_on_attachable_id"
 
-  create_table "brief_item_versions", :force => true do |t|
-    t.integer  "brief_item_id"
+  create_table "document_item_versions", :force => true do |t|
+    t.integer  "document_item_id"
     t.integer  "version"
     t.text     "title"
     t.text     "body"
     t.integer  "position"
-    t.integer  "brief_id"
+    t.integer  "document_id"
     t.integer  "template_question_id"
     t.datetime "revised_at"
     t.boolean  "is_heading",                        :default => false
@@ -74,15 +74,15 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.integer  "optional",             :limit => 1
   end
 
-  add_index "brief_item_versions", ["brief_id"], :name => "index_brief_item_versions_on_brief_id"
-  add_index "brief_item_versions", ["brief_item_id"], :name => "index_brief_item_versions_on_brief_item_id"
-  add_index "brief_item_versions", ["template_question_id"], :name => "index_brief_item_versions_on_template_question_id"
+  add_index "document_item_versions", ["document_id"], :name => "index_document_item_versions_on_document_id"
+  add_index "document_item_versions", ["document_item_id"], :name => "index_document_item_versions_on_document_item_id"
+  add_index "document_item_versions", ["template_question_id"], :name => "index_document_item_versions_on_template_question_id"
 
-  create_table "brief_items", :force => true do |t|
+  create_table "document_items", :force => true do |t|
     t.text     "title"
     t.text     "body"
     t.integer  "position"
-    t.integer  "brief_id"
+    t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "version"
@@ -92,13 +92,13 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.integer  "template_question_id"
   end
 
-  add_index "brief_items", ["brief_id"], :name => "index_brief_items_on_brief_id"
+  add_index "document_items", ["document_id"], :name => "index_document_items_on_document_id"
 
-  create_table "briefs", :force => true do |t|
+  create_table "documents", :force => true do |t|
     t.string   "title"
     t.string   "state"
     t.integer  "site_id"
-    t.integer  "template_brief_id"
+    t.integer  "template_document_id"
     t.text     "most_important_message"
     t.boolean  "delta"
     t.integer  "approver_id"
@@ -108,10 +108,10 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.datetime "created_at"
   end
 
-  add_index "briefs", ["approver_id"], :name => "index_briefs_on_approver_id"
-  add_index "briefs", ["delta"], :name => "index_briefs_on_delta"
-  add_index "briefs", ["site_id"], :name => "index_briefs_on_site_id"
-  add_index "briefs", ["template_brief_id"], :name => "index_briefs_on_template_brief_id"
+  add_index "documents", ["approver_id"], :name => "index_documents_on_approver_id"
+  add_index "documents", ["delta"], :name => "index_documents_on_delta"
+  add_index "documents", ["site_id"], :name => "index_documents_on_site_id"
+  add_index "documents", ["template_document_id"], :name => "index_documents_on_template_document_id"
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
   create_table "proposals", :force => true do |t|
     t.text     "short_description"
     t.text     "long_description"
-    t.integer  "brief_id"
+    t.integer  "document_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -147,22 +147,22 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.string   "state"
   end
 
-  add_index "proposals", ["brief_id"], :name => "index_proposals_on_brief_id"
+  add_index "proposals", ["document_id"], :name => "index_proposals_on_document_id"
   add_index "proposals", ["user_id"], :name => "index_proposals_on_user_id"
 
   create_table "questions", :force => true do |t|
     t.text     "body"
     t.text     "author_answer"
-    t.integer  "brief_id"
+    t.integer  "document_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "brief_item_id"
+    t.integer  "document_item_id"
     t.integer  "answered_by_id"
   end
 
-  add_index "questions", ["brief_id"], :name => "index_questions_on_brief_id"
-  add_index "questions", ["brief_item_id"], :name => "index_questions_on_brief_item_id"
+  add_index "questions", ["document_id"], :name => "index_questions_on_document_id"
+  add_index "questions", ["document_item_id"], :name => "index_questions_on_document_item_id"
   add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
 
   create_table "sites", :force => true do |t|
@@ -218,7 +218,7 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.integer  "renewal_period",                                :default => 1
     t.decimal  "setup_amount",   :precision => 10, :scale => 2
     t.integer  "trial_period",                                  :default => 1
-    t.integer  "brief_limit"
+    t.integer  "document_limit"
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -236,7 +236,7 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.string   "billing_id"
     t.integer  "subscription_discount_id"
     t.integer  "subscription_affiliate_id"
-    t.integer  "brief_limit"
+    t.integer  "document_limit"
   end
 
   add_index "subscriptions", ["account_id"], :name => "index_subscriptions_on_account_id"
@@ -258,22 +258,22 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.string "name"
   end
 
-  create_table "template_brief_questions", :force => true do |t|
-    t.integer "template_brief_id"
+  create_table "template_document_questions", :force => true do |t|
+    t.integer "template_document_id"
     t.integer "template_question_id"
     t.integer "position"
   end
 
-  add_index "template_brief_questions", ["template_brief_id"], :name => "index_template_brief_questions_on_template_brief_id"
-  add_index "template_brief_questions", ["template_question_id"], :name => "index_template_brief_questions_on_template_question_id"
+  add_index "template_document_questions", ["template_document_id"], :name => "index_template_document_questions_on_template_document_id"
+  add_index "template_document_questions", ["template_question_id"], :name => "index_template_document_questions_on_template_question_id"
 
-  create_table "template_briefs", :force => true do |t|
+  create_table "template_documents", :force => true do |t|
     t.string  "title"
     t.integer "site_id"
     t.boolean "default", :default => false
   end
 
-  add_index "template_briefs", ["site_id"], :name => "index_template_briefs_on_site_id"
+  add_index "template_documents", ["site_id"], :name => "index_template_documents_on_site_id"
 
   create_table "template_questions", :force => true do |t|
     t.text    "body"
@@ -307,8 +307,8 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
   add_index "timeline_events", ["secondary_subject_id", "secondary_subject_type"], :name => "index_timeline_events_ssubs"
   add_index "timeline_events", ["subject_id", "subject_type"], :name => "index_timeline_events_on_subject_id_and_subject_type"
 
-  create_table "user_briefs", :force => true do |t|
-    t.integer  "brief_id"
+  create_table "user_documents", :force => true do |t|
+    t.integer  "document_id"
     t.integer  "user_id"
     t.boolean  "author",           :default => false
     t.datetime "created_at"
@@ -318,8 +318,8 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.integer  "added_by_user_id"
   end
 
-  add_index "user_briefs", ["brief_id"], :name => "index_user_briefs_on_brief_id"
-  add_index "user_briefs", ["user_id"], :name => "index_user_briefs_on_user_id"
+  add_index "user_documents", ["document_id"], :name => "index_user_documents_on_document_id"
+  add_index "user_documents", ["user_id"], :name => "index_user_documents_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "screename"
@@ -362,14 +362,14 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.string   "last_name"
   end
 
-  create_table "watched_briefs", :force => true do |t|
-    t.integer  "brief_id"
+  create_table "watched_documents", :force => true do |t|
+    t.integer  "document_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "watched_briefs", ["brief_id"], :name => "index_watched_briefs_on_brief_id"
-  add_index "watched_briefs", ["user_id"], :name => "index_watched_briefs_on_user_id"
+  add_index "watched_documents", ["document_id"], :name => "index_watched_documents_on_document_id"
+  add_index "watched_documents", ["user_id"], :name => "index_watched_documents_on_user_id"
 
 end

@@ -4,30 +4,30 @@
     %span.speech
       -if show_relation
         %strong="#{comment_adjective_for given_name(question.user), :position => :before}"
-        ="(in relation to <strong>#{question.brief_item.title}</strong>):"
+        ="(in relation to <strong>#{question.document_item.title}</strong>):"
       -else
         %strong="#{comment_adjective_for given_name(question.user), :position => :before}:"
       =question.body_parsed
     %br.clear    
   -if question.answered?
     .author_answer
-      =medium_avatar(question.brief.author)
+      =medium_avatar(question.document.author)
       %span.speech
         %p 
           %strong
-            =given_name(question.brief.author)
+            =given_name(question.document.author)
             answered:
           =question.author_answer
       .clear
   -else
-    -if owner?(question.brief)
+    -if owner?(question.document)
       .author_answer_form
-        %div[question.brief_item]
+        %div[question.document_item]
           %h3
-            =question.brief_item.title
+            =question.document_item.title
 
           %p.body
-            =question.brief_item.body_parsed
+            =question.document_item.body_parsed
         
         =medium_avatar
         =# render :partial => 'answer_form', :locals => { :question => question }

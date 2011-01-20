@@ -25,10 +25,10 @@
         %ul.object-actions
           -if current_user.owns?(current_object)
             %li
-              =link_to 'edit', edit_brief_proposal_path(parent_object, current_object)
+              =link_to 'edit', edit_document_proposal_path(parent_object, current_object)
           -if current_user.owns?(current_object)
             %li
-              -form_for brief_proposal_path, :html => { :method => :delete, :id => 'proposal_delete_form' } do |f|
+              -form_for document_proposal_path, :html => { :method => :delete, :id => 'proposal_delete_form' } do |f|
                 =hidden_field_tag '_flash[notice]', 'Idea deleted', :id => 'proposal_flash_notice'
                 = submit_tag "delete", :class => 'remove_with_js'
                 = link_to "delete", "#", :class => 'show_with_js'
@@ -49,7 +49,7 @@
               =asset.description
           .clear
   - if current_user.owns?(current_object) && current_object.draft?
-    - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
+    - form_for(current_object, :url => document_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
       =f.hidden_field '_call_state', :value => 'publish'
       %p.submit
         = submit_tag "Submit", :class => 'funky-button-small'
@@ -96,7 +96,7 @@
       %h2 Status of idea
       .contents          
         #update_proposal_status.update_proposal
-          - form_for(current_object, :url => brief_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
+          - form_for(current_object, :url => document_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
             %p=f.select 'state', options_for_select(Proposal.approval_state_names.map{|s| [s.titleize, s] }, current_object.state.to_s), :include_blank => 'Please select'
             %p.align-right
               %span.ajax-loading

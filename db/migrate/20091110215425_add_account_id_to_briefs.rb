@@ -1,9 +1,9 @@
-class AddAccountIdToBriefs < ActiveRecord::Migration
+class AddAccountIdToDocuments < ActiveRecord::Migration
   def self.up
-    add_column :briefs, :account_id, :integer
+    add_column :documents, :account_id, :integer
   end
 
   def self.down
-    remove_column :briefs, :account_id
+    remove_column :documents, :account_id
   end
 end

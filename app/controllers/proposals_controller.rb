@@ -4,7 +4,7 @@ class ProposalsController < ApplicationController
   # needs login for all actions
   before_filter :require_user
   before_filter :require_authorized_user
-  before_filter :require_active_brief, :except => [:show]
+  before_filter :require_active_document, :except => [:show]
   
   before_filter :require_owner_if_draft, :only => :show
   before_filter :require_owner, :only => :edit
@@ -12,11 +12,11 @@ class ProposalsController < ApplicationController
   add_breadcrumb 'documents', "/documents"
   
   make_resourceful do
-    belongs_to :brief
+    belongs_to :document
     actions :all
     
     before :new, :create, :edit, :show, :update do
-      add_breadcrumb truncate(parent_object.title, :length => 30), brief_path(parent_object)
+      add_breadcrumb truncate(parent_object.title, :length => 30), document_path(parent_object)
       session[:return_to] = request.request_uri
     end
     
@@ -24,7 +24,7 @@ class ProposalsController < ApplicationController
       current_object.assets.build
     end
     before :edit do
-      add_breadcrumb current_object.title, brief_proposal_path(current_object.brief, current_object)
+      add_breadcrumb current_object.title, document_proposal_path(current_object.document, current_object)
       add_breadcrumb "edit idea"
     end
     before :new do
@@ -73,7 +73,7 @@ class ProposalsController < ApplicationController
   
   private
   
-  def current_brief
+  def current_document
     parent_object
   end
 
@@ -82,27 +82,27 @@ class ProposalsController < ApplicationController
   def require_owner_if_draft
     if current_object.draft? and not current_object.user == current_user
       flash[:notice] = "You must be the owner of the idea while it's still a draft."
-      redirect_to brief_path(current_object.brief)
+      redirect_to document_path(current_object.document)
     end
   end
   def authorized_users
-    # brief authors, brief approver, and proposal user (owner)
+    # document authors, document approver, and proposal user (owner)
     if current_object.present? 
-      return [current_object.user, current_object.brief.authors, current_object.brief.approver].uniq.flatten
+      return [current_object.user, current_object.document.authors, current_object.document.approver].uniq.flatten
     else
       return [parent_object.users].uniq.flatten
     end
   end
   def require_authorized_user
     unless authorized_users.include? current_user
-      redirect_to brief_path(parent_object)
+      redirect_to document_path(parent_object)
     end
   end
   
   def require_owner
     unless current_object.user == current_user
       flash[:notice] = "Access error: you can only edit proposals you own."
-      redirect_to brief_path(current_object.brief)
+      redirect_to document_path(current_object.document)
     end
   end
 end

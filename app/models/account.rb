@@ -25,11 +25,11 @@ class Account < ActiveRecord::Base
     full_domain.split('.').first
   end
   
-  has_many :account_template_briefs
-  has_many :template_briefs, :through => :account_template_briefs
+  has_many :account_template_documents
+  has_many :template_documents, :through => :account_template_documents
   
   has_many :account_users, :dependent => :destroy
-  has_many :proposals, :through => :briefs
+  has_many :proposals, :through => :documents
   has_many :users, :through => :account_users do    
     def admins
       all(:conditions => "account_users.admin = true")
@@ -39,20 +39,20 @@ class Account < ActiveRecord::Base
       first(:conditions => "account_users.admin = true")
     end
     
-    def brief_authors
-      all(:conditions => "account_users.can_create_briefs = true")
+    def document_authors
+      all(:conditions => "account_users.can_create_documents = true")
     end
   end
   
   accepts_nested_attributes_for :account_users, 
     :allow_destroy => true
     
-  accepts_nested_attributes_for :account_template_briefs, 
+  accepts_nested_attributes_for :account_template_documents, 
     :allow_destroy => true
     
   authenticates_many :user_sessions
   
-  has_many :briefs
+  has_many :documents
   
   #has_one :admin, :class_name => "User", :conditions => { :admin => true }
   
@@ -76,18 +76,18 @@ class Account < ActiveRecord::Base
   validate_on_create :valid_payment_info?
   validate_on_create :valid_subscription?
   
-  attr_accessible :name, :domain, :user, :plan, :plan_start, :creditcard, :address, :account_users_attributes, :account_template_briefs_attributes
+  attr_accessible :name, :domain, :user, :plan, :plan_start, :creditcard, :address, :account_users_attributes, :account_template_documents_attributes
   attr_accessor :user, :plan, :plan_start, :creditcard, :address, :affiliate
   
   after_create :create_admin
   after_create :send_welcome_email
-  after_create :add_default_brief_template
+  after_create :add_default_document_template
   
   acts_as_paranoid
   
   Limits = {
     'user_limit' => Proc.new {|a| a.users.count },
-    'brief_limit' => Proc.new {|a| a.briefs.count }
+    'document_limit' => Proc.new {|a| a.documents.count }
   }
   
   Limits.each do |name, meth|
@@ -135,7 +135,7 @@ class Account < ActiveRecord::Base
   end
   
   delegate :admins, :to => :users
-  delegate :brief_authors, :to => :users
+  delegate :document_authors, :to => :users
   
   def admin
     self.admins.first
@@ -150,7 +150,7 @@ class Account < ActiveRecord::Base
       
       if account_user.user == a_user
         account_user.admin = true 
-        account_user.can_create_briefs = true 
+        account_user.can_create_documents = true 
       end
       
       account_user.save
@@ -231,15 +231,15 @@ class Account < ActiveRecord::Base
     end
     
     def create_admin
-      account_users.create(:user => self.user, :admin => true, :can_create_briefs => true)
+      account_users.create(:user => self.user, :admin => true, :can_create_documents => true)
     end
     
     def send_welcome_email
       SubscriptionNotifier.deliver_welcome(self)
     end
     
-    def add_default_brief_template
-      self.template_briefs << TemplateBrief.default
+    def add_default_document_template
+      self.template_documents << TemplateDocument.default
     end
   
 end

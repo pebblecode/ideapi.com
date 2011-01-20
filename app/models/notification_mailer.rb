@@ -20,21 +20,21 @@ class NotificationMailer < ActionMailer::Base
   # It seems to use from address as return-path and returns a syntax error.
   # Fixed in rails 3.x
   
-  def user_added_to_brief(user_brief_id, sent_at = Time.now)
+  def user_added_to_document(user_document_id, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
-    @user_brief = UserBrief.find_by_id(user_brief_id)
+    @user_document = UserDocument.find_by_id(user_document_id)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/plain"
 
-    recipients  @user_brief.user.email
-    subject     build_subject(@user_brief.brief.account.name, "You have been invited to collaborate", @user_brief.brief.title)
-    body        :user_brief => @user_brief
+    recipients  @user_document.user.email
+    subject     build_subject(@user_document.document.account.name, "You have been invited to collaborate", @user_document.document.title)
+    body        :user_document => @user_document
     sent_on     sent_at    
   end
   
-  def user_idea_reviewed_on_brief(proposal_id, sent_at = Time.now)
+  def user_idea_reviewed_on_document(proposal_id, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
     @proposal = Proposal.find_by_id(proposal_id)
     from      email_address("ideapi")
@@ -43,12 +43,12 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  @proposal.user.email
-    subject     build_subject(@proposal.brief.account.name, "Your idea has been reviewed", @proposal.brief.title)
-    body        :proposal => @proposal, :brief => @proposal.brief
+    subject     build_subject(@proposal.document.account.name, "Your idea has been reviewed", @proposal.document.title)
+    body        :proposal => @proposal, :document => @proposal.document
     sent_on     sent_at
   end
   
-  def user_question_answered_on_brief(question_id, sent_at = Time.now)
+  def user_question_answered_on_document(question_id, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
     @question = Question.find_by_id(question_id)
     from      email_address("ideapi")
@@ -57,23 +57,23 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  @question.user.email
-    subject     build_subject(@question.brief.account.name, "Your question has been answered", @question.brief.title)
+    subject     build_subject(@question.document.account.name, "Your question has been answered", @question.document.title)
     body        :question => @question
     sent_on     sent_at
   end
 
   
-  def user_role_changed_on_brief(user_brief_id, sent_at = Time.now)
+  def user_role_changed_on_document(user_document_id, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
-    @user_brief = UserBrief.find_by_id(user_brief_id)
+    @user_document = UserDocument.find_by_id(user_document_id)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/plain"
 
-    recipients  @user_brief.user.email
-    subject     build_subject(@user_brief.brief.account.name, "Your role is now #{@user_brief.role}", @user_brief.brief.title)
-    body        :user_brief => @user_brief, :brief => @user_brief.brief
+    recipients  @user_document.user.email
+    subject     build_subject(@user_document.document.account.name, "Your role is now #{@user_document.role}", @user_document.document.title)
+    body        :user_document => @user_document, :document => @user_document.document
     sent_on     sent_at
   end
   
@@ -109,17 +109,17 @@ class NotificationMailer < ActionMailer::Base
     sent_on     sent_at
   end
 
-  def user_made_approver_on_brief(brief_id, sent_at = Time.now)
+  def user_made_approver_on_document(document_id, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
-    @brief = Brief.find_by_id(brief_id)
+    @document = Document.find_by_id(document_id)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/plain"
 
-    recipients  @brief.approver.email
-    subject     build_subject(@brief.account.name, "You've been made an approver", @brief.title)
-    body        :brief => @brief
+    recipients  @document.approver.email
+    subject     build_subject(@document.account.name, "You've been made an approver", @document.title)
+    body        :document => @document
     sent_on     sent_at
     
   end
@@ -139,7 +139,7 @@ class NotificationMailer < ActionMailer::Base
     body          :edit_password_reset_url => edit_reset_password_url(@user.perishable_token, :host => @account.full_domain), :account => @account
   end
   
-  def to_approver_idea_submitted_on_brief(approver_id, proposal_id, sent_at = Time.now)
+  def to_approver_idea_submitted_on_document(approver_id, proposal_id, sent_at = Time.now)
     # We need to look these up so can process mail with Resque
     @approver = User.find_by_id(approver_id)
     @proposal = Proposal.find_by_id(proposal_id)
@@ -149,12 +149,12 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  @approver.email
-    subject     build_subject(@proposal.brief.account.name, "An idea has been submitted for review", @proposal.brief.title)
+    subject     build_subject(@proposal.document.account.name, "An idea has been submitted for review", @proposal.document.title)
     body        :proposal => @proposal, :approver => @approver
     sent_on     sent_at
   end
   
-  def new_question_on_brief(question_id, recipients, sent_at = Time.now)
+  def new_question_on_document(question_id, recipients, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
     @question = Question.find_by_id(question_id)
     from      email_address("ideapi")
@@ -163,12 +163,12 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
 
     recipients  recipients
-    subject     build_subject(@question.brief.account.name, "A question has been posted", @question.brief.title)
+    subject     build_subject(@question.document.account.name, "A question has been posted", @question.document.title)
     body        :question => @question
     sent_on     sent_at
   end
   
-  def new_comment_on_brief(comment_id, recipients, sent_at = Time.now)
+  def new_comment_on_document(comment_id, recipients, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
     @comment = Comment.find_by_id(comment_id)
     from      email_address("ideapi")
@@ -192,37 +192,37 @@ class NotificationMailer < ActionMailer::Base
 
     # Authors and Approver
     recipients  recipients
-    subject     build_subject(@comment.commentable.brief.account.name, "A comment has been posted", @comment.commentable.brief.title)
+    subject     build_subject(@comment.commentable.document.account.name, "A comment has been posted", @comment.commentable.document.title)
     body        :comment => @comment
     sent_on     sent_at
   end
   
-  def brief_section_updated(brief_id, recipients, updated_by_id, items, sent_at = Time.now)
+  def document_section_updated(document_id, recipients, updated_by_id, items, sent_at = Time.now)
     # We need to look this up so we can process mail with Resque
-    @brief = Brief.find_by_id(brief_id)
+    @document = Document.find_by_id(document_id)
     @updated_by = User.find_by_id(updated_by_id)
-    @items = BriefItem.find(items)
+    @items = DocumentItem.find(items)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/plain"
     
     recipients  recipients
-    subject     build_subject(@brief.account.name, "Document updated", @brief.title)
-    body        :brief => @brief, :user => @updated_by, :items => @items
+    subject     build_subject(@document.account.name, "Document updated", @document.title)
+    body        :document => @document, :user => @updated_by, :items => @items
     sent_on     sent_at
   end
   
   # This mailer doesn't seem to be used any more?
-  def brief_updated(brief, updated_by, sent_at = Time.now)
+  def document_updated(document, updated_by, sent_at = Time.now)
     from      email_address("ideapi")
     headers   "return-path" => 'no-reply@ideapi.com'
     reply_to  "no-reply@ideapi.com"
     content_type "text/plain"
     
-    recipients  brief.authors.collect{ |user| user.email }.compact - [updated_by.email]
-    subject     build_subject(brief.account.name, "Document updated", brief.title)
-    body        :brief => brief
+    recipients  document.authors.collect{ |user| user.email }.compact - [updated_by.email]
+    subject     build_subject(document.account.name, "Document updated", document.title)
+    body        :document => document
     sent_on     sent_at
   end
 

@@ -341,11 +341,11 @@ span.field_with_errors
     
     #dashboard
       
-      .brief_list
+      .document_list
         width: 655px
       h2.salu
       
-      .brief_overviews
+      .document_overviews
   
         h2
           :padding 0
@@ -381,7 +381,7 @@ span.field_with_errors
             :margin 0
             :padding 0
     
-    .brief_overview
+    .document_overview
       :margin 0 0 2em 0
       :padding 0
       :border 1px solid #ccc
@@ -406,15 +406,15 @@ span.field_with_errors
             :margin 0
             :padding 0
             
-      .brief
+      .document
         :border none
         :border-bottom 1px solid #ccc
         :margin 0
       
-      .brief:last-child
+      .document:last-child
         :border-bottom none
               
-      .brief:hover
+      .document:hover
         :background #ffffdf
         
         h5
@@ -422,20 +422,20 @@ span.field_with_errors
             :display block
         
         
-    .brief_overview.published, .brief_overview.watching
+    .document_overview.published, .document_overview.watching
       
       h3
         :background #333333
         :color #fcfcfc
         
-    .brief_overview.draft
+    .document_overview.draft
       
       h3
         :background #ddd
         :color #333
         
     
-    // brief_path
+    // document_path
 
     ul.tabbed_links
       :background #fffffe
@@ -480,7 +480,7 @@ span.field_with_errors
       :padding 1em 0.5em
     .proposal a.edit_icon
       right: 1em
-    .brief, .proposal, .brief_list
+    .document, .proposal, .document_list
       :background #fffffe
       :margin 2em 0 1em 0
       
@@ -512,7 +512,7 @@ span.field_with_errors
           margin-top: 3px
         a:hover
           :color #fefefe
-        a.edit_brief, a.edit_icon, a.edit_template
+        a.edit_document, a.edit_icon, a.edit_template
           background: url('/images/page_edit.png') no-repeat center right
           height: 16px
           text-indent: -9999px
@@ -521,7 +521,7 @@ span.field_with_errors
             text-indent: 0
             color: #32401a
             font-weight: normal
-        a.print_brief
+        a.print_document
           display: block
           float: right
           :background url('/images/printer.png')
@@ -530,7 +530,7 @@ span.field_with_errors
           :text-indent -3000px
         form
           float: right
-        .clean_brief
+        .clean_document
           +rounded-all-3px
           background: url('/images/ui/button_background_red.png') 0 0
           border: 1px solid #32401a
@@ -544,15 +544,15 @@ span.field_with_errors
             background-position: 0 -36px
 
 
-      .most_important_thing, .proposal_item, .brief
+      .most_important_thing, .proposal_item, .document
         :padding 1em 2em
         z-index: 10
 
-      .brief_heading
+      .document_heading
         h3
           :margin-left 20px
 
-      .brief_item, .most_important_thing, .proposal_item, .brief, .brief_heading
+      .document_item, .most_important_thing, .proposal_item, .document, .document_heading
         :border 1px solid #ccc
         :border-bottom 1px solid #eee
         :border-top 0
@@ -603,7 +603,7 @@ span.field_with_errors
         :z-index 5
 
         
-      .brief_item:last-child, .proposal_item:last-child
+      .document_item:last-child, .proposal_item:last-child
         :border-bottom 1px solid #ccc
             
       .proposal_item
@@ -645,17 +645,17 @@ span.field_with_errors
             :padding-right 0em
             :right 0.1em
         
-      .brief_item.updated
+      .document_item.updated
         h3, h4
           :background #ffffdf
         
-      .brief_item.extended
+      .document_item.extended
         :background transparent
               
     
-    .edit_brief
+    .edit_document
       h2
-        input#brief_title
+        input#document_title
           :font-size 1.5em
           :width 31em
           
@@ -666,12 +666,12 @@ span.field_with_errors
           :font-size 1.1em
     
     
-    .brief_list
+    .document_list
       :float left
-      .brief_item
+      .document_item
         :padding-bottom 1em
       
-      .brief_item:hover
+      .document_item:hover
         :background transparent
         
       h3
@@ -728,13 +728,13 @@ span.field_with_errors
       
   .search_results
     :padding-top 1em
-    ul.brief_list
+    ul.document_list
       li
         :padding 1em 2em
         :border-top 1px solid #ddd
         
   .discussion
-    .brief_item
+    .document_item
       :padding 1em 2em
       :border-right 1px solid #ccc
       :border-left 1px solid #ccc
@@ -773,7 +773,7 @@ span.field_with_errors
   #content    
 
       
-    .brief_item
+    .document_item
       :position relative
       :border 1px solid red
       :padding 1em 2em 0 2em
@@ -803,7 +803,7 @@ span.field_with_errors
         
       h3
         
-        a.toggle_brief_edit
+        a.toggle_document_edit
           :float left
           :margin-right 0.5em
           :margin-top 0.2em
@@ -814,22 +814,22 @@ span.field_with_errors
           :text-indent -3000px
           :background url(/images/edit_plus_minus.png) no-repeat -30px -28px
           
-        a.toggle_brief_edit:hover
+        a.toggle_document_edit:hover
           :background url(/images/edit_plus_minus.png) no-repeat -30px 0
         
       h3.empty
         :color #ccc
         
-        a.toggle_brief_edit
+        a.toggle_document_edit
           :background url(/images/edit_plus_minus.png) no-repeat 0 -28px
           
-        a.toggle_brief_edit:hover
+        a.toggle_document_edit:hover
           :background url(/images/edit_plus_minus.png) no-repeat 0 0
 
     
   #content
     .title_holder
-      .brief_timeline
+      .document_timeline
         :padding 0.1em 0 0 0.5em
         :margin 0
         
@@ -923,7 +923,7 @@ p.submit.left
         :font-size 1.2em
         :font-weight bold
   
-      .brief
+      .document
         :border-top none
       
         h2
@@ -943,7 +943,7 @@ p.submit.left
           a:hover
             :color #fefefe
           
-          a.print_brief
+          a.print_document
             :top 1.2em
             :right 1.8em
             :background url(/images/printer_empty.png)
@@ -951,7 +951,7 @@ p.submit.left
             :height 16px
             :text-indent -3000px
 
-        .brief_item, .most_important_thing
+        .document_item, .most_important_thing
           :border 1px solid #ccc
           :border-bottom 1px solid #ccc
           :border-top 0
@@ -993,7 +993,7 @@ p.submit.left
               :bottom -0.2em
               :padding-right 0.5em
         
-        .brief_item  
+        .document_item  
         
           .body
             :background transparent
@@ -1003,7 +1003,7 @@ p.submit.left
             :padding 0.5em 0
           .actions, .ask_question
             display: none
-        .brief_item:hover
+        .document_item:hover
           :background #ffffdf
 
 textarea
@@ -1408,7 +1408,7 @@ ul.error_messages
         input[type=submit]
           :margin 0.5em 0 0 0
       
-      #brief_reference
+      #document_reference
         .most_important_thing
           :font-size 1.1em
           :position relative
@@ -1573,7 +1573,7 @@ ul.error_messages
     background-color: #32401a
 
 
-#content .main .brief .brief_item 
+#content .main .document .document_item 
   h1
     font-size: 1.4em !important
   h2
@@ -1655,11 +1655,11 @@ body#users.contacts
   margin-bottom: 1em
 
 #sortable
-  .brief_item:hover, .brief_heading:hover
+  .document_item:hover, .document_heading:hover
     cursor: move
 
-#brief-privileges
-  .brief-title
+#document-privileges
+  .document-title
     label
       float: none
     input
@@ -1670,7 +1670,7 @@ body#users.contacts
 //////// Everything would go under here. I've tried to be specific enough in order to override
 //////// previous styling.
 
-#container #content .main .col_1 .brief
+#container #content .main .col_1 .document
   .body, .body .item-revision-body
     h1, h2, h3, h4
       font-weight: bold
@@ -1686,8 +1686,8 @@ body#users.contacts
   h2
     padding-left: 1em
     
-#template_briefs #container
-  .new_template_brief, .edit_template_brief
+#template_documents #container
+  .new_template_document, .edit_template_document
     .actions
       border-top: 1px solid #ddd
       padding-top: 1.5em
@@ -1889,7 +1889,7 @@ ul#notifications
         color: #333
 
 #proposals
-  #brief_reference
+  #document_reference
     img
       max-width: 100%
       

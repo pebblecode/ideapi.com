@@ -6,19 +6,19 @@ module Ideapi
     end
   
     module ClassMethods
-      def has_brief_config
+      def has_document_config
         include InstanceMethods
       
-        belongs_to :brief_config
-        before_validation :assign_brief_config
+        belongs_to :document_config
+        before_validation :assign_document_config
       end
     end
   
     module InstanceMethods
       private
       
-      def assign_brief_config
-        self.brief_config = BriefConfig.current if self.brief_config.blank?
+      def assign_document_config
+        self.document_config = DocumentConfig.current if self.document_config.blank?
       end
     end
   

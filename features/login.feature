@@ -5,7 +5,7 @@ Feature: Allow users to sign up and register
 
   Background:
     Given there are free, basic and premium plans
-    And a default ideapi template brief exists
+    And a default ideapi template document exists
 
   Scenario: Creating an account
     When I go to the sign up page

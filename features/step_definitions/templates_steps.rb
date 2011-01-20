@@ -1,6 +1,6 @@
-Given /^I am logged in with permission to create briefs$/ do
+Given /^I am logged in with permission to create documents$/ do
   session.reset! 
-  Factory(:template_brief)
+  Factory(:template_document)
   @account = Factory(:account, :user => Factory(:user), :plan => Factory(:subscription_plan))
   visit new_user_session_url(:host => @account.full_domain)
   fill_in "Email", :with =>  @account.user.email

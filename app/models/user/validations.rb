@@ -31,8 +31,8 @@ class User < ActiveRecord::Base
     :job_title,
     :telephone,
     :telephone_ext,
-    :user_briefs_attributes,
+    :user_documents_attributes,
     :invitation_message,
-    :can_create_briefs
+    :can_create_documents
   
 end

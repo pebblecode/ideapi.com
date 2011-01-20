@@ -1,9 +1,9 @@
 class Proposal < ActiveRecord::Base
   #before_update :update_status
-  belongs_to :brief
+  belongs_to :document
   belongs_to :user
   
-  delegate :approver, :to => :brief
+  delegate :approver, :to => :document
 
   validates_presence_of :title, :long_description
   
@@ -19,7 +19,7 @@ class Proposal < ActiveRecord::Base
   
   def users
     return [self.user] if self.draft?
-    [self.user, self.approver, self.brief.authors].flatten.uniq
+    [self.user, self.approver, self.document.authors].flatten.uniq
   end
   
   include Ideapi::Schizo
@@ -105,7 +105,7 @@ class Proposal < ActiveRecord::Base
   before_save :ensure_default_state
   after_update :notify_approvers_of_idea_creation
   after_update :notify_if_state_changed
-  after_save   :update_brief
+  after_save   :update_document
   
   named_scope :active, :conditions => ["state <> 'draft'"]
   
@@ -115,12 +115,12 @@ class Proposal < ActiveRecord::Base
   
   fires :new_proposal, :on => :create,
                        :actor => :user,
-                       :secondary_subject  => 'brief',
+                       :secondary_subject  => 'document',
                        :log_level => 1
                        
   fires :proposal_marked, :on => :update,
                           :actor => 'approver',
-                          :secondary_subject  => 'brief',
+                          :secondary_subject  => 'document',
                           :if => lambda { |proposal| (proposal.previous_state != proposal.state) && (Proposal.approval_states.include?(proposal.state)) },
                           :log_level => 1
   
@@ -141,7 +141,7 @@ class Proposal < ActiveRecord::Base
       # As this is now being processed by Resque we need to pass
       # the id as it gets processed by a worker
       begin
-        NotificationMailer.deliver_user_idea_reviewed_on_brief(self.id) unless self.user.pending? or self.draft?
+        NotificationMailer.deliver_user_idea_reviewed_on_document(self.id) unless self.user.pending? or self.draft?
       rescue Errno::ECONNREFUSED
         nil #maybe we should handle this properly
       end
@@ -153,7 +153,7 @@ class Proposal < ActiveRecord::Base
       # As this is now being processed by Resque we need to pass
       # the id as it gets processed by a worker
       begin
-        NotificationMailer.deliver_to_approver_idea_submitted_on_brief(self.approver.id, self.id) unless self.approver.pending? or self.draft?
+        NotificationMailer.deliver_to_approver_idea_submitted_on_document(self.approver.id, self.id) unless self.approver.pending? or self.draft?
       rescue Errno::ECONNREFUSED
         nil #maybe we should handle this properly
       end
@@ -164,8 +164,8 @@ class Proposal < ActiveRecord::Base
     self.state = "draft"
   end
   
-  def update_brief
-    self.brief.updated_at = Time.now
-    self.brief.save false
+  def update_document
+    self.document.updated_at = Time.now
+    self.document.save false
   end
 end

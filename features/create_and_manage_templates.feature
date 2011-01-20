@@ -5,7 +5,7 @@
 #
 #    Background:
 #        Given there are free, basic and premium plans
-#        And a default ideapi template brief exists
+#        And a default ideapi template document exists
 #    
 #    Scenario: Managing templates
 #        Given I am logged in as an account admin
@@ -17,7 +17,7 @@
 #    @javascript
 #    Scenario: Adding a new template
 #        Given I am logged in as an account admin
-#        When I go to the template briefs page
+#        When I go to the template documents page
 #        And I follow "create a template"
 #        Then I should see "You can add as many questions as you like to your template."
 #        And I follow "hide"

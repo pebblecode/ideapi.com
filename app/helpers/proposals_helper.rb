@@ -1,15 +1,15 @@
 module ProposalsHelper
 
-  def creative_response_button(brief, proposal = nil,  options = {})
+  def creative_response_button(document, proposal = nil,  options = {})
     options = options.reverse_merge(button_link_options)
-    creative_response_link(brief, proposal, options)
+    creative_response_link(document, proposal, options)
   end
   
-  def creative_response_link(brief, proposal, options = {})
+  def creative_response_link(document, proposal, options = {})
     if proposal.present?
-      cr_button(*show_response(brief, proposal) << options)
+      cr_button(*show_response(document, proposal) << options)
     else
-      cr_button(*create_response(brief) << options)
+      cr_button(*create_response(document) << options)
     end
   end
   
@@ -30,16 +30,16 @@ module ProposalsHelper
   
   private
   
-  def show_response(brief, proposal)
+  def show_response(document, proposal)
     if proposal.draft?
-      return 'Edit your response', edit_brief_proposal_path(brief, proposal)
+      return 'Edit your response', edit_document_proposal_path(document, proposal)
     else
-      return 'View your response', brief_proposal_path(brief, proposal)
+      return 'View your response', document_proposal_path(document, proposal)
     end
   end
   
-  def create_response(brief)
-    return 'Draft response',  new_brief_proposal_path(brief)
+  def create_response(document)
+    return 'Draft response',  new_document_proposal_path(document)
   end
   
   def button_link_options

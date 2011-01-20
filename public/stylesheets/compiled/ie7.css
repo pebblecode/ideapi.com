@@ -28,7 +28,7 @@ input[type=text] { font-size: 1em; line-height: 1.2em; }
 .speech .bubble, .revision-body .bubble { display: none !important; }
 
 /* line 65, ../sass/ie7.scss */
-#brief-tags { display: none; }
+#document-tags { display: none; }
 
 /*BRIEFS*/
 /* line 72, ../sass/ie7.scss */
@@ -44,15 +44,15 @@ input[type=text] { font-size: 1em; line-height: 1.2em; }
 /* line 92, ../sass/ie7.scss */
 #container #content .main .col_1 .most_important_thing .right { clear: none; margin-top: 0; }
 /* line 97, ../sass/ie7.scss */
-#container #content .main .col_1 .brief_item_history li { border: 1px solid #f7f7f7; }
+#container #content .main .col_1 .document_item_history li { border: 1px solid #f7f7f7; }
 /* line 100, ../sass/ie7.scss */
 #container #content .main .col_1 ul.comments li { border: 1px solid transparent; }
 /* line 107, ../sass/ie7.scss */
-#container #content .main .col_1 ul.brief_item_history li .brief_item_question, #container #content .main .col_1 ul.brief_item_history li .comment, #container #content .main .col_1 #comments_area ul.comments li .brief_item_question, #container #content .main .col_1 #comments_area ul.comments li .comment { border: 1px solid transparent; }
+#container #content .main .col_1 ul.document_item_history li .document_item_question, #container #content .main .col_1 ul.document_item_history li .comment, #container #content .main .col_1 #comments_area ul.comments li .document_item_question, #container #content .main .col_1 #comments_area ul.comments li .comment { border: 1px solid transparent; }
 /* line 109, ../sass/ie7.scss */
-#container #content .main .col_1 ul.brief_item_history li .brief_item_question .speech, #container #content .main .col_1 ul.brief_item_history li .comment .speech, #container #content .main .col_1 #comments_area ul.comments li .brief_item_question .speech, #container #content .main .col_1 #comments_area ul.comments li .comment .speech { border: 1px solid transparent; margin-top: -17px; }
+#container #content .main .col_1 ul.document_item_history li .document_item_question .speech, #container #content .main .col_1 ul.document_item_history li .comment .speech, #container #content .main .col_1 #comments_area ul.comments li .document_item_question .speech, #container #content .main .col_1 #comments_area ul.comments li .comment .speech { border: 1px solid transparent; margin-top: -17px; }
 /* line 116, ../sass/ie7.scss */
-#container #content .main .col_1 ul.brief_item_history li .show_author_answer_form input[type=submit], #container #content .main .col_1 #comments_area ul.comments li .show_author_answer_form input[type=submit] { width: 60px; top: -2.5em; }
+#container #content .main .col_1 ul.document_item_history li .show_author_answer_form input[type=submit], #container #content .main .col_1 #comments_area ul.comments li .show_author_answer_form input[type=submit] { width: 60px; top: -2.5em; }
 
 /* line 124, ../sass/ie7.scss */
 input[type=submit] { padding: 2px 5px !important; font-size: 1em; border-width: 1px !important; }
@@ -92,9 +92,9 @@ input.smartTextBox-input-elem-valueInput { border: none !important; }
 #container #content .side_box #update_collaborators ul.collaborators .collaboration_user p { margin: -15px 0 0 50px !important; }
 
 /* line 201, ../sass/ie7.scss */
-#template_briefs #container .new_template_brief .actions, #template_briefs #container .edit_template_brief .actions { border-top: 1px solid #dddddd; padding-top: 1.5em; }
+#template_documents #container .new_template_document .actions, #template_documents #container .edit_template_document .actions { border-top: 1px solid #dddddd; padding-top: 1.5em; }
 /* line 205, ../sass/ie7.scss */
-#template_briefs #container .new_template_brief .actions #template_brief_submit, #template_briefs #container .edit_template_brief .actions #template_brief_submit { height: 30px; }
+#template_documents #container .new_template_document .actions #template_document_submit, #template_documents #container .edit_template_document .actions #template_document_submit { height: 30px; }
 
 /* line 217, ../sass/ie7.scss */
 #container #content .col_1 .user input[type=file] { border: 1px solid #aaa; background: white; padding: 0px 5px 5px 5px; }

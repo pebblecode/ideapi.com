@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
   
   # Defines an instance variable so we can send a custom
   # invitation message
-  attr_accessor :invitation_message, :can_create_briefs
+  attr_accessor :invitation_message, :can_create_documents
   
-  concerned_with :briefs,
+  concerned_with :documents,
     :class_methods,
     :relationships,  
     :validations
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   
   # called from proposal_observer
   def proposal_created(proposal)
-    stop_watching_brief(proposal)
+    stop_watching_document(proposal)
   end
   
   def extract_existing_users(list)
@@ -95,8 +95,8 @@ class User < ActiveRecord::Base
   
   private
   
-  def stop_watching_brief(proposal)
-    toggle_watch!(proposal.brief) if watching?(proposal.brief)
+  def stop_watching_document(proposal)
+    toggle_watch!(proposal.document) if watching?(proposal.document)
   end
   
   def create_invite_code

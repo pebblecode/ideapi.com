@@ -5,7 +5,7 @@ Feature: Allow account admins to add new users to an account with permissions
 
     Background:
         Given there are free, basic and premium plans
-        And a default ideapi template brief exists
+        And a default ideapi template document exists
         And I am logged in as an account admin
 
     Scenario: Adding a new user to an account with no privileges
@@ -35,7 +35,7 @@ Feature: Allow account admins to add new users to an account with permissions
             | Telephone             | 0123456789    |
             | Telephone ext         | 123           |
         And I press "Complete registration"
-        Then I should see "You have no briefs."
+        Then I should see "You have no documents."
         
 
     Scenario: Adding a new user to an account with a custom welcome message
@@ -53,14 +53,14 @@ Feature: Allow account admins to add new users to an account with permissions
         Then they should see "My custom message tra la la" in the email body
 
     Scenario: Adding collaborator permissions to a new user
-        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        Given I have documents called Advert document, Website document, Photoshoot document
         When I go to the users page
         Then I should see "Add user to your account"
         And I fill in the following:
             | First name    | John          |
             | Last name     | Doe           |
             | Email         | john@doe.com  |
-        And I check "Advert brief" within "#brief-privileges" 
+        And I check "Advert document" within "#document-privileges" 
         And I press "Add to account"
         Then I should see "We've sent an invitiaton to john@doe.com"
         And I should see "John Doe" within "table.friends"
@@ -78,21 +78,21 @@ Feature: Allow account admins to add new users to an account with permissions
             | Telephone             | 0123456789    |
             | Telephone ext         | 123           |
         And I press "Complete registration"
-        Then I should see "Advert brief"
-        And I should not see "Website brief"
-        And I should not see "Photoshoot brief"
-        And I follow "Advert brief"
+        Then I should see "Advert document"
+        And I should not see "Website document"
+        And I should not see "Photoshoot document"
+        And I follow "Advert document"
         Then I should see "You" within ".side_box:first"
 
     Scenario: Adding author permissions to a new user
-        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        Given I have documents called Advert document, Website document, Photoshoot document
         When I go to the users page
         Then I should see "Add user to your account"
         And I fill in the following:
             | First name    | Kim                   |
             | Last name     | Jongil                |
             | Email         | kimjongil@korea.com   |
-        And I check "user[user_briefs_attributes][0][author]"
+        And I check "user[user_documents_attributes][0][author]"
         And I press "Add to account"
         Then I should see "Kim Jongil" within "table.friends"
         Then I should see "We've sent an invitiaton to kimjongil@korea.com"
@@ -110,20 +110,20 @@ Feature: Allow account admins to add new users to an account with permissions
             | Telephone             | 0123456789    |
             | Telephone ext         | 123           |
         And I press "Complete registration"
-        Then I should see "Advert brief"
-        And I should see "author" within ".brief_item h3 span.user_context"
-        And I follow "Advert brief"
+        Then I should see "Advert document"
+        And I should see "author" within ".document_item h3 span.user_context"
+        And I follow "Advert document"
         Then I should see "You" within ".side_box:first"
     
     Scenario: Adding approver permissions to a new user
-        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        Given I have documents called Advert document, Website document, Photoshoot document
         When I go to the users page
         Then I should see "Add user to your account"
         And I fill in the following:
             | First name    | Tony                  |
             | Last name     | Blair                 |
             | Email         | tony@theblairs.com    |
-        And I check "user[user_briefs_attributes][0][approver]"
+        And I check "user[user_documents_attributes][0][approver]"
         And I press "Add to account"
         Then I should see "Tony Blair" within "table.friends"
         And I should see "We've sent an invitiaton to tony@theblairs.com"
@@ -141,8 +141,8 @@ Feature: Allow account admins to add new users to an account with permissions
             | Telephone             | 0123456789    |
             | Telephone ext         | 123           |
         And I press "Complete registration"
-        Then I should see "Advert brief"
-        And I should see "approver" within ".brief_item h3 span.user_context"
+        Then I should see "Advert document"
+        And I should see "approver" within ".document_item h3 span.user_context"
 
     Scenario: Adding an existing user to an account with no privileges
         Given I have a user called "Chuck Norris" with the email "chuck@norris.com"
@@ -164,10 +164,10 @@ Feature: Allow account admins to add new users to an account with permissions
             | Email     | chuck@norris.com |
             | Password  | testing          |
         And I press "Login"
-        Then I should see "You have no briefs."
+        Then I should see "You have no documents."
     
     Scenario: Adding an existing user as a collaborator
-        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        Given I have documents called Advert document, Website document, Photoshoot document
         And I have a user called "Cheryl Cole" with the email "cheryl@thecoles.com"
         When I go to the users page
         Then I should see "Add user to your account"
@@ -175,7 +175,7 @@ Feature: Allow account admins to add new users to an account with permissions
             | First name    | Cheryl                |
             | Last name     | Cole                  |
             | Email         | cheryl@thecoles.com   |
-        And I check "Advert brief" within "#brief-privileges" 
+        And I check "Advert document" within "#document-privileges" 
         And I press "Add to account"
         Then I should see "Cheryl Cole" within "table.friends"
         And I follow "Logout"
@@ -188,12 +188,12 @@ Feature: Allow account admins to add new users to an account with permissions
             | Email     | cheryl@thecoles.com   |
             | Password  | testing               |
         And I press "Login"
-        Then I should see "Advert brief"
-        And I follow "Advert brief"
+        Then I should see "Advert document"
+        And I follow "Advert document"
         Then I should see "You" within ".side_box:first"
     
     Scenario: Adding an existing user as an author
-        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        Given I have documents called Advert document, Website document, Photoshoot document
         And I have a user called "David Cameron" with the email "dave@therave.com"
         When I go to the users page
         Then I should see "Add user to your account"
@@ -201,7 +201,7 @@ Feature: Allow account admins to add new users to an account with permissions
             | First name    | David                 |
             | Last name     | Cameron               |
             | Email         | dave@therave.com      |
-        And I check "user[user_briefs_attributes][0][author]"
+        And I check "user[user_documents_attributes][0][author]"
         And I press "Add to account"
         Then I should see "David Cameron" within "table.friends"
         And I follow "Logout"
@@ -211,13 +211,13 @@ Feature: Allow account admins to add new users to an account with permissions
             | Email     | dave@therave.com      |
             | Password  | testing               |
         And I press "Login"
-        Then I should see "Advert brief"
-        And I should see "author" within ".brief_item h3 span.user_context"
-        And I follow "Advert brief"
+        Then I should see "Advert document"
+        And I should see "author" within ".document_item h3 span.user_context"
+        And I follow "Advert document"
         Then I should see "You" within ".side_box:first"
     
     Scenario: Adding an existing user as an approver
-        Given I have briefs called Advert brief, Website brief, Photoshoot brief
+        Given I have documents called Advert document, Website document, Photoshoot document
         And I have a user called "Boris Johnson" with the email "bozza@thejohnsons.com"
         When I go to the users page
         Then I should see "Add user to your account"
@@ -225,7 +225,7 @@ Feature: Allow account admins to add new users to an account with permissions
             | First name    | Boris                 |
             | Last name     | Johnson               |
             | Email         | bozza@thejohnsons.com |
-        And I check "user[user_briefs_attributes][0][approver]"
+        And I check "user[user_documents_attributes][0][approver]"
         And I press "Add to account"
         Then I should see "Boris Johnson" within "table.friends"
         And I follow "Logout"
@@ -235,7 +235,7 @@ Feature: Allow account admins to add new users to an account with permissions
             | Email     | bozza@thejohnsons.com |
             | Password  | testing               |
         And I press "Login"
-        Then I should see "Advert brief"
-        And I should see "approver" within ".brief_item h3 span.user_context"
-        And I follow "Advert brief"
+        Then I should see "Advert document"
+        And I should see "approver" within ".document_item h3 span.user_context"
+        And I follow "Advert document"
         Then I should see "You" within ".side_box:first"

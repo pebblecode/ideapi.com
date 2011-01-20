@@ -138,9 +138,9 @@ span.field_with_errors input, span.field_with_errors input:focus { background: #
 /* line 337, ../sass/frontend.sass */
 #container #content legend { font-size: 1.2em; font-weight: bold; line-height: 2em; }
 /* line 344, ../sass/frontend.sass */
-#container #content #dashboard .brief_list { width: 655px; }
+#container #content #dashboard .document_list { width: 655px; }
 /* line 350, ../sass/frontend.sass */
-#container #content #dashboard .brief_overviews h2 { padding: 0; font-size: 1.1em; font-weight: normal; text-transform: uppercase; text-align: center; margin: -0.8em auto 1.5em auto; background: white; width: 7.5em; color: #454545; }
+#container #content #dashboard .document_overviews h2 { padding: 0; font-size: 1.1em; font-weight: normal; text-transform: uppercase; text-align: center; margin: -0.8em auto 1.5em auto; background: white; width: 7.5em; color: #454545; }
 /* line 362, ../sass/frontend.sass */
 #container #content .required_actions { border: 1px solid #cccccc; }
 /* line 365, ../sass/frontend.sass */
@@ -150,25 +150,25 @@ span.field_with_errors input, span.field_with_errors input:focus { background: #
 /* line 380, ../sass/frontend.sass */
 #container #content .required_actions ul li p { margin: 0; padding: 0; }
 /* line 384, ../sass/frontend.sass */
-#container #content .brief_overview { margin: 0 0 2em 0; padding: 0; border: 1px solid #cccccc; }
+#container #content .document_overview { margin: 0 0 2em 0; padding: 0; border: 1px solid #cccccc; }
 /* line 389, ../sass/frontend.sass */
-#container #content .brief_overview h3 { font-size: 1.7em; color: #f9f9f9; background: #21286c; margin: 0; padding: 0.2em 0.5em; font-weight: normal; border-bottom: 1px solid #cccccc; }
+#container #content .document_overview h3 { font-size: 1.7em; color: #f9f9f9; background: #21286c; margin: 0; padding: 0.2em 0.5em; font-weight: normal; border-bottom: 1px solid #cccccc; }
 /* line 400, ../sass/frontend.sass */
-#container #content .brief_overview ul li { background: #f2f2f2; padding: 0.5em 1em; }
+#container #content .document_overview ul li { background: #f2f2f2; padding: 0.5em 1em; }
 /* line 405, ../sass/frontend.sass */
-#container #content .brief_overview ul li p { margin: 0; padding: 0; }
+#container #content .document_overview ul li p { margin: 0; padding: 0; }
 /* line 409, ../sass/frontend.sass */
-#container #content .brief_overview .brief { border: none; border-bottom: 1px solid #cccccc; margin: 0; }
+#container #content .document_overview .document { border: none; border-bottom: 1px solid #cccccc; margin: 0; }
 /* line 414, ../sass/frontend.sass */
-#container #content .brief_overview .brief:last-child { border-bottom: none; }
+#container #content .document_overview .document:last-child { border-bottom: none; }
 /* line 417, ../sass/frontend.sass */
-#container #content .brief_overview .brief:hover { background: #ffffdf; }
+#container #content .document_overview .document:hover { background: #ffffdf; }
 /* line 421, ../sass/frontend.sass */
-#container #content .brief_overview .brief:hover h5 a { display: block; }
+#container #content .document_overview .document:hover h5 a { display: block; }
 /* line 427, ../sass/frontend.sass */
-#container #content .brief_overview.published h3, #container #content .brief_overview.watching h3 { background: #333333; color: #fcfcfc; }
+#container #content .document_overview.published h3, #container #content .document_overview.watching h3 { background: #333333; color: #fcfcfc; }
 /* line 433, ../sass/frontend.sass */
-#container #content .brief_overview.draft h3 { background: #dddddd; color: #333333; }
+#container #content .document_overview.draft h3 { background: #dddddd; color: #333333; }
 /* line 440, ../sass/frontend.sass */
 #container #content ul.tabbed_links { background: #fffffe; border: 1px solid #cccccc; padding: 0.5em 0; height: 22px; }
 /* line 446, ../sass/frontend.sass */
@@ -186,89 +186,89 @@ span.field_with_errors input, span.field_with_errors input:focus { background: #
 /* line 481, ../sass/frontend.sass */
 #container #content .proposal a.edit_icon { right: 1em; }
 /* line 483, ../sass/frontend.sass */
-#container #content .brief, #container #content .proposal, #container #content .brief_list { background: #fffffe; margin: 2em 0 1em 0; }
+#container #content .document, #container #content .proposal, #container #content .document_list { background: #fffffe; margin: 2em 0 1em 0; }
 /* line 487, ../sass/frontend.sass */
-#container #content .brief h2, #container #content .proposal h2, #container #content .brief_list h2 { background: #b3d335; color: #32401a; font-size: 1.2em; padding: 1em 70px 1em 1.8em; position: relative; text-shadow: 0 1px 1px white; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; border-top-right-radius: 6px; }
+#container #content .document h2, #container #content .proposal h2, #container #content .document_list h2 { background: #b3d335; color: #32401a; font-size: 1.2em; padding: 1em 70px 1em 1.8em; position: relative; text-shadow: 0 1px 1px white; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; border-top-right-radius: 6px; }
 /* line 495, ../sass/frontend.sass */
-#container #content .brief h2.show, #container #content .proposal h2.show, #container #content .brief_list h2.show { padding: 1em 130px 1em 1.8em; }
+#container #content .document h2.show, #container #content .proposal h2.show, #container #content .document_list h2.show { padding: 1em 130px 1em 1.8em; }
 /* line 497, ../sass/frontend.sass */
-#container #content .brief .title, #container #content .proposal .title, #container #content .brief_list .title { position: relative; }
+#container #content .document .title, #container #content .proposal .title, #container #content .document_list .title { position: relative; }
 /* line 499, ../sass/frontend.sass */
-#container #content .brief div.actions, #container #content .proposal div.actions, #container #content .brief_list div.actions { z-index: 100; position: absolute; top: 1em; right: 1em; text-align: right; padding: 0; margin: 0; }
+#container #content .document div.actions, #container #content .proposal div.actions, #container #content .document_list div.actions { z-index: 100; position: absolute; top: 1em; right: 1em; text-align: right; padding: 0; margin: 0; }
 /* line 507, ../sass/frontend.sass */
-#container #content .brief div.actions a, #container #content .proposal div.actions a, #container #content .brief_list div.actions a { color: #666666; display: block; float: right; margin-left: 1em; margin-top: 3px; }
+#container #content .document div.actions a, #container #content .proposal div.actions a, #container #content .document_list div.actions a { color: #666666; display: block; float: right; margin-left: 1em; margin-top: 3px; }
 /* line 513, ../sass/frontend.sass */
-#container #content .brief div.actions a:hover, #container #content .proposal div.actions a:hover, #container #content .brief_list div.actions a:hover { color: #fefefe; }
+#container #content .document div.actions a:hover, #container #content .proposal div.actions a:hover, #container #content .document_list div.actions a:hover { color: #fefefe; }
 /* line 515, ../sass/frontend.sass */
-#container #content .brief div.actions a.edit_brief, #container #content .brief div.actions a.edit_icon, #container #content .brief div.actions a.edit_template, #container #content .proposal div.actions a.edit_brief, #container #content .proposal div.actions a.edit_icon, #container #content .proposal div.actions a.edit_template, #container #content .brief_list div.actions a.edit_brief, #container #content .brief_list div.actions a.edit_icon, #container #content .brief_list div.actions a.edit_template { background: url("/images/page_edit.png") no-repeat center right; height: 16px; text-indent: -9999px; width: 40px; }
+#container #content .document div.actions a.edit_document, #container #content .document div.actions a.edit_icon, #container #content .document div.actions a.edit_template, #container #content .proposal div.actions a.edit_document, #container #content .proposal div.actions a.edit_icon, #container #content .proposal div.actions a.edit_template, #container #content .document_list div.actions a.edit_document, #container #content .document_list div.actions a.edit_icon, #container #content .document_list div.actions a.edit_template { background: url("/images/page_edit.png") no-repeat center right; height: 16px; text-indent: -9999px; width: 40px; }
 /* line 520, ../sass/frontend.sass */
-#container #content .brief div.actions a.edit_brief:hover, #container #content .brief div.actions a.edit_icon:hover, #container #content .brief div.actions a.edit_template:hover, #container #content .proposal div.actions a.edit_brief:hover, #container #content .proposal div.actions a.edit_icon:hover, #container #content .proposal div.actions a.edit_template:hover, #container #content .brief_list div.actions a.edit_brief:hover, #container #content .brief_list div.actions a.edit_icon:hover, #container #content .brief_list div.actions a.edit_template:hover { text-indent: 0; color: #32401a; font-weight: normal; }
+#container #content .document div.actions a.edit_document:hover, #container #content .document div.actions a.edit_icon:hover, #container #content .document div.actions a.edit_template:hover, #container #content .proposal div.actions a.edit_document:hover, #container #content .proposal div.actions a.edit_icon:hover, #container #content .proposal div.actions a.edit_template:hover, #container #content .document_list div.actions a.edit_document:hover, #container #content .document_list div.actions a.edit_icon:hover, #container #content .document_list div.actions a.edit_template:hover { text-indent: 0; color: #32401a; font-weight: normal; }
 /* line 524, ../sass/frontend.sass */
-#container #content .brief div.actions a.print_brief, #container #content .proposal div.actions a.print_brief, #container #content .brief_list div.actions a.print_brief { display: block; float: right; background: url("/images/printer.png"); width: 16px; height: 16px; text-indent: -3000px; }
+#container #content .document div.actions a.print_document, #container #content .proposal div.actions a.print_document, #container #content .document_list div.actions a.print_document { display: block; float: right; background: url("/images/printer.png"); width: 16px; height: 16px; text-indent: -3000px; }
 /* line 531, ../sass/frontend.sass */
-#container #content .brief div.actions form, #container #content .proposal div.actions form, #container #content .brief_list div.actions form { float: right; }
+#container #content .document div.actions form, #container #content .proposal div.actions form, #container #content .document_list div.actions form { float: right; }
 /* line 533, ../sass/frontend.sass */
-#container #content .brief div.actions .clean_brief, #container #content .proposal div.actions .clean_brief, #container #content .brief_list div.actions .clean_brief { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: url("/images/ui/button_background_red.png") 0 0; border: 1px solid #32401a; padding: 1px 5px 0px 5px; font-weight: normal; font-size: 1em; margin-top: 0; color: white; text-shadow: none; }
+#container #content .document div.actions .clean_document, #container #content .proposal div.actions .clean_document, #container #content .document_list div.actions .clean_document { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: url("/images/ui/button_background_red.png") 0 0; border: 1px solid #32401a; padding: 1px 5px 0px 5px; font-weight: normal; font-size: 1em; margin-top: 0; color: white; text-shadow: none; }
 /* line 543, ../sass/frontend.sass */
-#container #content .brief div.actions .clean_brief:active, #container #content .proposal div.actions .clean_brief:active, #container #content .brief_list div.actions .clean_brief:active { background-position: 0 -36px; }
+#container #content .document div.actions .clean_document:active, #container #content .proposal div.actions .clean_document:active, #container #content .document_list div.actions .clean_document:active { background-position: 0 -36px; }
 /* line 547, ../sass/frontend.sass */
-#container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief { padding: 1em 2em; z-index: 10; }
+#container #content .document .most_important_thing, #container #content .document .proposal_item, #container #content .document .document, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .document, #container #content .document_list .most_important_thing, #container #content .document_list .proposal_item, #container #content .document_list .document { padding: 1em 2em; z-index: 10; }
 /* line 552, ../sass/frontend.sass */
-#container #content .brief .brief_heading h3, #container #content .proposal .brief_heading h3, #container #content .brief_list .brief_heading h3 { margin-left: 20px; }
+#container #content .document .document_heading h3, #container #content .proposal .document_heading h3, #container #content .document_list .document_heading h3 { margin-left: 20px; }
 /* line 555, ../sass/frontend.sass */
-#container #content .brief .brief_item, #container #content .brief .most_important_thing, #container #content .brief .proposal_item, #container #content .brief .brief, #container #content .brief .brief_heading, #container #content .proposal .brief_item, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .brief, #container #content .proposal .brief_heading, #container #content .brief_list .brief_item, #container #content .brief_list .most_important_thing, #container #content .brief_list .proposal_item, #container #content .brief_list .brief, #container #content .brief_list .brief_heading { border: 1px solid #cccccc; border-bottom: 1px solid #eeeeee; border-top: 0; position: relative; }
+#container #content .document .document_item, #container #content .document .most_important_thing, #container #content .document .proposal_item, #container #content .document .document, #container #content .document .document_heading, #container #content .proposal .document_item, #container #content .proposal .most_important_thing, #container #content .proposal .proposal_item, #container #content .proposal .document, #container #content .proposal .document_heading, #container #content .document_list .document_item, #container #content .document_list .most_important_thing, #container #content .document_list .proposal_item, #container #content .document_list .document, #container #content .document_list .document_heading { border: 1px solid #cccccc; border-bottom: 1px solid #eeeeee; border-top: 0; position: relative; }
 /* line 563, ../sass/frontend.sass */
-#container #content .brief .brief_item h3 span.updated, #container #content .brief .most_important_thing h3 span.updated, #container #content .brief .proposal_item h3 span.updated, #container #content .brief .brief h3 span.updated, #container #content .brief .brief_heading h3 span.updated, #container #content .proposal .brief_item h3 span.updated, #container #content .proposal .most_important_thing h3 span.updated, #container #content .proposal .proposal_item h3 span.updated, #container #content .proposal .brief h3 span.updated, #container #content .proposal .brief_heading h3 span.updated, #container #content .brief_list .brief_item h3 span.updated, #container #content .brief_list .most_important_thing h3 span.updated, #container #content .brief_list .proposal_item h3 span.updated, #container #content .brief_list .brief h3 span.updated, #container #content .brief_list .brief_heading h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
+#container #content .document .document_item h3 span.updated, #container #content .document .most_important_thing h3 span.updated, #container #content .document .proposal_item h3 span.updated, #container #content .document .document h3 span.updated, #container #content .document .document_heading h3 span.updated, #container #content .proposal .document_item h3 span.updated, #container #content .proposal .most_important_thing h3 span.updated, #container #content .proposal .proposal_item h3 span.updated, #container #content .proposal .document h3 span.updated, #container #content .proposal .document_heading h3 span.updated, #container #content .document_list .document_item h3 span.updated, #container #content .document_list .most_important_thing h3 span.updated, #container #content .document_list .proposal_item h3 span.updated, #container #content .document_list .document h3 span.updated, #container #content .document_list .document_heading h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
 /* line 573, ../sass/frontend.sass */
-#container #content .brief .brief_item h4.activity_snapshot, #container #content .brief .most_important_thing h4.activity_snapshot, #container #content .brief .proposal_item h4.activity_snapshot, #container #content .brief .brief h4.activity_snapshot, #container #content .brief .brief_heading h4.activity_snapshot, #container #content .proposal .brief_item h4.activity_snapshot, #container #content .proposal .most_important_thing h4.activity_snapshot, #container #content .proposal .proposal_item h4.activity_snapshot, #container #content .proposal .brief h4.activity_snapshot, #container #content .proposal .brief_heading h4.activity_snapshot, #container #content .brief_list .brief_item h4.activity_snapshot, #container #content .brief_list .most_important_thing h4.activity_snapshot, #container #content .brief_list .proposal_item h4.activity_snapshot, #container #content .brief_list .brief h4.activity_snapshot, #container #content .brief_list .brief_heading h4.activity_snapshot { font-size: 1.1em; padding: 0; margin: 0; line-height: 1.2em; color: #666666; }
+#container #content .document .document_item h4.activity_snapshot, #container #content .document .most_important_thing h4.activity_snapshot, #container #content .document .proposal_item h4.activity_snapshot, #container #content .document .document h4.activity_snapshot, #container #content .document .document_heading h4.activity_snapshot, #container #content .proposal .document_item h4.activity_snapshot, #container #content .proposal .most_important_thing h4.activity_snapshot, #container #content .proposal .proposal_item h4.activity_snapshot, #container #content .proposal .document h4.activity_snapshot, #container #content .proposal .document_heading h4.activity_snapshot, #container #content .document_list .document_item h4.activity_snapshot, #container #content .document_list .most_important_thing h4.activity_snapshot, #container #content .document_list .proposal_item h4.activity_snapshot, #container #content .document_list .document h4.activity_snapshot, #container #content .document_list .document_heading h4.activity_snapshot { font-size: 1.1em; padding: 0; margin: 0; line-height: 1.2em; color: #666666; }
 /* line 580, ../sass/frontend.sass */
-#container #content .brief .brief_item .activity_stream, #container #content .brief .most_important_thing .activity_stream, #container #content .brief .proposal_item .activity_stream, #container #content .brief .brief .activity_stream, #container #content .brief .brief_heading .activity_stream, #container #content .proposal .brief_item .activity_stream, #container #content .proposal .most_important_thing .activity_stream, #container #content .proposal .proposal_item .activity_stream, #container #content .proposal .brief .activity_stream, #container #content .proposal .brief_heading .activity_stream, #container #content .brief_list .brief_item .activity_stream, #container #content .brief_list .most_important_thing .activity_stream, #container #content .brief_list .proposal_item .activity_stream, #container #content .brief_list .brief .activity_stream, #container #content .brief_list .brief_heading .activity_stream { border-top: 1px solid #cccccc; margin-top: 1em; padding: 1em; }
+#container #content .document .document_item .activity_stream, #container #content .document .most_important_thing .activity_stream, #container #content .document .proposal_item .activity_stream, #container #content .document .document .activity_stream, #container #content .document .document_heading .activity_stream, #container #content .proposal .document_item .activity_stream, #container #content .proposal .most_important_thing .activity_stream, #container #content .proposal .proposal_item .activity_stream, #container #content .proposal .document .activity_stream, #container #content .proposal .document_heading .activity_stream, #container #content .document_list .document_item .activity_stream, #container #content .document_list .most_important_thing .activity_stream, #container #content .document_list .proposal_item .activity_stream, #container #content .document_list .document .activity_stream, #container #content .document_list .document_heading .activity_stream { border-top: 1px solid #cccccc; margin-top: 1em; padding: 1em; }
 /* line 585, ../sass/frontend.sass */
-#container #content .brief .brief_item .activity_stream li, #container #content .brief .most_important_thing .activity_stream li, #container #content .brief .proposal_item .activity_stream li, #container #content .brief .brief .activity_stream li, #container #content .brief .brief_heading .activity_stream li, #container #content .proposal .brief_item .activity_stream li, #container #content .proposal .most_important_thing .activity_stream li, #container #content .proposal .proposal_item .activity_stream li, #container #content .proposal .brief .activity_stream li, #container #content .proposal .brief_heading .activity_stream li, #container #content .brief_list .brief_item .activity_stream li, #container #content .brief_list .most_important_thing .activity_stream li, #container #content .brief_list .proposal_item .activity_stream li, #container #content .brief_list .brief .activity_stream li, #container #content .brief_list .brief_heading .activity_stream li { padding: 1em; }
+#container #content .document .document_item .activity_stream li, #container #content .document .most_important_thing .activity_stream li, #container #content .document .proposal_item .activity_stream li, #container #content .document .document .activity_stream li, #container #content .document .document_heading .activity_stream li, #container #content .proposal .document_item .activity_stream li, #container #content .proposal .most_important_thing .activity_stream li, #container #content .proposal .proposal_item .activity_stream li, #container #content .proposal .document .activity_stream li, #container #content .proposal .document_heading .activity_stream li, #container #content .document_list .document_item .activity_stream li, #container #content .document_list .most_important_thing .activity_stream li, #container #content .document_list .proposal_item .activity_stream li, #container #content .document_list .document .activity_stream li, #container #content .document_list .document_heading .activity_stream li { padding: 1em; }
 /* line 588, ../sass/frontend.sass */
-#container #content .brief .brief_item .activity_stream li.date, #container #content .brief .most_important_thing .activity_stream li.date, #container #content .brief .proposal_item .activity_stream li.date, #container #content .brief .brief .activity_stream li.date, #container #content .brief .brief_heading .activity_stream li.date, #container #content .proposal .brief_item .activity_stream li.date, #container #content .proposal .most_important_thing .activity_stream li.date, #container #content .proposal .proposal_item .activity_stream li.date, #container #content .proposal .brief .activity_stream li.date, #container #content .proposal .brief_heading .activity_stream li.date, #container #content .brief_list .brief_item .activity_stream li.date, #container #content .brief_list .most_important_thing .activity_stream li.date, #container #content .brief_list .proposal_item .activity_stream li.date, #container #content .brief_list .brief .activity_stream li.date, #container #content .brief_list .brief_heading .activity_stream li.date { color: #aaaaaa; text-transform: uppercase; margin-top: 1em; padding: 0; }
+#container #content .document .document_item .activity_stream li.date, #container #content .document .most_important_thing .activity_stream li.date, #container #content .document .proposal_item .activity_stream li.date, #container #content .document .document .activity_stream li.date, #container #content .document .document_heading .activity_stream li.date, #container #content .proposal .document_item .activity_stream li.date, #container #content .proposal .most_important_thing .activity_stream li.date, #container #content .proposal .proposal_item .activity_stream li.date, #container #content .proposal .document .activity_stream li.date, #container #content .proposal .document_heading .activity_stream li.date, #container #content .document_list .document_item .activity_stream li.date, #container #content .document_list .most_important_thing .activity_stream li.date, #container #content .document_list .proposal_item .activity_stream li.date, #container #content .document_list .document .activity_stream li.date, #container #content .document_list .document_heading .activity_stream li.date { color: #aaaaaa; text-transform: uppercase; margin-top: 1em; padding: 0; }
 /* line 594, ../sass/frontend.sass */
-#container #content .brief .help_message, #container #content .proposal .help_message, #container #content .brief_list .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
+#container #content .document .help_message, #container #content .proposal .help_message, #container #content .document_list .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
 /* line 606, ../sass/frontend.sass */
-#container #content .brief .brief_item:last-child, #container #content .brief .proposal_item:last-child, #container #content .proposal .brief_item:last-child, #container #content .proposal .proposal_item:last-child, #container #content .brief_list .brief_item:last-child, #container #content .brief_list .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
+#container #content .document .document_item:last-child, #container #content .document .proposal_item:last-child, #container #content .proposal .document_item:last-child, #container #content .proposal .proposal_item:last-child, #container #content .document_list .document_item:last-child, #container #content .document_list .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
 /* line 611, ../sass/frontend.sass */
-#container #content .brief .proposal_item p.asset, #container #content .proposal .proposal_item p.asset, #container #content .brief_list .proposal_item p.asset { width: 120px; }
+#container #content .document .proposal_item p.asset, #container #content .proposal .proposal_item p.asset, #container #content .document_list .proposal_item p.asset { width: 120px; }
 /* line 614, ../sass/frontend.sass */
-#container #content .brief .proposal_item p.asset, #container #content .brief .proposal_item p.description, #container #content .proposal .proposal_item p.asset, #container #content .proposal .proposal_item p.description, #container #content .brief_list .proposal_item p.asset, #container #content .brief_list .proposal_item p.description { float: left; }
+#container #content .document .proposal_item p.asset, #container #content .document .proposal_item p.description, #container #content .proposal .proposal_item p.asset, #container #content .proposal .proposal_item p.description, #container #content .document_list .proposal_item p.asset, #container #content .document_list .proposal_item p.description { float: left; }
 /* line 617, ../sass/frontend.sass */
-#container #content .brief .proposal_item p.description, #container #content .proposal .proposal_item p.description, #container #content .brief_list .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
+#container #content .document .proposal_item p.description, #container #content .proposal .proposal_item p.description, #container #content .document_list .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
 /* line 621, ../sass/frontend.sass */
-#container #content .brief .most_important_thing, #container #content .proposal .most_important_thing, #container #content .brief_list .most_important_thing { padding: 1em 1em 1em 3em; }
+#container #content .document .most_important_thing, #container #content .proposal .most_important_thing, #container #content .document_list .most_important_thing { padding: 1em 1em 1em 3em; }
 /* line 624, ../sass/frontend.sass */
-#container #content .brief .most_important_thing p, #container #content .proposal .most_important_thing p, #container #content .brief_list .most_important_thing p { font-size: 2.2em; font-weight: bold; color: #333333; padding: 0 2em; position: relative; }
+#container #content .document .most_important_thing p, #container #content .proposal .most_important_thing p, #container #content .document_list .most_important_thing p { font-size: 2.2em; font-weight: bold; color: #333333; padding: 0 2em; position: relative; }
 /* line 631, ../sass/frontend.sass */
-#container #content .brief .most_important_thing p span, #container #content .proposal .most_important_thing p span, #container #content .brief_list .most_important_thing p span { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
+#container #content .document .most_important_thing p span, #container #content .proposal .most_important_thing p span, #container #content .document_list .most_important_thing p span { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
 /* line 639, ../sass/frontend.sass */
-#container #content .brief .most_important_thing p span.left, #container #content .proposal .most_important_thing p span.left, #container #content .brief_list .most_important_thing p span.left { top: 0; left: 0; }
+#container #content .document .most_important_thing p span.left, #container #content .proposal .most_important_thing p span.left, #container #content .document_list .most_important_thing p span.left { top: 0; left: 0; }
 /* line 643, ../sass/frontend.sass */
-#container #content .brief .most_important_thing p span.right, #container #content .proposal .most_important_thing p span.right, #container #content .brief_list .most_important_thing p span.right { bottom: -0.15em; padding-right: 0em; right: 0.1em; }
+#container #content .document .most_important_thing p span.right, #container #content .proposal .most_important_thing p span.right, #container #content .document_list .most_important_thing p span.right { bottom: -0.15em; padding-right: 0em; right: 0.1em; }
 /* line 649, ../sass/frontend.sass */
-#container #content .brief .brief_item.updated h3, #container #content .brief .brief_item.updated h4, #container #content .proposal .brief_item.updated h3, #container #content .proposal .brief_item.updated h4, #container #content .brief_list .brief_item.updated h3, #container #content .brief_list .brief_item.updated h4 { background: #ffffdf; }
+#container #content .document .document_item.updated h3, #container #content .document .document_item.updated h4, #container #content .proposal .document_item.updated h3, #container #content .proposal .document_item.updated h4, #container #content .document_list .document_item.updated h3, #container #content .document_list .document_item.updated h4 { background: #ffffdf; }
 /* line 652, ../sass/frontend.sass */
-#container #content .brief .brief_item.extended, #container #content .proposal .brief_item.extended, #container #content .brief_list .brief_item.extended { background: transparent; }
+#container #content .document .document_item.extended, #container #content .proposal .document_item.extended, #container #content .document_list .document_item.extended { background: transparent; }
 /* line 658, ../sass/frontend.sass */
-#container #content .edit_brief h2 input#brief_title { font-size: 1.5em; width: 31em; }
+#container #content .edit_document h2 input#document_title { font-size: 1.5em; width: 31em; }
 /* line 663, ../sass/frontend.sass */
-#container #content .edit_brief .body textarea { width: 50em; height: 10em; font-size: 1.1em; }
+#container #content .edit_document .body textarea { width: 50em; height: 10em; font-size: 1.1em; }
 /* line 669, ../sass/frontend.sass */
-#container #content .brief_list { float: left; }
+#container #content .document_list { float: left; }
 /* line 671, ../sass/frontend.sass */
-#container #content .brief_list .brief_item { padding-bottom: 1em; }
+#container #content .document_list .document_item { padding-bottom: 1em; }
 /* line 674, ../sass/frontend.sass */
-#container #content .brief_list .brief_item:hover { background: transparent; }
+#container #content .document_list .document_item:hover { background: transparent; }
 /* line 677, ../sass/frontend.sass */
-#container #content .brief_list h3 { width: 28.5em; position: relative; }
+#container #content .document_list h3 { width: 28.5em; position: relative; }
 /* line 681, ../sass/frontend.sass */
-#container #content .brief_list h3 .user_context { text-align: right; margin-left: 1em; text-transform: uppercase; color: #666666; font-size: 0.5em; width: 10em; position: absolute; bottom: 0.5em; right: 0; }
+#container #content .document_list h3 .user_context { text-align: right; margin-left: 1em; text-transform: uppercase; color: #666666; font-size: 0.5em; width: 10em; position: absolute; bottom: 0.5em; right: 0; }
 /* line 692, ../sass/frontend.sass */
-#container #content .brief_list .toggle_activity_stream { position: absolute; top: 0.8em; right: 1em; width: 28px; height: 28px; background: url(/images/ico_circle_green.png) no-repeat; color: white; text-align: center; font-size: 1.4em; padding-top: 2px; }
+#container #content .document_list .toggle_activity_stream { position: absolute; top: 0.8em; right: 1em; width: 28px; height: 28px; background: url(/images/ico_circle_green.png) no-repeat; color: white; text-align: center; font-size: 1.4em; padding-top: 2px; }
 /* line 704, ../sass/frontend.sass */
-#container #content .brief_list .toggle_activity_stream.active { background: url(/images/ico_minus.png) no-repeat; text-indent: -3000px; }
+#container #content .document_list .toggle_activity_stream.active { background: url(/images/ico_minus.png) no-repeat; text-indent: -3000px; }
 /* line 708, ../sass/frontend.sass */
 #container #content .note { padding: 0.5em 2em 0.5em 2em; margin: 2em 0 0.5em 0; line-height: 1.8em; background: #ffffdf; border: 1px solid #dddddd; position: relative; }
 /* line 716, ../sass/frontend.sass */
@@ -278,9 +278,9 @@ span.field_with_errors input, span.field_with_errors input:focus { background: #
 /* line 729, ../sass/frontend.sass */
 #container .search_results { padding-top: 1em; }
 /* line 732, ../sass/frontend.sass */
-#container .search_results ul.brief_list li { padding: 1em 2em; border-top: 1px solid #dddddd; }
+#container .search_results ul.document_list li { padding: 1em 2em; border-top: 1px solid #dddddd; }
 /* line 737, ../sass/frontend.sass */
-#container .discussion .brief_item { padding: 1em 2em; border-right: 1px solid #cccccc; border-left: 1px solid #cccccc; }
+#container .discussion .document_item { padding: 1em 2em; border-right: 1px solid #cccccc; border-left: 1px solid #cccccc; }
 /* line 748, ../sass/frontend.sass */
 #container .avatar { border: 6px solid #dddddd; }
 /* line 751, ../sass/frontend.sass */
@@ -293,37 +293,37 @@ span.field_with_errors input, span.field_with_errors input:focus { background: #
 #container .hr { border-top: 1px solid #bbbbbb; margin: 2em 0; }
 
 /* line 776, ../sass/frontend.sass */
-#container #content .brief_item { position: relative; border: 1px solid red; padding: 1em 2em 0 2em; }
+#container #content .document_item { position: relative; border: 1px solid red; padding: 1em 2em 0 2em; }
 /* line 781, ../sass/frontend.sass */
-#container #content .brief_item ul.actions { text-align: right; }
+#container #content .document_item ul.actions { text-align: right; }
 /* line 784, ../sass/frontend.sass */
-#container #content .brief_item ul.actions li { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom: 1px solid #eeeeee; background: #b2d234; display: inline; padding: 0.2em 1em; }
+#container #content .document_item ul.actions li { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom: 1px solid #eeeeee; background: #b2d234; display: inline; padding: 0.2em 1em; }
 /* line 791, ../sass/frontend.sass */
-#container #content .brief_item ul.actions li.selected { background: #32401a; }
+#container #content .document_item ul.actions li.selected { background: #32401a; }
 /* line 794, ../sass/frontend.sass */
-#container #content .brief_item ul.actions li span { color: #cccccc; padding-left: 1em; }
+#container #content .document_item ul.actions li span { color: #cccccc; padding-left: 1em; }
 /* line 798, ../sass/frontend.sass */
-#container #content .brief_item ul.actions li a { color: white; }
+#container #content .document_item ul.actions li a { color: white; }
 /* line 801, ../sass/frontend.sass */
-#container #content .brief_item ul.actions.active { border-bottom: 1px solid #eeeeee; }
+#container #content .document_item ul.actions.active { border-bottom: 1px solid #eeeeee; }
 /* line 806, ../sass/frontend.sass */
-#container #content .brief_item h3 a.toggle_brief_edit { float: left; margin-right: 0.5em; margin-top: 0.2em; width: 28px; height: 28px; text-align: center; display: block; text-indent: -3000px; background: url(/images/edit_plus_minus.png) no-repeat -30px -28px; }
+#container #content .document_item h3 a.toggle_document_edit { float: left; margin-right: 0.5em; margin-top: 0.2em; width: 28px; height: 28px; text-align: center; display: block; text-indent: -3000px; background: url(/images/edit_plus_minus.png) no-repeat -30px -28px; }
 /* line 817, ../sass/frontend.sass */
-#container #content .brief_item h3 a.toggle_brief_edit:hover { background: url(/images/edit_plus_minus.png) no-repeat -30px 0; }
+#container #content .document_item h3 a.toggle_document_edit:hover { background: url(/images/edit_plus_minus.png) no-repeat -30px 0; }
 /* line 820, ../sass/frontend.sass */
-#container #content .brief_item h3.empty { color: #cccccc; }
+#container #content .document_item h3.empty { color: #cccccc; }
 /* line 823, ../sass/frontend.sass */
-#container #content .brief_item h3.empty a.toggle_brief_edit { background: url(/images/edit_plus_minus.png) no-repeat 0 -28px; }
+#container #content .document_item h3.empty a.toggle_document_edit { background: url(/images/edit_plus_minus.png) no-repeat 0 -28px; }
 /* line 826, ../sass/frontend.sass */
-#container #content .brief_item h3.empty a.toggle_brief_edit:hover { background: url(/images/edit_plus_minus.png) no-repeat 0 0; }
+#container #content .document_item h3.empty a.toggle_document_edit:hover { background: url(/images/edit_plus_minus.png) no-repeat 0 0; }
 /* line 832, ../sass/frontend.sass */
-#container #content .title_holder .brief_timeline { padding: 0.1em 0 0 0.5em; margin: 0; }
+#container #content .title_holder .document_timeline { padding: 0.1em 0 0 0.5em; margin: 0; }
 /* line 836, ../sass/frontend.sass */
-#container #content .title_holder .brief_timeline li { text-transform: uppercase; width: 158px; padding: 0; float: left; }
+#container #content .title_holder .document_timeline li { text-transform: uppercase; width: 158px; padding: 0; float: left; }
 /* line 842, ../sass/frontend.sass */
-#container #content .title_holder .brief_timeline li span { display: block; text-align: center; margin: 0 2px; padding: 4px 8px; color: #cccccc; font-weight: normal; font-size: 1.8em; }
+#container #content .title_holder .document_timeline li span { display: block; text-align: center; margin: 0 2px; padding: 4px 8px; color: #cccccc; font-weight: normal; font-size: 1.8em; }
 /* line 851, ../sass/frontend.sass */
-#container #content .title_holder .brief_timeline li span.selected { background: #e9e9e9; color: #555555; }
+#container #content .title_holder .document_timeline li span.selected { background: #e9e9e9; color: #555555; }
 /* line 857, ../sass/frontend.sass */
 #container #content .user .avatar { float: left; margin-right: 2em; }
 /* line 860, ../sass/frontend.sass */
@@ -369,35 +369,35 @@ p.submit.left { float: left; margin: 0 1em 1em 0; }
 /* line 921, ../sass/frontend.sass */
 #facebox .content .fb p.message { padding: 0.5em 1em 0 1em; font-size: 1.2em; font-weight: bold; }
 /* line 926, ../sass/frontend.sass */
-#facebox .content .fb .brief { border-top: none; }
+#facebox .content .fb .document { border-top: none; }
 /* line 929, ../sass/frontend.sass */
-#facebox .content .fb .brief h2 { background: #333333; color: white; font-size: 1.2em; padding: 1em 1.8em; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; border-top-right-radius: 6px; position: relative; }
+#facebox .content .fb .document h2 { background: #333333; color: white; font-size: 1.2em; padding: 1em 1.8em; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; border-top-right-radius: 6px; position: relative; }
 /* line 937, ../sass/frontend.sass */
-#facebox .content .fb .brief h2 a { color: #666666; position: absolute; right: 4em; top: 1em; }
+#facebox .content .fb .document h2 a { color: #666666; position: absolute; right: 4em; top: 1em; }
 /* line 943, ../sass/frontend.sass */
-#facebox .content .fb .brief h2 a:hover { color: #fefefe; }
+#facebox .content .fb .document h2 a:hover { color: #fefefe; }
 /* line 946, ../sass/frontend.sass */
-#facebox .content .fb .brief h2 a.print_brief { top: 1.2em; right: 1.8em; background: url(/images/printer_empty.png); width: 16px; height: 16px; text-indent: -3000px; }
+#facebox .content .fb .document h2 a.print_document { top: 1.2em; right: 1.8em; background: url(/images/printer_empty.png); width: 16px; height: 16px; text-indent: -3000px; }
 /* line 954, ../sass/frontend.sass */
-#facebox .content .fb .brief .brief_item, #facebox .content .fb .brief .most_important_thing { border: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-top: 0; position: relative; }
+#facebox .content .fb .document .document_item, #facebox .content .fb .document .most_important_thing { border: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-top: 0; position: relative; }
 /* line 961, ../sass/frontend.sass */
-#facebox .content .fb .brief .brief_item h3 span.updated, #facebox .content .fb .brief .most_important_thing h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
+#facebox .content .fb .document .document_item h3 span.updated, #facebox .content .fb .document .most_important_thing h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
 /* line 970, ../sass/frontend.sass */
-#facebox .content .fb .brief .most_important_thing { padding: 1em 1em 1em 3em; }
+#facebox .content .fb .document .most_important_thing { padding: 1em 1em 1em 3em; }
 /* line 973, ../sass/frontend.sass */
-#facebox .content .fb .brief .most_important_thing p { font-size: 2.2em; font-weight: bold; color: #333333; padding: 0 2em; position: relative; }
+#facebox .content .fb .document .most_important_thing p { font-size: 2.2em; font-weight: bold; color: #333333; padding: 0 2em; position: relative; }
 /* line 980, ../sass/frontend.sass */
-#facebox .content .fb .brief .most_important_thing p span { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
+#facebox .content .fb .document .most_important_thing p span { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
 /* line 988, ../sass/frontend.sass */
-#facebox .content .fb .brief .most_important_thing p span.left { top: 0; left: 0; }
+#facebox .content .fb .document .most_important_thing p span.left { top: 0; left: 0; }
 /* line 992, ../sass/frontend.sass */
-#facebox .content .fb .brief .most_important_thing p span.right { bottom: -0.2em; padding-right: 0.5em; }
+#facebox .content .fb .document .most_important_thing p span.right { bottom: -0.2em; padding-right: 0.5em; }
 /* line 998, ../sass/frontend.sass */
-#facebox .content .fb .brief .brief_item .body { background: transparent; font-size: 1.2em; width: 100%; margin: 0; padding: 0.5em 0; }
+#facebox .content .fb .document .document_item .body { background: transparent; font-size: 1.2em; width: 100%; margin: 0; padding: 0.5em 0; }
 /* line 1004, ../sass/frontend.sass */
-#facebox .content .fb .brief .brief_item .actions, #facebox .content .fb .brief .brief_item .ask_question { display: none; }
+#facebox .content .fb .document .document_item .actions, #facebox .content .fb .document .document_item .ask_question { display: none; }
 /* line 1006, ../sass/frontend.sass */
-#facebox .content .fb .brief .brief_item:hover { background: #ffffdf; }
+#facebox .content .fb .document .document_item:hover { background: #ffffdf; }
 
 /* line 1009, ../sass/frontend.sass */
 textarea { resize: none; }
@@ -573,27 +573,27 @@ ul.error_messages li p { color: #d81f26; }
 /* line 1408, ../sass/frontend.sass */
 #container #content .col_2 .invite_users input[type=submit] { margin: 0.5em 0 0 0; }
 /* line 1412, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
+#container #content .col_2 #document_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
 /* line 1418, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
+#container #content .col_2 #document_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
 /* line 1424, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
+#container #content .col_2 #document_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
 /* line 1430, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
+#container #content .col_2 #document_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
 /* line 1437, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
+#container #content .col_2 #document_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
 /* line 1442, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
+#container #content .col_2 #document_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
 /* line 1446, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
+#container #content .col_2 #document_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
 /* line 1451, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference ul li h3.js { padding-bottom: 0.5em; }
+#container #content .col_2 #document_reference ul li h3.js { padding-bottom: 0.5em; }
 /* line 1454, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference ul li h3.active { padding-bottom: 0; }
+#container #content .col_2 #document_reference ul li h3.active { padding-bottom: 0; }
 /* line 1457, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference ul li p { font-weight: normal; }
+#container #content .col_2 #document_reference ul li p { font-weight: normal; }
 /* line 1460, ../sass/frontend.sass */
-#container #content .col_2 #brief_reference ul li:last-child { border-bottom: 0; }
+#container #content .col_2 #document_reference ul li:last-child { border-bottom: 0; }
 /* line 1463, ../sass/frontend.sass */
 #container #content .invitations, #container #content .friends { padding: 1em 0 0 0; width: 100%; }
 /* line 1467, ../sass/frontend.sass */
@@ -658,9 +658,9 @@ ul.error_messages li p { color: #d81f26; }
 #container #content .main .user a.submit-button:hover { background-color: #32401a; }
 
 /* line 1577, ../sass/frontend.sass */
-#content .main .brief .brief_item h1 { font-size: 1.4em !important; }
+#content .main .document .document_item h1 { font-size: 1.4em !important; }
 /* line 1579, ../sass/frontend.sass */
-#content .main .brief .brief_item h2 { font-size: 1.2em !important; }
+#content .main .document .document_item h2 { font-size: 1.2em !important; }
 
 /* line 1583, ../sass/frontend.sass */
 .textile-help li { margin-bottom: 0.5em; }
@@ -704,21 +704,21 @@ body#users.contacts #header ul.sub_nav { display: none; }
 .fields { padding-top: 1em; border-top: 1px solid #cccccc; margin-bottom: 1em; }
 
 /* line 1658, ../sass/frontend.sass */
-#sortable .brief_item:hover, #sortable .brief_heading:hover { cursor: move; }
+#sortable .document_item:hover, #sortable .document_heading:hover { cursor: move; }
 
 /* line 1663, ../sass/frontend.sass */
-#brief-privileges .brief-title label { float: none; }
+#document-privileges .document-title label { float: none; }
 /* line 1665, ../sass/frontend.sass */
-#brief-privileges .brief-title input { float: left; margin: 5px; }
+#document-privileges .document-title input { float: left; margin: 5px; }
 
 /* line 1675, ../sass/frontend.sass */
-#container #content .main .col_1 .brief .body h1, #container #content .main .col_1 .brief .body h2, #container #content .main .col_1 .brief .body h3, #container #content .main .col_1 .brief .body h4, #container #content .main .col_1 .brief .body .item-revision-body h1, #container #content .main .col_1 .brief .body .item-revision-body h2, #container #content .main .col_1 .brief .body .item-revision-body h3, #container #content .main .col_1 .brief .body .item-revision-body h4 { font-weight: bold; }
+#container #content .main .col_1 .document .body h1, #container #content .main .col_1 .document .body h2, #container #content .main .col_1 .document .body h3, #container #content .main .col_1 .document .body h4, #container #content .main .col_1 .document .body .item-revision-body h1, #container #content .main .col_1 .document .body .item-revision-body h2, #container #content .main .col_1 .document .body .item-revision-body h3, #container #content .main .col_1 .document .body .item-revision-body h4 { font-weight: bold; }
 /* line 1677, ../sass/frontend.sass */
-#container #content .main .col_1 .brief .body h1 span, #container #content .main .col_1 .brief .body h2 span, #container #content .main .col_1 .brief .body h3 span, #container #content .main .col_1 .brief .body h4 span, #container #content .main .col_1 .brief .body .item-revision-body h1 span, #container #content .main .col_1 .brief .body .item-revision-body h2 span, #container #content .main .col_1 .brief .body .item-revision-body h3 span, #container #content .main .col_1 .brief .body .item-revision-body h4 span { font-weight: bold; }
+#container #content .main .col_1 .document .body h1 span, #container #content .main .col_1 .document .body h2 span, #container #content .main .col_1 .document .body h3 span, #container #content .main .col_1 .document .body h4 span, #container #content .main .col_1 .document .body .item-revision-body h1 span, #container #content .main .col_1 .document .body .item-revision-body h2 span, #container #content .main .col_1 .document .body .item-revision-body h3 span, #container #content .main .col_1 .document .body .item-revision-body h4 span { font-weight: bold; }
 /* line 1679, ../sass/frontend.sass */
-#container #content .main .col_1 .brief .body strong, #container #content .main .col_1 .brief .body .item-revision-body strong { font-weight: bold; }
+#container #content .main .col_1 .document .body strong, #container #content .main .col_1 .document .body .item-revision-body strong { font-weight: bold; }
 /* line 1681, ../sass/frontend.sass */
-#container #content .main .col_1 .brief .body strong span, #container #content .main .col_1 .brief .body .item-revision-body strong span { font-weight: bold; }
+#container #content .main .col_1 .document .body strong span, #container #content .main .col_1 .document .body .item-revision-body strong span { font-weight: bold; }
 
 /* line 1684, ../sass/frontend.sass */
 #list-of-accounts { padding: 1em; }
@@ -726,25 +726,25 @@ body#users.contacts #header ul.sub_nav { display: none; }
 #list-of-accounts h2 { padding-left: 1em; }
 
 /* line 1691, ../sass/frontend.sass */
-#template_briefs #container .new_template_brief .actions, #template_briefs #container .edit_template_brief .actions { border-top: 1px solid #dddddd; padding-top: 1.5em; }
+#template_documents #container .new_template_document .actions, #template_documents #container .edit_template_document .actions { border-top: 1px solid #dddddd; padding-top: 1.5em; }
 /* line 1694, ../sass/frontend.sass */
-#template_briefs #container .new_template_brief .actions .left, #template_briefs #container .edit_template_brief .actions .left { float: left; }
+#template_documents #container .new_template_document .actions .left, #template_documents #container .edit_template_document .actions .left { float: left; }
 /* line 1696, ../sass/frontend.sass */
-#template_briefs #container .new_template_brief .actions .right, #template_briefs #container .edit_template_brief .actions .right { float: right; }
+#template_documents #container .new_template_document .actions .right, #template_documents #container .edit_template_document .actions .right { float: right; }
 /* line 1698, ../sass/frontend.sass */
-#template_briefs #container .new_template_brief .actions a.add_child, #template_briefs #container .edit_template_brief .actions a.add_child { color: white; display: block; float: left; margin-right: 1em; font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background.png") repeat-x right top; }
+#template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child { color: white; display: block; float: left; margin-right: 1em; font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background.png") repeat-x right top; }
 /* line 69, ../sass/_mixins.scss */
-#template_briefs #container .new_template_brief .actions a.add_child:hover, #template_briefs #container .edit_template_brief .actions a.add_child:hover { border: 1px solid #32401a; }
+#template_documents #container .new_template_document .actions a.add_child:hover, #template_documents #container .edit_template_document .actions a.add_child:hover { border: 1px solid #32401a; }
 /* line 74, ../sass/_mixins.scss */
-#template_briefs #container .new_template_brief .actions a.add_child:hover, #template_briefs #container .edit_template_brief .actions a.add_child:hover { background: url("/images/ui/button_background.png") repeat-x right top; }
+#template_documents #container .new_template_document .actions a.add_child:hover, #template_documents #container .edit_template_document .actions a.add_child:hover { background: url("/images/ui/button_background.png") repeat-x right top; }
 /* line 76, ../sass/_mixins.scss */
-#template_briefs #container .new_template_brief .actions a.add_child:active, #template_briefs #container .edit_template_brief .actions a.add_child:active { background: url("/images/ui/button_background.png") repeat-x right -36px; }
+#template_documents #container .new_template_document .actions a.add_child:active, #template_documents #container .edit_template_document .actions a.add_child:active { background: url("/images/ui/button_background.png") repeat-x right -36px; }
 /* line 1705, ../sass/frontend.sass */
-#template_briefs #container a.delete_template { display: block; float: right; font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background_red.png") repeat-x right top; }
+#template_documents #container a.delete_template { display: block; float: right; font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background_red.png") repeat-x right top; }
 /* line 69, ../sass/_mixins.scss */
-#template_briefs #container a.delete_template:hover { border: 1px solid #32401a; }
+#template_documents #container a.delete_template:hover { border: 1px solid #32401a; }
 /* line 81, ../sass/_mixins.scss */
-#template_briefs #container a.delete_template:active { background: url("/images/ui/button_background_red.png") repeat-x right -36px; }
+#template_documents #container a.delete_template:active { background: url("/images/ui/button_background_red.png") repeat-x right -36px; }
 
 /* line 1713, ../sass/frontend.sass */
 ul#notifications { float: left; width: 620px; }
@@ -838,7 +838,7 @@ ul#notifications li span.notification_action { float: right; }
 #footer p a:hover { color: #333333; }
 
 /* line 1893, ../sass/frontend.sass */
-#proposals #brief_reference img { max-width: 100%; }
+#proposals #document_reference img { max-width: 100%; }
 
 /* line 1896, ../sass/frontend.sass */
 .show_with_js { display: none; }

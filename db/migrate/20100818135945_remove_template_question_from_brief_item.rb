@@ -1,4 +1,4 @@
-class RemoveTemplateQuestionFromBriefItem < ActiveRecord::Migration
+class RemoveTemplateQuestionFromDocumentItem < ActiveRecord::Migration
   def self.up
   end
 

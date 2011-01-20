@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
 
   include ActsAsCommentable::Comment
   
-  after_save      :update_brief
+  after_save      :update_document
   after_save      :deliver_notifications
   before_destroy  :delete_timeline_events
   
@@ -30,28 +30,28 @@ class Comment < ActiveRecord::Base
     end
   end
   
-  def update_brief
-    if self.commentable.is_a?(Brief)
+  def update_document
+    if self.commentable.is_a?(Document)
       self.commentable.updated_at = Time.now
       self.commentable.save false
     end
   end
   
   def deliver_notifications
-    # If the comment is on a brief or a Proposal, send relevant notifications. 
+    # If the comment is on a document or a Proposal, send relevant notifications. 
     
     begin
-      if self.commentable.is_a?(Brief)
-        # should be sent to brief users (all collaborators)
+      if self.commentable.is_a?(Document)
+        # should be sent to document users (all collaborators)
 
         # [DEPRECATED]
-        # NotificationMailer.deliver_new_comment_on_brief(self, brief_recipients) if brief_recipients.present?
+        # NotificationMailer.deliver_new_comment_on_document(self, document_recipients) if document_recipients.present?
         # We are using Resque to process emails so need to send id to worker
-        NotificationMailer.deliver_new_comment_on_brief(self.id, brief_recipients) if brief_recipients.present?
+        NotificationMailer.deliver_new_comment_on_document(self.id, document_recipients) if document_recipients.present?
       end
   
       if self.commentable.is_a?(Proposal)
-        # should be sent to idea.brief.authors and idea.brief.approver
+        # should be sent to idea.document.authors and idea.document.approver
         # [DEPRECATED]
         # NotificationMailer.deliver_new_comment_on_idea(self, idea_recipients) if idea_recipients.present?
         # We are using Resque to process emails so need to send id to worker
@@ -62,13 +62,13 @@ class Comment < ActiveRecord::Base
     end
   end
   
-  def brief_recipients
+  def document_recipients
     self.commentable.users.collect{ |user| user.email unless user.pending? }.compact - [self.user.email]
   end
   
   def idea_recipients
-    recipients = self.commentable.brief.authors.collect{ |author| author.email unless author.pending? }
-    recipients.push(self.commentable.brief.approver.email) unless self.commentable.brief.approver.pending?
+    recipients = self.commentable.document.authors.collect{ |author| author.email unless author.pending? }
+    recipients.push(self.commentable.document.approver.email) unless self.commentable.document.approver.pending?
     return recipients.compact.uniq - [self.user.email]
   end
   

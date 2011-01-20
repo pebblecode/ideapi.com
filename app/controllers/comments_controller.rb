@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_filter :store_object, :only => :destroy
   
   make_resourceful do
-    belongs_to :brief, :proposal
+    belongs_to :document, :proposal
     
     actions :all
     
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
       format.html { redirect_to parent_path(:anchor => dom_id(current_object)) }
       format.js{
         current_object = nil
-        render :partial => 'briefs/comment', :locals => {:comment => current_object} 
+        render :partial => 'documents/comment', :locals => {:comment => current_object} 
       }
     end 
         
@@ -29,9 +29,9 @@ class CommentsController < ApplicationController
 
         flash[:notice] = 'Comment deleted successfully.'
         if @commentable.is_a?(Proposal)
-          redirect_to brief_proposal_path(@commentable.brief, @commentable)
-        elsif @commentable.is_a?(Brief)
-          redirect_to brief_path(@commentable)
+          redirect_to document_proposal_path(@commentable.document, @commentable)
+        elsif @commentable.is_a?(Document)
+          redirect_to document_path(@commentable)
         else
           redirect_to documents_url
         end
@@ -55,17 +55,17 @@ class CommentsController < ApplicationController
   
   def parent_path(path = nil)
     if parent_object.is_a?(Proposal)
-      brief_proposal_path(parent_object.brief, parent_object)
+      document_proposal_path(parent_object.document, parent_object)
     else
-      brief_path(parent_object)
+      document_path(parent_object)
     end
   end
   
   private
 
-  def current_brief
+  def current_document
     if parent_object.is_a?(Proposal)
-      proposal.brief
+      proposal.document
     else
       parent_object
     end

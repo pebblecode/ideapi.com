@@ -22,7 +22,7 @@ module Ideapi
             named_scope state_name, :conditions => ["#{self.to_s.tableize}.state = ?", state_name.to_s]
 
             # create a state_name? instance method for each state ..
-            # for example @brief.draft? => true
+            # for example @document.draft? => true
             define_method("#{state_name}?", lambda { self.state == state_name }) 
             
             define_method("set_#{state_name}", lambda { self.state = state_name })

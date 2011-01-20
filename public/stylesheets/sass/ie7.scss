@@ -62,7 +62,7 @@ input[type=text] {
   }
 }
 
-#brief-tags{
+#document-tags{
   display: none;
 }
 
@@ -94,16 +94,16 @@ input[type=text] {
       margin-top: 0;
     }
   }
-  .brief_item_history li{
+  .document_item_history li{
     border: 1px solid $activity_bg_color;
   }
   ul.comments li{
     border: 1px solid transparent;
     
   }
-  ul.brief_item_history li, 
+  ul.document_item_history li, 
   #comments_area ul.comments li{
-    .brief_item_question, 
+    .document_item_question, 
     .comment{
       border: 1px solid transparent;
       .speech{
@@ -196,13 +196,13 @@ input.smartTextBox-input-elem-valueInput{
 }
 
 
-#template_briefs #container {
-  .new_template_brief, .edit_template_brief {
+#template_documents #container {
+  .new_template_document, .edit_template_document {
     .actions {
       border-top: 1px solid #dddddd;
       padding-top: 1.5em;
       
-      #template_brief_submit{
+      #template_document_submit{
         height: 30px;
       }
     }

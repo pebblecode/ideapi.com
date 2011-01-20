@@ -23,36 +23,36 @@ class User < ActiveRecord::Base
   has_many :accounts, :through => :account_users
   
   # METHODS FOR BRIEF OWNERSHIP
-  has_many :user_briefs, :dependent => :destroy
-  has_many :briefs, :through => :user_briefs
+  has_many :user_documents, :dependent => :destroy
+  has_many :documents, :through => :user_documents
 
   # Used on User#show to add a user and permissions simultaenously
   # We reject anything that where all checkboxes are unchecked
-  accepts_nested_attributes_for :user_briefs,
-    :reject_if => proc { |attrs| attrs['add_brief'] == "0" && attrs['author'] == "0" && attrs['approver'] == "0" } 
+  accepts_nested_attributes_for :user_documents,
+    :reject_if => proc { |attrs| attrs['add_document'] == "0" && attrs['author'] == "0" && attrs['approver'] == "0" } 
   
 
-  delegate :draft, :to => :briefs
-  delegate :published, :to => :briefs
+  delegate :draft, :to => :documents
+  delegate :published, :to => :documents
   
   # METHODS FOR WATCHING AND INTERACTING WITH A BRIEF
   has_many :questions
-  has_many :proposals, :after_add => :stop_watching_brief
-  has_many :watched_briefs, :dependent => :destroy
+  has_many :proposals, :after_add => :stop_watching_document
+  has_many :watched_documents, :dependent => :destroy
   
-  # pathways to the hallowed briefs
-  has_many :responded_briefs, :through => :proposals, :source => :brief
-  has_many :watching_briefs, :through => :watched_briefs, :source => :brief
+  # pathways to the hallowed documents
+  has_many :responded_documents, :through => :proposals, :source => :document
+  has_many :watching_documents, :through => :watched_documents, :source => :document
 
-  has_many :authoring_briefs, :class_name => "Brief", :foreign_key => "author_id"
-  has_many :approving_briefs, :class_name => "Brief", :foreign_key => "approver_id"
-  has_many :collaborating_briefs, :through => :user_briefs, :source => :brief, :conditions => ['author_id != #{self.id} AND approver_id != #{self.id}' ]
+  has_many :authoring_documents, :class_name => "Document", :foreign_key => "author_id"
+  has_many :approving_documents, :class_name => "Document", :foreign_key => "approver_id"
+  has_many :collaborating_documents, :through => :user_documents, :source => :document, :conditions => ['author_id != #{self.id} AND approver_id != #{self.id}' ]
   
-  alias :watching :watching_briefs
-  alias :pitching :responded_briefs
+  alias :watching :watching_documents
+  alias :pitching :responded_documents
 
-  delegate :under_review, :to => :responded_briefs
-  delegate :complete, :to => :responded_briefs
+  delegate :under_review, :to => :responded_documents
+  delegate :complete, :to => :responded_documents
   
   belongs_to :invited_by, :class_name => "User"  
 end

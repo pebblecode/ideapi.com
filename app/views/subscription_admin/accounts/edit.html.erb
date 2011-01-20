@@ -32,10 +32,10 @@
       <th>Name</th>
       <th>Remove</th>
     </tr>
-    <% form.fields_for :account_template_briefs do |template| -%>
+    <% form.fields_for :account_template_documents do |template| -%>
       <% unless template.object.new_record? -%>
       <tr>
-        <td><%= template.object.template_brief.title %></td>
+        <td><%= template.object.template_document.title %></td>
         <td><%= template.check_box '_destroy' %></td>
       </tr>
       <% end -%>
@@ -46,11 +46,11 @@
   
   <% if @available_templates.present? -%>
   
-  <% form.fields_for :account_template_briefs do |template| -%>
+  <% form.fields_for :account_template_documents do |template| -%>
     <% if template.object.new_record? -%>
       <p>
-        <%= template.label :template_brief_id, 'Choose existing' %>
-        <%= template.select :template_brief_id, @available_templates.map{|t| [t.title, t.id]}, { :include_blank => true } %>
+        <%= template.label :template_document_id, 'Choose existing' %>
+        <%= template.select :template_document_id, @available_templates.map{|t| [t.title, t.id]}, { :include_blank => true } %>
       </p>
     <% end -%>
   <% end -%>

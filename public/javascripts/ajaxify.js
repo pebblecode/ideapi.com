@@ -96,10 +96,10 @@ function ajax_submit_json(form, success, error){
 })(jQuery);
 
 jQuery.update_item_history_tabs = function(){
-  var _brief_items = $('#content div.col_1 div.brief_item');
-  _brief_items.each(function(){
-    var _tab = $(this).find('ul.actions a.toggle_brief_item_activity');
-    var _list = $(this).find('ul.brief_item_history');
+  var _document_items = $('#content div.col_1 div.document_item');
+  _document_items.each(function(){
+    var _tab = $(this).find('ul.actions a.toggle_document_item_activity');
+    var _list = $(this).find('ul.document_item_history');
     var _size = _list.children().size() + _list.find('div.author_answer').size();
     if (_size == 0) _tab.text('Discussion / History');
     else _tab.text('('+ _size +') Discussion / History');    
@@ -119,7 +119,7 @@ jQuery.update_collaborators = function (){
     alert(data.responseText);
   };
   
-  $('#briefs ul.add_collaborators form.new_user_brief .add_user_brief_button').live('click', function(){
+  $('#documents ul.add_collaborators form.new_user_document .add_user_document_button').live('click', function(){
     _form = $(this).parents('form');
     _link = $(this);
     // replace ADD button with spinner
@@ -201,7 +201,7 @@ jQuery.ajaxify_item_revisions = function(){
     _spinner.hide();
   };
   
-  $('#briefs li.revision form.delete-item-revision .delete-item-revision-submit').live('click', function(e){
+  $('#documents li.revision form.delete-item-revision .delete-item-revision-submit').live('click', function(e){
     _submit = $(this);
     _container = $(this).parents('li.revision');
     _form = $(this).parents('form.delete-item-revision');
@@ -222,8 +222,8 @@ jQuery.ajaxify_questions_and_answers = function(){
     
     // there might not be any list, so we would need to create if it doesn't exist yet: 
     if(_current_list.size() == 0){
-      _current_form.parents('.question_form').before('<ul class="brief_item_history"></ul>');
-      _current_list = _current_form.parents('.brief_item_activity').find('ul.brief_item_history');
+      _current_form.parents('.question_form').before('<ul class="document_item_history"></ul>');
+      _current_list = _current_form.parents('.document_item_activity').find('ul.document_item_history');
     }
     _current_list.append(data).append_bubble();
     _current_form.find('.loading-gif').addClass('hide');
@@ -253,10 +253,10 @@ jQuery.ajaxify_questions_and_answers = function(){
     _container.find('p.error_message').hide().flashNotice();
   };
   
-  $("#briefs form.new_question input.new_question_submit").live('click', function(e){
+  $("#documents form.new_question input.new_question_submit").live('click', function(e){
     _current_form = $(this).parents('form');
     _submit = $(this);
-    _current_list = _current_form.parents('.question_form').siblings('ul.brief_item_history');
+    _current_list = _current_form.parents('.question_form').siblings('ul.document_item_history');
     _submit.hide();
     _current_form.find('img.loading-gif').removeClass('hide');
     ajax_submit(_current_form, success_new, error_new);
@@ -264,7 +264,7 @@ jQuery.ajaxify_questions_and_answers = function(){
     return false;
   });
   
-  $("#briefs form.delete_question_form .question-delete").live('click', function(e){
+  $("#documents form.delete_question_form .question-delete").live('click', function(e){
     _current_form = $(this).parents('form');
     _deleted = _current_form.parents('li.question');
     _cross = $(this);
@@ -316,7 +316,7 @@ jQuery.ajaxify_questions_and_answers = function(){
   };
   
   /* New answers */
-  $('#briefs form.question-answer-form input.submit-question-answer').live('click', function(e){
+  $('#documents form.question-answer-form input.submit-question-answer').live('click', function(e){
     _parent = $(this).parents('li.question');
     _form = $(this).parents('form');
     _submit = $(this);
@@ -329,7 +329,7 @@ jQuery.ajaxify_questions_and_answers = function(){
   
   /* Delete answers (update questions) */
   
-  $('#briefs form.delete-question-answer-form input.close-button').live('click', function(e){
+  $('#documents form.delete-question-answer-form input.close-button').live('click', function(e){
     _parent = $(this).parents('li.question');
     _form = $(this).parents('form');
     _submit = $(this);
@@ -357,10 +357,10 @@ jQuery.user_links_external = function(){
 };
 
 
-/* Inline editing briefs */
+/* Inline editing documents */
 (function($){
-  $.fn.inline_edit_briefs = function(){
-    var _brief = this.find('div.brief');
+  $.fn.inline_edit_documents = function(){
+    var _document = this.find('div.document');
     
     var _submit, _form, _parent, _spinner = null;
     /* BEGIN Title */
@@ -401,7 +401,7 @@ jQuery.user_links_external = function(){
     /* BEGIN Sections */
     
     $.fn.hide_activity = function(){
-      this.find('.brief_item_activity').hide();
+      this.find('.document_item_activity').hide();
       return this;
     };
     
@@ -416,7 +416,7 @@ jQuery.user_links_external = function(){
       $(this).siblings('.edit').toggle();
     };
     
-    $("#briefs.show .section a.toggle-inline-edit").live('click', function(e){
+    $("#documents.show .section a.toggle-inline-edit").live('click', function(e){
       
       // $(this).siblings('div.editable').toggle('slide', {}, 1000);
       $(this).siblings('div.editable').toggle();
@@ -425,10 +425,10 @@ jQuery.user_links_external = function(){
       else{ $(this).text('edit'); }
       
       $(this).siblings('ul.actions').toggleClass('hide');
-      $(this).siblings('div.brief_item_activity').toggleClass('hide');
+      $(this).siblings('div.document_item_activity').toggleClass('hide');
     });
 
-    $("#briefs.show .section .edit a.cancel-inline-edit").live('click', function(e){
+    $("#documents.show .section .edit a.cancel-inline-edit").live('click', function(e){
       $(this).parents('div.edit').toggleClass('revealed');
       $(this).parents('div.section').find('div.editable').toggle();
       var _toggle_link = $(this).parents('div.section').find('a.toggle-inline-edit');
@@ -439,12 +439,12 @@ jQuery.user_links_external = function(){
         _toggle_link.text('edit'); 
       }
       _toggle_link.siblings('ul.actions').toggleClass('hide');
-      _toggle_link.siblings('div.brief_item_activity').toggleClass('hide');
+      _toggle_link.siblings('div.document_item_activity').toggleClass('hide');
       
       
     });
     
-    _brief.find('form.inline-edit-form input.inline-edit-submit').live('click', function(e){
+    _document.find('form.inline-edit-form input.inline-edit-submit').live('click', function(e){
       _submit = $(this);
       _submit.hide().spin(false, 'ui/loading');
       _form = $(this).parents('form.inline-edit-form');
@@ -471,7 +471,7 @@ jQuery.user_links_external = function(){
       _submit = $(this).find('input.delete-section-submit');
       _submit.hide().spin(false, 'ui/loading');
       _spinner = _submit.siblings('.spinner');
-      _parent = $(this).parents('div.brief_item');
+      _parent = $(this).parents('div.document_item');
       
       ajax_submit(_form, generic_delete_success, generic_delete_failure);
       
@@ -480,7 +480,7 @@ jQuery.user_links_external = function(){
     /* END delete sections */
     
     /* BEGIN new sections */
-    $('#brief_item_is_heading').live('click', function(e){
+    $('#document_item_is_heading').live('click', function(e){
       if($(this).attr('checked') == true){
         $("#new-section-body").slideUp();
       }else{
@@ -496,8 +496,8 @@ jQuery.user_links_external = function(){
       $('#new-section-body').val('');
       var _data = $(data);
       _data.hide();
-      _data.find(".brief_item_activity").hide();
-      $('#sortable_brief_items').append(_data);
+      _data.find(".document_item_activity").hide();
+      $('#sortable_document_items').append(_data);
       _data.fadeIn();
       _submit.show();
       _spinner.remove();
@@ -528,10 +528,10 @@ jQuery.user_links_external = function(){
       }
       $(this).toggleClass('activated');
       if($(this).hasClass('activated')){
-        $('#sortable_brief_items').make_sortable();
+        $('#sortable_document_items').make_sortable();
       }
       else{
-        $('#sortable_brief_items').unmake_sortable();
+        $('#sortable_document_items').unmake_sortable();
       }
 
 
@@ -544,23 +544,23 @@ jQuery.user_links_external = function(){
     $('#new-section').hide();
     $('#comments_area').fadeOut();
     $('a.toggle-add-new-section').hide();
-    $('#sortable_brief_items').addClass('sortable');
-    $('#sortable_brief_items').sortable({
+    $('#sortable_document_items').addClass('sortable');
+    $('#sortable_document_items').sortable({
       axis: 'y',
       handle: 'a.move-handle',
       update: function() {
-          $.post('/brief_items/sort', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$(this).sortable('serialize'));
+          $.post('/document_items/sort', '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$(this).sortable('serialize'));
         }
     });
-    $('#sortable_brief_items .brief_item').prepend('<a class="move-handle" href="javascript:void()">move</a>');
+    $('#sortable_document_items .document_item').prepend('<a class="move-handle" href="javascript:void()">move</a>');
   };    
   $.fn.unmake_sortable = function(){
     $('.most_important_thing').toggle('blind',{},300);
     $('a.toggle-add-new-section').show();
     $('#comments_area').fadeIn();
-    $('#sortable_brief_items').removeClass('sortable');
-    $('#sortable_brief_items .move-handle').remove();
-    $('#sortable_brief_items').sortable("destroy");
+    $('#sortable_document_items').removeClass('sortable');
+    $('#sortable_document_items .move-handle').remove();
+    $('#sortable_document_items').sortable("destroy");
   };
   
 })(jQuery);

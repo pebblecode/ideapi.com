@@ -1,5 +1,5 @@
 /*lost in translation*/
-.brief_list {
+.document_list {
   .number-bubble{
     float: right;
     @extend .user_context;
@@ -20,7 +20,7 @@
     text-indent: -3000px; } 
 }
 
-#sortable .brief_heading{
+#sortable .document_heading{
   padding: 0.5em 1em;
   background: #f8f8f8;
   

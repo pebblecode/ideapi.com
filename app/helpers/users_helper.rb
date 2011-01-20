@@ -38,10 +38,10 @@ module UsersHelper
     (%w(alright hello welcome hey hi).random_element << " " << current_user.screename).titleize
   end
   
-  def brief_item_updated_for_user?(brief_item)
-    user_brief = brief_item.brief.user_briefs.for_user(current_user)
-    if user_brief.present? && user_brief.last_viewed_at.present? && brief_item.updated_at.present?
-      user_brief.last_viewed_at < brief_item.updated_at
+  def document_item_updated_for_user?(document_item)
+    user_document = document_item.document.user_documents.for_user(current_user)
+    if user_document.present? && user_document.last_viewed_at.present? && document_item.updated_at.present?
+      user_document.last_viewed_at < document_item.updated_at
     else
       false
     end

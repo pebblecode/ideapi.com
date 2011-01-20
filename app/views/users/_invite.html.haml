@@ -28,26 +28,26 @@
         = f.text_area :invitation_message, :rows => 5, :cols => 60
         
 
-      %h4 Brief Privileges
+      %h4 Document Privileges
       %p
-        = f.label :can_create_briefs, "Can Create Briefs?"
-        = f.check_box :can_create_briefs
-      -if current_account.briefs.present?
-        %table.friends#brief-privileges
+        = f.label :can_create_documents, "Can Create Documents?"
+        = f.check_box :can_create_documents
+      -if current_account.documents.present?
+        %table.friends#document-privileges
           %tr
-            %th{:title => "Select whether a user can access a brief"}
-              Can Access Brief?
-            %th{:title => "Make this user an author on the brief"}
+            %th{:title => "Select whether a user can access a document"}
+              Can Access Document?
+            %th{:title => "Make this user an author on the document"}
               Author?
-            %th{:title => "Make this user an approver on the brief"}
+            %th{:title => "Make this user an approver on the document"}
               Approver?
-          -f.fields_for :user_briefs_attributes do |f|
-            - current_account.briefs.active.ordered("title ASC").each_with_index do |b,c|
+          -f.fields_for :user_documents_attributes do |f|
+            - current_account.documents.active.ordered("title ASC").each_with_index do |b,c|
               %tr
-                %td.brief-title
-                  =f.hidden_field :brief_id, :index => c, :value => b.id
-                  =f.check_box :add_brief, :index => c
-                  =f.label :add_brief, b.title, :index => c
+                %td.document-title
+                  =f.hidden_field :document_id, :index => c, :value => b.id
+                  =f.check_box :add_document, :index => c
+                  =f.label :add_document, b.title, :index => c
                 %td
                   =f.check_box :author, "index" => c
                 %td

@@ -9,7 +9,7 @@ $(document).ready(function(){
   });
   jQuery.user_links_external();
   
-  jQuery('body#briefs.show').inline_edit_briefs();
+  jQuery('body#documents.show').inline_edit_documents();
   $('.toggle-page-help').live('click', function(){
     $(this).toggleClass('selected');
     $('#page-help').toggle('blind', {}, 500);

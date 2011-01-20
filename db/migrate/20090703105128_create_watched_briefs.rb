@@ -1,7 +1,7 @@
-class CreateWatchedBriefs < ActiveRecord::Migration
+class CreateWatchedDocuments < ActiveRecord::Migration
   def self.up
-    create_table :watched_briefs do |t|
-      t.integer :brief_id
+    create_table :watched_documents do |t|
+      t.integer :document_id
       t.integer :creative_id
 
       t.timestamps
@@ -9,6 +9,6 @@ class CreateWatchedBriefs < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :watched_briefs
+    drop_table :watched_documents
   end
 end

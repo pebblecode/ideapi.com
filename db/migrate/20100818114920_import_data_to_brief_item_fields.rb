@@ -1,11 +1,11 @@
-class ImportDataToBriefItemFields < ActiveRecord::Migration
+class ImportDataToDocumentItemFields < ActiveRecord::Migration
   def self.up
-    BriefItem.all.each do |brief_item|
-      question = TemplateQuestion.find(:first, :conditions => {:id => brief_item.template_question_id})
+    DocumentItem.all.each do |document_item|
+      question = TemplateQuestion.find(:first, :conditions => {:id => document_item.template_question_id})
       if question.present?
-        brief_item.help_message = question.help_message if question.help_message.present?
-        brief_item.optional = question.optional if question.optional.present?
-        brief_item.save
+        document_item.help_message = question.help_message if question.help_message.present?
+        document_item.optional = question.optional if question.optional.present?
+        document_item.save
       end
     end
   end

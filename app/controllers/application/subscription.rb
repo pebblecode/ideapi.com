@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   
   before_filter :account_required
   
-  helper_method :current_user_can_create_briefs?
+  helper_method :current_user_can_create_documents?
   
   before_filter :check_for_expired_account
   
@@ -35,8 +35,8 @@ class ApplicationController < ActionController::Base
     redirect_to "/account_not_found" and return
   end
   
-  def current_user_can_create_briefs?
-    current_account.brief_authors.include?(current_user)
+  def current_user_can_create_documents?
+    current_account.document_authors.include?(current_user)
   end
   
   def check_for_expired_account

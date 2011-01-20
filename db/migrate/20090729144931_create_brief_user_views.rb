@@ -1,7 +1,7 @@
-class CreateBriefUserViews < ActiveRecord::Migration
+class CreateDocumentUserViews < ActiveRecord::Migration
   def self.up
-    create_table :brief_user_views do |t|
-      t.integer :brief_id
+    create_table :document_user_views do |t|
+      t.integer :document_id
       t.integer :user_id
       t.integer :view_count, :default => 0
       t.datetime :last_viewed_at
@@ -9,6 +9,6 @@ class CreateBriefUserViews < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :brief_user_views
+    drop_table :document_user_views
   end
 end

@@ -7,20 +7,20 @@ class TimelineEvent < ActiveRecord::Base
     self.created_at.to_date
   end
   
-  named_scope :brief_history, lambda { |brief| 
+  named_scope :document_history, lambda { |document| 
     { 
       :conditions => [
         "(subject_type = ? AND subject_id = ?) OR (secondary_subject_type = ? AND secondary_subject_id = ?)",
-        "Brief", brief, "Brief", brief
+        "Document", document, "Document", document
       ] 
     } 
   }
   
-  named_scope :brief_history_with_brief_items, lambda { |brief| 
+  named_scope :document_history_with_document_items, lambda { |document| 
     { 
       :conditions => [
         "(subject_type = ? AND subject_id = ?) OR (secondary_subject_type = ? AND secondary_subject_id = ?) OR (secondary_subject_type = ? AND secondary_subject_id IN (?))",
-        "Brief", brief, "Brief", brief, "BriefItem", brief.brief_item_ids
+        "Document", document, "Document", document, "DocumentItem", document.document_item_ids
       ] 
     } 
   }

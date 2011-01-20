@@ -12,7 +12,7 @@
 @import "snippets/sidebar";
 @import "snippets/notifications";
 @import "snippets/proposals";
-@import "snippets/template_briefs";
+@import "snippets/template_documents";
 @import "snippets/footer";
 
 body {
@@ -333,5 +333,5 @@ form {
 @import "partials/comments_and_activity_stream";
 @import "partials/account_form";
 @import "partials/jquery.fancybox-1.3.1";
-@import "snippets/briefs";
+@import "snippets/documents";
 @import "snippets/legacy";

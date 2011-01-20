@@ -1,12 +1,12 @@
-class CreateTemplateBriefQuestions < ActiveRecord::Migration
+class CreateTemplateDocumentQuestions < ActiveRecord::Migration
   def self.up
-    create_table :template_brief_questions do |t|
-      t.integer :template_brief_id
+    create_table :template_document_questions do |t|
+      t.integer :template_document_id
       t.integer :template_question_id
     end
   end
 
   def self.down
-    drop_table :template_brief_questions
+    drop_table :template_document_questions
   end
 end

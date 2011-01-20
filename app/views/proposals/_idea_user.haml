@@ -8,4 +8,4 @@
         - if current_object.user == idea_user
           IDEA OWNER
         - else 
-          = current_object.brief.role?(idea_user).upcase 
+          = current_object.document.role?(idea_user).upcase 

@@ -21,11 +21,11 @@ class SubscriptionAdmin::AccountsController < ApplicationController
   private
   
   def load_templates
-    @available_templates ||= TemplateBrief.available_for_account(@account)
+    @available_templates ||= TemplateDocument.available_for_account(@account)
   end
   
   def build_template
-    @account.account_template_briefs.build
+    @account.account_template_documents.build
   end
   
 end

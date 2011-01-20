@@ -18,7 +18,7 @@
           p {
             margin: 0;
             padding: 0; } } } }
-    .brief_overview {
+    .document_overview {
       margin: 0 0 2em 0;
       padding: 0;
       border: 1px solid #cccccc;
@@ -37,26 +37,26 @@
           p {
             margin: 0;
             padding: 0; } } }
-      .brief {
+      .document {
         border: none;
         border-bottom: 1px solid #cccccc;
         margin: 0; }
-      .brief:last-child {
+      .document:last-child {
         border-bottom: none; }
-      .brief:hover {
+      .document:hover {
         background: #ffffdf;
         h5 {
           a {
             display: block; } } } }
-    .brief_overview.published, .brief_overview.watching {
+    .document_overview.published, .document_overview.watching {
       h3 {
         background: #333333;
         color: #fcfcfc; } }
-    .brief_overview.draft {
+    .document_overview.draft {
       h3 {
         background: #dddddd;
         color: #333333; } }
-    .edit_brief {
+    .edit_document {
       .most_important_thing{
         textarea{
           width: 16em !important;
@@ -64,7 +64,7 @@
       }
       
       h2 {
-        input#brief_title {
+        input#document_title {
           font-size: 1.5em;
           width: 31em; } }
       .body {
@@ -92,7 +92,7 @@
     }
   }
   .discussion {
-    .brief_item {
+    .document_item {
       padding: 1em 2em;
       border-right: 1px solid #cccccc;
       border-left: 1px solid #cccccc; } }
@@ -116,7 +116,7 @@
 #container {
   #content {
     .title_holder {
-      .brief_timeline {
+      .document_timeline {
         padding: 0.1em 0 0 0.5em;
         margin: 0;
         li {
@@ -163,7 +163,7 @@ p.submit.left {
         padding: 0.5em 1em 0 1em;
         font-size: 1.2em;
         font-weight: bold; }
-      .brief {
+      .document {
         border-top: none;
         h2 {
           background: #333333;
@@ -179,14 +179,14 @@ p.submit.left {
             top: 1em; }
           a:hover {
             color: #fefefe; }
-          a.print_brief {
+          a.print_document {
             top: 1.2em;
             right: 1.8em;
             background: url(/images/printer_empty.png);
             width: 16px;
             height: 16px;
             text-indent: -3000px; } }
-        .brief_item, .most_important_thing {
+        .document_item, .most_important_thing {
           border: 1px solid #cccccc;
           border-bottom: 1px solid #cccccc;
           border-top: 0;
@@ -224,7 +224,7 @@ p.submit.left {
             span.right {
               bottom: -0.2em;
               padding-right: 0.5em; } } }
-        .brief_item {
+        .document_item {
           .body {
             background: transparent;
             font-size: 1.2em;
@@ -233,7 +233,7 @@ p.submit.left {
             padding: 0.5em 0; }
           .actions, .ask_question {
             display: none; } }
-        .brief_item:hover {
+        .document_item:hover {
           background: #ffffdf; } } } } }
 
 .login, .app_error {
@@ -351,7 +351,7 @@ ul.error_messages {
       .invite_users {
         input[type=submit] {
           margin: 0.5em 0 0 0; } }
-      #brief_reference {
+      #document_reference {
         .most_important_thing {
           font-size: 1.1em;
           position: relative;
@@ -545,11 +545,11 @@ body#users.contacts {
   margin-bottom: 1em; }
 
 #sortable {
-  .brief_item:hover, .brief_heading:hover {
+  .document_item:hover, .document_heading:hover {
     cursor: move; } }
 
-#brief-privileges {
-  .brief-title {
+#document-privileges {
+  .document-title {
     label {
       float: none; }
     input {
@@ -561,8 +561,8 @@ body#users.contacts {
   h2 {
     padding-left: 1em; } }
 
-#template_briefs #container {
-  .new_template_brief, .edit_template_brief {
+#template_documents #container {
+  .new_template_document, .edit_template_document {
     .actions {
       border-top: 1px solid #dddddd;
       padding-top: 1.5em;
@@ -574,7 +574,7 @@ body#users.contacts {
         @extend .green-button-link;
         display: inline-block;
       } 
-      #template_brief_submit{
+      #template_document_submit{
         @include button-style;
         @include green-button;
         font-size: 1em;
@@ -745,7 +745,7 @@ ul#notifications {
         color: #333333; } } } }
 
 #proposals {
-  #brief_reference {
+  #document_reference {
     img {
       max-width: 100%; } } }
 

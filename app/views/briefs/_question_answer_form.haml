@@ -1,5 +1,0 @@
--form_for(question, :url => question_path(question), :html => { :method => :put, :id => "question_answer_form_#{question.id}", :class => 'question-answer-form'}) do |f|
-  .speech
-    =f.text_area :author_answer, :rows => 5, :cols => 80, :id => "question_author_answer_#{question.id}"
-    %p.button=f.submit "submit", :class => 'submit-question-answer', :id => "submit_question_answer#{question.id}"
-  .clear

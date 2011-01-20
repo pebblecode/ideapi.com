@@ -32,8 +32,8 @@
         <span class="data-value date"><%= User.count %></span>
       </li>
       <li>
-        <span class="data-label"># of briefs total:</span>
-        <span class="data-value"><%= Brief.count %></span>
+        <span class="data-label"># of documents total:</span>
+        <span class="data-value"><%= Document.count %></span>
       </li>
       <li>
         <span class="data-label"># of ideas total:</span>
@@ -53,7 +53,7 @@
     <th>Domain</th>
     <th>Created</th>
     <th>Users</th>
-    <th>Briefs</th>
+    <th>Documents</th>
     <th>Ideas</th>
   </tr>
   </thead>
@@ -64,7 +64,7 @@
       <td class="account-domain"><%= account.full_domain %></td>
       <td class="account-date"><%= account.created_at.strftime '%Y-%m-%d' %></td>
       <td class="account-users"><%= account.users.count %></td>
-      <td class="account-briefs"><%= account.briefs.count %></td>
+      <td class="account-documents"><%= account.documents.count %></td>
       <td class="account-ideas"><%= account.proposals.count %></td>
     </tr>
     

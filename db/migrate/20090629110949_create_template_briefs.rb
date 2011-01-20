@@ -1,17 +1,17 @@
-class CreateTemplateBriefs < ActiveRecord::Migration
+class CreateTemplateDocuments < ActiveRecord::Migration
   def self.up
-    create_table :template_briefs do |t|
+    create_table :template_documents do |t|
       t.string :title
       t.integer :site_id
     end
     
-    remove_column :briefs, :brief_template_id
-    add_column :briefs, :template_brief_id, :integer
+    remove_column :documents, :document_template_id
+    add_column :documents, :template_document_id, :integer
   end
 
   def self.down
-    remove_column :briefs, :template_brief_id
-    add_column :briefs, :brief_template_id, :integer
-    drop_table :template_briefs
+    remove_column :documents, :template_document_id
+    add_column :documents, :document_template_id, :integer
+    drop_table :template_documents
   end
 end

@@ -3,7 +3,7 @@ class CreateCreativeProposals < ActiveRecord::Migration
     create_table :creative_proposals do |t|
       t.text :short_description
       t.text :long_description
-      t.integer :brief_id
+      t.integer :document_id
       t.integer :creative_id
 
       t.timestamps

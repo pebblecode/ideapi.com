@@ -3,7 +3,7 @@ class CreateCreativeQuestions < ActiveRecord::Migration
     create_table :creative_questions do |t|
       t.text :body
       t.text :author_answer
-      t.integer :brief_id
+      t.integer :document_id
       t.integer :creative_id
       t.timestamps
     end
