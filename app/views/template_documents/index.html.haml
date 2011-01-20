@@ -1,22 +1,11 @@
-
 =sub_nav do
   =breadcrumb_list
+= page_help do
+  .box
+    :markdown
+      This page lists all of your custom document templates. To create your own templates click [Create template](#{new_template_document_path}).
+
 #documents.col_1
-
-  - # if flash[:note].present?
-  = page_help do
-    .box
-      :markdown
-        Documents are created from templates.
-
-        The templates documents lists all of your custom document templates. 
-        Your ideapi account has been created with a default template that contains 
-        some common document sections (not shown on the templates documents).
-
-        To create your own templates click “create template”.
-
-        
-      
   .document_list
     #content-header
       - if current_user_can_create_documents?

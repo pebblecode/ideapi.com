@@ -222,17 +222,16 @@ form {
 .green-button-link{
   @extend .funky-button-small;
   @include border_radius(4px);
-  color: white;
-  border-color: $ideapi_green_dark;
   text-shadow: none;
-  background: url('/images/ui/btn-bg-darkgreen.png') repeat-x 0px 0px;
   display: block;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 1em;
   padding-top: 1px;
   &:hover{
-    color: #eee;
+    color: $ideapi_green_dark !important;
+  }
+  &:focus, &:active{
+    color: $ideapi_green_dark - #222;
   }
 }
 

@@ -11,6 +11,13 @@ $(document).ready(function(){
   
   jQuery('body#documents.show').inline_edit_documents();
   $('.toggle-page-help').live('click', function(){
+    var _span = $(this).find('span');
+    if(_span.text() == 'help'){
+      _span.text('close help');
+    }else{
+      _span.text('help');
+    }
+    
     $(this).toggleClass('selected');
     $('#page-help').toggle('blind', {}, 500);
   });

@@ -637,98 +637,100 @@ form p input[type=checkbox] { margin-top: 5px; }
 .big-ass-text { font-size: 5em; font-weight: bold; vertical-align: top; line-height: 1em; color: #ddd; font-family: Ubuntu, Helvetica, Arial, sans-serif; text-shadow: -1px -1px 1px #cccccc; }
 
 /* line 222, ../sass/main.scss */
-.green-button-link { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; background: url("/images/ui/btn-bg-darkgreen.png") repeat-x 0px 0px; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
-/* line 234, ../sass/main.scss */
-.green-button-link:hover { color: #eee; }
+.green-button-link { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; text-shadow: none; display: block; font-family: 'Ubuntu', Helvetica, Arial, sans-serif; font-weight: normal; padding-top: 1px; }
+/* line 230, ../sass/main.scss */
+.green-button-link:hover { color: #32401a !important; }
+/* line 233, ../sass/main.scss */
+.green-button-link:focus, .green-button-link:active { color: #101e00; }
 
 /* LOGIN */
-/* line 240, ../sass/main.scss */
+/* line 239, ../sass/main.scss */
 #user_session_email, #user_session_password { width: 225px; }
 
-/* line 243, ../sass/main.scss */
+/* line 242, ../sass/main.scss */
 .login, .app_error { margin: 15% auto 0 auto; width: 45em; border: 10px solid #dddddd; background: #f6f6f6; }
-/* line 248, ../sass/main.scss */
+/* line 247, ../sass/main.scss */
 .login .footer, .app_error .footer { background: #dddddd; padding: 0.5em 0 0 0; }
-/* line 251, ../sass/main.scss */
+/* line 250, ../sass/main.scss */
 .login .footer p, .app_error .footer p { margin: 0; padding: 0; font-size: 1.2em; }
-/* line 255, ../sass/main.scss */
+/* line 254, ../sass/main.scss */
 .login .footer a, .app_error .footer a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
-/* line 258, ../sass/main.scss */
+/* line 257, ../sass/main.scss */
 .login .footer a:hover, .app_error .footer a:hover { color: #333333; }
-/* line 260, ../sass/main.scss */
+/* line 259, ../sass/main.scss */
 .login a, .app_error a { text-decoration: none; color: #b3d335; font-weight: bold; }
-/* line 264, ../sass/main.scss */
+/* line 263, ../sass/main.scss */
 .login a:hover, .app_error a:hover { color: #32401a; }
-/* line 266, ../sass/main.scss */
+/* line 265, ../sass/main.scss */
 .login h3, .app_error h3 { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; background: #32401a; border-bottom: 4px solid #b3d335; color: white; padding: 0.2em 1em; font-size: 2em; }
-/* line 274, ../sass/main.scss */
+/* line 273, ../sass/main.scss */
 .login .login_form, .login .friendship_form, .app_error .login_form, .app_error .friendship_form { padding: 1em 1em; font-size: 1.4em; }
-/* line 279, ../sass/main.scss */
+/* line 278, ../sass/main.scss */
 .login .login_form label, .app_error .login_form label { width: auto; }
-/* line 282, ../sass/main.scss */
+/* line 281, ../sass/main.scss */
 .login .login_form p, .app_error .login_form p { text-align: right; }
-/* line 284, ../sass/main.scss */
+/* line 283, ../sass/main.scss */
 .login .login_form p #user_session_email, .login .login_form p #user_session_password, .app_error .login_form p #user_session_email, .app_error .login_form p #user_session_password { display: inline; width: 275px; }
-/* line 285, ../sass/main.scss */
+/* line 284, ../sass/main.scss */
 .login .login_form p #user_session_remember_me, .app_error .login_form p #user_session_remember_me { display: inline; margin-right: 275px; }
-/* line 287, ../sass/main.scss */
+/* line 286, ../sass/main.scss */
 .login .login_form #forgot-password, .app_error .login_form #forgot-password { text-align: left; }
-/* line 290, ../sass/main.scss */
+/* line 289, ../sass/main.scss */
 .login .friendship_form p, .app_error .friendship_form p { text-align: center; }
 
-/* line 296, ../sass/main.scss */
+/* line 295, ../sass/main.scss */
 .app_error h3 { background: #d81f26; color: white; }
-/* line 299, ../sass/main.scss */
+/* line 298, ../sass/main.scss */
 .app_error p { padding: 0.5em 2em; font-size: 1.2em; font-weight: bold; }
 
-/* line 305, ../sass/main.scss */
+/* line 304, ../sass/main.scss */
 .back-to-homepage { background: url("/images/ui/arrow-west-16.png") no-repeat 0 0; padding-left: 20px; height: 16px; line-height: 14px; margin-top: 0.5em; margin-left: 1em; display: block; }
-/* line 307, ../sass/main.scss */
+/* line 306, ../sass/main.scss */
 .back-to-homepage:hover { background: url("/images/ui/arrow-west-16.png") no-repeat 0 0; }
 
 /* Users profile page (/views/users/show,edit etc) */
-/* line 319, ../sass/main.scss */
+/* line 318, ../sass/main.scss */
 #users.show .user .info { margin-left: 120px; }
 
-/* line 327, ../sass/main.scss */
+/* line 326, ../sass/main.scss */
 .link-as-button:hover { color: #32401a; }
 
-/* line 332, ../sass/main.scss */
+/* line 331, ../sass/main.scss */
 #content-header { color: #32401a; padding: 0.5em 0.5em 0.5em 1em; position: relative; text-shadow: 0 1px 1px white; border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; -webkit-border-radius: 3px 3px 0 0; background: #9cbc1e url("/images/bg/sidebox-header-bg.png") repeat-x 0 0; background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#9bbb1d)); background: -moz-linear-gradient(top, #b3d335, #9bbb1d); }
-/* line 340, ../sass/main.scss */
+/* line 339, ../sass/main.scss */
 #content-header h2 { font-size: 1.2em; }
-/* line 343, ../sass/main.scss */
+/* line 342, ../sass/main.scss */
 #content-header .actions { float: right; padding: 0; margin: 0; }
 
-/* line 350, ../sass/main.scss */
+/* line 349, ../sass/main.scss */
 .boom_box { border: 1px solid #cccccc; padding: 1em; background: #f6f6f6; margin-bottom: 2em; }
 
-/* line 357, ../sass/main.scss */
+/* line 356, ../sass/main.scss */
 .align-right { text-align: right; }
 
-/* line 360, ../sass/main.scss */
+/* line 359, ../sass/main.scss */
 .flash { position: absolute; top: 0; left: 1em; color: #555; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; padding: 0.5em; }
-/* line 369, ../sass/main.scss */
+/* line 368, ../sass/main.scss */
 .flash.notice { background: #b3d335; border: 1px solid #a2c224; }
-/* line 373, ../sass/main.scss */
+/* line 372, ../sass/main.scss */
 .flash.error { background: #d81f26; color: #eee; }
 
-/* line 380, ../sass/main.scss */
+/* line 379, ../sass/main.scss */
 .login h3 { font-family: Ubuntu, sans-serif; }
-/* line 382, ../sass/main.scss */
+/* line 381, ../sass/main.scss */
 .login .login_form .field { margin-bottom: 1em; }
-/* line 384, ../sass/main.scss */
+/* line 383, ../sass/main.scss */
 .login .login_form .field label { font-family: Ubuntu, sans-serif; text-align: right; width: 115px; }
-/* line 391, ../sass/main.scss */
+/* line 390, ../sass/main.scss */
 .login #user_session_password, .login #user_session_email { font-family: Ubuntu, sans-serif; padding: 2px .5em; }
-/* line 396, ../sass/main.scss */
+/* line 395, ../sass/main.scss */
 .login .submit { margin-bottom: 0; }
-/* line 398, ../sass/main.scss */
+/* line 397, ../sass/main.scss */
 .login .submit input { font-family: Ubuntu; }
 
-/* line 404, ../sass/main.scss */
+/* line 403, ../sass/main.scss */
 .footer a { font-family: Ubuntu, sans-serif; }
-/* line 405, ../sass/main.scss */
+/* line 404, ../sass/main.scss */
 .footer #forgot-password { margin-top: 0.5em; margin-right: 1em; float: right; }
 
 /* Importing partials / snippets */
@@ -786,36 +788,44 @@ form p input[type=checkbox] { margin-top: 5px; }
 
 /* line 35, ../sass/snippets/_header.scss */
 ul.navigation { text-align: right; padding: 0; }
-/* line 39, ../sass/snippets/_header.scss */
+/* line 38, ../sass/snippets/_header.scss */
+ul.navigation li.page-help { margin-right: 1em; }
+/* line 41, ../sass/snippets/_header.scss */
 ul.navigation li { display: inline; margin: 0; }
-/* line 42, ../sass/snippets/_header.scss */
+/* line 44, ../sass/snippets/_header.scss */
 ul.navigation li a, ul.navigation li span.current { display: inline-block; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; color: #eeeeee; font-size: 1.1em; height: 24px; line-height: 24px; font-weight: normal; background-color: #32401a; background: -webkit-gradient(linear, left top, left bottom, from(#54623c), to(#32401a)); background: -moz-linear-gradient(top, #54623c, #32401a); padding: 3px 0.8em 3px 0.8em; }
-/* line 54, ../sass/snippets/_header.scss */
+/* line 56, ../sass/snippets/_header.scss */
 ul.navigation li a:hover { background: #54623c; background: -webkit-gradient(linear, left top, left bottom, from(#32401a), to(#54623c)); background: -moz-linear-gradient(top, #32401a, #54623c); }
-/* line 58, ../sass/snippets/_header.scss */
+/* line 60, ../sass/snippets/_header.scss */
 ul.navigation li span.current, ul.navigation li a:focus, ul.navigation li a:active { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; background: #b3d335; background: -webkit-gradient(linear, left top, left bottom, from(#ccec4e), to(#b3d335)); background: -moz-linear-gradient(top, #ccec4e, #b3d335); color: #fcfcfc; }
-/* line 64, ../sass/snippets/_header.scss */
-ul.navigation li a.toggle-page-help { display: inline-block; width: 32px; text-align: center; padding: 4px 0.5em 2px 0.5em; background: transparent; /*      &.selected{ background: $ideapi_blue_dark; @include linear-gradient($ideapi_blue_dark + #111, $ideapi_blue_dark - #111); }*/ }
-/* line 74, ../sass/snippets/_header.scss */
-ul.navigation li a.toggle-page-help span { background: url("/images/ui/help.png") no-repeat 0 0; text-indent: -9999px; display: block; width: 24px; margin: auto; height: 24px; }
+/* line 66, ../sass/snippets/_header.scss */
+ul.navigation li a.toggle-page-help { display: inline-block; text-align: center; height: auto; padding: 0; background: transparent; /*
+&.selected{ background: $ideapi_blue_dark; @include linear-gradient($ideapi_blue_dark + #111, $ideapi_blue_dark - #111);
+}
+*/ }
+/* line 78, ../sass/snippets/_header.scss */
+ul.navigation li a.toggle-page-help span { /*
+background: url('/images/ui/help.png') no-repeat 0 0;
+text-indent: -9999px;
+*/ color: #555; font-size: .8em; text-transform: uppercase; display: block; margin: auto; }
 
-/* line 86, ../sass/snippets/_header.scss */
+/* line 93, ../sass/snippets/_header.scss */
 #page-help { display: none; /*  border: 1px solid $ideapi_green_light;*/ margin: 0; background: #32401a; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-left-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-bottom-right-radius: 3px; color: #fcfcfc; }
-/* line 94, ../sass/snippets/_header.scss */
-#page-help a { color: #32401a; text-shadow: none; }
-/* line 97, ../sass/snippets/_header.scss */
-#page-help a:hover { border-bottom: 1px solid #32401a; }
 /* line 101, ../sass/snippets/_header.scss */
-#page-help .blind { padding: 1em; }
+#page-help a { color: #32401a; text-shadow: none; }
 /* line 104, ../sass/snippets/_header.scss */
+#page-help a:hover { border-bottom: 1px solid #32401a; }
+/* line 108, ../sass/snippets/_header.scss */
+#page-help .blind { padding: 1em; }
+/* line 111, ../sass/snippets/_header.scss */
 #page-help .box { width: 570px; color: #eee; }
-/* line 109, ../sass/snippets/_header.scss */
-#page-help p { text-align: left; color: #eee; }
-/* line 114, ../sass/snippets/_header.scss */
-#page-help a { color: #b3d335; }
 /* line 116, ../sass/snippets/_header.scss */
+#page-help p { text-align: left; color: #eee; }
+/* line 121, ../sass/snippets/_header.scss */
+#page-help a { color: #b3d335; }
+/* line 123, ../sass/snippets/_header.scss */
 #page-help a:hover { color: #91b113; text-decoration: none; border-bottom: none; }
-/* line 122, ../sass/snippets/_header.scss */
+/* line 129, ../sass/snippets/_header.scss */
 #page-help .right-column { float: right; width: 250px; }
 
 /* line 1, ../sass/snippets/_subnav.scss */
@@ -1688,7 +1698,7 @@ ul.actions.active { border-bottom: 1px solid #eeeeee; }
 /* line 457, ../sass/snippets/_documents.scss */
 #content-header .edit { margin: 2px 0; }
 /* line 459, ../sass/snippets/_documents.scss */
-#content-header .edit input[type=text] { font-size: 1.2em; display: inline-block; font-weight: bold; padding: 2px 3px; margin-right: .5em; border: 1px solid #ee8; background-color: #FFC; width: 75%; }
+#content-header .edit input[type=text] { font-size: 1.2em; display: inline-block; font-weight: bold; padding: 2px 3px; margin-right: .5em; border: 1px solid #ee8; background-color: #FFC; width: 65%; }
 /* line 469, ../sass/snippets/_documents.scss */
 #content-header .edit input[type=submit] { display: inline-block; vertical-align: middle; margin-top: -4px; }
 

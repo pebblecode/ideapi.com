@@ -35,7 +35,9 @@
 ul.navigation {
   text-align: right;
   padding: 0;
-  
+  li.page-help{
+    margin-right: 1em;
+  }
   li {
     display: inline;
     margin: 0;
@@ -63,21 +65,26 @@ ul.navigation {
     }
     a.toggle-page-help{
       display: inline-block;
-      width: 32px;
       text-align: center;
-      padding: 4px 0.5em 2px 0.5em;
+      height: auto;
+      padding: 0;
       background: transparent;
-/*      &.selected{
+      /*
+      &.selected{
         background: $ideapi_blue_dark;
         @include linear-gradient($ideapi_blue_dark + #111, $ideapi_blue_dark - #111);
-      }*/
+      }
+      */
       span{
+        /*
         background: url('/images/ui/help.png') no-repeat 0 0;
         text-indent: -9999px;
+        */
+        color: #555;
+        font-size: .8em;
+        text-transform: uppercase;
         display: block;
-        width: 24px;
         margin: auto;
-        height: 24px;
       }
     }
   }

@@ -1,6 +1,25 @@
 
 = title "#{current_object.title} |"
-= render :partial => 'documents/document_partials/text_document_info'
+= page_help do
+  .box
+    :markdown
+      To add sections to this document, click the "Add new section" button.
+      Each section consists of a title and some content. 
+      Mark a section as a heading if you need to group sections together. 
+      To edit an existing section, click the "edit" button which appears when hovering over a section.
+      - if current_object.draft?
+        This document is currently a draft, meaning that only you can see it. When you are ready to invite others to collaborate, click the publish button.
+
+        Click the "Actions" button to edit document tags, show a printer friendly view or delete this document.
+
+      - if current_object.published? 
+        Click the "discussion" button that appears over each section to see what other collaborators have been talking about, or to view the past section updates.
+        
+        To add contacts to this document, use the Collaborators box, to the right. Note that you must have already [added contacts to your account]. Click the "options" link next to a contact's name to change their role. A description of each role can be found in the [FAQ].
+
+        Click the "Actions" button to edit document tags, show a printer friendly view or delete this document. You can also archive this document if you're no longer working on it. Use the "Clear History" button to delete all of the past discussion and section updates from this document - take care though, this cannot be undone!
+
+      
 =sub_nav do
   =breadcrumb_list
 

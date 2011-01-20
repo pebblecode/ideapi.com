@@ -1,19 +1,13 @@
 = title 'Documents |'
 = page_help do
   .box
-    %h3 Documents
     - if current_user_can_create_documents?
-      %p
-        From the documents you can access all your active documents or filter documents by tag. If you are an author or approver on any document, your role will be visible here. 
-        = link_to "View role descriptions", help_path
-      %p
-        = link_to "Create your first document", new_document_path
-        using the default ideapi template, or start by #{link_to "creating your own template", new_template_document_path}. Before you can collaborate on documents, you’ll also need to #{ link_to "add some users to your account", users_path}.
-    - else
-      %p
-        From the documents you can access all your active documents or filter documents by tag. If you are an author or approver on any document, your role will be visible here. 
-        = link_to 'View role descriptions', help_path
-  
+      :markdown
+        This page shows you all of your active documents. To create your first document, click the "Create document" button. 
+        Before you can collaborate with others, you’ll need to [add some contacts to your account](/users).
+
+        If you have a number of common document structures, you may also wish to [create templates](/template_documents). 
+        Tagging documents can help you to group documents - you can add multiple tags whilst editing your documents.  
 =sub_nav do
   =breadcrumb_list
 #documents.col_1
