@@ -483,9 +483,9 @@ jQuery.user_links_external = function(){
     /* BEGIN new sections */
     $('#document_item_is_heading').live('click', function(e){
       if($(this).attr('checked') == true){
-        $("#new-section-body").slideUp();
+        $("#new-section-body").parent('.field').slideUp();
       }else{
-        $("#new-section-body").slideDown();
+        $("#new-section-body").parent('.field').slideDown();
       }
     });
     $('.toggle-add-new-section').live('click', function(e){

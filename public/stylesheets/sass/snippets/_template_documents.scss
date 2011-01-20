@@ -29,3 +29,14 @@
     text-align: center;
   }
 }
+
+#template_documents{
+  .fields{
+    span.is-section-heading{
+      display: block;
+      float: right;
+      margin-left: 1em;
+      label{ display: inline; float: none;}
+    }
+  }
+}

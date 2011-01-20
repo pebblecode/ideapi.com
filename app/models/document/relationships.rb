@@ -130,7 +130,7 @@ class Document < ActiveRecord::Base
     raise 'TemplateDocumentMissing' if template_document.blank?
   
     template_document.template_questions.each do |question|
-      self.document_items.create(:title => question.body, :is_heading => question.is_heading, :optional => question.optional, :help_message => question.help_message)
+      self.document_items.create(:title => question.body, :is_heading => question.is_heading, :optional => question.optional, :body => question.default_content)
     end
     
     return (document_items.count == template_document.template_questions.count)

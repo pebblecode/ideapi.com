@@ -556,8 +556,8 @@ jQuery.fn.document_ready = function() {
     * Shows and hides items when creating template documents
     * When an item is marked as a heading this hides fields that are not relevant
     */ 
-    $('.is-heading').live('click', function(){
-      $(this).parent().siblings('.help-message, .optional').slideToggle('slow');
+    $('#template_documents .is-heading').live('click', function(){
+      $(this).parents('.fields').find('.help-message, .optional').slideToggle('slow');
     }); 
 
     /*

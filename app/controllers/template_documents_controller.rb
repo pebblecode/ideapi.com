@@ -52,7 +52,8 @@ class TemplateDocumentsController < ApplicationController
   end
   
   def destroy
-    @template_document = TemplateDocument.find(params[:id])
+    
+    @template_document = AccountTemplateDocument.find_by_account_id_and_template_document_id(current_account.id, params[:id])
     @template_document.destroy
     flash[:notice] = "Successfully destroyed template document"
     redirect_to template_documents_url

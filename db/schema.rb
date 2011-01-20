@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110113165404) do
+ActiveRecord::Schema.define(:version => 20110120130717) do
 
   create_table "account_template_documents", :force => true do |t|
     t.integer "account_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.boolean  "document_creation",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",             :default => false
+    t.boolean  "admin",                :default => false
     t.boolean  "can_create_documents", :default => false
   end
 
@@ -59,6 +59,20 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
 
   add_index "assets", ["attachable_id", "attachable_type"], :name => "index_assets_on_attachable_id_and_attachable_type"
   add_index "assets", ["attachable_id"], :name => "index_assets_on_attachable_id"
+
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "document_item_versions", :force => true do |t|
     t.integer  "document_item_id"
@@ -112,20 +126,6 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
   add_index "documents", ["delta"], :name => "index_documents_on_delta"
   add_index "documents", ["site_id"], :name => "index_documents_on_site_id"
   add_index "documents", ["template_document_id"], :name => "index_documents_on_template_document_id"
-
-  create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
-    t.text     "comment"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
-  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
-  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "password_resets", :force => true do |t|
     t.string   "email"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(:version => 20110113165404) do
     t.boolean "optional"
     t.integer "template_section_id"
     t.boolean "is_heading",          :default => false
+    t.text    "default_content"
   end
 
   add_index "template_questions", ["template_section_id"], :name => "index_template_questions_on_template_section_id"
