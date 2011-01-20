@@ -743,6 +743,7 @@ $(document).ready(function(){
   */
   $('#proposals form .title-span label').inFieldLabels();
   $('#proposals .field label').inFieldLabels();
+  $('#template_documents .infield-label').inFieldLabels();
   
   $('#proposals #idea-attachments .proposal_asset .close-box').live('click',function(){
     var parent_box = $(this).parents('div.new.proposal_asset');

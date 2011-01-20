@@ -3,11 +3,13 @@
   %head
     %title
       ideapi
+
     %script{ :type => "text/javascript" }  
     %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=EmulateIE7"}
 
     =stylesheet_link_tag %w(reset main facebox)
-
+    =stylesheet_link_tag %w(main http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold)
+    
     /[if IE 7]<link href="/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
     /[if IE 6]<link href="/stylesheets/ie6.css" media="screen" rel="stylesheet" type="text/css" />
     
@@ -15,6 +17,4 @@
     .login
       =yield
       
-    
-    =javascript_include_tag %w(jquery jcorners facebox jshizzle)
     /[if IE 6]<script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>

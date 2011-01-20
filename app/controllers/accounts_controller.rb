@@ -18,7 +18,7 @@ class AccountsController < ApplicationController
   ssl_required :billing, :cancel, :new, :create
   ssl_allowed :plans, :thanks, :cancelled, :paypal
   
-  add_breadcrumb 'account', '/account', :only => [:show]
+  add_breadcrumb 'account', '/account'
   
   def new
     render :layout => 'signup'

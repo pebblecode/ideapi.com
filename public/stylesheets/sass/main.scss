@@ -2,18 +2,10 @@
 @import "mixins";
 @import "partials/variables";
 @import "partials/960grid";
-
-/* Importing partials / snippets */
 @import "snippets/reset";
 @import "snippets/classes";
-@import "snippets/feedback";
-@import "snippets/header";
-@import "snippets/subnav";
-@import "snippets/sidebar";
-@import "snippets/notifications";
-@import "snippets/proposals";
-@import "snippets/template_documents";
-@import "snippets/footer";
+
+
 
 body {
   font-size: 62.5%;
@@ -54,6 +46,26 @@ h4{ font-size: 1.15em; }
 }
 #content, #header{
   font-size: 1.2em;
+}
+#top-bar{
+  background: #333333;
+  margin: 0;
+  padding: 1em 0;
+  .title {
+    background: #333333;
+    width: 93em;
+    margin: auto;
+    padding: 0;
+    p{
+      color: #aaa;      
+      font-size: 1.2em;
+      margin: 0; padding: 0;
+      a{
+        color: #eee;
+        font-weight: bold;
+      }
+    }
+  }
 }
 .navigation{
   display: inline;
@@ -150,7 +162,7 @@ h4{ font-size: 1.15em; }
   @extend .funky-button-small;
   border: solid 1px #f66;
   color: #eee;
-  background: url('/images/ui/btn-bg-red.png') repeat-x 0px 0px;
+  background: url('/images/bg/gradient-red.png') repeat-x 0px 0px;
   text-shadow: none;
 }
 
@@ -328,8 +340,85 @@ form {
   h2 {
     font-size: 1.2em;
   }
+  .actions{
+    float: right;
+    padding: 0;
+    margin: 0;
+  }
 }
 
+.boom_box {
+  border: 1px solid #cccccc;
+  padding: 1em;
+  background: #f6f6f6;
+  margin-bottom: 2em;
+}
+
+.align-right{
+  text-align: right;
+}
+.flash{
+  position: absolute;
+  top: 0;
+  left: 1em;
+
+  color: #555;
+  @include border-radius(3px);
+  padding: 0.5em;
+
+  &.notice{
+    background: $ideapi_green_light;
+    border: 1px solid $ideapi_green_light - #111;
+  }
+  &.error{
+    background: #d81f26;
+    color: #eee;
+  }
+}
+
+.login{
+  h3{font-family: Ubuntu, sans-serif;}
+  .login_form{
+    .field{
+      margin-bottom: 1em;
+      label{
+          font-family: Ubuntu, sans-serif;
+        text-align: right;
+        width: 115px;
+      }
+    }
+  }
+  #user_session_password, #user_session_email{
+    font-family: Ubuntu, sans-serif;
+    padding: 2px .5em;
+    
+  }
+  .submit{ 
+    margin-bottom: 0; 
+    input{
+        font-family: Ubuntu;
+    }
+  }
+}
+.footer{
+  a{font-family: Ubuntu, sans-serif;}
+  #forgot-password{
+    margin-top: 0.5em;
+    margin-right: 1em;
+    float: right;
+  }
+  
+}
+
+/* Importing partials / snippets */
+@import "snippets/feedback";
+@import "snippets/header";
+@import "snippets/subnav";
+@import "snippets/sidebar";
+@import "snippets/notifications";
+@import "snippets/footer";
+@import "snippets/proposals";
+@import "snippets/template_documents";
 @import "partials/comments_and_activity_stream";
 @import "partials/account_form";
 @import "partials/jquery.fancybox-1.3.1";

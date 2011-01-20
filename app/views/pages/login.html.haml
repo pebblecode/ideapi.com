@@ -10,25 +10,22 @@
 
 - else
   %h3 Please login to ideapi
-  .login_form
+  .login_form.clearfix
     -form_for @user_session, :url => "/login" do |f|
-      %p
-        =f.label :email
+      %p.field
+        =f.label :email, 'Email:'
         =f.text_field :email
-      %p
-        =f.label :password
+      %p.field
+        =f.label :password, 'Password:'
         =f.password_field :password
-      %p#remember-me
-        =f.label :remember_me
+      %p#remember-me.field
+        =f.label :remember_me, 'Remember me:'
         =f.check_box :remember_me
 
       %p.submit
         =submit_tag "Login", :class => 'funky-button'
-      .clear
-    %p#forgot-password
-      = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
-    
-    
 .footer
+  %p#forgot-password
+    = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
   %p
     = link_to "ideapi Homepage", "http://#{request.domain}", :class => 'back-to-homepage'

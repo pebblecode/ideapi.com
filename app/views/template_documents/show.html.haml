@@ -10,7 +10,7 @@
         This will only change future documents based on this template – documents 
         that have already been created with this template will not be affected.
       
-  .document
+  .template-document
     #content-header
       .actions
         = link_to "Actions", "#", :class => "show-options-menu green-button-link"
@@ -24,16 +24,7 @@
         %li.delete-template
           -form_for @template_document, :html => { :method => :delete } do |f|
             =hidden_field_tag '_flash[notice]', 'Document deleted'
-            = link_to "delete", "#"
-            :javascript
-              $('#options-menu li.delete-template a').click(function(){
-                var answer = confirm("Are you sure?")
-                if(answer){
-                  $(this).parent().submit();
-                }
-                return false;
-              });
-            
+            = link_to "delete", "#"            
     -if @template_document.template_questions.present?
       #sortable
         -@template_document.template_document_questions.each do |q|
@@ -44,9 +35,9 @@
             -else
               %h4
                 =q.template_question.body
-              -if q.template_question.help_message.present?
+              -if q.template_question.default_content.present?
                 .body
                   %p
-                    =q.template_question.help_message
+                    =q.template_question.default_content
 .col_2
   

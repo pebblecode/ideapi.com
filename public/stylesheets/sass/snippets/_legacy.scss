@@ -84,12 +84,6 @@
         top: 0;
         right: 1em;
         text-align: center; } }
-    .boom_box {
-      border: 1px solid #cccccc;
-      padding: 1em;
-      background: #f6f6f6;
-      margin-bottom: 2em;
-    }
   }
   .discussion {
     .document_item {
@@ -539,10 +533,7 @@ body#users.contacts {
     ul.sub_nav {
       display: none; } } }
 
-.fields {
-  padding-top: 1em;
-  border-top: 1px solid #cccccc;
-  margin-bottom: 1em; }
+.fields {  margin-bottom: 1em; }
 
 #sortable {
   .document_item:hover, .document_heading:hover {
@@ -561,32 +552,6 @@ body#users.contacts {
   h2 {
     padding-left: 1em; } }
 
-#template_documents #container {
-  .new_template_document, .edit_template_document {
-    .actions {
-      border-top: 1px solid #dddddd;
-      padding-top: 1.5em;
-      .left {
-        float: left; }
-      .right {
-        float: right; }
-      a.add_child {
-        @extend .green-button-link;
-        display: inline-block;
-      } 
-      #template_document_submit{
-        @include button-style;
-        @include green-button;
-        font-size: 1em;
-      }
-    }
-  }
-  a.delete_template {
-    display: inline-block;
-    @extend .delete-button;
-    float: left;
-  }
-}
 
 // Notifications for documents
 ul#notifications {

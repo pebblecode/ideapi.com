@@ -4,6 +4,12 @@
   -moz-box-shadow: $args;
   box-shadow: $args;
 }
+@mixin box-shadow($args) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
+
 @mixin border_radius($size) {
   border-radius: $size;
   -moz-border-radius: $size;

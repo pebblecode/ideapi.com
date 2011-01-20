@@ -3,7 +3,7 @@
   Document: #{truncate(@document.title, :length => 40)}
   Link    : #{document_url(@document, :host => @document.account.full_domain)}
 
-  The document #{@document.title} has been updated by #{@user.full_name}. The following sections have been updated:
+  The document #{@document.title} has been updated by #{@user.full_name.titleize}. The following sections have been updated:
 
 - @items.each do |item|
   :plain 

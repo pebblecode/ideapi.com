@@ -17,7 +17,7 @@
 - else
   #account-menu.logged-in 
     %a#account-button{:href => "/login"}
-      = @user.full_name
+      = @user.full_name.titleize
       
     - if @user.accounts.present?  
       #account-contents

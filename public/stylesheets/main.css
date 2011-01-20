@@ -262,7 +262,6 @@ hr.space { background: #fff; color: #fff; visibility: hidden; }
 /* line 202, sass/partials/_960grid.scss */
 .clear { clear: both; }
 
-/* Importing partials / snippets */
 /* line 1, sass/snippets/_reset.scss */
 html, body, div, span, applet, object, iframe { background: transparent; font-size: 101%; font-weight: normal; font-style: normal; line-height: 1.6em; text-decoration: none; text-align: left; vertical-align: baseline; border: 0; }
 
@@ -505,37 +504,265 @@ button.xl { width: 120px; }
 /* line 21, sass/snippets/_classes.scss */
 .user_context, .document_list .number-bubble { margin-right: 0; margin-left: 0.5em; float: right; border: 1px solid #c4e446; background: #e6ff68; background: -webkit-gradient(linear, left top, left bottom, from(#e6ff68), to(#d5f557)); background: -moz-linear-gradient(top, #e6ff68, #d5f557); color: #555; }
 
+/* line 10, sass/main.scss */
+body { font-size: 62.5%; font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif; text-align: center; background: #dddddd; }
+
+/* line 17, sass/main.scss */
+a { text-decoration: none; color: #b3d335; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
+/* line 21, sass/main.scss */
+a:hover { color: #6f8f00; }
+
+/* line 25, sass/main.scss */
+.main, textarea, input[type=text] { font-family: "Ubuntu", sans-serif; }
+
+/* line 28, sass/main.scss */
+p { font-family: "Ubuntu", sans-serif; margin-bottom: 0.7em; line-height: 1.3em; color: #333; }
+
+/* line 34, sass/main.scss */
+h1, h2, h3, h4 { font-weight: bold; }
+
+/* line 37, sass/main.scss */
+h1 { font-size: 1.5em; }
+
+/* line 38, sass/main.scss */
+h2 { font-size: 1.3em; }
+
+/* line 39, sass/main.scss */
+h3 { font-size: 1.15em; }
+
+/* line 40, sass/main.scss */
+h4 { font-size: 1.15em; }
+
+/* line 42, sass/main.scss */
+#container { width: 94em; margin: 1em auto; position: relative; }
+
+/* line 47, sass/main.scss */
+#content, #header { font-size: 1.2em; }
+
+/* line 50, sass/main.scss */
+#top-bar { background: #333333; margin: 0; padding: 1em 0; }
+/* line 54, sass/main.scss */
+#top-bar .title { background: #333333; width: 93em; margin: auto; padding: 0; }
+/* line 59, sass/main.scss */
+#top-bar .title p { color: #aaa; font-size: 1.2em; margin: 0; padding: 0; }
+/* line 63, sass/main.scss */
+#top-bar .title p a { color: #eee; font-weight: bold; }
+
+/* line 70, sass/main.scss */
+.navigation { display: inline; }
+/* line 72, sass/main.scss */
+.navigation li { display: inline; margin-right: 1em; }
+
+/* line 77, sass/main.scss */
+.navigation { clear: both; display: block; }
+
+/* line 82, sass/main.scss */
+#content { background: #fcfcfc; border-top: 1px solid #b3d335; border-left: 1px solid #ccc; border-right: 1px solid #ccc; padding: 0 1em 1em 1em; min-height: 400px; }
+/* line 89, sass/main.scss */
+#content .col_1 { float: left; width: 670px; }
+
+/* line 95, sass/main.scss */
+#comments_area { margin-top: 3em; }
+/* line 97, sass/main.scss */
+#comments_area h4 { margin-bottom: 1em; }
+
+/* line 103, sass/main.scss */
+.note { margin-bottom: 1em; padding: 1em 2.5em 1em 1em; background: #f4f4f4; width: 36em; position: relative; }
+/* line 109, sass/main.scss */
+.note .hide_message { position: absolute; display: block; top: 5px; right: 5px; font-weight: normal; }
+
+/* line 117, sass/main.scss */
+.clear { clear: both; }
+
+/* line 118, sass/main.scss */
+.cleft { clear: left; }
+
+/* line 119, sass/main.scss */
+.cright { clear: right; }
+
+/* line 120, sass/main.scss */
+.hide { display: none !important; }
+
+/* line 121, sass/main.scss */
+.inline-block { display: inline-block; vertical-align: top; }
+
+/* line 122, sass/main.scss */
+.block { display: block; }
+
+/* line 123, sass/main.scss */
+.fright { float: right; }
+
+/* line 124, sass/main.scss */
+.fleft { float: left; }
+
+/* line 126, sass/main.scss */
+.add_collaborators { display: none; }
+
+/* line 130, sass/main.scss */
+.btn-shizzle, .funky-button, #document-tags .inline-submit, .ideapi_button, .funky-button-small, .delete-button, .delete-section-submit, .green-button-link, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button, #template_documents a.delete_template, #template_documents .new_template_document .actions a.add_child, #template_documents .edit_template_document .actions a.add_child, #template_documents .new_template_document .actions #template_document_submit, #template_documents .edit_template_document .actions #template_document_submit, #container #content .main .comment .speech #comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit, .link-as-button, #reorder-sections { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
+/* line 147, sass/main.scss */
+.btn-shizzle:active, .funky-button:active, #document-tags .inline-submit:active, .ideapi_button:active, .funky-button-small:active, .delete-button:active, .delete-section-submit:active, .green-button-link:active, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button:active, #template_documents a.delete_template:active, #template_documents .new_template_document .actions a.add_child:active, #template_documents .edit_template_document .actions a.add_child:active, #template_documents .new_template_document .actions #template_document_submit:active, #template_documents .edit_template_document .actions #template_document_submit:active, #container #content .main .comment .speech #comment_submit:active, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit]:active, #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit]:active, #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit]:active, .inline-edit-submit:active, .link-as-button:active, #reorder-sections:active, .btn-shizzle.active, .active.funky-button, #document-tags .active.inline-submit, .active.ideapi_button, .active.funky-button-small, .active.delete-button, .active.delete-section-submit, .active.green-button-link, .side_box .contents ul.collaborators .available_collaborator .active.add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .active.add_user_document_button, #template_documents a.active.delete_template, #template_documents .new_template_document .actions a.active.add_child, #template_documents .edit_template_document .actions a.active.add_child, #template_documents .new_template_document .actions .active#template_document_submit, #template_documents .edit_template_document .actions .active#template_document_submit, #container #content .main .comment .speech .active#comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input.active[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input.active[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input.active[type=submit], .active.inline-edit-submit, .active.link-as-button, .active#reorder-sections { background-position: 0px bottom; }
+
+/* line 150, sass/main.scss */
+.funky-button, #document-tags .inline-submit, .ideapi_button { height: 26px; line-height: 24px; }
+
+/* line 155, sass/main.scss */
+.funky-button-small, .delete-button, .delete-section-submit, .green-button-link, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button, #template_documents a.delete_template, #template_documents .new_template_document .actions a.add_child, #template_documents .edit_template_document .actions a.add_child, #template_documents .new_template_document .actions #template_document_submit, #template_documents .edit_template_document .actions #template_document_submit, #container #content .main .comment .speech #comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit { height: 20px; line-height: 18px; cursor: pointer; }
+
+/* line 161, sass/main.scss */
+.delete-button, .delete-section-submit { border: solid 1px #f66; color: #eee; background: url("/images/bg/gradient-red.png") repeat-x 0px 0px; text-shadow: none; }
+
+/* line 169, sass/main.scss */
+p.submit { text-align: right; }
+
+/* line 173, sass/main.scss */
+form input[type=text]:focus, form input[type=password]:focus, form textarea:focus { background: #f9f9f9; outline: 1px solid #b3d335; }
+/* line 178, sass/main.scss */
+form input[type=text], form input[type=password], form textarea { border: 1px solid #cccccc; padding: 0.5em; background: white; }
+/* line 183, sass/main.scss */
+form input[type=text]:focus, form input[type=password]:focus, form textarea:focus { background: #f9f9f9; }
+/* line 187, sass/main.scss */
+form p label { margin-right: 1em; line-height: 1.1em; width: 8em; clear: left; }
+/* line 193, sass/main.scss */
+form p input[type=checkbox] { margin-top: 5px; }
+
+/* Minor Section Customization */
+/* line 202, sass/main.scss */
+#users .user .avatar { float: left; margin: 0 1em 1em 0; }
+
+/* line 209, sass/main.scss */
+#pages #content { padding-top: 1em; }
+
+/* line 212, sass/main.scss */
+.big-ass-text { font-size: 5em; font-weight: bold; vertical-align: top; line-height: 1em; color: #ddd; font-family: Ubuntu, Helvetica, Arial, sans-serif; text-shadow: -1px -1px 1px #cccccc; }
+
+/* line 222, sass/main.scss */
+.green-button-link { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; background: url("/images/ui/btn-bg-darkgreen.png") repeat-x 0px 0px; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
+/* line 234, sass/main.scss */
+.green-button-link:hover { color: #eee; }
+
+/* LOGIN */
+/* line 240, sass/main.scss */
+#user_session_email, #user_session_password { width: 225px; }
+
+/* line 243, sass/main.scss */
+.login, .app_error { margin: 15% auto 0 auto; width: 45em; border: 10px solid #dddddd; background: #f6f6f6; }
+/* line 248, sass/main.scss */
+.login .footer, .app_error .footer { background: #dddddd; padding: 0.5em 0 0 0; }
+/* line 251, sass/main.scss */
+.login .footer p, .app_error .footer p { margin: 0; padding: 0; font-size: 1.2em; }
+/* line 255, sass/main.scss */
+.login .footer a, .app_error .footer a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
+/* line 258, sass/main.scss */
+.login .footer a:hover, .app_error .footer a:hover { color: #333333; }
+/* line 260, sass/main.scss */
+.login a, .app_error a { text-decoration: none; color: #b3d335; font-weight: bold; }
+/* line 264, sass/main.scss */
+.login a:hover, .app_error a:hover { color: #32401a; }
+/* line 266, sass/main.scss */
+.login h3, .app_error h3 { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; background: #32401a; border-bottom: 4px solid #b3d335; color: white; padding: 0.2em 1em; font-size: 2em; }
+/* line 274, sass/main.scss */
+.login .login_form, .login .friendship_form, .app_error .login_form, .app_error .friendship_form { padding: 1em 1em; font-size: 1.4em; }
+/* line 279, sass/main.scss */
+.login .login_form label, .app_error .login_form label { width: auto; }
+/* line 282, sass/main.scss */
+.login .login_form p, .app_error .login_form p { text-align: right; }
+/* line 284, sass/main.scss */
+.login .login_form p #user_session_email, .login .login_form p #user_session_password, .app_error .login_form p #user_session_email, .app_error .login_form p #user_session_password { display: inline; width: 275px; }
+/* line 285, sass/main.scss */
+.login .login_form p #user_session_remember_me, .app_error .login_form p #user_session_remember_me { display: inline; margin-right: 275px; }
+/* line 287, sass/main.scss */
+.login .login_form #forgot-password, .app_error .login_form #forgot-password { text-align: left; }
+/* line 290, sass/main.scss */
+.login .friendship_form p, .app_error .friendship_form p { text-align: center; }
+
+/* line 296, sass/main.scss */
+.app_error h3 { background: #d81f26; color: white; }
+/* line 299, sass/main.scss */
+.app_error p { padding: 0.5em 2em; font-size: 1.2em; font-weight: bold; }
+
+/* line 305, sass/main.scss */
+.back-to-homepage { background: url("/images/ui/arrow-west-16.png") no-repeat 0 0; padding-left: 20px; height: 16px; line-height: 14px; margin-top: 0.5em; margin-left: 1em; display: block; }
+/* line 307, sass/main.scss */
+.back-to-homepage:hover { background: url("/images/ui/arrow-west-16.png") no-repeat 0 0; }
+
+/* Users profile page (/views/users/show,edit etc) */
+/* line 319, sass/main.scss */
+#users.show .user .info { margin-left: 120px; }
+
+/* line 327, sass/main.scss */
+.link-as-button:hover { color: #32401a; }
+
+/* line 332, sass/main.scss */
+#content-header { color: #32401a; padding: 0.5em 0.5em 0.5em 1em; position: relative; text-shadow: 0 1px 1px white; border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; -webkit-border-radius: 3px 3px 0 0; background: #9cbc1e url("/images/bg/sidebox-header-bg.png") repeat-x 0 0; background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#9bbb1d)); background: -moz-linear-gradient(top, #b3d335, #9bbb1d); }
+/* line 340, sass/main.scss */
+#content-header h2 { font-size: 1.2em; }
+/* line 343, sass/main.scss */
+#content-header .actions { float: right; padding: 0; margin: 0; }
+
+/* line 350, sass/main.scss */
+.boom_box { border: 1px solid #cccccc; padding: 1em; background: #f6f6f6; margin-bottom: 2em; }
+
+/* line 357, sass/main.scss */
+.align-right { text-align: right; }
+
+/* line 360, sass/main.scss */
+.flash { position: absolute; top: 0; left: 1em; color: #555; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; padding: 0.5em; }
+/* line 369, sass/main.scss */
+.flash.notice { background: #b3d335; border: 1px solid #a2c224; }
+/* line 373, sass/main.scss */
+.flash.error { background: #d81f26; color: #eee; }
+
+/* line 380, sass/main.scss */
+.login h3 { font-family: Ubuntu, sans-serif; }
+/* line 382, sass/main.scss */
+.login .login_form .field { margin-bottom: 1em; }
+/* line 384, sass/main.scss */
+.login .login_form .field label { font-family: Ubuntu, sans-serif; text-align: right; width: 115px; }
+/* line 391, sass/main.scss */
+.login #user_session_password, .login #user_session_email { font-family: Ubuntu, sans-serif; padding: 2px .5em; }
+/* line 396, sass/main.scss */
+.login .submit { margin-bottom: 0; }
+/* line 398, sass/main.scss */
+.login .submit input { font-family: Ubuntu; }
+
+/* line 404, sass/main.scss */
+.footer a { font-family: Ubuntu, sans-serif; }
+/* line 405, sass/main.scss */
+.footer #forgot-password { margin-top: 0.5em; margin-right: 1em; float: right; }
+
+/* Importing partials / snippets */
 /* line 1, sass/snippets/_feedback.scss */
-#beta_feedback { background: white; background: #fefefe; min-width: 980px; width: 100%; }
-/* line 6, sass/snippets/_feedback.scss */
+#beta_feedback { background: #fefefe; min-width: 980px; width: 100%; }
+/* line 5, sass/snippets/_feedback.scss */
 #beta_feedback .title { background: #333333; padding: 1em; }
-/* line 9, sass/snippets/_feedback.scss */
+/* line 8, sass/snippets/_feedback.scss */
 #beta_feedback .title h2 { color: white; font-size: 1.4em; width: 65em; margin: 0 auto; }
-/* line 14, sass/snippets/_feedback.scss */
+/* line 13, sass/snippets/_feedback.scss */
 #beta_feedback .title h2 span { padding-left: 1em; font-size: 0.8em; color: #aaaaaa; font-weight: normal; }
-/* line 19, sass/snippets/_feedback.scss */
+/* line 18, sass/snippets/_feedback.scss */
 #beta_feedback .title h2 span a { color: #eeeeee; font-weight: bold; }
-/* line 23, sass/snippets/_feedback.scss */
+/* line 22, sass/snippets/_feedback.scss */
 #beta_feedback .title h2 span a:hover { color: #b3d335; }
-/* line 29, sass/snippets/_feedback.scss */
+/* line 28, sass/snippets/_feedback.scss */
 #beta_feedback h3 { border-bottom: 1px solid #cccccc; margin-bottom: 1em; }
-/* line 33, sass/snippets/_feedback.scss */
+/* line 32, sass/snippets/_feedback.scss */
 #beta_feedback .wrap { display: none; width: 92em; margin: 0 auto; }
-/* line 38, sass/snippets/_feedback.scss */
+/* line 37, sass/snippets/_feedback.scss */
 #beta_feedback .user_input, #beta_feedback .info { padding: 1em 2em; background: #ffffdf; border: 1px solid #cccccc; height: 24em; }
-/* line 44, sass/snippets/_feedback.scss */
+/* line 43, sass/snippets/_feedback.scss */
 #beta_feedback .user_input { float: left; margin: 2em 0 2em 2em; border-right: none; }
-/* line 48, sass/snippets/_feedback.scss */
+/* line 47, sass/snippets/_feedback.scss */
 #beta_feedback .user_input textarea { height: 10em; }
-/* line 51, sass/snippets/_feedback.scss */
+/* line 50, sass/snippets/_feedback.scss */
 #beta_feedback .user_input p.submit { text-align: right; }
-/* line 55, sass/snippets/_feedback.scss */
+/* line 54, sass/snippets/_feedback.scss */
 #beta_feedback .info { float: left; margin: 2em 2em 2em 0; border-left: none; }
-/* line 59, sass/snippets/_feedback.scss */
+/* line 58, sass/snippets/_feedback.scss */
 #beta_feedback .info p { font-size: 1.2em; }
-/* line 62, sass/snippets/_feedback.scss */
+/* line 61, sass/snippets/_feedback.scss */
 #beta_feedback .info ul { padding: 0 3em 1em 3em; }
-/* line 64, sass/snippets/_feedback.scss */
+/* line 63, sass/snippets/_feedback.scss */
 #beta_feedback .info ul li { list-style: disc; }
 
 /* line 2, sass/snippets/_header.scss */
@@ -781,6 +1008,15 @@ ul#notifications li span.notification_meta { float: left; clear: left; font-styl
 /* line 34, sass/snippets/_notifications.scss */
 ul#notifications li span.notification_action { float: right; }
 
+/* line 1, sass/snippets/_footer.scss */
+#footer { background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
+/* line 5, sass/snippets/_footer.scss */
+#footer p { font-size: 1.1em; }
+/* line 7, sass/snippets/_footer.scss */
+#footer p a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
+/* line 10, sass/snippets/_footer.scss */
+#footer p a:hover { color: #333333; }
+
 /* line 6, sass/snippets/_proposals.scss */
 #proposal_state { font-size: 1em; display: block; width: 100%; margin: auto; }
 
@@ -906,204 +1142,30 @@ ul#notifications li span.notification_action { float: right; }
 /* line 27, sass/snippets/_template_documents.scss */
 #sortable .document_heading h3 { margin-left: 0; text-align: center; }
 
-/* line 35, sass/snippets/_template_documents.scss */
+/* line 34, sass/snippets/_template_documents.scss */
+#template_documents .boom_box { margin-bottom: 0; }
+/* line 38, sass/snippets/_template_documents.scss */
 #template_documents .fields span.is-section-heading { display: block; float: right; margin-left: 1em; }
-/* line 39, sass/snippets/_template_documents.scss */
+/* line 42, sass/snippets/_template_documents.scss */
 #template_documents .fields span.is-section-heading label { display: inline; float: none; }
-
-/* line 1, sass/snippets/_footer.scss */
-#footer { background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
-/* line 5, sass/snippets/_footer.scss */
-#footer p { font-size: 1.1em; }
-/* line 7, sass/snippets/_footer.scss */
-#footer p a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
-/* line 10, sass/snippets/_footer.scss */
-#footer p a:hover { color: #333333; }
-
-/* line 18, sass/main.scss */
-body { font-size: 62.5%; font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif; text-align: center; background: #dddddd; }
-
-/* line 25, sass/main.scss */
-a { text-decoration: none; color: #b3d335; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
-/* line 29, sass/main.scss */
-a:hover { color: #6f8f00; }
-
-/* line 33, sass/main.scss */
-.main, textarea, input[type=text] { font-family: "Ubuntu", sans-serif; }
-
-/* line 36, sass/main.scss */
-p { font-family: "Ubuntu", sans-serif; margin-bottom: 0.7em; line-height: 1.3em; color: #333; }
-
-/* line 42, sass/main.scss */
-h1, h2, h3, h4 { font-weight: bold; }
-
-/* line 45, sass/main.scss */
-h1 { font-size: 1.5em; }
-
-/* line 46, sass/main.scss */
-h2 { font-size: 1.3em; }
-
-/* line 47, sass/main.scss */
-h3 { font-size: 1.15em; }
-
-/* line 48, sass/main.scss */
-h4 { font-size: 1.15em; }
-
-/* line 50, sass/main.scss */
-#container { width: 94em; margin: 1em auto; position: relative; }
-
-/* line 55, sass/main.scss */
-#content, #header { font-size: 1.2em; }
-
-/* line 58, sass/main.scss */
-.navigation { display: inline; }
-/* line 60, sass/main.scss */
-.navigation li { display: inline; margin-right: 1em; }
-
-/* line 65, sass/main.scss */
-.navigation { clear: both; display: block; }
-
-/* line 70, sass/main.scss */
-#content { background: #fcfcfc; border-top: 1px solid #b3d335; border-left: 1px solid #ccc; border-right: 1px solid #ccc; padding: 0 1em 1em 1em; min-height: 400px; }
-/* line 77, sass/main.scss */
-#content .col_1 { float: left; width: 670px; }
-
-/* line 83, sass/main.scss */
-#comments_area { margin-top: 3em; }
-/* line 85, sass/main.scss */
-#comments_area h4 { margin-bottom: 1em; }
-
-/* line 91, sass/main.scss */
-.note { margin-bottom: 1em; padding: 1em 2.5em 1em 1em; background: #f4f4f4; width: 36em; position: relative; }
-/* line 97, sass/main.scss */
-.note .hide_message { position: absolute; display: block; top: 5px; right: 5px; font-weight: normal; }
-
-/* line 105, sass/main.scss */
-.clear { clear: both; }
-
-/* line 106, sass/main.scss */
-.cleft { clear: left; }
-
-/* line 107, sass/main.scss */
-.cright { clear: right; }
-
-/* line 108, sass/main.scss */
-.hide { display: none !important; }
-
-/* line 109, sass/main.scss */
-.inline-block { display: inline-block; vertical-align: top; }
-
-/* line 110, sass/main.scss */
-.block { display: block; }
-
-/* line 111, sass/main.scss */
-.fright { float: right; }
-
-/* line 112, sass/main.scss */
-.fleft { float: left; }
-
-/* line 114, sass/main.scss */
-.add_collaborators { display: none; }
-
-/* line 118, sass/main.scss */
-.btn-shizzle, .funky-button, #document-tags .inline-submit, .ideapi_button, .funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button, .delete-button, .delete-section-submit, #template_documents #container a.delete_template, .green-button-link, #template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit, .link-as-button, #reorder-sections { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
-/* line 135, sass/main.scss */
-.btn-shizzle:active, .funky-button:active, #document-tags .inline-submit:active, .ideapi_button:active, .funky-button-small:active, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button:active, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button:active, .delete-button:active, .delete-section-submit:active, #template_documents #container a.delete_template:active, .green-button-link:active, #template_documents #container .new_template_document .actions a.add_child:active, #template_documents #container .edit_template_document .actions a.add_child:active, #container #content .main .comment .speech #comment_submit:active, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit]:active, #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit]:active, #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit]:active, #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit]:active, .inline-edit-submit:active, .link-as-button:active, #reorder-sections:active, .btn-shizzle.active, .active.funky-button, #document-tags .active.inline-submit, .active.ideapi_button, .active.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .active.add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .active.add_user_document_button, .active.delete-button, .active.delete-section-submit, #template_documents #container a.active.delete_template, .active.green-button-link, #template_documents #container .new_template_document .actions a.active.add_child, #template_documents #container .edit_template_document .actions a.active.add_child, #container #content .main .comment .speech .active#comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input.active[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input.active[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input.active[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input.active[type=submit], .active.inline-edit-submit, .active.link-as-button, .active#reorder-sections { background-position: 0px bottom; }
-
-/* line 138, sass/main.scss */
-.funky-button, #document-tags .inline-submit, .ideapi_button { height: 26px; line-height: 24px; }
-
-/* line 143, sass/main.scss */
-.funky-button-small, .side_box .contents ul.collaborators .available_collaborator .add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button, .delete-button, .delete-section-submit, #template_documents #container a.delete_template, .green-button-link, #template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child, #container #content .main .comment .speech #comment_submit, #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit], #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit], .inline-edit-submit { height: 20px; line-height: 18px; cursor: pointer; }
-
-/* line 149, sass/main.scss */
-.delete-button, .delete-section-submit, #template_documents #container a.delete_template { border: solid 1px #f66; color: #eee; background: url("/images/ui/btn-bg-red.png") repeat-x 0px 0px; text-shadow: none; }
-
-/* line 157, sass/main.scss */
-p.submit { text-align: right; }
-
-/* line 161, sass/main.scss */
-form input[type=text]:focus, form input[type=password]:focus, form textarea:focus { background: #f9f9f9; outline: 1px solid #b3d335; }
-/* line 166, sass/main.scss */
-form input[type=text], form input[type=password], form textarea { border: 1px solid #cccccc; padding: 0.5em; background: white; }
-/* line 171, sass/main.scss */
-form input[type=text]:focus, form input[type=password]:focus, form textarea:focus { background: #f9f9f9; }
-/* line 175, sass/main.scss */
-form p label { margin-right: 1em; line-height: 1.1em; width: 8em; clear: left; }
-/* line 181, sass/main.scss */
-form p input[type=checkbox] { margin-top: 5px; }
-
-/* Minor Section Customization */
-/* line 190, sass/main.scss */
-#users .user .avatar { float: left; margin: 0 1em 1em 0; }
-
-/* line 197, sass/main.scss */
-#pages #content { padding-top: 1em; }
-
-/* line 200, sass/main.scss */
-.big-ass-text { font-size: 5em; font-weight: bold; vertical-align: top; line-height: 1em; color: #ddd; font-family: Ubuntu, Helvetica, Arial, sans-serif; text-shadow: -1px -1px 1px #cccccc; }
-
-/* line 210, sass/main.scss */
-.green-button-link, #template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; background: url("/images/ui/btn-bg-darkgreen.png") repeat-x 0px 0px; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
-/* line 222, sass/main.scss */
-.green-button-link:hover, #template_documents #container .new_template_document .actions a.add_child:hover, #template_documents #container .edit_template_document .actions a.add_child:hover { color: #eee; }
-
-/* LOGIN */
-/* line 228, sass/main.scss */
-#user_session_email, #user_session_password { width: 225px; }
-
-/* line 231, sass/main.scss */
-.login, .app_error { margin: 15% auto 0 auto; width: 45em; border: 10px solid #dddddd; background: #f6f6f6; }
-/* line 236, sass/main.scss */
-.login .footer, .app_error .footer { background: #dddddd; padding: 0.5em 0 0 0; }
-/* line 239, sass/main.scss */
-.login .footer p, .app_error .footer p { margin: 0; padding: 0; font-size: 1.2em; }
-/* line 243, sass/main.scss */
-.login .footer a, .app_error .footer a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
-/* line 246, sass/main.scss */
-.login .footer a:hover, .app_error .footer a:hover { color: #333333; }
-/* line 248, sass/main.scss */
-.login a, .app_error a { text-decoration: none; color: #b3d335; font-weight: bold; }
-/* line 252, sass/main.scss */
-.login a:hover, .app_error a:hover { color: #32401a; }
-/* line 254, sass/main.scss */
-.login h3, .app_error h3 { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; background: #32401a; border-bottom: 4px solid #b3d335; color: white; padding: 0.2em 1em; font-size: 2em; }
-/* line 262, sass/main.scss */
-.login .login_form, .login .friendship_form, .app_error .login_form, .app_error .friendship_form { padding: 1em 1em; font-size: 1.4em; }
-/* line 267, sass/main.scss */
-.login .login_form label, .app_error .login_form label { width: auto; }
-/* line 270, sass/main.scss */
-.login .login_form p, .app_error .login_form p { text-align: right; }
-/* line 272, sass/main.scss */
-.login .login_form p #user_session_email, .login .login_form p #user_session_password, .app_error .login_form p #user_session_email, .app_error .login_form p #user_session_password { display: inline; width: 275px; }
-/* line 273, sass/main.scss */
-.login .login_form p #user_session_remember_me, .app_error .login_form p #user_session_remember_me { display: inline; margin-right: 275px; }
-/* line 275, sass/main.scss */
-.login .login_form #forgot-password, .app_error .login_form #forgot-password { text-align: left; }
-/* line 278, sass/main.scss */
-.login .friendship_form p, .app_error .friendship_form p { text-align: center; }
-
-/* line 284, sass/main.scss */
-.app_error h3 { background: #d81f26; color: white; }
-/* line 287, sass/main.scss */
-.app_error p { padding: 0.5em 2em; font-size: 1.2em; font-weight: bold; }
-
-/* line 293, sass/main.scss */
-.back-to-homepage { background: url("/images/ui/arrow-west-16.png") no-repeat 0 0; padding-left: 20px; height: 16px; line-height: 14px; margin-top: 0.5em; margin-left: 1em; display: block; }
-/* line 295, sass/main.scss */
-.back-to-homepage:hover { background: url("/images/ui/arrow-west-16.png") no-repeat 0 0; }
-
-/* Users profile page (/views/users/show,edit etc) */
-/* line 307, sass/main.scss */
-#users.show .user .info { margin-left: 120px; }
-
-/* line 315, sass/main.scss */
-.link-as-button:hover { color: #32401a; }
-
-/* line 320, sass/main.scss */
-#content-header { color: #32401a; padding: 0.5em 0.5em 0.5em 1em; position: relative; text-shadow: 0 1px 1px white; border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; -webkit-border-radius: 3px 3px 0 0; background: #9cbc1e url("/images/bg/sidebox-header-bg.png") repeat-x 0 0; background: -webkit-gradient(linear, left top, left bottom, from(#b3d335), to(#9bbb1d)); background: -moz-linear-gradient(top, #b3d335, #9bbb1d); }
-/* line 328, sass/main.scss */
-#content-header h2 { font-size: 1.2em; }
+/* line 45, sass/snippets/_template_documents.scss */
+#template_documents #template_document_title { width: 500px; }
+/* line 47, sass/snippets/_template_documents.scss */
+#template_documents #template_document_title:focus { background: white; outline: none; }
+/* line 52, sass/snippets/_template_documents.scss */
+#template_documents .infield-label { display: block; float: none; color: #aaa; z-index: 5; position: absolute; padding-left: 0.5em; font-size: 1em; font-weight: normal; }
+/* line 63, sass/snippets/_template_documents.scss */
+#template_documents a.delete_template { display: block; background: url("/images/bg/gradient-red.png") repeat-x 0px 0px; height: 18px; line-height: 16px; color: white; border: 1px solid #ce5e58; }
+/* line 74, sass/snippets/_template_documents.scss */
+#template_documents .new_template_document .actions, #template_documents .edit_template_document .actions { clear: both; padding-top: 1em; }
+/* line 77, sass/snippets/_template_documents.scss */
+#template_documents .new_template_document .actions .left, #template_documents .edit_template_document .actions .left { float: left; }
+/* line 79, sass/snippets/_template_documents.scss */
+#template_documents .new_template_document .actions .right, #template_documents .edit_template_document .actions .right { float: right; }
+/* line 81, sass/snippets/_template_documents.scss */
+#template_documents .new_template_document .actions a.add_child, #template_documents .edit_template_document .actions a.add_child { display: block; height: 18px; float: left; }
+/* line 87, sass/snippets/_template_documents.scss */
+#template_documents .new_template_document .actions #template_document_submit, #template_documents .edit_template_document .actions #template_document_submit { /*        @include button-style; @include green-button;*/ font-size: 1em; }
 
 /* line 10, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .comments { padding-bottom: 1em; }
@@ -1761,420 +1823,399 @@ span.separator { color: #ccc; font-size: 1em; margin: 0 .5em; }
 #container #content .note { padding: 0.5em 2em 0.5em 2em; margin: 0 0 1em 0; line-height: 1.8em; background: #ffffdf; border: 1px solid #dddddd; position: relative; }
 /* line 82, sass/snippets/_legacy.scss */
 #container #content .note a.hide_message { position: absolute; top: 0; right: 1em; text-align: center; }
-/* line 87, sass/snippets/_legacy.scss */
-#container #content .boom_box { border: 1px solid #cccccc; padding: 1em; background: #f6f6f6; margin-bottom: 2em; }
-/* line 95, sass/snippets/_legacy.scss */
+/* line 89, sass/snippets/_legacy.scss */
 #container .discussion .document_item { padding: 1em 2em; border-right: 1px solid #cccccc; border-left: 1px solid #cccccc; }
-/* line 100, sass/snippets/_legacy.scss */
+/* line 94, sass/snippets/_legacy.scss */
 #container .creative, #container .author { padding: 0 0 1em 0; position: relative; }
-/* line 103, sass/snippets/_legacy.scss */
+/* line 97, sass/snippets/_legacy.scss */
 #container .creative p.edit, #container .author p.edit { position: absolute; top: 0; right: 1em; }
-/* line 107, sass/snippets/_legacy.scss */
+/* line 101, sass/snippets/_legacy.scss */
 #container .creative .avatar, #container .author .avatar { float: left; margin-right: 1em; }
-/* line 110, sass/snippets/_legacy.scss */
+/* line 104, sass/snippets/_legacy.scss */
 #container .hr { border-top: 1px solid #bbbbbb; margin: 2em 0; }
 
-/* line 119, sass/snippets/_legacy.scss */
+/* line 113, sass/snippets/_legacy.scss */
 #container #content .title_holder .document_timeline { padding: 0.1em 0 0 0.5em; margin: 0; }
-/* line 122, sass/snippets/_legacy.scss */
+/* line 116, sass/snippets/_legacy.scss */
 #container #content .title_holder .document_timeline li { text-transform: uppercase; width: 158px; padding: 0; float: left; }
-/* line 127, sass/snippets/_legacy.scss */
+/* line 121, sass/snippets/_legacy.scss */
 #container #content .title_holder .document_timeline li span { display: block; text-align: center; margin: 0 2px; padding: 4px 8px; color: #cccccc; font-weight: normal; font-size: 1.8em; }
-/* line 136, sass/snippets/_legacy.scss */
+/* line 130, sass/snippets/_legacy.scss */
 #container #content .title_holder .document_timeline li span.selected { background: #e9e9e9; color: #555555; }
 
-/* line 152, sass/snippets/_legacy.scss */
+/* line 146, sass/snippets/_legacy.scss */
 p.submit.left { float: left; margin: 0 1em 1em 0; }
 
-/* line 158, sass/snippets/_legacy.scss */
+/* line 152, sass/snippets/_legacy.scss */
 #facebox .content img { max-width: 600px; }
-/* line 160, sass/snippets/_legacy.scss */
+/* line 154, sass/snippets/_legacy.scss */
 #facebox .content .fb { width: 60em; }
-/* line 162, sass/snippets/_legacy.scss */
+/* line 156, sass/snippets/_legacy.scss */
 #facebox .content .fb p.message { padding: 0.5em 1em 0 1em; font-size: 1.2em; font-weight: bold; }
-/* line 166, sass/snippets/_legacy.scss */
+/* line 160, sass/snippets/_legacy.scss */
 #facebox .content .fb .document { border-top: none; }
-/* line 168, sass/snippets/_legacy.scss */
+/* line 162, sass/snippets/_legacy.scss */
 #facebox .content .fb .document h2 { background: #333333; color: white; font-size: 1.2em; padding: 1em 1.8em; -moz-border-radius-topright: 6px; -webkit-border-top-right-radius: 6px; -moz-border-radius-topleft: 6px; -webkit-border-top-left-radius: 6px; border-top-left-radius: 6px; border-top-right-radius: 6px; position: relative; }
-/* line 175, sass/snippets/_legacy.scss */
+/* line 169, sass/snippets/_legacy.scss */
 #facebox .content .fb .document h2 a { color: #666666; position: absolute; right: 4em; top: 1em; }
-/* line 180, sass/snippets/_legacy.scss */
+/* line 174, sass/snippets/_legacy.scss */
 #facebox .content .fb .document h2 a:hover { color: #fefefe; }
-/* line 182, sass/snippets/_legacy.scss */
+/* line 176, sass/snippets/_legacy.scss */
 #facebox .content .fb .document h2 a.print_document { top: 1.2em; right: 1.8em; background: url(/images/printer_empty.png); width: 16px; height: 16px; text-indent: -3000px; }
-/* line 189, sass/snippets/_legacy.scss */
+/* line 183, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .document_item, #facebox .content .fb .document .most_important_thing { border: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-top: 0; position: relative; }
-/* line 195, sass/snippets/_legacy.scss */
+/* line 189, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .document_item h3 span.updated, #facebox .content .fb .document .most_important_thing h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
-/* line 206, sass/snippets/_legacy.scss */
+/* line 200, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .most_important_thing { padding: 1em 1em 1em 3em; }
-/* line 208, sass/snippets/_legacy.scss */
+/* line 202, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .most_important_thing p { font-size: 2.2em; font-weight: bold; color: #333333; padding: 0 2em; position: relative; }
-/* line 214, sass/snippets/_legacy.scss */
+/* line 208, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .most_important_thing p span { font-size: 4em; position: absolute; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 221, sass/snippets/_legacy.scss */
+/* line 215, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .most_important_thing p span.left { top: 0; left: 0; }
-/* line 224, sass/snippets/_legacy.scss */
+/* line 218, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .most_important_thing p span.right { bottom: -0.2em; padding-right: 0.5em; }
-/* line 228, sass/snippets/_legacy.scss */
+/* line 222, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .document_item .body { background: transparent; font-size: 1.2em; width: 100%; margin: 0; padding: 0.5em 0; }
-/* line 234, sass/snippets/_legacy.scss */
+/* line 228, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .document_item .actions, #facebox .content .fb .document .document_item .ask_question { display: none; }
-/* line 236, sass/snippets/_legacy.scss */
+/* line 230, sass/snippets/_legacy.scss */
 #facebox .content .fb .document .document_item:hover { background: #ffffdf; }
 
-/* line 239, sass/snippets/_legacy.scss */
+/* line 233, sass/snippets/_legacy.scss */
 .login, .app_error { margin: 15% auto 0 auto; width: 45em; border: 10px solid #dddddd; background: #f6f6f6; }
-/* line 244, sass/snippets/_legacy.scss */
+/* line 238, sass/snippets/_legacy.scss */
 .login .footer, .app_error .footer { background: #dddddd; padding: 0.5em 0 0 0; }
-/* line 247, sass/snippets/_legacy.scss */
+/* line 241, sass/snippets/_legacy.scss */
 .login .footer p, .app_error .footer p { margin: 0; padding: 0; font-size: 1.2em; }
-/* line 251, sass/snippets/_legacy.scss */
+/* line 245, sass/snippets/_legacy.scss */
 .login .footer a, .app_error .footer a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
-/* line 254, sass/snippets/_legacy.scss */
+/* line 248, sass/snippets/_legacy.scss */
 .login .footer a:hover, .app_error .footer a:hover { color: #333333; }
-/* line 256, sass/snippets/_legacy.scss */
+/* line 250, sass/snippets/_legacy.scss */
 .login a, .app_error a { text-decoration: none; color: #b3d335; font-weight: bold; }
-/* line 260, sass/snippets/_legacy.scss */
+/* line 254, sass/snippets/_legacy.scss */
 .login a:hover, .app_error a:hover { color: #32401a; }
-/* line 262, sass/snippets/_legacy.scss */
+/* line 256, sass/snippets/_legacy.scss */
 .login h3, .app_error h3 { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; background: #32401a; border-bottom: 4px solid #b3d335; color: white; padding: 0.2em 1em; }
-/* line 268, sass/snippets/_legacy.scss */
+/* line 262, sass/snippets/_legacy.scss */
 .login .login_form, .login .friendship_form, .app_error .login_form, .app_error .friendship_form { padding: 1em 1em; font-size: 1.4em; }
-/* line 272, sass/snippets/_legacy.scss */
+/* line 266, sass/snippets/_legacy.scss */
 .login .friendship_form p, .app_error .friendship_form p { text-align: center; }
 
-/* line 276, sass/snippets/_legacy.scss */
+/* line 270, sass/snippets/_legacy.scss */
 .app_error h3 { background: #d81f26; color: white; }
-/* line 279, sass/snippets/_legacy.scss */
+/* line 273, sass/snippets/_legacy.scss */
 .app_error p { padding: 0.5em 2em; font-size: 1.2em; font-weight: bold; }
 
-/* line 284, sass/snippets/_legacy.scss */
+/* line 278, sass/snippets/_legacy.scss */
 a.trash { background: url(/images/trash.png) no-repeat; width: 16px; height: 17px; display: block; text-indent: -3000px; }
 
-/* line 291, sass/snippets/_legacy.scss */
+/* line 285, sass/snippets/_legacy.scss */
 a.trash:hover { background: url(/images/trash.png) no-repeat 0 -17px; }
 
-/* line 294, sass/snippets/_legacy.scss */
+/* line 288, sass/snippets/_legacy.scss */
 img.spinner { display: block; }
 
-/* line 299, sass/snippets/_legacy.scss */
+/* line 293, sass/snippets/_legacy.scss */
 ul.error_messages li p { color: #d81f26; }
 
-/* line 308, sass/snippets/_legacy.scss */
+/* line 302, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea { position: relative; padding-left: 2em; }
-/* line 311, sass/snippets/_legacy.scss */
+/* line 305, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.draft, #container #content .col_2 .ideas .user_idea span.published, #container #content .col_2 .ideas .user_idea span.needs_work, #container #content .col_2 .ideas .user_idea span.approved, #container #content .col_2 .ideas .user_idea span.dropped { font-size: 30px; line-height: 1em; position: absolute; top: -4px; left: 0; }
-/* line 317, sass/snippets/_legacy.scss */
+/* line 311, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.draft { color: #aaaaaa; }
-/* line 319, sass/snippets/_legacy.scss */
+/* line 313, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.published { color: #ebde0a; }
-/* line 321, sass/snippets/_legacy.scss */
+/* line 315, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.approved { color: #63bb46; }
-/* line 323, sass/snippets/_legacy.scss */
+/* line 317, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.needs_work { color: #e77b29; }
-/* line 325, sass/snippets/_legacy.scss */
+/* line 319, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.dropped { color: #ed1c24; }
-/* line 327, sass/snippets/_legacy.scss */
+/* line 321, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users { padding: 0.5em 1em 0.5em 1em; position: relative; border: 1px solid #cccccc; background: #eeeeee; }
-/* line 332, sass/snippets/_legacy.scss */
+/* line 326, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users h4 { font-size: 1.2em; }
-/* line 334, sass/snippets/_legacy.scss */
+/* line 328, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users textarea { font-size: 1em; width: 19em; height: 4em; }
-/* line 338, sass/snippets/_legacy.scss */
+/* line 332, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_contacts { margin-top: 2em; border: none; background: white; border-bottom: 1px solid #eeeeee; }
-/* line 343, sass/snippets/_legacy.scss */
+/* line 337, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_contacts h4 { font-size: 1.2em; padding-bottom: 0; }
-/* line 346, sass/snippets/_legacy.scss */
+/* line 340, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_contacts input[type=submit] { margin: 0.5em 0 0 0; }
-/* line 348, sass/snippets/_legacy.scss */
+/* line 342, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_contacts select { width: 12em; margin-right: 0.5em; }
-/* line 352, sass/snippets/_legacy.scss */
+/* line 346, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users input[type=submit] { margin: 0.5em 0 0 0; }
-/* line 355, sass/snippets/_legacy.scss */
+/* line 349, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
-/* line 360, sass/snippets/_legacy.scss */
+/* line 354, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
-/* line 365, sass/snippets/_legacy.scss */
+/* line 359, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
-/* line 370, sass/snippets/_legacy.scss */
+/* line 364, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
-/* line 376, sass/snippets/_legacy.scss */
+/* line 370, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
-/* line 380, sass/snippets/_legacy.scss */
+/* line 374, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
-/* line 383, sass/snippets/_legacy.scss */
+/* line 377, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
-/* line 387, sass/snippets/_legacy.scss */
+/* line 381, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li h3.js { padding-bottom: 0.5em; }
-/* line 389, sass/snippets/_legacy.scss */
+/* line 383, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li h3.active { padding-bottom: 0; }
-/* line 391, sass/snippets/_legacy.scss */
+/* line 385, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li p { font-weight: normal; }
-/* line 393, sass/snippets/_legacy.scss */
+/* line 387, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li:last-child { border-bottom: 0; }
-/* line 395, sass/snippets/_legacy.scss */
+/* line 389, sass/snippets/_legacy.scss */
 #container #content .invitations, #container #content .friends { width: 100%; }
-/* line 397, sass/snippets/_legacy.scss */
+/* line 391, sass/snippets/_legacy.scss */
 #container #content .invitations td, #container #content .invitations th, #container #content .friends td, #container #content .friends th { padding: 0.5em 1em; }
-/* line 399, sass/snippets/_legacy.scss */
+/* line 393, sass/snippets/_legacy.scss */
 #container #content .invitations th, #container #content .friends th { background: #dddddd; border-bottom: 1px solid #cccccc; }
-/* line 402, sass/snippets/_legacy.scss */
+/* line 396, sass/snippets/_legacy.scss */
 #container #content .invitations tr:nth-child(even), #container #content .invitations tr.even, #container #content .friends tr:nth-child(even), #container #content .friends tr.even { background: #e4e4e4; }
-/* line 404, sass/snippets/_legacy.scss */
+/* line 398, sass/snippets/_legacy.scss */
 #container #content .invitations tr:nth-child(odd), #container #content .invitations tr.odd, #container #content .friends tr:nth-child(odd), #container #content .friends tr.odd { background: #eeeeee; }
-/* line 407, sass/snippets/_legacy.scss */
+/* line 401, sass/snippets/_legacy.scss */
 #container #content .profile .invite_users { margin-top: 4.8em; }
 
-/* line 410, sass/snippets/_legacy.scss */
+/* line 404, sass/snippets/_legacy.scss */
 #beta_feedback { background: white; background: #fefefe; min-width: 980px; width: 100%; }
-/* line 415, sass/snippets/_legacy.scss */
+/* line 409, sass/snippets/_legacy.scss */
 #beta_feedback .title { background: #333333; padding: 1em; }
-/* line 418, sass/snippets/_legacy.scss */
+/* line 412, sass/snippets/_legacy.scss */
 #beta_feedback .title h2 { color: white; font-size: 1.4em; width: 65em; margin: 0 auto; }
-/* line 423, sass/snippets/_legacy.scss */
+/* line 417, sass/snippets/_legacy.scss */
 #beta_feedback .title h2 span { padding-left: 1em; font-size: 0.8em; color: #aaaaaa; }
-/* line 427, sass/snippets/_legacy.scss */
+/* line 421, sass/snippets/_legacy.scss */
 #beta_feedback .title h2 span a { color: #eeeeee; }
-/* line 429, sass/snippets/_legacy.scss */
+/* line 423, sass/snippets/_legacy.scss */
 #beta_feedback .title h2 span a:hover { color: #b3d335; }
-/* line 431, sass/snippets/_legacy.scss */
+/* line 425, sass/snippets/_legacy.scss */
 #beta_feedback h3 { border-bottom: 1px solid #cccccc; margin-bottom: 1em; }
-/* line 434, sass/snippets/_legacy.scss */
+/* line 428, sass/snippets/_legacy.scss */
 #beta_feedback .wrap { display: none; width: 92em; margin: 0 auto; }
-/* line 438, sass/snippets/_legacy.scss */
+/* line 432, sass/snippets/_legacy.scss */
 #beta_feedback .user_input, #beta_feedback .info { padding: 1em 2em; background: #ffffdf; border: 1px solid #cccccc; height: 24em; }
-/* line 443, sass/snippets/_legacy.scss */
+/* line 437, sass/snippets/_legacy.scss */
 #beta_feedback .user_input { float: left; margin: 2em 0 2em 2em; border-right: none; }
-/* line 447, sass/snippets/_legacy.scss */
+/* line 441, sass/snippets/_legacy.scss */
 #beta_feedback .user_input textarea { height: 10em; }
-/* line 449, sass/snippets/_legacy.scss */
+/* line 443, sass/snippets/_legacy.scss */
 #beta_feedback .user_input p.submit { text-align: right; }
-/* line 451, sass/snippets/_legacy.scss */
+/* line 445, sass/snippets/_legacy.scss */
 #beta_feedback .info { float: left; margin: 2em 2em 2em 0; border-left: none; }
-/* line 455, sass/snippets/_legacy.scss */
+/* line 449, sass/snippets/_legacy.scss */
 #beta_feedback .info p { font-size: 1.2em; }
-/* line 457, sass/snippets/_legacy.scss */
+/* line 451, sass/snippets/_legacy.scss */
 #beta_feedback .info ul { padding: 0 3em 1em 3em; }
-/* line 459, sass/snippets/_legacy.scss */
+/* line 453, sass/snippets/_legacy.scss */
 #beta_feedback .info ul li { list-style: disc; }
 
-/* line 462, sass/snippets/_legacy.scss */
+/* line 456, sass/snippets/_legacy.scss */
 .second-column { margin-left: 9.5em; }
 
-/* line 466, sass/snippets/_legacy.scss */
+/* line 460, sass/snippets/_legacy.scss */
 .errorExplanation h4 { color: red; }
-/* line 468, sass/snippets/_legacy.scss */
+/* line 462, sass/snippets/_legacy.scss */
 .errorExplanation ul { padding-left: 1em; margin-bottom: 2em; }
-/* line 471, sass/snippets/_legacy.scss */
+/* line 465, sass/snippets/_legacy.scss */
 .errorExplanation ul li { color: #cd251b; }
 
-/* line 475, sass/snippets/_legacy.scss */
+/* line 469, sass/snippets/_legacy.scss */
 .textile-help li { margin-bottom: 0.5em; }
-/* line 477, sass/snippets/_legacy.scss */
+/* line 471, sass/snippets/_legacy.scss */
 .textile-help .textile { margin-left: 2em; }
-/* line 480, sass/snippets/_legacy.scss */
+/* line 474, sass/snippets/_legacy.scss */
 .textile-help .html h1, .textile-help .html h2, .textile-help .html h3, .textile-help .html h4, .textile-help .html h5, .textile-help .html h6 { border: none !important; background: none !important; padding: none !important; }
-/* line 484, sass/snippets/_legacy.scss */
+/* line 478, sass/snippets/_legacy.scss */
 .textile-help .html h1 { font-size: 1.4em; }
-/* line 486, sass/snippets/_legacy.scss */
+/* line 480, sass/snippets/_legacy.scss */
 .textile-help .html h2 { font-size: 1.2em; padding: 0 !important; }
-/* line 489, sass/snippets/_legacy.scss */
+/* line 483, sass/snippets/_legacy.scss */
 .textile-help .html ul, .textile-help .html ol { list-style-position: inside; list-style-type: auto; padding: 0 !important; }
-/* line 493, sass/snippets/_legacy.scss */
+/* line 487, sass/snippets/_legacy.scss */
 .textile-help .html ul { list-style-type: disc; }
-/* line 495, sass/snippets/_legacy.scss */
+/* line 489, sass/snippets/_legacy.scss */
 .textile-help .html ol { list-style-type: decimal; }
-/* line 497, sass/snippets/_legacy.scss */
+/* line 491, sass/snippets/_legacy.scss */
 .textile-help span.asterisk { font-family: serif; font-size: 1.2em; }
 
-/* line 502, sass/snippets/_legacy.scss */
+/* line 496, sass/snippets/_legacy.scss */
 #textile-help-box h2 { position: relative; }
-/* line 504, sass/snippets/_legacy.scss */
+/* line 498, sass/snippets/_legacy.scss */
 #textile-help-box a.help-toggle { position: absolute; top: -7px; right: 15px; color: white !important; background: transparent !important; font-size: 2em; padding: 0; margin: 0; text-shadow: #333333 1px 1px 2px; }
-/* line 514, sass/snippets/_legacy.scss */
+/* line 508, sass/snippets/_legacy.scss */
 #textile-help-box a.help-toggle:hover { color: white; }
-/* line 516, sass/snippets/_legacy.scss */
+/* line 510, sass/snippets/_legacy.scss */
 #textile-help-box .contents { display: none; }
 
-/* line 520, sass/snippets/_legacy.scss */
+/* line 514, sass/snippets/_legacy.scss */
 #container #content .col_2 .change-state { position: relative; }
-/* line 522, sass/snippets/_legacy.scss */
+/* line 516, sass/snippets/_legacy.scss */
 #container #content .col_2 .change-state .info { position: absolute; top: 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; display: none; font-size: 1em; background: #eeeeee; border-color: #dddddd; border-style: solid; border-width: 1px; padding: 5px 10px; }
-/* line 533, sass/snippets/_legacy.scss */
+/* line 527, sass/snippets/_legacy.scss */
 #container #content .col_2 .message { border-top: 1px solid #dddddd; margin-top: 6em; }
 
-/* line 539, sass/snippets/_legacy.scss */
+/* line 533, sass/snippets/_legacy.scss */
 body#users.contacts #header ul.sub_nav { display: none; }
 
-/* line 542, sass/snippets/_legacy.scss */
-.fields { padding-top: 1em; border-top: 1px solid #cccccc; margin-bottom: 1em; }
+/* line 536, sass/snippets/_legacy.scss */
+.fields { margin-bottom: 1em; }
 
-/* line 548, sass/snippets/_legacy.scss */
+/* line 539, sass/snippets/_legacy.scss */
 #sortable .document_item:hover, #sortable .document_heading:hover { cursor: move; }
 
-/* line 553, sass/snippets/_legacy.scss */
+/* line 544, sass/snippets/_legacy.scss */
 #document-privileges .document-title label { float: none; }
-/* line 555, sass/snippets/_legacy.scss */
+/* line 546, sass/snippets/_legacy.scss */
 #document-privileges .document-title input { float: left; margin: 5px; }
 
-/* line 559, sass/snippets/_legacy.scss */
+/* line 550, sass/snippets/_legacy.scss */
 #list-of-accounts { padding: 1em; }
-/* line 561, sass/snippets/_legacy.scss */
+/* line 552, sass/snippets/_legacy.scss */
 #list-of-accounts h2 { padding-left: 1em; }
 
-/* line 566, sass/snippets/_legacy.scss */
-#template_documents #container .new_template_document .actions, #template_documents #container .edit_template_document .actions { border-top: 1px solid #dddddd; padding-top: 1.5em; }
-/* line 569, sass/snippets/_legacy.scss */
-#template_documents #container .new_template_document .actions .left, #template_documents #container .edit_template_document .actions .left { float: left; }
-/* line 571, sass/snippets/_legacy.scss */
-#template_documents #container .new_template_document .actions .right, #template_documents #container .edit_template_document .actions .right { float: right; }
-/* line 573, sass/snippets/_legacy.scss */
-#template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child { display: inline-block; }
-/* line 577, sass/snippets/_legacy.scss */
-#template_documents #container .new_template_document .actions #template_document_submit, #template_documents #container .edit_template_document .actions #template_document_submit { font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background.png") repeat-x right top; font-size: 1em; }
-/* line 69, sass/_mixins.scss */
-#template_documents #container .new_template_document .actions #template_document_submit:hover, #template_documents #container .edit_template_document .actions #template_document_submit:hover { border: 1px solid #32401a; }
-/* line 74, sass/_mixins.scss */
-#template_documents #container .new_template_document .actions #template_document_submit:hover, #template_documents #container .edit_template_document .actions #template_document_submit:hover { background: url("/images/ui/button_background.png") repeat-x right top; }
-/* line 76, sass/_mixins.scss */
-#template_documents #container .new_template_document .actions #template_document_submit:active, #template_documents #container .edit_template_document .actions #template_document_submit:active { background: url("/images/ui/button_background.png") repeat-x right -36px; }
-/* line 584, sass/snippets/_legacy.scss */
-#template_documents #container a.delete_template { display: inline-block; float: left; }
-
-/* line 592, sass/snippets/_legacy.scss */
+/* line 557, sass/snippets/_legacy.scss */
 ul#notifications { float: left; width: 620px; }
-/* line 595, sass/snippets/_legacy.scss */
+/* line 560, sass/snippets/_legacy.scss */
 ul#notifications li { float: left; padding: 0.5em 0.25em; width: 100%; border-bottom: 1px dotted #cccccc; }
-/* line 600, sass/snippets/_legacy.scss */
+/* line 565, sass/snippets/_legacy.scss */
 ul#notifications li.even { background: #f6f6f6; }
-/* line 603, sass/snippets/_legacy.scss */
+/* line 568, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_label { float: left; padding: 1px 3px; background: #32401a; color: white; margin-right: 5px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-/* line 610, sass/snippets/_legacy.scss */
+/* line 575, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_label a { color: white !important; font-weight: normal !important; }
-/* line 613, sass/snippets/_legacy.scss */
+/* line 578, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_meta { float: left; clear: left; font-style: italic; color: #999999; }
-/* line 618, sass/snippets/_legacy.scss */
+/* line 583, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_action { float: right; }
 
-/* line 623, sass/snippets/_legacy.scss */
+/* line 588, sass/snippets/_legacy.scss */
 .smartTextBox { cursor: text; }
 
-/* line 626, sass/snippets/_legacy.scss */
+/* line 591, sass/snippets/_legacy.scss */
 .smartTextBox-items { zoom: 1; overflow: hidden; margin: 0; padding: 3px 4px 0; border: 1px solid #cccccc; background: white; width: 430px; }
 
-/* line 635, sass/snippets/_legacy.scss */
+/* line 600, sass/snippets/_legacy.scss */
 .smartTextBox-elem { list-style-type: none; line-height: 18px; float: left; display: block; padding: 0; margin: 0 5px 3px 0; cursor: default; }
 
-/* line 644, sass/snippets/_legacy.scss */
+/* line 609, sass/snippets/_legacy.scss */
 .smartTextBox-box-elem { position: relative; padding: 0 5px; border: 1px solid #b3d335; background: #c6e355; cursor: default; -moz-border-radius: 9px; -webkit-border-radius: 9px; border-radius: 9px; }
 
-/* line 654, sass/snippets/_legacy.scss */
+/* line 619, sass/snippets/_legacy.scss */
 .smartTextBox-input-elem { backgound-color: transparent; }
 
-/* line 657, sass/snippets/_legacy.scss */
+/* line 622, sass/snippets/_legacy.scss */
 .smartTextBox-input-elem-valueInput { border: none; }
 
-/* line 662, sass/snippets/_legacy.scss */
+/* line 627, sass/snippets/_legacy.scss */
 .smartTextBox-elem-box-hover { background-color: #b3d335; }
 
-/* line 667, sass/snippets/_legacy.scss */
+/* line 632, sass/snippets/_legacy.scss */
 .smartTextBox-elem-box-focus { background-color: #a0c11e; }
 
-/* line 672, sass/snippets/_legacy.scss */
+/* line 637, sass/snippets/_legacy.scss */
 .smartTextBox-elem-valueContainer { margin-right: 8px; white-space: nowrap; }
 
-/* line 676, sass/snippets/_legacy.scss */
+/* line 641, sass/snippets/_legacy.scss */
 .smartTextBox-elem-deleteButton { position: absolute; right: 4px; top: 6px; display: block; width: 7px; height: 7px; font-size: 1px; background: url("/images/close.gif"); }
-/* line 685, sass/snippets/_legacy.scss */
+/* line 650, sass/snippets/_legacy.scss */
 .smartTextBox-elem-deleteButton:hover { border: none; background-position: 7px; text-decoration: none; }
 
 /* AutoComplete */
-/* line 692, sass/snippets/_legacy.scss */
+/* line 657, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete { width: 430px; position: absolute; z-index: 10; }
 
-/* line 697, sass/snippets/_legacy.scss */
+/* line 662, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-placeholder { opacity: 0.9; filter: alpha(opacity=90); background: #eeeeee; border: 1px solid #999999; border-top: none; padding: 5px 7px; margin-left: 122px; width: 424px; }
 
-/* line 707, sass/snippets/_legacy.scss */
+/* line 672, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-results { opacity: 0.9; filter: alpha(opacity=90); background: #eeeeee; border: 1px solid #999999; border-top: none; margin: 0; padding: 0; margin-left: 122px; width: 438px; }
 
-/* line 718, sass/snippets/_legacy.scss */
+/* line 683, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-result { margin: 0; padding: 5px; list-style-type: none; background: #eeeeee; cursor: pointer; .width: 100%; }
 
-/* line 726, sass/snippets/_legacy.scss */
+/* line 691, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-value { display: none; }
 
-/* line 729, sass/snippets/_legacy.scss */
+/* line 694, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-highligh { font-weight: bold; }
 
-/* line 732, sass/snippets/_legacy.scss */
+/* line 697, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-result-focus { background: #a0c11e; }
 
-/* line 735, sass/snippets/_legacy.scss */
+/* line 700, sass/snippets/_legacy.scss */
 #footer { background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
-/* line 739, sass/snippets/_legacy.scss */
+/* line 704, sass/snippets/_legacy.scss */
 #footer p { font-size: 1.1em; }
-/* line 741, sass/snippets/_legacy.scss */
+/* line 706, sass/snippets/_legacy.scss */
 #footer p a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
-/* line 744, sass/snippets/_legacy.scss */
+/* line 709, sass/snippets/_legacy.scss */
 #footer p a:hover { color: #333333; }
 
-/* line 749, sass/snippets/_legacy.scss */
+/* line 714, sass/snippets/_legacy.scss */
 #proposals #document_reference img { max-width: 100%; }
 
-/* line 752, sass/snippets/_legacy.scss */
+/* line 717, sass/snippets/_legacy.scss */
 .show_with_js { display: none; }
 
-/* line 757, sass/snippets/_legacy.scss */
+/* line 722, sass/snippets/_legacy.scss */
 #container #content #idea_users .contents { border-bottom: 0; }
-/* line 759, sass/snippets/_legacy.scss */
+/* line 724, sass/snippets/_legacy.scss */
 #container #content #idea_users ul { padding: 0; margin: 0; }
-/* line 762, sass/snippets/_legacy.scss */
+/* line 727, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user { margin: 0; padding: 1em; border-bottom: 1px solid #cccccc; }
-/* line 766, sass/snippets/_legacy.scss */
+/* line 731, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user p { margin: 0; }
-/* line 768, sass/snippets/_legacy.scss */
+/* line 733, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user .idea_user_link { display: block; }
 
-/* line 771, sass/snippets/_legacy.scss */
+/* line 736, sass/snippets/_legacy.scss */
 .block { display: block; }
 
-/* line 774, sass/snippets/_legacy.scss */
+/* line 739, sass/snippets/_legacy.scss */
 .align-right { text-align: right; }
 
-/* line 777, sass/snippets/_legacy.scss */
+/* line 742, sass/snippets/_legacy.scss */
 .warning { color: #ff3333; }
 
-/* line 783, sass/snippets/_legacy.scss */
+/* line 748, sass/snippets/_legacy.scss */
 #help_and_faq .try-button { display: none; }
-/* line 785, sass/snippets/_legacy.scss */
+/* line 750, sass/snippets/_legacy.scss */
 #help_and_faq h1 { margin-bottom: 40px; }
-/* line 787, sass/snippets/_legacy.scss */
+/* line 752, sass/snippets/_legacy.scss */
 #help_and_faq #contents { border: 1px solid #b3d335; padding: 10px 5px 10px 0; margin-bottom: 50px; width: 70%; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
-/* line 793, sass/snippets/_legacy.scss */
+/* line 758, sass/snippets/_legacy.scss */
 #help_and_faq #contents h2 { display: none; }
-/* line 795, sass/snippets/_legacy.scss */
+/* line 760, sass/snippets/_legacy.scss */
 #help_and_faq #contents h3 { font-weight: normal; }
-/* line 797, sass/snippets/_legacy.scss */
+/* line 762, sass/snippets/_legacy.scss */
 #help_and_faq #contents .listing { padding-left: 35px; }
-/* line 799, sass/snippets/_legacy.scss */
+/* line 764, sass/snippets/_legacy.scss */
 #help_and_faq #contents li { font-size: 1.333em; line-height: 1.5em; list-style: disc; }
-/* line 803, sass/snippets/_legacy.scss */
+/* line 768, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing { list-style: none; padding: 0; margin: 0; }
-/* line 807, sass/snippets/_legacy.scss */
+/* line 772, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li { font-size: 90%; padding-bottom: 20px; margin-bottom: 3em; border-bottom: 1px solid #b3d335; position: relative; }
-/* line 809, sass/snippets/_legacy.scss */
+/* line 774, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li p a { font-size: 90%; }
-/* line 815, sass/snippets/_legacy.scss */
+/* line 780, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .question { margin-bottom: 10px; font-weight: normal; padding-right: 4em; }
-/* line 819, sass/snippets/_legacy.scss */
+/* line 784, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .back-to-top { color: #b3d335; font-size: 110%; position: absolute; top: 0; right: 0; padding-right: 20px; background: transparent url(/images/up-arrow.png) no-repeat right 4px; }
-/* line 827, sass/snippets/_legacy.scss */
+/* line 792, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .ans { color: #676767; margin: 0 0 10px; font-size: 1.333em; line-height: 1.5em; }
 
-/* line 832, sass/snippets/_legacy.scss */
+/* line 797, sass/snippets/_legacy.scss */
 .error_message { color: #F66; }
 
-/* line 835, sass/snippets/_legacy.scss */
+/* line 800, sass/snippets/_legacy.scss */
 .close-button, .close-button:hover { display: block; height: 16px; width: 16px; text-indent: -9999px; background: url("/images/ui/cross-button.png") no-repeat 0 0 !important; border: 0 !important; padding: 0 !important; }

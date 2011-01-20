@@ -1,23 +1,23 @@
 %h3 Please login to your account
 .login_form
   -form_for @user_session, :url => user_session_path do |f|
-    %p
-      =f.label :email
+    %p.field
+      =f.label :email, 'Email:'
       =f.text_field :email
-    %p
-      =f.label :password
+    %p.field
+      =f.label :password, 'Password:'
       =f.password_field :password
-    %p#remember-me
-      =f.label :remember_me
+    %p#remember-me.field
+      =f.label :remember_me, 'Remember me:'
       =f.check_box :remember_me
 
     %p.submit
       =submit_tag "Login", :class => 'funky-button'
     .clear
+
+.footer
   %p#forgot-password
     = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
 
-.footer
   %p
-    Back to 
-    = link_to "ideapi Homepage", APPLICATION_URL
+    = link_to "ideapi Homepage", APPLICATION_URL, :class => 'back-to-homepage'

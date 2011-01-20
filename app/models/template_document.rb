@@ -6,6 +6,7 @@ class TemplateDocument < ActiveRecord::Base
   has_many :account_template_documents
   has_many :accounts, :through => :account_template_documents
 
+  validates_presence_of :title
   accepts_nested_attributes_for :template_questions, 
     :reject_if => proc { |attributes| attributes['body'].blank? && attributes['help_message'].blank? }, 
     :allow_destroy => true

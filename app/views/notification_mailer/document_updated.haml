@@ -3,6 +3,6 @@
   Document   : #{truncate(@document.title, :length => 40)}
   Link    : #{document_url(@document, :host => @document.account.full_domain)}
   
-  The document #{link_to @document.title, document_url(@document, :host => @document.account.full_domain)} has been updated by #{@user.full_name}.
+  The document #{link_to @document.title, document_url(@document, :host => @document.account.full_domain)} has been updated by #{@user.full_name.titleize}.
 
 =render :partial => 'footer'

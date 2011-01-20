@@ -17,7 +17,11 @@
     = javascript_include_tag %w(stb facebox jquery.cookie jquery.infieldlabel.min jshizzle ajaxify onload )
     
   %body{:id => body_ids, :class => body_classes}
-    =render :partial => 'user_feedback/feedback_form'
+    #top-bar
+      .title
+        %p.align-right
+          For feedback or support &raquo;
+          = link_to 'GetSatisfaction', 'http://getsatisfaction.com/ideapi/'
     #container
       = render :partial => 'partials/header'
       #content

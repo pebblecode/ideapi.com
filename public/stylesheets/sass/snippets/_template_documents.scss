@@ -31,6 +31,9 @@
 }
 
 #template_documents{
+  .boom_box{
+    margin-bottom: 0;
+  }
   .fields{
     span.is-section-heading{
       display: block;
@@ -39,4 +42,56 @@
       label{ display: inline; float: none;}
     }
   }
+  #template_document_title{
+    width: 500px;
+    &:focus{
+      background: white;
+      outline: none;
+    }
+  }
+  .infield-label{
+    display: block;
+    float: none;
+    color: #aaa;
+    z-index: 5;
+    position: absolute;
+    padding-left: $textfield_padding;
+    font-size: 1em;
+    font-weight:  normal;
+  }
+  
+  a.delete_template {
+    display: block;
+    background: url('/images/bg/gradient-red.png') repeat-x 0px 0px;
+    @extend .funky-button-small;
+    height: 18px;
+    line-height: 16px;
+    color: white;
+    border: 1px solid #ce5e58;
+    @include box_shadow(#000 1px 1px 3px );
+  }
+  .new_template_document, .edit_template_document{
+    .actions {
+      clear: both;
+      padding-top: 1em;
+      .left {
+        float: left; }
+      .right {
+        float: right; }
+      a.add_child {
+        @extend .funky-button-small;
+        display: block;
+        height: 18px;
+        float: left;
+      } 
+      #template_document_submit{
+/*        @include button-style;
+        @include green-button;*/
+        @extend .funky-button-small;
+        font-size: 1em;
+      }
+    }
+    
+  }
+  
 }
