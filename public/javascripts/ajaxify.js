@@ -488,7 +488,7 @@ jQuery.user_links_external = function(){
       }
     });
     $('.toggle-add-new-section').live('click', function(e){
-      $('#new-section').toggle('blind', {}, 500);
+      $('#new-section').toggle(/*'blind', {}, 500*/);
       e.preventDefault();
     });
     var new_section_success = function(data){

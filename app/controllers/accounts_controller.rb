@@ -167,7 +167,7 @@ class AccountsController < ApplicationController
   end
   
   def cancelled
-    render :layout => 'public'
+    render :layout => 'landing'
   end
 
   def cancel
@@ -184,7 +184,7 @@ class AccountsController < ApplicationController
   
   def thanks
     redirect_to :action => "plans" and return unless flash[:domain]
-    render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
+    render :layout => 'landing' # Uncomment if your "public" site has a different layout than the one used for logged-in users
   end
 
   protected

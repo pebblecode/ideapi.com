@@ -20,4 +20,5 @@ $(document).ready(function(){
   }).blur(function(){
     $(this).parent().toggleClass('active');
   });
+  
 });

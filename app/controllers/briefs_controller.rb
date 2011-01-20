@@ -18,7 +18,7 @@ class BriefsController < ApplicationController
   
   add_breadcrumb 'documents', "/documents"
   
-  add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
+  add_breadcrumb 'create a new document', :new_object_path, :only => [:new, :create]
   
   def current_objects
     @current_objects ||= current_user.briefs.active.by_account(current_account, {:order => "updated_at DESC"}).ordered
@@ -92,7 +92,7 @@ class BriefsController < ApplicationController
     end
 
     after :create do
-      flash[:notice] = "Brief was successfully created"
+      flash[:notice] = "Document was successfully created"
     end
     
     before :update do
@@ -100,9 +100,9 @@ class BriefsController < ApplicationController
     end
     after :update do
       if params[:brief].keys.include?("_call_state")
-        flash[:notice] = "Brief has been saved and marked as #{current_object.state}."
+        flash[:notice] = "Document has been saved and marked as #{current_object.state}."
       else
-        flash[:notice] = "Brief was successfully edited"
+        flash[:notice] = "Document was successfully edited"
       end
       
       recipients = current_object.users.collect{ |user| user.email unless user.pending? }.compact - [current_user.email]

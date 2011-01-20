@@ -519,13 +519,13 @@ jQuery.fn.document_ready = function() {
     }
     
     jQuery('#brief_reference h3').wrap('<a href="#"></a>').click(function () {
-      $(this).parent().next('div').toggle('fast');
+      $(this).parent().next('div').toggle();
       $(this).toggleClass('active');
       return false;
     }).addClass('js').parent().next('div').hide();
     
     jQuery('#textile-help-box a.help-toggle').click(function(){
-      jQuery('#textile-help-box .contents').slideToggle('slow');
+      jQuery('#textile-help-box .contents').toggle();
       if(jQuery(this).text() == '+'){
         jQuery(this).text('-');
       }else{

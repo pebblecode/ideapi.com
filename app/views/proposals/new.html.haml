@@ -1,9 +1,7 @@
 =sub_nav do
   =breadcrumb_list
-
-.col_1
-  
-  #write_new_proposal.note
+=page_help do
+  .box
     :markdown
       You can add formatting to your idea, including: 
       links, images, text formatting, tables and more. 
@@ -14,6 +12,8 @@
       Until you elect to publish your idea, only you can see it. 
       Once published, the brief approvers will be informed that 
       it is ready for review.
+
+.col_1
   
   = error_messages_for :proposal
 

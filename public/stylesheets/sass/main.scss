@@ -323,7 +323,7 @@ form {
   position: relative;
   text-shadow: 0 1px 1px white;
   @include border-radius-top(3px);
-  background: #b3d335;
+  background: #9cbc1e url('/images/bg/sidebox-header-bg.png') repeat-x 0 0;
   @include linear-gradient($ideapi_green_light, $ideapi_green_light - #181818);
   h2 {
     font-size: 1.2em;

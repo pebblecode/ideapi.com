@@ -8,10 +8,10 @@ Feature: Allow users to tag briefs
         And a default ideapi template brief exists
         And I am logged in as an account admin
 
-    Scenario: Creating and tagging a new brief
+    Scenario: Creating and tagging a new document
         When I go to the documents
-        And I follow "Create brief"
-        Then I should see "Create a new brief"
+        And I follow "Create document"
+        Then I should see "Create a new document"
         And I fill in the following:
             | brief_title                   | My awesome brief      |
             | brief_most_important_message  | This is my brief      |
@@ -124,7 +124,7 @@ Feature: Allow users to tag briefs
         Then I should see "tag1"
         And I follow "My brief"
         And I press "archive"
-        Then I should see "Brief has been saved and marked as complete."
+        Then I should see "Document has been saved and marked as complete."
         And I go to the documents
         Then I should not see "tag1"
 

@@ -88,12 +88,12 @@
   -if completed_briefs.present?
     .side_box
       %h2 
-        Recently Completed
+        Recently Archived
       .contents  
         %ul.completed_briefs
           -completed_briefs.each do |brief|    
             %li
               %p
-                =link_to truncate(brief.title, 10), brief_path(brief)
+                =link_to truncate(brief.title, 30), brief_path(brief)
               
-        =link_to 'View all completed briefs', completed_briefs_path, :class => "action"
+        =link_to 'View all archived documents', completed_briefs_path, :class => "action"

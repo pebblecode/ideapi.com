@@ -149,42 +149,43 @@
       padding: 0 0 0 2em;
       margin: 1px 0 0 0; } }
   .most_important_thing {
-    padding: 0;
     text-align: center;
-    font-size: 2.2em;
+
     font-weight: bold;
     color: #333333;
-    padding: 1em 2em;
     margin-right: 0;
-    position: relative;
+    padding: .5em .5em .5em 1em;
     .show, .edit{
       max-width: 360px;
       display: inline-block;
       padding: 0 1em;
       font-weight: bold;
+      font-size: 2.2em;
     }
     .show{
       text-align: center;
+      
     }
     .edit{display: none;}
     span.left, span.right {
-      font-size: 4em;
-      position: absolute;
+      font-size: 8em;
       padding: 0;
       margin: 0;
       height: 0.4em;
       line-height: 0.8em; 
     }
     span.left {
+      float: left;
       top: 20px;
       left: 60px;
     }
     span.right {
-      position: absolute;
-      bottom: 20px;
-      right: 60px;
+      clear: right;
+      float: right;
+      margin-top: 30px;
+      margin-right: 20px;
       vertical-align: middle;
-      margin-top: 10px;
+      
     }
   }
   .brief_item.updated {
@@ -356,7 +357,7 @@ ul.actions.active {
       .edit.revealed{display: block;}
     }
     .edit{
-      padding: 1em 0;
+      padding: 0;
       text-align: center;
       .spinner{
         display: inline;
@@ -511,10 +512,10 @@ ul.actions.active {
 /* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */ 
 .brief .most_important_thing.section{
   .toggle-inline-edit{
+    float: right;
     font-weight: normal;
     top: 0.5em;
     right: 0.5em;
-    position: absolute;
     opacity: 0;
     display: block;
   }

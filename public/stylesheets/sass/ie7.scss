@@ -88,25 +88,10 @@ input[type=text] {
       display: none;
     }
   }
-  
   .most_important_thing{
-    position: relative;
-    .edit{
-      position: relative;
-      .left{
-        display: block;
-        position: absolute;
-        left: 20px;
-        top: 10px;
-      
-      }
-      .right{
-        position: absolute;
-        right: 20px;
-        bottom: 40px;
-        display: block;
-      
-      }
+    .right{
+      clear: none;
+      margin-top: 0;
     }
   }
   .brief_item_history li{
@@ -293,42 +278,6 @@ input.smartTextBox-input-elem-valueInput{
   }
 }
 
-
-/* EDIT BRIEFS */
-
-#briefs #content .edit_brief{
-  .most_important_thing{
-
-    p{
-      display: inline;
-    }
-    textarea{
-      display: inline;
-    }
-  }
-  .brief_item{
-    .body{
-      position: relative;
-      textarea{
-        position: static;
-        display: inline;
-      }
-    }
-  }
-}
-
-.login_form{
-  .submit, #forgot-password, #remember-me{
-    margin-top: 0px !important;
-    margin-bottom: 0 !important;
-  }
-}
-
-.title-span{
-  input[type=text]{
-    border: 1px solid transparent;
-  }
-}
 
 
 /* Revisions */

@@ -4,7 +4,7 @@
       %li.show-tags
         = link_to "tags", "javascript:void(0)", :id => "brief-tags-toggle"
     %li.print-brief
-      =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print brief document", :class => "print_brief"
+      =link_to 'print', brief_path(current_object, :print_mode => 1), :title => "print document", :class => "print_brief"
     
     -if owner?(current_object) and current_object.active?
       %li.clear-history

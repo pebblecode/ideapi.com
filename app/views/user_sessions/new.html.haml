@@ -1,5 +1,5 @@
 %h3 Please login to your account
-.login_form{:style => "margin: 0 1em; width: 28em"}
+.login_form
   -form_for @user_session, :url => user_session_path do |f|
     %p
       =f.label :email

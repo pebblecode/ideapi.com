@@ -208,7 +208,7 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
     
     recipients  recipients
-    subject     build_subject(@brief.account.name, "Brief updated", @brief.title)
+    subject     build_subject(@brief.account.name, "Document updated", @brief.title)
     body        :brief => @brief, :user => @updated_by, :items => @items
     sent_on     sent_at
   end
@@ -221,7 +221,7 @@ class NotificationMailer < ActionMailer::Base
     content_type "text/plain"
     
     recipients  brief.authors.collect{ |user| user.email }.compact - [updated_by.email]
-    subject     build_subject(brief.account.name, "Brief updated", brief.title)
+    subject     build_subject(brief.account.name, "Document updated", brief.title)
     body        :brief => brief
     sent_on     sent_at
   end

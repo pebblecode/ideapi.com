@@ -4,7 +4,7 @@
     .change-state
       =f.submit 'archive', :class => "action_button"
       %p.info
-        Mark you brief as completed to prevent it being changed by other users.  
+        Mark you document as completed to prevent it being changed by other users.  
     
   -elsif brief.complete?
     =f.hidden_field '_call_state', :value => 'reactivate'

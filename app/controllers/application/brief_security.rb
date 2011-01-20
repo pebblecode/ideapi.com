@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # The active method is defined in /app/models/brief/states.rb
   def require_active_brief
     unless current_brief.active?
-      flash[:error] = "You cannot do that to a brief that isn't active."
+      flash[:error] = "You cannot do that to a document that isn't active."
       redirect_back_or_default '/'
     end
   end

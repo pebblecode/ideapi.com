@@ -2,13 +2,13 @@
   =breadcrumb_list
   -if current_user_can_create_briefs?
     %li{:class => "secondary"}
-      =link_to 'Create brief', new_brief_path
+      =link_to 'Create document', new_brief_path
 
 #documents.col_1
       
   .brief_list
     %h2 
-      Your completed briefs
+      Your archived documents
     -if completed_briefs.empty?
       .brief_item
         %h3 
