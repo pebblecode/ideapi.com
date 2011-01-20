@@ -23,7 +23,7 @@ Feature: Allow users to tag briefs
         Then I should see "My awesome brief"
 
     Scenario: Editing a brief and deleting a tag
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
         When I go to the documents
         Then I should see "tag2"
         And I follow "My brief"
@@ -36,7 +36,7 @@ Feature: Allow users to tag briefs
         Then I should not see "tag2"
 
     Scenario: Editing a brief and replacing all tags
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
         When I go to the documents
         Then I should see "tag2"
         And I should see "tag1"
@@ -52,7 +52,7 @@ Feature: Allow users to tag briefs
         And I should see "tag3"
 
     Scenario: Editing a brief and adding a tag
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
         When I go to the documents
         Then I should see "tag2"
         And I should see "tag1"
@@ -68,8 +68,8 @@ Feature: Allow users to tag briefs
         And I should see "tag3"
 
     Scenario: Viewing a list of briefs with a tag
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
-        And I have a brief called "Another brief" tagged with "tag1, tag3"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
+        And I have a document called "Another brief" tagged with "tag1, tag3"
         When I go to the documents 
         And I follow "tag2"
         Then I should see "My brief"
@@ -79,7 +79,7 @@ Feature: Allow users to tag briefs
         And I should not see "My brief"
 
     Scenario: Deleting a brief with an existing tag
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
         When I go to the documents
         Then I should see "tag1"
         And I should see "tag2"
@@ -89,8 +89,8 @@ Feature: Allow users to tag briefs
         And I should not see "tag2"
         
     Scenario: Incrementing the tag count
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
-        And I have a brief called "Another brief" tagged with "tag3"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
+        And I have a document called "Another brief" tagged with "tag3"
         And I go to the documents
         Then I should see "tag1"
         And I should see "tag1" within ".tag-list li:nth-child(2)"
@@ -104,8 +104,8 @@ Feature: Allow users to tag briefs
         And I should see "2" within ".tag-list li:nth-child(2) span"
 
     Scenario: Decrementing the tag count
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
-        And I have a brief called "Another brief" tagged with "tag1, tag3"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
+        And I have a document called "Another brief" tagged with "tag1, tag3"
         And I go to the documents
         Then I should see "tag1"
         And I should see "tag1" within ".tag-list li:nth-child(2)"
@@ -119,7 +119,7 @@ Feature: Allow users to tag briefs
         And I should see "1" within ".tag-list li:nth-child(2) span"
 
     Scenario: Moving a brief from active to completed
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
         And I go to the documents
         Then I should see "tag1"
         And I follow "My brief"
@@ -129,7 +129,7 @@ Feature: Allow users to tag briefs
         Then I should not see "tag1"
 
     Scenario: Another user tags a brief
-        Given I have a brief called "My brief" tagged with "tag1, tag2"
+        Given I have a document called "My brief" tagged with "tag1, tag2"
         And I have a user called "Chuck Norris" with the email "chuck@norris.com"
         And "chuck@norris.com" is an author on "My brief"
         And I go to the documents

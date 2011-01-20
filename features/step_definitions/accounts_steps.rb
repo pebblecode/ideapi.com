@@ -28,7 +28,7 @@ Given /^I have briefs called (.+)$/ do |briefs|
   end
 end
 
-Given /^I have a brief called "([^"]*)" tagged with "([^"]*)"$/ do |brief, tags|
+Given /^I have a document called "([^"]*)" tagged with "([^"]*)"$/ do |brief, tags|
   @published = Brief.make(:published, :author => @user, :account => @account, :title => brief)
   @account.tag(@published, :with => tags, :on => :tags)
 end

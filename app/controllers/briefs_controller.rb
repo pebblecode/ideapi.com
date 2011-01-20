@@ -182,9 +182,9 @@ class BriefsController < ApplicationController
     if params[:id].present?
       brief = Brief.find(:first, :conditions => {:id => params[:id]})
       if brief.present? and brief.clean_brief!
-        flash[:notice] = "The brief was cleared successfully"
+        flash[:notice] = "The document was cleared successfully"
       else
-        flash[:notice] = "Sorry, the brief could not be cleared."
+        flash[:notice] = "Sorry, the document could not be cleared."
       end
     end
     

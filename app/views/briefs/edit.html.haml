@@ -7,14 +7,14 @@
   -if current_object.draft?
     #edit_brief_writing.note
       :markdown
-        You can alter the contents of any section of the brief from this page. 
-        If a section of the brief template is not filled in, then it will not appear on the published brief.
+        You can alter the contents of any section of the document from this page. 
+        If a section of the document template is not filled in, then it will not appear on the published brief.
 
-        You can add formatting to your brief sections to make them stand out, 
+        You can add formatting to your document sections to make them stand out, 
         this includes: links, images, text formatting, tables and more. 
         For more information, click “+” next to “Formatting help”.
       / %h3 Writing a brief
-      /       %p The more sections of the brief that are completed, the easier it will be for other users to collaborate.  You can come back to this screen at any time to edit your brief.
+      /       %p The more sections of the document that are completed, the easier it will be for other users to collaborate.  You can come back to this screen at any time to edit your brief.
         
   - form_for(current_object, :html => { :method => :put }) do |brief_form|
   

@@ -4,7 +4,7 @@
     %ul.brief_list
       -if @search_results.empty?
         %li
-          %p Sorry, no briefs were found
+          %p Sorry, no documents were found
       -else
         = render :partial => "search_result", :collection => @search_results
   .hr

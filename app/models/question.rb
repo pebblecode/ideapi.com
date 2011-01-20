@@ -14,7 +14,7 @@ class Question < ActiveRecord::Base
   
   validates_presence_of :brief_id, :user_id
   validates_presence_of :body, :message => "You didn't ask a question"
-  validates_presence_of :brief_item_id, :message => "Please select the brief section to which you are responding."
+  validates_presence_of :brief_item_id, :message => "Please select the document section to which you are responding."
   
   
   before_validation :ensure_brief_present
