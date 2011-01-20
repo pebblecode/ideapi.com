@@ -1,0 +1,16 @@
+#document_reference.side_box
+  %h2 Document reference
+  .contents
+    %ul
+      %li
+        %p.most_important_thing
+          %span.left &ldquo;
+          =parent_object.most_important_message
+          %span.right &rdquo;
+        
+      -parent_object.document_items.answered.each do |document_item|
+        %li
+          %h3=document_item.title
+          %div.proposal-body
+            :textile
+              #{document_item.body}

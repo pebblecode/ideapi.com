@@ -1,0 +1,9 @@
+- @document = @proposal.document
+:plain
+  Account : #{@document.account.name}
+  Document   : #{truncate(@document.title, :length => 40)}
+  Link    : #{document_proposal_url(:id => @proposal.id, :document_id => @document.id, :host => @document.account.full_domain)}
+
+  #{@proposal.user.full_name.capitalize} has submitted an idea “#{@proposal.title}” for your review.
+
+=render :partial => 'footer'

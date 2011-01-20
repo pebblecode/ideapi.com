@@ -1,0 +1,4 @@
+%h1= @page_title = "Viewing Document Template"
+
+- form_for [:admin, current_object] do |form|
+  = render :partial => 'form', :object => form

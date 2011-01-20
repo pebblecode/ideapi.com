@@ -1,0 +1,9 @@
+%tr
+  %td.document-title
+    =f.hidden_field :document_id, :index => c, :value => b.id
+    =f.check_box :add_document, :index => c
+    =f.label :add_document, b.title, :index => c
+  %td
+    =f.check_box :author, "index" => c
+  %td
+    =f.check_box :approver, "index" => c

@@ -1,0 +1,6 @@
+.documents_search
+  -form_for :documents, :url => browse_documents_path, :html => { :method => :get } do |f|
+    %p
+      =text_field_tag 'q', params[:q]
+      =submit_tag 'Search', :name => "", :class => "awesome small"
+    

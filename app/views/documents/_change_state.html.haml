@@ -1,0 +1,11 @@
+-form_for(document) do |f|
+  -if document.published?
+    =f.hidden_field '_call_state', :value => 'complete'
+    .change-state
+      =f.submit 'archive', :class => "action_button"
+      %p.info
+        Mark you document as completed to prevent it being changed by other users.  
+    
+  -elsif document.complete?
+    =f.hidden_field '_call_state', :value => 'reactivate'
+    =f.submit 'reactivate', :class => "action_button"

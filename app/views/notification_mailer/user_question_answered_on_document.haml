@@ -1,0 +1,11 @@
+- @document = @question.document
+:plain
+  Account : #{@document.account.name}
+  Document   : #{truncate(@document.title, :length => 40)}
+  Link    : #{document_url(@document, :host => @document.account.full_domain)}
+
+  A question you asked has been answered by #{@question.answered_by.full_name}.
+
+  "#{@question.author_answer}"
+
+=render :partial => 'footer'

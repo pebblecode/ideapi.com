@@ -1,0 +1,43 @@
+- collaborator = user_document.user if defined?(user_document)
+%li.collaboration_user.available_collaborator{:class => (current_object.author?(current_user) ? "is_author" : "")}
+  =small_avatar(collaborator)
+  %p
+    - if not collaborator.pending?
+      =link_to truncate(given_name(collaborator), :lenght => 10), user_path(collaborator)
+    - else
+      =truncate(given_name(collaborator), :lenght => 10)
+    %br
+    %span.user_role
+      = #current_object.role?(collaborator)
+      = current_object.user_documents.for_user(collaborator).document_role[:label] if current_object.user_documents.for_user(collaborator).present?
+  - if defined?(available)
+    -form_for UserDocument.new, document_user_documents_path(current_object), :html => {:method => :post, :class => 'submit_with_js new_user_document', :id => "new_user_document_#{collaborator.id}"} do |form|
+      = hidden_field_tag 'user_document[document_id]', current_object.id, {:id => "user_document_document_id_#{collaborator.id}"}
+      = hidden_field_tag 'user_document[user_id]', collaborator.id.to_s, {:id => "user_document_user_id_#{collaborator.id}"}
+      = hidden_field_tag 'user_document[author]', 0, {:id => "user_document_author_#{collaborator.id}"}
+      = hidden_field_tag 'user_document[added_by_user_id]', current_user.id, {:id => "user_document_added_by_user_id_#{collaborator.id}"}
+      = form.submit 'Add', :id => "user_document_submit_#{collaborator.id}", :class => 'add_user_document_button'
+    
+  -if defined?(user_document)
+    = link_to 'options', 'javascript:void(0)', :class => 'options_toggle'
+    %ul.options
+      %li{:class => "author #{current_object.author?(user_document.user) ? 'selected' : ''}"}
+        -form_for user_document, user_document_path(user_document), :html => {:class => "submit_with_js update_user_document #{current_object.author?(user_document.user) ? 'is_author' : ''}", :id => "update_user_document_#{user_document.id}"} do |author_form|
+          = author_form.hidden_field :author, :value => user_document.author == true ? '0' : '1'
+          = author_form.hidden_field :author, :value => user_document.author == true ? '0' : '1'
+          = author_form.submit 'toggle', :id => "author_form_submit_#{user_document.id}"
+          %span Author
+  
+      
+      %li{:class => "approver #{(current_object.approver_id == user_document.user_id) ? 'selected' : ''}"}
+        - # form for the document: only sending a post with the approver_id
+        - form_for current_object, :html => {:id => "document_approver_#{user_document.id}", :class => "document_approver_form", :method => :put } do |approver_form|
+          = approver_form.hidden_field :approver_id, :value => user_document.user.id
+          = approver_form.submit 'approver', :id => "approver_form_submit_#{user_document.id}"
+          %span Approver
+
+      %li.remove
+        -form_for user_document, :url => user_document_path(user_document), :html => {:method => :delete, :class => 'submit_with_js delete_user_document', :id => "delete_user_document_#{user_document.id}"} do |delete_form|
+          = delete_form.submit 'remove', :id => "delete_user_document_#{user_document.id}"
+          %span Remove
+    .clear

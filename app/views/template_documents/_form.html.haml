@@ -1,0 +1,22 @@
+-form_for @template_document do |f| 
+  =new_child_fields_template(f, :template_questions)
+  =f.error_messages
+  %p
+    =f.label :title, "Template Title"
+    =f.text_field :title 
+  
+  -f.fields_for :template_questions do |tqf| 
+    =render :partial => 'template_question', :locals => { :f => tqf }
+
+
+  .actions
+    .right
+      =f.submit "Submit"
+  
+    .left
+      =add_child_link "Add a Section or Heading", :template_questions
+      - unless @template_document.new_record?
+        =link_to "Delete template", {:action=>"destroy", :controller=>"template_documents"}, :method => :delete, :class => "delete_template", :confirm => "Are you sure you want to delete this template - this is permanent but will NOT affect documents already created with this template"
+  .clear
+  
+  

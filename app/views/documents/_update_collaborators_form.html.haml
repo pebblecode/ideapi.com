@@ -1,0 +1,8 @@
+- if current_object.available_collaborators.present?
+  %ul.add_collaborators
+    - current_object.available_collaborators.each do |available_collaborator|
+      -if available_collaborator.present?
+        = render :partial => 'documents/available_collaborator', :locals => {:collaborator => available_collaborator, :current_object => current_object, :available => true}
+
+%ul.collaborators
+  =render :partial => 'documents/collaborator', :collection => current_object.user_documents, :as => :user_document, :locals => {:current_object => current_object}

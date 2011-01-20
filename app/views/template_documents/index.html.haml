@@ -1,0 +1,39 @@
+
+=sub_nav do
+  =breadcrumb_list
+#documents.col_1
+
+  - # if flash[:note].present?
+  = page_help do
+    .box
+      :markdown
+        Documents are created from templates.
+
+        The templates documents lists all of your custom document templates. 
+        Your ideapi account has been created with a default template that contains 
+        some common document sections (not shown on the templates documents).
+
+        To create your own templates click “create template”.
+
+        
+      
+  .document_list
+    #content-header
+      - if current_user_can_create_documents?
+        = link_to 'Create template', new_template_document_path, :class => 'green-button-link fright'
+    
+      %h2 
+        Your templates
+    -if @template_documents.empty?
+      .document_item
+        %h3 
+          -if current_user_can_create_documents?
+            You have no templates -
+            =link_to 'create a template', new_template_document_path
+            to get started.
+          -else
+            You have no documents. Contact your account owner if you need the ability to create documents
+    -else  
+      =render :partial => 'template_document', :collection => @template_documents
+      
+.col_2.documents

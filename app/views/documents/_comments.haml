@@ -1,0 +1,17 @@
+- unless current_object.draft?    
+  #comments_area
+    %h4 Comments
+    %ul.comments
+      = render :partial => 'comment', :collection => current_object.comments, :as => :comment
+      -if current_object.active?
+        %li#new_comment_li
+          .comment
+            #comment_form.comment_form
+              =medium_avatar            
+              .speech
+                - form_for :comment, :url => comments_path, :html => {:id => "new_comment_form"} do |f|
+                  =hidden_field_tag :document_id, current_object.id
+                  =f.text_area :comment, :rows => 5, :cols => 80
+                  %p.button
+                    %img{:src => "/images/ui/loading.gif", :alt => 'Submitting comment...', :class => "loading-gif hide"}
+                    =f.submit "submit"

@@ -1,0 +1,99 @@
+= title 'Documents |'
+= page_help do
+  .box
+    %h3 Documents
+    - if current_user_can_create_documents?
+      %p
+        From the documents you can access all your active documents or filter documents by tag. If you are an author or approver on any document, your role will be visible here. 
+        = link_to "View role descriptions", help_path
+      %p
+        = link_to "Create your first document", new_document_path
+        using the default ideapi template, or start by #{link_to "creating your own template", new_template_document_path}. Before you can collaborate on documents, you’ll also need to #{ link_to "add some users to your account", users_path}.
+    - else
+      %p
+        From the documents you can access all your active documents or filter documents by tag. If you are an author or approver on any document, your role will be visible here. 
+        = link_to 'View role descriptions', help_path
+  
+=sub_nav do
+  =breadcrumb_list
+#documents.col_1
+  -if @merged_questions.present?
+    %ul#notifications
+      -@merged_questions.each do |q|
+        %li{:class => cycle(false, "even")}
+          %span.notification_label
+            -if q.answered_by_id.present?
+              =link_to "answer to question", document_path(q.document, :anchor => "document_item_#{q.document_item_id.to_s}")
+            -else
+              =link_to "new question", document_path(q.document, :anchor => "document_item_#{q.document_item_id.to_s}")
+          -if q.answered_by_id.present?
+            %strong
+              =truncate(q.body, 80)
+            =truncate(q.author_answer, 80)
+          -else
+            =truncate(q.body, 80)
+          %span.notification_meta
+            -if q.answered_by_id.present?
+              answered by #{q.answered_by.full_name}
+            -else
+              asked by #{q.user.full_name}
+            on #{q.document.title},  #{time_ago_in_words_with_word(q.created_at)}
+          %span.notification_action
+            -if q.answered_by_id.present?
+              =link_to "View answer", document_path(q.document, :anchor => "document_item_#{q.document_item_id.to_s}")
+            -else
+              =link_to "Answer this question", document_path(q.document, :anchor => "document_item_#{q.document_item_id.to_s}")
+  .document_list
+    #content-header
+      -if current_user_can_create_documents?
+        =link_to 'Create document', new_document_path, :class => 'green-button-link fright'
+      %h2 
+        Your active documents
+        -if params[:t]
+          tagged as "#{params[:t]}"
+  
+    -if current_objects.empty?
+      .document_item
+        %h3 
+          -if current_user_can_create_documents?
+            You have no documents - either 
+            =link_to 'create a document', new_document_path
+            using the standard template or 
+            =link_to 'create your own specific template', new_template_document_path
+            first.
+          -else
+            You have no documents. Contact your account owner if you need the ability to create documents
+    -else  
+      =render :partial => 'document', :collection => current_objects 
+.col_2.documents
+  -if @tags.present?
+    .side_box
+      %h2
+        Tags
+      .contents
+        %ul.tag-list
+          %li
+            =link_to "all documents", documents_path
+          -@tags.each do |tag|
+            %li
+              =link_to "<span>#{tag.count}</span>#{tag.name}", documents_path(:t => tag.name)
+  - else 
+    .side_box
+      %h2
+        Tags
+      .contents
+        %ul
+          %li Add tags to your documents to allow them to be categorised.
+
+  -if completed_documents.present?
+    .side_box
+      %h2 
+        Recently Archived
+      .contents  
+        %ul.completed_documents
+          -completed_documents.each do |document|    
+            %li
+              %p
+                =link_to truncate(document.title, 30), document_path(document)
+              
+        =link_to 'View all archived documents', completed_documents_path, :class => "action"

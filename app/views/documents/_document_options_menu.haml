@@ -1,0 +1,35 @@
+#options-menu.remove_with_js
+  %ul.object-actions
+    - if current_object.active?
+      %li.show-tags
+        = link_to "tags", "javascript:void(0)", :id => "document-tags-toggle"
+    %li.print-document
+      =link_to 'print', document_path(current_object, :print_mode => 1), :title => "print document", :class => "print_document"
+    
+    -if owner?(current_object) and current_object.active?
+      %li.clear-history
+        - form_tag clean_document_url(current_object) do |f|
+          = submit_tag "clear history", :class => 'remove_with_js', :confirm => "Are you sure?"
+          = link_to "clear history", clean_document_url(current_object), :class => "clean_document show_with_js"
+
+    %li.change-state
+      -form_for(current_object, :html => {:id => 'document_change_state'}) do |change_state_form|
+        -if current_object.published?
+          =change_state_form.hidden_field '_call_state', :value => 'complete'
+          = link_to "archive", "javascript:void(0)", :class => 'show_with_js'
+          = submit_tag "archive", :class => 'remove_with_js', :confirm => "Are you sure?"
+        -elsif current_object.complete?
+          =change_state_form.hidden_field '_call_state', :value => 'reactivate'
+          = submit_tag "reactivate", :class => 'remove_with_js'
+          = link_to "reactivate", "javascript:void(0)", :class => 'show_with_js'
+    -if owner?(current_object) and current_object.active?
+      %li.delete-document
+        -form_for current_object, :html => { :method => :delete, :id => 'document_delete' } do |f|
+          =hidden_field_tag '_flash[notice]', 'Document deleted', :id => 'document_flash_notice'
+          = submit_tag "delete", :class => 'remove_with_js'
+          = link_to "delete", "javascript:void(0)", :class => 'show_with_js'
+  #document-tags
+    - form_for(current_object, :html => { :method => :put, :id => 'inline_document_tags_form' }) do |document_form|
+      = document_form.label :tag_field, "Tags:"
+      = document_form.text_field :tag_field, :value => current_object.tags_from(current_account)
+      = document_form.submit "save tags", :class => "inline-submit", :id => 'inline_document_tags_submit'

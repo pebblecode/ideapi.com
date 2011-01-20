@@ -1,0 +1,6 @@
+
+.document_item
+  %h3
+    =link_to template_document.template_questions.length, template_document_path(template_document), :class => "number-bubble"
+    =link_to truncate(template_document.title, :length => 48), template_document_path(template_document)
+

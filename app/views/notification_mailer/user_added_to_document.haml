@@ -1,0 +1,12 @@
+- @document = @user_document.document 
+:plain 
+  Account : #{@document.account.name}
+  Document   : #{truncate(@document.title, :length => 40)}
+  Link    : #{document_url(@document, :host => @document.account.full_domain)}
+  
+  You’ve been invited to collaborate on the document “#{@document.title}” 
+- if @user_document.added_by_user.present? 
+  :plain 
+    by #{@user_document.added_by_user.full_name}
+
+=render :partial => 'footer'

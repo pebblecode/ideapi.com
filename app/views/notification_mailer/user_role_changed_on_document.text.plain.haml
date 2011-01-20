@@ -1,0 +1,8 @@
+:plain 
+  Account : #{@document.account.name}
+  Document   : #{truncate(@document.title, :length => 40)}
+  Link    : #{document_url(@document, :host => @document.account.full_domain)}
+
+  Your role has been changed to #{@user_document.role} on the document “#{@document.title}” #{'by ' + @user_document.added_by_user.full_name if @user_document.added_by_user.present?}
+
+=render :partial => 'footer'

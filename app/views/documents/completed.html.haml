@@ -1,0 +1,21 @@
+=sub_nav do
+  =breadcrumb_list
+  -if current_user_can_create_documents?
+    %li{:class => "secondary"}
+      =link_to 'Create document', new_document_path
+
+#documents.col_1
+      
+  .document_list
+    %h2 
+      Your archived documents
+    -if completed_documents.empty?
+      .document_item
+        %h3 
+          You have not completed any documents -
+          =link_to 'create a document', new_document_path
+          to get started.
+    -else  
+      =render :partial => 'document', :collection => completed_documents
+      
+.col_2.documents

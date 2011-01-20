@@ -1,0 +1,18 @@
+- collaborator = user_document.user if defined?(user_document)
+%li.available_collaborator
+  .add.inline-block
+    - if defined?(available)
+      - form_for UserDocument.new, document_user_documents_path(current_object), :html => {:method => :post, :class => 'submit_with_js new_user_document', :id => "new_user_document_#{collaborator.id}"} do |form|
+        = hidden_field_tag 'user_document[document_id]', current_object.id, {:id => "user_document_document_id_#{collaborator.id}"}
+        = hidden_field_tag 'user_document[user_id]', collaborator.id.to_s, {:id => "user_document_user_id_#{collaborator.id}"}
+        = hidden_field_tag 'user_document[author]', 0, {:id => "user_document_author_#{collaborator.id}"}
+        = hidden_field_tag 'user_document[added_by_user_id]', current_user.id, {:id => "user_document_added_by_user_id_#{collaborator.id}"}
+        = form.submit 'Add', :id => "user_document_submit_#{collaborator.id}", :class => 'add_user_document_button'
+  .avatar.inline-block
+    = small_avatar(collaborator)
+  .info.inline-block
+    %p.name
+      - if not collaborator.pending?
+        =link_to truncate(given_name(collaborator), :lenght => 10), user_path(collaborator)
+      - else
+        =truncate(given_name(collaborator), :lenght => 10)

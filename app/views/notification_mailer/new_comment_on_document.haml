@@ -1,0 +1,12 @@
+- @document = @comment.commentable
+:plain
+  Account : #{@document.account.name}
+  Document   : #{truncate(@document.title, :length => 40)}
+  Link    : #{document_url(@document, :host => @document.account.full_domain)}
+
+  A comment has been left on the document "#{@comment.commentable.title}" by #{@comment.user.full_name}.
+  
+  #{@comment.user.full_name} wrote:
+  "#{@comment.comment}"
+
+=render :partial => 'footer'

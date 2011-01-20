@@ -1,0 +1,8 @@
+.side_box
+  %h2 
+    Collaborators
+  .contents#update_collaborators  
+    -if current_object.author?(current_user)
+      =render :partial => 'update_collaborators_form'
+    -else
+      =render :partial => 'collaboration_list'

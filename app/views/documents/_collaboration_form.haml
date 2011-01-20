@@ -1,0 +1,9 @@
+/ - form_for(current_object, :url => document_path(current_object), :html => { :method => :put }) do |document_form|
+/   %ul.add_collaborators
+/     - current_object.available_collaborators.each do |available_collaborator|
+/       = render :partial => 'collaboration_user', :object => available_collaborator
+/     
+/   %ul.collaborators
+/     - document_form.fields_for :user_documents do |collaboration_form|
+/       =render :partial => 'collaboration_user', :object => collaboration_form.object.user, :locals => { :document_form => document_form, :collaboration_form => collaboration_form }
+/   =document_form.submit 'Save Changes', :class => 'action'

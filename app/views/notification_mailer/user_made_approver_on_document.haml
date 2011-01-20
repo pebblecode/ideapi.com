@@ -1,0 +1,8 @@
+:plain
+  Account : #{@document.account.name}
+  Document   : #{truncate(@document.title, :length => 40)}
+  Link    : #{document_url(@document, :host => @document.account.full_domain)}
+
+  You've been made an approver on the document #{@document.title}
+
+=render :partial => 'footer'

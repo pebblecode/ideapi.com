@@ -1,0 +1,53 @@
+
+= title "#{current_object.title} |"
+= render :partial => 'documents/document_partials/text_document_info'
+=sub_nav do
+  =breadcrumb_list
+
+.col_1
+  
+  -# -unless current_object.active?
+  -#   %div{:id => "reactivate_tooltip_#{current_object.id}", :class => 'note'}
+  -#     %p 
+  -#       This document has been archived, and therefore is read-only.
+  -#       =render :partial => 'change_state', :locals => { :document => current_object }
+      
+  %div[current_object]
+    -if current_user.owns?(current_object)
+      .actions
+        = link_to "Actions", "javascript:void(0)", :class => "show-options-menu green-button-link", :id => 'toggle-document-options-menu'
+    
+    = render :partial => 'documents/document_partials/document_title', :locals => { :document => current_object } 
+    .clear
+      // comment clear
+    - if current_user.owns?(current_object)
+      = render :partial => 'document_options_menu', :locals => {:object => current_object}
+      .clear
+        // comment clear
+    = render :partial => 'documents/document_partials/most_important_thing'
+    #sortable_document_items
+      = render :partial => 'documents/document_partials/document_item', :collection => (current_object.document_items)
+    -if current_object.draft? and owner?(current_object)
+      .publish-draft
+        - form_for(current_object, :html => { :method => :put }) do |document_form|
+          %p.submit=document_form.submit 'publish', :name => 'document[_call_state]', :class => 'funky-button-small'
+    = render :partial => 'documents/document_partials/new_section', :locals => { :current_object => @document} if owner?(current_object) and current_object.active?
+
+  
+  =render :partial => 'comments'
+  
+.col_2
+  - unless current_object.draft?
+    =render :partial => 'update_collaborators'
+    =render :partial => 'responses'    
+  - else
+    .big-ass-text
+      D
+      %br/
+      R
+      %br/
+      A
+      %br/
+      F
+      %br/
+      T

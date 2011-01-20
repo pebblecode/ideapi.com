@@ -1,0 +1,29 @@
+.side_box
+  %h2 Ideas
+  .contents
+    -if @document_proposals.present?
+      -@document_proposals.each do |state, proposals|
+        -if proposals.present?
+          %h3.state_name=proposal_state_heading(state)
+          %ul.proposals
+            -proposals.each do |proposal|
+              %li
+                =small_avatar(proposal.user)
+                %p
+                  =link_to truncate(proposal.title, :lenght => 10), document_proposal_path(current_object, proposal)
+                  by 
+                  =given_name(proposal.user)
+                  %br
+                  %span
+                    updated
+                    =distance_of_time_in_words_to_now(proposal.updated_at)
+                    ago
+                .clear
+    -else
+      %ul
+        %li 
+          %p No ideas have been submitted.
+          
+    -if current_object.active?
+      =link_to 'Draft new idea', new_document_proposal_path(current_object), :class => 'action'
+    .clear

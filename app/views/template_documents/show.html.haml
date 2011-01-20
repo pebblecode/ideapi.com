@@ -1,0 +1,52 @@
+=sub_nav do
+  =breadcrumb_list
+
+.col_1
+  
+  = page_help do
+    .box
+      :markdown
+        You can reorder the template sections by dragging them up and down.
+        This will only change future documents based on this template – documents 
+        that have already been created with this template will not be affected.
+      
+  .document
+    #content-header
+      .actions
+        = link_to "Actions", "#", :class => "show-options-menu green-button-link"
+      %h2
+        =@template_document.title
+
+    #options-menu.remove_with_js
+      %ul.object-actions
+        %li
+          =link_to 'edit', edit_template_document_path(@template_document), :title => 'Edit template', :class => 'edit_template edit_icon'
+        %li.delete-template
+          -form_for @template_document, :html => { :method => :delete } do |f|
+            =hidden_field_tag '_flash[notice]', 'Document deleted'
+            = link_to "delete", "#"
+            :javascript
+              $('#options-menu li.delete-template a').click(function(){
+                var answer = confirm("Are you sure?")
+                if(answer){
+                  $(this).parent().submit();
+                }
+                return false;
+              });
+            
+    -if @template_document.template_questions.present?
+      #sortable
+        -@template_document.template_document_questions.each do |q|
+          %div{:class => q.template_question.is_heading ? "document_heading" : "document_item",:id => "document_item_#{q.id}"}
+            -if q.template_question.is_heading?
+              %h3
+                =q.template_question.body
+            -else
+              %h4
+                =q.template_question.body
+              -if q.template_question.help_message.present?
+                .body
+                  %p
+                    =q.template_question.help_message
+.col_2
+  

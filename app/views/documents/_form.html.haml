@@ -1,0 +1,11 @@
+%p
+  %label{:for => "title"} Title:
+  = f.text_field :title
+  %p.help_message
+    This is how you document will appear when listed on the system.
+      
+%p
+  %label{:for => "most_important_message"} Punchline:
+  = f.text_area :most_important_message, :rows => "5", :cols => 60
+  %p.help_message
+    Simple. Focused. Short. What is the most important thing that you need to communicate?

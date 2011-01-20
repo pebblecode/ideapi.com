@@ -1,0 +1,13 @@
+%div.document_item_activity
+  -if document_item.timeline_events.present? and local_assigns[:print].nil?
+    %ul.document_item_history
+      -document_item.timeline_events.each do |event|
+        -if event.subject.is_a?(Question)
+          =render :partial => 'documents/question', :object => event.subject, :locals => { :show_relation => false }
+        -elsif event.subject.is_a?(DocumentItem::Version)
+          =render :partial => 'documents/document_item_version', :locals => {:subject => event.subject, :object => event, :current_object => @document}
+  .question_form
+    =medium_avatar
+    -current_object = document_item.document
+    - form_for(@user_question, :url => document_questions_path(@document), :html => { :id => "new_user_question_#{document_item.id}"}) do |f|
+      = render :partial => "documents/question_form", :locals => {:f => f, :document_item => document_item}

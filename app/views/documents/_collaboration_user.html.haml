@@ -1,0 +1,33 @@
+- if collaboration_user.present?
+  %li.collaboration_user{:class => (current_object.author?(current_user) ? "is_author" : "")}
+    -if defined? collaboration_form
+      =collaboration_form.hidden_field(:id)
+    =small_avatar(collaboration_user)
+    %p
+      - if not collaboration_user.pending?
+        =link_to truncate(given_name(collaboration_user), :lenght => 10), user_path(collaboration_user)
+      - else
+        =truncate(given_name(collaboration_user), :lenght => 10)
+      %br
+      %span.user_role
+        = current_object.role?(collaboration_user)
+      -if current_object.author?(current_user) && !defined?(collaboration_form)
+        %a.add_collaborator
+          Add
+          = check_box_tag "document[available_collaborators_attributes][user_ids][]", collaboration_user.id, false, :id => "document_collaborator_id_#{collaboration_user.id}"
+  
+    -if defined?(collaboration_form)
+      %ul.options
+        %li.author
+          =collaboration_form.check_box :author, :class => 'author'
+          %span Author
+      
+        -if defined?(document_form)
+          %li.approver
+            =document_form.radio_button 'approver_id', collaboration_form.object.user_id, :class => 'approver'
+            %span Approver
+
+        %li.remove
+          =collaboration_form.check_box '_destroy', :class => 'remove'
+          %span Remove
+      .clear

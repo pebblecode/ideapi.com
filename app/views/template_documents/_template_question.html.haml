@@ -1,0 +1,12 @@
+%div.fields
+  %p
+    =f.label :body, "Section"
+    =f.text_field :body
+  %p.help-message
+    =f.label :help_message, "Help Message"
+    =f.text_area :help_message, :rows => 3, :cols => 60
+  %p
+    =f.label :is_heading, "Is Heading?"
+    =f.check_box :is_heading, :value => nil, :class => 'is-heading' 
+
+  =remove_child_link "remove", f 

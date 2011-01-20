@@ -1,0 +1,15 @@
+- comment = @comment if @comment.present?
+%li
+  %div[comment]
+    =small_avatar(comment.user)
+    .speech
+      -if comment.user == current_user or owner?(current_object)
+        - form_for comment, :html => {:method => :delete, :class => "delete_comment_form" } do |form|
+          = form.submit 'delete', :class => 'close-button comment-delete ajaxify', :id => "delete_comment_#{comment.id}_submit"
+      %p
+        %strong
+          = succeed ':' do
+            =given_name(comment.user)
+        =comment.comment
+        %span.timestamp
+          = "(#{comment_date(comment.created_at)})"

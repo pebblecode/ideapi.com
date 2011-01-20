@@ -1,0 +1,18 @@
+#content-header
+  -if owner?(current_object) and current_object.active?
+    .show.editable
+      - if current_object.draft? 
+        %span.flag draft
+      %h2.with-tooltip{:title => 'Click to edit'}
+        =current_object.title
+    .edit
+      - form_for current_object, :html => {:id => "document_title_edit_#{current_object.id}"} do |document_title_form|
+        = hidden_field_tag 'render', 'document_title', :id => 'title_render'
+        = document_title_form.text_field :title, :size => '60', :class => "inplace title", :id => "document_title_form_#{current_object.id}_title"
+        = document_title_form.submit 'submit', :id => "document_title_form_#{current_object.id}_submit", :class => 'inline-edit-submit'
+        or 
+        = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-inline-edit'
+  - else
+    .show 
+      %span.flag ARCHIVED
+      %h2=current_object.title

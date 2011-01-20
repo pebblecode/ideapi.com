@@ -1,0 +1,27 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      ideapi - 
+      Printing:
+      =current_object.title
+    
+    =stylesheet_link_tag %w(reset print), :media => "print,screen", :cache => true
+
+  %body
+    %div[current_object]
+      %h2 
+        =truncate(current_object.title, :length => 30)
+      .most_important_thing
+        %p
+          %span.left &ldquo;
+          =current_object.most_important_message
+          %span.right &rdquo;
+      -if current_object.document_items.empty? && current_object.published?
+        %p This document is empty
+      =render :partial => 'document_item', :collection => current_object.document_items, :locals => { :draft => current_object.draft?, :print => true}
+    #footer
+      %p
+        %img{:src => "/images/logos/logo-small.png", :alt => "ideapi"}/
+        &copy; 2010
+    

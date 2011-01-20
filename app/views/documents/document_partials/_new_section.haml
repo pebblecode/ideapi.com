@@ -1,0 +1,23 @@
+#add-new-section
+  %p
+
+    = link_to 'Add new section', 'javascript:void(0)', :class => 'toggle-add-new-section btn-shizzle'
+    = link_to "Reorder Sections", "javascript:void(0)", :class => "reorder-document-items", :id => 'reorder-sections'
+  #new-section
+    - @item = @document.document_items.build
+    - form_for @item, :html => {:method => 'post'} do |f|
+      = f.hidden_field :document_id, :value => @document.id
+      .field
+        %span.is_heading
+          = f.check_box :is_heading
+          = f.label :is_heading, 'This is a section heading', :class => 'inline'
+      
+        = f.label :title, 'Section Title'
+        = f.text_field :title, :class => 'title', :id => 'new-section-title'
+      .field
+        = f.label :body, 'Content'
+        = f.text_area :body, :class => 'body', :id => 'new-section-body'
+      .submit
+        = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-add-new-section'
+        or
+        = f.submit 'submit', :id => 'new-section-submit', :class => 'funky-button-small'

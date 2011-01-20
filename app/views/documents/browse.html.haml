@@ -1,0 +1,16 @@
+.col_1  
+  .search_results
+    %h3 Your search results
+    %ul.document_list
+      -if @search_results.empty?
+        %li
+          %p Sorry, no documents were found
+      -else
+        = render :partial => "search_result", :collection => @search_results
+  .hr
+  
+  .boom_box
+    %h3 
+      You searched for
+      ="&ldquo;#{params[:q]}&rdquo;"
+    = render :partial => "search_form"

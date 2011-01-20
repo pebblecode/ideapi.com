@@ -1,0 +1,40 @@
+=sub_nav do
+  =breadcrumb_list
+=page_help do
+  #write_new_document.box
+    :markdown
+      The title is how your document will appear in the Documents view of other users. 
+      One line document is a punchy statement about your document, 
+      maybe a strap line or just the most important thing that you want to say. 
+      Tags can be used to categorise your document, e.g. Client names, Document types, 
+      Departments, etc.
+      
+      Be careful to choose the right template. Once created, you can’t alter the structure of a document.
+  
+.col_1
+  
+  
+
+  #content-header
+    %h2 Create a new document
+  .boom_box
+    = error_messages_for :document
+
+    - form_for(:document, :url => objects_url) do |f|
+      = render :partial => "form", :locals => {:f => f}
+      
+      - if available_templates.count > 0
+        %p.combo-choose-template
+          = f.label :template_document_id, 'Template:'
+          = f.select :template_document_id, available_templates.map{|t| [t.title, t.id]}
+          
+          or 
+          = link_to "create a new template", new_admin_template_document_url
+      
+      %p
+        = f.label :tag_field, "Tags:"
+        = f.text_field :tag_field
+      %p.submit
+        = submit_tag "Create"
+        .clear
+        
