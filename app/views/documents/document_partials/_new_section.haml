@@ -1,8 +1,4 @@
 #add-new-section
-  %p
-
-    = link_to 'Add new section', 'javascript:void(0)', :class => 'toggle-add-new-section btn-shizzle'
-    = link_to "Reorder Sections", "javascript:void(0)", :class => "reorder-document-items", :id => 'reorder-sections'
   #new-section
     - @item = @document.document_items.build
     - form_for @item, :html => {:method => 'post'} do |f|
@@ -21,3 +17,6 @@
         = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-add-new-section'
         or
         = f.submit 'submit', :id => 'new-section-submit', :class => 'funky-button-small'
+  %p.fleft
+    = link_to 'Add new section', 'javascript:void(0)', :class => 'toggle-add-new-section btn-shizzle'
+    = link_to "Reorder Sections", "javascript:void(0)", :class => "reorder-document-items", :id => 'reorder-sections'

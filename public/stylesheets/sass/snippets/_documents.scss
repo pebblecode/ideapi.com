@@ -1,5 +1,7 @@
 /* Header / Title for Documents, proposals... */
-
+input#document_submit{
+  text-transform: capitalize;
+}
 .document, .proposal, .document_list {
   background: #fffffe;
   margin: 0 0 1em 0;
@@ -305,7 +307,7 @@ ul.actions.active {
 .publish-draft {
   margin-top: 10px;
   float: right;
-  p{ margin: 0;}
+  p{ margin: 0; text-transform: capitalize;}
 }
 
 #sortable_document_items.sortable{
@@ -324,7 +326,7 @@ ul.actions.active {
       background: url('/images/ui/move-handle.png') no-repeat 0 0;
     }
   }
-  .body, .edit, .toggle-inline-edit, .actions, .document_item_activity{
+  .body, .edit, .actions, .document_item_activity{
     display: none;
   }
 }
@@ -480,24 +482,6 @@ ul.actions.active {
     * the "cancel" button when editing a section
 */
 .document .section{
-  .toggle-inline-edit{
-    /* in IE we will need to display: none; as there are no CSS transitions anyway */
-    @include color-transitions(500ms);
-    font-size: 8pt;
-    opacity: 0;
-    float: right;
-    height: 16px;
-    line-height: 14px;
-    display: block;
-    padding-left: 4px;
-    padding-right: 4px;
-  }
-  
-  &:hover{
-    .toggle-inline-edit{ 
-      opacity: 1;
-    }
-  }
   /* This is the "cancel" button when in the edit view. */ 
   .edit{
     .toggle-inline-edit{
@@ -510,7 +494,7 @@ ul.actions.active {
   }
 }
 /* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */ 
-.document .most_important_thing.section{
+/*.document .most_important_thing.section{
   .toggle-inline-edit{
     float: right;
     font-weight: normal;
@@ -525,8 +509,7 @@ ul.actions.active {
     }
   }
   
-}
-
+}*/
 
 /* Adding new sections dynamically */
 
@@ -539,6 +522,7 @@ ul.actions.active {
     }
   }
   #new-section{
+    background-color: #f1f1f1;
     display: none;
     border: 1px solid #ddd;
     padding: 1em;
@@ -590,4 +574,9 @@ ul.actions.active {
   @extend .funky-button-small;
 }
 
+span.separator{
+  color: #ccc;
+  font-size: 1em;
+  margin: 0 .5em;
+}
 @import "snippets/smartbox";

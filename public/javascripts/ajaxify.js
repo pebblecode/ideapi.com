@@ -101,8 +101,8 @@ jQuery.update_item_history_tabs = function(){
     var _tab = $(this).find('ul.actions a.toggle_document_item_activity');
     var _list = $(this).find('ul.document_item_history');
     var _size = _list.children().size() + _list.find('div.author_answer').size();
-    if (_size == 0) _tab.text('Discussion / History');
-    else _tab.text('('+ _size +') Discussion / History');    
+    if (_size == 0) _tab.text('discussion');
+    else _tab.text('('+ _size +') discussion');    
   });
 };
 
@@ -417,20 +417,21 @@ jQuery.user_links_external = function(){
     };
     
     $("#documents.show .section a.toggle-inline-edit").live('click', function(e){
-      
+      var _parent = $(this).parents('.section');
       // $(this).siblings('div.editable').toggle('slide', {}, 1000);
-      $(this).siblings('div.editable').toggle();
-      $(this).siblings('div.edit').toggleClass('revealed');
+      _parent.find('div.editable').toggle();
+      _parent.find('div.edit').toggleClass('revealed');
       if($(this).text() == 'edit'){ $(this).text('show'); }
       else{ $(this).text('edit'); }
       
-      $(this).siblings('ul.actions').toggleClass('hide');
-      $(this).siblings('div.document_item_activity').toggleClass('hide');
+      _parent.find('ul.actions').toggleClass('hide');
+      _parent.find('div.document_item_activity').toggleClass('hide');
     });
 
     $("#documents.show .section .edit a.cancel-inline-edit").live('click', function(e){
-      $(this).parents('div.edit').toggleClass('revealed');
-      $(this).parents('div.section').find('div.editable').toggle();
+      var _parent = $(this).parents('.section');
+      _parent.find('div.editable').toggle();
+      _parent.find('div.edit').toggleClass('revealed');
       var _toggle_link = $(this).parents('div.section').find('a.toggle-inline-edit');
       
       if(_toggle_link.text() == 'edit'){
@@ -438,8 +439,8 @@ jQuery.user_links_external = function(){
       }else{
         _toggle_link.text('edit'); 
       }
-      _toggle_link.siblings('ul.actions').toggleClass('hide');
-      _toggle_link.siblings('div.document_item_activity').toggleClass('hide');
+      _parent.find('ul.actions').toggleClass('hide');
+      _parent.find('div.document_item_activity').toggleClass('hide');
       
       
     });

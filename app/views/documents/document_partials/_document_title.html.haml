@@ -1,8 +1,6 @@
 #content-header
   -if owner?(current_object) and current_object.active?
     .show.editable
-      - if current_object.draft? 
-        %span.flag draft
       %h2.with-tooltip{:title => 'Click to edit'}
         =current_object.title
     .edit

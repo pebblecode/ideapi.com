@@ -2,7 +2,7 @@
   -if document_item.is_heading?
     -if owner?(current_object) and current_object.active?
       - if owner?(current_object) and current_object.active?
-        = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
+        
       .show.editable
         %h3=document_item.title
       .edit
@@ -19,8 +19,6 @@
           =document_item.title
   -else
     - if owner?(current_object) and current_object.active?
-      - if owner?(current_object) and current_object.active?
-        = link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit btn-shizzle'
       .show.editable
         %h4=document_item.title
         %div.body
@@ -52,13 +50,15 @@
           -if document_item.body.present?
             :textile
               #{document_item.body.lstrip}
-    - unless document_item.is_heading? or @print_mode.present? or current_object.draft?
+    - unless @print_mode.present? or current_object.draft?
       %ul.actions
-  
-        -if current_object.active?
-    
-          %li=link_to comments_tab(document_item), '#', {:class => 'toggle_document_item_activity'}
-
+        -if current_object.active? and not document_item.is_heading? and not current_object.draft?
+          %li= link_to comments_tab(document_item), '#', {:class => 'toggle_document_item_activity'}
+        - if owner?(current_object) and current_object.active?
+          %li
+            %span.separator
+              |
+          %li= link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
       -if current_object.active?
         = render :partial => "documents/activity_stream", :locals => {:document_item => document_item, :current_object => current_object}
     .clear

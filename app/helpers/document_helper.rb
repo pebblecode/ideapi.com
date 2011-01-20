@@ -8,9 +8,9 @@ module DocumentHelper
     # The tab name should also be changed in ajaxify.js, since it's updated via ajax.
     
     if item.timeline_events.length > 0
-      "(#{item.total_activity_count}) Discussion / History"
+      "(#{item.total_activity_count}) discussion"
     else
-      "Discussion / History"
+      "discussion"
     end
   end
 end

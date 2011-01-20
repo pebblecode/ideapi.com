@@ -1,7 +1,7 @@
 class Document < ActiveRecord::Base
 
   # validations
-  validates_presence_of :template_document_id, :title, :most_important_message, :author_id, :account_id, :approver_id
+  validates_presence_of :template_document_id, :title, :author_id, :account_id, :approver_id
 
   before_validation :ensure_approver_set
 
