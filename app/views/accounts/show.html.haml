@@ -21,7 +21,7 @@
             = domain_form.label :change_domain, "Tick this box to confirm you understand."
 
       .field.submit
-        = domain_form.submit 'Change subdomain'
+        = domain_form.submit 'Change subdomain', :class => 'funky-button'
             
   #update_account
     - form_for @account, :url => account_path, :html => {:id => 'edit_account_form', :multipart => true} do |f|
@@ -47,7 +47,7 @@
             = check_box_tag :delete_logo, '1'
             = label_tag :delete_logo, 'Delete logo'
       .field.submit
-        = f.submit 'Update'
+        = f.submit 'Update', :class => 'funky-button'
   - if @subscription.state == 'trial'
     .note
       %h3
@@ -79,4 +79,4 @@
     %h3 Delete Account
     %p
       If you would like to delete your account, you can do so by following the 'Delete account' button.
-    %p.align-right= link_to 'Delete Account', cancel_account_url, :class => 'ideapi_button'
+    %p= link_to 'Delete Account', cancel_account_url, :class => 'green-button-link fleft'
