@@ -171,6 +171,7 @@ class AccountsController < ApplicationController
   end
 
   def cancel
+    add_breadcrumb 'cancel'
     if request.post?
       if params[:confirm].present?
         current_account.destroy

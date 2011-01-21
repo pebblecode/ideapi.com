@@ -1003,6 +1003,14 @@ text-indent: -9999px;
 /* line 322, sass/snippets/_sidebar.scss */
 .collaborator_search input:focus { outline: none; }
 
+/* line 328, sass/snippets/_sidebar.scss */
+#textile-help-box a.help-toggle { float: right; font-size: 2em; color: #fff; /*    position: absolute; top: -7px; right: 15px; color: white !important; background: transparent !important; font-size: 2em; padding: 0; margin: 0; text-shadow: #333333 1px 1px 2px;
+*/ }
+/* line 342, sass/snippets/_sidebar.scss */
+#textile-help-box a.help-toggle:hover { color: white; }
+/* line 346, sass/snippets/_sidebar.scss */
+#textile-help-box .contents { display: none; }
+
 /* line 2, sass/snippets/_notifications.scss */
 ul#notifications { float: left; width: 620px; }
 /* line 5, sass/snippets/_notifications.scss */
@@ -2060,174 +2068,165 @@ ul.error_messages li p { color: #d81f26; }
 /* line 491, sass/snippets/_legacy.scss */
 .textile-help span.asterisk { font-family: serif; font-size: 1.2em; }
 
-/* line 496, sass/snippets/_legacy.scss */
-#textile-help-box h2 { position: relative; }
-/* line 498, sass/snippets/_legacy.scss */
-#textile-help-box a.help-toggle { position: absolute; top: -7px; right: 15px; color: white !important; background: transparent !important; font-size: 2em; padding: 0; margin: 0; text-shadow: #333333 1px 1px 2px; }
-/* line 508, sass/snippets/_legacy.scss */
-#textile-help-box a.help-toggle:hover { color: white; }
-/* line 510, sass/snippets/_legacy.scss */
-#textile-help-box .contents { display: none; }
-
-/* line 514, sass/snippets/_legacy.scss */
+/* line 497, sass/snippets/_legacy.scss */
 #container #content .col_2 .change-state { position: relative; }
-/* line 516, sass/snippets/_legacy.scss */
+/* line 499, sass/snippets/_legacy.scss */
 #container #content .col_2 .change-state .info { position: absolute; top: 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; display: none; font-size: 1em; background: #eeeeee; border-color: #dddddd; border-style: solid; border-width: 1px; padding: 5px 10px; }
-/* line 527, sass/snippets/_legacy.scss */
+/* line 510, sass/snippets/_legacy.scss */
 #container #content .col_2 .message { border-top: 1px solid #dddddd; margin-top: 6em; }
 
-/* line 533, sass/snippets/_legacy.scss */
+/* line 516, sass/snippets/_legacy.scss */
 body#users.contacts #header ul.sub_nav { display: none; }
 
-/* line 536, sass/snippets/_legacy.scss */
+/* line 519, sass/snippets/_legacy.scss */
 .fields { margin-bottom: 1em; }
 
-/* line 539, sass/snippets/_legacy.scss */
+/* line 522, sass/snippets/_legacy.scss */
 #sortable .document_item:hover, #sortable .document_heading:hover { cursor: move; }
 
-/* line 544, sass/snippets/_legacy.scss */
+/* line 527, sass/snippets/_legacy.scss */
 #document-privileges .document-title label { float: none; }
-/* line 546, sass/snippets/_legacy.scss */
+/* line 529, sass/snippets/_legacy.scss */
 #document-privileges .document-title input { float: left; margin: 5px; }
 
-/* line 550, sass/snippets/_legacy.scss */
+/* line 533, sass/snippets/_legacy.scss */
 #list-of-accounts { padding: 1em; }
-/* line 552, sass/snippets/_legacy.scss */
+/* line 535, sass/snippets/_legacy.scss */
 #list-of-accounts h2 { padding-left: 1em; }
 
-/* line 557, sass/snippets/_legacy.scss */
+/* line 540, sass/snippets/_legacy.scss */
 ul#notifications { float: left; width: 620px; }
-/* line 560, sass/snippets/_legacy.scss */
+/* line 543, sass/snippets/_legacy.scss */
 ul#notifications li { float: left; padding: 0.5em 0.25em; width: 100%; border-bottom: 1px dotted #cccccc; }
-/* line 565, sass/snippets/_legacy.scss */
+/* line 548, sass/snippets/_legacy.scss */
 ul#notifications li.even { background: #f6f6f6; }
-/* line 568, sass/snippets/_legacy.scss */
+/* line 551, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_label { float: left; padding: 1px 3px; background: #32401a; color: white; margin-right: 5px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-/* line 575, sass/snippets/_legacy.scss */
+/* line 558, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_label a { color: white !important; font-weight: normal !important; }
-/* line 578, sass/snippets/_legacy.scss */
+/* line 561, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_meta { float: left; clear: left; font-style: italic; color: #999999; }
-/* line 583, sass/snippets/_legacy.scss */
+/* line 566, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_action { float: right; }
 
-/* line 588, sass/snippets/_legacy.scss */
+/* line 571, sass/snippets/_legacy.scss */
 .smartTextBox { cursor: text; }
 
-/* line 591, sass/snippets/_legacy.scss */
+/* line 574, sass/snippets/_legacy.scss */
 .smartTextBox-items { zoom: 1; overflow: hidden; margin: 0; padding: 3px 4px 0; border: 1px solid #cccccc; background: white; width: 430px; }
 
-/* line 600, sass/snippets/_legacy.scss */
+/* line 583, sass/snippets/_legacy.scss */
 .smartTextBox-elem { list-style-type: none; line-height: 18px; float: left; display: block; padding: 0; margin: 0 5px 3px 0; cursor: default; }
 
-/* line 609, sass/snippets/_legacy.scss */
+/* line 592, sass/snippets/_legacy.scss */
 .smartTextBox-box-elem { position: relative; padding: 0 5px; border: 1px solid #b3d335; background: #c6e355; cursor: default; -moz-border-radius: 9px; -webkit-border-radius: 9px; border-radius: 9px; }
 
-/* line 619, sass/snippets/_legacy.scss */
+/* line 602, sass/snippets/_legacy.scss */
 .smartTextBox-input-elem { backgound-color: transparent; }
 
-/* line 622, sass/snippets/_legacy.scss */
+/* line 605, sass/snippets/_legacy.scss */
 .smartTextBox-input-elem-valueInput { border: none; }
 
-/* line 627, sass/snippets/_legacy.scss */
+/* line 610, sass/snippets/_legacy.scss */
 .smartTextBox-elem-box-hover { background-color: #b3d335; }
 
-/* line 632, sass/snippets/_legacy.scss */
+/* line 615, sass/snippets/_legacy.scss */
 .smartTextBox-elem-box-focus { background-color: #a0c11e; }
 
-/* line 637, sass/snippets/_legacy.scss */
+/* line 620, sass/snippets/_legacy.scss */
 .smartTextBox-elem-valueContainer { margin-right: 8px; white-space: nowrap; }
 
-/* line 641, sass/snippets/_legacy.scss */
+/* line 624, sass/snippets/_legacy.scss */
 .smartTextBox-elem-deleteButton { position: absolute; right: 4px; top: 6px; display: block; width: 7px; height: 7px; font-size: 1px; background: url("/images/close.gif"); }
-/* line 650, sass/snippets/_legacy.scss */
+/* line 633, sass/snippets/_legacy.scss */
 .smartTextBox-elem-deleteButton:hover { border: none; background-position: 7px; text-decoration: none; }
 
 /* AutoComplete */
-/* line 657, sass/snippets/_legacy.scss */
+/* line 640, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete { width: 430px; position: absolute; z-index: 10; }
 
-/* line 662, sass/snippets/_legacy.scss */
+/* line 645, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-placeholder { opacity: 0.9; filter: alpha(opacity=90); background: #eeeeee; border: 1px solid #999999; border-top: none; padding: 5px 7px; margin-left: 122px; width: 424px; }
 
-/* line 672, sass/snippets/_legacy.scss */
+/* line 655, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-results { opacity: 0.9; filter: alpha(opacity=90); background: #eeeeee; border: 1px solid #999999; border-top: none; margin: 0; padding: 0; margin-left: 122px; width: 438px; }
 
-/* line 683, sass/snippets/_legacy.scss */
+/* line 666, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-result { margin: 0; padding: 5px; list-style-type: none; background: #eeeeee; cursor: pointer; .width: 100%; }
 
-/* line 691, sass/snippets/_legacy.scss */
+/* line 674, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-value { display: none; }
 
-/* line 694, sass/snippets/_legacy.scss */
+/* line 677, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-highligh { font-weight: bold; }
 
-/* line 697, sass/snippets/_legacy.scss */
+/* line 680, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-result-focus { background: #a0c11e; }
 
-/* line 700, sass/snippets/_legacy.scss */
+/* line 683, sass/snippets/_legacy.scss */
 #footer { background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
-/* line 704, sass/snippets/_legacy.scss */
+/* line 687, sass/snippets/_legacy.scss */
 #footer p { font-size: 1.1em; }
-/* line 706, sass/snippets/_legacy.scss */
+/* line 689, sass/snippets/_legacy.scss */
 #footer p a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
-/* line 709, sass/snippets/_legacy.scss */
+/* line 692, sass/snippets/_legacy.scss */
 #footer p a:hover { color: #333333; }
 
-/* line 714, sass/snippets/_legacy.scss */
+/* line 697, sass/snippets/_legacy.scss */
 #proposals #document_reference img { max-width: 100%; }
 
-/* line 717, sass/snippets/_legacy.scss */
+/* line 700, sass/snippets/_legacy.scss */
 .show_with_js { display: none; }
 
-/* line 722, sass/snippets/_legacy.scss */
+/* line 705, sass/snippets/_legacy.scss */
 #container #content #idea_users .contents { border-bottom: 0; }
-/* line 724, sass/snippets/_legacy.scss */
+/* line 707, sass/snippets/_legacy.scss */
 #container #content #idea_users ul { padding: 0; margin: 0; }
-/* line 727, sass/snippets/_legacy.scss */
+/* line 710, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user { margin: 0; padding: 1em; border-bottom: 1px solid #cccccc; }
-/* line 731, sass/snippets/_legacy.scss */
+/* line 714, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user p { margin: 0; }
-/* line 733, sass/snippets/_legacy.scss */
+/* line 716, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user .idea_user_link { display: block; }
 
-/* line 736, sass/snippets/_legacy.scss */
+/* line 719, sass/snippets/_legacy.scss */
 .block { display: block; }
 
-/* line 739, sass/snippets/_legacy.scss */
+/* line 722, sass/snippets/_legacy.scss */
 .align-right { text-align: right; }
 
-/* line 742, sass/snippets/_legacy.scss */
+/* line 725, sass/snippets/_legacy.scss */
 .warning { color: #ff3333; }
 
-/* line 748, sass/snippets/_legacy.scss */
+/* line 731, sass/snippets/_legacy.scss */
 #help_and_faq .try-button { display: none; }
-/* line 750, sass/snippets/_legacy.scss */
+/* line 733, sass/snippets/_legacy.scss */
 #help_and_faq h1 { margin-bottom: 40px; }
-/* line 752, sass/snippets/_legacy.scss */
+/* line 735, sass/snippets/_legacy.scss */
 #help_and_faq #contents { border: 1px solid #b3d335; padding: 10px 5px 10px 0; margin-bottom: 50px; width: 70%; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
-/* line 758, sass/snippets/_legacy.scss */
+/* line 741, sass/snippets/_legacy.scss */
 #help_and_faq #contents h2 { display: none; }
-/* line 760, sass/snippets/_legacy.scss */
+/* line 743, sass/snippets/_legacy.scss */
 #help_and_faq #contents h3 { font-weight: normal; }
-/* line 762, sass/snippets/_legacy.scss */
+/* line 745, sass/snippets/_legacy.scss */
 #help_and_faq #contents .listing { padding-left: 35px; }
-/* line 764, sass/snippets/_legacy.scss */
+/* line 747, sass/snippets/_legacy.scss */
 #help_and_faq #contents li { font-size: 1.333em; line-height: 1.5em; list-style: disc; }
-/* line 768, sass/snippets/_legacy.scss */
+/* line 751, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing { list-style: none; padding: 0; margin: 0; }
-/* line 772, sass/snippets/_legacy.scss */
+/* line 755, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li { font-size: 90%; padding-bottom: 20px; margin-bottom: 3em; border-bottom: 1px solid #b3d335; position: relative; }
-/* line 774, sass/snippets/_legacy.scss */
+/* line 757, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li p a { font-size: 90%; }
-/* line 780, sass/snippets/_legacy.scss */
+/* line 763, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .question { margin-bottom: 10px; font-weight: normal; padding-right: 4em; }
-/* line 784, sass/snippets/_legacy.scss */
+/* line 767, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .back-to-top { color: #b3d335; font-size: 110%; position: absolute; top: 0; right: 0; padding-right: 20px; background: transparent url(/images/up-arrow.png) no-repeat right 4px; }
-/* line 792, sass/snippets/_legacy.scss */
+/* line 775, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .ans { color: #676767; margin: 0 0 10px; font-size: 1.333em; line-height: 1.5em; }
 
-/* line 797, sass/snippets/_legacy.scss */
+/* line 780, sass/snippets/_legacy.scss */
 .error_message { color: #F66; }
 
-/* line 800, sass/snippets/_legacy.scss */
+/* line 783, sass/snippets/_legacy.scss */
 .close-button, .close-button:hover { display: block; height: 16px; width: 16px; text-indent: -9999px; background: url("/images/ui/cross-button.png") no-repeat 0 0 !important; border: 0 !important; padding: 0 !important; }

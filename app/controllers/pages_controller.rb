@@ -24,7 +24,9 @@ class PagesController < ApplicationController
   def terms
     
   end
-  
+  def who
+    
+  end
   def privacy
     
   end

@@ -41,10 +41,10 @@ class UserDocument < ActiveRecord::Base
     document.author?(user)
   end
   
-  def destroy
-    raise "Cannot delete the only author in a document" if (self.document.authors.count == 1 and self.document.author == self.user)
-    super
-  end
+  # def destroy
+  #   raise "Cannot delete the only author in a document" if (self.document.authors.count == 1 and self.document.author == self.user)
+  #   super
+  # end
   private
   
   def notify_user
