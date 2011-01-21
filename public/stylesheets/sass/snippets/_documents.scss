@@ -21,7 +21,10 @@ input#document_submit{
   .spinner{ display: inline;}
 }
 #documents #content-header{
-  padding-right: 0.5em;
+/*  padding-right: 0.5em;*/
+  .edit a{
+    color: $ideapi_green_light - #666;
+  }
 }
 .document_item{
   .body{

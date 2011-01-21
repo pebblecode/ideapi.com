@@ -6,7 +6,7 @@
     - if document.user_documents.for_user(current_user).present? and document.active?
       - document.user_documents.for_user(current_user).document_role[:label].split(',').each do |lbl|
         %span.user_context= lbl
-    =link_to truncate(document.title, :length => 55), document
+    =link_to truncate(document.title, :length => 70), document, :title => document.title
         
   - unless document.active?
     =render :partial => 'change_state', :locals => { :document => document }
