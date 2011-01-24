@@ -513,10 +513,12 @@ hr.faded { /*background: -webkit-gradient(linear, left center, right center, fro
 /* line 496, ../sass/landing.scss */
 .large-copy .title { margin-bottom: 1em; font-size: 1.4em; }
 /* line 501, ../sass/landing.scss */
-.large-copy h3 { font-size: 1.2em; margin-bottom: 1em; padding: 0; color: #333; }
+.large-copy h3 { font-size: 1.2em; margin-bottom: 5px; padding: 0; color: #333; }
 /* line 507, ../sass/landing.scss */
 .large-copy p, .large-copy ul { margin-bottom: 1.4em; }
 /* line 510, ../sass/landing.scss */
-.large-copy li { margin-bottom: 1em; list-style-type: disc; margin-left: 1.5em; line-height: 1.4em; }
-/* line 516, ../sass/landing.scss */
+.large-copy li { margin-bottom: 1em; list-style-type: none; margin-left: 0; line-height: 1.4em; }
+/* line 517, ../sass/landing.scss */
+.large-copy li:before { content: "\00BB"; float: left; margin-left: -1em; }
+/* line 522, ../sass/landing.scss */
 .large-copy p { line-height: 1.4em; }

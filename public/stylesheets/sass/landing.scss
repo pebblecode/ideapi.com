@@ -500,7 +500,7 @@ hr.faded{
   }
   h3{
     font-size: 1.2em;
-    margin-bottom: 1em;
+    margin-bottom: 5px;
     padding: 0;
     color: #333;
   }
@@ -509,9 +509,15 @@ hr.faded{
   }
   li{
     margin-bottom: 1em;
-    list-style-type: disc;
-    margin-left: 1.5em;
+    list-style-type: none;
+    margin-left: 0;
     line-height: 1.4em;
+    
+  }
+  li:before{
+    content: "\00BB";
+    float: left;
+    margin-left: -1em;
   }
   p{
     line-height: 1.4em;
