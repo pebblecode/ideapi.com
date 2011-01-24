@@ -153,7 +153,8 @@
           right: 1em;
           top: 2.5em;
           font-size: 0.8em;
-          color: #cccccc; }
+          color: #cccccc;
+        }
         a.options_toggle:hover {
           color: #333333; }
         ul.options{
@@ -170,7 +171,7 @@
               padding: 0;
             }
             a{
-              display: inline-block;
+              display: block;
               padding: 30px 0 0 0;
               margin: auto;
               width: 30px;
@@ -212,63 +213,7 @@
             }
           }
         }
-        /*ul.options {
-                  padding: 0;
-                  margin: 0;
-                  background: #e1e1e1 url(/images/collab_option_bg.png) repeat-x;
-                  height: 50px;
-                  li {
-                    float: left;
-                    top: 0;
-                    padding: 0;
-                    width: 50px;
-                    border: 0;
-                    text-transform: uppercase;
-                    padding: 0.5em 0 0 0;
-                    background: transparent;
-                    text-align: center;
-                    img.spinner {
-                      width: 16px;
-                      height: 16px;
-                      margin: 12px 0 0 15px;
-                      padding: 0; }
-                    a {
-                      height: 0px;
-                      width: 29px;
-                      display: block;
-                      margin-left: 9px;
-                      padding-top: 32px;
-                      span {
-                        color: #aaaaaa;
-                        margin-left: -2px; } }
-                    a:hover, a.selected {
-                      span {
-                        color: #333333; } } }
-                  li.with_js {
-                    font-size: 8px;
-                    input {
-                      display: none; } }
-                  li.author {
-                    a {
-                      background: url(/images/ui/collab_options.png) no-repeat; }
-                    &.selected a, a:hover, a:focus, a.selected {
-                      background: url(/images/ui/collab_options.png) no-repeat 0 -30px;
-                    }
-                  }
-                  li.approver {
-                    a {
-                      background: url(/images/ui/collab_options.png) no-repeat -28px 0; }
-                    &.selected a, a:hover, a:focus, a.selected {
-                      background: url(/images/ui/collab_options.png) no-repeat -28px -30px; } }
-                  li.remove {
-                    float: right;
-                    padding: 0.5em 0 0 0;
-                    a {
-                      background: url(/images/ui/collab_options.png) no-repeat -58px 0; }
-                    &.selected a, a:hover, a:focus, a.selected {
-                      background: url(/images/ui/collab_options.png) no-repeat -58px -30px; } } } 
-              */
-          }
+      }
       li:last-child {
         border-bottom: 0; } }
     input.action {

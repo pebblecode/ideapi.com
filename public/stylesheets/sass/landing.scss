@@ -161,11 +161,13 @@ $content_bg: #f3f3f3;
     text-align: right;
   }
   .signup{
-    @extend .span-3;
+    @extend .span-4;
+
     padding-top: 1em;
   }
 }
 .signup .try-button{
+  margin-right: 20px;
   background: $ideapi_green_light;
   height: 46px;
   text-align: center;
@@ -181,7 +183,6 @@ $content_bg: #f3f3f3;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px;
   box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px;
   font-family: 'Ubuntu', sans-serif;
-  
   &:hover{
     color: #222;
   }

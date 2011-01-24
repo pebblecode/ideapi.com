@@ -32,7 +32,6 @@ Haml::Template.options[:ugly] = true
 #   :user_name => "dev@ideapi.net",
 #   :password => "createarevolution$"
 # }
-config.action_mailer.delivery_method = :sendmail
 
 # config.gem 'bullet', :source => 'http://gemcutter.org'
 # config.after_initialize do
@@ -48,6 +47,5 @@ config.action_mailer.delivery_method = :sendmail
 #   Bullet.rails_logger = true
 #   Bullet.disable_browser_cache = true
 # end
-
-config.action_mailer.delivery_method = :sendmail
+config.action_mailer.delivery_method = :file
 Paperclip.options[:command_path] = '/usr/local/bin'
