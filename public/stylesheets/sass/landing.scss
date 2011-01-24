@@ -197,7 +197,7 @@ $content_bg: #f3f3f3;
   li{
     margin-bottom: 1em;
     display: block;
-    background: no-repeat 30px 8px;
+    background: no-repeat 35px 5px;
     min-height: 70px;
     p.desc{ font-size: 0.8em;}
   }
@@ -235,7 +235,7 @@ $content_bg: #f3f3f3;
   .updated{ background-image: url('/images/icons/updated.png'); }
   .testimonial{ background-image: none; }
   .create{ background-image: url('/images/icons/create.png'); }
-  .collaborate{ background-image: url('/images/icons/collab.png'); }
+  .collaborate{ background: no-repeat 35px 0px url('/images/icons/collab.png'); }
 }
 hr.faded{
   /*background: -webkit-gradient(linear, left center, right center, from($content_bg), color-stop(20%, $content_bg), color-stop(50%, #555), color-stop(80%, $content_bg), to($content_bg));*/

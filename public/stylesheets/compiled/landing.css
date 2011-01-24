@@ -392,7 +392,7 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 /* line 195, ../sass/landing.scss */
 .home-page .features { margin-top: 2em; }
 /* line 197, ../sass/landing.scss */
-.home-page .features li { margin-bottom: 1em; display: block; background: no-repeat 30px 8px; min-height: 70px; }
+.home-page .features li { margin-bottom: 1em; display: block; background: no-repeat 35px 5px; min-height: 70px; }
 /* line 202, ../sass/landing.scss */
 .home-page .features li p.desc { font-size: 0.8em; }
 /* line 211, ../sass/landing.scss */
@@ -414,7 +414,7 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 /* line 237, ../sass/landing.scss */
 .home-page .features .create { background-image: url("/images/icons/create.png"); }
 /* line 238, ../sass/landing.scss */
-.home-page .features .collaborate { background-image: url("/images/icons/collab.png"); }
+.home-page .features .collaborate { background: no-repeat 35px 0px url("/images/icons/collab.png"); }
 
 /* line 240, ../sass/landing.scss */
 hr.faded { /*background: -webkit-gradient(linear, left center, right center, from($content_bg), color-stop(20%, $content_bg), color-stop(50%, #555), color-stop(80%, $content_bg), to($content_bg));*/ background: #333333 url("/images/bg/horizontal-bar.png") repeat-y 0 0; height: 1px; margin-bottom: 0; }
