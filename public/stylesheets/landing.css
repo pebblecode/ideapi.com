@@ -424,7 +424,7 @@ hr.faded { /*background: -webkit-gradient(linear, left center, right center, fro
 /* line 254, sass/landing.scss */
 .tour-page #tour-slides #slider { margin-left: 97px; }
 /* line 258, sass/landing.scss */
-.tour-page #tour-slides #slider li { height: 500px; }
+.tour-page #tour-slides #slider li { height: 650px; }
 /* line 263, sass/landing.scss */
 .tour-page #tour-slides #slider li .content .screenshot { max-width: 700px; display: block; }
 /* line 271, sass/landing.scss */

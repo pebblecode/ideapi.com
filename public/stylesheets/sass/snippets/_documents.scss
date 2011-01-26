@@ -580,4 +580,11 @@ span.separator{
   font-size: 1em;
   margin: 0 .5em;
 }
+
+.notify{
+  float: left;
+  label, input{ display: inline; float: none;}
+  label{ width: auto;}
+
+}
 @import "snippets/smartbox";
