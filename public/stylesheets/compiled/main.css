@@ -884,127 +884,126 @@ text-indent: -9999px;
 /* line 71, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul span.author { color: #0099cc; font-weight: bold; }
 /* line 74, ../sass/snippets/_sidebar.scss */
-.side_box .contents a.toggle_add_collab { position: absolute; top: -1.2em; right: 0.5em; font-size: 2em; text-align: center; width: 1em; height: 1em; color: white; text-shadow: #333333 1px 1px 2px; }
-/* line 84, ../sass/snippets/_sidebar.scss */
-.side_box .contents a.toggle_add_collab:hover { background: none; }
-/* line 88, ../sass/snippets/_sidebar.scss */
+.side_box .contents a.toggle_add_collab { float: right; font-size: 2em; color: #fff; margin-top: -28px; margin-right: 8px; font-weight: bold; }
+/* line 81, ../sass/snippets/_sidebar.scss */
+.side_box .contents a.toggle_add_collab:hover { color: white; }
+/* line 85, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators, .side_box .contents .add_collaborators { margin: 0; padding: 0; border-bottom: 1px solid #ccc; }
-/* line 92, ../sass/snippets/_sidebar.scss */
+/* line 89, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators span.user_role, .side_box .contents .add_collaborators span.user_role { text-transform: uppercase; }
-/* line 95, ../sass/snippets/_sidebar.scss */
+/* line 92, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator, .side_box .contents .add_collaborators .available_collaborator { padding: 1em; border-bottom: 1px solid #ccc; }
-/* line 99, ../sass/snippets/_sidebar.scss */
+/* line 96, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator .add_user_document_button, .side_box .contents .add_collaborators .available_collaborator .add_user_document_button { margin: 0; padding: 0px 4px; border: 1px solid #bbb; color: black; font-weight: bold; font-size: 0.9em; }
-/* line 112, ../sass/snippets/_sidebar.scss */
+/* line 109, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator .name, .side_box .contents .add_collaborators .available_collaborator .name { margin: 0; padding: 0; }
-/* line 117, ../sass/snippets/_sidebar.scss */
+/* line 114, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator .info, .side_box .contents .add_collaborators .available_collaborator .info { width: 115px; }
-/* line 120, ../sass/snippets/_sidebar.scss */
+/* line 117, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator .info form label, .side_box .contents .add_collaborators .available_collaborator .info form label { float: none; display: inline; font-weight: normal; }
-/* line 128, ../sass/snippets/_sidebar.scss */
+/* line 125, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator .add, .side_box .contents ul.collaborators .available_collaborator .remove, .side_box .contents .add_collaborators .available_collaborator .add, .side_box .contents .add_collaborators .available_collaborator .remove { float: right; }
-/* line 131, ../sass/snippets/_sidebar.scss */
+/* line 128, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators .available_collaborator .add, .side_box .contents .add_collaborators .available_collaborator .add { font-size: 0.8em; }
-/* line 138, ../sass/snippets/_sidebar.scss */
+/* line 135, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user, .side_box .contents .add_collaborators li.collaboration_user { padding: 0; margin: 0; border-bottom: 1px solid #cccccc; position: relative; }
-/* line 143, ../sass/snippets/_sidebar.scss */
+/* line 140, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user p, .side_box .contents .add_collaborators li.collaboration_user p { line-height: 1em; padding: 0; margin: 0; padding: 0.5em 1em 1em 1em; }
-/* line 148, ../sass/snippets/_sidebar.scss */
+/* line 145, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user img.avatar, .side_box .contents .add_collaborators li.collaboration_user img.avatar { margin-top: 0.8em; margin-left: 0.9em; }
-/* line 151, ../sass/snippets/_sidebar.scss */
+/* line 148, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user a.options_toggle, .side_box .contents .add_collaborators li.collaboration_user a.options_toggle { position: absolute; right: 1em; top: 2.5em; font-size: 0.8em; color: #cccccc; }
-/* line 158, ../sass/snippets/_sidebar.scss */
+/* line 155, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user a.options_toggle:hover, .side_box .contents .add_collaborators li.collaboration_user a.options_toggle:hover { color: #333333; }
-/* line 160, ../sass/snippets/_sidebar.scss */
+/* line 157, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options, .side_box .contents .add_collaborators li.collaboration_user ul.options { background: #e1e1e1 url(/images/collab_option_bg.png) repeat-x; padding-top: 10px; }
-/* line 164, ../sass/snippets/_sidebar.scss */
+/* line 161, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li, .side_box .contents .add_collaborators li.collaboration_user ul.options li { float: left; width: 50px; }
-/* line 167, ../sass/snippets/_sidebar.scss */
+/* line 164, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li img.spinner, .side_box .contents .add_collaborators li.collaboration_user ul.options li img.spinner { width: 16px; height: 16px; margin: 12px 0 0 15px; padding: 0; }
-/* line 173, ../sass/snippets/_sidebar.scss */
+/* line 170, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li a, .side_box .contents .add_collaborators li.collaboration_user ul.options li a { display: block; padding: 30px 0 0 0; margin: auto; width: 30px; height: 0px; margin-right: 10px; background: url(/images/ui/collab_options.png) no-repeat; }
-/* line 182, ../sass/snippets/_sidebar.scss */
+/* line 179, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li a span, .side_box .contents .add_collaborators li.collaboration_user ul.options li a span { color: #aaaaaa; font-size: .8em; margin-left: -2px; }
-/* line 190, ../sass/snippets/_sidebar.scss */
+/* line 187, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author a { background: url(/images/ui/collab_options.png) no-repeat; }
-/* line 191, ../sass/snippets/_sidebar.scss */
+/* line 188, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li.author.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.author a.selected, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author.selected a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author a:hover, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author a:focus, .side_box .contents .add_collaborators li.collaboration_user ul.options li.author a.selected { background: url(/images/ui/collab_options.png) no-repeat 0 -30px; }
-/* line 194, ../sass/snippets/_sidebar.scss */
+/* line 191, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver a { background: url(/images/ui/collab_options.png) no-repeat -28px 0; }
-/* line 195, ../sass/snippets/_sidebar.scss */
+/* line 192, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.approver a.selected, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver.selected a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver a:hover, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver a:focus, .side_box .contents .add_collaborators li.collaboration_user ul.options li.approver a.selected { background: url(/images/ui/collab_options.png) no-repeat -28px -30px; }
-/* line 198, ../sass/snippets/_sidebar.scss */
+/* line 195, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove { float: right; }
-/* line 200, ../sass/snippets/_sidebar.scss */
+/* line 197, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove a { margin-right: 5px; float: right; background: url("/images/ui/collab_options.png") no-repeat -58px 0; }
-/* line 205, ../sass/snippets/_sidebar.scss */
+/* line 202, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove.selected a, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a:hover, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a:focus, .side_box .contents ul.collaborators li.collaboration_user ul.options li.remove a.selected, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove.selected a, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove a:hover, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove a:focus, .side_box .contents .add_collaborators li.collaboration_user ul.options li.remove a.selected { background: url("/images/ui/collab_options.png") no-repeat -58px -30px; }
-/* line 210, ../sass/snippets/_sidebar.scss */
+/* line 207, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li.collaboration_user ul.options li.with_js input, .side_box .contents .add_collaborators li.collaboration_user ul.options li.with_js input { display: none; }
-/* line 217, ../sass/snippets/_sidebar.scss */
+/* line 214, ../sass/snippets/_sidebar.scss */
 .side_box .contents ul.collaborators li:last-child, .side_box .contents .add_collaborators li:last-child { border-bottom: 0; }
-/* line 219, ../sass/snippets/_sidebar.scss */
+/* line 216, ../sass/snippets/_sidebar.scss */
 .side_box .contents input.action { text-align: center; display: block; border-top: 1px solid #cccccc; line-height: 1em; padding: 0.6em 1em 1em 1em; background: #f6f6f6; width: 100%; -moz-border-radius-topright: 0; -webkit-border-top-right-radius: 0; -moz-border-radius-topleft: 0; -webkit-border-top-left-radius: 0; color: #b3d335; font-weight: bold; }
-/* line 233, ../sass/snippets/_sidebar.scss */
+/* line 230, ../sass/snippets/_sidebar.scss */
 .side_box .contents input.action:hover { color: #32401a; }
-/* line 235, ../sass/snippets/_sidebar.scss */
+/* line 232, ../sass/snippets/_sidebar.scss */
 .side_box .contents a.action { text-align: center; display: block; border-top: 1px solid #cccccc; line-height: 1em; padding: 0.6em 1em 1em 1em; background: #f6f6f6; }
 
-/* line 243, ../sass/snippets/_sidebar.scss */
+/* line 240, ../sass/snippets/_sidebar.scss */
 .ideas .user_idea { position: relative; padding-left: 2em; }
-/* line 246, ../sass/snippets/_sidebar.scss */
+/* line 243, ../sass/snippets/_sidebar.scss */
 .ideas .user_idea span.draft, .ideas .user_idea span.published, .ideas .user_idea span.needs_work, .ideas .user_idea span.approved, .ideas .user_idea span.dropped { font-size: 30px; line-height: 1em; position: absolute; top: -4px; left: 0; }
-/* line 252, ../sass/snippets/_sidebar.scss */
+/* line 249, ../sass/snippets/_sidebar.scss */
 .ideas .user_idea span.draft { color: #aaaaaa; }
-/* line 254, ../sass/snippets/_sidebar.scss */
+/* line 251, ../sass/snippets/_sidebar.scss */
 .ideas .user_idea span.published { color: #ebde0a; }
-/* line 256, ../sass/snippets/_sidebar.scss */
+/* line 253, ../sass/snippets/_sidebar.scss */
 .ideas .user_idea span.approved { color: #63bb46; }
-/* line 258, ../sass/snippets/_sidebar.scss */
+/* line 255, ../sass/snippets/_sidebar.scss */
 .ideas .user_idea span.needs_work { color: #e77b29; }
-/* line 260, ../sass/snippets/_sidebar.scss */
+/* line 257, ../sass/snippets/_sidebar.scss */
 .ideas .user_idea span.dropped { color: #ed1c24; }
 
-/* line 263, ../sass/snippets/_sidebar.scss */
+/* line 260, ../sass/snippets/_sidebar.scss */
 #document_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
-/* line 268, ../sass/snippets/_sidebar.scss */
+/* line 265, ../sass/snippets/_sidebar.scss */
 #document_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
-/* line 273, ../sass/snippets/_sidebar.scss */
+/* line 270, ../sass/snippets/_sidebar.scss */
 #document_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
-/* line 278, ../sass/snippets/_sidebar.scss */
+/* line 275, ../sass/snippets/_sidebar.scss */
 #document_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
-/* line 284, ../sass/snippets/_sidebar.scss */
+/* line 281, ../sass/snippets/_sidebar.scss */
 #document_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
-/* line 288, ../sass/snippets/_sidebar.scss */
+/* line 285, ../sass/snippets/_sidebar.scss */
 #document_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
-/* line 291, ../sass/snippets/_sidebar.scss */
+/* line 288, ../sass/snippets/_sidebar.scss */
 #document_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
-/* line 295, ../sass/snippets/_sidebar.scss */
+/* line 292, ../sass/snippets/_sidebar.scss */
 #document_reference ul li h3.js { padding-bottom: 0.5em; }
-/* line 297, ../sass/snippets/_sidebar.scss */
+/* line 294, ../sass/snippets/_sidebar.scss */
 #document_reference ul li h3.active { padding-bottom: 0; }
-/* line 299, ../sass/snippets/_sidebar.scss */
+/* line 296, ../sass/snippets/_sidebar.scss */
 #document_reference ul li p { font-weight: normal; }
-/* line 301, ../sass/snippets/_sidebar.scss */
+/* line 298, ../sass/snippets/_sidebar.scss */
 #document_reference ul li:last-child { border-bottom: 0; }
 
-/* line 307, ../sass/snippets/_sidebar.scss */
+/* line 304, ../sass/snippets/_sidebar.scss */
 .collaborator_search { border-bottom: 1px solid #ccc; padding: 1em; }
-/* line 310, ../sass/snippets/_sidebar.scss */
+/* line 307, ../sass/snippets/_sidebar.scss */
 .collaborator_search .search-field { background: #fcfcfc; border: 1px solid #ccc; padding: 0.5em; }
-/* line 314, ../sass/snippets/_sidebar.scss */
+/* line 311, ../sass/snippets/_sidebar.scss */
 .collaborator_search .search-field.active { border-color: #aaa; }
-/* line 319, ../sass/snippets/_sidebar.scss */
+/* line 316, ../sass/snippets/_sidebar.scss */
 .collaborator_search input { border: 0; background: #fcfcfc; width: 98%; padding: 0; font-size: 1.1em; }
-/* line 325, ../sass/snippets/_sidebar.scss */
+/* line 322, ../sass/snippets/_sidebar.scss */
 .collaborator_search input:focus { outline: none; }
 
-/* line 331, ../sass/snippets/_sidebar.scss */
-#textile-help-box a.help-toggle { float: right; font-size: 2em; color: #fff; /*    position: absolute; top: -7px; right: 15px; color: white !important; background: transparent !important; font-size: 2em; padding: 0; margin: 0; text-shadow: #333333 1px 1px 2px;
-*/ }
-/* line 345, ../sass/snippets/_sidebar.scss */
+/* line 328, ../sass/snippets/_sidebar.scss */
+#textile-help-box a.help-toggle { float: right; font-size: 2em; color: #fff; margin: -2px -3px auto auto; }
+/* line 333, ../sass/snippets/_sidebar.scss */
 #textile-help-box a.help-toggle:hover { color: white; }
-/* line 349, ../sass/snippets/_sidebar.scss */
+/* line 337, ../sass/snippets/_sidebar.scss */
 #textile-help-box .contents { display: none; }
 
 /* line 2, ../sass/snippets/_notifications.scss */

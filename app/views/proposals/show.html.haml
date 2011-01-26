@@ -59,9 +59,6 @@
     #comments_area
       %h4 Idea comments
       %ul.comments
-        - if current_object.comments.blank?
-          %li
-            %p There have been no comments
         -current_object.comments.each do |comment|
           %li
             %div[comment]
@@ -69,7 +66,7 @@
               .speech
                 -if comment.user == current_user or current_object.user == current_user
                   - form_for comment, :html => {:method => :delete, :class => "delete_comment_form" } do |form|
-                    = form.submit 'delete', :class => 'comment-delete ajaxify', :id => "delete_comment_#{comment.id}_submit"
+                    = form.submit 'delete', :class => 'close-button comment-delete ajaxify', :id => "delete_comment_#{comment.id}_submit"
                 
                 %p
                   
@@ -81,15 +78,14 @@
           .comment
             #comment_form.comment_form
               =medium_avatar
-              .speech
+              .speech.clearfix
                 - form_for :comment, :url => comments_path, :html => {:id => "new_comment_form"} do |f|
                   =hidden_field_tag :proposal_id, current_object.id
                   =f.text_area :comment, :rows => 5, :cols => 80
+                  %span.notify
+                    =f.label :send_notifications, "Send notifications?"
+                    =f.check_box :send_notifications, :checked => true
                   %p.button
-                    %span.notify
-                      =f.label :send_notifications, "Send notifications?"
-                      =f.check_box :send_notifications, :checked => true
-                      
                     %img{:src => "/images/ui/loading.gif", :alt => 'Submitting comment...', :class => "loading-gif hide"}
                     =f.submit "submit", :class => 'funky-button-small'
         

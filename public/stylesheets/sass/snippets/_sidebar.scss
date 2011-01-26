@@ -72,18 +72,15 @@
         color: #0099cc;
         font-weight: bold; } }
     a.toggle_add_collab {
-      position: absolute;
-      top: -1.2em;
-      right: 0.5em;
+      float: right;
       font-size: 2em;
-      text-align: center;
-      width: 1em;
-      height: 1em;
-      color: white;
-      text-shadow: #333333 1px 1px 2px; 
-      &:hover{
-        background: none;
-      }
+      color: #fff;
+      margin-top: -28px;
+      margin-right: 8px;
+      font-weight: bold;
+      &:hover {
+        color: white;
+      } 
     }
     ul.collaborators, .add_collaborators {
       margin: 0;
@@ -332,16 +329,7 @@
     float: right;
     font-size: 2em;
     color: #fff;
-/*    position: absolute;
-    top: -7px;
-    right: 15px;
-    color: white !important;
-    background: transparent !important;
-    font-size: 2em;
-    padding: 0;
-    margin: 0;
-    text-shadow: #333333 1px 1px 2px;
-*/    
+    margin: -2px -3px auto auto;
     &:hover {
       color: white;
     } 
