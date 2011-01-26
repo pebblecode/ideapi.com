@@ -582,9 +582,9 @@ span.separator{
 }
 
 .notify{
-  margin-top: 1em;
+  margin-top: .5em;
   float: left;
-  label, input{ display: inline; float: none;}
+  label, input{ display: inline; float: none; font-weight: normal;}
   label{ width: auto;}
 
 }
