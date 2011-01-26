@@ -1748,10 +1748,10 @@ ul.actions.active { border-bottom: 1px solid #eeeeee; }
 span.separator { color: #ccc; font-size: 1em; margin: 0 .5em; }
 
 /* line 584, sass/snippets/_documents.scss */
-.notify { float: left; }
-/* line 586, sass/snippets/_documents.scss */
-.notify label, .notify input { display: inline; float: none; }
+.notify { margin-top: 1em; float: left; }
 /* line 587, sass/snippets/_documents.scss */
+.notify label, .notify input { display: inline; float: none; }
+/* line 588, sass/snippets/_documents.scss */
 .notify label { width: auto; }
 
 /* line 4, sass/snippets/_smartbox.scss */

@@ -1,5 +1,7 @@
 class Document < ActiveRecord::Base
   
+  attr_accessor :send_notifications
+  
   # see each concern in document/concern.rb
   concerned_with :activity_stream, 
     :formatting, 

@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
-  
+
+  attr_accessor :send_notifications  
   before_destroy :delete_timeline_events
   
   belongs_to :user

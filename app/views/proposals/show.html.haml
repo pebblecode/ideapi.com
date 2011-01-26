@@ -86,6 +86,10 @@
                   =hidden_field_tag :proposal_id, current_object.id
                   =f.text_area :comment, :rows => 5, :cols => 80
                   %p.button
+                    %span.notify
+                      =f.label :send_notifications, "Send notifications?"
+                      =f.check_box :send_notifications, :checked => true
+                      
                     %img{:src => "/images/ui/loading.gif", :alt => 'Submitting comment...', :class => "loading-gif hide"}
                     =f.submit "submit", :class => 'funky-button-small'
         

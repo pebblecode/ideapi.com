@@ -8,13 +8,14 @@
           .comment
             #comment_form.comment_form
               =medium_avatar            
-              .speech
+              .speech.clearfix
                 - form_for :comment, :url => comments_path, :html => {:id => "new_comment_form"} do |f|
                   =hidden_field_tag :document_id, current_object.id
                   =f.text_area :comment, :rows => 5, :cols => 80
-                  %p.button
-                    %span.notify
-                      =f.label :send_notifications, "Notify collaborators?"
-                      =f.check_box :send_notifications, :checked => true
+                  %span.notify
+                    =f.label :send_notifications, "Notify collaborators?"
+                    =f.check_box :send_notifications, :checked => true
+                  
+                  %p.button.fright
                     %img{:src => "/images/ui/loading.gif", :alt => 'Submitting comment...', :class => "loading-gif hide"}
                     =f.submit "submit"

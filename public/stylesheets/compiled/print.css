@@ -1,66 +1,28 @@
-/* line 2, ../sass/print.sass */
-a:link, a:visited { color: #552200; background: transparent; font-weight: bold; text-decoration: underline; }
-
-/* line 8, ../sass/print.sass */
-body { font-size: 62.5%; }
-
-/* line 12, ../sass/print.sass */
-div.document, #footer { max-width: 600px; margin-left: auto; margin-right: auto; }
-
-/* line 16, ../sass/print.sass */
-ul { list-style: disc; list-style-position: inside; padding: 0; font-size: 1.2em; }
-/* line 22, ../sass/print.sass */
-ul li { margin-left: 0.1em; font-size: 1em; }
-
-/* line 26, ../sass/print.sass */
-.document { padding: 1em 4em; }
-/* line 29, ../sass/print.sass */
-.document h2 { border-bottom: 4px solid #333333; }
-/* line 32, ../sass/print.sass */
-.document .most_important_thing { font-size: 2em; padding: 1em 1em 0 1em; }
-/* line 35, ../sass/print.sass */
-.document .most_important_thing p { font-weight: bold; }
-/* line 38, ../sass/print.sass */
-.document img { display: block; border: 5px solid #dddddd; margin: auto; max-width: 570px; }
-/* line 44, ../sass/print.sass */
-.document p { font-size: 1.2em; }
-/* line 47, ../sass/print.sass */
-.document .document_item { padding: 1em; }
-/* line 51, ../sass/print.sass */
-.document .document_item h3 { border-bottom: 1px solid #aaaaaa; }
-/* line 54, ../sass/print.sass */
-.document .document_item .body { padding: 0; }
-/* line 57, ../sass/print.sass */
-.document .document_item .actions { display: none; }
-/* line 60, ../sass/print.sass */
-.document .document_item .document_item_history { padding: 0 2em; }
-/* line 63, ../sass/print.sass */
-.document .document_item .document_item_history .question { margin: 0.5em 1em; padding: 0 1em; border-bottom: 1px dashed #aaaaaa; }
-/* line 69, ../sass/print.sass */
-.document .document_item .document_item_history .question .question_body span.speech { font-style: italic; }
-/* line 72, ../sass/print.sass */
-.document .document_item .document_item_history p.updated { border-bottom: 1px solid #cccccc; font-size: 1em; text-transform: uppercase; text-align: right; }
-/* line 78, ../sass/print.sass */
-.document .document_item .document_item_history p.updated span { color: #aaaaaa; }
-
-/* line 81, ../sass/print.sass */
-.col_2 { display: none; }
-
-/* line 84, ../sass/print.sass */
-#header, .feedback_form { display: none; }
-
-/* line 87, ../sass/print.sass */
-a[href='#'] { display: none; }
-
-/* line 90, ../sass/print.sass */
-.avatar { display: none; }
-
-/* line 93, ../sass/print.sass */
-form { display: none; }
-
-/* line 96, ../sass/print.sass */
-#footer { margin: 1em auto; max-width: 600px; padding: 1em 0; border-top: 1px solid #cccccc; }
-/* line 101, ../sass/print.sass */
-#footer p { font-size: 1.1em; }
-/* line 103, ../sass/print.sass */
-#footer img { display: block; float: left; margin-right: 5px; }
+/* line 7, ../sass/print.scss */
+body.bp { line-height: 1.5; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; color: black; background: none; font-size: 10pt; }
+/* line 52, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp .container { background: none; }
+/* line 54, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp hr { background: #cccccc; color: #cccccc; width: 100%; height: 2px; margin: 2em 0; padding: 0; border: none; }
+/* line 62, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp hr.space { background: white; color: white; }
+/* line 65, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp h1, body.bp h2, body.bp h3, body.bp h4, body.bp h5, body.bp h6 { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
+/* line 67, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp code { font-size: 0.9em; font-family: "andale mono", "lucida console", monospace; }
+/* line 72, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp a img { border: none; }
+/* line 75, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp a:link, body.bp a:visited { background: transparent; font-weight: 700; text-decoration: underline; }
+/* line 79, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp p img.top { margin-top: 0; }
+/* line 81, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp blockquote { margin: 1.5em; padding: 1em; font-style: italic; font-size: 0.9em; }
+/* line 86, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp .small { font-size: 0.9em; }
+/* line 88, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp .large { font-size: 1.1em; }
+/* line 90, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp .quiet { color: #999999; }
+/* line 92, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+body.bp .hide { display: none; }

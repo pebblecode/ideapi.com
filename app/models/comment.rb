@@ -2,6 +2,8 @@ class Comment < ActiveRecord::Base
 
   include ActsAsCommentable::Comment
   
+  attr_accessor :send_notifications
+  
   after_save      :update_document
   after_save      :deliver_notifications
   before_destroy  :delete_timeline_events
@@ -39,26 +41,17 @@ class Comment < ActiveRecord::Base
   
   def deliver_notifications
     # If the comment is on a document or a Proposal, send relevant notifications. 
-    
-    begin
-      if self.commentable.is_a?(Document)
-        # should be sent to document users (all collaborators)
-
-        # [DEPRECATED]
-        # NotificationMailer.deliver_new_comment_on_document(self, document_recipients) if document_recipients.present?
-        # We are using Resque to process emails so need to send id to worker
-        NotificationMailer.deliver_new_comment_on_document(self.id, document_recipients) if document_recipients.present?
+    if self.send_notifications.to_i == 1
+      begin
+        if self.commentable.is_a?(Document)
+          NotificationMailer.deliver_new_comment_on_document(self.id, document_recipients) if document_recipients.present?
+        end
+        if self.commentable.is_a?(Proposal)
+          NotificationMailer.deliver_new_comment_on_idea(self.id, idea_recipients) if idea_recipients.present?
+        end
+      rescue Errno::ECONNREFUSED
+        nil
       end
-  
-      if self.commentable.is_a?(Proposal)
-        # should be sent to idea.document.authors and idea.document.approver
-        # [DEPRECATED]
-        # NotificationMailer.deliver_new_comment_on_idea(self, idea_recipients) if idea_recipients.present?
-        # We are using Resque to process emails so need to send id to worker
-        NotificationMailer.deliver_new_comment_on_idea(self.id, idea_recipients) if idea_recipients.present?
-      end
-    rescue Errno::ECONNREFUSED
-      nil
     end
   end
   

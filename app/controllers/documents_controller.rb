@@ -106,16 +106,18 @@ class DocumentsController < ApplicationController
       end
       
       recipients = current_object.users.collect{ |user| user.email unless user.pending? }.compact - [current_user.email]
-      
-      if @document_items_changed.present? and recipients.present?
-        begin
-          NotificationMailer.deliver_document_section_updated(current_object.id, recipients, current_user.id, @document_items_changed.collect(&:id))
-        rescue
-          nil
-        end
+      if params[:document].present? && params[:document][:send_notifications].present?
+        if params[:document][:send_notifications].to_i == 1
+          if @document_items_changed.present? and recipients.present?
+            begin
+              NotificationMailer.deliver_document_section_updated(current_object.id, recipients, current_user.id, @document_items_changed.collect(&:id))
+            rescue
+              nil
+            end
         
+          end
+        end
       end
-      
     end
     
     response_for(:create) do |format|

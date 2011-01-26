@@ -141,7 +141,7 @@ body.bp .top { margin-top: 0; padding-top: 0; }
 /* line 35, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_utilities.scss */
 body.bp .bottom { margin-bottom: 0; padding-bottom: 0; }
 /* line 8, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_debug.scss */
-body.bp .showgrid { background: url('/images/grid.png?1294856194'); }
+body.bp .showgrid { background: url('/images/grid.png'); }
 /* line 4, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .error { padding: 0.8em; margin-bottom: 1em; border: 2px solid #dddddd; background: #fbe3e4; color: #8a1f11; border-color: #fbc2c4; }
 /* line 29, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
