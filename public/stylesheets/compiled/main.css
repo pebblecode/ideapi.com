@@ -1747,10 +1747,10 @@ ul.actions.active { border-bottom: 1px solid #eeeeee; }
 span.separator { color: #ccc; font-size: 1em; margin: 0 .5em; }
 
 /* line 584, ../sass/snippets/_documents.scss */
-.notify { margin-top: .5em; float: left; }
-/* line 587, ../sass/snippets/_documents.scss */
-.notify label, .notify input { display: inline; float: none; font-weight: normal; }
+.notify { margin-top: .9em; float: left; font-size: 9pt; }
 /* line 588, ../sass/snippets/_documents.scss */
+.notify label, .notify input { display: inline; float: none; font-weight: normal; }
+/* line 589, ../sass/snippets/_documents.scss */
 .notify label { width: auto; }
 
 /* line 4, ../sass/snippets/_smartbox.scss */
