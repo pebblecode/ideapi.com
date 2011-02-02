@@ -2,6 +2,10 @@ development:
   login: 'ideapi_1259326554_biz_api1.jaseandtonic.com'
   password: '1259326667'
   signature: 'AFcWxV21C7fd0v3bYYYRCpSSRl31APbm-.yrl0EagYpq-U7ci4a-MSdr'
+staging:
+  login: <%= ENV['IDEAPI_GATEWAY_LOGIN'] || "demo" %>
+  password: <%= ENV['IDEAPI_GATEWAY_PASSWORD'] || "password" %>
+  signature: <%= ENV['IDEAPI_GATEWAY_SIGNATURE'] || "signature" %>
 production:
   login: <%= ENV['IDEAPI_GATEWAY_LOGIN'] || "demo" %>
   password: <%= ENV['IDEAPI_GATEWAY_PASSWORD'] || "password" %>
