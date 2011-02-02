@@ -141,3 +141,6 @@ input.smartTextBox-input-elem-valueInput { border: none !important; }
 
 /* line 310, ../sass/ie7.scss */
 .clear { clear: both; }
+
+/* line 314, ../sass/ie7.scss */
+.add_user_document_button { line-height: 10px !important; }

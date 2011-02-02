@@ -582,11 +582,14 @@ span.separator{
 }
 
 .notify{
-  margin-top: .9em;
-  float: left;
+  float: right;
   font-size: 9pt;
   label, input{ display: inline; float: none; font-weight: normal;}
   label{ width: auto;}
-
 }
+.speech .notify{
+  margin-top: .9em;
+  float: right;
+}
+
 @import "snippets/smartbox";

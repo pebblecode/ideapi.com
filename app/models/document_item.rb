@@ -1,6 +1,7 @@
 class DocumentItem < ActiveRecord::Base
-  
+  attr_accessor :send_notifications
   before_create :set_position
+  after_update :deliver_notifications
   # Comments added by shapeshed for the good of developers everywhere
   # 
   # Document Items act as a clone of template questions so that we don't 
@@ -126,5 +127,16 @@ class DocumentItem < ActiveRecord::Base
       last_item = items.last
       self.position = last_item.position + 1 if last_item.position.present?
     end
+  end
+  
+  def deliver_notifications
+    recipients = self.document.users.collect{ |user| user.email unless user.pending? }.compact - [User.current.email]
+    if self.send_notifications.to_i == 1
+      if self.title_changed? or self.body_changed?
+        NotificationMailer.deliver_document_section_updated(self.document.id, recipients, User.current.id, [self.id])
+      end
+    end
+  rescue Errno::ECONNREFUSED
+    nil
   end
 end

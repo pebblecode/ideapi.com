@@ -28,12 +28,18 @@
       .edit
         - form_for document_item, :html => {:id => "section_edit_form_#{document_item.id}", :class => "inline-edit-form section-form"} do |form|
           = hidden_field_tag 'render', 'document_item'
+          
           .field
             %h4
               = form.text_field :title, :class => 'inline-edit-title'
           .field
             = form.text_area :body, :class => 'inline-edit-body'
-          .field
+          .field.clearfix
+            %span.notify
+              =form.label :send_notifications, "Notify collaborators?"
+              =form.check_box :send_notifications, :checked => true
+            
+          .field            
             %p.submit.fright            
               = link_to 'cancel', 'javascript:void(0)', :class => 'cancel-inline-edit' if owner?(current_object) and current_object.active?
               or
