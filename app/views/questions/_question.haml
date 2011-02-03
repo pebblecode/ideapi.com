@@ -8,7 +8,7 @@
       -else
         %strong="#{comment_adjective_for given_name(question.user), :position => :before}:"
       :textile
-        =question.body
+        #{question.body}
     %br.clear    
   -if question.answered?
     .author_answer
