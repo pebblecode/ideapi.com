@@ -5,10 +5,10 @@
       -if question.user == current_user or owner?(@document)
         - form_for question, :html => {:method => :delete, :class => "delete_question_form", :id => "delete_question_#{question.id}"} do |f|
           = f.submit 'delete', :class => 'question-delete ajaxify', :id => "delete_question_#{question.id}_submit"
-      %p
+      %div
         %strong="#{given_name(question.user)}:"
         :textile
-          #{question.body}
+          question.body
         
         %span.timestamp
           ="(#{comment_date(question.created_at)})"
@@ -25,8 +25,7 @@
           %strong
             =given_name(question.document.author)
             answered:
-          :textile
-            #{question.author_answer}
+            =question.author_answer
           %span.timestamp
             ="(#{comment_date(question.updated_at)})"
           
