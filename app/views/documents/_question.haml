@@ -25,7 +25,8 @@
           %strong
             =given_name(question.document.author)
             answered:
-          =question.author_answer
+          :textile
+            #{question.author_answer}
           %span.timestamp
             ="(#{comment_date(question.updated_at)})"
           

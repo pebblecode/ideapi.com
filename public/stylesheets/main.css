@@ -807,25 +807,25 @@ ul.navigation li a.toggle-page-help { display: inline-block; text-align: center;
 ul.navigation li a.toggle-page-help span { /*
 background: url('/images/ui/help.png') no-repeat 0 0;
 text-indent: -9999px;
-*/ color: #555; font-size: .8em; text-transform: uppercase; display: block; margin: auto; }
+*/ color: #555; text-transform: lowercase; display: block; margin: auto; }
 
-/* line 94, sass/snippets/_header.scss */
+/* line 93, sass/snippets/_header.scss */
 #page-help { display: none; /*  border: 1px solid $ideapi_green_light;*/ margin: 0; background: #32401a; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-left-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-bottom-right-radius: 3px; color: #fcfcfc; }
-/* line 102, sass/snippets/_header.scss */
+/* line 101, sass/snippets/_header.scss */
 #page-help a { color: #32401a; text-shadow: none; }
-/* line 105, sass/snippets/_header.scss */
+/* line 104, sass/snippets/_header.scss */
 #page-help a:hover { border-bottom: 1px solid #32401a; }
-/* line 109, sass/snippets/_header.scss */
+/* line 108, sass/snippets/_header.scss */
 #page-help .blind { padding: 1em; }
-/* line 112, sass/snippets/_header.scss */
+/* line 111, sass/snippets/_header.scss */
 #page-help .box { width: 570px; color: #eee; }
-/* line 117, sass/snippets/_header.scss */
+/* line 116, sass/snippets/_header.scss */
 #page-help p { text-align: left; color: #eee; }
-/* line 122, sass/snippets/_header.scss */
+/* line 121, sass/snippets/_header.scss */
 #page-help a { color: #b3d335; }
-/* line 124, sass/snippets/_header.scss */
+/* line 123, sass/snippets/_header.scss */
 #page-help a:hover { color: #91b113; text-decoration: none; border-bottom: none; }
-/* line 130, sass/snippets/_header.scss */
+/* line 129, sass/snippets/_header.scss */
 #page-help .right-column { float: right; width: 250px; }
 
 /* line 1, sass/snippets/_subnav.scss */
@@ -1215,92 +1215,94 @@ ul#notifications li span.notification_action { float: right; }
 /* line 102, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .document_item_history { margin: 0 auto 0 auto; padding: 0; }
 /* line 106, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity ul { margin: .5em 0; }
-/* line 109, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity li { padding: 0; margin: 0; }
-/* line 113, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity li { padding: 0 0 1em 0; margin: 0; }
+/* line 112, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .speech ul { margin: .5em 0; }
+/* line 115, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .speech li { padding: 0; margin: 0; }
+/* line 120, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body { border: 1px dashed #ddd; margin: 0 auto; padding: 0.5em 1em; background: #fcfcfc; }
-/* line 118, sass/partials/_comments_and_activity_stream.scss */
+/* line 125, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .close-button { display: none; }
-/* line 122, sass/partials/_comments_and_activity_stream.scss */
+/* line 129, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body:hover .close-button { display: block; }
-/* line 127, sass/partials/_comments_and_activity_stream.scss */
+/* line 134, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .info h5 { font-size: 1.1em; }
-/* line 130, sass/partials/_comments_and_activity_stream.scss */
+/* line 137, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .info .buttons { float: right; }
-/* line 132, sass/partials/_comments_and_activity_stream.scss */
+/* line 139, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .info .buttons a { margin-left: 1em; }
-/* line 138, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .revision-body .body { display: none; clear: both; }
 /* line 145, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .revision-body .body { display: none; clear: both; }
+/* line 152, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .submit { margin: 0; padding: 0; text-align: right; }
-/* line 151, sass/partials/_comments_and_activity_stream.scss */
+/* line 158, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .show_author_answer_form { margin: 0; padding: 0; position: relative; }
-/* line 156, sass/partials/_comments_and_activity_stream.scss */
+/* line 163, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .show_author_answer_form input[type=submit] { position: absolute; right: 10px; top: -2em; padding: 2px 3px; }
-/* line 167, sass/partials/_comments_and_activity_stream.scss */
+/* line 174, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .document_item_question .avatar, #container #content .main .document_item .document_item_activity .question_form .avatar { position: absolute; left: 2em; top: 0; }
-/* line 173, sass/partials/_comments_and_activity_stream.scss */
+/* line 180, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .document_item_question span.bubble, #container #content .main .document_item .document_item_activity .question_form span.bubble { background: url(/images/ui/speech.png); width: 7px; height: 16px; display: block; position: absolute; left: -7px; top: 10px; }
-/* line 183, sass/partials/_comments_and_activity_stream.scss */
+/* line 190, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .toggle_author_answer_form { display: block; width: 450px; text-align: right; margin: 3px auto 0 auto; }
-/* line 189, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .author_answer, #container #content .main .document_item .document_item_activity .author_answer_form { margin-top: 1em; }
-/* line 191, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .author_answer .avatar, #container #content .main .document_item .document_item_activity .author_answer_form .avatar { position: absolute; right: 1em; top: 1px; }
 /* line 196, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .author_answer, #container #content .main .document_item .document_item_activity .author_answer_form { margin-top: 1em; }
+/* line 198, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .author_answer .avatar, #container #content .main .document_item .document_item_activity .author_answer_form .avatar { position: absolute; right: 1em; top: 1px; }
+/* line 203, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer span.bubble, #container #content .main .document_item .document_item_activity .author_answer_form span.bubble { background: url(/images/ui/speech.png) 8px 0; width: 7px; height: 16px; display: block; position: absolute; right: -7px; top: 20px; }
-/* line 206, sass/partials/_comments_and_activity_stream.scss */
+/* line 213, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form { margin-top: 0.5em; }
-/* line 211, sass/partials/_comments_and_activity_stream.scss */
+/* line 218, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form img.spinner, #container #content .main .document_item .document_item_activity .question_form img.spinner, #container #content .main .document_item .document_item_activity .question-answer-form img.spinner { display: inline; }
-/* line 214, sass/partials/_comments_and_activity_stream.scss */
+/* line 221, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .speech, #container #content .main .document_item .document_item_activity .question_form .speech, #container #content .main .document_item .document_item_activity .question-answer-form .speech { padding-bottom: 10px; }
-/* line 217, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .author_answer_form .speech textarea, #container #content .main .document_item .document_item_activity .question_form .speech textarea, #container #content .main .document_item .document_item_activity .question-answer-form .speech textarea { width: 418px; max-width: 418px; min-width: 418px; margin: 0; height: 80px; }
 /* line 224, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .author_answer_form .speech textarea, #container #content .main .document_item .document_item_activity .question_form .speech textarea, #container #content .main .document_item .document_item_activity .question-answer-form .speech textarea { width: 418px; max-width: 418px; min-width: 418px; margin: 0; height: 80px; }
+/* line 231, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .speech p.button, #container #content .main .document_item .document_item_activity .question_form .speech p.button, #container #content .main .document_item .document_item_activity .question-answer-form .speech p.button { text-align: right; margin: 0.8em auto 0 auto; }
-/* line 228, sass/partials/_comments_and_activity_stream.scss */
+/* line 235, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit] { font-size: 0.9em; }
-/* line 233, sass/partials/_comments_and_activity_stream.scss */
+/* line 240, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .submit, #container #content .main .document_item .document_item_activity .question_form .submit, #container #content .main .document_item .document_item_activity .question-answer-form .submit { width: 432px; margin: 0.5em auto; }
-/* line 236, sass/partials/_comments_and_activity_stream.scss */
+/* line 243, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit] { font-size: 0.9em; }
-/* line 244, sass/partials/_comments_and_activity_stream.scss */
+/* line 251, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .question_form .avatar { position: absolute; left: 1em; top: 0px; }
-/* line 249, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .question_form span.bubble { top: 20px; }
 /* line 256, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .question_form span.bubble { top: 20px; }
+/* line 263, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .delete-comment { float: right; }
-/* line 258, sass/partials/_comments_and_activity_stream.scss */
+/* line 265, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .delete-comment a { color: #aaaaaa; font-weight: normal; }
-/* line 261, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .delete-comment a:hover { color: #555555; }
 /* line 268, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .delete-comment a:hover { color: #555555; }
+/* line 275, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .author_answer_form textarea, #container #content .main .comment_form textarea, #container #content .main .question_form textarea { font-size: 1em; padding: 0.5em; }
 
-/* line 277, sass/partials/_comments_and_activity_stream.scss */
+/* line 284, sass/partials/_comments_and_activity_stream.scss */
 span.timestamp { color: #999; font-size: .85em; font-style: italic; }
 
-/* line 285, sass/partials/_comments_and_activity_stream.scss */
-.document_item_history .speech p { margin: 0; }
-/* line 287, sass/partials/_comments_and_activity_stream.scss */
-.document_item_history .speech:hover .delete_question_form .question-delete, .document_item_history .speech:hover .delete-question-answer { display: block; border: none !important; }
 /* line 292, sass/partials/_comments_and_activity_stream.scss */
+.document_item_history .speech p { margin: 0; }
+/* line 294, sass/partials/_comments_and_activity_stream.scss */
+.document_item_history .speech:hover .delete_question_form .question-delete, .document_item_history .speech:hover .delete-question-answer { display: block; border: none !important; }
+/* line 299, sass/partials/_comments_and_activity_stream.scss */
 .document_item_history .speech .delete-question-answer { display: none; }
-/* line 295, sass/partials/_comments_and_activity_stream.scss */
+/* line 302, sass/partials/_comments_and_activity_stream.scss */
 .document_item_history .speech .delete-question-answer-form { float: right; }
-/* line 298, sass/partials/_comments_and_activity_stream.scss */
+/* line 305, sass/partials/_comments_and_activity_stream.scss */
 .document_item_history .speech .delete_question_form { float: right; }
-/* line 300, sass/partials/_comments_and_activity_stream.scss */
+/* line 307, sass/partials/_comments_and_activity_stream.scss */
 .document_item_history .speech .delete_question_form .question-delete { display: none; background: transparent url("/images/ui/cross-button.png") no-repeat 0 0 !important; text-indent: -9999px; width: 16px; height: 16px; }
 
-/* line 311, sass/partials/_comments_and_activity_stream.scss */
+/* line 318, sass/partials/_comments_and_activity_stream.scss */
 #comments_area .delete_comment_form { float: right; display: none; }
-/* line 316, sass/partials/_comments_and_activity_stream.scss */
+/* line 323, sass/partials/_comments_and_activity_stream.scss */
 #comments_area .speech:hover .delete_comment_form { display: block; }
 
-/* line 322, sass/partials/_comments_and_activity_stream.scss */
+/* line 329, sass/partials/_comments_and_activity_stream.scss */
 .close-button { background: transparent url("/images/ui/cross-button.png") no-repeat 0 0; text-indent: -9999px; display: block; width: 16px; height: 16px; border: 0; padding: 0; cursor: pointer; }
 
 /* line 2, sass/partials/_account_form.scss */
