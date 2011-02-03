@@ -28,8 +28,8 @@ class Question < ActiveRecord::Base
     updated_at.to_date
   end
   
-  include Ideapi::GetParsed
-  gp_parse_fields :author_answer, :body
+  # include Ideapi::GetParsed
+  # gp_parse_fields :author_answer, :body
   
   class << self
     def document_items

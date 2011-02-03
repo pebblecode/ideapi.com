@@ -7,9 +7,8 @@
         - form_for comment, :html => {:method => :delete, :class => "delete_comment_form" } do |form|
           = form.submit 'delete', :class => 'close-button comment-delete ajaxify', :id => "delete_comment_#{comment.id}_submit"
       %p
-        %strong
-          = succeed ':' do
-            =given_name(comment.user)
-        =comment.comment
+        :textile
+          <strong>#{given_name(comment.user)}:</strong>
+          #{comment.comment}
         %span.timestamp
           = "(#{comment_date(comment.created_at)})"

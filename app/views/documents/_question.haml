@@ -7,7 +7,9 @@
           = f.submit 'delete', :class => 'question-delete ajaxify', :id => "delete_question_#{question.id}_submit"
       %p
         %strong="#{given_name(question.user)}:"
-        =question.body_parsed
+        :textile
+          #{question.body}
+        
         %span.timestamp
           ="(#{comment_date(question.created_at)})"
   

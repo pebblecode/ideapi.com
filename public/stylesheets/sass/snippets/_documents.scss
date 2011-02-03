@@ -601,11 +601,23 @@ span.separator{
   label, input{ display: inline; float: none; font-weight: normal;}
   label{ width: auto;}
 }
-.speech .notify{
+#container #content .col_1 .speech {
+  ul{
+    display: block;
+    list-style: disc;
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    li{
+      margin: 0 !important;
+      padding: 0;
+    }
+  }
+  .notify{
   float: none;
   display: block;
   margin-top: .5em;
   text-align: right;
+  }
 }
-
 @import "snippets/smartbox";

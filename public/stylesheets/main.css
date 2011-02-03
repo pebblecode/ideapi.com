@@ -1215,90 +1215,92 @@ ul#notifications li span.notification_action { float: right; }
 /* line 102, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .document_item_history { margin: 0 auto 0 auto; padding: 0; }
 /* line 106, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity li { padding: 0 0 1em 0; margin: 0; }
-/* line 110, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity ul { margin: .5em 0; }
+/* line 109, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity li { padding: 0; margin: 0; }
+/* line 113, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body { border: 1px dashed #ddd; margin: 0 auto; padding: 0.5em 1em; background: #fcfcfc; }
-/* line 115, sass/partials/_comments_and_activity_stream.scss */
+/* line 118, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .close-button { display: none; }
-/* line 119, sass/partials/_comments_and_activity_stream.scss */
+/* line 122, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body:hover .close-button { display: block; }
-/* line 124, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .revision-body .info h5 { font-size: 1.1em; }
 /* line 127, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .revision-body .info h5 { font-size: 1.1em; }
+/* line 130, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .info .buttons { float: right; }
-/* line 129, sass/partials/_comments_and_activity_stream.scss */
+/* line 132, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .info .buttons a { margin-left: 1em; }
-/* line 135, sass/partials/_comments_and_activity_stream.scss */
+/* line 138, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .body { display: none; clear: both; }
-/* line 142, sass/partials/_comments_and_activity_stream.scss */
+/* line 145, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .submit { margin: 0; padding: 0; text-align: right; }
-/* line 148, sass/partials/_comments_and_activity_stream.scss */
+/* line 151, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .show_author_answer_form { margin: 0; padding: 0; position: relative; }
-/* line 153, sass/partials/_comments_and_activity_stream.scss */
+/* line 156, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .show_author_answer_form input[type=submit] { position: absolute; right: 10px; top: -2em; padding: 2px 3px; }
-/* line 164, sass/partials/_comments_and_activity_stream.scss */
+/* line 167, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .document_item_question .avatar, #container #content .main .document_item .document_item_activity .question_form .avatar { position: absolute; left: 2em; top: 0; }
-/* line 170, sass/partials/_comments_and_activity_stream.scss */
+/* line 173, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .document_item_question span.bubble, #container #content .main .document_item .document_item_activity .question_form span.bubble { background: url(/images/ui/speech.png); width: 7px; height: 16px; display: block; position: absolute; left: -7px; top: 10px; }
-/* line 180, sass/partials/_comments_and_activity_stream.scss */
+/* line 183, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .toggle_author_answer_form { display: block; width: 450px; text-align: right; margin: 3px auto 0 auto; }
-/* line 186, sass/partials/_comments_and_activity_stream.scss */
+/* line 189, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer, #container #content .main .document_item .document_item_activity .author_answer_form { margin-top: 1em; }
-/* line 188, sass/partials/_comments_and_activity_stream.scss */
+/* line 191, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer .avatar, #container #content .main .document_item .document_item_activity .author_answer_form .avatar { position: absolute; right: 1em; top: 1px; }
-/* line 193, sass/partials/_comments_and_activity_stream.scss */
+/* line 196, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer span.bubble, #container #content .main .document_item .document_item_activity .author_answer_form span.bubble { background: url(/images/ui/speech.png) 8px 0; width: 7px; height: 16px; display: block; position: absolute; right: -7px; top: 20px; }
-/* line 203, sass/partials/_comments_and_activity_stream.scss */
+/* line 206, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form { margin-top: 0.5em; }
-/* line 208, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .author_answer_form img.spinner, #container #content .main .document_item .document_item_activity .question_form img.spinner, #container #content .main .document_item .document_item_activity .question-answer-form img.spinner { display: inline; }
 /* line 211, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .author_answer_form .speech, #container #content .main .document_item .document_item_activity .question_form .speech, #container #content .main .document_item .document_item_activity .question-answer-form .speech { padding-bottom: 10px; }
+#container #content .main .document_item .document_item_activity .author_answer_form img.spinner, #container #content .main .document_item .document_item_activity .question_form img.spinner, #container #content .main .document_item .document_item_activity .question-answer-form img.spinner { display: inline; }
 /* line 214, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .author_answer_form .speech, #container #content .main .document_item .document_item_activity .question_form .speech, #container #content .main .document_item .document_item_activity .question-answer-form .speech { padding-bottom: 10px; }
+/* line 217, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .speech textarea, #container #content .main .document_item .document_item_activity .question_form .speech textarea, #container #content .main .document_item .document_item_activity .question-answer-form .speech textarea { width: 418px; max-width: 418px; min-width: 418px; margin: 0; height: 80px; }
-/* line 221, sass/partials/_comments_and_activity_stream.scss */
+/* line 224, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .speech p.button, #container #content .main .document_item .document_item_activity .question_form .speech p.button, #container #content .main .document_item .document_item_activity .question-answer-form .speech p.button { text-align: right; margin: 0.8em auto 0 auto; }
-/* line 225, sass/partials/_comments_and_activity_stream.scss */
+/* line 228, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question_form .speech input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .speech input[type=submit] { font-size: 0.9em; }
-/* line 230, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .author_answer_form .submit, #container #content .main .document_item .document_item_activity .question_form .submit, #container #content .main .document_item .document_item_activity .question-answer-form .submit { width: 432px; margin: 0.5em auto; }
 /* line 233, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .document_item .document_item_activity .author_answer_form .submit, #container #content .main .document_item .document_item_activity .question_form .submit, #container #content .main .document_item .document_item_activity .question-answer-form .submit { width: 432px; margin: 0.5em auto; }
+/* line 236, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .author_answer_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question_form .submit input[type=submit], #container #content .main .document_item .document_item_activity .question-answer-form .submit input[type=submit] { font-size: 0.9em; }
-/* line 241, sass/partials/_comments_and_activity_stream.scss */
+/* line 244, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .question_form .avatar { position: absolute; left: 1em; top: 0px; }
-/* line 246, sass/partials/_comments_and_activity_stream.scss */
+/* line 249, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .question_form span.bubble { top: 20px; }
-/* line 253, sass/partials/_comments_and_activity_stream.scss */
+/* line 256, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .delete-comment { float: right; }
-/* line 255, sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .delete-comment a { color: #aaaaaa; font-weight: normal; }
 /* line 258, sass/partials/_comments_and_activity_stream.scss */
+#container #content .main .delete-comment a { color: #aaaaaa; font-weight: normal; }
+/* line 261, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .delete-comment a:hover { color: #555555; }
-/* line 265, sass/partials/_comments_and_activity_stream.scss */
+/* line 268, sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .author_answer_form textarea, #container #content .main .comment_form textarea, #container #content .main .question_form textarea { font-size: 1em; padding: 0.5em; }
 
-/* line 274, sass/partials/_comments_and_activity_stream.scss */
+/* line 277, sass/partials/_comments_and_activity_stream.scss */
 span.timestamp { color: #999; font-size: .85em; font-style: italic; }
 
-/* line 282, sass/partials/_comments_and_activity_stream.scss */
+/* line 285, sass/partials/_comments_and_activity_stream.scss */
 .document_item_history .speech p { margin: 0; }
-/* line 284, sass/partials/_comments_and_activity_stream.scss */
+/* line 287, sass/partials/_comments_and_activity_stream.scss */
 .document_item_history .speech:hover .delete_question_form .question-delete, .document_item_history .speech:hover .delete-question-answer { display: block; border: none !important; }
-/* line 289, sass/partials/_comments_and_activity_stream.scss */
-.document_item_history .speech .delete-question-answer { display: none; }
 /* line 292, sass/partials/_comments_and_activity_stream.scss */
-.document_item_history .speech .delete-question-answer-form { float: right; }
+.document_item_history .speech .delete-question-answer { display: none; }
 /* line 295, sass/partials/_comments_and_activity_stream.scss */
+.document_item_history .speech .delete-question-answer-form { float: right; }
+/* line 298, sass/partials/_comments_and_activity_stream.scss */
 .document_item_history .speech .delete_question_form { float: right; }
-/* line 297, sass/partials/_comments_and_activity_stream.scss */
+/* line 300, sass/partials/_comments_and_activity_stream.scss */
 .document_item_history .speech .delete_question_form .question-delete { display: none; background: transparent url("/images/ui/cross-button.png") no-repeat 0 0 !important; text-indent: -9999px; width: 16px; height: 16px; }
 
-/* line 308, sass/partials/_comments_and_activity_stream.scss */
+/* line 311, sass/partials/_comments_and_activity_stream.scss */
 #comments_area .delete_comment_form { float: right; display: none; }
-/* line 313, sass/partials/_comments_and_activity_stream.scss */
+/* line 316, sass/partials/_comments_and_activity_stream.scss */
 #comments_area .speech:hover .delete_comment_form { display: block; }
 
-/* line 319, sass/partials/_comments_and_activity_stream.scss */
+/* line 322, sass/partials/_comments_and_activity_stream.scss */
 .close-button { background: transparent url("/images/ui/cross-button.png") no-repeat 0 0; text-indent: -9999px; display: block; width: 16px; height: 16px; border: 0; padding: 0; cursor: pointer; }
 
 /* line 2, sass/partials/_account_form.scss */
@@ -1759,8 +1761,12 @@ span.separator { color: #ccc; font-size: 1em; margin: 0 .5em; }
 /* line 602, sass/snippets/_documents.scss */
 .notify label { width: auto; }
 
-/* line 604, sass/snippets/_documents.scss */
-.speech .notify { float: none; display: block; margin-top: .5em; text-align: right; }
+/* line 605, sass/snippets/_documents.scss */
+#container #content .col_1 .speech ul { display: block; list-style: disc; margin: 0; padding: 0; list-style-position: inside; }
+/* line 611, sass/snippets/_documents.scss */
+#container #content .col_1 .speech ul li { margin: 0 !important; padding: 0; }
+/* line 616, sass/snippets/_documents.scss */
+#container #content .col_1 .speech .notify { float: none; display: block; margin-top: .5em; text-align: right; }
 
 /* line 4, sass/snippets/_smartbox.scss */
 .smartTextBox { cursor: text; }

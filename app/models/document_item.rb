@@ -75,7 +75,7 @@ class DocumentItem < ActiveRecord::Base
                              :subject => 'latest',
                              :secondary_subject => :self,
                              :log_level => 1,
-                             :if => lambda { |item| item.published? && !item.revisions.blank? && !item.body.eql?(item.latest.body) }
+                             :if => lambda { |item| item.published? && !item.body.eql?(item.latest.body) }
   
   # This handles the versioning via acts_as_versioned
   # http://github.com/technoweenie/acts_as_versioned  
@@ -85,7 +85,7 @@ class DocumentItem < ActiveRecord::Base
       lambda { |document_item| 
         { 
           :conditions => [
-            "version > 1 AND body <> '' AND document_item_id = ?", 
+            "version >= 1  AND body <> '' AND document_item_id = ?", 
             document_item.id
           ] 
         }

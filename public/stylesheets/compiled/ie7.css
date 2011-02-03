@@ -10,140 +10,143 @@ input[type=text] { font-size: 1em; line-height: 1.2em; }
 /* line 25, ../sass/ie7.scss */
 #middle-section .section h1 { padding-top: 1em; }
 
-/*  LOGIN   */
-/* line 32, ../sass/ie7.scss */
-#user_session_email, #user_session_password { padding: 5px; width: 240px; height: 20px; }
-
-/* line 38, ../sass/ie7.scss */
-.login_form p { clear: both; margin-top: 1em; }
-/* line 42, ../sass/ie7.scss */
-.login_form label { display: block; float: left; font-size: 1em; padding: 8px 5px; }
-/* line 49, ../sass/ie7.scss */
-.login_form input[type=submit] { padding: 2px 10px; }
-
 /*Layout fixes*/
-/* line 58, ../sass/ie7.scss */
+/* line 33, ../sass/ie7.scss */
 .speech, .revision-body { position: static !important; }
-/* line 60, ../sass/ie7.scss */
+/* line 35, ../sass/ie7.scss */
 .speech .bubble, .revision-body .bubble { display: none !important; }
 
-/* line 65, ../sass/ie7.scss */
+/* line 40, ../sass/ie7.scss */
 #document-tags { display: none; }
 
 /*BRIEFS*/
-/* line 72, ../sass/ie7.scss */
+/* line 47, ../sass/ie7.scss */
 #container #content .main .col_1 .title { overflow: hidden; }
-/* line 74, ../sass/ie7.scss */
+/* line 49, ../sass/ie7.scss */
 #container #content .main .col_1 .title a { height: 1px; }
-/* line 75, ../sass/ie7.scss */
+/* line 50, ../sass/ie7.scss */
 #container #content .main .col_1 .title h2 { position: static; }
-/* line 79, ../sass/ie7.scss */
+/* line 54, ../sass/ie7.scss */
 #container #content .main .col_1 .title:hover .toggle-inline-edit { height: 5px; display: block; float: right; margin-right: 50px; margin-top: -35px; }
-/* line 87, ../sass/ie7.scss */
+/* line 62, ../sass/ie7.scss */
 #container #content .main .col_1 .title .toggle-inline-edit { display: none; }
-/* line 92, ../sass/ie7.scss */
+/* line 67, ../sass/ie7.scss */
 #container #content .main .col_1 .most_important_thing .right { clear: none; margin-top: 0; }
-/* line 97, ../sass/ie7.scss */
+/* line 72, ../sass/ie7.scss */
 #container #content .main .col_1 .document_item_history li { border: 1px solid #f7f7f7; }
-/* line 100, ../sass/ie7.scss */
+/* line 75, ../sass/ie7.scss */
 #container #content .main .col_1 ul.comments li { border: 1px solid transparent; }
-/* line 107, ../sass/ie7.scss */
+/* line 82, ../sass/ie7.scss */
 #container #content .main .col_1 ul.document_item_history li .document_item_question, #container #content .main .col_1 ul.document_item_history li .comment, #container #content .main .col_1 #comments_area ul.comments li .document_item_question, #container #content .main .col_1 #comments_area ul.comments li .comment { border: 1px solid transparent; }
-/* line 109, ../sass/ie7.scss */
+/* line 84, ../sass/ie7.scss */
 #container #content .main .col_1 ul.document_item_history li .document_item_question .speech, #container #content .main .col_1 ul.document_item_history li .comment .speech, #container #content .main .col_1 #comments_area ul.comments li .document_item_question .speech, #container #content .main .col_1 #comments_area ul.comments li .comment .speech { border: 1px solid transparent; margin-top: -17px; }
-/* line 116, ../sass/ie7.scss */
+/* line 91, ../sass/ie7.scss */
 #container #content .main .col_1 ul.document_item_history li .show_author_answer_form input[type=submit], #container #content .main .col_1 #comments_area ul.comments li .show_author_answer_form input[type=submit] { width: 60px; top: -2.5em; }
 
-/* line 124, ../sass/ie7.scss */
+/* line 99, ../sass/ie7.scss */
 input[type=submit] { padding: 2px 5px !important; font-size: 1em; border-width: 1px !important; }
-/* line 128, ../sass/ie7.scss */
+/* line 103, ../sass/ie7.scss */
 input[type=submit]:active, input[type=submit]:focus { border-width: 1px !important; }
 
-/* line 133, ../sass/ie7.scss */
+/* line 108, ../sass/ie7.scss */
 input.smartTextBox-input-elem-valueInput { border: none !important; }
 
-/* line 138, ../sass/ie7.scss */
+/* line 113, ../sass/ie7.scss */
 #beta_feedback .wrap { display: none; }
-/* line 140, ../sass/ie7.scss */
+/* line 115, ../sass/ie7.scss */
 #beta_feedback .wrap .info { float: left; }
 
-/* line 145, ../sass/ie7.scss */
+/* line 120, ../sass/ie7.scss */
 #user_input.user_input { float: left; width: 330px; }
 
 /*DASHBOARD*/
 /*COLLABORATION LIST*/
-/* line 156, ../sass/ie7.scss */
+/* line 131, ../sass/ie7.scss */
 #container #content .side_box .action { clear: both; }
-/* line 160, ../sass/ie7.scss */
+/* line 135, ../sass/ie7.scss */
 #container #content .side_box ul.overview li, #container #content .side_box ul.proposals li { position: relative; clear: both; }
-/* line 163, ../sass/ie7.scss */
+/* line 138, ../sass/ie7.scss */
 #container #content .side_box ul.overview li p, #container #content .side_box ul.proposals li p { float: left; margin: 0 0 1em 0; padding: 0; }
-/* line 168, ../sass/ie7.scss */
+/* line 143, ../sass/ie7.scss */
 #container #content .side_box ul.overview li p.non_found, #container #content .side_box ul.proposals li p.non_found { float: none; }
-/* line 175, ../sass/ie7.scss */
+/* line 150, ../sass/ie7.scss */
 #container #content .side_box #update_collaborators ul.add_collaborators { padding-top: 1em; }
-/* line 178, ../sass/ie7.scss */
+/* line 153, ../sass/ie7.scss */
 #container #content .side_box #update_collaborators li.available_collaborator { padding-bottom: 0.5em; }
-/* line 182, ../sass/ie7.scss */
+/* line 157, ../sass/ie7.scss */
 #container #content .side_box #update_collaborators ul.collaborators .collaboration_user { clear: both; }
-/* line 184, ../sass/ie7.scss */
+/* line 159, ../sass/ie7.scss */
 #container #content .side_box #update_collaborators ul.collaborators .collaboration_user .avatar { position: absolute; top: 0em; left: 0em; }
-/* line 189, ../sass/ie7.scss */
+/* line 164, ../sass/ie7.scss */
 #container #content .side_box #update_collaborators ul.collaborators .collaboration_user p { margin: -15px 0 0 50px !important; }
 
-/* line 201, ../sass/ie7.scss */
+/* line 176, ../sass/ie7.scss */
 #template_documents #container .new_template_document .actions, #template_documents #container .edit_template_document .actions { border-top: 1px solid #dddddd; padding-top: 1.5em; }
-/* line 205, ../sass/ie7.scss */
+/* line 180, ../sass/ie7.scss */
 #template_documents #container .new_template_document .actions #template_document_submit, #template_documents #container .edit_template_document .actions #template_document_submit { height: 30px; }
 
-/* line 217, ../sass/ie7.scss */
+/* line 192, ../sass/ie7.scss */
 #container #content .col_1 .user input[type=file] { border: 1px solid #aaa; background: white; padding: 0px 5px 5px 5px; }
-/* line 222, ../sass/ie7.scss */
+/* line 197, ../sass/ie7.scss */
 #container #content .col_1 .user p.cancel { position: absolute; left: 530px; margin-left: 0; float: right !important; margin-right: 0 !important; }
 
-/* line 233, ../sass/ie7.scss */
+/* line 208, ../sass/ie7.scss */
 #account-menu { z-index: 2; }
-/* line 235, ../sass/ie7.scss */
+/* line 210, ../sass/ie7.scss */
 #account-menu #account-button { float: none; }
 
-/* line 241, ../sass/ie7.scss */
+/* line 216, ../sass/ie7.scss */
 #content > object { z-index: 1 !important; }
 
-/* line 245, ../sass/ie7.scss */
+/* line 220, ../sass/ie7.scss */
 #account-dropdown { z-index: 1; }
 
-/* line 250, ../sass/ie7.scss */
+/* line 225, ../sass/ie7.scss */
 #banner #header ul.navigation { margin-top: 58px; margin-right: 0; width: 284px; }
-/* line 254, ../sass/ie7.scss */
+/* line 229, ../sass/ie7.scss */
 #banner #header ul.navigation a, #banner #header ul.navigation span { display: block; float: left; padding: 15px; margin-left: 5px; }
 
-/* line 266, ../sass/ie7.scss */
+/* line 241, ../sass/ie7.scss */
 #top-menu { margin-top: 1em; }
 
-/* line 270, ../sass/ie7.scss */
+/* line 245, ../sass/ie7.scss */
 .boom_box { width: 630px; }
 
-/* line 276, ../sass/ie7.scss */
+/* line 251, ../sass/ie7.scss */
 #proposals .boom_box { width: 600px; }
 
 /* Revisions */
-/* line 287, ../sass/ie7.scss */
+/* line 262, ../sass/ie7.scss */
 .revision-body:hover .delete-item-revision input { display: block; }
-/* line 292, ../sass/ie7.scss */
+/* line 267, ../sass/ie7.scss */
 .revision-body .buttons { float: right; width: 20px; }
-/* line 296, ../sass/ie7.scss */
+/* line 271, ../sass/ie7.scss */
 .revision-body form.delete-item-revision { margin: 0 !important; width: 30px; }
-/* line 299, ../sass/ie7.scss */
+/* line 274, ../sass/ie7.scss */
 .revision-body form.delete-item-revision input { display: none; }
 
-/* line 306, ../sass/ie7.scss */
+/* line 281, ../sass/ie7.scss */
 .close-button { border: none !important; }
 
-/* line 310, ../sass/ie7.scss */
+/* line 285, ../sass/ie7.scss */
 .clear { clear: both; }
 
-/* line 314, ../sass/ie7.scss */
+/* line 289, ../sass/ie7.scss */
 .add_user_document_button { line-height: 10px !important; }
 
-/* line 318, ../sass/ie7.scss */
+/* line 293, ../sass/ie7.scss */
 .funky-button-small { line-height: 10px; }
+
+/* LOGIN FORM */
+/* line 302, ../sass/ie7.scss */
+.login_form.clearfix .field label { font-size: 10pt; height: 24px; line-height: 22px; }
+
+/* line 309, ../sass/ie7.scss */
+#user_session_email, #user_session_password { padding: 0.5em; color: black !important; display: block; font-family: 'Trebuchet MS', sans-serif !important; font-size: 10pt; height: 24px; line-height: 22px; }
+
+/*#user_session_email, #user_session_password{ padding:5px; width: 240px; height: 20px;
+}
+.login_form{ p{ clear: both; margin-top: 1em; } label{ display: block; float: left; font-size: 1em; padding: 8px 5px; }  input[type=submit]{ padding: 2px 10px; } 
+}
+
+*/
