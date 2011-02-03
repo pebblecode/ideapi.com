@@ -23,8 +23,10 @@ class UsersController < ApplicationController
       format.html { redirect_to users_path }
     end
     response_for :create_fails do 
-      render :action => 'index'
       flash[:error] = 'There was a problem adding the user to the account'
+      add_breadcrumb 'contacts', :users_path
+      render :action => 'index'
+
     end
     
     actions :all

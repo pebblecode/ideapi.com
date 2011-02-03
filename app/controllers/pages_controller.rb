@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     
   end
   
-  def tour
+  def features
     
   end
   

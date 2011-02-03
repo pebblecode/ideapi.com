@@ -51,11 +51,11 @@ a img { border: none; }
 -------------------------------------------------------------- */
 /* Sets up basic grid floating and margin. */
 /* line 40, ../sass/partials/_960grid.scss */
-.column, .span-1, #footer .left .large-quote .before, #footer .left .large-quote .after, #footer .social ul, .span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, #footer .social h4, .span-3, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right, .span-4, #intro .text, #tour-intro .text, #intro .signup, #tour-intro .signup, .home-page .features .testimonial, .span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite, .span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing, .span-7, #footer .left, .span-8, .tour-page #tour-slides #slider li, .span-9, .span-10, .tour-page #tour-slides { float: left; margin-right: 10px; }
+.column, .span-1, #footer .left .large-quote .before, #footer .left .large-quote .after, #footer .social ul, .span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, #footer .social h4, .span-3, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right, .span-4, #intro .text, #tour-intro .text, #intro .signup, #tour-intro .signup, .home-page .features .testimonial, .span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite, .span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing, .span-7, #footer .left, .span-8, .features-page #tour-slides #slider li, .span-9, .span-10, .features-page #tour-slides { float: left; margin-right: 10px; }
 
 /* The last column in a row needs this class. */
 /* line 46, ../sass/partials/_960grid.scss */
-.last, #intro #promo-video, #tour-intro #promo-video, .home-page .features .testimonial, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, .tour-page #tour-slides, .tour-page #tour-slides #slider, .tour-page #tour-slides #slider li, #footer .left .large-quote .after, #footer .right, #footer .social ul { margin-right: 0; }
+.last, #intro #promo-video, #tour-intro #promo-video, .home-page .features .testimonial, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, .features-page #tour-slides, .features-page #tour-slides #slider, .features-page #tour-slides #slider li, #footer .left .large-quote .after, #footer .right, #footer .social ul { margin-right: 0; }
 
 /* Use these classes to set the width of a column. */
 /* line 49, ../sass/partials/_960grid.scss */
@@ -80,17 +80,17 @@ a img { border: none; }
 .span-7, #footer .left { width: 669px; }
 
 /* line 56, ../sass/partials/_960grid.scss */
-.span-8, .tour-page #tour-slides #slider li { width: 766px; }
+.span-8, .features-page #tour-slides #slider li { width: 766px; }
 
 /* line 57, ../sass/partials/_960grid.scss */
 .span-9 { width: 863px; }
 
 /* line 58, ../sass/partials/_960grid.scss */
-.span-10, .tour-page #tour-slides { width: 960px; margin-right: 0; }
+.span-10, .features-page #tour-slides { width: 960px; margin-right: 0; }
 
 /* Use these classes to set the width of an input. */
 /* line 61, ../sass/partials/_960grid.scss */
-input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after, input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, input.span-3, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, .home-page .features .testimonial textarea.quote, #footer textarea.right, input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #tour-intro input.signup, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features textarea.testimonial, input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite, input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing, input.span-7, #footer input.left, textarea.span-7, #footer textarea.left, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, .tour-page input#tour-slides, textarea.span-10, .tour-page textarea#tour-slides { border-left-width: 1px; border-right-width: 1px; padding-left: 5px; padding-right: 5px; }
+input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after, input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, input.span-3, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, .home-page .features .testimonial textarea.quote, #footer textarea.right, input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #tour-intro input.signup, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features textarea.testimonial, input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite, input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing, input.span-7, #footer input.left, textarea.span-7, #footer textarea.left, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, .features-page input#tour-slides, textarea.span-10, .features-page textarea#tour-slides { border-left-width: 1px; border-right-width: 1px; padding-left: 5px; padding-right: 5px; }
 
 /* line 68, ../sass/partials/_960grid.scss */
 input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after { width: 75px; }
@@ -120,7 +120,7 @@ input.span-8, textarea.span-8 { width: 754px; }
 input.span-9, textarea.span-9 { width: 851px; }
 
 /* line 77, ../sass/partials/_960grid.scss */
-input.span-10, .tour-page input#tour-slides, textarea.span-10, .tour-page textarea#tour-slides { width: 948px; }
+input.span-10, .features-page input#tour-slides, textarea.span-10, .features-page textarea#tour-slides { width: 948px; }
 
 /* Add these to a column to append empty cols. */
 /* line 81, ../sass/partials/_960grid.scss */
@@ -276,10 +276,10 @@ hr.space { background: #fff; color: #fff; visibility: hidden; }
 
 /* Clearing floats without extra markup Based on How To Clear Floats Without Structural Markup by PiE [http://www.positioniseverything.net/easyclearing.html] */
 /* line 189, ../sass/partials/_960grid.scss */
-.clearfix:after, #intro:after, #tour-intro:after, .tour-page #tour-slides:after, .faq-page .faq-listing:after, #footer:after, #footer .left .large-quote .quote:after, #footer .social:after, .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+.clearfix:after, #intro:after, #tour-intro:after, .features-page #tour-slides:after, .faq-page .faq-listing:after, #footer:after, #footer .left .large-quote .quote:after, #footer .social:after, .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
 
 /* line 197, ../sass/partials/_960grid.scss */
-.clearfix, #intro, #tour-intro, .tour-page #tour-slides, .faq-page .faq-listing, #footer, #footer .left .large-quote .quote, #footer .social, .container { display: block; }
+.clearfix, #intro, #tour-intro, .features-page #tour-slides, .faq-page .faq-listing, #footer, #footer .left .large-quote .quote, #footer .social, .container { display: block; }
 
 /* Regular clearing apply to column that should drop below previous ones. */
 /* line 202, ../sass/partials/_960grid.scss */
@@ -420,27 +420,27 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 hr.faded { /*background: -webkit-gradient(linear, left center, right center, from($content_bg), color-stop(20%, $content_bg), color-stop(50%, #555), color-stop(80%, $content_bg), to($content_bg));*/ background: #333333 url("/images/bg/horizontal-bar.png") repeat-y 0 0; height: 1px; margin-bottom: 0; }
 
 /* line 249, ../sass/landing.scss */
-.tour-page #tour-slides { position: relative; }
+.features-page #tour-slides { position: relative; }
 /* line 254, ../sass/landing.scss */
-.tour-page #tour-slides #slider { margin-left: 97px; }
+.features-page #tour-slides #slider { margin-left: 97px; }
 /* line 258, ../sass/landing.scss */
-.tour-page #tour-slides #slider li { height: 650px; }
+.features-page #tour-slides #slider li { height: 650px; }
 /* line 263, ../sass/landing.scss */
-.tour-page #tour-slides #slider li .content .screenshot { max-width: 700px; display: block; margin: auto; border: 2px solid #bbb; -webkit-box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 5px; }
+.features-page #tour-slides #slider li .content .screenshot { max-width: 700px; display: block; margin: auto; border: 2px solid #bbb; -webkit-box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 5px; }
 /* line 274, ../sass/landing.scss */
-.tour-page #tour-slides #slider-next, .tour-page #tour-slides #slider-prev { position: absolute; top: 150px; }
+.features-page #tour-slides #slider-next, .features-page #tour-slides #slider-prev { position: absolute; top: 150px; }
 /* line 277, ../sass/landing.scss */
-.tour-page #tour-slides #slider-next a, .tour-page #tour-slides #slider-prev a { height: 56px; width: 56px; display: block; text-indent: -9999px; }
+.features-page #tour-slides #slider-next a, .features-page #tour-slides #slider-prev a { height: 56px; width: 56px; display: block; text-indent: -9999px; }
 /* line 283, ../sass/landing.scss */
-.tour-page #tour-slides #slider-next a:focus, .tour-page #tour-slides #slider-prev a:focus { outline: none; }
+.features-page #tour-slides #slider-next a:focus, .features-page #tour-slides #slider-prev a:focus { outline: none; }
 /* line 286, ../sass/landing.scss */
-.tour-page #tour-slides #slider-next { right: 10px; }
+.features-page #tour-slides #slider-next { right: 10px; }
 /* line 288, ../sass/landing.scss */
-.tour-page #tour-slides #slider-next a { background: url("/images/ui/circle-arrow-east.png") no-repeat 0 0; }
+.features-page #tour-slides #slider-next a { background: url("/images/ui/circle-arrow-east.png") no-repeat 0 0; }
 /* line 292, ../sass/landing.scss */
-.tour-page #tour-slides #slider-prev { left: 10px; }
+.features-page #tour-slides #slider-prev { left: 10px; }
 /* line 294, ../sass/landing.scss */
-.tour-page #tour-slides #slider-prev a { background: url("/images/ui/circle-arrow-west.png") no-repeat 0 0; }
+.features-page #tour-slides #slider-prev a { background: url("/images/ui/circle-arrow-west.png") no-repeat 0 0; }
 
 /* line 303, ../sass/landing.scss */
 .faq-page .title { margin-bottom: 1.5em; }

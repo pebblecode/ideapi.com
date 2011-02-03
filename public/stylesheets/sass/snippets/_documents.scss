@@ -227,7 +227,21 @@ input#document_submit{
         display: block;
         margin: auto;
       }
-
+      table{
+        border-color: #ccc;
+        border-style: solid;
+        border-width: 1px 0px 0px 1px;
+        th{ 
+          background-color: #eee;        
+        }
+        td, th{
+          padding: 0.2em 0.5em;
+          border-color: #ccc;
+          border-style: solid;
+          border-width: 0 1px 1px 0
+          
+        }
+      }
       .item-revision-body{
         img{
           max-width: 420px;
@@ -588,8 +602,10 @@ span.separator{
   label{ width: auto;}
 }
 .speech .notify{
-  margin-top: .9em;
-  float: right;
+  float: none;
+  display: block;
+  margin-top: .5em;
+  text-align: right;
 }
 
 @import "snippets/smartbox";

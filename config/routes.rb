@@ -69,7 +69,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home '/', :controller => "pages", :action => "home"
   map.pricing '/pricing', :controller => 'pages', :action => 'pricing'
   map.faq '/faq', :controller => 'pages', :action => 'faq'
-  map.tour '/tour', :controller => 'pages', :action => 'tour'
+  map.features '/features', :controller => 'pages', :action => 'features'
   map.terms '/terms', :controller => 'pages', :action => 'terms'
   map.privacy '/privacy', :controller => 'pages', :action => 'privacy'
   map.login '/login', :controller => 'pages', :action => 'login'

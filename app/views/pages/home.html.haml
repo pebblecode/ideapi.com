@@ -7,16 +7,16 @@
       = link_to "Try it for free &raquo;", "/signup", :class => "try-button try-button-primary"
       = link_to "Watch the video &raquo;", "javascript:void()", :class => "try-button overlay-video-trigger", :rel => '#ideapi-video'
   #promo-video
-    = link_to image_tag('/images/resources/video-overlay-shadow.png'), 'javascript:void()', :class => 'overlay-video-trigger', :rel => '#ideapi-video'
-    #ideapi-video.simple_overlay
-      != '<iframe src="http://player.vimeo.com/video/11616621?title=0&amp;byline=0&amp;portrait=0&amp;color=b3d335" width="557" height="418" frameborder="0"></iframe>'
+    :markdown
+      <iframe src="http://player.vimeo.com/video/11616621" width="500" height="300" frameborder="0"></iframe>
+      
 
 %hr.faded/
 
 %ul.features.clearfix
   %li.collaborate
     %h4 Work together on your documents.
-    %p.desc Create a structured document online, with headings and sections. Discuss individual sections with your team (or your clients, grandma etc). Enrich your document with images and attachments.
+    %p.desc Create a structured document online, with headings and sections. Discuss individual sections with your team, clients or grandma. Enrich your document with images and attachments.
   
   %li.create
     %h4 Create new documents your way.
@@ -36,9 +36,7 @@
   
   %li.last.testimonial
     %h4.quote.prepend-1
-      Check out the #{link_to 'features', '/features'}
-      %br/
-      page for more…
+      For more information, check out the #{link_to 'features', '/features'} page or #{link_to 'try it for free', '/signup'}!
 = custom_footer do
   .large-quote
     .quote

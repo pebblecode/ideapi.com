@@ -1,7 +1,7 @@
 =hidden_field_tag 'question[document_item_id]', document_item.id, :id => nil
 .speech
   =f.text_area :body, :rows => 10, :cols => 80, :id => "question_body_#{document_item.id}"
-  %span.notify
+  %span.notify.clearfix
     =f.label :send_notifications, "Notify collaborators?"
     =f.check_box :send_notifications, :checked => true, :id => "question_notify_#{document_item.id}"
 
