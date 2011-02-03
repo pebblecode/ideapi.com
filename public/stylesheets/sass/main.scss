@@ -135,7 +135,7 @@ h4{ font-size: 1.15em; }
   -webkit-border-radius: 2px;
   @include box_shadow(rgba(0, 0, 0, 0.15) 0px 1px 3px);
   border: solid 1px $ideapi_green_light - #222;
-  background: url('/images/ui/btn-bg-green.png') repeat-x 0px 0px;
+  background: $ideapi_green_light - #222 url('/images/ui/btn-bg-green.png') repeat-x 0px 0px;
   text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px;
   display: inline;
   padding: 0 10px;
@@ -160,7 +160,7 @@ h4{ font-size: 1.15em; }
 }
 .delete-button{
   @extend .funky-button-small;
-  border: solid 1px #f66;
+  border: solid 1px #c65651;
   color: #eee;
   background: url('/images/bg/gradient-red.png') repeat-x 0px 0px;
   text-shadow: none;
@@ -409,7 +409,12 @@ form {
   
 }
 
-
+.show-options-menu{
+  span{
+    font-size: 1em;
+    line-height: 1.3em;
+  }
+}
 /* Importing partials / snippets */
 @import "snippets/feedback";
 @import "snippets/header";

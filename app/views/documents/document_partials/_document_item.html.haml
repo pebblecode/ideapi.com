@@ -6,11 +6,11 @@
       .show.editable
         %h3=document_item.title
       .edit
-        - form_for document_item, :html => {:id => "section_edit_form_#{document_item.id}", :class => "inline-edit-form section-form"} do |form|
-          = hidden_field_tag 'render', 'document_item'
+        - form_for document_item, :html => {:id => "section_edit_form_#{document_item.id}", :class => "inlinene-edit-form section-form"} do |form|
+          = hidden_field_tag 'render', 'document_item', :id => "render_di_#{document_item.id}"
           %h3
-            = form.text_field :title, :class => 'inline-edit-title'
-            = form.submit 'submit', :class => 'submit inline-edit-submit'
+            = form.text_field :title, :class => 'inline-edit-title', :id => "document_item_#{document_item.id}_title"
+            = form.submit 'submit', :class => 'submit inline-edit-submit', :id => "document_item_#{document_item.id}_submit"
             or 
             = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-inline-edit' if owner?(current_object) and current_object.active?
     - else
@@ -27,26 +27,26 @@
               #{document_item.body.lstrip}
       .edit
         - form_for document_item, :html => {:id => "section_edit_form_#{document_item.id}", :class => "inline-edit-form section-form"} do |form|
-          = hidden_field_tag 'render', 'document_item'
+          = hidden_field_tag 'render', 'document_item', :id => "render_di_#{document_item.id}"
           
           .field
             %h4
-              = form.text_field :title, :class => 'inline-edit-title'
+              = form.text_field :title, :class => 'inline-edit-title', :id => "document_item_#{document_item.id}_title"
           .field
-            = form.text_area :body, :class => 'inline-edit-body'
+            = form.text_area :body, :class => 'inline-edit-body', :id => "document_item_#{document_item.id}_body"
           .field.clearfix
             %span.notify
-              =form.label :send_notifications, "Notify collaborators?"
-              =form.check_box :send_notifications, :checked => true
+              =label_tag "document_item_#{document_item.id}_notifications", "Notify collaborators?"
+              =form.check_box :send_notifications, :checked => true, :id => "document_item_#{document_item.id}_notifications"
             
           .field            
             %p.submit.fright            
               = link_to 'cancel', 'javascript:void(0)', :class => 'cancel-inline-edit' if owner?(current_object) and current_object.active?
               or
-              = form.submit 'submit', :class => 'submit inline-edit-submit'
+              = form.submit 'submit', :class => 'submit inline-edit-submit', :id => "document_item_#{document_item.id}_submit"
 
         - form_for document_item, :html => {:method => 'delete', :id => "section_delete_form_#{document_item.id}", :class => "section-delete-form"} do |form|
-          = form.submit 'delete', :id => "delete_section_#{document_item.id}_submit", :class => 'delete-section-submit', :confirm => "Are you sure you want to delete this section?"
+          = form.submit 'delete', :id => "delete_section_#{document_item.id}_submit", :class => 'delete-section-submit'
 
 
     - else

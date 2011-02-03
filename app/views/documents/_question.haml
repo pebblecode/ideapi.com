@@ -5,14 +5,12 @@
       -if question.user == current_user or owner?(@document)
         - form_for question, :html => {:method => :delete, :class => "delete_question_form", :id => "delete_question_#{question.id}"} do |f|
           = f.submit 'delete', :class => 'question-delete ajaxify', :id => "delete_question_#{question.id}_submit"
-      %div
+      .bodytext
         %strong="#{given_name(question.user)}:"
         :textile
           #{question.body}
-        
         %span.timestamp
           ="(#{comment_date(question.created_at)})"
-  
   -if question.answered?
     .author_answer
       =medium_avatar(question.document.author)
@@ -21,11 +19,12 @@
           - form_for question, :html => {:method => :put, :id => "delete_question_answer_#{question.id}", :class => "delete-question-answer-form"} do |f|
             = f.hidden_field :author_answer, :value => ''
             = f.submit 'delete', :class => 'delete-question-answer close-button', :id => "delete_question_answer_#{question.id}_submit"
-        %p
+        .answer-body
           %strong
             =given_name(question.document.author)
             answered:
-            =question.author_answer
+          :textile
+            #{question.author_answer}
           %span.timestamp
             ="(#{comment_date(question.updated_at)})"
           

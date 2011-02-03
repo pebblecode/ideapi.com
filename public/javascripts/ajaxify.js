@@ -468,6 +468,7 @@ jQuery.user_links_external = function(){
     };
     
     $('form.section-delete-form').live('submit', function(e){
+      if(!confirm("Are you sure you want to delete this section?")) return false;
       _form = $(this);
       _submit = $(this).find('input.delete-section-submit');
       _submit.hide().spin(false, 'ui/loading');
@@ -477,19 +478,20 @@ jQuery.user_links_external = function(){
       ajax_submit(_form, generic_delete_success, generic_delete_failure);
       
       e.preventDefault();
+      return false;
     });
     /* END delete sections */
     
     /* BEGIN new sections */
     $('#document_item_is_heading').live('click', function(e){
       if($(this).attr('checked') == true){
-        $("#new-section-body").parent('.field').slideUp();
+        $("#new-section-body").parent('.field').hide();
       }else{
-        $("#new-section-body").parent('.field').slideDown();
+        $("#new-section-body").parent('.field').show();
       }
     });
     $('.toggle-add-new-section').live('click', function(e){
-      $('#new-section').toggle(/*'blind', {}, 500*/);
+      $('#new-section').toggle();
       e.preventDefault();
     });
     var new_section_success = function(data){
@@ -541,7 +543,6 @@ jQuery.user_links_external = function(){
   };
   
   $.fn.make_sortable = function(){
-    $('.most_important_thing').toggle('blind',{},300);
     $('#new-section').hide();
     $('#comments_area').fadeOut();
     $('a.toggle-add-new-section').hide();
@@ -556,7 +557,6 @@ jQuery.user_links_external = function(){
     $('#sortable_document_items .document_item').prepend('<a class="move-handle" href="javascript:void()">move</a>');
   };    
   $.fn.unmake_sortable = function(){
-    $('.most_important_thing').toggle('blind',{},300);
     $('a.toggle-add-new-section').show();
     $('#comments_area').fadeIn();
     $('#sortable_document_items').removeClass('sortable');

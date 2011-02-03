@@ -305,7 +305,6 @@ hr.faded{
   }
   .listing{
     margin-bottom: 2em;
-    font-size: .9em;
     li{
       margin-bottom: .5em;
     }
@@ -313,7 +312,6 @@ hr.faded{
   .faq-listing{
     list-style-position: outside;
     margin-top: 2em;
-    font-size: 0.9em;
     @extend .span-6;
     @extend .clearfix;
     .faq-item{ 

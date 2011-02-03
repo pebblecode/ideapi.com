@@ -13,8 +13,8 @@
                   =hidden_field_tag :document_id, current_object.id
                   =f.text_area :comment, :rows => 5, :cols => 80
                   %span.notify
-                    =f.label :send_notifications, "Notify collaborators?"
-                    =f.check_box :send_notifications, :checked => true
+                    =label_tag "send_notifications_comment_#{current_object.id}", "Notify collaborators?"
+                    =f.check_box :send_notifications, :checked => true, :id => "send_notifications_comment_#{current_object.id}"
                   
                   %p.button.fright
                     %img{:src => "/images/ui/loading.gif", :alt => 'Submitting comment...', :class => "loading-gif hide"}

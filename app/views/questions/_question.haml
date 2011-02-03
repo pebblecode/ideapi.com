@@ -1,7 +1,7 @@
 %li[question]
-  %p.question_body
+  .question_body
     =small_avatar(question.user)
-    %span.speech
+    .speech
       -if show_relation
         %strong="#{comment_adjective_for given_name(question.user), :position => :before}"
         ="(in relation to <strong>#{question.document_item.title}</strong>):"
@@ -13,12 +13,13 @@
   -if question.answered?
     .author_answer
       =medium_avatar(question.document.author)
-      %span.speech
-        %p 
+      .speech
+        .answer-body 
           %strong
             =given_name(question.document.author)
             answered:
-          =question.author_answer
+          :textile
+            #{question.author_answer}
       .clear
   -else
     -if owner?(question.document)

@@ -24,7 +24,6 @@
       %li{:class => "author #{current_object.author?(user_document.user) ? 'selected' : ''}"}
         -form_for user_document, user_document_path(user_document), :html => {:class => "submit_with_js update_user_document #{current_object.author?(user_document.user) ? 'is_author' : ''}", :id => "update_user_document_#{user_document.id}"} do |author_form|
           = author_form.hidden_field :author, :value => user_document.author == true ? '0' : '1'
-          = author_form.hidden_field :author, :value => user_document.author == true ? '0' : '1'
           = author_form.submit 'toggle', :id => "author_form_submit_#{user_document.id}"
           %span Author
   
@@ -38,6 +37,6 @@
 
       %li.remove
         -form_for user_document, :url => user_document_path(user_document), :html => {:method => :delete, :class => 'submit_with_js delete_user_document', :id => "delete_user_document_#{user_document.id}"} do |delete_form|
-          = delete_form.submit 'remove', :id => "delete_user_document_#{user_document.id}"
+          = delete_form.submit 'remove', :id => "delete_user_document_#{user_document.id}_submit"
           %span Remove
     .clear

@@ -293,18 +293,42 @@ input.smartTextBox-input-elem-valueInput{
 .funky-button-small{
   line-height: 10px;
 }
+.funky-button, .btn-shizzle{
+  font-size: 0.8em;
+  line-height: 16px !important;
+  height: 24px;
+  border: none;
+  padding: 0;
+}
 
 
 /* LOGIN FORM */
-
-.login_form.clearfix{
+.login{
+  .footer{
+    height: 30px;
+    margin: 0;
+  }
+  #forgot-password{
+    margin-top: 0;
+  }
+  
+}
+.login_form{
   .field{
     label{
-      font-size: 10pt;
+      font-size: 10pt !important;
       height: 24px;
       line-height: 22px;
     }
   }
+}
+#remember-me{
+  text-align: left;
+  label{ display: inline;}
+}
+#user_session_remember_me{
+  display: inline !important;
+  margin: 0 !important;
 }
 #user_session_email, #user_session_password{
   padding: 0.5em;
@@ -316,27 +340,117 @@ input.smartTextBox-input-elem-valueInput{
   line-height: 22px;
 }
 
-/*#user_session_email, #user_session_password{
-  padding:5px;
-  width: 240px;
-  height: 20px;
-}
-.login_form{
-  p{
-    clear: both;
-    margin-top: 1em;
+.document_item{
+  .actions{
+    a{ display: inline;}
   }
-  label{
-    display: block;
-    float: left;
-    font-size: 1em;
-    padding: 8px 5px;
-  }
-  
-  input[type=submit]{
-    padding: 2px 10px;
-  }
-  
 }
 
-*/
+.show-options-menu{
+  background: url('/images/button/actions.png') no-repeat 0 0;
+  display: block !important;
+  width: 65px;
+  height: 23px;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-indent: -9999px !important;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+#comment_submit, .submit-button, .new_question_submit, .inline-edit-submit, #template_document_submit, #new-section-submit{
+  background: url('/images/button/submit.png') no-repeat 0 0 !important;
+  text-indent: -9999px !important;
+  display: inline-block !important;
+  width: 63px;
+  height: 20px;
+  border: none !important;
+}
+
+#add-new-section .buttons .toggle-add-new-section{
+  background: url('/images/button/add-new-section.png') no-repeat 0 0 !important;
+  width: 107px;
+  height: 21px;
+  text-indent: -9999px !important;
+  padding: 0;
+  margin: 0;
+  border:none;
+  display: block;
+  float: left;
+  margin-left: 1em;
+}
+#comments_area{
+  clear: both;
+
+}
+#reorder-sections{
+  background: url('/images/button/reorder-sections.png') repeat 0 0 !important;
+  width: 111px;
+  height: 21px;
+  text-indent: -9999px !important;
+  padding: 0;
+  margin: 0;
+  border:none;
+  display: block;
+/*  text-indent: -9999px !important;
+  display: inline-block !important;*/
+}
+
+#template_document_submit{
+  float: left;
+}
+.close-button, .question-delete{ 
+  display: block;
+  overflow: hidden;
+  text-indent: -9999px !important;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+.document .section .delete-section-submit{
+  border: none !important;
+  background: #d0534d url('/images/button/delete.png') no-repeat 0 0;
+  width: 53px;
+  height: 21px;
+  padding: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  display: block;
+  margin-top: -26px;
+}
+
+.bodytext li{
+  border: none !important;
+}
+
+.add_user_document_button{
+  background: url('/images/button/add-collaborator.png') no-repeat 0 0 !important;
+  text-indent: -9999px !important;
+  display: inline-block !important;
+  width: 35px;
+  height: 20px;
+  border: none !important;
+}
+
+.info.inline-block{
+  display: inline;
+  margin-left: 5px;
+}
+
+.side_box .help-toggle{
+  margin: -25px 10px 0 0 !important;
+}
+
+#content-header{
+  position: relative;
+  .actions{
+    position: absolute;
+  }
+}
+
+.boom_box{
+  width: auto;
+}

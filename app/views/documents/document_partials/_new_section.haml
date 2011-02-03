@@ -8,15 +8,15 @@
           = f.check_box :is_heading
           = f.label :is_heading, 'This is a section heading', :class => 'inline'
       
-        = f.label :title, 'Section Title'
+        = label_tag 'new-section-title', 'Section Title'
         = f.text_field :title, :class => 'title', :id => 'new-section-title'
       .field
-        = f.label :body, 'Content'
+        = label_tag 'new-section-body', 'Content'
         = f.text_area :body, :class => 'body', :id => 'new-section-body'
       .submit
         = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-add-new-section'
         or
         = f.submit 'submit', :id => 'new-section-submit', :class => 'funky-button-small'
-  %p.fleft
+  %p.buttons
     = link_to 'Add new section', 'javascript:void(0)', :class => 'toggle-add-new-section btn-shizzle'
     = link_to "Reorder Sections", "javascript:void(0)", :class => "reorder-document-items", :id => 'reorder-sections'
