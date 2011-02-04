@@ -20,14 +20,11 @@ Feature: Managing documents
         And I press "publish"
         Then I should see "Document has been saved and marked as published"
     
-    # INLINE EDITING
-    # 1. Editing the title
-    # 2. Editing a document section
     Scenario: Editing a document title
         Given I have documents called Advert document, Website document, Photoshoot document
         When I go to the documents 
         And I follow "Advert document"
-        And I fill in "document_title_textbox" with "New Title"
+        And I fill in "document_title_text_field" with "New Title"
         And I press "submit" within "#content-header"
         Then I should see "Document was successfully edited"
         And I should see "New Title"
@@ -39,8 +36,8 @@ Feature: Managing documents
         And I fill in "new-section-title" with "New Section"
         And I fill in "new-section-body" with "Body content"
         And I press "submit" within "#new-section"
-        Then I should see "Document was successfully edited"
-        And I should see "New Title"
+        Then I should see "New Section" within ".section"
+        And I should see "Body content" within ".section"
         
     Scenario: Deleting a document after creating it
         When I go to the documents 
@@ -75,7 +72,6 @@ Feature: Managing documents
         When I go to the documents
         And I should see "Advert document" within "#archived_documents"
         And I follow "Advert document"
-        Then show me the page
         Then I should see "ARCHIVED" within "#content-header"
         And I press "reactivate"
         Then I should see "Document has been saved and marked as published."
