@@ -24,11 +24,12 @@ Feature: Allow users to sign up and register
 
     Scenario: Logging in to an account from the homepage
       Given I have a valid account for "donald@acmeco.com" with the subdomain "acmeco"
-      When I go to the home page
+      When I go to the login page
+      Then show me the page
       And I fill in the following:
         | Email     | donald@acmeco.com |
         | Password  | foobar            |
-      And I press "Log in"
+      And I press "Login"
       And I should see "documents"
     
     ####### Doesn't work for some weird reason
