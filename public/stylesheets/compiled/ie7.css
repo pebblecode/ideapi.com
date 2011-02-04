@@ -19,7 +19,7 @@ input[type=text] { font-size: 1em; line-height: 1.2em; }
 /* line 40, ../sass/ie7.scss */
 #document-tags { display: none; }
 
-/*BRIEFS*/
+/*DOCUMENTS*/
 /* line 47, ../sass/ie7.scss */
 #container #content .main .col_1 .title { overflow: hidden; }
 /* line 49, ../sass/ie7.scss */
@@ -167,7 +167,7 @@ input.smartTextBox-input-elem-valueInput { border: none !important; }
 .show-options-menu { background: url("/images/button/actions.png") no-repeat 0 0; display: block !important; width: 65px; height: 23px; border: none !important; padding: 0 !important; margin: 0 !important; text-indent: -9999px !important; overflow: hidden; font-size: 0; line-height: 0; }
 
 /* line 363, ../sass/ie7.scss */
-#comment_submit, .submit-button, .new_question_submit, .inline-edit-submit, #template_document_submit, #new-section-submit { background: url("/images/button/submit.png") no-repeat 0 0 !important; text-indent: -9999px !important; display: inline-block !important; width: 63px; height: 20px; border: none !important; }
+#comment_submit, .submit-button, .new_question_submit, .inline-edit-submit, #template_document_submit, #new-section-submit, .submit-button { background: url("/images/button/submit.png") no-repeat 0 0 !important; text-indent: -9999px !important; display: inline-block !important; width: 63px; height: 20px; border: none !important; }
 
 /* line 372, ../sass/ie7.scss */
 #add-new-section .buttons .toggle-add-new-section { background: url("/images/button/add-new-section.png") no-repeat 0 0 !important; width: 107px; height: 21px; text-indent: -9999px !important; padding: 0; margin: 0; border: none; display: block; float: left; margin-left: 1em; }
@@ -199,10 +199,8 @@ input.smartTextBox-input-elem-valueInput { border: none !important; }
 /* line 443, ../sass/ie7.scss */
 .side_box .help-toggle { margin: -25px 10px 0 0 !important; }
 
-/* line 447, ../sass/ie7.scss */
-#content-header { position: relative; }
 /* line 449, ../sass/ie7.scss */
-#content-header .actions { position: absolute; }
+#content-header .actions { position: absolute; right: .5em; }
 
-/* line 454, ../sass/ie7.scss */
+/* line 455, ../sass/ie7.scss */
 .boom_box { width: auto; }

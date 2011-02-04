@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   has_many :account_users, :dependent => :destroy 
   has_many :accounts, :through => :account_users
   
-  # METHODS FOR BRIEF OWNERSHIP
+  # METHODS FOR DOCUMENT OWNERSHIP
   has_many :user_documents, :dependent => :destroy
   has_many :documents, :through => :user_documents
 
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   delegate :draft, :to => :documents
   delegate :published, :to => :documents
   
-  # METHODS FOR WATCHING AND INTERACTING WITH A BRIEF
+  # METHODS FOR WATCHING AND INTERACTING WITH A DOCUMENT
   has_many :questions
   has_many :proposals, :after_add => :stop_watching_document
   has_many :watched_documents, :dependent => :destroy

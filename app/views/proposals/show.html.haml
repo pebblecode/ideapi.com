@@ -52,7 +52,7 @@
     - form_for(current_object, :url => document_proposal_path(parent_object, current_object), :html => { :method => :put, :multipart => true }) do |f|
       =f.hidden_field '_call_state', :value => 'publish'
       %p.submit
-        = submit_tag "Submit", :class => 'funky-button-small'
+        = submit_tag "Submit", :class => 'funky-button-small submit-button'
       .clear
   
   - unless current_object.draft?
@@ -87,7 +87,7 @@
                     =f.check_box :send_notifications, :checked => true
                   %p.button
                     %img{:src => "/images/ui/loading.gif", :alt => 'Submitting comment...', :class => "loading-gif hide"}
-                    =f.submit "submit", :class => 'funky-button-small'
+                    =f.submit "submit", :class => 'funky-button-small submit-button'
         
         
 .col_2
@@ -101,5 +101,5 @@
             %p.align-right
               %span.ajax-loading
                 %img{:src => '/images/ui/loading.gif', :alt => 'Loading...'}/
-              =f.submit "update", :class => 'funky-button-small'
+              =f.submit "update", :class => 'funky-button-small update-button'
   = render :partial => 'proposals/idea_users'

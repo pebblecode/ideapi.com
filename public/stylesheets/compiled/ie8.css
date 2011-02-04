@@ -1,0 +1,55 @@
+/* line 2, ../sass/ie8.scss */
+#remember-me { text-align: left; }
+/* line 4, ../sass/ie8.scss */
+#remember-me label { display: inline; }
+
+/* line 6, ../sass/ie8.scss */
+#user_session_remember_me { display: inline !important; margin: 0 !important; }
+
+/* line 10, ../sass/ie8.scss */
+#user_session_email, #user_session_password { padding: 0.5em; color: black !important; display: block; font-family: 'Trebuchet MS', sans-serif !important; font-size: 10pt; height: 24px; line-height: 22px; }
+
+/* line 22, ../sass/ie8.scss */
+.document_item .actions a { display: inline; }
+
+/* line 26, ../sass/ie8.scss */
+.show-options-menu { background: url("/images/button/actions.png") no-repeat 0 0; display: block !important; width: 65px; height: 23px; border: none !important; padding: 0 !important; margin: 0 !important; text-indent: -9999px !important; overflow: hidden; font-size: 0; line-height: 0; }
+
+/* line 40, ../sass/ie8.scss */
+#comment_submit, .submit-button, .new_question_submit, .inline-edit-submit, #template_document_submit, #new-section-submit, .submit-button { background: url("/images/button/submit.png") no-repeat 0 0 !important; text-indent: -9999px !important; display: inline-block !important; width: 63px; height: 20px; border: none !important; }
+
+/* line 49, ../sass/ie8.scss */
+#add-new-section .buttons .toggle-add-new-section { background: url("/images/button/add-new-section.png") no-repeat 0 0 !important; width: 107px; height: 21px; text-indent: -9999px !important; padding: 0; margin: 0; border: none; display: block; float: left; margin-left: 1em; }
+
+/* line 61, ../sass/ie8.scss */
+#comments_area { clear: both; }
+
+/* line 65, ../sass/ie8.scss */
+#reorder-sections { background: url("/images/button/reorder-sections.png") repeat 0 0 !important; width: 111px; height: 21px; text-indent: -9999px !important; padding: 0; margin: 0; border: none; display: block; /*  text-indent: -9999px !important; display: inline-block !important;*/ }
+
+/* line 78, ../sass/ie8.scss */
+#template_document_submit { float: left; }
+
+/* line 81, ../sass/ie8.scss */
+.close-button, .question-delete { display: block; overflow: hidden; text-indent: -9999px !important; overflow: hidden; font-size: 0; line-height: 0; }
+
+/* line 90, ../sass/ie8.scss */
+.document .section .delete-section-submit { border: none !important; background: #d0534d url("/images/button/delete.png") no-repeat 0 0; width: 53px; height: 21px; padding: 0; text-indent: -9999px; overflow: hidden; display: block; margin-top: -26px; }
+
+/* line 102, ../sass/ie8.scss */
+.bodytext li { border: none !important; }
+
+/* line 106, ../sass/ie8.scss */
+.add_user_document_button { background: url("/images/button/add-collaborator.png") no-repeat 0 0 !important; text-indent: -9999px !important; display: inline-block !important; width: 35px; height: 20px; border: none !important; }
+
+/* line 115, ../sass/ie8.scss */
+.info.inline-block { display: inline; margin-left: 5px; }
+
+/* line 120, ../sass/ie8.scss */
+.side_box .help-toggle { margin: -25px 10px 0 0 !important; }
+
+/* line 126, ../sass/ie8.scss */
+#content-header .actions { position: absolute; right: .5em; }
+
+/* line 132, ../sass/ie8.scss */
+.boom_box { width: auto; }

@@ -7,39 +7,22 @@ Feature: Managing documents
         Given there are free, basic and premium plans
         And a default ideapi template document exists
         And I am logged in as an account admin
-
+    
+    # Scenario OK
     Scenario: Creating a document and publishing it
         When I go to the documents 
         And I follow "Create document"
         Then I should see "Create a new document"
         And I fill in the following:
             | document_title                   | My document      |
-            | document_most_important_message  | My one liner  |
         And I press "Create"
         Then I should see "Document was successfully created"
         And I press "publish"
         Then I should see "Document has been saved and marked as published"
-
-    Scenario: Creating a document and marking it as a draft
-        When I go to the documents 
-        And I follow "Create document"
-        Then I should see "Create a new document"
-        And I fill in the following:
-            | document_title                   | My document      |
-            | document_most_important_message  | My one liner  |
-        And I press "Create"
-        Then I should see "Document was successfully created"
-        And I press "save draft"
-        Then I should see "Document was successfully edited"
-
-    Scenario: Publishing a draft document
-        Given I have documents called Advert document, Website document, Photoshoot document
-        And "Advert document" is marked as "draft"
-        When I go to the documents
-        And I follow "Advert document"
-        And I press "publish"
-        Then I should see "Document has been saved and marked as published."
-
+    
+    # INLINE EDITING
+    # 1. Editing the title
+    # 2. Editing a brief section
     Scenario: Editing a document
         Given I have documents called Advert document, Website document, Photoshoot document
         When I go to the documents 

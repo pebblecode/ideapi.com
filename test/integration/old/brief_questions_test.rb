@@ -73,7 +73,7 @@ class BriefQuestionsTest < ActionController::IntegrationTest
   # 
   #     end
   # 
-  #     # END CONTEXT BRIEF AUTHOR
+  #     # END CONTEXT DOCUMENT AUTHOR
   # 
   #   end
   # 

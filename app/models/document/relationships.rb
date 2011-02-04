@@ -15,7 +15,7 @@ class Document < ActiveRecord::Base
 
   # RELATIONSHIPS
   
-  # TEMPLATE BRIEF 
+  # TEMPLATE DOCUMENT 
   # this builds the template sections
   # that the document author is presented 
   # with when creating the document
@@ -25,7 +25,7 @@ class Document < ActiveRecord::Base
   after_create :generate_document_items_from_template!
 
 
-  # BRIEF ITEMS
+  # DOCUMENT ITEMS
   has_many :document_items, :order => 'position ASC, created_at ASC, id ASC'
   
   accepts_nested_attributes_for :document_items, 

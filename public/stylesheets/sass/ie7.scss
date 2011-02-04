@@ -41,7 +41,7 @@ input[type=text] {
   display: none;
 }
 
-/*BRIEFS*/
+/*DOCUMENTS*/
 #container #content .main .col_1{
   
   .title{
@@ -360,7 +360,7 @@ input.smartTextBox-input-elem-valueInput{
   line-height: 0;
 }
 
-#comment_submit, .submit-button, .new_question_submit, .inline-edit-submit, #template_document_submit, #new-section-submit{
+#comment_submit, .submit-button, .new_question_submit, .inline-edit-submit, #template_document_submit, #new-section-submit, .submit-button{
   background: url('/images/button/submit.png') no-repeat 0 0 !important;
   text-indent: -9999px !important;
   display: inline-block !important;
@@ -445,9 +445,10 @@ input.smartTextBox-input-elem-valueInput{
 }
 
 #content-header{
-  position: relative;
+    
   .actions{
     position: absolute;
+    right: .5em;
   }
 }
 
