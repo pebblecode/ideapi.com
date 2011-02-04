@@ -4,7 +4,7 @@ class UserProfileTest < ActionController::IntegrationTest
   
   context "creative or author" do
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @account, @standard_user = user_with_account    
       login_to_account_as(@account, @standard_user)

@@ -21,7 +21,7 @@ Factory.define :subscription do |s|
   s.association :account, :factory => :account
 end
 
-Factory.define :template_brief do |t|
+Factory.define :template_document do |t|
   t.title 'Default'
   t.default '1'
 end

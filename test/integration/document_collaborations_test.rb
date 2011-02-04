@@ -1,27 +1,27 @@
 require 'test_helper'
 
-class BriefCollaborationsTest < ActionController::IntegrationTest
-  include BriefWorkflowHelper
+class DocumentCollaborationsTest < ActionController::IntegrationTest
+  include DocumentWorkflowHelper
 
   context "" do
     setup do
-      should_have_template_brief
+      should_have_template_document
 
       @account, @author = user_with_account
       @standard_user = User.make(:password => "testing")
 
-      @draft = Brief.make(:author => @author, :account => @account)
-      @published = Brief.make(:published, :author => @author, :account => @account)
+      @draft = Document.make(:author => @author, :account => @account)
+      @published = Document.make(:published, :author => @author, :account => @account)
 
-      populate_brief(@published)
+      populate_document(@published)
     end
 
-    context "viewing a published brief" do
+    context "viewing a published document" do
 
-      context "as a brief author" do
+      context "as a document author" do
         setup do
           login_to_account_as(@account, @author)
-          visit brief_path(@published)
+          visit document_path(@published)
         end
         
         context "selecting user from dropdown" do
@@ -29,14 +29,14 @@ class BriefCollaborationsTest < ActionController::IntegrationTest
             
           end
           
-          should "be add users to brief" do
+          should "be add users to document" do
 
           end
         end
         
 
         
-        context "with users on brief" do
+        context "with users on document" do
           setup do      
             @published.users << returning([]) do |users|
               3.times do
@@ -74,11 +74,11 @@ class BriefCollaborationsTest < ActionController::IntegrationTest
             
       # context "removing last author" do
       #   setup do
-      #     check 'brief_user_briefs_attributes_0__destroy'
+      #     check 'document_user_documents_attributes_0__destroy'
       #     click_button 'Save Changes'
       #   end
       # 
-      #   should_not_change("Collaborator count") { UserBrief.count }
+      #   should_not_change("Collaborator count") { UserDocument.count }
       # end
       
       # should "be author" do
@@ -88,7 +88,7 @@ class BriefCollaborationsTest < ActionController::IntegrationTest
       # context "revoking write access to the only author" do
       #   
       #   setup do
-      #     uncheck 'brief_user_briefs_attributes_0_author'
+      #     uncheck 'document_user_documents_attributes_0_author'
       #     click_button 'update'
       #   end
       # 
@@ -97,7 +97,7 @@ class BriefCollaborationsTest < ActionController::IntegrationTest
       #   end
       #   
       #   should "have errors" do
-      #     assert(@published.errors.on(:user_briefs).present?)
+      #     assert(@published.errors.on(:user_documents).present?)
       #   end
       # end
       # 

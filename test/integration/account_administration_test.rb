@@ -6,7 +6,7 @@ class AccountAdministrationTest < ActionController::IntegrationTest
   
   context "An account owner" do
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @user = User.make(:password => "testing")
       @account = Account.make(:user => @user, :plan => SubscriptionPlan.make(:basic))

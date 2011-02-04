@@ -4,7 +4,7 @@ class UserSignupTest < ActionController::IntegrationTest
   
   context "an an account owner" do
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @account = Account.make(:user => User.make, :plan => SubscriptionPlan.make(:basic, :user_limit => @user_limit))      
       @user_stubbed = User.make(:stubbed)

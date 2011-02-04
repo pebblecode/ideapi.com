@@ -9,7 +9,7 @@ Sham.define do
   password { Faker::Lorem.words.join }
 end
 
-TemplateBrief.blueprint do
+TemplateDocument.blueprint do
   title
 end
 
@@ -54,18 +54,18 @@ SubscriptionPlan.blueprint(:premium) do
   user_limit nil
 end
 
-Brief.blueprint do
+Document.blueprint do
   title
-  template_brief { TemplateBrief.make(:default => true) }
+  template_document { TemplateDocument.make(:default => true) }
   most_important_message { Sham.body }
   author { User.make }
 end
 
-Brief.blueprint(:published) do
+Document.blueprint(:published) do
   state "published"
 end
 
-BriefItem.blueprint do
+DocumentItem.blueprint do
   title
   body
 end

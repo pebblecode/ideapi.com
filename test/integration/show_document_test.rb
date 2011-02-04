@@ -1,29 +1,29 @@
 require 'test_helper'
 
-class ShowBriefTest < ActionController::IntegrationTest
-  include BriefWorkflowHelper
+class ShowDocumentTest < ActionController::IntegrationTest
+  include DocumentWorkflowHelper
   include ActionView::Helpers::TextHelper
 
   context "" do
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @account, @author = user_with_account
       @standard_user = User.make(:password => "testing")
       
-      @draft = Brief.make(:author => @author, :account => @account)
-      @published = Brief.make(:published, :author => @author, :account => @account)
+      @draft = Document.make(:author => @author, :account => @account)
+      @published = Document.make(:published, :author => @author, :account => @account)
       
-      populate_brief(@published)
+      populate_document(@published)
     end
     
-    context "viewing a published brief" do
+    context "viewing a published document" do
       
-      context "as a brief author" do
+      context "as a document author" do
         setup do
           login_to_account_as(@account, @author)
           
-          visit brief_path(@published)
+          visit document_path(@published)
         end
         
         should_respond_with :success
@@ -31,24 +31,24 @@ class ShowBriefTest < ActionController::IntegrationTest
         
         
         should "have edit link" do
-          assert_select 'a[href=?]', edit_brief_path(@published), :count => 1
+          assert_select 'a[href=?]', edit_document_path(@published), :count => 1
         end
         
         should "have delete link" do
-          assert_select 'input#brief_submit', :value => "delete brief", :count => 1
+          assert_select 'input#document_submit', :value => "delete document", :count => 1
         end
       end
       
-      context "viewing the brief" do
+      context "viewing the document" do
         setup do
           @account.users << @standard_user
           login_to_account_as(@account, @standard_user)
           
           @published.users << @standard_user
-          visit brief_path(@published)
+          visit document_path(@published)
         end
 
-        should "have the brief title" do
+        should "have the document title" do
           assert_contain(truncate(@published.title, :length => 30))
         end
         
@@ -56,9 +56,9 @@ class ShowBriefTest < ActionController::IntegrationTest
           assert_contain @published.most_important_message
         end
         
-        context "a brief item" do
+        context "a document item" do
           setup do
-            @item = @published.brief_items.first
+            @item = @published.document_items.first
           end
 
           should "display the title" do
@@ -70,9 +70,9 @@ class ShowBriefTest < ActionController::IntegrationTest
           end
         end
         
-        context "as a brief collaborator" do
+        context "as a document collaborator" do
           should "not have edit link" do
-            assert_select 'a[href=?]', edit_brief_path(@published), :count => 0
+            assert_select 'a[href=?]', edit_document_path(@published), :count => 0
           end
         end
         
@@ -85,46 +85,46 @@ class ShowBriefTest < ActionController::IntegrationTest
   context "access control: " do
     
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @account, @user = user_with_account    
       login_to_account_as(@account, @user)
     end
 
-    context "briefs user has created" do
+    context "documents user has created" do
       setup do
-        @brief = Brief.make(:published, :author => @user, :account => @account)
-        visit brief_path(@brief)
+        @document = Document.make(:published, :author => @user, :account => @account)
+        visit document_path(@document)
       end
 
       should_respond_with :success
     
-      should "show the brief" do
-        assert_equal(brief_path(@brief), path)
+      should "show the document" do
+        assert_equal(document_path(@document), path)
       end
     end
   
-    context "briefs user is a collaborator" do
+    context "documents user is a collaborator" do
       setup do
-        @brief = Brief.make(:published, :account => @account)
-        @brief.users << @user
-        visit brief_path(@brief)        
+        @document = Document.make(:published, :account => @account)
+        @document.users << @user
+        visit document_path(@document)        
       end
 
       should_respond_with :success
     
-      should "show the brief" do
-        assert_equal(brief_path(@brief), path)
+      should "show the document" do
+        assert_equal(document_path(@document), path)
       end
       
       #context "when user is marked as approver"
       
     end
   
-    context "accessing briefs when user isn't a collaborator" do
+    context "accessing documents when user isn't a collaborator" do
       setup do
-        @brief = Brief.make(:published, :account => @account)
-        visit brief_path(@brief)        
+        @document = Document.make(:published, :account => @account)
+        visit document_path(@document)        
       end
       
       should_respond_with :not_found

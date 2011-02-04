@@ -1,32 +1,32 @@
 require 'test_helper'
 
 class CreativeResponsesTest < ActionController::IntegrationTest
-  include BriefWorkflowHelper
+  include DocumentWorkflowHelper
   include ActionView::Helpers::TextHelper
   
   context "" do
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @account, @author = user_with_account
       @user = User.make(:password => "testing")
       
-      @brief = Brief.make(:published, :author => @author, :account => @account)
+      @document = Document.make(:published, :author => @author, :account => @account)
       
-      populate_brief(@brief)
+      populate_document(@document)
     end
 
-    context "as a collaborator viewing a brief" do
+    context "as a collaborator viewing a document" do
       setup do
         @account.users << @user
-        @brief.users << @user
+        @document.users << @user
 
         login_to_account_as(@account, @user)
-        visit brief_path(@brief)
+        visit document_path(@document)
       end
 
       should "have link to create a response" do
-        assert_select 'a[href=?]', new_brief_proposal_path(@brief), 
+        assert_select 'a[href=?]', new_document_proposal_path(@document), 
           :text => 'Draft new idea'
       end
       
@@ -84,11 +84,11 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         
       end
                 
-      context "visiting brief with draft response" do
+      context "visiting document with draft response" do
         
         setup do
-          @proposal = @user.proposals.make(:brief => @brief)
-          visit brief_path(@brief)
+          @proposal = @user.proposals.make(:document => @document)
+          visit document_path(@document)
         end
         
         should "be a draft" do
@@ -96,15 +96,15 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         end
         
         should "have link to existing response" do
-          assert_select 'a[href=?]', brief_proposal_path(@brief, @proposal)
+          assert_select 'a[href=?]', document_proposal_path(@document, @proposal)
         end
         
       end
     
       context "editing draft response" do
         setup do
-          @proposal = @user.proposals.make(:brief => @brief)
-          visit edit_brief_proposal_path(@brief, @proposal)
+          @proposal = @user.proposals.make(:document => @document)
+          visit edit_document_proposal_path(@document, @proposal)
         end
 
         context "clicking preview" do
@@ -121,7 +121,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
           should_respond_with :success
 
           should "redirect to show page" do
-            assert_equal(brief_proposal_path(@brief, @proposal), path)
+            assert_equal(document_proposal_path(@document, @proposal), path)
           end
 
         end
@@ -140,7 +140,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
           end
         
           should "redirect to edit page" do
-            assert_equal(edit_brief_proposal_path(@brief, @proposal), path)
+            assert_equal(edit_document_proposal_path(@document, @proposal), path)
           end
           
         end
@@ -183,7 +183,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         context "clicking publish" do
         
           setup do
-            visit brief_proposal_path(@brief, @proposal)
+            visit document_proposal_path(@document, @proposal)
             click_button 'Submit idea'
           end
         

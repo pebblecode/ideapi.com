@@ -22,7 +22,7 @@ Feature: Managing documents
     
     # INLINE EDITING
     # 1. Editing the title
-    # 2. Editing a brief section
+    # 2. Editing a document section
     Scenario: Editing a document
         Given I have documents called Advert document, Website document, Photoshoot document
         When I go to the documents 

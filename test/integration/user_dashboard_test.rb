@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class UserDocumentsTest < ActionController::IntegrationTest
-  include BriefWorkflowHelper
+  include DocumentWorkflowHelper
   
   context "" do
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @account, @user = user_with_account    
     end
@@ -13,7 +13,7 @@ class UserDocumentsTest < ActionController::IntegrationTest
     context "as any type of user" do
       setup do
         login_to_account_as(@account, @user)
-        visit briefs_path
+        visit documents_path
       end
 
       should_assign_to :current_objects
@@ -22,15 +22,15 @@ class UserDocumentsTest < ActionController::IntegrationTest
     
       context "first visit" do
         setup do
-          visit briefs_path
+          visit documents_path
         end
 
         should "get documents" do
-          assert_equal briefs_path, path
+          assert_equal documents_path, path
         end
         
-        should "have link to create a brief" do
-          assert_select 'a[href=?]', new_brief_path, :text => 'Create brief'
+        should "have link to create a document" do
+          assert_select 'a[href=?]', new_document_path, :text => 'Create document'
         end
       end
       

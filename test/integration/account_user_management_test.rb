@@ -4,7 +4,7 @@ class AccountUserManagementTest < ActionController::IntegrationTest
   
   context "an an account owner" do
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @user_limit = 5
       

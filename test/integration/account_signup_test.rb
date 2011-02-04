@@ -4,7 +4,7 @@ class AccountSignupTest < ActionController::IntegrationTest
 
   context "" do
     setup do
-      should_have_template_brief
+      should_have_template_document
       
       @plans = returning({}) do |plans|
         %w(free basic premium).each do |plan_name|

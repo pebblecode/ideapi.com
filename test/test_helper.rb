@@ -46,9 +46,9 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...  
   setup { Sham.reset }
 
-  def should_have_template_brief
-    @template_brief = TemplateBrief.make(:default => true)
-    assert_equal(@template_brief, TemplateBrief.default)    
+  def should_have_template_document
+    @template_document = TemplateDocument.make(:default => true)
+    assert_equal(@template_document, TemplateDocument.default)    
   end
 end
 
@@ -57,44 +57,44 @@ Webrat.configure do |config|
   config.open_error_files = false
 end
 
-module BriefPopulator      
-  def populate_template_brief
-    @default_template_brief ||= TemplateBrief.make(:title => "default", :default => true)
+module DocumentPopulator      
+  def populate_template_document
+    @default_template_document ||= TemplateDocument.make(:title => "default", :default => true)
 
     rand(10).times do
-      @default_template_brief.template_questions << TemplateQuestion.make
+      @default_template_document.template_questions << TemplateQuestion.make
     end
     
-    return @default_template_brief
+    return @default_template_document
   end
 end
 
-module BriefWorkflowHelper
+module DocumentWorkflowHelper
   
-  def brief_for(author)
-    return Brief.make(:author => author)
+  def document_for(author)
+    return Document.make(:author => author)
   end
   
-  def populate_brief(brief, n = 10)
+  def populate_document(document, n = 10)
     n.times do 
-      BriefItem.make(:brief => brief)
+      DocumentItem.make(:document => document)
     end
   end
   
-  def check_for_questions(brief, creative)
-    populate_brief(brief)
+  def check_for_questions(document, creative)
+    populate_document(document)
     
     5.times do
-      brief.questions.make(:answered, {:brief_item => brief.brief_items.first, :creative => creative, :author_answer => "Answered question"})
+      document.questions.make(:answered, {:document_item => document.document_items.first, :creative => creative, :author_answer => "Answered question"})
     end      
     
-    visit brief_path(brief)
+    visit document_path(document)
         
-    assert !brief.brief_items.blank?          
-    assert !brief.questions.answered.blank?
+    assert !document.document_items.blank?          
+    assert !document.questions.answered.blank?
 
-    brief.questions.answered.each do |q|
-      assert_select 'ul.brief_item_history'
+    document.questions.answered.each do |q|
+      assert_select 'ul.document_item_history'
       assert_contain(q.body)
       assert_contain(q.author_answer)
     end
@@ -162,7 +162,7 @@ class ActiveSupport::TestCase
         should_respond_with :success
         
         should "be showing the documents if logged in" do
-          assert_equal(briefs_path, path)
+          assert_equal(documents_path, path)
         end
         
       end
