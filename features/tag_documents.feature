@@ -8,30 +8,14 @@ Feature: Allow users to tag documents
         And a default ideapi template document exists
         And I am logged in as an account admin
 
-    Scenario: Creating and tagging a new document
-        When I go to the documents
-        And I follow "Create document"
-        Then I should see "Create a new document"
-        And I fill in the following:
-            | document_title                   | My awesome document      |
-            | document_most_important_message  | This is my document      |
-            | document_tag_field               | tag1, tag2, tag3      |
-        And I press "Create"
-        And I go to the documents
-        Then I should see "tag1"
-        And I follow "tag1"
-        Then I should see "My awesome document"
-
-    Scenario: Editing a document and deleting a tag
+    Scenario: Viewing a document and deleting a tag
         Given I have a document called "My document" tagged with "tag1, tag2"
         When I go to the documents
         Then I should see "tag2"
         And I follow "My document"
-        And I follow "Edit document"
-        Then I should see "edit document"
         Then the "document_tag_field" field should contain "tag1, tag2"
         When I fill in "document_tag_field" with "tag1"
-        And I press "update"
+        And I press "save tags"
         And I go to the documents
         Then I should not see "tag2"
 
@@ -41,11 +25,9 @@ Feature: Allow users to tag documents
         Then I should see "tag2"
         And I should see "tag1"
         And I follow "My document"
-        And I follow "Edit document"
-        Then I should see "edit document"
         Then the "document_tag_field" field should contain "tag1, tag2"
         When I fill in "document_tag_field" with "tag3"
-        And I press "update"
+        And I press "save tags"
         And I go to the documents
         Then I should not see "tag1"
         And I should not see "tag2"
@@ -57,11 +39,9 @@ Feature: Allow users to tag documents
         Then I should see "tag2"
         And I should see "tag1"
         And I follow "My document"
-        And I follow "Edit document"
-        Then I should see "edit document"
         Then the "document_tag_field" field should contain "tag1, tag2"
         When I fill in "document_tag_field" with "tag1, tag2, tag3"
-        And I press "update"
+        And I press "save tags"
         And I go to the documents
         Then I should see "tag1"
         And I should see "tag2"
@@ -96,9 +76,8 @@ Feature: Allow users to tag documents
         And I should see "tag1" within ".tag-list li:nth-child(2)"
         And I should see "1" within ".tag-list li:nth-child(2) span"
         And I follow "Another document"
-        And I follow "Edit document"
         And I fill in "document_tag_field" with "tag3, tag1"
-        And I press "update"
+        And I press "save tags"
         And I go to the documents
         Then I should see "tag1" within ".tag-list li:nth-child(2)"
         And I should see "2" within ".tag-list li:nth-child(2) span"
@@ -111,9 +90,8 @@ Feature: Allow users to tag documents
         And I should see "tag1" within ".tag-list li:nth-child(2)"
         And I should see "2" within ".tag-list li:nth-child(2) span"
         And I follow "Another document"
-        And I follow "Edit document"
         And I fill in "document_tag_field" with "tag3"
-        And I press "update"
+        And I press "save tags"
         And I go to the documents
         Then I should see "tag1" within ".tag-list li:nth-child(2)"
         And I should see "1" within ".tag-list li:nth-child(2) span"

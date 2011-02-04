@@ -48,12 +48,15 @@ class ProposalsController < ApplicationController
     end
     
     response_for :create do |format|
-      format.html { redirect_to object_path }
+      format.html { 
+        flash[:notice] = "Idea successfully created"
+        redirect_to object_path 
+      }
     end
     
     response_for :update do |format|
       format.html {
-        flash[:notice] = "Proposal successfully updated"
+        flash[:notice] = "Idea successfully updated"
         redirect_to object_path
       }
       
@@ -64,7 +67,7 @@ class ProposalsController < ApplicationController
     
     response_for :destroy do |format|
       format.html {
-        flash[:notice] = 'Proposal successfully deleted'
+        flash[:notice] = 'Idea successfully deleted'
         redirect_to parent_object
       }
     end
