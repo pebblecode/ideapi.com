@@ -16,7 +16,7 @@ class TemplateDocument < ActiveRecord::Base
 
   class << self
     def default
-      first(:conditions => ["template_documents.default = ?", true])
+      last(:conditions => ["template_documents.default = ?", true])
     end
 
   end
