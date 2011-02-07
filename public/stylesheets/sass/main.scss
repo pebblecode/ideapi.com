@@ -415,6 +415,13 @@ form {
     line-height: 1.3em;
   }
 }
+
+#maintenance-message{
+  padding: 1em;
+  p{
+    font-size: 1em;
+  }
+}
 /* Importing partials / snippets */
 @import "snippets/feedback";
 @import "snippets/header";

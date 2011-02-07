@@ -736,6 +736,11 @@ form p input[type=checkbox] { margin-top: 5px; }
 /* line 413, ../sass/main.scss */
 .show-options-menu span { font-size: 1em; line-height: 1.3em; }
 
+/* line 419, ../sass/main.scss */
+#maintenance-message { padding: 1em; }
+/* line 421, ../sass/main.scss */
+#maintenance-message p { font-size: 1em; }
+
 /* Importing partials / snippets */
 /* line 1, ../sass/snippets/_feedback.scss */
 #beta_feedback { background: #fefefe; min-width: 980px; width: 100%; }
