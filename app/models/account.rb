@@ -63,7 +63,7 @@ class Account < ActiveRecord::Base
   @excluded_subdomains =  %W( support blog www billing help api #{AppConfig['admin_subdomain']} )
   
   validates_presence_of :name
-  validates_format_of :domain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/
+  validates_format_of :domain, :with => /\A[a-zA-Z][a-zA-Z0-9]-*\Z/
   validates_exclusion_of :domain, 
     :in => excluded_subdomains, 
     :message => "The domain <strong>{{value}}</strong> is not available."
