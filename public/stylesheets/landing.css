@@ -359,7 +359,7 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 /* line 104, sass/landing.scss */
 #navigation { list-style-position: inside; position: absolute; bottom: 0; right: 0; }
 /* line 109, sass/landing.scss */
-#navigation li { font-family: "Ubuntu", sans-serif; display: inline-block; margin-left: 1em; padding: 0.5em 0 0.5em 1em; font-weight: bold; }
+#navigation li { font-family: "Ubuntu","Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; display: inline-block; margin-left: 1em; padding: 0.5em 0 0.5em 1em; font-weight: bold; }
 /* line 115, sass/landing.scss */
 #navigation li a { color: #b3d335; }
 /* line 117, sass/landing.scss */
@@ -371,19 +371,19 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 
 /* Content */
 /* line 142, sass/landing.scss */
-#content { font-family: "Ubuntu"; color: #555; min-height: 400px; padding: 50px 0; }
+#content { font-family: "Ubuntu", "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; color: #555; min-height: 400px; padding: 50px 0; }
 
 /* line 149, sass/landing.scss */
 #intro, #tour-intro { padding-bottom: 50px; position: relative; }
 /* line 154, sass/landing.scss */
-#intro .text, #tour-intro .text { font-family: 'Ubuntu', sans-serif; }
+#intro .text, #tour-intro .text { font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; }
 /* line 158, sass/landing.scss */
 #intro #promo-video, #tour-intro #promo-video { text-align: right; }
 /* line 163, sass/landing.scss */
 #intro .signup, #tour-intro .signup { padding-top: 1em; }
 
 /* line 169, sass/landing.scss */
-.signup .try-button { margin-right: 20px; background: #b3d335; height: 46px; text-align: center; text-shadow: rgba(255, 255, 255, 0.398) 0px 1px 1px; font-size: 1em; line-height: 44px; background: -webkit-gradient(linear, left top, left bottom, from(#9ebe20), to(#c4e446)); background: -moz-linear-gradient(top, #9ebe20, #c4e446); color: #333; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; display: inline-block; padding: 0 1em; -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; font-family: 'Ubuntu', sans-serif; }
+.signup .try-button { margin-right: 20px; background: #b3d335; height: 46px; text-align: center; text-shadow: rgba(255, 255, 255, 0.398) 0px 1px 1px; font-size: 1em; line-height: 44px; background: -webkit-gradient(linear, left top, left bottom, from(#9ebe20), to(#c4e446)); background: -moz-linear-gradient(top, #9ebe20, #c4e446); color: #333; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; display: inline-block; padding: 0 1em; -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; }
 /* line 186, sass/landing.scss */
 .signup .try-button:hover { color: #222; }
 /* line 189, sass/landing.scss */
@@ -461,7 +461,7 @@ hr.faded { /*background: -webkit-gradient(linear, left center, right center, fro
 
 /* Footer */
 /* line 342, sass/landing.scss */
-#footer { font-family: 'Ubuntu', sans-serif; height: 200px; padding-top: 25px; }
+#footer { font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; height: 200px; padding-top: 25px; }
 /* line 351, sass/landing.scss */
 #footer .left .large-quote .before { background: url("/images/icons/lquote.png") no-repeat top right; text-indent: -9990px; }
 /* line 356, sass/landing.scss */

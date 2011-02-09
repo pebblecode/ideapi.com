@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '2.3.8'
+gem 'rails', '2.3.9'
 gem 'mysql'
 gem 'capistrano'
 gem 'capistrano-ext'
@@ -13,9 +13,8 @@ gem 'will_paginate', :git => "http://github.com/mislav/will_paginate.git", :requ
 gem 'acts-as-taggable-on', '2.0.0.rc1'
 gem 'SystemTimer'
 gem "alter-ego", :require => "alter_ego"
-gem "RedCloth"
+gem "RedCloth", :require => "redcloth"
 gem 'hoptoad_notifier'
-gem "rdiscount"
 gem 'aws-s3', :require => "aws/s3"
 gem 'ci_reporter'
 gem "compass", ">= 0.10.6"
