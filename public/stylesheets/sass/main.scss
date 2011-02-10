@@ -388,14 +388,13 @@ form {
     }
   }
   #user_session_password, #user_session_email{
-    font-family: Ubuntu, sans-serif;
     padding: 2px .5em;
     
   }
   .submit{ 
     margin-bottom: 0; 
     input{
-        font-family: Ubuntu;
+        font-family: Ubuntu, Helvetica, Arial, sans-serif;
     }
   }
 }
@@ -423,12 +422,30 @@ form {
   }
 }
 /* Importing partials / snippets */
+
+#footer {
+  padding: 3px 2em 0px 2.2em;
+  border: 1px solid #dddddd;
+  img{
+    vertical-align: top;
+  }
+  p {
+    font-size: 1.1em;
+    a {
+      color: #888888;
+      @include color-transitions(600ms);
+      &:hover {
+        color: #333333; 
+      }  
+    } 
+  } 
+}
+
 @import "snippets/feedback";
 @import "snippets/header";
 @import "snippets/subnav";
 @import "snippets/sidebar";
 @import "snippets/notifications";
-@import "snippets/footer";
 @import "snippets/proposals";
 @import "snippets/template_documents";
 @import "partials/comments_and_activity_stream";

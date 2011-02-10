@@ -722,26 +722,37 @@ form p input[type=checkbox] { margin-top: 5px; }
 /* line 383, sass/main.scss */
 .login .login_form .field label { font-family: Ubuntu, sans-serif; text-align: right; width: 115px; }
 /* line 390, sass/main.scss */
-.login #user_session_password, .login #user_session_email { font-family: Ubuntu, sans-serif; padding: 2px .5em; }
-/* line 395, sass/main.scss */
+.login #user_session_password, .login #user_session_email { padding: 2px .5em; }
+/* line 394, sass/main.scss */
 .login .submit { margin-bottom: 0; }
-/* line 397, sass/main.scss */
-.login .submit input { font-family: Ubuntu; }
+/* line 396, sass/main.scss */
+.login .submit input { font-family: Ubuntu, Helvetica, Arial, sans-serif; }
 
-/* line 403, sass/main.scss */
+/* line 402, sass/main.scss */
 .footer a { font-family: Ubuntu, sans-serif; }
-/* line 404, sass/main.scss */
+/* line 403, sass/main.scss */
 .footer #forgot-password { margin-top: 0.5em; margin-right: 1em; float: right; }
 
-/* line 413, sass/main.scss */
+/* line 412, sass/main.scss */
 .show-options-menu span { font-size: 1em; line-height: 1.3em; }
 
-/* line 419, sass/main.scss */
+/* line 418, sass/main.scss */
 #maintenance-message { padding: 1em; }
-/* line 421, sass/main.scss */
+/* line 420, sass/main.scss */
 #maintenance-message p { font-size: 1em; }
 
 /* Importing partials / snippets */
+/* line 426, sass/main.scss */
+#footer { padding: 3px 2em 0px 2.2em; border: 1px solid #dddddd; }
+/* line 429, sass/main.scss */
+#footer img { vertical-align: middle; }
+/* line 432, sass/main.scss */
+#footer p { font-size: 1.1em; }
+/* line 434, sass/main.scss */
+#footer p a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
+/* line 437, sass/main.scss */
+#footer p a:hover { color: #333333; }
+
 /* line 1, sass/snippets/_feedback.scss */
 #beta_feedback { background: #fefefe; min-width: 980px; width: 100%; }
 /* line 5, sass/snippets/_feedback.scss */
@@ -1028,15 +1039,6 @@ ul#notifications li span.notification_label a { color: white !important; font-we
 ul#notifications li span.notification_meta { float: left; clear: left; font-style: italic; color: #999999; }
 /* line 34, sass/snippets/_notifications.scss */
 ul#notifications li span.notification_action { float: right; }
-
-/* line 1, sass/snippets/_footer.scss */
-#footer { background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
-/* line 5, sass/snippets/_footer.scss */
-#footer p { font-size: 1.1em; }
-/* line 7, sass/snippets/_footer.scss */
-#footer p a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
-/* line 10, sass/snippets/_footer.scss */
-#footer p a:hover { color: #333333; }
 
 /* line 6, sass/snippets/_proposals.scss */
 #proposal_state { font-size: 1em; display: block; width: 100%; margin: auto; }
@@ -1536,246 +1538,252 @@ input#document_submit { text-transform: capitalize; }
 #documents #content-header .edit a { color: #4d6d00; }
 
 /* line 31, sass/snippets/_documents.scss */
+.document_item .body p, .document_item .body li, .document_item .body a, .document_item .body span { font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 10pt; }
+/* line 35, sass/snippets/_documents.scss */
 .document_item .body img { max-width: 600px; display: block; margin: auto; }
+/* line 40, sass/snippets/_documents.scss */
+.document_item .body ul { padding-left: 1.5em; list-style: disc; }
+/* line 44, sass/snippets/_documents.scss */
+.document_item .body ol { padding-left: 1.5em; list-style: decimal; }
 
-/* line 38, sass/snippets/_documents.scss */
+/* line 53, sass/snippets/_documents.scss */
 .document .section { border: 1px solid #eee; border-top: 0; padding: 0.5em 0.5em .5em 1em; }
-/* line 42, sass/snippets/_documents.scss */
+/* line 57, sass/snippets/_documents.scss */
 .document .section .edit { display: none; }
 
-/* line 45, sass/snippets/_documents.scss */
+/* line 60, sass/snippets/_documents.scss */
 .document div.actions { z-index: 10; position: absolute; top: 9px; right: 9px; text-align: right; padding: 0; margin: 0; }
-/* line 53, sass/snippets/_documents.scss */
+/* line 68, sass/snippets/_documents.scss */
 .document div.actions a { display: block; margin-top: -2px; margin-right: -2px; }
-/* line 58, sass/snippets/_documents.scss */
+/* line 73, sass/snippets/_documents.scss */
 .document div.actions a:hover { color: #fefefe; }
-/* line 61, sass/snippets/_documents.scss */
+/* line 76, sass/snippets/_documents.scss */
 .document div.actions a.edit_document, .document div.actions a.edit_icon, .document div.actions a.edit_template { background: url("/images/page_edit.png") no-repeat center right; height: 16px; text-indent: -9999px; width: 40px; }
-/* line 66, sass/snippets/_documents.scss */
+/* line 81, sass/snippets/_documents.scss */
 .document div.actions a.edit_document:hover, .document div.actions a.edit_icon:hover, .document div.actions a.edit_template:hover { text-indent: 0; color: #32401a; font-weight: normal; }
-/* line 72, sass/snippets/_documents.scss */
+/* line 87, sass/snippets/_documents.scss */
 .document div.actions a.print_document { display: block; float: right; background: url("/images/printer.png"); width: 16px; height: 16px; text-indent: -3000px; }
-/* line 80, sass/snippets/_documents.scss */
+/* line 95, sass/snippets/_documents.scss */
 .document div.actions form { float: right; }
-/* line 83, sass/snippets/_documents.scss */
+/* line 98, sass/snippets/_documents.scss */
 .document div.actions .clean_document { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: url("/images/ui/button_background_red.png") 0 0; border: 1px solid #32401a; padding: 1px 5px 0px 5px; font-weight: normal; font-size: 1em; margin-top: 0; color: white; text-shadow: none; }
-/* line 93, sass/snippets/_documents.scss */
+/* line 108, sass/snippets/_documents.scss */
 .document div.actions .clean_document:active { background-position: 0 -36px; }
 
-/* line 101, sass/snippets/_documents.scss */
+/* line 116, sass/snippets/_documents.scss */
 .document .document_heading h3, .proposal .document_heading h3, .document_list .document_heading h3 { margin-left: 20px; }
-/* line 104, sass/snippets/_documents.scss */
+/* line 119, sass/snippets/_documents.scss */
 .document .proposal_item, .document .document_heading, .proposal .proposal_item, .proposal .document_heading, .document_list .proposal_item, .document_list .document_heading { border: 1px solid #cccccc; border-bottom: 1px solid #eeeeee; border-top: 0; }
-/* line 109, sass/snippets/_documents.scss */
+/* line 124, sass/snippets/_documents.scss */
 .document .proposal_item h3 span.updated, .document .document_heading h3 span.updated, .proposal .proposal_item h3 span.updated, .proposal .document_heading h3 span.updated, .document_list .proposal_item h3 span.updated, .document_list .document_heading h3 span.updated { font-size: 0.2em; color: #999999; font-weight: bold; text-transform: uppercase; position: relative; top: -0.4em; left: 0; }
-/* line 117, sass/snippets/_documents.scss */
+/* line 132, sass/snippets/_documents.scss */
 .document .proposal_item h4.activity_snapshot, .document .document_heading h4.activity_snapshot, .proposal .proposal_item h4.activity_snapshot, .proposal .document_heading h4.activity_snapshot, .document_list .proposal_item h4.activity_snapshot, .document_list .document_heading h4.activity_snapshot { font-size: 1.1em; padding: 0; margin: 0; line-height: 1.2em; color: #666666; }
-/* line 123, sass/snippets/_documents.scss */
+/* line 138, sass/snippets/_documents.scss */
 .document .proposal_item .activity_stream, .document .document_heading .activity_stream, .proposal .proposal_item .activity_stream, .proposal .document_heading .activity_stream, .document_list .proposal_item .activity_stream, .document_list .document_heading .activity_stream { border-top: 1px solid #cccccc; margin-top: 1em; padding: 1em; }
-/* line 127, sass/snippets/_documents.scss */
+/* line 142, sass/snippets/_documents.scss */
 .document .proposal_item .activity_stream li, .document .document_heading .activity_stream li, .proposal .proposal_item .activity_stream li, .proposal .document_heading .activity_stream li, .document_list .proposal_item .activity_stream li, .document_list .document_heading .activity_stream li { padding: 1em; }
-/* line 129, sass/snippets/_documents.scss */
-.document .proposal_item .activity_stream li.date, .document .document_heading .activity_stream li.date, .proposal .proposal_item .activity_stream li.date, .proposal .document_heading .activity_stream li.date, .document_list .proposal_item .activity_stream li.date, .document_list .document_heading .activity_stream li.date { color: #aaaaaa; text-transform: uppercase; margin-top: 1em; padding: 0; }
-/* line 134, sass/snippets/_documents.scss */
-.document .help_message, .proposal .help_message, .document_list .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
 /* line 144, sass/snippets/_documents.scss */
-.document .document_item:last-child, .document .proposal_item:last-child, .proposal .document_item:last-child, .proposal .proposal_item:last-child, .document_list .document_item:last-child, .document_list .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
-/* line 147, sass/snippets/_documents.scss */
-.document .proposal_item p.asset, .proposal .proposal_item p.asset, .document_list .proposal_item p.asset { width: 120px; }
+.document .proposal_item .activity_stream li.date, .document .document_heading .activity_stream li.date, .proposal .proposal_item .activity_stream li.date, .proposal .document_heading .activity_stream li.date, .document_list .proposal_item .activity_stream li.date, .document_list .document_heading .activity_stream li.date { color: #aaaaaa; text-transform: uppercase; margin-top: 1em; padding: 0; }
 /* line 149, sass/snippets/_documents.scss */
-.document .proposal_item p.asset, .document .proposal_item p.description, .proposal .proposal_item p.asset, .proposal .proposal_item p.description, .document_list .proposal_item p.asset, .document_list .proposal_item p.description { float: left; }
-/* line 151, sass/snippets/_documents.scss */
-.document .proposal_item p.description, .proposal .proposal_item p.description, .document_list .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
-/* line 155, sass/snippets/_documents.scss */
-.document .most_important_thing, .proposal .most_important_thing, .document_list .most_important_thing { text-align: center; font-weight: bold; color: #333333; margin-right: 0; padding: .5em .5em .5em 1em; }
+.document .help_message, .proposal .help_message, .document_list .help_message { width: 18em; border: 1px solid #cccccc; background: #fcfcfc; background: rgba(245, 245, 245, 0.9); padding: 1em; position: absolute; top: 4em; left: 51.5em; z-index: 5; }
+/* line 159, sass/snippets/_documents.scss */
+.document .document_item:last-child, .document .proposal_item:last-child, .proposal .document_item:last-child, .proposal .proposal_item:last-child, .document_list .document_item:last-child, .document_list .proposal_item:last-child { border-bottom: 1px solid #cccccc; }
 /* line 162, sass/snippets/_documents.scss */
+.document .proposal_item p.asset, .proposal .proposal_item p.asset, .document_list .proposal_item p.asset { width: 120px; }
+/* line 164, sass/snippets/_documents.scss */
+.document .proposal_item p.asset, .document .proposal_item p.description, .proposal .proposal_item p.asset, .proposal .proposal_item p.description, .document_list .proposal_item p.asset, .document_list .proposal_item p.description { float: left; }
+/* line 166, sass/snippets/_documents.scss */
+.document .proposal_item p.description, .proposal .proposal_item p.description, .document_list .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
+/* line 170, sass/snippets/_documents.scss */
+.document .most_important_thing, .proposal .most_important_thing, .document_list .most_important_thing { text-align: center; font-weight: bold; color: #333333; margin-right: 0; padding: .5em .5em .5em 1em; }
+/* line 177, sass/snippets/_documents.scss */
 .document .most_important_thing .show, .document .most_important_thing .edit, .proposal .most_important_thing .show, .proposal .most_important_thing .edit, .document_list .most_important_thing .show, .document_list .most_important_thing .edit { max-width: 360px; display: inline-block; padding: 0 1em; font-weight: bold; font-size: 2.2em; }
-/* line 169, sass/snippets/_documents.scss */
+/* line 184, sass/snippets/_documents.scss */
 .document .most_important_thing .show, .proposal .most_important_thing .show, .document_list .most_important_thing .show { text-align: center; }
-/* line 173, sass/snippets/_documents.scss */
+/* line 188, sass/snippets/_documents.scss */
 .document .most_important_thing .edit, .proposal .most_important_thing .edit, .document_list .most_important_thing .edit { display: none; }
-/* line 174, sass/snippets/_documents.scss */
+/* line 189, sass/snippets/_documents.scss */
 .document .most_important_thing span.left, .document .most_important_thing span.right, .proposal .most_important_thing span.left, .proposal .most_important_thing span.right, .document_list .most_important_thing span.left, .document_list .most_important_thing span.right { font-size: 8em; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 181, sass/snippets/_documents.scss */
-.document .most_important_thing span.left, .proposal .most_important_thing span.left, .document_list .most_important_thing span.left { float: left; top: 20px; left: 60px; }
-/* line 186, sass/snippets/_documents.scss */
-.document .most_important_thing span.right, .proposal .most_important_thing span.right, .document_list .most_important_thing span.right { clear: right; float: right; margin-top: 30px; margin-right: 20px; vertical-align: middle; }
 /* line 196, sass/snippets/_documents.scss */
+.document .most_important_thing span.left, .proposal .most_important_thing span.left, .document_list .most_important_thing span.left { float: left; top: 20px; left: 60px; }
+/* line 201, sass/snippets/_documents.scss */
+.document .most_important_thing span.right, .proposal .most_important_thing span.right, .document_list .most_important_thing span.right { clear: right; float: right; margin-top: 30px; margin-right: 20px; vertical-align: middle; }
+/* line 211, sass/snippets/_documents.scss */
 .document .document_item.updated h3, .document .document_item.updated h4, .proposal .document_item.updated h3, .proposal .document_item.updated h4, .document_list .document_item.updated h3, .document_list .document_item.updated h4 { background: #ffffdf; }
-/* line 198, sass/snippets/_documents.scss */
+/* line 213, sass/snippets/_documents.scss */
 .document .document_item.extended, .proposal .document_item.extended, .document_list .document_item.extended { background: transparent; }
 
-/* line 206, sass/snippets/_documents.scss */
+/* line 221, sass/snippets/_documents.scss */
 #documents .document_overviews h2, #sortable .document_overviews h2 { padding: 0; font-size: 1.1em; font-weight: normal; text-transform: uppercase; text-align: center; margin: -0.8em auto 1.5em auto; background: white; width: 7.5em; color: #454545; }
-/* line 218, sass/snippets/_documents.scss */
+/* line 233, sass/snippets/_documents.scss */
 #documents .document_item, #sortable .document_item { padding: 0.5em .5em .5em 1em; border: 1px solid #eee; border-bottom: 1px solid #eeeeee; border-top: 0; }
-/* line 224, sass/snippets/_documents.scss */
+/* line 239, sass/snippets/_documents.scss */
 #documents .document_item .body img, #sortable .document_item .body img { max-width: 600px; border: 5px solid #eee; display: block; margin: auto; }
-/* line 230, sass/snippets/_documents.scss */
+/* line 245, sass/snippets/_documents.scss */
 #documents .document_item .body table, #sortable .document_item .body table { border-color: #ccc; border-style: solid; border-width: 1px 0px 0px 1px; }
-/* line 234, sass/snippets/_documents.scss */
+/* line 249, sass/snippets/_documents.scss */
 #documents .document_item .body table th, #sortable .document_item .body table th { background-color: #eee; }
-/* line 237, sass/snippets/_documents.scss */
+/* line 252, sass/snippets/_documents.scss */
 #documents .document_item .body table td, #documents .document_item .body table th, #sortable .document_item .body table td, #sortable .document_item .body table th { padding: 0.2em 0.5em; border-color: #ccc; border-style: solid; border-width: 0 1px 1px 0; }
-/* line 246, sass/snippets/_documents.scss */
+/* line 261, sass/snippets/_documents.scss */
 #documents .document_item .body .item-revision-body img, #sortable .document_item .body .item-revision-body img { max-width: 420px; }
 
-/* line 255, sass/snippets/_documents.scss */
+/* line 270, sass/snippets/_documents.scss */
 ul.actions { margin-top: 1em; clear: both; text-align: right; }
-/* line 259, sass/snippets/_documents.scss */
+/* line 274, sass/snippets/_documents.scss */
 ul.actions li { padding: 0.2em 0em; display: inline; text-align: right; }
 
-/* line 265, sass/snippets/_documents.scss */
+/* line 280, sass/snippets/_documents.scss */
 ul.actions.active { border-bottom: 1px solid #eeeeee; }
 
-/* line 270, sass/snippets/_documents.scss */
+/* line 285, sass/snippets/_documents.scss */
 #options-menu, #document-tags { border-bottom: 1px solid #eee; border-top: 1px solid #fcfcfc; background: #fcfcfc; }
-/* line 274, sass/snippets/_documents.scss */
+/* line 289, sass/snippets/_documents.scss */
 #options-menu .object-actions, #document-tags .object-actions { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; background: #fafafa; border: 1px solid #eee; margin: 0.5em; text-align: right; }
-/* line 279, sass/snippets/_documents.scss */
+/* line 294, sass/snippets/_documents.scss */
 #options-menu .object-actions form, #options-menu .object-actions li, #options-menu .object-actions a, #options-menu .object-actions input, #document-tags .object-actions form, #document-tags .object-actions li, #document-tags .object-actions a, #document-tags .object-actions input { display: inline-block; margin: 0; }
-/* line 284, sass/snippets/_documents.scss */
+/* line 299, sass/snippets/_documents.scss */
 #options-menu .object-actions li, #document-tags .object-actions li { display: inline; margin-right: 0.5em; }
 
-/* line 291, sass/snippets/_documents.scss */
+/* line 306, sass/snippets/_documents.scss */
 #document-tags { border: 0; padding: 0 0.5em; }
-/* line 295, sass/snippets/_documents.scss */
+/* line 310, sass/snippets/_documents.scss */
 #document-tags .smartTextBox-items { width: 550px; }
-/* line 298, sass/snippets/_documents.scss */
-#document-tags label { display: none; }
-/* line 301, sass/snippets/_documents.scss */
-#document-tags .smartTextBox-box-elem { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-/* line 304, sass/snippets/_documents.scss */
-#document-tags .smartTextBox-input-elem-valueInput { line-height: 18px; outline: none; }
-/* line 309, sass/snippets/_documents.scss */
-#document-tags .smartTextBox { display: inline-block; }
 /* line 313, sass/snippets/_documents.scss */
-#document-tags .inline-submit { display: inline-block; float: left; margin-right: 0.5em; }
+#document-tags label { display: none; }
+/* line 316, sass/snippets/_documents.scss */
+#document-tags .smartTextBox-box-elem { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 /* line 319, sass/snippets/_documents.scss */
+#document-tags .smartTextBox-input-elem-valueInput { line-height: 18px; outline: none; }
+/* line 324, sass/snippets/_documents.scss */
+#document-tags .smartTextBox { display: inline-block; }
+/* line 328, sass/snippets/_documents.scss */
+#document-tags .inline-submit { display: inline-block; float: left; margin-right: 0.5em; }
+/* line 334, sass/snippets/_documents.scss */
 #document-tags .smartTextBox-elem-valueContainer { font-size: 0.9em; }
 
-/* line 323, sass/snippets/_documents.scss */
+/* line 338, sass/snippets/_documents.scss */
 .publish-draft { margin-top: 10px; float: right; }
-/* line 326, sass/snippets/_documents.scss */
+/* line 341, sass/snippets/_documents.scss */
 .publish-draft p { margin: 0; text-transform: capitalize; }
 
-/* line 330, sass/snippets/_documents.scss */
-#sortable_document_items.sortable .document_item { border-top: 1px solid #eee; border-left: 2px solid #eee; border-right: 2px solid #eee; }
-/* line 334, sass/snippets/_documents.scss */
-#sortable_document_items.sortable .document_item .move-handle { cursor: move; margin-top: 2px; height: 16px; width: 16px; display: block; float: right; text-indent: -9999px; background: url("/images/ui/move-handle.png") no-repeat 0 0; }
 /* line 345, sass/snippets/_documents.scss */
+#sortable_document_items.sortable .document_item { border-top: 1px solid #eee; border-left: 2px solid #eee; border-right: 2px solid #eee; }
+/* line 349, sass/snippets/_documents.scss */
+#sortable_document_items.sortable .document_item .move-handle { cursor: move; margin-top: 2px; height: 16px; width: 16px; display: block; float: right; text-indent: -9999px; background: url("/images/ui/move-handle.png") no-repeat 0 0; }
+/* line 360, sass/snippets/_documents.scss */
 #sortable_document_items.sortable .body, #sortable_document_items.sortable .edit, #sortable_document_items.sortable .actions, #sortable_document_items.sortable .document_item_activity { display: none; }
 
-/* line 350, sass/snippets/_documents.scss */
+/* line 365, sass/snippets/_documents.scss */
 #reorder-sections { padding: 2px 4px; text-transform: capitalize; margin-left: 5px; }
 
-/* line 358, sass/snippets/_documents.scss */
-#documents.show .inline-edit, #documents.show .edit { display: none; }
-/* line 363, sass/snippets/_documents.scss */
-#documents.show .edit p.submit { text-align: right; margin-top: 5px; }
-/* line 370, sass/snippets/_documents.scss */
-#documents.show .section .editable { -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
 /* line 373, sass/snippets/_documents.scss */
-#documents.show .section .edit.revealed { display: inline-block; }
-/* line 375, sass/snippets/_documents.scss */
-#documents.show .section.document_item .edit.revealed { display: block; }
-/* line 377, sass/snippets/_documents.scss */
-#documents.show .section .edit { padding: 0; text-align: center; }
-/* line 380, sass/snippets/_documents.scss */
-#documents.show .section .edit .spinner { display: inline; }
-/* line 383, sass/snippets/_documents.scss */
-#documents.show .section .edit .field { width: 100%; margin-bottom: 5px; }
+#documents.show .inline-edit, #documents.show .edit { display: none; }
+/* line 378, sass/snippets/_documents.scss */
+#documents.show .edit p.submit { text-align: right; margin-top: 5px; }
+/* line 385, sass/snippets/_documents.scss */
+#documents.show .section .editable { -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
 /* line 388, sass/snippets/_documents.scss */
+#documents.show .section .edit.revealed { display: inline-block; }
+/* line 390, sass/snippets/_documents.scss */
+#documents.show .section.document_item .edit.revealed { display: block; }
+/* line 392, sass/snippets/_documents.scss */
+#documents.show .section .edit { padding: 0; text-align: center; }
+/* line 395, sass/snippets/_documents.scss */
+#documents.show .section .edit .spinner { display: inline; }
+/* line 398, sass/snippets/_documents.scss */
+#documents.show .section .edit .field { width: 100%; margin-bottom: 5px; }
+/* line 403, sass/snippets/_documents.scss */
 #documents.show .section .edit input.inline-edit-title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 635px; background: #fafafa; border: 1px solid #eee; }
-/* line 397, sass/snippets/_documents.scss */
-#documents.show .section .edit .inline-edit-body { display: block; width: 635px; max-width: 635px; height: 100px; padding: 0.5em; margin-bottom: 0.5em; background: #fafafa; border: 1px solid #eee; font-size: 1em; }
-/* line 408, sass/snippets/_documents.scss */
-#documents.show .section .edit p.submit { margin: 0; }
 /* line 412, sass/snippets/_documents.scss */
+#documents.show .section .edit .inline-edit-body { display: block; width: 635px; max-width: 635px; height: 100px; padding: 0.5em; margin-bottom: 0.5em; background: #fafafa; border: 1px solid #eee; font-size: 1em; }
+/* line 423, sass/snippets/_documents.scss */
+#documents.show .section .edit p.submit { margin: 0; }
+/* line 427, sass/snippets/_documents.scss */
 #documents.show .section .spinner { display: inline; }
-/* line 414, sass/snippets/_documents.scss */
+/* line 429, sass/snippets/_documents.scss */
 #documents.show .most_important_thing { overflow: hidden; }
-/* line 416, sass/snippets/_documents.scss */
-#documents.show .most_important_thing .show { border: 1px solid #fff; }
-/* line 417, sass/snippets/_documents.scss */
-#documents.show .most_important_thing .show span { font-weight: bold; }
-/* line 421, sass/snippets/_documents.scss */
-#documents.show .most_important_thing .edit { text-align: center; padding: 0; margin: auto; }
-/* line 425, sass/snippets/_documents.scss */
-#documents.show .most_important_thing .edit p.submit { margin-top: 0.5em; font-size: 0.5em; }
 /* line 431, sass/snippets/_documents.scss */
+#documents.show .most_important_thing .show { border: 1px solid #fff; }
+/* line 432, sass/snippets/_documents.scss */
+#documents.show .most_important_thing .show span { font-weight: bold; }
+/* line 436, sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit { text-align: center; padding: 0; margin: auto; }
+/* line 440, sass/snippets/_documents.scss */
+#documents.show .most_important_thing .edit p.submit { margin-top: 0.5em; font-size: 0.5em; }
+/* line 446, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit form { text-align: center; }
-/* line 433, sass/snippets/_documents.scss */
+/* line 448, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit form input[type=text] { display: block; background: #fafafa; border: 1px solid #eee; padding: 0.5em 1em; font-size: .7em; font-weight: bold; width: 300px; text-align: center; }
-/* line 444, sass/snippets/_documents.scss */
+/* line 459, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit span, #documents.show .most_important_thing .edit .field { display: inline-block; }
-/* line 447, sass/snippets/_documents.scss */
+/* line 462, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit span { font-size: 8em; display: inline-block; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 454, sass/snippets/_documents.scss */
+/* line 469, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit span.left { vertical-align: top; margin-top: 0px; }
-/* line 458, sass/snippets/_documents.scss */
+/* line 473, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit span.right { vertical-align: bottom; }
 
-/* line 469, sass/snippets/_documents.scss */
+/* line 484, sass/snippets/_documents.scss */
 #content-header .editable:hover { background-color: #d5f557; cursor: pointer; }
-/* line 474, sass/snippets/_documents.scss */
+/* line 489, sass/snippets/_documents.scss */
 #content-header .edit { margin: 2px 0; }
-/* line 476, sass/snippets/_documents.scss */
+/* line 491, sass/snippets/_documents.scss */
 #content-header .edit input[type=text] { font-size: 1.2em; display: inline-block; font-weight: bold; padding: 2px 3px; margin-right: .5em; border: 1px solid #ee8; background-color: #FFC; width: 65%; }
-/* line 486, sass/snippets/_documents.scss */
+/* line 501, sass/snippets/_documents.scss */
 #content-header .edit input[type=submit] { display: inline-block; vertical-align: middle; margin-top: -4px; }
 
 /*  inline edit toggle triggers:  the "edit" button that appears when you hover a section the "cancel" button when editing a section
 */
-/* line 499, sass/snippets/_documents.scss */
+/* line 514, sass/snippets/_documents.scss */
 .document .section { /* This is the "cancel" button when in the edit view. */ }
-/* line 502, sass/snippets/_documents.scss */
+/* line 517, sass/snippets/_documents.scss */
 .document .section .edit .toggle-inline-edit { display: inline; color: #fff; text-shadow: 1px 1px 1px #888; font-weight: normal; }
 
 /* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */
 /*.document .most_important_thing.section{ .toggle-inline-edit{ float: right; font-weight: normal; top: 0.5em; right: 0.5em; opacity: 0; display: block; } &:hover{ .toggle-inline-edit{  opacity: 1; } } 
 }*/
 /* Adding new sections dynamically */
-/* line 532, sass/snippets/_documents.scss */
+/* line 547, sass/snippets/_documents.scss */
 #add-new-section p { margin: 1em 0; }
-/* line 535, sass/snippets/_documents.scss */
+/* line 550, sass/snippets/_documents.scss */
 #add-new-section .toggle-add-new-section { padding: 2px 4px; }
 
-/* line 539, sass/snippets/_documents.scss */
+/* line 554, sass/snippets/_documents.scss */
 #new-section { background-color: #f1f1f1; display: none; border: 1px solid #ddd; padding: 1em; }
-/* line 544, sass/snippets/_documents.scss */
-#new-section .field { clear: both; }
-/* line 546, sass/snippets/_documents.scss */
-#new-section .field label { display: block; float: none; }
-/* line 550, sass/snippets/_documents.scss */
-#new-section .field input.title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 628px; background: #fafafa; border: 1px solid #ddd; }
 /* line 559, sass/snippets/_documents.scss */
+#new-section .field { clear: both; }
+/* line 561, sass/snippets/_documents.scss */
+#new-section .field label { display: block; float: none; }
+/* line 565, sass/snippets/_documents.scss */
+#new-section .field input.title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 628px; background: #fafafa; border: 1px solid #ddd; }
+/* line 574, sass/snippets/_documents.scss */
 #new-section .field .body { display: block; height: 100px; padding: 0.5em; width: 628px; background: #fafafa; border: 1px solid #ddd; font-size: 1em; }
-/* line 569, sass/snippets/_documents.scss */
+/* line 584, sass/snippets/_documents.scss */
 #new-section .is_heading { float: right; }
-/* line 571, sass/snippets/_documents.scss */
+/* line 586, sass/snippets/_documents.scss */
 #new-section .is_heading label { display: inline; font-weight: normal; }
-/* line 576, sass/snippets/_documents.scss */
+/* line 591, sass/snippets/_documents.scss */
 #new-section .submit { text-align: right; margin-top: 0.5em; }
-/* line 579, sass/snippets/_documents.scss */
+/* line 594, sass/snippets/_documents.scss */
 #new-section .submit .spinner { display: inline; }
 
 /* Deleting a section */
-/* line 592, sass/snippets/_documents.scss */
+/* line 607, sass/snippets/_documents.scss */
 span.separator { color: #ccc; font-size: 1em; margin: 0 .5em; }
 
-/* line 598, sass/snippets/_documents.scss */
+/* line 613, sass/snippets/_documents.scss */
 .notify { float: right; font-size: 9pt; }
-/* line 601, sass/snippets/_documents.scss */
+/* line 616, sass/snippets/_documents.scss */
 .notify label, .notify input { display: inline; float: none; font-weight: normal; }
-/* line 602, sass/snippets/_documents.scss */
+/* line 617, sass/snippets/_documents.scss */
 .notify label { width: auto; }
 
-/* line 605, sass/snippets/_documents.scss */
+/* line 620, sass/snippets/_documents.scss */
 #container #content .col_1 .speech ul { display: block; list-style: disc; margin: 0; padding: 0; list-style-position: inside; }
-/* line 611, sass/snippets/_documents.scss */
+/* line 626, sass/snippets/_documents.scss */
 #container #content .col_1 .speech ul li { margin: 0 !important; padding: 0; }
-/* line 616, sass/snippets/_documents.scss */
+/* line 631, sass/snippets/_documents.scss */
 #container #content .col_1 .speech .notify { float: none; display: block; margin-top: .5em; text-align: right; }
 
 /* line 4, sass/snippets/_smartbox.scss */
@@ -1957,303 +1965,288 @@ p.submit.left { float: left; margin: 0 1em 1em 0; }
 .app_error p { padding: 0.5em 2em; font-size: 1.2em; font-weight: bold; }
 
 /* line 278, sass/snippets/_legacy.scss */
-a.trash { background: url(/images/trash.png) no-repeat; width: 16px; height: 17px; display: block; text-indent: -3000px; }
-
-/* line 285, sass/snippets/_legacy.scss */
-a.trash:hover { background: url(/images/trash.png) no-repeat 0 -17px; }
-
-/* line 288, sass/snippets/_legacy.scss */
 img.spinner { display: block; }
 
-/* line 293, sass/snippets/_legacy.scss */
+/* line 283, sass/snippets/_legacy.scss */
 ul.error_messages li p { color: #d81f26; }
 
-/* line 302, sass/snippets/_legacy.scss */
+/* line 292, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea { position: relative; padding-left: 2em; }
-/* line 305, sass/snippets/_legacy.scss */
+/* line 295, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.draft, #container #content .col_2 .ideas .user_idea span.published, #container #content .col_2 .ideas .user_idea span.needs_work, #container #content .col_2 .ideas .user_idea span.approved, #container #content .col_2 .ideas .user_idea span.dropped { font-size: 30px; line-height: 1em; position: absolute; top: -4px; left: 0; }
-/* line 311, sass/snippets/_legacy.scss */
+/* line 301, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.draft { color: #aaaaaa; }
-/* line 313, sass/snippets/_legacy.scss */
+/* line 303, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.published { color: #ebde0a; }
-/* line 315, sass/snippets/_legacy.scss */
+/* line 305, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.approved { color: #63bb46; }
-/* line 317, sass/snippets/_legacy.scss */
+/* line 307, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.needs_work { color: #e77b29; }
-/* line 319, sass/snippets/_legacy.scss */
+/* line 309, sass/snippets/_legacy.scss */
 #container #content .col_2 .ideas .user_idea span.dropped { color: #ed1c24; }
-/* line 321, sass/snippets/_legacy.scss */
+/* line 311, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users { padding: 0.5em 1em 0.5em 1em; position: relative; border: 1px solid #cccccc; background: #eeeeee; }
-/* line 326, sass/snippets/_legacy.scss */
+/* line 316, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users h4 { font-size: 1.2em; }
-/* line 328, sass/snippets/_legacy.scss */
+/* line 318, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users textarea { font-size: 1em; width: 19em; height: 4em; }
-/* line 332, sass/snippets/_legacy.scss */
+/* line 322, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_contacts { margin-top: 2em; border: none; background: white; border-bottom: 1px solid #eeeeee; }
-/* line 337, sass/snippets/_legacy.scss */
+/* line 327, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_contacts h4 { font-size: 1.2em; padding-bottom: 0; }
-/* line 340, sass/snippets/_legacy.scss */
+/* line 330, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_contacts input[type=submit] { margin: 0.5em 0 0 0; }
-/* line 342, sass/snippets/_legacy.scss */
+/* line 332, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_contacts select { width: 12em; margin-right: 0.5em; }
-/* line 346, sass/snippets/_legacy.scss */
+/* line 336, sass/snippets/_legacy.scss */
 #container #content .col_2 .invite_users input[type=submit] { margin: 0.5em 0 0 0; }
-/* line 349, sass/snippets/_legacy.scss */
+/* line 339, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference .most_important_thing { font-size: 1.1em; position: relative; padding: 0 0 0 0.5em; font-weight: bold; }
-/* line 354, sass/snippets/_legacy.scss */
+/* line 344, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference .most_important_thing span { font-size: 3em; padding: 0; margin: 0; height: 0.4em; }
-/* line 359, sass/snippets/_legacy.scss */
+/* line 349, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference .most_important_thing span.left { float: left; position: relative; top: -0.4em; left: -0.1em; }
-/* line 364, sass/snippets/_legacy.scss */
+/* line 354, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference .most_important_thing span.right { position: absolute; line-height: 0.8em; bottom: -0.1em; padding-right: 0.2em; padding-left: 0.1em; }
-/* line 370, sass/snippets/_legacy.scss */
+/* line 360, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul { padding-left: 0; padding-right: 0; padding-bottom: 0; }
-/* line 374, sass/snippets/_legacy.scss */
+/* line 364, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li { border-bottom: 1px solid #cccccc; padding: 0 1em; }
-/* line 377, sass/snippets/_legacy.scss */
+/* line 367, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li h3 { padding: 0.5em 0 0 0; font-size: 1.2em; color: inherit; }
-/* line 381, sass/snippets/_legacy.scss */
+/* line 371, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li h3.js { padding-bottom: 0.5em; }
-/* line 383, sass/snippets/_legacy.scss */
+/* line 373, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li h3.active { padding-bottom: 0; }
-/* line 385, sass/snippets/_legacy.scss */
+/* line 375, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li p { font-weight: normal; }
-/* line 387, sass/snippets/_legacy.scss */
+/* line 377, sass/snippets/_legacy.scss */
 #container #content .col_2 #document_reference ul li:last-child { border-bottom: 0; }
-/* line 389, sass/snippets/_legacy.scss */
+/* line 379, sass/snippets/_legacy.scss */
 #container #content .invitations, #container #content .friends { width: 100%; }
-/* line 391, sass/snippets/_legacy.scss */
+/* line 381, sass/snippets/_legacy.scss */
 #container #content .invitations td, #container #content .invitations th, #container #content .friends td, #container #content .friends th { padding: 0.5em 1em; }
-/* line 393, sass/snippets/_legacy.scss */
+/* line 383, sass/snippets/_legacy.scss */
 #container #content .invitations th, #container #content .friends th { background: #dddddd; border-bottom: 1px solid #cccccc; }
-/* line 396, sass/snippets/_legacy.scss */
+/* line 386, sass/snippets/_legacy.scss */
 #container #content .invitations tr:nth-child(even), #container #content .invitations tr.even, #container #content .friends tr:nth-child(even), #container #content .friends tr.even { background: #e4e4e4; }
-/* line 398, sass/snippets/_legacy.scss */
+/* line 388, sass/snippets/_legacy.scss */
 #container #content .invitations tr:nth-child(odd), #container #content .invitations tr.odd, #container #content .friends tr:nth-child(odd), #container #content .friends tr.odd { background: #eeeeee; }
-/* line 401, sass/snippets/_legacy.scss */
+/* line 391, sass/snippets/_legacy.scss */
 #container #content .profile .invite_users { margin-top: 4.8em; }
 
-/* line 404, sass/snippets/_legacy.scss */
+/* line 394, sass/snippets/_legacy.scss */
 #beta_feedback { background: white; background: #fefefe; min-width: 980px; width: 100%; }
-/* line 409, sass/snippets/_legacy.scss */
+/* line 399, sass/snippets/_legacy.scss */
 #beta_feedback .title { background: #333333; padding: 1em; }
-/* line 412, sass/snippets/_legacy.scss */
+/* line 402, sass/snippets/_legacy.scss */
 #beta_feedback .title h2 { color: white; font-size: 1.4em; width: 65em; margin: 0 auto; }
-/* line 417, sass/snippets/_legacy.scss */
+/* line 407, sass/snippets/_legacy.scss */
 #beta_feedback .title h2 span { padding-left: 1em; font-size: 0.8em; color: #aaaaaa; }
-/* line 421, sass/snippets/_legacy.scss */
+/* line 411, sass/snippets/_legacy.scss */
 #beta_feedback .title h2 span a { color: #eeeeee; }
-/* line 423, sass/snippets/_legacy.scss */
+/* line 413, sass/snippets/_legacy.scss */
 #beta_feedback .title h2 span a:hover { color: #b3d335; }
-/* line 425, sass/snippets/_legacy.scss */
+/* line 415, sass/snippets/_legacy.scss */
 #beta_feedback h3 { border-bottom: 1px solid #cccccc; margin-bottom: 1em; }
-/* line 428, sass/snippets/_legacy.scss */
+/* line 418, sass/snippets/_legacy.scss */
 #beta_feedback .wrap { display: none; width: 92em; margin: 0 auto; }
-/* line 432, sass/snippets/_legacy.scss */
+/* line 422, sass/snippets/_legacy.scss */
 #beta_feedback .user_input, #beta_feedback .info { padding: 1em 2em; background: #ffffdf; border: 1px solid #cccccc; height: 24em; }
-/* line 437, sass/snippets/_legacy.scss */
+/* line 427, sass/snippets/_legacy.scss */
 #beta_feedback .user_input { float: left; margin: 2em 0 2em 2em; border-right: none; }
-/* line 441, sass/snippets/_legacy.scss */
+/* line 431, sass/snippets/_legacy.scss */
 #beta_feedback .user_input textarea { height: 10em; }
-/* line 443, sass/snippets/_legacy.scss */
+/* line 433, sass/snippets/_legacy.scss */
 #beta_feedback .user_input p.submit { text-align: right; }
-/* line 445, sass/snippets/_legacy.scss */
+/* line 435, sass/snippets/_legacy.scss */
 #beta_feedback .info { float: left; margin: 2em 2em 2em 0; border-left: none; }
-/* line 449, sass/snippets/_legacy.scss */
+/* line 439, sass/snippets/_legacy.scss */
 #beta_feedback .info p { font-size: 1.2em; }
-/* line 451, sass/snippets/_legacy.scss */
+/* line 441, sass/snippets/_legacy.scss */
 #beta_feedback .info ul { padding: 0 3em 1em 3em; }
-/* line 453, sass/snippets/_legacy.scss */
+/* line 443, sass/snippets/_legacy.scss */
 #beta_feedback .info ul li { list-style: disc; }
 
-/* line 456, sass/snippets/_legacy.scss */
+/* line 446, sass/snippets/_legacy.scss */
 .second-column { margin-left: 9.5em; }
 
-/* line 460, sass/snippets/_legacy.scss */
+/* line 450, sass/snippets/_legacy.scss */
 .errorExplanation h4 { color: red; }
-/* line 462, sass/snippets/_legacy.scss */
+/* line 452, sass/snippets/_legacy.scss */
 .errorExplanation ul { padding-left: 1em; margin-bottom: 2em; }
-/* line 465, sass/snippets/_legacy.scss */
+/* line 455, sass/snippets/_legacy.scss */
 .errorExplanation ul li { color: #cd251b; }
 
-/* line 469, sass/snippets/_legacy.scss */
+/* line 459, sass/snippets/_legacy.scss */
 .textile-help li { margin-bottom: 0.5em; }
-/* line 471, sass/snippets/_legacy.scss */
+/* line 461, sass/snippets/_legacy.scss */
 .textile-help .textile { margin-left: 2em; }
-/* line 474, sass/snippets/_legacy.scss */
+/* line 464, sass/snippets/_legacy.scss */
 .textile-help .html h1, .textile-help .html h2, .textile-help .html h3, .textile-help .html h4, .textile-help .html h5, .textile-help .html h6 { border: none !important; background: none !important; padding: none !important; }
-/* line 478, sass/snippets/_legacy.scss */
+/* line 468, sass/snippets/_legacy.scss */
 .textile-help .html h1 { font-size: 1.4em; }
-/* line 480, sass/snippets/_legacy.scss */
+/* line 470, sass/snippets/_legacy.scss */
 .textile-help .html h2 { font-size: 1.2em; padding: 0 !important; }
-/* line 483, sass/snippets/_legacy.scss */
+/* line 473, sass/snippets/_legacy.scss */
 .textile-help .html ul, .textile-help .html ol { list-style-position: inside; list-style-type: auto; padding: 0 !important; }
-/* line 487, sass/snippets/_legacy.scss */
+/* line 477, sass/snippets/_legacy.scss */
 .textile-help .html ul { list-style-type: disc; }
-/* line 489, sass/snippets/_legacy.scss */
+/* line 479, sass/snippets/_legacy.scss */
 .textile-help .html ol { list-style-type: decimal; }
-/* line 491, sass/snippets/_legacy.scss */
+/* line 481, sass/snippets/_legacy.scss */
 .textile-help span.asterisk { font-family: serif; font-size: 1.2em; }
 
-/* line 497, sass/snippets/_legacy.scss */
+/* line 487, sass/snippets/_legacy.scss */
 #container #content .col_2 .change-state { position: relative; }
-/* line 499, sass/snippets/_legacy.scss */
+/* line 489, sass/snippets/_legacy.scss */
 #container #content .col_2 .change-state .info { position: absolute; top: 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; display: none; font-size: 1em; background: #eeeeee; border-color: #dddddd; border-style: solid; border-width: 1px; padding: 5px 10px; }
-/* line 510, sass/snippets/_legacy.scss */
+/* line 500, sass/snippets/_legacy.scss */
 #container #content .col_2 .message { border-top: 1px solid #dddddd; margin-top: 6em; }
 
-/* line 516, sass/snippets/_legacy.scss */
+/* line 506, sass/snippets/_legacy.scss */
 body#users.contacts #header ul.sub_nav { display: none; }
 
-/* line 519, sass/snippets/_legacy.scss */
+/* line 509, sass/snippets/_legacy.scss */
 .fields { margin-bottom: 1em; }
 
-/* line 522, sass/snippets/_legacy.scss */
+/* line 512, sass/snippets/_legacy.scss */
 #sortable .document_item:hover, #sortable .document_heading:hover { cursor: move; }
 
-/* line 527, sass/snippets/_legacy.scss */
+/* line 517, sass/snippets/_legacy.scss */
 #document-privileges .document-title label { float: none; }
-/* line 529, sass/snippets/_legacy.scss */
+/* line 519, sass/snippets/_legacy.scss */
 #document-privileges .document-title input { float: left; margin: 5px; }
 
-/* line 533, sass/snippets/_legacy.scss */
+/* line 523, sass/snippets/_legacy.scss */
 #list-of-accounts { padding: 1em; }
-/* line 535, sass/snippets/_legacy.scss */
+/* line 525, sass/snippets/_legacy.scss */
 #list-of-accounts h2 { padding-left: 1em; }
 
-/* line 540, sass/snippets/_legacy.scss */
+/* line 530, sass/snippets/_legacy.scss */
 ul#notifications { float: left; width: 620px; }
-/* line 543, sass/snippets/_legacy.scss */
+/* line 533, sass/snippets/_legacy.scss */
 ul#notifications li { float: left; padding: 0.5em 0.25em; width: 100%; border-bottom: 1px dotted #cccccc; }
-/* line 548, sass/snippets/_legacy.scss */
+/* line 538, sass/snippets/_legacy.scss */
 ul#notifications li.even { background: #f6f6f6; }
-/* line 551, sass/snippets/_legacy.scss */
+/* line 541, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_label { float: left; padding: 1px 3px; background: #32401a; color: white; margin-right: 5px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-/* line 558, sass/snippets/_legacy.scss */
+/* line 548, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_label a { color: white !important; font-weight: normal !important; }
-/* line 561, sass/snippets/_legacy.scss */
+/* line 551, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_meta { float: left; clear: left; font-style: italic; color: #999999; }
-/* line 566, sass/snippets/_legacy.scss */
+/* line 556, sass/snippets/_legacy.scss */
 ul#notifications li span.notification_action { float: right; }
 
-/* line 571, sass/snippets/_legacy.scss */
+/* line 561, sass/snippets/_legacy.scss */
 .smartTextBox { cursor: text; }
 
-/* line 574, sass/snippets/_legacy.scss */
+/* line 564, sass/snippets/_legacy.scss */
 .smartTextBox-items { zoom: 1; overflow: hidden; margin: 0; padding: 3px 4px 0; border: 1px solid #cccccc; background: white; width: 430px; }
 
-/* line 583, sass/snippets/_legacy.scss */
+/* line 573, sass/snippets/_legacy.scss */
 .smartTextBox-elem { list-style-type: none; line-height: 18px; float: left; display: block; padding: 0; margin: 0 5px 3px 0; cursor: default; }
 
-/* line 592, sass/snippets/_legacy.scss */
+/* line 582, sass/snippets/_legacy.scss */
 .smartTextBox-box-elem { position: relative; padding: 0 5px; border: 1px solid #b3d335; background: #c6e355; cursor: default; -moz-border-radius: 9px; -webkit-border-radius: 9px; border-radius: 9px; }
 
-/* line 602, sass/snippets/_legacy.scss */
+/* line 592, sass/snippets/_legacy.scss */
 .smartTextBox-input-elem { backgound-color: transparent; }
 
-/* line 605, sass/snippets/_legacy.scss */
+/* line 595, sass/snippets/_legacy.scss */
 .smartTextBox-input-elem-valueInput { border: none; }
 
-/* line 610, sass/snippets/_legacy.scss */
+/* line 600, sass/snippets/_legacy.scss */
 .smartTextBox-elem-box-hover { background-color: #b3d335; }
 
-/* line 615, sass/snippets/_legacy.scss */
+/* line 605, sass/snippets/_legacy.scss */
 .smartTextBox-elem-box-focus { background-color: #a0c11e; }
 
-/* line 620, sass/snippets/_legacy.scss */
+/* line 610, sass/snippets/_legacy.scss */
 .smartTextBox-elem-valueContainer { margin-right: 8px; white-space: nowrap; }
 
-/* line 624, sass/snippets/_legacy.scss */
+/* line 614, sass/snippets/_legacy.scss */
 .smartTextBox-elem-deleteButton { position: absolute; right: 4px; top: 6px; display: block; width: 7px; height: 7px; font-size: 1px; background: url("/images/close.gif"); }
-/* line 633, sass/snippets/_legacy.scss */
+/* line 623, sass/snippets/_legacy.scss */
 .smartTextBox-elem-deleteButton:hover { border: none; background-position: 7px; text-decoration: none; }
 
 /* AutoComplete */
-/* line 640, sass/snippets/_legacy.scss */
+/* line 630, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete { width: 430px; position: absolute; z-index: 10; }
 
-/* line 645, sass/snippets/_legacy.scss */
+/* line 635, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-placeholder { opacity: 0.9; filter: alpha(opacity=90); background: #eeeeee; border: 1px solid #999999; border-top: none; padding: 5px 7px; margin-left: 122px; width: 424px; }
 
-/* line 655, sass/snippets/_legacy.scss */
+/* line 645, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-results { opacity: 0.9; filter: alpha(opacity=90); background: #eeeeee; border: 1px solid #999999; border-top: none; margin: 0; padding: 0; margin-left: 122px; width: 438px; }
 
-/* line 666, sass/snippets/_legacy.scss */
+/* line 656, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-result { margin: 0; padding: 5px; list-style-type: none; background: #eeeeee; cursor: pointer; .width: 100%; }
 
-/* line 674, sass/snippets/_legacy.scss */
+/* line 664, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-value { display: none; }
 
-/* line 677, sass/snippets/_legacy.scss */
+/* line 667, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-highligh { font-weight: bold; }
 
-/* line 680, sass/snippets/_legacy.scss */
+/* line 670, sass/snippets/_legacy.scss */
 .smartTextBox-autocomplete-result-focus { background: #a0c11e; }
 
-/* line 683, sass/snippets/_legacy.scss */
-#footer { background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px; padding: 3px 2em 0px 7.2em; border: 1px solid #dddddd; }
-/* line 687, sass/snippets/_legacy.scss */
-#footer p { font-size: 1.1em; }
-/* line 689, sass/snippets/_legacy.scss */
-#footer p a { color: #888888; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 600ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 600ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 600ms; transition-property: background-color, color, border-color, opacity; transition-duration: 600ms; }
-/* line 692, sass/snippets/_legacy.scss */
-#footer p a:hover { color: #333333; }
-
-/* line 697, sass/snippets/_legacy.scss */
+/* line 675, sass/snippets/_legacy.scss */
 #proposals #document_reference img { max-width: 100%; }
 
-/* line 700, sass/snippets/_legacy.scss */
+/* line 678, sass/snippets/_legacy.scss */
 .show_with_js { display: none; }
 
-/* line 705, sass/snippets/_legacy.scss */
+/* line 683, sass/snippets/_legacy.scss */
 #container #content #idea_users .contents { border-bottom: 0; }
-/* line 707, sass/snippets/_legacy.scss */
+/* line 685, sass/snippets/_legacy.scss */
 #container #content #idea_users ul { padding: 0; margin: 0; }
-/* line 710, sass/snippets/_legacy.scss */
+/* line 688, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user { margin: 0; padding: 1em; border-bottom: 1px solid #cccccc; }
-/* line 714, sass/snippets/_legacy.scss */
+/* line 692, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user p { margin: 0; }
-/* line 716, sass/snippets/_legacy.scss */
+/* line 694, sass/snippets/_legacy.scss */
 #container #content #idea_users li.idea_user .idea_user_link { display: block; }
 
-/* line 719, sass/snippets/_legacy.scss */
+/* line 697, sass/snippets/_legacy.scss */
 .block { display: block; }
 
-/* line 722, sass/snippets/_legacy.scss */
+/* line 700, sass/snippets/_legacy.scss */
 .align-right { text-align: right; }
 
-/* line 725, sass/snippets/_legacy.scss */
+/* line 703, sass/snippets/_legacy.scss */
 .warning { color: #ff3333; }
 
-/* line 731, sass/snippets/_legacy.scss */
+/* line 709, sass/snippets/_legacy.scss */
 #help_and_faq .try-button { display: none; }
-/* line 733, sass/snippets/_legacy.scss */
+/* line 711, sass/snippets/_legacy.scss */
 #help_and_faq h1 { margin-bottom: 40px; }
-/* line 735, sass/snippets/_legacy.scss */
+/* line 713, sass/snippets/_legacy.scss */
 #help_and_faq #contents { border: 1px solid #b3d335; padding: 10px 5px 10px 0; margin-bottom: 50px; width: 70%; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
-/* line 741, sass/snippets/_legacy.scss */
+/* line 719, sass/snippets/_legacy.scss */
 #help_and_faq #contents h2 { display: none; }
-/* line 743, sass/snippets/_legacy.scss */
+/* line 721, sass/snippets/_legacy.scss */
 #help_and_faq #contents h3 { font-weight: normal; }
-/* line 745, sass/snippets/_legacy.scss */
+/* line 723, sass/snippets/_legacy.scss */
 #help_and_faq #contents .listing { padding-left: 35px; }
-/* line 747, sass/snippets/_legacy.scss */
+/* line 725, sass/snippets/_legacy.scss */
 #help_and_faq #contents li { font-size: 1.333em; line-height: 1.5em; list-style: disc; }
-/* line 751, sass/snippets/_legacy.scss */
+/* line 729, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing { list-style: none; padding: 0; margin: 0; }
-/* line 755, sass/snippets/_legacy.scss */
+/* line 733, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li { font-size: 90%; padding-bottom: 20px; margin-bottom: 3em; border-bottom: 1px solid #b3d335; position: relative; }
-/* line 757, sass/snippets/_legacy.scss */
+/* line 735, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li p a { font-size: 90%; }
-/* line 763, sass/snippets/_legacy.scss */
+/* line 741, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .question { margin-bottom: 10px; font-weight: normal; padding-right: 4em; }
-/* line 767, sass/snippets/_legacy.scss */
+/* line 745, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .back-to-top { color: #b3d335; font-size: 110%; position: absolute; top: 0; right: 0; padding-right: 20px; background: transparent url(/images/up-arrow.png) no-repeat right 4px; }
-/* line 775, sass/snippets/_legacy.scss */
+/* line 753, sass/snippets/_legacy.scss */
 #help_and_faq .faq-listing > li .ans { color: #676767; margin: 0 0 10px; font-size: 1.333em; line-height: 1.5em; }
 
-/* line 780, sass/snippets/_legacy.scss */
+/* line 758, sass/snippets/_legacy.scss */
 .error_message { color: #F66; }
 
-/* line 783, sass/snippets/_legacy.scss */
+/* line 761, sass/snippets/_legacy.scss */
 .close-button, .close-button:hover { display: block; height: 16px; width: 16px; text-indent: -9999px; background: url("/images/ui/cross-button.png") no-repeat 0 0 !important; border: 0 !important; padding: 0 !important; }

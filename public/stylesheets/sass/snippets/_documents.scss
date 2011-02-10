@@ -28,10 +28,25 @@ input#document_submit{
 }
 .document_item{
   .body{
+    p, li, a, span{
+      font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-size: 10pt;
+    }
     img{
       max-width: 600px;
       display: block;
       margin: auto;
+    }
+    ul{
+      padding-left: 1.5em;
+      list-style: disc;
+    }
+    ol{
+      padding-left: 1.5em;
+      list-style: decimal;
+    }
+    li{
+      
     }
   }
 }

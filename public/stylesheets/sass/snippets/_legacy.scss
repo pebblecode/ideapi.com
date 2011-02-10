@@ -275,16 +275,6 @@ p.submit.left {
     font-size: 1.2em;
     font-weight: bold; } }
 
-a.trash {
-  background: url(/images/trash.png) no-repeat;
-  width: 16px;
-  height: 17px;
-  display: block;
-  text-indent: -3000px; }
-
-a.trash:hover {
-  background: url(/images/trash.png) no-repeat 0 -17px; }
-
 img.spinner {
   display: block; }
 
@@ -679,18 +669,6 @@ ul#notifications {
 
 .smartTextBox-autocomplete-result-focus {
   background: #a0c11e; }
-
-#footer {
-  background: url("/images/logos/logo-small.png") no-repeat 2.2em 7px;
-  padding: 3px 2em 0px 7.2em;
-  border: 1px solid #dddddd;
-  p {
-    font-size: 1.1em;
-    a {
-      color: #888888;
-      @include color-transitions(600ms);
-      &:hover {
-        color: #333333; } } } }
 
 #proposals {
   #document_reference {

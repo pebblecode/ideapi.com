@@ -419,13 +419,23 @@ jQuery.user_links_external = function(){
     $("#documents.show .section a.toggle-inline-edit").live('click', function(e){
       var _parent = $(this).parents('.section');
       // $(this).siblings('div.editable').toggle('slide', {}, 1000);
-      _parent.find('div.editable').toggle();
+      var _edit = _parent.find('div.edit');
+      var x = window.pageXOffset;
+      var y = window.pageYOffset;
+      
       _parent.find('div.edit').toggleClass('revealed');
+      _parent.find('div.editable').toggle();
+      var _textarea = _edit.find('.inline-edit-body');
+      _textarea.css("height", _textarea.get(0).scrollHeight + "px");
+      
       if($(this).text() == 'edit'){ $(this).text('show'); }
       else{ $(this).text('edit'); }
       
       _parent.find('ul.actions').toggleClass('hide');
       _parent.find('div.document_item_activity').toggleClass('hide');
+      // prevent from scrolling up to the beginning the .edit element.
+      scroll(x,y);
+      return false;
     });
 
     $("#documents.show .section .edit a.cancel-inline-edit").live('click', function(e){
