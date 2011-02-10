@@ -13,7 +13,7 @@ gem 'will_paginate', :git => "http://github.com/mislav/will_paginate.git", :requ
 gem 'acts-as-taggable-on', '2.0.0.rc1'
 gem 'SystemTimer'
 gem "alter-ego", :require => "alter_ego"
-gem "RedCloth", :require => "redcloth"
+gem "RedCloth", "4.2.5"
 gem 'hoptoad_notifier'
 gem 'aws-s3', :require => "aws/s3"
 gem 'ci_reporter'

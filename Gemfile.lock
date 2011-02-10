@@ -62,7 +62,7 @@ GEM
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
     culerity (0.2.15)
-    database_cleaner (0.6.2)
+    database_cleaner (0.6.3)
     diff-lcs (1.1.2)
     email_spec (0.6.2)
     factory_girl (1.3.3)
@@ -160,7 +160,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth
+  RedCloth (= 4.2.5)
   SystemTimer
   acts-as-taggable-on (= 2.0.0.rc1)
   alter-ego
