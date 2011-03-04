@@ -75,7 +75,13 @@ class DocumentItem < ActiveRecord::Base
                              :subject => 'latest',
                              :secondary_subject => :self,
                              :log_level => 1,
-                             :if => lambda { |item| item.published? && !item.body.eql?(item.latest.body) }
+                             :if => lambda { |item| 
+                                              if item.present? or item.latest.present?
+                                                item.published? and !item.body.eql?(item.latest.body)
+                                              else
+                                                false
+                                              end
+                                            }
   
   # This handles the versioning via acts_as_versioned
   # http://github.com/technoweenie/acts_as_versioned  
