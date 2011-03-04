@@ -76,10 +76,10 @@ class DocumentItem < ActiveRecord::Base
                              :secondary_subject => :self,
                              :log_level => 1,
                              :if => lambda { |item| 
-                                              if item.present? or item.latest.present?
-                                                item.published? and !item.body.eql?(item.latest.body)
-                                              else
+                                              if item.latest.nil?
                                                 false
+                                              else
+                                                item.published? and !item.body.eql?(item.latest.body)
                                               end
                                             }
   
@@ -136,7 +136,8 @@ class DocumentItem < ActiveRecord::Base
   end
   
   def deliver_notifications
-    recipients = self.document.users.collect{ |user| user.email unless user.pending? }.compact - [User.current.email]
+    recipients = self.document.users.collect{ |user| user.email unless user.pending? }.compact
+    recipients = recipients - [User.current.email] if User.current.present?
     if self.send_notifications.to_i == 1
       if self.title_changed? or self.body_changed?
         NotificationMailer.deliver_document_section_updated(self.document.id, recipients, User.current.id, [self.id])
