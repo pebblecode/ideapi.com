@@ -1,9 +1,9 @@
-class MoveDocumentOwnerToAuthor < ActiveRecord::Migration
+class MoveBriefOwnerToAuthor < ActiveRecord::Migration
   def self.up
-    rename_column :documents, :user_id, :author_id
+    rename_column :briefs, :user_id, :author_id
   end
 
   def self.down
-    rename_column :documents, :author_id, :user_id
+    rename_column :briefs, :author_id, :user_id
   end
 end

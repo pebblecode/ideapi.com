@@ -1,9 +1,9 @@
-class RefactorDocument < ActiveRecord::Migration
+class RefactorBrief < ActiveRecord::Migration
   def self.up
-    remove_column :documents, :document_config_id
+    remove_column :briefs, :brief_config_id
   end
 
   def self.down
-    add_column :documents, :document_config_id, :integer
+    add_column :briefs, :brief_config_id, :integer
   end
 end

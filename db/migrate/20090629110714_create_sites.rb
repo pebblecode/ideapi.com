@@ -4,11 +4,11 @@ class CreateSites < ActiveRecord::Migration
       t.string :title
     end
 
-    add_column :documents, :site_id, :integer
+    add_column :briefs, :site_id, :integer
   end
 
   def self.down
-    remove_column :documents, :site_id
+    remove_column :briefs, :site_id
     drop_table :sites
   end
 end

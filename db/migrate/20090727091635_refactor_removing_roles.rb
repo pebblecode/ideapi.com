@@ -4,13 +4,13 @@ class RefactorRemovingRoles < ActiveRecord::Migration
     rename_table :creative_proposals, :proposals
     rename_column :proposals, :creative_id, :user_id
     rename_column :questions, :creative_id, :user_id
-    rename_column :documents, :author_id, :user_id
-    rename_column :watched_documents, :creative_id, :user_id
+    rename_column :briefs, :author_id, :user_id
+    rename_column :watched_briefs, :creative_id, :user_id
   end
 
   def self.down
-    rename_column :watched_documents, :user_id, :creative_id
-    rename_column :documents, :user_id, :author_id
+    rename_column :watched_briefs, :user_id, :creative_id
+    rename_column :briefs, :user_id, :author_id
     rename_column :questions, :user_id, :creative_id
     rename_column :proposals, :user_id, :creative_id
     rename_table :proposals, :creative_proposals

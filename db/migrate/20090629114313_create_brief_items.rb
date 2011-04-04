@@ -1,15 +1,15 @@
-class CreateDocumentItems < ActiveRecord::Migration
+class CreateBriefItems < ActiveRecord::Migration
   def self.up
-    create_table :document_items do |t|
+    create_table :brief_items do |t|
       t.text :title
       t.text :body
       t.integer :position
-      t.integer :document_id
+      t.integer :brief_id
       t.timestamps
     end
   end
 
   def self.down
-    drop_table :document_items
+    drop_table :brief_items
   end
 end

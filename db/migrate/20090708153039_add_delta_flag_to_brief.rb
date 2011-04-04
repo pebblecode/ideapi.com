@@ -1,10 +1,10 @@
-class AddDeltaFlagToDocument < ActiveRecord::Migration
+class AddDeltaFlagToBrief < ActiveRecord::Migration
   def self.up
-    add_column :documents, :delta, :boolean
-    add_index :documents, :delta 
+    add_column :briefs, :delta, :boolean
+    add_index :briefs, :delta 
   end
 
   def self.down
-    remove_column :documents, :delta
+    remove_column :briefs, :delta
   end
 end

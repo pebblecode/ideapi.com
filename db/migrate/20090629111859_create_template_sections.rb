@@ -7,6 +7,6 @@ class CreateTemplateSections < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :template_document_sections
+    drop_table :template_brief_sections
   end
 end

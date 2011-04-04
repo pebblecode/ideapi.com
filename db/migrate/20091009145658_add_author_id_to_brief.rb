@@ -1,9 +1,9 @@
-class AddAuthorIdToDocument < ActiveRecord::Migration
+class AddAuthorIdToBrief < ActiveRecord::Migration
   def self.up
-    add_column :documents, :author_id, :integer
+    add_column :briefs, :author_id, :integer
   end
 
   def self.down
-    remove_column :documents, :author_id
+    remove_column :briefs, :author_id
   end
 end
