@@ -1,19 +1,21 @@
 # Installation 
 
-To install ideapi from scratch, go into the ideapi rails directory:
+To install ideapi from scratch, first clone the source from apu:
+    
+    git clone git@apu.pebbleit.com:ideapi.com.git
 
-    # Install gems
-    sudo gem install -v=2.3.8 rails
-    sudo gem install resque
-    sudo gem install haml
-    sudo rake gems:install
-    
-    # Install mysql if required: http://www.icoretech.org/2009/08/install-mysql-and-mysql-ruby-gem-on-snow-leopard-64-bit/
-    # May need to set the correct permissions for mysql to run properly
-    
-    # If using homebrew
+    # Ideapi uses redis so install it through homebrew. If you need to install homebrew
+    # follow instructions here: https://github.com/mxcl/homebrew
     brew update
     brew install redis    # Follow post install instructions
+
+    # If you don't have mysql installed 
+    brew install mysql
+    
+    # Change to the directory where you downloaded the ideapi source  
+    bundle install # you may need to use `sudo bundle install` depending on your setup
+
+    # Create a database.yml file with relevant account in mysql
         
     # Set up db
     rake db:create    # Required if ideapi db hasn't been created yet
@@ -40,11 +42,10 @@ Add this to the /etc/apache2/extra/httpd-vhosts.conf file, replacing [ideapi dir
 ideapi makes use of Resque http://github.com/defunkt/resque to queue background jobs. Resque relies on Redis. 
 The Resque README provides instructions on installing Redis.
 
-To ensure that workers do not die (bless them) ideapi also uses God http://github.com/mojombo/god. Again
-the README for God is comprehensive. The staging and production servers are configured to keep workers 
-and Redis alive.
+To ensure that workers do not die (bless them) ideapi also uses monit. The staging and 
+production servers are configured to keep workers and Redis alive.
 
-On your development box you will need to have Redis and workers running if you want to use Resque.
+On your development box you will need to have Redis and workers running if you want to use Resque and send email.
 
 To invoke a worker from the root of the rails site you can use the following command
 
@@ -54,7 +55,7 @@ To start the Resque GUI run
 
 resque-web
 
-
+This shows you workers running and any problems with the jobs you send them. 
 
 
 
