@@ -22,14 +22,14 @@ Feature: Allow users to sign up and register
     And I press "Create my account"
     Then I should see "Account created"
 
-    Scenario: Logging in to an account from the login page
-      Given I have a valid account for "donald@acmeco.com" with the subdomain "acmeco"
-      When I go to the login page
-      And I fill in the following:
-        | Email     | donald@acmeco.com |
-        | Password  | foobar            |
-      And I press "Login"
-      And I should see "documents"
+    # Scenario: Logging in to an account from the login page
+    #   Given I have a valid account for "donald@acmeco.com" with the subdomain "acmeco"
+    #   When I go to the login page
+    #   And I fill in the following:
+    #     | Email     | donald@acmeco.com |
+    #     | Password  | foobar            |
+    #   And I press "Login"
+    #   And I should see "documents"
     
     ####### Doesn't work for some weird reason
     #
