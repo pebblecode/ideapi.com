@@ -152,9 +152,10 @@ $content_bg: #f3f3f3;
   position: relative;
 
   .title {
-    font-size: 1.5em;
+    font-size: 2em;
+    line-height: 1.3em;
     text-align: center;
-    padding: 0 170px 20px 170px;
+    padding: 0 150px 50px 150px;
   }  
   
   @extend  .clearfix;
