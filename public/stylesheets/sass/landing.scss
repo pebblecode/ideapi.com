@@ -231,7 +231,7 @@ $content_bg: #f3f3f3;
   padding: 0 10px;
   .sidebar{
     @extend .span-10;    
-        
+    float: none;    
     .large-quote {   
       padding: 0 100px;
       position: relative;
@@ -279,14 +279,19 @@ $content_bg: #f3f3f3;
   }
   
   .listing{
-    width: 640px;
-    float: right;
+    margin-top: 40px;
+    padding: 0 0 0 35px;
     li {
-      display: block;
-      background: no-repeat 35px 5px;
-      width: 300px;
+      @extend .span-3;
+      display: block;      
       float: left;
-      margin: 0 0 1em 20px;
+      clear: none;
+      min-height: 120px;
+      margin-right: 20px;      
+    }
+    li.last{
+      clear: left;
+      margin-top: 20px;
     }
   }
 }
