@@ -230,12 +230,16 @@ $content_bg: #f3f3f3;
   margin-top: 2em;
   padding: 0 10px;
   .sidebar{
-    width: 300px;
-    float: left;
-    .large-quote {
+    @extend .span-10;    
+        
+    .large-quote {   
+      padding: 0 100px;
+      position: relative;
       .before{
         background: url('/images/icons/lquote.png') no-repeat top left;
-        text-indent: -9990px;
+        position: absolute;
+        top: -10px;
+        left: 80px;
       }
       .content{
         text-align: center;
@@ -243,12 +247,14 @@ $content_bg: #f3f3f3;
       }
       .after{
         background: url('/images/icons/rquote.png') no-repeat bottom right;
-        text-indent: -9990px;
-        @extend .last;
+        position: absolute;
+        bottom: 40px;
+        right: 80px;
+                
+        /*@extend .last;*/
       }
       .cite{
         text-align: center;
-        margin-top: 1em;
       }
     }
     
