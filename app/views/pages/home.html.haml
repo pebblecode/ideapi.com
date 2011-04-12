@@ -22,7 +22,7 @@
 %hr.faded/
 
 %ul.benefits.clearfix
-  %li.quote
+  %li.sidebar
     %ul
       %li.large-quote
         .quote
@@ -37,10 +37,12 @@
         .cite
           %cite Philippa White, Founder &amp; Managing Director, <br/>The International Exchange
 
-      %li
-        Check out the 
-        = link_to "features", "http://#{request.domain}#{features_path}"
-        or      
+      %li.further-links
+        .features-link
+          Check out the 
+          = link_to "features", "http://#{request.domain}#{features_path}"
+        .or
+          or      
         .signup
           = link_to "Sign Up Now!", "/signup", :class => "try-button try-button-primary"          
           .meta

@@ -222,6 +222,66 @@ $content_bg: #f3f3f3;
   }  
 }
 
+/* Follows the 960 grid */
+.home-page .benefits{
+  margin-top: 2em;
+  padding: 0 10px;
+  .sidebar{
+    width: 300px;
+    float: left;
+    .large-quote {
+      .before{
+        background: url('/images/icons/lquote.png') no-repeat top left;
+        text-indent: -9990px;
+      }
+      .content{
+        text-align: center;
+        font-size: 1.5em;
+      }
+      .after{
+        background: url('/images/icons/rquote.png') no-repeat bottom right;
+        text-indent: -9990px;
+        @extend .last;
+      }
+      .cite{
+        text-align: center;
+        margin-top: 1em;
+      }
+    }
+    
+    .further-links {      
+      .features-link{
+        margin-top: 50px;
+        font-size: 1.5em;
+        line-height: 1em;
+        text-align: center;
+      }
+      .or{
+        font-size: 1.5em;
+        line-height: 1em;
+        margin: 20px 0;
+        text-align: center;
+      }
+      .signup{
+        margin-left: 50px;
+      }      
+    }
+    
+  }
+  
+  .listing{
+    width: 640px;
+    float: right;
+    li {
+      display: block;
+      background: no-repeat 35px 5px;
+      width: 300px;
+      float: left;
+      margin: 0 0 1em 20px;
+    }
+  }
+}
+
 .home-page .features{
   margin-top: 2em;
   li{
