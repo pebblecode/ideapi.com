@@ -146,9 +146,11 @@ $content_bg: #f3f3f3;
   padding: 50px 0;
 }
 
+
+
 #intro, #tour-intro{
   // this might be better in container, but let's see
-  padding-bottom: 50px;
+  padding: 0 0 50px 0;
   position: relative;
 
   .title {
@@ -174,9 +176,9 @@ $content_bg: #f3f3f3;
       clear: left;
     }
     p {
-      float: right;
+/*      float: right;
       margin: -3px 0 20px 0;
-      width: 290px;
+      width: 290px;*/
     } 
   }
   #promo-video{
