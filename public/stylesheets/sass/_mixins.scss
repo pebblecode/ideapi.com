@@ -10,6 +10,12 @@
   box-shadow: $args;
 }
 
+@mixin box_shadow_default {
+  -webkit-box-shadow: 5px 5px 10px #666;
+  -moz-box-shadow: 5px 5px 10px #666;
+  box-shadow: 5px 5px 10px #666;
+}
+
 @mixin border_radius($size) {
   border-radius: $size;
   -moz-border-radius: $size;

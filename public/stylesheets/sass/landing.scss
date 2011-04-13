@@ -187,11 +187,7 @@ $content_bg: #f3f3f3;
     @extend .last;
     text-align: right;
     .inner-container{      
-      /* Doesn't work for some reason
-      @include box_shadow(3px 3px 3px #666666);*/
-      -webkit-box-shadow: 5px 5px 10px #666;
-      -moz-box-shadow: 5px 5px 10px #666;
-      box-shadow: 5px 5px 10px #666;
+      @include box_shadow_default;
   
       width:500px;
       padding: 5px;
@@ -409,10 +405,7 @@ hr.faded{
           margin-bottom: 15px;
         }
         img{          
-          /*@include box_shadow(3px 3px 3px #666666);*/
-          -webkit-box-shadow: 5px 5px 10px #666;
-          -moz-box-shadow: 5px 5px 10px #666;
-          box-shadow: 5px 5px 10px #666;          
+          @include box_shadow_default;
         }
       }
     }
