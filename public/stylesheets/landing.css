@@ -429,7 +429,7 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 /* line 286, sass/landing.scss */
 .home-page .benefits .listing { margin-top: 40px; padding: 0 0 0 35px; }
 /* line 289, sass/landing.scss */
-.home-page .benefits .listing li { display: block; float: left; clear: none; min-height: 120px; margin-right: 20px; }
+.home-page .benefits .listing li { display: block; float: left; clear: none; min-height: 145px; margin-right: 20px; }
 /* line 297, sass/landing.scss */
 .home-page .benefits .listing li.last-benefit { clear: left; margin-top: 20px; }
 /* line 301, sass/landing.scss */
