@@ -146,18 +146,15 @@ $content_bg: #f3f3f3;
   padding: 50px 0;
 }
 
-
-
 #intro, #tour-intro{
   // this might be better in container, but let's see
   padding: 0 0 50px 0;
-  position: relative;
-
+  position: relative; 
+  
   .title {
     font-size: 2em;
     line-height: 1.3em;
     text-align: center;
-    padding: 0 150px 50px 150px;
   }  
   
   @extend  .clearfix;
@@ -192,6 +189,23 @@ $content_bg: #f3f3f3;
     padding-top: 1em;
   }
 }
+#intro .title{
+  padding: 0 150px 50px 150px;
+}
+#tour-intro{
+  position: relative;
+  .title{
+    @extend .span-6;
+  }
+  .signup{
+    @extend .span-3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 0;
+  }
+}
+
 .signup {
   text-align: center;
   .try-button{

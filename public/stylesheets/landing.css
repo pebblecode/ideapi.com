@@ -51,7 +51,7 @@ a img { border: none; }
 -------------------------------------------------------------- */
 /* Sets up basic grid floating and margin. */
 /* line 40, sass/partials/_960grid.scss */
-.column, .span-1, #footer .left .large-quote .before, #footer .left .large-quote .after, #footer .social ul, .span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, #footer .left li, #footer .social h4, .span-3, .home-page .benefits .listing li, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right, .span-4, #intro .text, #tour-intro .text, #intro .signup, #tour-intro .signup, .home-page .features .testimonial, .span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite, .span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing, .span-7, #footer .left, .span-8, .features-page #tour-slides #slider li, .span-9, .span-10, .home-page .benefits .sidebar, .features-page #tour-slides { float: left; margin-right: 10px; }
+.column, .span-1, #footer .left .large-quote .before, #footer .left .large-quote .after, #footer .social ul, .span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, #footer .left li, #footer .social h4, .span-3, #tour-intro .signup, .home-page .benefits .listing li, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right, .span-4, #intro .text, #tour-intro .text, #intro .signup, #tour-intro .signup, .home-page .features .testimonial, .span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite, .span-6, #intro #promo-video, #tour-intro #promo-video, #tour-intro .title, .faq-page .faq-listing, .span-7, #footer .left, .span-8, .features-page #tour-slides #slider li, .span-9, .span-10, .home-page .benefits .sidebar, .features-page #tour-slides { float: left; margin-right: 10px; }
 
 /* The last column in a row needs this class. */
 /* line 46, sass/partials/_960grid.scss */
@@ -65,7 +65,7 @@ a img { border: none; }
 .span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, #footer .left li, #footer .social h4 { width: 184px; }
 
 /* line 51, sass/partials/_960grid.scss */
-.span-3, .home-page .benefits .listing li, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right { width: 281px; }
+.span-3, #tour-intro .signup, .home-page .benefits .listing li, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right { width: 281px; }
 
 /* line 52, sass/partials/_960grid.scss */
 .span-4, #intro .text, #tour-intro .text, #intro .signup, #tour-intro .signup, .home-page .features .testimonial { width: 378px; }
@@ -74,7 +74,7 @@ a img { border: none; }
 .span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite { width: 475px; }
 
 /* line 54, sass/partials/_960grid.scss */
-.span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing { width: 572px; }
+.span-6, #intro #promo-video, #tour-intro #promo-video, #tour-intro .title, .faq-page .faq-listing { width: 572px; }
 
 /* line 55, sass/partials/_960grid.scss */
 .span-7, #footer .left { width: 669px; }
@@ -90,7 +90,7 @@ a img { border: none; }
 
 /* Use these classes to set the width of an input. */
 /* line 61, sass/partials/_960grid.scss */
-input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after, input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, .home-page .features input.large-quote, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, .home-page .features textarea.large-quote, input.span-3, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, .home-page .features .testimonial textarea.quote, #footer textarea.right, input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #tour-intro input.signup, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features textarea.testimonial, input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite, input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing, input.span-7, #footer input.left, textarea.span-7, #footer textarea.left, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, .home-page .benefits input.sidebar, .features-page input#tour-slides, textarea.span-10, .home-page .benefits textarea.sidebar, .features-page textarea#tour-slides { border-left-width: 1px; border-right-width: 1px; padding-left: 5px; padding-right: 5px; }
+input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after, input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, .home-page .features input.large-quote, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, .home-page .features textarea.large-quote, input.span-3, #tour-intro input.signup, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, #tour-intro textarea.signup, .home-page .features .testimonial textarea.quote, #footer textarea.right, input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #tour-intro input.signup, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features textarea.testimonial, input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite, input.span-6, #intro input#promo-video, #tour-intro input#promo-video, #tour-intro input.title, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, #tour-intro textarea.title, .faq-page textarea.faq-listing, input.span-7, #footer input.left, textarea.span-7, #footer textarea.left, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, .home-page .benefits input.sidebar, .features-page input#tour-slides, textarea.span-10, .home-page .benefits textarea.sidebar, .features-page textarea#tour-slides { border-left-width: 1px; border-right-width: 1px; padding-left: 5px; padding-right: 5px; }
 
 /* line 68, sass/partials/_960grid.scss */
 input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after { width: 75px; }
@@ -99,7 +99,7 @@ input.span-1, #footer .left .large-quote input.before, #footer .left .large-quot
 input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, .home-page .features input.large-quote, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, .home-page .features textarea.large-quote { width: 172px; }
 
 /* line 70, sass/partials/_960grid.scss */
-input.span-3, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, .home-page .features .testimonial textarea.quote, #footer textarea.right { width: 269px; }
+input.span-3, #tour-intro input.signup, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, #tour-intro textarea.signup, .home-page .features .testimonial textarea.quote, #footer textarea.right { width: 269px; }
 
 /* line 71, sass/partials/_960grid.scss */
 input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #tour-intro input.signup, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features textarea.testimonial { width: 366px; }
@@ -108,7 +108,7 @@ input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #t
 input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite { width: 463px; }
 
 /* line 73, sass/partials/_960grid.scss */
-input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing { width: 560px; }
+input.span-6, #intro input#promo-video, #tour-intro input#promo-video, #tour-intro input.title, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, #tour-intro textarea.title, .faq-page textarea.faq-listing { width: 560px; }
 
 /* line 74, sass/partials/_960grid.scss */
 input.span-7, #footer input.left, textarea.span-7, #footer textarea.left { width: 657px; }
@@ -373,200 +373,208 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 /* line 142, sass/landing.scss */
 #content { font-family: "Ubuntu", "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; color: #555; min-height: 400px; padding: 50px 0; }
 
-/* line 151, sass/landing.scss */
+/* line 149, sass/landing.scss */
 #intro, #tour-intro { padding: 0 0 50px 0; position: relative; }
-/* line 156, sass/landing.scss */
-#intro .title, #tour-intro .title { font-size: 2em; line-height: 1.3em; text-align: center; padding: 0 150px 50px 150px; }
-/* line 164, sass/landing.scss */
+/* line 154, sass/landing.scss */
+#intro .title, #tour-intro .title { font-size: 2em; line-height: 1.3em; text-align: center; }
+/* line 161, sass/landing.scss */
 #intro .text, #tour-intro .text { font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; }
-/* line 168, sass/landing.scss */
+/* line 165, sass/landing.scss */
 #intro .text li, #tour-intro .text li { clear: both; }
-/* line 172, sass/landing.scss */
+/* line 169, sass/landing.scss */
 #intro .text h4, #tour-intro .text h4 { display: block; width: 80px; float: left; clear: left; }
-/* line 178, sass/landing.scss */
+/* line 175, sass/landing.scss */
 #intro .text p, #tour-intro .text p { /*      float: right; margin: -3px 0 20px 0; width: 290px;*/ }
-/* line 184, sass/landing.scss */
+/* line 181, sass/landing.scss */
 #intro #promo-video, #tour-intro #promo-video { text-align: right; }
-/* line 189, sass/landing.scss */
+/* line 186, sass/landing.scss */
 #intro .signup, #tour-intro .signup { padding-top: 1em; }
 
+/* line 192, sass/landing.scss */
+#intro .title { padding: 0 150px 50px 150px; }
+
 /* line 195, sass/landing.scss */
+#tour-intro { position: relative; }
+/* line 200, sass/landing.scss */
+#tour-intro .signup { position: absolute; top: 0; right: 0; padding-top: 0; }
+
+/* line 209, sass/landing.scss */
 .signup { text-align: center; }
-/* line 197, sass/landing.scss */
+/* line 211, sass/landing.scss */
 .signup .try-button { margin-right: 20px; background: #b3d335; height: 46px; text-align: center; text-shadow: rgba(255, 255, 255, 0.398) 0px 1px 1px; font-size: 1.5em; line-height: 44px; background: -webkit-gradient(linear, left top, left bottom, from(#9ebe20), to(#c4e446)); background: -moz-linear-gradient(top, #9ebe20, #c4e446); color: #333; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; display: inline-block; padding: 0 1em; -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; -moz-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px; font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; }
-/* line 214, sass/landing.scss */
+/* line 228, sass/landing.scss */
 .signup .try-button:hover { color: #222; }
-/* line 217, sass/landing.scss */
+/* line 231, sass/landing.scss */
 .signup .try-button:active { -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px inset; }
-/* line 223, sass/landing.scss */
+/* line 237, sass/landing.scss */
 .signup .meta { margin: 10px 0 0 63px; }
 
 /* Follows the 960 grid */
-/* line 229, sass/landing.scss */
+/* line 243, sass/landing.scss */
 .home-page .benefits { margin-top: 2em; padding: 0 10px; }
-/* line 232, sass/landing.scss */
+/* line 246, sass/landing.scss */
 .home-page .benefits .sidebar { float: none; }
-/* line 235, sass/landing.scss */
+/* line 249, sass/landing.scss */
 .home-page .benefits .sidebar .large-quote { padding: 0 100px; position: relative; }
-/* line 238, sass/landing.scss */
+/* line 252, sass/landing.scss */
 .home-page .benefits .sidebar .large-quote .before { background: url("/images/icons/lquote.png") no-repeat top left; position: absolute; top: -10px; left: 80px; }
-/* line 244, sass/landing.scss */
+/* line 258, sass/landing.scss */
 .home-page .benefits .sidebar .large-quote .content { text-align: center; font-size: 1.5em; }
-/* line 248, sass/landing.scss */
-.home-page .benefits .sidebar .large-quote .after { background: url("/images/icons/rquote.png") no-repeat bottom right; position: absolute; bottom: 40px; right: 160px; /*@extend .last;*/ }
-/* line 256, sass/landing.scss */
-.home-page .benefits .sidebar .large-quote .cite { text-align: center; }
 /* line 262, sass/landing.scss */
+.home-page .benefits .sidebar .large-quote .after { background: url("/images/icons/rquote.png") no-repeat bottom right; position: absolute; bottom: 40px; right: 160px; /*@extend .last;*/ }
+/* line 270, sass/landing.scss */
+.home-page .benefits .sidebar .large-quote .cite { text-align: center; }
+/* line 276, sass/landing.scss */
 .home-page .benefits .sidebar .further-links .features-link { margin-top: 50px; font-size: 1.5em; line-height: 1em; text-align: center; }
-/* line 272, sass/landing.scss */
+/* line 286, sass/landing.scss */
 .home-page .benefits .listing { margin-top: 40px; padding: 0 0 0 35px; }
-/* line 275, sass/landing.scss */
+/* line 289, sass/landing.scss */
 .home-page .benefits .listing li { display: block; float: left; clear: none; min-height: 120px; margin-right: 20px; }
-/* line 283, sass/landing.scss */
+/* line 297, sass/landing.scss */
 .home-page .benefits .listing li.last-benefit { clear: left; margin-top: 20px; }
-/* line 287, sass/landing.scss */
+/* line 301, sass/landing.scss */
 .home-page .benefits .listing li.features-link { text-align: center; font-size: 1.5em; line-height: 1.3em; padding-top: 43px; }
-/* line 293, sass/landing.scss */
+/* line 307, sass/landing.scss */
 .home-page .benefits .listing li.signup { padding-top: 35px; }
 
-/* line 299, sass/landing.scss */
+/* line 313, sass/landing.scss */
 .home-page .features { margin-top: 2em; }
-/* line 301, sass/landing.scss */
-.home-page .features li { margin-bottom: 1em; display: block; background: no-repeat 35px 5px; min-height: 70px; }
-/* line 306, sass/landing.scss */
-.home-page .features li p.desc { font-size: 0.8em; }
 /* line 315, sass/landing.scss */
+.home-page .features li { margin-bottom: 1em; display: block; background: no-repeat 35px 5px; min-height: 70px; }
+/* line 320, sass/landing.scss */
+.home-page .features li p.desc { font-size: 0.8em; }
+/* line 329, sass/landing.scss */
 .home-page .features .testimonial .rquote { margin-left: 0.5em; }
-/* line 316, sass/landing.scss */
+/* line 330, sass/landing.scss */
 .home-page .features .testimonial img { vertical-align: bottom; }
-/* line 319, sass/landing.scss */
+/* line 333, sass/landing.scss */
 .home-page .features .testimonial .lquote { display: block; font-size: 5em; text-align: right; }
-/* line 324, sass/landing.scss */
-.home-page .features .testimonial .rquote { vertical-align: bottom; margin-top: 1em; float: right; margin-top: 0.4em; margin-right: 2em; }
-/* line 337, sass/landing.scss */
-.home-page .features .boost { background-image: url("/images/icons/boost.png"); }
 /* line 338, sass/landing.scss */
+.home-page .features .testimonial .rquote { vertical-align: bottom; margin-top: 1em; float: right; margin-top: 0.4em; margin-right: 2em; }
+/* line 351, sass/landing.scss */
+.home-page .features .boost { background-image: url("/images/icons/boost.png"); }
+/* line 352, sass/landing.scss */
 .home-page .features .control { background-image: url("/images/icons/control.png"); }
-/* line 339, sass/landing.scss */
+/* line 353, sass/landing.scss */
 .home-page .features .updated { background-image: url("/images/icons/updated.png"); }
-/* line 340, sass/landing.scss */
+/* line 354, sass/landing.scss */
 .home-page .features .testimonial { background-image: none; }
-/* line 341, sass/landing.scss */
+/* line 355, sass/landing.scss */
 .home-page .features .create { background-image: url("/images/icons/create.png"); }
-/* line 342, sass/landing.scss */
+/* line 356, sass/landing.scss */
 .home-page .features .collaborate { background: no-repeat 35px 0px url("/images/icons/collab.png"); }
 
-/* line 344, sass/landing.scss */
+/* line 358, sass/landing.scss */
 hr.faded { /*background: -webkit-gradient(linear, left center, right center, from($content_bg), color-stop(20%, $content_bg), color-stop(50%, #555), color-stop(80%, $content_bg), to($content_bg));*/ background: #333333 url("/images/bg/horizontal-bar.png") repeat-y 0 0; height: 1px; margin-bottom: 0; }
 
-/* line 352, sass/landing.scss */
-.features-page #tour-slides { position: relative; }
-/* line 357, sass/landing.scss */
-.features-page #tour-slides #slider { margin-left: 97px; }
-/* line 361, sass/landing.scss */
-.features-page #tour-slides #slider li { height: 650px; }
 /* line 366, sass/landing.scss */
-.features-page #tour-slides #slider li .content .screenshot { max-width: 700px; display: block; margin: auto; border: 2px solid #bbb; -webkit-box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 5px; }
-/* line 377, sass/landing.scss */
-.features-page #tour-slides #slider-next, .features-page #tour-slides #slider-prev { position: absolute; top: 150px; }
+.features-page #tour-slides { position: relative; }
+/* line 371, sass/landing.scss */
+.features-page #tour-slides #slider { margin-left: 97px; }
+/* line 375, sass/landing.scss */
+.features-page #tour-slides #slider li { height: 650px; }
 /* line 380, sass/landing.scss */
-.features-page #tour-slides #slider-next a, .features-page #tour-slides #slider-prev a { height: 56px; width: 56px; display: block; text-indent: -9999px; }
-/* line 386, sass/landing.scss */
-.features-page #tour-slides #slider-next a:focus, .features-page #tour-slides #slider-prev a:focus { outline: none; }
-/* line 389, sass/landing.scss */
-.features-page #tour-slides #slider-next { right: 10px; }
+.features-page #tour-slides #slider li .content .screenshot { max-width: 700px; display: block; margin: auto; border: 2px solid #bbb; -webkit-box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 5px; }
 /* line 391, sass/landing.scss */
+.features-page #tour-slides #slider-next, .features-page #tour-slides #slider-prev { position: absolute; top: 150px; }
+/* line 394, sass/landing.scss */
+.features-page #tour-slides #slider-next a, .features-page #tour-slides #slider-prev a { height: 56px; width: 56px; display: block; text-indent: -9999px; }
+/* line 400, sass/landing.scss */
+.features-page #tour-slides #slider-next a:focus, .features-page #tour-slides #slider-prev a:focus { outline: none; }
+/* line 403, sass/landing.scss */
+.features-page #tour-slides #slider-next { right: 10px; }
+/* line 405, sass/landing.scss */
 .features-page #tour-slides #slider-next a { background: url("/images/ui/circle-arrow-east.png") no-repeat 0 0; }
-/* line 395, sass/landing.scss */
+/* line 409, sass/landing.scss */
 .features-page #tour-slides #slider-prev { left: 10px; }
-/* line 397, sass/landing.scss */
+/* line 411, sass/landing.scss */
 .features-page #tour-slides #slider-prev a { background: url("/images/ui/circle-arrow-west.png") no-repeat 0 0; }
 
-/* line 406, sass/landing.scss */
-.faq-page .title { margin-bottom: 1.5em; }
-/* line 409, sass/landing.scss */
-.faq-page .listing { margin-bottom: 2em; }
-/* line 411, sass/landing.scss */
-.faq-page .listing li { margin-bottom: .5em; }
-/* line 415, sass/landing.scss */
-.faq-page .faq-listing { list-style-position: outside; margin-top: 2em; }
 /* line 420, sass/landing.scss */
-.faq-page .faq-listing .faq-item { margin-bottom: 1.5em; }
-/* line 422, sass/landing.scss */
-.faq-page .faq-listing .faq-item li { list-style: disc inside; }
+.faq-page .title { margin-bottom: 1.5em; }
+/* line 423, sass/landing.scss */
+.faq-page .listing { margin-bottom: 2em; }
 /* line 425, sass/landing.scss */
+.faq-page .listing li { margin-bottom: .5em; }
+/* line 429, sass/landing.scss */
+.faq-page .faq-listing { list-style-position: outside; margin-top: 2em; }
+/* line 434, sass/landing.scss */
+.faq-page .faq-listing .faq-item { margin-bottom: 1.5em; }
+/* line 436, sass/landing.scss */
+.faq-page .faq-listing .faq-item li { list-style: disc inside; }
+/* line 439, sass/landing.scss */
 .faq-page .faq-listing .faq-item .back-to-top { border-radius: 10px 3px 3px 10px; -moz-border-radius: 10px 3px 3px 10px; -webkit-border-radius: 10px 3px 3px 10px; padding: 0 5px 2px 25px; font-size: 0.8em; line-height: 20px; background: white url("/images/ui/arrow-north-tiny.png") no-repeat 5px 3px; border: 1px solid #fafafa; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
-/* line 433, sass/landing.scss */
+/* line 447, sass/landing.scss */
 .faq-page .faq-listing .faq-item .back-to-top:hover { color: #888; background-color: #fafafa; border: 1px solid #f1f1f1; }
 
 /* Footer */
-/* line 445, sass/landing.scss */
+/* line 459, sass/landing.scss */
 #footer { font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; height: 200px; padding-top: 25px; }
-/* line 454, sass/landing.scss */
+/* line 468, sass/landing.scss */
 #footer .left h5 { text-decoration: underline; margin-bottom: 10px; }
-/* line 458, sass/landing.scss */
+/* line 472, sass/landing.scss */
 #footer .left li { float: left; line-height: 1.3em; }
-/* line 463, sass/landing.scss */
+/* line 477, sass/landing.scss */
 #footer .left li span { color: #666; }
-/* line 470, sass/landing.scss */
+/* line 484, sass/landing.scss */
 #footer .left .large-quote .before { background: url("/images/icons/lquote.png") no-repeat top right; text-indent: -9990px; }
-/* line 475, sass/landing.scss */
+/* line 489, sass/landing.scss */
 #footer .left .large-quote .content { text-align: justify; color: #ffff8a; }
-/* line 480, sass/landing.scss */
+/* line 494, sass/landing.scss */
 #footer .left .large-quote .after { margin-top: 2em; background: url("/images/icons/rquote.png") no-repeat bottom left; text-indent: -9990px; }
-/* line 497, sass/landing.scss */
+/* line 511, sass/landing.scss */
 #footer .social { margin-bottom: 1em; }
-/* line 500, sass/landing.scss */
+/* line 514, sass/landing.scss */
 #footer .social h4 { padding-top: .2em; }
-/* line 507, sass/landing.scss */
+/* line 521, sass/landing.scss */
 #footer .social ul li { display: inline; }
-/* line 510, sass/landing.scss */
+/* line 524, sass/landing.scss */
 #footer .getsatisfaction-icon { margin-top: -18px; }
-/* line 513, sass/landing.scss */
+/* line 527, sass/landing.scss */
 #footer .getsatisfaction { font-size: 0.8em; }
-/* line 516, sass/landing.scss */
+/* line 530, sass/landing.scss */
 #footer .copyright { font-size: 0.8em; }
-/* line 518, sass/landing.scss */
+/* line 532, sass/landing.scss */
 #footer .copyright p { margin-bottom: 0; }
-/* line 522, sass/landing.scss */
+/* line 536, sass/landing.scss */
 #footer .copyright ul { list-style: none; }
-/* line 525, sass/landing.scss */
+/* line 539, sass/landing.scss */
 #footer .quick-links li { font-size: 0.8em; display: inline; }
 
-/* line 530, sass/landing.scss */
+/* line 544, sass/landing.scss */
 .btn-shizzle, .funky-button, .funky-button-small, .green-button-link { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
-/* line 547, sass/landing.scss */
+/* line 561, sass/landing.scss */
 .btn-shizzle:active, .funky-button:active, .funky-button-small:active, .green-button-link:active, .btn-shizzle.active, .active.funky-button, .active.funky-button-small, .active.green-button-link { background-position: 0px bottom; }
 
-/* line 550, sass/landing.scss */
+/* line 564, sass/landing.scss */
 .funky-button { height: 26px; line-height: 24px; }
 
-/* line 555, sass/landing.scss */
+/* line 569, sass/landing.scss */
 .funky-button-small, .green-button-link { height: 20px; line-height: 18px; cursor: pointer; }
 
-/* line 562, sass/landing.scss */
+/* line 576, sass/landing.scss */
 .green-button-link { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
-/* line 573, sass/landing.scss */
+/* line 587, sass/landing.scss */
 .green-button-link:hover { color: #eee; }
 
-/* line 579, sass/landing.scss */
+/* line 593, sass/landing.scss */
 #promo-video { /* the overlayed element */ /* close button positioned on upper right corner */ }
-/* line 582, sass/landing.scss */
+/* line 596, sass/landing.scss */
 #promo-video .simple_overlay { /* must be initially hidden */ display: none; /* place overlay on top of other elements */ z-index: 10000; /* styling */ background-color: #333; width: 557px; height: 418px; border: 1px solid #666; /* CSS3 styling for latest browsers */ -moz-box-shadow: 0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000; margin-top: 7em; }
-/* line 606, sass/landing.scss */
+/* line 620, sass/landing.scss */
 #promo-video .simple_overlay .close { background-image: url(../images/ui/circle-x.png); position: absolute; right: -15px; top: -15px; cursor: pointer; height: 30px; width: 30px; }
 
-/* line 617, sass/landing.scss */
-.large-copy { max-width: 45em; font-size: 1em; }
-/* line 620, sass/landing.scss */
-.large-copy .title { margin-bottom: 1em; font-size: 1.4em; }
-/* line 625, sass/landing.scss */
-.large-copy h3 { font-size: 1.2em; margin-bottom: 5px; padding: 0; color: #333; }
 /* line 631, sass/landing.scss */
-.large-copy p, .large-copy ul { margin-bottom: 1.4em; }
+.large-copy { max-width: 45em; font-size: 1em; }
 /* line 634, sass/landing.scss */
+.large-copy .title { margin-bottom: 1em; font-size: 1.4em; }
+/* line 639, sass/landing.scss */
+.large-copy h3 { font-size: 1.2em; margin-bottom: 5px; padding: 0; color: #333; }
+/* line 645, sass/landing.scss */
+.large-copy p, .large-copy ul { margin-bottom: 1.4em; }
+/* line 648, sass/landing.scss */
 .large-copy li { margin-bottom: 1em; list-style-type: none; margin-left: 0; line-height: 1.4em; }
-/* line 641, sass/landing.scss */
+/* line 655, sass/landing.scss */
 .large-copy li:before { content: "\00BB"; float: left; margin-left: -1em; }
-/* line 646, sass/landing.scss */
+/* line 660, sass/landing.scss */
 .large-copy p { line-height: 1.4em; }
