@@ -51,18 +51,18 @@ a img { border: none; }
 -------------------------------------------------------------- */
 /* Sets up basic grid floating and margin. */
 /* line 40, sass/partials/_960grid.scss */
-.column, .span-1, #footer .social ul, .span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, #footer .social h4, .span-3, .home-page .benefits .listing li, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right, .span-4, #intro .text, #tour-intro .text, #intro .signup, #tour-intro .signup, .home-page .features .testimonial, .span-5, .span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing, .span-7, #footer .left, .span-8, .features-page #tour-slides #slider li, .span-9, .span-10, .home-page .benefits .sidebar, .features-page #tour-slides { float: left; margin-right: 10px; }
+.column, .span-1, #footer .left .large-quote .before, #footer .left .large-quote .after, #footer .social ul, .span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, #footer .left li, #footer .social h4, .span-3, .home-page .benefits .listing li, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right, .span-4, #intro .text, #tour-intro .text, #intro .signup, #tour-intro .signup, .home-page .features .testimonial, .span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite, .span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing, .span-7, #footer .left, .span-8, .features-page #tour-slides #slider li, .span-9, .span-10, .home-page .benefits .sidebar, .features-page #tour-slides { float: left; margin-right: 10px; }
 
 /* The last column in a row needs this class. */
 /* line 46, sass/partials/_960grid.scss */
-.last, #intro #promo-video, #tour-intro #promo-video, .home-page .features .testimonial, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, .features-page #tour-slides, .features-page #tour-slides #slider, .features-page #tour-slides #slider li, #footer .right, #footer .social ul { margin-right: 0; }
+.last, #intro #promo-video, #tour-intro #promo-video, .home-page .features .testimonial, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, .features-page #tour-slides, .features-page #tour-slides #slider, .features-page #tour-slides #slider li, #footer .left .large-quote .after, #footer .right, #footer .social ul { margin-right: 0; }
 
 /* Use these classes to set the width of a column. */
 /* line 49, sass/partials/_960grid.scss */
-.span-1, #footer .social ul { width: 87px; }
+.span-1, #footer .left .large-quote .before, #footer .left .large-quote .after, #footer .social ul { width: 87px; }
 
 /* line 50, sass/partials/_960grid.scss */
-.span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, #footer .social h4 { width: 184px; }
+.span-2, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, #footer .left li, #footer .social h4 { width: 184px; }
 
 /* line 51, sass/partials/_960grid.scss */
 .span-3, .home-page .benefits .listing li, .home-page .features .testimonial cite, .home-page .features .testimonial .quote, .home-page .features .testimonial p.with-rquote, #footer .right { width: 281px; }
@@ -71,7 +71,7 @@ a img { border: none; }
 .span-4, #intro .text, #tour-intro .text, #intro .signup, #tour-intro .signup, .home-page .features .testimonial { width: 378px; }
 
 /* line 53, sass/partials/_960grid.scss */
-.span-5 { width: 475px; }
+.span-5, #footer .left .large-quote .content, #footer .left .large-quote .cite { width: 475px; }
 
 /* line 54, sass/partials/_960grid.scss */
 .span-6, #intro #promo-video, #tour-intro #promo-video, .faq-page .faq-listing { width: 572px; }
@@ -90,10 +90,10 @@ a img { border: none; }
 
 /* Use these classes to set the width of an input. */
 /* line 61, sass/partials/_960grid.scss */
-input.span-1, textarea.span-1, input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, .home-page .features input.large-quote, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, .home-page .features textarea.large-quote, input.span-3, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, .home-page .features .testimonial textarea.quote, #footer textarea.right, input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #tour-intro input.signup, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features textarea.testimonial, input.span-5, textarea.span-5, input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing, input.span-7, #footer input.left, textarea.span-7, #footer textarea.left, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, .home-page .benefits input.sidebar, .features-page input#tour-slides, textarea.span-10, .home-page .benefits textarea.sidebar, .features-page textarea#tour-slides { border-left-width: 1px; border-right-width: 1px; padding-left: 5px; padding-right: 5px; }
+input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after, input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, .home-page .features input.large-quote, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, .home-page .features textarea.large-quote, input.span-3, .home-page .features .testimonial input.quote, #footer input.right, textarea.span-3, .home-page .features .testimonial textarea.quote, #footer textarea.right, input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #tour-intro input.signup, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features textarea.testimonial, input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite, input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing, input.span-7, #footer input.left, textarea.span-7, #footer textarea.left, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, .home-page .benefits input.sidebar, .features-page input#tour-slides, textarea.span-10, .home-page .benefits textarea.sidebar, .features-page textarea#tour-slides { border-left-width: 1px; border-right-width: 1px; padding-left: 5px; padding-right: 5px; }
 
 /* line 68, sass/partials/_960grid.scss */
-input.span-1, textarea.span-1 { width: 75px; }
+input.span-1, #footer .left .large-quote input.before, #footer .left .large-quote input.after, textarea.span-1, #footer .left .large-quote textarea.before, #footer .left .large-quote textarea.after { width: 75px; }
 
 /* line 69, sass/partials/_960grid.scss */
 input.span-2, .home-page .features input.boost, .home-page .features input.control, .home-page .features input.create, .home-page .features input.updated, .home-page .features input.collaborate, .home-page .features input.large-quote, textarea.span-2, .home-page .features textarea.boost, .home-page .features textarea.control, .home-page .features textarea.create, .home-page .features textarea.updated, .home-page .features textarea.collaborate, .home-page .features textarea.large-quote { width: 172px; }
@@ -105,7 +105,7 @@ input.span-3, .home-page .features .testimonial input.quote, #footer input.right
 input.span-4, #intro input.text, #tour-intro input.text, #intro input.signup, #tour-intro input.signup, .home-page .features input.testimonial, textarea.span-4, #intro textarea.text, #tour-intro textarea.text, #intro textarea.signup, #tour-intro textarea.signup, .home-page .features textarea.testimonial { width: 366px; }
 
 /* line 72, sass/partials/_960grid.scss */
-input.span-5, textarea.span-5 { width: 463px; }
+input.span-5, #footer .left .large-quote input.content, #footer .left .large-quote input.cite, textarea.span-5, #footer .left .large-quote textarea.content, #footer .left .large-quote textarea.cite { width: 463px; }
 
 /* line 73, sass/partials/_960grid.scss */
 input.span-6, #intro input#promo-video, #tour-intro input#promo-video, .faq-page input.faq-listing, textarea.span-6, #intro textarea#promo-video, #tour-intro textarea#promo-video, .faq-page textarea.faq-listing { width: 560px; }
@@ -152,7 +152,7 @@ input.span-10, .home-page .benefits input.sidebar, .features-page input#tour-sli
 
 /* Add these to a column to prepend empty cols. */
 /* line 93, sass/partials/_960grid.scss */
-.prepend-1, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, .home-page .features .testimonial cite { padding-left: 97px; }
+.prepend-1, .home-page .features .boost, .home-page .features .control, .home-page .features .create, .home-page .features .updated, .home-page .features .collaborate, .home-page .features .large-quote, .home-page .features .testimonial cite, #footer .left .large-quote .cite { padding-left: 97px; }
 
 /* line 94, sass/partials/_960grid.scss */
 .prepend-2 { padding-left: 194px; }
@@ -276,10 +276,10 @@ hr.space { background: #fff; color: #fff; visibility: hidden; }
 
 /* Clearing floats without extra markup Based on How To Clear Floats Without Structural Markup by PiE [http://www.positioniseverything.net/easyclearing.html] */
 /* line 189, sass/partials/_960grid.scss */
-.clearfix:after, #intro:after, #tour-intro:after, .features-page #tour-slides:after, .faq-page .faq-listing:after, #footer:after, #footer .social:after, .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+.clearfix:after, #intro:after, #tour-intro:after, .features-page #tour-slides:after, .faq-page .faq-listing:after, #footer:after, #footer .left .large-quote .quote:after, #footer .social:after, .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
 
 /* line 197, sass/partials/_960grid.scss */
-.clearfix, #intro, #tour-intro, .features-page #tour-slides, .faq-page .faq-listing, #footer, #footer .social, .container { display: block; }
+.clearfix, #intro, #tour-intro, .features-page #tour-slides, .faq-page .faq-listing, #footer, #footer .left .large-quote .quote, #footer .social, .container { display: block; }
 
 /* Regular clearing apply to column that should drop below previous ones. */
 /* line 202, sass/partials/_960grid.scss */
@@ -502,63 +502,69 @@ hr.faded { /*background: -webkit-gradient(linear, left center, right center, fro
 /* Footer */
 /* line 445, sass/landing.scss */
 #footer { font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; height: 200px; padding-top: 25px; }
-/* line 450, sass/landing.scss */
-#footer .left { /*
-.large-quote{ .quote{@extend .clearfix;} .before{ @extend .span-1; background: url('/images/icons/lquote.png') no-repeat top right; text-indent: -9990px; } .content{ @extend .span-5; text-align: justify; color: $ideapi_green_light + #555; } .after{ margin-top: 2em; @extend .span-1; background: url('/images/icons/rquote.png') no-repeat bottom left; text-indent: -9990px; @extend .last; } .cite{ @extend .prepend-1; @extend .span-5; }
-}*/ }
-/* line 482, sass/landing.scss */
+/* line 454, sass/landing.scss */
+#footer .left h5 { text-decoration: underline; margin-bottom: 10px; }
+/* line 458, sass/landing.scss */
+#footer .left li { float: left; line-height: 1.3em; }
+/* line 466, sass/landing.scss */
+#footer .left .large-quote .before { background: url("/images/icons/lquote.png") no-repeat top right; text-indent: -9990px; }
+/* line 471, sass/landing.scss */
+#footer .left .large-quote .content { text-align: justify; color: #ffff8a; }
+/* line 476, sass/landing.scss */
+#footer .left .large-quote .after { margin-top: 2em; background: url("/images/icons/rquote.png") no-repeat bottom left; text-indent: -9990px; }
+/* line 493, sass/landing.scss */
 #footer .social { margin-bottom: 1em; }
-/* line 485, sass/landing.scss */
+/* line 496, sass/landing.scss */
 #footer .social h4 { padding-top: .2em; }
-/* line 492, sass/landing.scss */
-#footer .social ul li { display: inline; }
-/* line 495, sass/landing.scss */
-#footer .getsatisfaction-icon { margin-top: -18px; }
-/* line 498, sass/landing.scss */
-#footer .getsatisfaction { font-size: 0.8em; }
-/* line 501, sass/landing.scss */
-#footer .copyright { font-size: 0.8em; }
 /* line 503, sass/landing.scss */
+#footer .social ul li { display: inline; }
+/* line 506, sass/landing.scss */
+#footer .getsatisfaction-icon { margin-top: -18px; }
+/* line 509, sass/landing.scss */
+#footer .getsatisfaction { font-size: 0.8em; }
+/* line 512, sass/landing.scss */
+#footer .copyright { font-size: 0.8em; }
+/* line 514, sass/landing.scss */
 #footer .copyright p { margin-bottom: 0; }
-/* line 507, sass/landing.scss */
+/* line 518, sass/landing.scss */
 #footer .copyright ul { list-style: none; }
-/* line 510, sass/landing.scss */
+/* line 521, sass/landing.scss */
 #footer .quick-links li { font-size: 0.8em; display: inline; }
 
-/* line 515, sass/landing.scss */
+/* line 526, sass/landing.scss */
 .btn-shizzle, .funky-button, .funky-button-small, .green-button-link { font-size: 1em; color: #32401a; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border: solid 1px #91b113; background: url("/images/ui/btn-bg-green.png") repeat-x 0px 0px; text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; display: inline; padding: 0 10px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; cursor: pointer; }
-/* line 532, sass/landing.scss */
+/* line 543, sass/landing.scss */
 .btn-shizzle:active, .funky-button:active, .funky-button-small:active, .green-button-link:active, .btn-shizzle.active, .active.funky-button, .active.funky-button-small, .active.green-button-link { background-position: 0px bottom; }
 
-/* line 535, sass/landing.scss */
+/* line 546, sass/landing.scss */
 .funky-button { height: 26px; line-height: 24px; }
 
-/* line 540, sass/landing.scss */
+/* line 551, sass/landing.scss */
 .funky-button-small, .green-button-link { height: 20px; line-height: 18px; cursor: pointer; }
 
-/* line 547, sass/landing.scss */
-.green-button-link { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
 /* line 558, sass/landing.scss */
+.green-button-link { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; color: white; border-color: #32401a; text-shadow: none; display: block; font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 1em; padding-top: 1px; }
+/* line 569, sass/landing.scss */
 .green-button-link:hover { color: #eee; }
 
-/* line 564, sass/landing.scss */
+/* line 575, sass/landing.scss */
 #promo-video { /* the overlayed element */ /* close button positioned on upper right corner */ }
-/* line 567, sass/landing.scss */
+/* line 578, sass/landing.scss */
 #promo-video .simple_overlay { /* must be initially hidden */ display: none; /* place overlay on top of other elements */ z-index: 10000; /* styling */ background-color: #333; width: 557px; height: 418px; border: 1px solid #666; /* CSS3 styling for latest browsers */ -moz-box-shadow: 0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000; margin-top: 7em; }
-/* line 591, sass/landing.scss */
+/* line 602, sass/landing.scss */
 #promo-video .simple_overlay .close { background-image: url(../images/ui/circle-x.png); position: absolute; right: -15px; top: -15px; cursor: pointer; height: 30px; width: 30px; }
 
-/* line 602, sass/landing.scss */
+/* line 613, sass/landing.scss */
 .large-copy { max-width: 45em; font-size: 1em; }
-/* line 605, sass/landing.scss */
-.large-copy .title { margin-bottom: 1em; font-size: 1.4em; }
-/* line 610, sass/landing.scss */
-.large-copy h3 { font-size: 1.2em; margin-bottom: 5px; padding: 0; color: #333; }
 /* line 616, sass/landing.scss */
+.large-copy .title { margin-bottom: 1em; font-size: 1.4em; }
+/* line 621, sass/landing.scss */
+.large-copy h3 { font-size: 1.2em; margin-bottom: 5px; padding: 0; color: #333; }
+/* line 627, sass/landing.scss */
 .large-copy p, .large-copy ul { margin-bottom: 1.4em; }
-/* line 619, sass/landing.scss */
+/* line 630, sass/landing.scss */
 .large-copy li { margin-bottom: 1em; list-style-type: none; margin-left: 0; line-height: 1.4em; }
-/* line 626, sass/landing.scss */
+/* line 637, sass/landing.scss */
 .large-copy li:before { content: "\00BB"; float: left; margin-left: -1em; }
-/* line 631, sass/landing.scss */
+/* line 642, sass/landing.scss */
 .large-copy p { line-height: 1.4em; }

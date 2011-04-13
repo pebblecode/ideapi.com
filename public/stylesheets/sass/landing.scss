@@ -447,9 +447,20 @@ hr.faded{
   height: 200px;
   padding-top: 25px;
   @extend .clearfix;
+  
   .left{
     @extend .span-7;
-    /*
+    
+    h5{
+      text-decoration: underline;
+      margin-bottom: 10px;
+    }
+    li{
+      @extend .span-2;
+      float: left;
+      line-height: 1.3em;
+    }    
+    
     .large-quote{
       .quote{@extend .clearfix;}
       .before{
@@ -473,7 +484,7 @@ hr.faded{
         @extend .prepend-1;
         @extend .span-5;
       }
-    }*/
+    }
   }
   .right{
     @extend .span-3;

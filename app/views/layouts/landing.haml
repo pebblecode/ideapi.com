@@ -49,23 +49,44 @@
     
     #footer
       .container
-        .left
-          - if yield(:custom_footer)
-            = yield :custom_footer
-          - else
-            .large-quote
-              .quote
-                .before
-                  %img{:src => '/images/icons/lquote.png', :alt=> ""}/
-                .content
-                  :markdown
-                    …perfect for an organisation like ours working with many different groups and individuals all in different time zones…
-
-                .after
-                  %img{:src => '/images/icons/rquote.png', :alt=> ""}/
-              .cite
-                %cite Philippa White, Founder &amp; Managing Director, <br/>The International Exchange        
-          
+        %ul.left        
+          / - if yield(:custom_footer)
+          /   = yield :custom_footer
+          / - else
+          /   .large-quote
+          /     .quote
+          /       .before
+          /         %img{:src => '/images/icons/lquote.png', :alt=> ""}/
+          /       .content
+          /         :markdown
+          /           …perfect for an organisation like ours working with many different groups and individuals all in different time zones…
+          / 
+          /       .after
+          /         %img{:src => '/images/icons/rquote.png', :alt=> ""}/
+          /     .cite
+          /       %cite Philippa White, Founder &amp; Managing Director, <br/>The International Exchange
+          %li.navigation
+            %h5 Navigate
+            %ul
+              %li=link_unless_current 'Overview', "http://#{request.domain}/"
+              %li=link_unless_current 'Features', "http://#{request.domain}#{features_path}"
+              %li=link_unless_current 'FAQ', "http://#{request.domain}#{faq_path}"
+              %li=link_unless_current "Who's it for?", "http://#{request.domain}#{who_path}"
+              - if @usersession.present? and @user.present? 
+                %li= link_to 'Account', login_path
+              - else
+                %li= link_to 'Login', login_path
+          %li.learn-more
+            %h5 Learn more
+            %ul
+              %li=link_to 'Blog', 'http://blog.ideapi.com'
+              %li=link_to "Twitter", 'http://twitter.com/ideapi'
+              %li=link_to "Buzz", "#"
+          %li.signup-link
+            %h5 Sign up
+            %ul
+              %li=link_unless_current "Sign up", "http://#{request.domain}#{plans_path}"
+            
         .right
           .social.span-1.last
             %ul.social-links              
