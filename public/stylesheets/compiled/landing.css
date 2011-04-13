@@ -513,7 +513,7 @@ hr.faded { /*background: -webkit-gradient(linear, left center, right center, fro
 /* line 463, ../sass/landing.scss */
 #footer { font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif; height: 200px; padding-top: 25px; }
 /* line 472, ../sass/landing.scss */
-#footer .left h5 { text-decoration: underline; margin-bottom: 5px; }
+#footer .left h5 { text-decoration: underline; margin-bottom: 3px; }
 /* line 476, ../sass/landing.scss */
 #footer .left ul { margin-bottom: 5px; }
 /* line 479, ../sass/landing.scss */
