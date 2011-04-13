@@ -189,12 +189,11 @@ $content_bg: #f3f3f3;
     .inner-container{      
       /* Doesn't work for some reason
       @include box_shadow(3px 3px 3px #666666);*/
-      -webkit-box-shadow: 3px 3px 3px #666666;
-      -moz-box-shadow: 3px 3px 3px #666666;
-      box-shadow: 3px 3px 3px #666666;
+      -webkit-box-shadow: 5px 5px 10px #666;
+      -moz-box-shadow: 5px 5px 10px #666;
+      box-shadow: 5px 5px 10px #666;
   
       width:500px;
-      border: 1px solid #000000;
       padding: 5px;
       display: inline-block;            
     }
