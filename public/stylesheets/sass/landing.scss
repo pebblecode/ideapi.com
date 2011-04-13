@@ -260,7 +260,6 @@ $content_bg: #f3f3f3;
 /* Follows the 960 grid */
 .home-page .benefits{
   margin-top: 2em;
-  padding: 0 10px;
   .sidebar{
     @extend .span-10;    
     float: none;    
@@ -303,14 +302,16 @@ $content_bg: #f3f3f3;
   
   .listing{
     margin-top: 40px;
-    padding: 0 0 0 35px;
     li {
       @extend .span-3;
       display: block;      
       float: left;
       clear: none;
       min-height: 145px;
-      margin-right: 20px;      
+      margin-right: 55px;      
+    }
+    li.last{
+      margin-right: 0;
     }
     li.last-benefit{
       clear: left;
