@@ -471,16 +471,24 @@ hr.faded{
     
     h5{
       text-decoration: underline;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+    }
+    ul{
+      margin-bottom: 5px;
     }
     li{
       @extend .span-2;
       float: left;
       line-height: 1.3em;
+      font-size: 0.9em;
+      line-height: 1.2em;
       
       span{
         color: #666;
       }      
+      li{
+        float: none;
+      }
     }
     
     .large-quote{

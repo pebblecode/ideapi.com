@@ -70,19 +70,26 @@
             %ul
               %li=link_unless_current 'Overview', "http://#{request.domain}/"
               %li=link_unless_current 'Features', "http://#{request.domain}#{features_path}"
-              %li=link_unless_current 'FAQ', "http://#{request.domain}#{faq_path}"
               %li=link_unless_current "Who's it for?", "http://#{request.domain}#{who_path}"
               - if @usersession.present? and @user.present? 
                 %li= link_to 'Account', login_path
               - else
                 %li= link_to 'Login', login_path
+
+          %li.get-help
+            %h5 Get help
+            %ul
+              %li=link_to "GetSatisfaction", "http://getsatisfaction.com/ideapi"
+              %li=link_unless_current 'FAQ', "http://#{request.domain}#{faq_path}"              
+              %li
+                %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"                      
           %li.learn-more
             %h5 Learn more
             %ul
-              %li=link_to 'Blog', 'http://blog.ideapi.com'
-              %li=link_to "Twitter", 'http://twitter.com/ideapi'
               %li=link_to "Buzz", "#"
-          %li.signup-link
+              %li=link_to "Twitter", 'http://twitter.com/ideapi'
+              %li=link_to 'Blog', 'http://blog.ideapi.com'
+
             %h5 Sign up
             %ul
               %li=link_unless_current "Sign up", "http://#{request.domain}#{plans_path}"
@@ -117,9 +124,7 @@
                 |
               %li
                 %a{ :href => privacy_path, :title => "Privacy Policy" }Privacy Policy
-                |
-              %li
-                %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"
+                
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-691295-5']);
