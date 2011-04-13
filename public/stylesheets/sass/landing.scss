@@ -190,10 +190,10 @@ $content_bg: #f3f3f3;
     @extend .span-4;
 
     padding-top: 1em;
-    margin-left: 88px;
   }
 }
 .signup {
+  text-align: center;
   .try-button{
     margin-right: 20px;
     background: $ideapi_green_light;
@@ -221,7 +221,7 @@ $content_bg: #f3f3f3;
     }
   }
   .meta {
-    margin: 10px 0 0 110px;
+    margin: 10px 0 0 63px;
   }  
 }
 
@@ -265,15 +265,6 @@ $content_bg: #f3f3f3;
         line-height: 1em;
         text-align: center;
       }
-      .or{
-        font-size: 1.5em;
-        line-height: 1em;
-        margin: 20px 0;
-        text-align: center;
-      }
-      .signup{
-        margin-left: 50px;
-      }      
     }
     
   }
@@ -289,9 +280,18 @@ $content_bg: #f3f3f3;
       min-height: 120px;
       margin-right: 20px;      
     }
-    li.last{
+    li.last-benefit{
       clear: left;
       margin-top: 20px;
+    }
+    li.features-link{
+      text-align: center;
+      font-size: 1.5em;
+      line-height: 1.3em;
+      padding-top: 43px;
+    }
+    li.signup{
+      padding-top: 35px;
     }
   }
 }
