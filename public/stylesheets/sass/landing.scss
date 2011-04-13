@@ -500,6 +500,10 @@ hr.faded{
   }
   .copyright{
     font-size: 0.8em;
+    p{
+      margin-bottom: 0;
+    }
+      
     ul{ list-style: none;}
   }
   .quick-links{
