@@ -283,12 +283,20 @@ form {
       #user_session_email, #user_session_password{ display: inline; width: 275px;}
       #user_session_remember_me{ display: inline; margin-right: 275px;}
     }
-    #forgot-password{ text-align: left;}
+    #forgot-password{ text-align: left;}    
   }
   .friendship_form {
     p {
       text-align: center; 
     } 
+  }
+  .signup-link{ 
+    text-align: right;
+    float: right;
+    margin-right:1em;
+    clear: both;
+    font-size: 1.1em;
+    line-height: 1em;
   }
 }
 .app_error {

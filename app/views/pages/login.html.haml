@@ -29,3 +29,6 @@
     = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
   %p
     = link_to "ideapi Homepage", "http://#{request.domain}", :class => 'back-to-homepage'
+  .signup-link
+    or
+    = link_to "Sign up", "http://#{request.domain}#{plans_path}"    
