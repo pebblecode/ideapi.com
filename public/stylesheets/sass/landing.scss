@@ -215,7 +215,7 @@ $content_bg: #f3f3f3;
     @extend .span-3;
     position: absolute;
     top: 0;
-    right: -150px;
+    right: -130px;
     padding-top: 0;
   }
 }
@@ -403,6 +403,7 @@ hr.faded{
           float: none;
           text-align: left;
           margin-bottom: 15px;
+          padding: 10px 30px;
         }
         img{          
           @include box_shadow_default;
@@ -430,13 +431,12 @@ hr.faded{
         z-index: 0;
         top: 0;
         left: 204px;
-        padding: 10px;
         /*background-color: #C4E446;*/
         border: 3px solid #C4E446;
         
         @include border_radius(5px);
         
-        min-height: 615px;
+        min-height: 670px;
       }      
     }
   }

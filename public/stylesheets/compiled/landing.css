@@ -402,7 +402,7 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 /* line 210, ../sass/landing.scss */
 #tour-intro .title { text-align: left; }
 /* line 214, ../sass/landing.scss */
-#tour-intro .signup { position: absolute; top: 0; right: -150px; padding-top: 0; }
+#tour-intro .signup { position: absolute; top: 0; right: -130px; padding-top: 0; }
 
 /* line 223, ../sass/landing.scss */
 .signup { text-align: center; }
@@ -484,13 +484,13 @@ hr.faded { /*background: -webkit-gradient(linear, left center, right center, fro
 /* line 398, ../sass/landing.scss */
 .features-page .features-index li .description { display: none; text-align: center; }
 /* line 402, ../sass/landing.scss */
-.features-page .features-index li .description p { float: none; text-align: left; margin-bottom: 15px; }
-/* line 407, ../sass/landing.scss */
+.features-page .features-index li .description p { float: none; text-align: left; margin-bottom: 15px; padding: 10px 30px; }
+/* line 408, ../sass/landing.scss */
 .features-page .features-index li .description img { -webkit-box-shadow: 5px 5px 10px #666; -moz-box-shadow: 5px 5px 10px #666; box-shadow: 5px 5px 10px #666; }
-/* line 413, ../sass/landing.scss */
+/* line 414, ../sass/landing.scss */
 .features-page .features-index li.active .feature-title { /*        background-color: #C4E446;*/ border-top: 3px solid #C4E446; border-left: 3px solid #C4E446; border-bottom: 3px solid #C4E446; background-color: #f3f3f3; color: #222222; -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-top-left-radius: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; border-bottom-left-radius: 5px; position: relative; z-index: 10; }
-/* line 427, ../sass/landing.scss */
-.features-page .features-index li.active .description { display: block; position: absolute; z-index: 0; top: 0; left: 204px; padding: 10px; /*background-color: #C4E446;*/ border: 3px solid #C4E446; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; min-height: 615px; }
+/* line 428, ../sass/landing.scss */
+.features-page .features-index li.active .description { display: block; position: absolute; z-index: 0; top: 0; left: 204px; /*background-color: #C4E446;*/ border: 3px solid #C4E446; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; min-height: 670px; }
 /* line 444, ../sass/landing.scss */
 .features-page #tour-slides { position: relative; }
 /* line 449, ../sass/landing.scss */
