@@ -459,7 +459,11 @@ hr.faded{
       @extend .span-2;
       float: left;
       line-height: 1.3em;
-    }    
+      
+      span{
+        color: #666;
+      }      
+    }
     
     .large-quote{
       .quote{@extend .clearfix;}
