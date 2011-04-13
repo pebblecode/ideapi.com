@@ -733,17 +733,17 @@ body#users.contacts #header ul.sub_nav { display: none; }
 #template_documents #container .new_template_document .actions .right, #template_documents #container .edit_template_document .actions .right { float: right; }
 /* line 1698, sass/frontend.sass */
 #template_documents #container .new_template_document .actions a.add_child, #template_documents #container .edit_template_document .actions a.add_child { color: white; display: block; float: left; margin-right: 1em; font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background.png") repeat-x right top; }
-/* line 75, sass/_mixins.scss */
+/* line 85, sass/_mixins.scss */
 #template_documents #container .new_template_document .actions a.add_child:hover, #template_documents #container .edit_template_document .actions a.add_child:hover { border: 1px solid #32401a; }
-/* line 80, sass/_mixins.scss */
+/* line 90, sass/_mixins.scss */
 #template_documents #container .new_template_document .actions a.add_child:hover, #template_documents #container .edit_template_document .actions a.add_child:hover { background: url("/images/ui/button_background.png") repeat-x right top; }
-/* line 82, sass/_mixins.scss */
+/* line 92, sass/_mixins.scss */
 #template_documents #container .new_template_document .actions a.add_child:active, #template_documents #container .edit_template_document .actions a.add_child:active { background: url("/images/ui/button_background.png") repeat-x right -36px; }
 /* line 1705, sass/frontend.sass */
 #template_documents #container a.delete_template { display: block; float: right; font-weight: normal; color: white; padding: 5px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #32401a; background: url("/images/ui/button_background_red.png") repeat-x right top; }
-/* line 75, sass/_mixins.scss */
+/* line 85, sass/_mixins.scss */
 #template_documents #container a.delete_template:hover { border: 1px solid #32401a; }
-/* line 87, sass/_mixins.scss */
+/* line 97, sass/_mixins.scss */
 #template_documents #container a.delete_template:active { background: url("/images/ui/button_background_red.png") repeat-x right -36px; }
 
 /* line 1713, sass/frontend.sass */

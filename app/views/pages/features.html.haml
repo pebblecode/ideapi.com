@@ -9,48 +9,87 @@
       for free!
 
   -# %hr.faded
-#tour-slides
-  #slider
-    %ul.features
-      %li
-        .content
-          %h2 Work together on your documents
-          :markdown
-            Create a structured document online, with headings and sections. Discuss individual sections with your team, clients or grandma. Enrich your document with images and attachments.
+  
+%ul.features-index
+  %li.current
+    %a.feature-title{:href=>"#"} Documents
+    .description
+      %p The documents view on ideapi allows you to see all active documents that you are creating, editing or collaborating on.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
     
-          %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+  %li 
+    %a.feature-title{:href=>"#"} Create Documents
+    .description
+      %p Create new blank documents or create from pre-made templates.
+      %img.screenshot{:src => "../images/screenshots/add_new_section.png", :alt => "Add new sections to documents"}/
 
-      %li
-        .content
-          %h2 Create new documents your way
-          :markdown
-            Build reusable document templates that support your organisation. Reduce the time it takes to start a document.
+  %li
+    %a.feature-title{:href=>"#"} Templates
+    .description
+      %p Create templates to enforce document structure and layout or to save time by adding in regularly used content.
+      %img.screenshot{:src => "../images/screenshots/idea.png", :alt => "An approved idea"}/
     
-          %img.screenshot{:src => "../images/screenshots/add_new_section.png", :alt => "Add new sections to documents"}/
-
-      %li
-        .content
-          %h2 Boost Your Creativity
-          :markdown
-            Allow team members to upload ideas and supporting media in response to documents. Control your approvals process in one place.
+  %li
+    %a.feature-title{:href=>"#"} Manage Contacts
+    .description
+      %p Add and manage contacts on your account so that the right people can collaborate on the right documents and ideas. New contacts are sent an email invitation to your account, with personalised message if required.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
     
-          %img.screenshot{:src => "../images/screenshots/idea.png", :alt => "An approved idea"}/
-
-      %li
-        .content 
-          %h2 Stay up to date with changes to your documents
-          :markdown
-            Track changes to individual sections, and see who changed what and when. Get notified by email when something changes.
-          %img.screenshot{:src => "../images/screenshots/discussion.png", :alt => "Discuss individual sections of documents"}/
-
-      %li
-        .content 
-          %h2 Control who sees what
-          :markdown
-            Choose who to involve in each of your projects. Manage who can view or edit individual documents.
-          %img.screenshot{:src => "../images/screenshots/collaborator_widget.png", :alt => "Collaborator widget"}/
-
-
+  %li
+    %a.feature-title{:href=>"#"} Add Collaborators
+    .description
+      %p Each documents allows you to add the collaborators that you need, and assign the relevant permissions.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+    
+  %li
+    %a.feature-title{:href=>"#"} Set Permissions
+    .description
+      %p Make collaboration even more useful by setting different permissions for each document.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+    
+  %li
+    %a.feature-title{:href=>"#"} Discuss Your Document
+    .description
+      %p Each section of your document has a discussion showing any comments/questions that have been asked as well as any historical section updates. You can easily see the history of each section.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+    
+  %li
+    %a.feature-title{:href=>"#"} Ideas / Attachments
+    .description
+      %p For each document there is an ideas/attachments widget allowing you and your collaborators to add ideas and/or supporting attachments (images, PDFs, etc) to the document.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+    
+  %li
+    %a.feature-title{:href=>"#"} Add Some Jazz
+    .description
+      %p 
+        :plain
+          Sections can easily be formatted to make the content stand out more or be more user friendly. This is done using <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+    
+  %li
+    %a.feature-title{:href=>"#"} Approval
+    .description
+      %p For each idea or set of attachments there is approval functionality should it be required.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+    
+  %li
+    %a.feature-title{:href=>"#"} Tags
+    .description
+      %p Adding tags to your documents allows for categorisation and simple searching.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+    
+  %li
+    %a.feature-title{:href=>"#"} Print View
+    .description
+      %p There is a print view for each document showing an even more simplified view of document content.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
+    
+  %li
+    %a.feature-title{:href=>"#"} Archive
+    .description
+      %p Once a document is ‘finished’, it can be easily archived so as not to clutter up your current documents view.
+      %img.screenshot{:src => "../images/screenshots/document_view.png", :alt => "Sections of a document"}/
 
 
 = custom_footer do

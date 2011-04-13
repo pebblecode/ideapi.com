@@ -213,12 +213,13 @@ $content_bg: #f3f3f3;
   position: relative;
   .title{
     @extend .span-6;
+    text-align: left;
   }
   .signup{
     @extend .span-3;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -150px;
     padding-top: 0;
   }
 }
@@ -381,6 +382,74 @@ hr.faded{
 }
 
 .features-page{
+  .features-index{
+    li {
+      @extend .span-10;
+      position: relative;
+            
+      .feature-title{
+        @extend .span-2;
+        font-size: 1.3em;
+        line-height: 1.2em;
+                
+        display: inline-block;        
+        color:#999999;
+        padding: 10px;        
+        &:hover{
+          color: #000;
+        }
+      }
+      .description{
+        @extend .span-8;
+        display: none;
+        text-align: center;
+        p{
+          float: none;
+          text-align: left;
+          margin-bottom: 15px;
+        }
+        img{          
+          /*@include box_shadow(3px 3px 3px #666666);*/
+          -webkit-box-shadow: 5px 5px 10px #666;
+          -moz-box-shadow: 5px 5px 10px #666;
+          box-shadow: 5px 5px 10px #666;          
+        }
+      }
+    }
+    li.current{      
+      .feature-title{
+/*        background-color: #C4E446;*/
+        border-top: 3px solid #C4E446;
+        border-left: 3px solid #C4E446;
+        border-bottom: 3px solid #C4E446;
+        background-color: #f3f3f3;
+        color: #222222;
+        
+        @include top_left_border_radius(5px);
+        @include bottom_left_border_radius(5px);
+        
+        position: relative;        
+        z-index: 10;
+      }
+      .description{
+        display: block;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 204px;
+        padding: 10px;
+        /*background-color: #C4E446;*/
+        border: 3px solid #C4E446;
+        
+        @include top_right_border_radius(5px);
+        @include bottom_left_border_radius(5px);
+        @include bottom_right_border_radius(5px);
+        
+        min-height: 615px;
+      }      
+    }
+  }
+  
   #tour-slides{
     @extend .span-10;
     @extend .last;

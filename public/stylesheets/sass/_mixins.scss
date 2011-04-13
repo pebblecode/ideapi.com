@@ -15,6 +15,16 @@
   -moz-border-radius: $size;
   -webkit-border-radius: $size; }
 
+@mixin top_left_border_radius($size) {
+  -moz-border-radius-topleft: $size;
+  -webkit-border-top-left-radius: $size;
+  border-top-left-radius: $size; }
+
+@mixin top_right_border_radius($size) {
+  -moz-border-radius-topright: $size;
+  -webkit-border-top-right-radius: $size;
+  border-top-right-radius: $size; }
+
 @mixin bottom_left_border_radius($size) {
   -moz-border-radius-bottomleft: $size;
   -webkit-border-bottom-left-radius: $size;
