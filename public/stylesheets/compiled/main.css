@@ -678,7 +678,7 @@ form p input[type=checkbox] { margin-top: 5px; }
 /* line 289, ../sass/main.scss */
 .login .friendship_form p, .app_error .friendship_form p { text-align: center; }
 /* line 293, ../sass/main.scss */
-.login .signup-link, .app_error .signup-link { text-align: right; float: right; margin-right: 1em; clear: both; font-size: 1.1em; line-height: 1em; }
+.login .signup-link, .app_error .signup-link { text-align: right; float: right; margin-right: 1em; clear: both; font-size: 1.2em; line-height: 1em; }
 
 /* line 303, ../sass/main.scss */
 .app_error h3 { background: #d81f26; color: white; }
