@@ -4,7 +4,7 @@
       %li.show-tags
         = link_to "tags", "javascript:void(0)", :id => "document-tags-toggle"
     %li.print-document
-      =link_to 'print', document_path(current_object, :print_mode => 1), :title => "print document", :class => "print_document"
+      =link_to 'print view', document_path(current_object, :print_mode => 1), :title => "print document", :class => "print_document"
     
     -if owner?(current_object) and current_object.active? and current_object.published?
       %li.clear-history

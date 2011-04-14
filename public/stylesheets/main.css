@@ -1645,147 +1645,147 @@ ul.actions.active { border-bottom: 1px solid #eeeeee; }
 /* line 294, sass/snippets/_documents.scss */
 #options-menu .object-actions form, #options-menu .object-actions li, #options-menu .object-actions a, #options-menu .object-actions input, #document-tags .object-actions form, #document-tags .object-actions li, #document-tags .object-actions a, #document-tags .object-actions input { display: inline-block; margin: 0; }
 /* line 299, sass/snippets/_documents.scss */
-#options-menu .object-actions li, #document-tags .object-actions li { display: inline; margin-right: 0.5em; }
+#options-menu .object-actions li, #document-tags .object-actions li { display: inline; margin-right: 0.5em; margin-left: 0.5em; }
 
-/* line 306, sass/snippets/_documents.scss */
+/* line 307, sass/snippets/_documents.scss */
 #document-tags { border: 0; padding: 0 0.5em; }
-/* line 310, sass/snippets/_documents.scss */
+/* line 311, sass/snippets/_documents.scss */
 #document-tags .smartTextBox-items { width: 550px; }
-/* line 313, sass/snippets/_documents.scss */
+/* line 314, sass/snippets/_documents.scss */
 #document-tags label { display: none; }
-/* line 316, sass/snippets/_documents.scss */
+/* line 317, sass/snippets/_documents.scss */
 #document-tags .smartTextBox-box-elem { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-/* line 319, sass/snippets/_documents.scss */
+/* line 320, sass/snippets/_documents.scss */
 #document-tags .smartTextBox-input-elem-valueInput { line-height: 18px; outline: none; }
-/* line 324, sass/snippets/_documents.scss */
+/* line 325, sass/snippets/_documents.scss */
 #document-tags .smartTextBox { display: inline-block; }
-/* line 328, sass/snippets/_documents.scss */
+/* line 329, sass/snippets/_documents.scss */
 #document-tags .inline-submit { display: inline-block; float: left; margin-right: 0.5em; }
-/* line 334, sass/snippets/_documents.scss */
+/* line 335, sass/snippets/_documents.scss */
 #document-tags .smartTextBox-elem-valueContainer { font-size: 0.9em; }
 
-/* line 338, sass/snippets/_documents.scss */
+/* line 339, sass/snippets/_documents.scss */
 .publish-draft { margin-top: 10px; float: right; }
-/* line 341, sass/snippets/_documents.scss */
+/* line 342, sass/snippets/_documents.scss */
 .publish-draft p { margin: 0; text-transform: capitalize; }
 
-/* line 345, sass/snippets/_documents.scss */
+/* line 346, sass/snippets/_documents.scss */
 #sortable_document_items.sortable .document_item { border-top: 1px solid #eee; border-left: 2px solid #eee; border-right: 2px solid #eee; }
-/* line 349, sass/snippets/_documents.scss */
+/* line 350, sass/snippets/_documents.scss */
 #sortable_document_items.sortable .document_item .move-handle { cursor: move; margin-top: 2px; height: 16px; width: 16px; display: block; float: right; text-indent: -9999px; background: url("/images/ui/move-handle.png") no-repeat 0 0; }
-/* line 360, sass/snippets/_documents.scss */
+/* line 361, sass/snippets/_documents.scss */
 #sortable_document_items.sortable .body, #sortable_document_items.sortable .edit, #sortable_document_items.sortable .actions, #sortable_document_items.sortable .document_item_activity { display: none; }
 
-/* line 365, sass/snippets/_documents.scss */
+/* line 366, sass/snippets/_documents.scss */
 #reorder-sections { padding: 2px 4px; text-transform: capitalize; margin-left: 5px; }
 
-/* line 373, sass/snippets/_documents.scss */
+/* line 374, sass/snippets/_documents.scss */
 #documents.show .inline-edit, #documents.show .edit { display: none; }
-/* line 378, sass/snippets/_documents.scss */
+/* line 379, sass/snippets/_documents.scss */
 #documents.show .edit p.submit { text-align: right; margin-top: 5px; }
-/* line 385, sass/snippets/_documents.scss */
+/* line 386, sass/snippets/_documents.scss */
 #documents.show .section .editable { -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
-/* line 388, sass/snippets/_documents.scss */
+/* line 389, sass/snippets/_documents.scss */
 #documents.show .section .edit.revealed { display: inline-block; }
-/* line 390, sass/snippets/_documents.scss */
+/* line 391, sass/snippets/_documents.scss */
 #documents.show .section.document_item .edit.revealed { display: block; }
-/* line 392, sass/snippets/_documents.scss */
+/* line 393, sass/snippets/_documents.scss */
 #documents.show .section .edit { padding: 0; text-align: center; }
-/* line 395, sass/snippets/_documents.scss */
+/* line 396, sass/snippets/_documents.scss */
 #documents.show .section .edit .spinner { display: inline; }
-/* line 398, sass/snippets/_documents.scss */
+/* line 399, sass/snippets/_documents.scss */
 #documents.show .section .edit .field { width: 100%; margin-bottom: 5px; }
-/* line 403, sass/snippets/_documents.scss */
+/* line 404, sass/snippets/_documents.scss */
 #documents.show .section .edit input.inline-edit-title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 635px; background: #fafafa; border: 1px solid #eee; }
-/* line 412, sass/snippets/_documents.scss */
+/* line 413, sass/snippets/_documents.scss */
 #documents.show .section .edit .inline-edit-body { display: block; width: 635px; max-width: 635px; height: 100px; padding: 0.5em; margin-bottom: 0.5em; background: #fafafa; border: 1px solid #eee; font-size: 1em; }
-/* line 423, sass/snippets/_documents.scss */
+/* line 424, sass/snippets/_documents.scss */
 #documents.show .section .edit p.submit { margin: 0; }
-/* line 427, sass/snippets/_documents.scss */
+/* line 428, sass/snippets/_documents.scss */
 #documents.show .section .spinner { display: inline; }
-/* line 429, sass/snippets/_documents.scss */
+/* line 430, sass/snippets/_documents.scss */
 #documents.show .most_important_thing { overflow: hidden; }
-/* line 431, sass/snippets/_documents.scss */
-#documents.show .most_important_thing .show { border: 1px solid #fff; }
 /* line 432, sass/snippets/_documents.scss */
+#documents.show .most_important_thing .show { border: 1px solid #fff; }
+/* line 433, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .show span { font-weight: bold; }
-/* line 436, sass/snippets/_documents.scss */
+/* line 437, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit { text-align: center; padding: 0; margin: auto; }
-/* line 440, sass/snippets/_documents.scss */
+/* line 441, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit p.submit { margin-top: 0.5em; font-size: 0.5em; }
-/* line 446, sass/snippets/_documents.scss */
+/* line 447, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit form { text-align: center; }
-/* line 448, sass/snippets/_documents.scss */
+/* line 449, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit form input[type=text] { display: block; background: #fafafa; border: 1px solid #eee; padding: 0.5em 1em; font-size: .7em; font-weight: bold; width: 300px; text-align: center; }
-/* line 459, sass/snippets/_documents.scss */
+/* line 460, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit span, #documents.show .most_important_thing .edit .field { display: inline-block; }
-/* line 462, sass/snippets/_documents.scss */
+/* line 463, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit span { font-size: 8em; display: inline-block; padding: 0; margin: 0; height: 0.4em; line-height: 0.8em; }
-/* line 469, sass/snippets/_documents.scss */
+/* line 470, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit span.left { vertical-align: top; margin-top: 0px; }
-/* line 473, sass/snippets/_documents.scss */
+/* line 474, sass/snippets/_documents.scss */
 #documents.show .most_important_thing .edit span.right { vertical-align: bottom; }
 
-/* line 484, sass/snippets/_documents.scss */
+/* line 485, sass/snippets/_documents.scss */
 #content-header .editable:hover { background-color: #d5f557; cursor: pointer; }
-/* line 489, sass/snippets/_documents.scss */
+/* line 490, sass/snippets/_documents.scss */
 #content-header .edit { margin: 2px 0; }
-/* line 491, sass/snippets/_documents.scss */
+/* line 492, sass/snippets/_documents.scss */
 #content-header .edit input[type=text] { font-size: 1.2em; display: inline-block; font-weight: bold; padding: 2px 3px; margin-right: .5em; border: 1px solid #ee8; background-color: #FFC; width: 65%; }
-/* line 501, sass/snippets/_documents.scss */
+/* line 502, sass/snippets/_documents.scss */
 #content-header .edit input[type=submit] { display: inline-block; vertical-align: middle; margin-top: -4px; }
 
 /*  inline edit toggle triggers:  the "edit" button that appears when you hover a section the "cancel" button when editing a section
 */
-/* line 514, sass/snippets/_documents.scss */
+/* line 515, sass/snippets/_documents.scss */
 .document .section { /* This is the "cancel" button when in the edit view. */ }
-/* line 517, sass/snippets/_documents.scss */
+/* line 518, sass/snippets/_documents.scss */
 .document .section .edit .toggle-inline-edit { display: inline; color: #fff; text-shadow: 1px 1px 1px #888; font-weight: normal; }
 
 /* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */
 /*.document .most_important_thing.section{ .toggle-inline-edit{ float: right; font-weight: normal; top: 0.5em; right: 0.5em; opacity: 0; display: block; } &:hover{ .toggle-inline-edit{  opacity: 1; } } 
 }*/
 /* Adding new sections dynamically */
-/* line 547, sass/snippets/_documents.scss */
+/* line 548, sass/snippets/_documents.scss */
 #add-new-section p { margin: 1em 0; }
-/* line 550, sass/snippets/_documents.scss */
+/* line 551, sass/snippets/_documents.scss */
 #add-new-section .toggle-add-new-section { padding: 2px 4px; }
 
-/* line 554, sass/snippets/_documents.scss */
+/* line 555, sass/snippets/_documents.scss */
 #new-section { background-color: #f1f1f1; display: none; border: 1px solid #ddd; padding: 1em; }
-/* line 559, sass/snippets/_documents.scss */
+/* line 560, sass/snippets/_documents.scss */
 #new-section .field { clear: both; }
-/* line 561, sass/snippets/_documents.scss */
+/* line 562, sass/snippets/_documents.scss */
 #new-section .field label { display: block; float: none; }
-/* line 565, sass/snippets/_documents.scss */
+/* line 566, sass/snippets/_documents.scss */
 #new-section .field input.title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 628px; background: #fafafa; border: 1px solid #ddd; }
-/* line 574, sass/snippets/_documents.scss */
+/* line 575, sass/snippets/_documents.scss */
 #new-section .field .body { display: block; height: 100px; padding: 0.5em; width: 628px; background: #fafafa; border: 1px solid #ddd; font-size: 1em; }
-/* line 584, sass/snippets/_documents.scss */
+/* line 585, sass/snippets/_documents.scss */
 #new-section .is_heading { float: right; }
-/* line 586, sass/snippets/_documents.scss */
+/* line 587, sass/snippets/_documents.scss */
 #new-section .is_heading label { display: inline; font-weight: normal; }
-/* line 591, sass/snippets/_documents.scss */
+/* line 592, sass/snippets/_documents.scss */
 #new-section .submit { text-align: right; margin-top: 0.5em; }
-/* line 594, sass/snippets/_documents.scss */
+/* line 595, sass/snippets/_documents.scss */
 #new-section .submit .spinner { display: inline; }
 
 /* Deleting a section */
-/* line 607, sass/snippets/_documents.scss */
+/* line 608, sass/snippets/_documents.scss */
 span.separator { color: #ccc; font-size: 1em; margin: 0 .5em; }
 
-/* line 613, sass/snippets/_documents.scss */
+/* line 614, sass/snippets/_documents.scss */
 .notify { float: right; font-size: 9pt; }
-/* line 616, sass/snippets/_documents.scss */
-.notify label, .notify input { display: inline; float: none; font-weight: normal; }
 /* line 617, sass/snippets/_documents.scss */
+.notify label, .notify input { display: inline; float: none; font-weight: normal; }
+/* line 618, sass/snippets/_documents.scss */
 .notify label { width: auto; }
 
-/* line 620, sass/snippets/_documents.scss */
+/* line 621, sass/snippets/_documents.scss */
 #container #content .col_1 .speech ul { display: block; list-style: disc; margin: 0; padding: 0; list-style-position: inside; }
-/* line 626, sass/snippets/_documents.scss */
+/* line 627, sass/snippets/_documents.scss */
 #container #content .col_1 .speech ul li { margin: 0 !important; padding: 0; }
-/* line 631, sass/snippets/_documents.scss */
+/* line 632, sass/snippets/_documents.scss */
 #container #content .col_1 .speech .notify { float: none; display: block; margin-top: .5em; text-align: right; }
 
 /* line 4, sass/snippets/_smartbox.scss */
