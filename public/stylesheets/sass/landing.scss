@@ -146,7 +146,7 @@ $content_bg: #f3f3f3;
   padding: 50px 0;
 }
 
-#intro, #tour-intro{
+#intro, #content-heading{
   position: relative; 
   
   .title {
@@ -206,7 +206,7 @@ $content_bg: #f3f3f3;
     padding: 0 150px 50px 150px;
   }
 }
-#tour-intro{
+#content-heading{
   position: relative;
   .title{
     @extend .span-6;
@@ -512,17 +512,18 @@ hr.faded{
 
 .faq-page{
   .title{
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
   }
   .listing{
     margin-bottom: 2em;
+    clear: both;
     li{
       margin-bottom: .5em;
     }
   }
   .faq-listing{
     list-style-position: outside;
-    margin-top: 2em;
+    margin-top: 2em;    
     @extend .span-6;
     @extend .clearfix;
     .faq-item{ 
@@ -547,7 +548,9 @@ hr.faded{
     }
   }
 }
-
+.who-page .title {
+  margin-bottom: 1em;
+}
 
 /* Footer */
 #footer{
@@ -733,6 +736,7 @@ hr.faded{
 .large-copy{
   max-width: 45em;
   font-size: 1em;
+  clear: both;
   .title{
 
     margin-bottom: 1em;
