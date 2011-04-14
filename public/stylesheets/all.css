@@ -206,7 +206,7 @@ a {
   text-decoration: underline; }
   a:visited {
     color: #454545;
-    background: inherit; }
+    /*background: inherit;*/ }
   a:hover {
     color: #222222;
     background: inherit; }
