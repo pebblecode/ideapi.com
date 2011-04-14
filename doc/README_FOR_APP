@@ -67,6 +67,14 @@ If you are not running Redis as a daemon, you can start it with
 
 Clear the browser cache. Could occur when you log into ideapi, and then clear out the database. An issue with the cookies.
 
+### ActionController::InvalidAuthenticityToken error when logging in/signing up
+
+Check config/environments/development.rb variable is the same as the url eg,
+
+  config.action_controller.session = { :domain => ".smackaho.st" }
+  
+for the *.smackaho.st domain.
+
 
 
 
