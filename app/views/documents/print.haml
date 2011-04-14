@@ -11,7 +11,8 @@
   %body
     %div[current_object]
       %h2 
-        =truncate(current_object.title, :length => 30)
+        /=truncate(current_object.title, :length => 30)
+        =current_object.title
       -if current_object.document_items.empty? && current_object.published?
         %p This document is empty
       =render :partial => 'documents/document_partials/document_item', :collection => current_object.document_items, :locals => { :draft => current_object.draft?, :print => true}
