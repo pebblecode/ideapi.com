@@ -49,15 +49,23 @@ On your development box you will need to have Redis and workers running if you w
 
 To invoke a worker from the root of the rails site you can use the following command
 
-QUEUE=* rake resque:work
+    QUEUE=* rake resque:work
 
 To start the Resque GUI run
 
-resque-web
+    resque-web -p 8282 config/initializers/load_resque.rb 
 
 This shows you workers running and any problems with the jobs you send them. 
 
+If you are not running Redis as a daemon, you can start it with 
 
+    redis-server /usr/local/etc/redis.conf
+
+## Gotchas
+
+### http://smackaho.st/ redirects to 404 page
+
+Clear the browser cache. Could occur when you log into ideapi, and then clear out the database. An issue with the cookies.
 
 
 
