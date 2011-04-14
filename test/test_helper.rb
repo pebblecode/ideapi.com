@@ -8,6 +8,7 @@ require "webrat"
 require 'machinist/active_record'
 require 'sham'
 require 'faker'
+I18n.reload!
 
 require File.expand_path(File.dirname(__FILE__) + "/blueprints")
 

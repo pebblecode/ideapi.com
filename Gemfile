@@ -33,8 +33,7 @@ group :test do
   gem "machinist"
   gem "webrat", "0.7.0"
   gem "gherkin"
-  gem "cucumber"
-  gem "cucumber-rails"
+  gem "cucumber-rails", "~> 0.3.2"
   gem "spork"
   gem "capybara", "0.3.9"
   gem 'rspec-rails'
