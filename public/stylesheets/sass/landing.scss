@@ -253,75 +253,71 @@ $content_bg: #f3f3f3;
   }  
 }
 
-/* Follows the 960 grid */
-.home-page .benefits{
-  margin-top: 2em;
-  .sidebar{
-    @extend .span-10;    
-    float: none;    
-    .large-quote {   
-      padding: 0 100px 30px 100px;
-      position: relative;
-      .before{
-        background: url('/images/icons/lquote.png') no-repeat top left;
-        position: absolute;
-        top: -10px;
-        left: 80px;
-      }
-      .content{
-        text-align: center;
-        font-size: 1.5em;
-      }
-      .after{
-        background: url('/images/icons/rquote.png') no-repeat bottom right;
-        position: absolute;
-        bottom: 40px;
-        right: 160px;
-                
-        /*@extend .last;*/
-      }
-      .cite{
-        text-align: center;
-      }
-    }
-    
-    .further-links {      
-      .features-link{
-        margin-top: 50px;
-        font-size: 1.5em;
-        line-height: 1em;
-        text-align: center;
-      }
-    }
-    
+.large-quote {   
+  padding: 30px 100px;
+  position: relative;
+  display: block;
+  .before{
+    background: url('/images/icons/lquote.png') no-repeat top left;
+    position: absolute;
+    top: 20px;
+    left: 80px;
   }
+  .content{
+    text-align: center;
+    font-size: 1.5em;
+  }
+  .after{
+    background: url('/images/icons/rquote.png') no-repeat bottom right;
+    position: absolute;
+    bottom: 70px;
+    right: 160px;
+            
+    /*@extend .last;*/
+  }
+  .cite{
+    text-align: center;
+  }
+}
+
+.home-page .benefits {
+  margin-top: 2em;
+  @extend .span-10;    
+  float: none;
   
-  .listing{
-    margin-top: 40px;
-    li {
-      @extend .span-3;
-      display: block;      
-      float: left;
-      clear: none;
-      min-height: 145px;
-      margin-right: 55px;      
-    }
-    li.last{
-      margin-right: 0;
-    }
-    li.last-benefit{
-      clear: left;
-      margin-top: 20px;
-    }
-    li.features-link{
-      text-align: center;
+/*  .further-links {      
+    .features-link{
+      margin-top: 50px;
       font-size: 1.5em;
-      line-height: 1.3em;
-      padding-top: 43px;
+      line-height: 1em;
+      text-align: center;
     }
-    li.signup{
-      padding-top: 35px;
-    }
+  }*/
+  
+  margin-top: 40px;
+  li {
+    @extend .span-3;
+    display: block;      
+    float: left;
+    clear: none;
+    min-height: 145px;
+    margin-right: 55px;      
+  }
+  li.last{
+    margin-right: 0;
+  }
+  li.last-benefit{
+    clear: left;
+    margin-top: 20px;
+  }
+  li.features-link{
+    text-align: center;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    padding-top: 43px;
+  }
+  li.signup{
+    padding-top: 35px;
   }
 }
 
