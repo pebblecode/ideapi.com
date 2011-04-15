@@ -32,10 +32,12 @@ module Breadcrumbs
     def breadcrumbs(*args)
       default_options = {:separator => "&nbsp;&raquo;&nbsp;", :tag => :li}
       options = default_options.merge(args.extract_options!)
-      @breadcrumbs.map do |name, url|
-        crumb = link_to_unless_current(name, url) {|link| content_tag 'span', link }
-        options[:tag] && content_tag(options[:tag], crumb) || crumb
-      end.join("#{options[:separator]}")
+      unless @breadcrumb.nil?
+        @breadcrumbs.map do |name, url|
+          crumb = link_to_unless_current(name, url) {|link| content_tag 'span', link }
+          options[:tag] && content_tag(options[:tag], crumb) || crumb
+        end.join("#{options[:separator]}")
+      end
     end
 
   end
