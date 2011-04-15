@@ -304,6 +304,10 @@ form {
     left: 0;
     text-align: left;
     margin: 0;
+    .location{
+      color: #EEEEEE;
+      text-transform: capitalize;
+    }
   }
 }
 .app_error {

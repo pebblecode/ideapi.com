@@ -13,8 +13,9 @@
   %h3 Please login to ideapi    
   .login_form.clearfix    
     -form_for @user_session, :url => login_action_path do |f|
-      - if @user_session.errors.size > 0
-        %p.flash.error Login failed. Please try again.      
+      - if @error_messages
+        - for error in @error_messages
+          %p.flash.error= error
       
       %p.field
         =f.label :email, 'Email:'
