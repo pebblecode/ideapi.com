@@ -1,5 +1,6 @@
-- if @usersession.present? and @user.present?
+- has_user = (@usersession.present? and @user.present?)
 
+- if has_user
 
   %h3 Where do we go from here?
 
@@ -9,9 +10,14 @@
         %h2= link_to account.name, "#{domain_with_port(account.full_domain)}", :class => "account_link"
 
 - else
-  %h3 Please login to ideapi
-  .login_form.clearfix
+  %h3 Please login to ideapi    
+  .login_form.clearfix    
     -form_for @user_session, :url => "/login" do |f|
+      / Always shows an error, because /login is the only route that handles login for pages. Need 2 routes
+      / like in users_sessions_controller.
+      / - if @user_session.errors.size > 0
+      /   %p.flash.error Login failed. Please try again.      
+      
       %p.field
         =f.label :email, 'Email:'
         =f.text_field :email
@@ -25,10 +31,13 @@
       %p.submit
         =submit_tag "Login", :class => 'funky-button'
 .footer
-  %p#forgot-password
-    = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
+  - unless has_user
+    %p#forgot-password
+      = link_to "Did you forget your password?", :controller => 'reset_password', :action => 'new'
   %p
     = link_to "ideapi Homepage", "http://#{request.domain}", :class => 'back-to-homepage'
-  .signup-link
-    or
-    = link_to "Sign up", "http://#{request.domain}#{plans_path}"    
+
+  - unless has_user
+    .signup-link
+      or
+      = link_to "Sign up", "http://#{request.domain}#{plans_path}"    
