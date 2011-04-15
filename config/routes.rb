@@ -76,6 +76,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login_action '/login/create', :controller => 'pages', :action => 'login_action'
   map.help '/help', :controller => 'pages', :action => 'help'
   map.who '/who', :controller => 'pages', :action => 'who'
+  # To reset password: *.ideapi.com/reset_password/:perishable_token/edit, where :perishable_token is in the users table
   map.resources :reset_password
   map.resources :assets
 end
