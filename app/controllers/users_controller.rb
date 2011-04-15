@@ -146,7 +146,11 @@ class UsersController < ApplicationController
   end
   
   def require_user_unless_pending
-    require_user unless current_object.pending?
+    if current_object.respond_to? :pending?
+      unless current_object.pending?
+        require_user 
+      end
+    end 
   end
  
 end
