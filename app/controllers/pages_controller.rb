@@ -46,23 +46,6 @@ class PagesController < ApplicationController
     render :layout => "login"
   end
 
-  def get_user_session_error_messages
-    error_messages = []
-    if @user_session
-      for error in @user_session.errors   
-        location = error[0]
-        msg = error[1]
-        if (location == "base") and (msg == "You did not provide any details for authentication.")
-          error_messages.push("No details filled in")
-        else
-          error_messages.push("<span class='location'>#{error[0]}</span> #{error[1]}")
-        end
-      end
-    end
-    
-    return error_messages
-  end
-
   # The log in action
   def login_action
     @user_session = UserSession.new(params[:user_session])

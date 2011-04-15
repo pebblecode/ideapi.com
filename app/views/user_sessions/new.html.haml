@@ -1,8 +1,9 @@
 %h3 Please login to your account
 .login_form
   -form_for @user_session, :url => user_session_path do |f|
-    - if @user_session.errors.size > 0
-      %p.flash.error Login failed. Please try again.
+    - if @error_messages
+      - for error in @error_messages
+        %p.flash.error= error
                 
     %p.field
       =f.label :email, 'Email:'

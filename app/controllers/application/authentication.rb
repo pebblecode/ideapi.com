@@ -12,6 +12,25 @@ class ApplicationController < ActionController::Base
     @current_user_session = current_account.user_sessions.find
   end
 
+  # Get the user session error messages from the user session variable. Change the message if it is
+  # the error that no details are filled in.
+  def get_user_session_error_messages
+    error_messages = []
+    if @user_session
+      for error in @user_session.errors   
+        location = error[0]
+        msg = error[1]
+        if (location == "base") and (msg == "You did not provide any details for authentication.")
+          error_messages.push("No details filled in")
+        else
+          error_messages.push("<span class='location'>#{error[0]}</span> #{error[1]}")
+        end
+      end
+    end
+    
+    return error_messages
+  end
+
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.user
