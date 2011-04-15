@@ -21,3 +21,7 @@
 
   %p
     = link_to "ideapi Homepage", APPLICATION_URL, :class => 'back-to-homepage'
+    
+  .signup-link
+    or
+    = link_to "Sign up", "http://#{request.domain}#{plans_path}"    
