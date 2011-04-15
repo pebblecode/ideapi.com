@@ -25,7 +25,7 @@ class UserSessionsController < ApplicationController
         redirect_to documents_url
       end
     else
-      @error_messages = get_user_session_error_messages
+      @error_messages = get_error_messages(@user_session)
       render :action => 'new'
     end
   end

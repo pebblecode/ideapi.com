@@ -38,6 +38,7 @@ class ResetPasswordController < ApplicationController
       flash[:notice] = "Password successfully updated"  
       redirect_to "/"
     else  
+      @error_messages = get_error_messages(@user)
       render :action => :edit
     end  
   end  

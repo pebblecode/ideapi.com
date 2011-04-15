@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
 
   # Get the user session error messages from the user session variable. Change the message if it is
   # the error that no details are filled in.
-  def get_user_session_error_messages
+  def get_error_messages(obj)
     error_messages = []
-    if @user_session
-      for error in @user_session.errors   
+    if obj
+      for error in obj.errors   
         location = error[0]
         msg = error[1]
           

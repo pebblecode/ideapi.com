@@ -61,7 +61,7 @@ class PagesController < ApplicationController
         end
       end
     else
-      @error_messages = get_user_session_error_messages
+      @error_messages = get_error_messages(@user_session)
       render :action => 'login', :layout => "login"
     end
   end

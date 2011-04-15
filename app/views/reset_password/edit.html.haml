@@ -2,6 +2,10 @@
 .login_form{:style => "margin: 0 1em; width: 28em"}
   - form_tag reset_password_path, :method => :put do
     - field_set_tag do
+      - if @error_messages
+        - for error in @error_messages
+          %p.flash.error= error
+          
       %p Please set a new password for your account. 
       
       %p
