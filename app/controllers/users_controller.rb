@@ -102,7 +102,7 @@ class UsersController < ApplicationController
     redirect_to :action => :index
   end
   
-  def signup
+  def signup    
     if @current_object = current_account.users.pending.find_by_invite_code(params[:invite_code])
       if request.put?
         current_object.attributes = params[:user]
@@ -110,12 +110,17 @@ class UsersController < ApplicationController
         if current_object.save
           if @user_session = attempt_signin(current_object)
             redirect_to '/'
+            return
           end
         end  
       end
     else
       not_found
+      return
     end
+    
+    # Show signup layout if all else fails
+    render :layout => 'signup'
   end
  
   private
