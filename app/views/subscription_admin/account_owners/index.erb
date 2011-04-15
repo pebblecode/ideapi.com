@@ -5,12 +5,14 @@
   <thead>
     <tr>
       <th>Account Owners</th>
+			<th>Last login</th>
     </tr>
   </thead>
   <tbody>
     <% @account_owners.each do |user| %>
       <tr>
         <td><%= user.first_name%> <%= user.last_name%> &lt;<%=user.email%>&gt;</td>
+				<td><%= user.last_login_at %></td>
       </tr>
     <% end %>
     
@@ -21,12 +23,14 @@
   <thead>
     <tr>
       <th>All Users</th>
+			<th>Last login</th>
     </tr>
   </thead>
   <tbody>
     <% User.all.each do |user| %>
       <tr>
         <td><%= user.first_name%> <%= user.last_name%> &lt;<%=user.email%>&gt;</td>
+				<td><%= user.last_login_at %></td>
       </tr>
     <% end %>
     
