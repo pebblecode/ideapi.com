@@ -13,7 +13,7 @@
           ="(#{comment_date(question.created_at)})"
   -if question.answered?
     .author_answer
-      =medium_avatar(question.document.author)
+      =medium_avatar(question.answered_by)
       .speech
         - if owner?(@document) # owner? is true for authors, and only authors can answer
           - form_for question, :html => {:method => :put, :id => "delete_question_answer_#{question.id}", :class => "delete-question-answer-form"} do |f|
