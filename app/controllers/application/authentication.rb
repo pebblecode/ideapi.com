@@ -20,11 +20,17 @@ class ApplicationController < ActionController::Base
       for error in @user_session.errors   
         location = error[0]
         msg = error[1]
-        if (location == "base") and (msg == "You did not provide any details for authentication.")
-          error_messages.push("No details filled in")
+          
+        if (location == "base") # Ignore base as a location          
+          if (msg == "You did not provide any details for authentication.")
+            error_messages.push("No details filled in")    
+          else
+            error_messages.push("#{msg}")
+          end
         else
-          error_messages.push("<span class='location'>#{error[0]}</span> #{error[1]}")
+          error_messages.push("<span class='location'>#{location}</span> #{msg}")
         end
+        
       end
     end
     
