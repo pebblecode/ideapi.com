@@ -21,7 +21,7 @@
             = f.submit 'delete', :class => 'delete-question-answer close-button', :id => "delete_question_answer_#{question.id}_submit"
         .answer-body
           %strong
-            =given_name(question.document.author)
+            =given_name(question.answered_by)
             answered:
           :textile
             #{question.author_answer}
