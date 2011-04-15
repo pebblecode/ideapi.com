@@ -39,7 +39,15 @@ class PagesController < ApplicationController
     render :layout => 'application'
   end
 
+  # The log in page
   def login
+    @user_session = UserSession.new
+    
+    render :layout => "login"
+  end
+
+  # The log in action
+  def login_action
     @user_session = UserSession.new(params[:user_session])
     session["password"] = params[:user_session][:password] if params[:user_session]
     if @user_session.save
@@ -49,13 +57,14 @@ class PagesController < ApplicationController
         if @user.accounts.count == 1
           redirect_to domain_with_port(@user.accounts.first.full_domain) 
         else
-          render :layout => "login"
+          render :action => 'login', :layout => "login"
         end
       end
     else
-      render :layout => "login"
+      render :action => 'login', :layout => "login"
     end
   end
+  
   private
   
   # override application/subscription, to allow www etc to display homepage

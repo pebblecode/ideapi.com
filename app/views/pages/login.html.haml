@@ -12,11 +12,9 @@
 - else
   %h3 Please login to ideapi    
   .login_form.clearfix    
-    -form_for @user_session, :url => "/login" do |f|
-      / Always shows an error, because /login is the only route that handles login for pages. Need 2 routes
-      / like in users_sessions_controller.
-      / - if @user_session.errors.size > 0
-      /   %p.flash.error Login failed. Please try again.      
+    -form_for @user_session, :url => login_action_path do |f|
+      - if @user_session.errors.size > 0
+        %p.flash.error Login failed. Please try again.      
       
       %p.field
         =f.label :email, 'Email:'

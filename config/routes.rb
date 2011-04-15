@@ -73,6 +73,7 @@ ActionController::Routing::Routes.draw do |map|
   map.terms '/terms', :controller => 'pages', :action => 'terms'
   map.privacy '/privacy', :controller => 'pages', :action => 'privacy'
   map.login '/login', :controller => 'pages', :action => 'login'
+  map.login_action '/login/create', :controller => 'pages', :action => 'login_action'
   map.help '/help', :controller => 'pages', :action => 'help'
   map.who '/who', :controller => 'pages', :action => 'who'
   map.resources :reset_password
