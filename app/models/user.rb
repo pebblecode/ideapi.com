@@ -93,9 +93,7 @@ class User < ActiveRecord::Base
                   FROM documents as d
                   LEFT JOIN users as u                  
                   ON u.id = d.author_id
-                  WHERE u.id = #{self.id} #{time_restriction_sql}                  
-                  GROUP BY d.author_id
-                  ORDER BY `documents_created` DESC");
+                  WHERE u.id = #{self.id} #{time_restriction_sql}");
     doc_count_val = 0
     if doc_count.size > 0
       doc_count_val = doc_count[0].documents_created
