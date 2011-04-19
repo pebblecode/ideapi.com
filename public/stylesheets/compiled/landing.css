@@ -397,7 +397,7 @@ body { background: #222222 url("/images/bg/hgradient-dark.png") repeat-y 50% 0; 
 /* line 203, ../sass/landing.scss */
 #intro { padding-bottom: 50px; }
 /* line 205, ../sass/landing.scss */
-#intro .title { padding: 0 150px 50px 150px; }
+#intro .title { padding: 0 0 50px 0; }
 
 /* line 209, ../sass/landing.scss */
 #content-heading { position: relative; }
