@@ -600,12 +600,12 @@ hr.faded { /*background: -webkit-gradient(linear, left center, right center, fro
 /* line 742, sass/landing.scss */
 .large-copy .title { margin-bottom: 1em; font-size: 1.4em; }
 /* line 747, sass/landing.scss */
-.large-copy h3 { font-size: 1.2em; margin-bottom: 5px; padding: 0; color: #333; }
-/* line 753, sass/landing.scss */
+.large-copy h3 { margin-bottom: 5px; padding: 0; color: #333; }
+/* line 752, sass/landing.scss */
 .large-copy p, .large-copy ul { margin-bottom: 1.4em; }
-/* line 756, sass/landing.scss */
+/* line 755, sass/landing.scss */
 .large-copy li { margin-bottom: 1em; list-style-type: none; margin-left: 0; line-height: 1.4em; }
-/* line 763, sass/landing.scss */
+/* line 762, sass/landing.scss */
 .large-copy li:before { content: "\00BB"; float: left; margin-left: -1em; }
-/* line 768, sass/landing.scss */
+/* line 767, sass/landing.scss */
 .large-copy p { line-height: 1.4em; }
