@@ -67,6 +67,31 @@ class User < ActiveRecord::Base
   
   before_create :create_invite_code
   
+  def deliver_password_reset_instructions!  
+    reset_perishable_token!
+    #[DEPRECATED]
+    # NotificationMailer.deliver_password_reset_instructions(self, self.accounts.first)
+    # We are sending mail jobs to Resque now so need to send the id
+    # so workers can handle it
+    begin
+      NotificationMailer.deliver_password_reset_instructions(self.id, self.accounts.first.id)
+    rescue Errno::ECONNREFUSED
+      nil
+    end
+  end
+  
+  def deliver_invite_code!(account)
+    create_invite_code
+    #[DEPRECATED]
+    # NotificationMailer.deliver_user_invited_to_account(self, account)
+    begin
+      NotificationMailer.deliver_user_invited_to_account(self.id, account.id, "")
+    rescue Errno::ECONNREFUSED
+      nil
+    end
+  end
+  
+  
   #############################################################################
   # Number of documents
   #############################################################################
@@ -121,30 +146,24 @@ class User < ActiveRecord::Base
   end
   
   #############################################################################  
+  # Documents
+  ############################################################################# 
   
-  def deliver_password_reset_instructions!  
-    reset_perishable_token!
-    #[DEPRECATED]
-    # NotificationMailer.deliver_password_reset_instructions(self, self.accounts.first)
-    # We are sending mail jobs to Resque now so need to send the id
-    # so workers can handle it
-    begin
-      NotificationMailer.deliver_password_reset_instructions(self.id, self.accounts.first.id)
-    rescue Errno::ECONNREFUSED
-      nil
+  def num_documents_created
+    doc_count = Document.find_by_sql("SELECT COUNT(*) as 'documents_count'
+                  FROM documents as d
+                  LEFT JOIN users as u
+                  ON u.id = d.author_id
+                  WHERE u.id = #{self.id}");
+    doc_count_val = 0
+    if doc_count.size > 0
+      doc_count_val = doc_count[0].documents_count
     end
-  end
+    
+    return doc_count_val
+  end  
   
-  def deliver_invite_code!(account)
-    create_invite_code
-    #[DEPRECATED]
-    # NotificationMailer.deliver_user_invited_to_account(self, account)
-    begin
-      NotificationMailer.deliver_user_invited_to_account(self.id, account.id, "")
-    rescue Errno::ECONNREFUSED
-      nil
-    end
-  end
+  
   
   private
   
@@ -158,6 +177,5 @@ class User < ActiveRecord::Base
       self.invite_code = Digest::MD5.hexdigest(transform) 
     end
   end
-
 
 end
