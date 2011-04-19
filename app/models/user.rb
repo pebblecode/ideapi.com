@@ -67,6 +67,59 @@ class User < ActiveRecord::Base
   
   before_create :create_invite_code
   
+  def total_number_of_documents
+    
+    doc_count = Document.find_by_sql("SELECT COUNT(*) as 'documents_created'
+                  FROM documents as d
+                  LEFT JOIN users as u
+                  ON u.id = d.author_id
+                  GROUP BY d.author_id
+                  ORDER BY `documents_created` DESC");
+    doc_count_val = 0
+    if doc_count.size > 0
+      doc_count_val = doc_count[0].documents_created
+    end
+    
+    return doc_count_val
+    
+  end  
+  
+  def total_number_of_documents_last_week
+    
+    doc_count = Document.find_by_sql("SELECT COUNT(*) as 'documents_created'
+                  FROM documents as d
+                  LEFT JOIN users as u
+                  ON u.id = d.author_id
+                  WHERE d.created_at > NOW() - INTERVAL 1 WEEK
+                  GROUP BY d.author_id
+                  ORDER BY `documents_created` DESC");
+    doc_count_val = 0
+    if doc_count.size > 0
+      doc_count_val = doc_count[0].documents_created
+    end
+    
+    return doc_count_val
+    
+  end  
+  
+  def total_number_of_documents_last_month
+    
+    doc_count = Document.find_by_sql("SELECT COUNT(*) as 'documents_created'
+                  FROM documents as d
+                  LEFT JOIN users as u
+                  ON u.id = d.author_id
+                  WHERE d.created_at > NOW() - INTERVAL 1 MONTH
+                  GROUP BY d.author_id
+                  ORDER BY `documents_created` DESC");
+    doc_count_val = 0
+    if doc_count.size > 0
+      doc_count_val = doc_count[0].documents_created
+    end
+    
+    return doc_count_val
+    
+  end
+  
   
   
   def deliver_password_reset_instructions!  
