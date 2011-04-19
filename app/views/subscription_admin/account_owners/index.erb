@@ -13,15 +13,13 @@
       <th>User first name</th>
 			<th>User last name</th>
 			<th>User email</th>
-			<th>Account</th>
-			<th>Is admin?</th>
+			<th>Accounts</th>
 			<th>Invited by first name</th>
 			<th>Invited by last name</th>
 			<th>Invited by email</th>
 			<th>Last login</th>
 			<th># logins &lt; 1 week</th>
 			<th># logins &lt; 1 month</th>
-			<th>Can create documents?</th>
 			<th># documents created</th>
 			<th># documents as author</th>
 			<th># documents as as approver</th>
@@ -42,14 +40,26 @@
       <tr>
         <td><%= user.first_name%></td>
 				<td><%= user.last_name%></td>
-				<td><%=user.email%></td>
-				<td>-</td>
-				<td>-</td>
+				<td><%= user.email%></td>
+				
+				<td>
+					<%- if user.accounts.count > 0 %>
+						<ul>
+							<%- user.accounts.each do |account| %>
+								<li>
+									<a href="<%= account.full_domain %>"><%= account.name %></a>									
+									<%- if account.is_admin == '1' %>, admin<%- end %>
+									<%- if account.can_create_documents == '1' %>, can create documents<%- end %>
+								</li>									
+							<%- end %>
+						</ul>
+					<%- end %>
+				</td>
+				
 				<td><%- if user.invited_by %><%= user.invited_by.first_name %><%- end %></td>
 				<td><%- if user.invited_by %><%= user.invited_by.last_name %><%- end %></td>
 				<td><%- if user.invited_by %><%= user.invited_by.email %><%- end %></td>
 				<td><%= user.last_login_at %></td>
-				<td>-</td>
 				<td>-</td>
 				<td>-</td>
 				<td>-</td>

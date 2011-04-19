@@ -67,6 +67,10 @@ class User < ActiveRecord::Base
   
   before_create :create_invite_code
   
+  #############################################################################
+  # Number of documents
+  #############################################################################
+  
   def total_number_of_documents    
     return total_number_of_documents_val
   end  
@@ -101,8 +105,22 @@ class User < ActiveRecord::Base
     
     return doc_count_val
   end
-
   
+  #############################################################################  
+  # Accounts
+  ############################################################################# 
+  
+  def accounts
+    accounts = Account.find_by_sql("SELECT a.name, a.full_domain, au.admin as is_admin, au.can_create_documents
+                  FROM accounts as a                  
+                  LEFT JOIN account_users as au 
+                  ON a.id = au.account_id
+                  WHERE au.user_id = #{self.id}");
+    
+    return accounts
+  end
+  
+  #############################################################################  
   
   def deliver_password_reset_instructions!  
     reset_perishable_token!

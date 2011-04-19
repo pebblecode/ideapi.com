@@ -1,1 +1,70 @@
-body.subscription_admin table{margin:1em}body.subscription_admin table td{padding:1em 1em 0 0}body.subscription_admin table th{padding-right:1em;font-weight:bold}h2{margin-top:1em}h3,h4{margin-top:2em}.hr{border-top:1px solid #eeeeee;margin:2em 0}input[type=submit]{margin-top:1em}.edit_template_document table td.heading{color:gray}#account-stats{margin-bottom:3em}#account-stats .column{padding:0 1em}#account-stats .rborder{border-width:2px}#account-stats .statistical-data{font-size:1.3em;color:#555;padding:0;list-style-position:inside}#account-stats .statistical-data li{margin:0;list-style:none;clear:both;text-align:right;margin-bottom:0.5em}#account-stats .statistical-data .data-label{display:inline-block;margin-right:1em;float:left}#account-stats .statistical-data .data-value{color:green;display:inline-block}.subscription_admin #account-list th,.subscription_admin #account-list td,.subscription_admin .tabular-data th,.subscription_admin .tabular-data td{padding:0.5em 1em;border:1px solid #bbb}.subscription_admin #account-list th.headerSortDown,.subscription_admin #account-list th.headerSortUp,.subscription_admin .tabular-data th.headerSortDown,.subscription_admin .tabular-data th.headerSortUp{background:#bbb}.subscription_admin #account-list th,.subscription_admin .tabular-data th{background-color:#ccc;cursor:pointer}.subscription_admin #account-list tr:nth-child(2n+2),.subscription_admin .tabular-data tr:nth-child(2n+2){background-color:#eee}.gt-cols .gt-content{width:900px}.tabular-data{float:left}.debug{border:1px solid red}.clear-both{clear:both}.lfloat{float:left}.rfloat{float:right}.rborder{border-right:1px solid #ccc}
+/* line 1, ../sass/admin.scss */
+body.subscription_admin table { margin: 1em; }
+/* line 3, ../sass/admin.scss */
+body.subscription_admin table td { padding: 1em 1em 0 0; }
+/* line 5, ../sass/admin.scss */
+body.subscription_admin table th { padding-right: 1em; font-weight: bold; }
+
+/* line 9, ../sass/admin.scss */
+h2 { margin-top: 1em; }
+
+/* line 12, ../sass/admin.scss */
+h3, h4 { margin-top: 2em; }
+
+/* line 15, ../sass/admin.scss */
+.hr { border-top: 1px solid #eeeeee; margin: 2em 0; }
+
+/* line 19, ../sass/admin.scss */
+input[type=submit] { margin-top: 1em; }
+
+/* line 24, ../sass/admin.scss */
+.edit_template_document table td.heading { color: gray; }
+
+/* line 27, ../sass/admin.scss */
+#account-stats { margin-bottom: 3em; }
+/* line 29, ../sass/admin.scss */
+#account-stats .column { padding: 0 1em; }
+/* line 32, ../sass/admin.scss */
+#account-stats .rborder { border-width: 2px; }
+/* line 36, ../sass/admin.scss */
+#account-stats .statistical-data { font-size: 1.3em; color: #555; padding: 0; list-style-position: inside; }
+/* line 42, ../sass/admin.scss */
+#account-stats .statistical-data li { margin: 0; list-style: none; clear: both; text-align: right; margin-bottom: 0.5em; }
+/* line 50, ../sass/admin.scss */
+#account-stats .statistical-data .data-label { display: inline-block; margin-right: 1em; float: left; }
+/* line 56, ../sass/admin.scss */
+#account-stats .statistical-data .data-value { color: green; display: inline-block; }
+
+/* line 65, ../sass/admin.scss */
+.subscription_admin #account-list th, .subscription_admin #account-list td, .subscription_admin .tabular-data th, .subscription_admin .tabular-data td { padding: 0.5em 1em; border: 1px solid #bbb; }
+/* line 69, ../sass/admin.scss */
+.subscription_admin #account-list th.headerSortDown, .subscription_admin #account-list th.headerSortUp, .subscription_admin .tabular-data th.headerSortDown, .subscription_admin .tabular-data th.headerSortUp { background: #bbb; }
+/* line 72, ../sass/admin.scss */
+.subscription_admin #account-list th, .subscription_admin .tabular-data th { background-color: #ccc; cursor: pointer; }
+/* line 76, ../sass/admin.scss */
+.subscription_admin #account-list tr:nth-child(2n+2), .subscription_admin .tabular-data tr:nth-child(2n+2) { background-color: #eee; }
+/* line 80, ../sass/admin.scss */
+.subscription_admin #account-list td ul, .subscription_admin .tabular-data td ul { margin: 0; }
+/* line 83, ../sass/admin.scss */
+.subscription_admin #account-list td ul li, .subscription_admin .tabular-data td ul li { margin: 0 0 0 1em; }
+
+/* line 90, ../sass/admin.scss */
+.gt-cols .gt-content { width: 900px; }
+
+/* line 93, ../sass/admin.scss */
+.tabular-data { float: left; }
+
+/* line 97, ../sass/admin.scss */
+.debug { border: 1px solid red; }
+
+/* line 100, ../sass/admin.scss */
+.clear-both { clear: both; }
+
+/* line 103, ../sass/admin.scss */
+.lfloat { float: left; }
+
+/* line 107, ../sass/admin.scss */
+.rfloat { float: right; }
+
+/* line 110, ../sass/admin.scss */
+.rborder { border-right: 1px solid #ccc; }

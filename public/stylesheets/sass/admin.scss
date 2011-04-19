@@ -76,6 +76,15 @@ input[type=submit] {
     tr:nth-child(2n+2){
       background-color: #eee;
     }
+    td{
+      ul{
+        margin: 0;
+        
+        li{
+          margin: 0 0 0 1em;
+        }
+      }
+    }
   }
 }
 .gt-cols .gt-content{
