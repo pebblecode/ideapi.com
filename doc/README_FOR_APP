@@ -47,9 +47,9 @@ production servers are configured to keep workers and Redis alive.
 
 On your development box you will need to have Redis and workers running if you want to use Resque and send email.
 
-To invoke a worker from the root of the rails site you can use the following command
+To start a work, invoke a worker from the *root of the rails site* using the following command
 
-    QUEUE=* rake resque:work
+    QUEUE=* rake environment resque:work
 
 To start the Resque GUI run
 
@@ -60,6 +60,16 @@ This shows you workers running and any problems with the jobs you send them.
 If you are not running Redis as a daemon, you can start it with 
 
     redis-server /usr/local/etc/redis.conf
+
+To kill a worker, find it using ps aux and use kill eg,
+
+    ideapi.com$ ps aux | grep resque
+    12:ttt      10928   0.0  0.6  2459144  25140 s005  S     5:56pm   3:17.83 ruby /Users/ttt/.rvm/gems/ree-1.8.7-2011.03@ideapi/bin/resque-web -p 8282 config/initializers/load_resque.rb
+    135:ttt      24530   0.0  0.0  2435116    528 s005  S+   11:11am   0:00.00 grep -n resque
+    140:ttt      24403   0.0  1.7  2503712  72064 s004  S+   11:05am   0:05.35 resque-1.9.8: Waiting for *
+
+    ideapi.com$ kill 24403
+
 
 ## Gotchas
 
