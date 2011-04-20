@@ -9,7 +9,7 @@ gem 'resque_mailer' #resque/tasks required in Rakefile
 gem 'haml'
 gem 'rdiscount' # markdown
 gem 'authlogic'
-gem 'will_paginate', :git => "http://github.com/mislav/will_paginate.git", :require => 'will_paginate'
+gem 'will_paginate'
 gem 'acts-as-taggable-on', '2.0.0.rc1'
 gem 'SystemTimer'
 gem "alter-ego", :require => "alter_ego"
