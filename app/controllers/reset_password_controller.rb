@@ -10,7 +10,9 @@ class ResetPasswordController < ApplicationController
   end
   
   def new
-    
+    # No errors at this stage
+    flash[:notice] = nil 
+    flash[:error] = nil 
   end
   
   def create
