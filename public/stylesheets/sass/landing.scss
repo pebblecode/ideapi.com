@@ -76,12 +76,13 @@ cite{ font-size: 0.8em;}
   padding: 0.5em;
 
   &.notice{
-    background: $ideapi_green_light;
+    background: $ideapi_green_light;    
     border: 1px solid $ideapi_green_light - #111;
   }
   &.error{
-    background: #d81f26;
-    color: #eee;
+    /*background: #d81f26;
+    color: #eee;*/
+    background: $ideapi_green_light;    
   }
 }
 

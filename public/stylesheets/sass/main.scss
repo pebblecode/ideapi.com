@@ -305,7 +305,8 @@ form {
     text-align: left;
     margin: 0;
     .location{
-      color: #EEEEEE;
+      color: #555;
+      font-family: "Ubuntu",sans-serif;
       text-transform: capitalize;
     }
   }
@@ -389,8 +390,9 @@ form {
     border: 1px solid $ideapi_green_light - #111;
   }
   &.error{
-    background: #d81f26;
-    color: #eee;
+    /*background: #d81f26;
+    color: #eee;*/
+    background: $ideapi_green_light;    
   }
 }
 
