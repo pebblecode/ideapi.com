@@ -132,10 +132,11 @@ class User < ActiveRecord::Base
   end
   
   #############################################################################  
-  # Accounts
+  # Account properties
   ############################################################################# 
   
-  def accounts
+  # Note: can't call it accounts as it clashes with active record 
+  def account_properties
     accounts = Account.find_by_sql("SELECT a.name, a.full_domain, au.admin as is_admin, au.can_create_documents
                   FROM accounts as a                  
                   LEFT JOIN account_users as au 

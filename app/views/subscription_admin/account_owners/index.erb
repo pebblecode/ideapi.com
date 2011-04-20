@@ -43,9 +43,9 @@
 				<td><%= user.email%></td>
 				
 				<td>
-					<%- if user.accounts.count > 0 %>
+					<%- if user.account_properties.count > 0 %>
 						<ul>
-							<%- user.accounts.each do |account| %>
+							<%- user.account_properties.each do |account| %>
 								<li>
 									<a href="<%= account.full_domain %>"><%= account.name %></a>									
 									<%- if account.is_admin == '1' %>, admin<%- end %>
