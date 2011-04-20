@@ -69,7 +69,21 @@ p{
 
 cite{ font-size: 0.8em;}
 
+/* Flash */
+.flash{
+  color: #555;
+  @include border-radius(3px);
+  padding: 0.5em;
 
+  &.notice{
+    background: $ideapi_green_light;
+    border: 1px solid $ideapi_green_light - #111;
+  }
+  &.error{
+    background: #d81f26;
+    color: #eee;
+  }
+}
 
 
 /* Borders and backgrounds */
