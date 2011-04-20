@@ -85,6 +85,22 @@ Check config/environments/development.rb variable is the same as the url eg,
   
 for the *.smackaho.st domain.
 
+# Deployment
 
+If you haven't set up your local production branch already, in your ideapi root, run
 
+    git checkout -b production origin/production
+    
+Pull the production branch
 
+    git pull origin production
+    
+Merge with the master branch
+
+    git merge master
+    
+Deploy
+
+    cap production deploy
+
+Note, if it says you require a password, you will need to add your ssh key to the production server.
