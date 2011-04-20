@@ -98,6 +98,7 @@ Pull the production branch
 Merge with the master branch
 
     git merge master
+    git push
     
 Deploy
 
