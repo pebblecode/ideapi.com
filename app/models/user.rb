@@ -90,13 +90,22 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
+
+  #############################################################################  
+  # Ideas (proposals)
+  #############################################################################
   
   def num_ideas_owned
-    num = 0
-    if self.proposals
-      num = self.proposals.size
-    end 
-    return num
+    return self.proposals.size
+  end
+  
+  def num_ideas_created_last_week
+    return Proposal.find(:all, :conditions => ["user_id = ? AND (created_at > (NOW() - INTERVAL 1 WEEK))", self.id]).size
+  end
+
+  def num_ideas_created_last_month
+    return Proposal.find(:all, :conditions => ["user_id = ? AND (created_at > (NOW() - INTERVAL 1 MONTH))", self.id]).size
   end
   
   #############################################################################  
