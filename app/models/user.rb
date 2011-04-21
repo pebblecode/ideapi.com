@@ -91,6 +91,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  #############################################################################  
+  # Users invited
+  #############################################################################
+  
+  def num_users_invited
+    return User.find(:all, :conditions => ["invited_by_id = ?", self.id]).size
+  end
 
   #############################################################################  
   # Ideas (proposals)
