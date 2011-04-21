@@ -111,46 +111,36 @@ class User < ActiveRecord::Base
   # Documents
   ############################################################################# 
   
-  # def num_documents_created
-  #   doc_count = Document.find_by_sql("SELECT COUNT(*) as 'documents_count'
-  #                 FROM documents as d
-  #                 LEFT JOIN users as u
-  #                 ON u.id = d.author_id
-  #                 WHERE u.id = #{self.id}");
-  #   doc_count_val = 0
-  #   if doc_count.size > 0
-  #     doc_count_val = doc_count[0].documents_count
-  #   end
-  #   
-  #   return doc_count_val
-  # end
+  def num_documents_created
+    return Document.find(:all, :conditions => ["author_id = ?", self.id]).size
+  end
 
   # ie, In the user documents table, and an author
   def num_documents_as_author
-    return UserDocument.find(:all, :conditions => ["user_id = ? AND author = '1'", self.id]).size;
+    return UserDocument.find(:all, :conditions => ["user_id = ? AND author = '1'", self.id]).size
   end
   
   def num_documents_as_approver    
-    return Document.find(:all, :conditions => ["approver_id = ?", self.id]).size;
+    return Document.find(:all, :conditions => ["approver_id = ?", self.id]).size
   end  
 
   # ie, In the user documents table, but not an author
   def num_documents_as_collaborator_only
-    return UserDocument.find(:all, :conditions => ["user_id = ? AND author = '0'", self.id]).size;
+    return UserDocument.find(:all, :conditions => ["user_id = ? AND author = '0'", self.id]).size
   end  
   
   # ie, Number of documents in the user documents table
   def total_num_documents
-    return UserDocument.find(:all, :conditions => ["user_id = ?", self.id]).size;
+    return UserDocument.find(:all, :conditions => ["user_id = ?", self.id]).size
   end  
   
   def total_number_of_documents_last_week
     # return total_number_of_documents_val("week")
-    return UserDocument.find(:all, :conditions => ["user_id = ? AND (created_at > (NOW() - INTERVAL 1 WEEK))", self.id]).size;
+    return UserDocument.find(:all, :conditions => ["user_id = ? AND (created_at > (NOW() - INTERVAL 1 WEEK))", self.id]).size
   end  
   
   def total_number_of_documents_last_month
-    return UserDocument.find(:all, :conditions => ["user_id = ? AND (created_at > (NOW() - INTERVAL 1 MONTH))", self.id]).size;
+    return UserDocument.find(:all, :conditions => ["user_id = ? AND (created_at > (NOW() - INTERVAL 1 MONTH))", self.id]).size
   end  
   
   private
