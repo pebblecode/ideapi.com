@@ -30,7 +30,6 @@
 			<th># ideas created &lt; 1 week</th>
 			<th># ideas created &lt; 1 month</th>
 			<th># contacts invited</th>
-			<th># templates created</th>
 			<th>Has profile picture?</th>
     </tr>
   </thead>
@@ -72,7 +71,6 @@
 				<td><%= user.num_ideas_created_last_week %></td>
 				<td><%= user.num_ideas_created_last_month %></td>
 				<td><%= user.num_users_invited %></td>
-				<td>-</td>
 				<td><%= user.avatar_file_name ? "yes" : "no" %></td>	
       </tr>
     <% end %>
