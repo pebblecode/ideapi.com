@@ -7,7 +7,8 @@ class SubscriptionAdmin::AccountsController < ApplicationController
   before_filter :reject_unauthorized_hosts
   
   def index
-    @accounts = Account.paginate(:include => :subscription, :page => params[:page], :per_page => 30, :order => 'accounts.name')
+    # @accounts = Account.paginate(:include => :subscription, :page => params[:page], :per_page => 30, :order => 'accounts.name')
+    @accounts = Account.all
   end
   
   def show
