@@ -58,8 +58,8 @@
 				<td>-<%#= user.num_documents_created %></td>
 				<td><%= user.num_documents_as_author %></td>
 				<td><%= user. num_documents_as_approver %></td>
-				<td>-</td>
-				<td><%= user.total_number_of_documents %></td>
+				<td><%= user.num_documents_as_collaborator_only %></td>
+				<td><%= user.total_num_documents %></td>
 				<td><%= user.total_number_of_documents_last_week %></td>
 				<td><%= user.total_number_of_documents_last_month %></td>
 				<td>-</td>
@@ -67,7 +67,7 @@
 				<td></td>
 				<td>-</td>
 				<td>-</td>
-				<td><%= "yes" if user.avatar_file_name %></td>				
+				<td><%= user.avatar_file_name ? "yes" : "no" %></td>	
       </tr>
     <% end %>
     
