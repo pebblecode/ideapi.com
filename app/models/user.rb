@@ -150,19 +150,23 @@ class User < ActiveRecord::Base
   # Documents
   ############################################################################# 
   
-  def num_documents_created
-    doc_count = Document.find_by_sql("SELECT COUNT(*) as 'documents_count'
-                  FROM documents as d
-                  LEFT JOIN users as u
-                  ON u.id = d.author_id
-                  WHERE u.id = #{self.id}");
-    doc_count_val = 0
-    if doc_count.size > 0
-      doc_count_val = doc_count[0].documents_count
-    end
-    
-    return doc_count_val
-  end  
+  # def num_documents_created
+  #   doc_count = Document.find_by_sql("SELECT COUNT(*) as 'documents_count'
+  #                 FROM documents as d
+  #                 LEFT JOIN users as u
+  #                 ON u.id = d.author_id
+  #                 WHERE u.id = #{self.id}");
+  #   doc_count_val = 0
+  #   if doc_count.size > 0
+  #     doc_count_val = doc_count[0].documents_count
+  #   end
+  #   
+  #   return doc_count_val
+  # end  
+
+  def num_documents_as_author
+    return Document.find(:all, :conditions => ["author_id = ?", self.id]).size;
+  end
   
   def num_documents_as_approver    
     return Document.find(:all, :conditions => ["approver_id = ?", self.id]).size;
