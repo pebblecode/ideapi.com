@@ -164,6 +164,9 @@ class User < ActiveRecord::Base
     return doc_count_val
   end  
   
+  def num_documents_as_approver    
+    return Document.find(:all, :conditions => ["approver_id = ?", self.id]).size;
+  end  
   
   
   private
