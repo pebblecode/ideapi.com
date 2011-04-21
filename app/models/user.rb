@@ -90,7 +90,14 @@ class User < ActiveRecord::Base
       nil
     end
   end
-
+  
+  def num_ideas_owned
+    num = 0
+    if self.proposals
+      num = self.proposals.size
+    end 
+    return num
+  end
   
   #############################################################################  
   # Account properties
