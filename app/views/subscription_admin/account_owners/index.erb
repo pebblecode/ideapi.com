@@ -17,8 +17,6 @@
 			<th>Invited by last name</th>
 			<th>Invited by email</th>
 			<th>Last login</th>
-			<th># logins &lt; 1 week</th>
-			<th># logins &lt; 1 month</th>
 			<th># documents created</th>
 			<th># documents as as approver</th>			
 			<th># documents as author</th>
@@ -58,8 +56,6 @@
 				<td><%- if user.invited_by %><%= user.invited_by.last_name %><%- end %></td>
 				<td><%- if user.invited_by %><%= user.invited_by.email %><%- end %></td>
 				<td><%= user.last_login_at %></td>
-				<td>-</td>
-				<td>-</td>
 				<td><%= user.num_documents_created %></td>
 				<td><%= user. num_documents_as_approver %></td>				
 				<td><%= user.num_documents_as_author %></td>
