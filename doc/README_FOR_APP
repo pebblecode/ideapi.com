@@ -91,6 +91,12 @@ Check config/environments/development.rb variable is the same as the url eg,
   
 for the *.smackaho.st domain.
 
+### Resque failures on staging
+
+    Access denied for user 'ideapi'@'localhost' to database 'ideapi_development'
+    
+Need to add 'RAILS_ENV=staging' to restart resque
+
 # Deployment
 
 If you haven't set up your local production branch already, in your ideapi root, run
