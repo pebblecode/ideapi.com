@@ -1,1 +1,19 @@
-= @query
+%h1= @page_title = 'Account owner custom queries'
+
+%h3 Navigation
+
+- if @custom_query_conditions
+  %ol
+    - @custom_query_conditions.each_index do |query_index|
+      %li= link_to @custom_query_conditions[query_index], account_owners_custom_query_path + "?query_num=#{query_index}"
+
+= link_to "&laquo; Back to Account owners", admin_account_owners_path
+
+%h3= @query_description
+
+- if @users and @users.count > 0
+  %ol
+    - @users.each do |user|
+      %li= user.email
+- else
+  None
