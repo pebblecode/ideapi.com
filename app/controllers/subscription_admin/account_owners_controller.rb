@@ -20,6 +20,8 @@ class SubscriptionAdmin::AccountOwnersController < ApplicationController
         @users = nil
         
         # See @custom_query_descriptions
+        have_not_logged_in_last_month_conditional = "(u.last_login_at < (NOW() - INTERVAL 1 MONTH))"
+        have_logged_in_last_month_conditional = "(u.last_login_at >= (NOW() - INTERVAL 1 MONTH))"        
         case query_num
         when 0 
           # Users who have never logged in
@@ -30,7 +32,7 @@ class SubscriptionAdmin::AccountOwnersController < ApplicationController
                                      FROM users AS u
                                      LEFT JOIN user_documents AS ud 
                                       ON u.id = ud.user_id 
-                                     WHERE (u.last_login_at < (NOW() - INTERVAL 1 MONTH)) 
+                                     WHERE #{have_not_logged_in_last_month_conditional}
                                      GROUP BY u.id
                                       HAVING COUNT(ud.id) = 0"                                     
         when 2
@@ -39,7 +41,7 @@ class SubscriptionAdmin::AccountOwnersController < ApplicationController
                                      FROM users AS u
                                      LEFT JOIN user_documents AS ud 
                                       ON u.id = ud.user_id 
-                                     WHERE (u.last_login_at < (NOW() - INTERVAL 1 MONTH)) 
+                                     WHERE #{have_not_logged_in_last_month_conditional} 
                                      GROUP BY u.id
                                       HAVING COUNT(ud.id) > 0" 
         when 3
@@ -48,7 +50,7 @@ class SubscriptionAdmin::AccountOwnersController < ApplicationController
                                      FROM users AS u
                                      LEFT JOIN user_documents AS ud 
                                       ON u.id = ud.user_id 
-                                     WHERE (u.last_login_at >= (NOW() - INTERVAL 1 MONTH)) 
+                                     WHERE #{have_logged_in_last_month_conditional} 
                                      GROUP BY u.id
                                       HAVING COUNT(ud.id) = 0"
         when 4
@@ -57,7 +59,7 @@ class SubscriptionAdmin::AccountOwnersController < ApplicationController
                                      FROM users AS u
                                      LEFT JOIN user_documents AS ud 
                                       ON u.id = ud.user_id 
-                                     WHERE (u.last_login_at >= (NOW() - INTERVAL 1 MONTH)) 
+                                     WHERE #{have_logged_in_last_month_conditional} 
                                      GROUP BY u.id
                                       HAVING COUNT(ud.id) > 0"          
         end
