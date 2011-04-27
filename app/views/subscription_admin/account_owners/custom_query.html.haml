@@ -11,3 +11,10 @@
       %li= user.email
 - else
   None
+  
+%h4 Comma separated list
+- if @users and @users.count > 0
+  - @users.each_index do |user_index|
+    = "#{@users[user_index].email}#{',' if (user_index < (@users.count - 1))}"
+- else
+  None
