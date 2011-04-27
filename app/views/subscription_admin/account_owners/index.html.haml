@@ -1,0 +1,75 @@
+%h1= @page_title = 'Account owners'
+
+= render :partial => "custom_query_nav"
+
+%h2 User Listing
+%p Note:
+%ul
+  %li '# documents created' can be greater than 'Total # of documents' if the user creates a document and unassigns themselves from the document
+  %li '# documents as author' + '# documents as collaborator only' = 'Total # of documents'
+
+
+%table{:class => "tabular-data"}
+  %thead
+    %tr
+      %th User first name
+      %th User last name
+      %th User email
+      %th Accounts
+      %th Invited by first name
+      %th Invited by last name
+      %th Invited by email
+      %th Last login
+      %th # documents created
+      %th # documents as as approver			
+      %th # documents as author
+      %th # documents as collaborator only
+      %th Total # of documents
+      %th # documents created &lt; 1 week
+      %th # documents created &lt; 1 month
+      %th # ideas owned
+      %th # ideas created &lt; 1 week
+      %th # ideas created &lt; 1 month
+      %th # contacts invited
+      %th Has profile picture?
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.email
+				
+        %td
+          - if user.account_properties.count > 0
+            %ul
+              - user.account_properties.each do |account|
+                %li
+                  %a{:href => account.full_domain}= account.name
+                  - if account.is_admin == '1'
+                    , admin
+                  - if account.can_create_documents == '1'
+                    , can create documents
+				
+        %td
+          - if user.invited_by 
+            = user.invited_by.first_name
+        %td
+          - if user.invited_by
+            = user.invited_by.last_name
+        %td
+          - if user.invited_by 
+            = user.invited_by.email
+        %td= user.last_login_at 
+        %td= user.num_documents_created 
+        %td= user. num_documents_as_approver 				
+        %td= user.num_documents_as_author 
+        %td= user.num_documents_as_collaborator_only 
+        %td= user.total_num_documents 
+        %td= user.total_number_of_documents_last_week 
+        %td= user.total_number_of_documents_last_month 
+        %td= user.num_ideas_owned 
+        %td= user.num_ideas_created_last_week 
+        %td= user.num_ideas_created_last_month 
+        %td= user.num_users_invited 
+        %td= user.avatar_file_name ? "yes" : "no" 	
+
