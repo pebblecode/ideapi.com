@@ -1,16 +1,7 @@
 = sub_nav do
   = breadcrumb_list
 .col_1
-  %h3 Account Management
-  #update_domain_name
-    %h4 Domain name
-    .base_domain
-      = @account.full_domain 
-    %p.warning.change_domain
-      If you would like to change your account subdomain, please email us at 
-      %a{ :href => "mailto:support[at]ideapi.com", :title => "support", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }= "support@ideapi.com"
-      with the required change. Please note that changing the subdomain will change the URL that you and your users use to access ideapi.
-
+  %h2 Account Management
   #update_account
     - form_for @account, :url => account_path, :html => {:id => 'edit_account_form', :multipart => true} do |f|
       .field.company-name
@@ -63,8 +54,19 @@
     = render :partial => 'billing'
 
   / %p= link_to('Cancel plan', cancel_account_url)
+  
+  #update_domain_name
+    %h4 Domain name
+    .base_domain
+      = @account.full_domain 
+    %p.warning.change_domain
+      If you would like to change your account subdomain, please email us at 
+      %a{ :href => "mailto:support[at]ideapi.com", :title => "support", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }= "support@ideapi.com"
+      with the required change. Please note that changing the subdomain will change the URL that you and your users use to access ideapi.
+  
+  
   #delete-account
-    %h3 Delete Account
+    %h4 Delete Account
     %p
       If you would like to delete your account, you can do so by following the 'Delete account' button.
     %p= link_to 'Delete Account', cancel_account_url, :class => 'green-button-link fleft'

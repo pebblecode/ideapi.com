@@ -2,12 +2,21 @@
   .main{
     padding-top: 0;
   }
+  h2{
+    margin-left: 0.75em;
+  }
   h3{
     margin: 0.5em 0 0.5em 0;
   }
   #update_domain_name{
-    
-    background: #fcffeb;
+    padding: 1em;
+    border: 0 solid #ccc;
+    border-bottom-width: 2px;
+    .change_domain {
+      color: #888888;
+      font-style: italic;
+    }
+/*    background: #fcffeb;
     border: 1px solid #D3DAB8;
     padding: 1em;
     @include rounded-corners-all(0.4em);
@@ -39,13 +48,12 @@
     .submit{
       text-align: right;
       padding: 0;
-    }
+    }*/
   }
   
   
   
   #update_account{
-    margin-top: 2em;
     border: 0 solid #ccc;
     border-bottom-width: 2px;
     padding: 1em;

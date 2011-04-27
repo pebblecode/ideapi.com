@@ -1325,44 +1325,34 @@ span.timestamp { color: #999; font-size: .85em; font-style: italic; }
 /* line 2, ../sass/partials/_account_form.scss */
 #accounts #container #content .main { padding-top: 0; }
 /* line 5, ../sass/partials/_account_form.scss */
-#accounts #container #content h3 { margin: 0.5em 0 0.5em 0; }
+#accounts #container #content h2 { margin-left: 0.75em; }
 /* line 8, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_domain_name { background: #fcffeb; border: 1px solid #D3DAB8; padding: 1em; -moz-border-radius: 0.4em; -webkit-border-radius: 0.4em; border-radius: 0.4em; }
-/* line 14, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_domain_name label, #accounts #container #content #update_domain_name #account_domain, #accounts #container #content #update_domain_name .base_domain { font-size: 1.5em; }
-/* line 18, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_domain_name .change_domain label { font-weight: normal; font-size: 1em; float: none; display: inline; }
-/* line 25, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_domain_name #account_domain { text-align: right; padding: 0; }
-/* line 29, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_domain_name p { padding-top: 0; margin-top: 0; }
-/* line 30, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_domain_name .account-domain { border: 1px solid #fcffeb; font-size: 1.2em; margin-left: 10em; }
-/* line 34, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_domain_name .account-domain p { font-size: 1em; }
-/* line 39, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_domain_name .submit { text-align: right; padding: 0; }
-/* line 47, ../sass/partials/_account_form.scss */
-#accounts #container #content #update_account { margin-top: 2em; border: 0 solid #ccc; border-bottom-width: 2px; padding: 1em; }
-/* line 55, ../sass/partials/_account_form.scss */
-#accounts #container #content #edit_account_form label { width: 120px; margin-right: 10px; padding: 3px 0 4px 0; }
+#accounts #container #content h3 { margin: 0.5em 0 0.5em 0; }
+/* line 11, ../sass/partials/_account_form.scss */
+#accounts #container #content #update_domain_name { padding: 1em; border: 0 solid #ccc; border-bottom-width: 2px; /*    background: #fcffeb; border: 1px solid #D3DAB8; padding: 1em; @include rounded-corners-all(0.4em); label, #account_domain, .base_domain{ font-size: 1.5em; } .change_domain{ label{ font-weight: normal; font-size: 1em; float: none; display: inline; } } #account_domain{ text-align: right; padding: 0; } p{padding-top: 0; margin-top: 0; } .account-domain{ border: 1px solid #fcffeb; font-size: 1.2em; margin-left: 10em; p{ font-size: 1em; } }  .submit{ text-align: right; padding: 0; }*/ }
+/* line 15, ../sass/partials/_account_form.scss */
+#accounts #container #content #update_domain_name .change_domain { color: #888888; font-style: italic; }
+/* line 56, ../sass/partials/_account_form.scss */
+#accounts #container #content #update_account { border: 0 solid #ccc; border-bottom-width: 2px; padding: 1em; }
 /* line 63, ../sass/partials/_account_form.scss */
+#accounts #container #content #edit_account_form label { width: 120px; margin-right: 10px; padding: 3px 0 4px 0; }
+/* line 71, ../sass/partials/_account_form.scss */
 #accounts #container #content #edit_account_form .warning { color: #888; }
-/* line 66, ../sass/partials/_account_form.scss */
+/* line 74, ../sass/partials/_account_form.scss */
 #accounts #container #content #edit_account_form .errors { color: #ff3333; }
-/* line 69, ../sass/partials/_account_form.scss */
+/* line 77, ../sass/partials/_account_form.scss */
 #accounts #container #content #edit_account_form .errors, #accounts #container #content #edit_account_form .warning, #accounts #container #content #edit_account_form .logo-preview { font-style: italic; margin-left: 130px; }
-/* line 73, ../sass/partials/_account_form.scss */
+/* line 81, ../sass/partials/_account_form.scss */
 #accounts #container #content #edit_account_form .submit { text-align: right; padding: 0; }
-/* line 78, ../sass/partials/_account_form.scss */
-#accounts #container #content #edit_account_form .account-url .url input { width: 150px; text-align: right; padding: 0; margin: 0; }
 /* line 86, ../sass/partials/_account_form.scss */
+#accounts #container #content #edit_account_form .account-url .url input { width: 150px; text-align: right; padding: 0; margin: 0; }
+/* line 94, ../sass/partials/_account_form.scss */
 #accounts #container #content #edit_account_form .logo-preview { display: block; }
-/* line 88, ../sass/partials/_account_form.scss */
+/* line 96, ../sass/partials/_account_form.scss */
 #accounts #container #content #edit_account_form .logo-preview label { display: inline; float: none; font-weight: normal; }
-/* line 93, ../sass/partials/_account_form.scss */
+/* line 101, ../sass/partials/_account_form.scss */
 #accounts #container #content #edit_account_form .logo-preview img { vertical-align: middle; margin-right: 1em; }
-/* line 99, ../sass/partials/_account_form.scss */
+/* line 107, ../sass/partials/_account_form.scss */
 #accounts #container #content #delete-account { padding: 0 1em 1em 1em; }
 
 /* Mixins */
