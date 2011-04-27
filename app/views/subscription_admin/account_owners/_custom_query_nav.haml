@@ -1,0 +1,5 @@
+%h3 Custom queries
+- if @custom_query_descriptions and @custom_query_descriptions.count > 0
+  %ol
+    - @custom_query_descriptions.each_index do |query_index|
+      %li= link_to @custom_query_descriptions[query_index], account_owners_custom_query_path + "?query_num=#{query_index}"

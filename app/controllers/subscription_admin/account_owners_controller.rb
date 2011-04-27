@@ -4,7 +4,7 @@ class SubscriptionAdmin::AccountOwnersController < ApplicationController
   
   before_filter :load_templates, :only => [:edit, :update]
   before_filter :build_template, :only => [:edit]
-  before_filter :get_all_custom_query_conditions
+  before_filter :get_custom_query_descriptions
   before_filter :reject_unauthorized_hosts
   
   def index
@@ -15,9 +15,11 @@ class SubscriptionAdmin::AccountOwnersController < ApplicationController
   def custom_query
     if params[:query_num]
       query_num = params[:query_num].to_i
-      unless (query_num >= @custom_query_conditions.count) or (query_num < 0)
-        @query_description = @custom_query_conditions[query_num]
+      unless (query_num >= @custom_query_descriptions.count) or (query_num < 0)
+        @query_description = @custom_query_descriptions[query_num]
         @users = nil
+        
+        # See @custom_query_descriptions
         case query_num
         when 0 
           # Users who have never logged in
@@ -68,8 +70,8 @@ class SubscriptionAdmin::AccountOwnersController < ApplicationController
     end    
   end
     
-  def get_all_custom_query_conditions
-    @custom_query_conditions = [
+  def get_custom_query_descriptions
+    @custom_query_descriptions = [
       "Users who have never logged in",
       "Users who haven't logged in last month, with no documents",
       "Users who haven't logged in last month, with 1 or more documents",

@@ -1,14 +1,6 @@
 <h1><%= @page_title = 'Account owners' %></h1>
 
-<h2>Custom User Queries</h2>
-
-<%- if @custom_query_conditions %>
-<ol>
-	<%- @custom_query_conditions.each_index do |query_index| %>
-		<li><%= link_to @custom_query_conditions[query_index], account_owners_custom_query_path + "?query_num=#{query_index}" %></li>
-	<%- end %>
-</ol>
-<%- end %>
+<%= render :partial => "custom_query_nav" %>
 
 <h2>User Listing</h2>
 <p>Note: </p>
