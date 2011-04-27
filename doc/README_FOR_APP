@@ -50,6 +50,12 @@ On your development box you will need to have Redis and workers running if you w
 To start a work, invoke a worker from the *root of the rails site* using the following command
 
     QUEUE=* rake environment resque:work
+    
+    # For staging    
+    QUEUE=* rake RAILS_ENV=staging environment resque:work 
+    
+    # For daemonising on staging
+    QUEUE=* rake RAILS_ENV=staging environment resque:work &    
 
 To start the Resque GUI run
 
