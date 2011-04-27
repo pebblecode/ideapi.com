@@ -3,7 +3,7 @@
 = render :partial => "custom_query_nav"
 = link_to "&laquo; Back to Account owners", admin_account_owners_path
 
-%h3= @query_description
+%h3= "#{@query_description} (#{@users.count})"
 
 - if @users and @users.count > 0
   %ol

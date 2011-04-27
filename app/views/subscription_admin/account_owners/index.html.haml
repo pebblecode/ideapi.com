@@ -2,7 +2,7 @@
 
 = render :partial => "custom_query_nav"
 
-%h2 User Listing
+%h2= "User Listing (#{@users.count})"
 %p Note:
 %ul
   %li '# documents created' can be greater than 'Total # of documents' if the user creates a document and unassigns themselves from the document
