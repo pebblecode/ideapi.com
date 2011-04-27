@@ -28,7 +28,8 @@ ActionController::Routing::Routes.draw do |map|
   map.user_send_invite '/users/send_invite/:id', :controller => 'users', :action => 'send_invite'
   
   map.with_options(:conditions => {:subdomain => AppConfig['admin_subdomain']}) do |subdom|
-    subdom.root :controller => 'subscription_admin/subscriptions', :action => 'index'
+    subdom.root :controller => 'subscription_admin/subscriptions', :action => 'index' 
+    subdom.account_owners_custom_query '/account_owners/custom_query', :controller => 'subscription_admin/account_owners', :action => 'custom_query'    
     subdom.with_options(:namespace => 'subscription_admin/', :name_prefix => 'admin_', :path_prefix => nil) do |admin|
       admin.resources :subscriptions, :member => { :charge => :post }
       admin.resources :accounts
@@ -38,7 +39,7 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :subscription_affiliates, :as => 'affiliates'
       admin.resources :template_documents
       admin.resources :template_questions
-    end
+    end   
   end
   
   # map.plans '/signup', :controller => 'accounts', :action => 'plans'

@@ -1,5 +1,16 @@
 <h1><%= @page_title = 'Account owners' %></h1>
 
+<h2>Custom User Queries</h2>
+
+<%- if @custom_queries %>
+<ol>
+	<%- @custom_queries.each_index do |query_index| %>
+		<li><%= link_to @custom_queries[query_index], account_owners_custom_query_path + "?query_num=#{query_index}" %></li>
+	<%- end %>
+</ol>
+<%- end %>
+
+<h2>User Listing</h2>
 <p>Note: </p>
 <ul>
 	<li>'# documents created' can be greater than 'Total # of documents' if the user creates a document and unassigns themselves from the document</li>
