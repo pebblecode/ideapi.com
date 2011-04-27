@@ -49,22 +49,22 @@ input[type=submit] { margin-top: 1em; }
 .subscription_admin #account-list td ul li, .subscription_admin .tabular-data td ul li { margin: 0 0 0 1em; }
 
 /* line 90, sass/admin.scss */
-.gt-cols .gt-content { width: 900px; }
+.gt-cols .gt-content { width: 900px; padding-bottom: 20px; }
 
-/* line 93, sass/admin.scss */
+/* line 94, sass/admin.scss */
 .tabular-data { float: left; }
 
-/* line 97, sass/admin.scss */
+/* line 98, sass/admin.scss */
 .debug { border: 1px solid red; }
 
-/* line 100, sass/admin.scss */
+/* line 101, sass/admin.scss */
 .clear-both { clear: both; }
 
-/* line 103, sass/admin.scss */
+/* line 104, sass/admin.scss */
 .lfloat { float: left; }
 
-/* line 107, sass/admin.scss */
+/* line 108, sass/admin.scss */
 .rfloat { float: right; }
 
-/* line 110, sass/admin.scss */
+/* line 111, sass/admin.scss */
 .rborder { border-right: 1px solid #ccc; }
