@@ -67,9 +67,7 @@ class QuestionsController < ApplicationController
     
 
     after :create do
-      logger.debug "\nCREATE: #{params[:question][:send_notifications].to_i}\n"
       if params[:question][:send_notifications].to_i == 1
-        logger.debug "\nNotify: current object = #{current_object}\n"
         current_object.notify_document_users        
       end      
     end
