@@ -5,15 +5,13 @@
         - if owner?(current_object)
           - form_for object, :html => {:method => :delete, :id => "delete_item_revision_#{object.id}", :class => 'delete-item-revision ajax-submit'} do |f|
             = f.submit('delete', :class => 'delete-item-revision-submit close-button', :id => "delete_item_revision_#{object.id}_submit")
-      %h5{:class => 'toggle_revision_body' } Section Update
+      %h5{:class => 'toggle_revision_body' }= "Section updated by: #{object.actor.full_name} #{comment_date(object.created_at)}"
+      
     .body
       %p
     
         %strong 
-          #{object.actor.full_name} changed section from:
+          Previous content:
       .item-revision-body
         :textile
           #{subject.body}
-      %p
-        %span.timestamp
-          ="(#{comment_date(object.created_at)})"
