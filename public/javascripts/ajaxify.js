@@ -518,6 +518,11 @@ jQuery.user_links_external = function(){
     var new_section_error = function(data){
       _submit.show();
       _spinner.remove();
+      
+      // Show error message
+      $('#new-section').find('p.error_message').remove();
+      $('#new-section').append('<p class="error_message">' + data.responseText + '</p>');
+      $('#new-section').find('p.error_message').hide().flashNotice();      
     };
     
     $("#new-section form").live('submit', function(e){
