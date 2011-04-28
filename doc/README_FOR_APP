@@ -117,3 +117,12 @@ Deploy
     cap production deploy
 
 Note, if it says you require a password, you will need to add your ssh key to the production server.
+
+# Website monitoring
+
+To monitor the site, use:
+
+* New relic (https://rpm.newrelic.com/accounts/7079/applications) - login details in mortimer
+* http://tools.pingdom.com/ to test the speed of loading the site. For reference, ideapi loads in < 10s as at 28th Apri 2011
+* http://www.downforeveryoneorjustme.com/ to test if the site it down
+
