@@ -48,18 +48,25 @@ class Question < ActiveRecord::Base
                             :if => lambda { |question| (question.answered? && question.author_answer_changed?) }, 
                             :log_level => 1
   
+  # Handled in controller
+  #after_create :notify_document_users    
+  def notify_document_users
+    # [DEPRECATED]
+    # NotificationMailer.deliver_new_question_on_document(self, recipients) if recipients.present?
+    # We are using Resque to deliver emails so need to pass
+    # the object id so the worker can do its thang
+    begin
+      NotificationMailer.deliver_new_question_on_document(self.id, recipients) if recipients.present?
+    rescue
+      nil
+    end
+  end  
   
-  after_create :notify_document_users
   after_update :notify_if_question_answered
   
   after_save   :update_document
   
-  
   private
-  
-  def ensure_document_present
-    self.document = document_item.document if document_item.present? && document.blank?
-  end
   
   def notify_if_question_answered
     # [DEPRECATED]
@@ -71,18 +78,10 @@ class Question < ActiveRecord::Base
     rescue
       nil
     end
-  end
+  end  
   
-  def notify_document_users
-    # [DEPRECATED]
-    # NotificationMailer.deliver_new_question_on_document(self, recipients) if recipients.present?
-    # We are using Resque to deliver emails so need to pass
-    # the object id so the worker can do its thang
-    begin
-      NotificationMailer.deliver_new_question_on_document(self.id, recipients) if recipients.present?
-    rescue
-      nil
-    end
+  def ensure_document_present
+    self.document = document_item.document if document_item.present? && document.blank?
   end
   
   def recipients

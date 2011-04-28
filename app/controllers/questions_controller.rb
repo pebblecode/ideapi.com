@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
     
     response_for(:create) do |format|
       format.html { 
-        flash[:notice] = "Thanks for joining the discussion."
+        flash[:notice] = "Thanks for joining the discussion."    
         redirect_to document_path(current_object.document, :anchor => dom_id(current_object.document_item)) 
       }
       format.js{
@@ -65,6 +65,14 @@ class QuestionsController < ApplicationController
       format.js{ render :nothing => true}
     end
     
+
+    after :create do
+      logger.debug "\nCREATE: #{params[:question][:send_notifications].to_i}\n"
+      if params[:question][:send_notifications].to_i == 1
+        logger.debug "\nNotify: current object = #{current_object}\n"
+        current_object.notify_document_users        
+      end      
+    end
 
   end
   
