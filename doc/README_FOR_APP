@@ -49,15 +49,18 @@ On your development box you will need to have Redis and workers running if you w
 
 To start a work, invoke a worker from the *root of the rails site* using the following command
 
+    # For development (default) 
     QUEUE=* rake environment resque:work
     
-    # For staging    
+    # For staging 
     QUEUE=* rake RAILS_ENV=staging environment resque:work 
     
-    # For daemonising on staging
-    QUEUE=* rake RAILS_ENV=staging environment resque:work &    
+    # For production
+    QUEUE=* rake RAILS_ENV=production environment resque:work 
+    
+    # To daemonise, add an & at the end
 
-To start the Resque GUI run
+To start the Resque GUI run (Note, production resque gui only works within the pebble network)
 
     resque-web -p 8282 config/initializers/load_resque.rb 
 
@@ -91,11 +94,15 @@ Check config/environments/development.rb variable is the same as the url eg,
   
 for the *.smackaho.st domain.
 
-### Resque failures on staging
+### Resque failures on staging/production
 
     Access denied for user 'ideapi'@'localhost' to database 'ideapi_development'
     
-Need to add 'RAILS_ENV=staging' to restart resque
+    or
+    
+    Mysql::Error: Table 'ideapi_development.user_documents' doesn't exist: SHOW FIELDS FROM `user_documents`
+    
+Need to add 'RAILS_ENV=staging' or 'RAILS_ENV=production' when starting the workers
 
 # Deployment
 
@@ -123,7 +130,12 @@ Note, if it says you require a password, you will need to add your ssh key to th
 To monitor the site, use:
 
 * New relic (https://rpm.newrelic.com/accounts/7079/applications) - login details in mortimer
+* Ping on slicehost (https://manage.slicehost.com/slices/55399)
 * http://tools.pingdom.com/ to test the speed of loading the site. For reference, ideapi loads in < 10s as at 28th Apri 2011
 * http://www.downforeveryoneorjustme.com/ to test if the site it down
 
 Can also check http://status.slicehost.com/ for production.
+
+To ssh into production:
+
+    ssh jason@ideapi.com
