@@ -126,3 +126,4 @@ To monitor the site, use:
 * http://tools.pingdom.com/ to test the speed of loading the site. For reference, ideapi loads in < 10s as at 28th Apri 2011
 * http://www.downforeveryoneorjustme.com/ to test if the site it down
 
+Can also check http://status.slicehost.com/ for production.
