@@ -20,7 +20,8 @@ class DocumentItemsController < ApplicationController
           redirect_to @document
         }
         format.js{
-          render :text => "Something went wrong? Please try again.", :status => 500
+          # The only problem that can occur is the title
+          render :text => "Section title can't be blank", :status => 500
         }
       end
     end
