@@ -14,13 +14,13 @@ class DocumentItemsController < ApplicationController
         }
       end
         
-    else
+    else      
       respond_to do |format|
         format.html{
           redirect_to @document
         }
         format.js{
-          format.js{ render :text => "Something went wrong? Please try again.", :status => 500}
+          render :text => "Something went wrong? Please try again.", :status => 500
         }
       end
     end
