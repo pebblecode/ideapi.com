@@ -12,5 +12,4 @@ coverage.data
 db/sphinx/**/*
 config/*.sphinx.conf
 public/system/**/*
-.rvmrc
 capybara-*
