@@ -120,9 +120,18 @@ To run cucumber tests:
 
     bundle exec cucumber
     
-Configuration management (via Jenkins) is at (need to be in the pebbleit network to access it):
+# Continuous integration
+    
+Continuous integration website via Jenkins is at (need to be in the pebbleit network to access it):
 
-    http://ci.apu.pebbleit.com/job/ideapi/    
+    http://ci.apu.pebbleit.com/job/ideapi/
+
+To get to the configuration of the ideapi Jenkins job on apu:
+  
+    ~$ ssh apu.pebbleit.com
+    ~$ su jenkins
+    ~$ cd /var/lib/jenkins/jobs/ideapi
+    /var/lib/jenkins/jobs/ideapi$ cd workspace        # Contains the previous build code
     
 
 ## Spork
