@@ -119,6 +119,11 @@ To run unit tests
 To run cucumber tests:
 
     bundle exec cucumber
+    
+Configuration management (via Jenkins) is at (need to be in the pebbleit network to access it):
+
+    http://ci.apu.pebbleit.com/job/ideapi/    
+    
 
 ## Spork
 
