@@ -104,6 +104,30 @@ for the *.smackaho.st domain.
     
 Need to add 'RAILS_ENV=staging' or 'RAILS_ENV=production' when starting the workers
 
+# Testing
+
+The current state of the testing environment is as follows
+
+* TestUnit for unit tests and integration tests (was the initial setup)
+* Cucumber tests added for integration tests/bdd style development
+* Factories used are Machinist (mainly for TestUnit), and Factory Girl (mainly for cucumber)
+
+To run unit tests 
+
+    bundle exec rake test
+    
+To run cucumber tests:
+
+    bundle exec cucumber
+
+## Spork
+
+To make the tests load faster, run spork (https://github.com/timcharper/spork) before running the tests. Spork loads the rails environment so that the tests do not have to do so each time they are run. However, note that spork will need to be restarted if models or configuration files are changed, as the entire rails environment will need to be refreshed.
+
+To run spork, go to the ideapi directory and execute:
+
+    bundle exec spork
+
 # Deployment
 
 If you haven't set up your local production branch already, in your ideapi root, run
@@ -139,3 +163,9 @@ Can also check http://status.slicehost.com/ for production.
 To ssh into production:
 
     ssh jason@ideapi.com
+
+# RVM
+
+ideapi uses RVM (https://rvm.beginrescueend.com/) to manage different versions of ruby. 
+
+The configuration file is stored in .rvmrc
