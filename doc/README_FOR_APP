@@ -139,7 +139,16 @@ To get to the configuration of the ideapi Jenkins job on apu:
     ~$ su jenkins
     ~$ cd /var/lib/jenkins/jobs/ideapi
     /var/lib/jenkins/jobs/ideapi$ cd workspace        # Contains the previous build code
+
+## Debugging in test unit
+
+Using ruby-debug, you can use
+
+    debugger
     
+in your code, to open the console when it is run in a test.
+
+See http://nanorails.com/articles/2006/07/14/a-better-rails-debugger-ruby-debug/ for more details.    
 
 ## Spork
 
@@ -148,6 +157,14 @@ To make the tests load faster, run spork (https://github.com/timcharper/spork) b
 To run spork, go to the ideapi directory and execute:
 
     bundle exec spork
+    
+Tried using spork for test unit (https://github.com/timcharper/spork-testunit), but it doesn't seem to run properly without commenting out 
+
+    require 'test_helper'
+
+in the beginning of test files. But this conflicts with running test unit regularly, and could have conflicts with Jenkins. Needs more investigation...
+
+
 
 # Deployment
 
