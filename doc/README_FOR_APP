@@ -115,7 +115,13 @@ The current state of the testing environment is as follows
 To run unit tests 
 
     bundle exec rake test
-    bundle exec rake test TEST=test/unit/test_name.rb      # To run 1 test file
+    
+    # To run 1 test file (2 approaches)
+    rake test:units TEST=test/unit/document_test.rb    
+    bundle exec ruby -Itest test/unit/test_name.rb
+    
+    # To run 1 test file, but with bug of running the test 3 times (http://snippets.dzone.com/posts/show/7586)
+    bundle exec rake test TEST=test/unit/test_name.rb      
     
 To run cucumber tests:
 
