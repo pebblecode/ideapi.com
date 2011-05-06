@@ -128,6 +128,8 @@ class ActiveSupport::TestCase
     fill_in "email", :with => user.email
     fill_in "password", :with => "testing"
     click_button
+    assert_true(redirect?)        
+    follow_redirect!
   end
   
   def login_to_account_as(account, user)
