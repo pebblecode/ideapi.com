@@ -112,9 +112,10 @@ class AccountSignupTest < ActionController::IntegrationTest
           click_button 'Login'
         end
 
-        should "take user to the logged in page" do
-          # debugger # Goes to the user_sessions path atm, probably getting a password is not valid error
-          assert_equal(login_path, path)
+        should "redirects user to the account documents page" do
+          assert_true(redirect?)
+          follow_redirect!
+          assert_equal(documents_path, path)
         end
         
         # On the beta, we are not showing account link ..
