@@ -273,7 +273,11 @@ class AccountSignupTest < ActionController::IntegrationTest
           
           should "not have extra email error message" do
             # https://abutcher.lighthouseapp.com/projects/32755/tickets/46-bug-new-account-validation-error
-            assert_select '.errorExplanation li', :text => 'Email already taken', :count => 0
+
+            # This doesn't work for some reason. Returns the error 
+            # NoMethodError Exception: undefined method `filter_backtrace' for #<ActionController::Integration::Session:0x1060a0c60>
+            #assert_select '.errorExplanation li', {:text => 'Email already taken', :count => 0}            
+            assert_not_contain('Email already taken')
           end
         end    
         
