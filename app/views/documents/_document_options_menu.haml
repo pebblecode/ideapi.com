@@ -8,7 +8,7 @@
     
     -if owner?(current_object) and current_object.active? and current_object.published?
       %li.clear-history
-        - form_tag clean_document_url(current_object) do |f|
+        - form_tag(clean_document_url(current_object)) do |f|
           = submit_tag "clear history", :class => 'remove_with_js', :confirm => "Are you sure?"
           = link_to "clear history", clean_document_url(current_object), :class => "clean_document show_with_js"
     - if owner?(current_object) and not current_object.draft?
