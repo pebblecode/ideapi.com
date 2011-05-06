@@ -20,10 +20,8 @@ class ApprovalsTest < ActionController::IntegrationTest
 
     context "document author" do
       setup do
-        login_to_account_as(@account, @author)
+        login_to_account_as(@account, @author)        
         visit document_proposal_path(@document, @proposal)
-        assert_true(redirect?)        
-        follow_redirect!
       end
 
       should_respond_with :success
