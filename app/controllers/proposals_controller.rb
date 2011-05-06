@@ -6,7 +6,7 @@ class ProposalsController < ApplicationController
   before_filter :require_authorized_user
   before_filter :require_active_document, :except => [:show]
   
-  before_filter :require_owner_if_draft, :only => :show
+  before_filter :require_document_author_or_proposal_author_if_draft, :only => :show
   before_filter :require_owner, :only => :edit
   
   add_breadcrumb 'documents', "/documents"
@@ -82,8 +82,9 @@ class ProposalsController < ApplicationController
 
 
 
-  def require_owner_if_draft
-    if current_object.draft? and not current_object.user == current_user
+  def require_document_author_or_proposal_author_if_draft
+    if (current_object.draft? and
+        not([current_object.user, current_document.author].include? current_user))
       flash[:notice] = "You must be the owner of the idea while it's still a draft."
       redirect_to document_path(current_object.document)
     end
