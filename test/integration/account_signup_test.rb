@@ -161,6 +161,8 @@ class AccountSignupTest < ActionController::IntegrationTest
           end
 
           should "redirect back to documents" do
+            assert_true(redirect?)
+            follow_redirect!
             assert_equal(documents_path, path)
           end
         end
