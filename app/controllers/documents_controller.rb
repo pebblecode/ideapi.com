@@ -21,7 +21,7 @@ class DocumentsController < ApplicationController
   add_breadcrumb 'create a new document', :new_object_path, :only => [:new, :create]
   
   def current_objects
-    @current_objects ||= current_user.documents.active.by_account(current_account, {:order => "updated_at DESC"}).ordered
+    @current_objects ||= current_user.documents.active.by_account(current_account, {:order => "updated_at DESC"}).ordered(nil)
   end
   
   def current_object    
