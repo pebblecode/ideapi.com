@@ -34,6 +34,8 @@ class AccountUserManagementTest < ActionController::IntegrationTest
           fill_in 'Email', :with => @invite[:email]
           
           click_button 'Add to account'
+          assert_true(redirect?)        
+          follow_redirect!          
         end
         
         should_respond_with :success
@@ -61,6 +63,8 @@ class AccountUserManagementTest < ActionController::IntegrationTest
           fill_in 'Last name', :with => @invite[:last_name]
           fill_in 'Email', :with => @invite[:email]
           click_button 'Add to account'
+          assert_true(redirect?)        
+          follow_redirect!          
         end
         
         should_change "AccountUser.count", :by => 1
