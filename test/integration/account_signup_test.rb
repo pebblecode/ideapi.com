@@ -145,6 +145,9 @@ class AccountSignupTest < ActionController::IntegrationTest
           fill_in 'Password', :with => @user_password
           
           click_button 'Login'
+          
+          assert_true(redirect?)
+          follow_redirect!          
         end
 
         should "take user to documents" do
@@ -179,7 +182,11 @@ class AccountSignupTest < ActionController::IntegrationTest
           click_button 'Login'
         end
 
-        should "redirect back to login page" do
+        should "redirect back to login page, via the documents page" do
+          assert_true(redirect?)        
+          follow_redirect!
+          assert_equal(documents_path, path)
+          follow_redirect!
           assert_equal(new_user_session_path, path)
         end
       end
