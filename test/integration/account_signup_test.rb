@@ -216,7 +216,7 @@ class AccountSignupTest < ActionController::IntegrationTest
         @user = User.plan
                   
         fill_in 'Company', :with => @account[:name]
-        fill_in 'Domain', :with => @account[:domain]
+        fill_in 'Web Address', :with => @account[:domain]
         fill_in 'First name', :with => @user[:first_name]
         fill_in 'Last name', :with => @user[:last_name]
         fill_in 'Email', :with => @user[:email]
@@ -230,7 +230,7 @@ class AccountSignupTest < ActionController::IntegrationTest
 
       context "signup up with existing domain" do
         setup do
-          fill_in 'Domain', :with => @existing_account.domain
+          fill_in 'Web Address', :with => @existing_account.domain
           click_button 'Create my account'
         end
                 
