@@ -127,6 +127,9 @@ To run cucumber tests:
 
     bundle exec cucumber
     
+    
+Machinist (https://github.com/technoweenie/machinist) factories are stored in blueprints.rb    
+    
 # Continuous integration
     
 Continuous integration website via Jenkins is at (need to be in the pebbleit network to access it):
