@@ -40,7 +40,7 @@ class CompletedDocumentsTest < ActionController::IntegrationTest
       context "setting a document as completed" do
         
         setup do
-          visit edit_document_path(@document)
+          visit document_path(@document)
         end
         
         should "have button to archive" do
@@ -49,7 +49,8 @@ class CompletedDocumentsTest < ActionController::IntegrationTest
         
         context "clicking mark as complete" do
           setup do
-            click_button 'archive'
+            click_button 'archive'   
+            follow_redirect!
           end
       
           should_respond_with :success
