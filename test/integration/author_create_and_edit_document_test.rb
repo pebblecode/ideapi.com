@@ -129,10 +129,12 @@ class AuthorCreateAndEditDocumentTest < ActionController::IntegrationTest
             context "by clicking save and continue" do
               setup do
                 click_button "save draft"
+                assert_true(redirect?)        
+                follow_redirect!                
               end
 
               should_respond_with :success                        
-              should_render_template :edit
+              should_render_template :show
 
               should "should come back to edit once saved" do
                 assert_equal(edit_document_path(@draft) , path)
