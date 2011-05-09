@@ -48,9 +48,8 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         context "filling in basic requirements and clicking save draft" do
           setup do
             @proposal = Proposal.plan
-
-            fill_in 'Title', :with => @proposal[:title]
-            fill_in 'Your idea', :with => @proposal[:long_description]              
+            fill_in 'Add a title...', :with => @proposal[:title]
+            fill_in 'Describe your idea...', :with => @proposal[:long_description]              
           end
          
           context "" do
@@ -110,8 +109,8 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         context "clicking preview" do
           setup do
             @new_title = "Some other title"
-            fill_in 'title', :with => @new_title
-            click_button 'Preview'
+            fill_in 'Add a title...', :with => @new_title
+            click_button 'Save'
           end
 
           should "save any changes" do
