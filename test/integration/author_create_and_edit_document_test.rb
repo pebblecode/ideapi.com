@@ -129,6 +129,7 @@ class AuthorCreateAndEditDocumentTest < ActionController::IntegrationTest
             context "by clicking save and continue" do
               setup do
                 click_button "save draft"
+                debugger
               end
 
               should_respond_with :success                        
