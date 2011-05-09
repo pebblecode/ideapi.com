@@ -73,6 +73,8 @@ class AuthorCreateAndEditDocumentTest < ActionController::IntegrationTest
             @new_message = "boom boom my awesome document innit"
             fill_in "document[most_important_message]", :with => @new_message
             click_button "save draft"
+            assert_true(redirect?)        
+            follow_redirect!            
           end
 
           should_respond_with :success
@@ -136,8 +138,8 @@ class AuthorCreateAndEditDocumentTest < ActionController::IntegrationTest
               should_respond_with :success                        
               should_render_template :show
 
-              should "should come back to edit once saved" do
-                assert_equal(edit_document_path(@draft) , path)
+              should "should go to show, once saved" do
+                assert_equal(document_path(@draft) , path)
               end
 
               should "contain the answer" do
