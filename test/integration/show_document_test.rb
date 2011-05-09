@@ -29,10 +29,7 @@ class ShowDocumentTest < ActionController::IntegrationTest
         should_respond_with :success
         should_render_template :show
         
-        
-        should "have edit link" do
-          assert_select 'a[href=?]', edit_document_path(@published), :count => 1
-        end
+        # TODO: should have edit links for all the sections
         
         should "have delete link" do
           assert_select 'input#document_submit', :value => "delete document", :count => 1
