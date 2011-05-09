@@ -23,10 +23,11 @@ class UserSignupTest < ActionController::IntegrationTest
         fill_in 'Password confirmation', :with => @user_details[:password]
         
         click_button "Complete registration"
+        follow_redirect!
       end
 
-      should "redirect to documents" do        
-        assert_equal(documents_path, path)
+      should "redirect to home" do
+        assert_equal(home_path, path)
       end
       
       should "now be active" do
