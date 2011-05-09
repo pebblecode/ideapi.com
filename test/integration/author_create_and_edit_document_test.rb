@@ -30,7 +30,6 @@ class AuthorCreateAndEditDocumentTest < ActionController::IntegrationTest
       context "filling in the form" do
         setup do
           fill_in 'document[title]', :with => @document[:title]
-          fill_in 'document[most_important_message]', :with => @document[:most_important_message]
           click_button "Create"
         end
         
