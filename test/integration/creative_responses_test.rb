@@ -54,7 +54,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
          
           context "" do
             setup do
-              click_button 'save draft'
+              click_button 'Save'
             end
            
             should_respond_with :success
@@ -128,8 +128,8 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         context "clicking save draft" do
           setup do
             @new_title = "Some other title"
-            fill_in 'title', :with => @new_title
-            click_button 'Save draft'
+            fill_in 'Add a title...', :with => @new_title
+            click_button 'Save'
           end
         
           should_respond_with :success
@@ -146,8 +146,8 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         
         context "uploading asset" do
           setup do
-            attach_file 'Upload file', File.join(Rails.root, 'test', 'fixtures', 'asset.jpg')
-            click_button 'Save draft'
+            attach_file 'Attach file', File.join(Rails.root, 'test', 'fixtures', 'asset.jpg')
+            click_button 'Save'            
           end
         
           should "have an attachment" do
@@ -159,15 +159,17 @@ class CreativeResponsesTest < ActionController::IntegrationTest
           end
         
           context "removing uploaded asset" do
-        
+            setup do
+              visit edit_document_proposal_path(@document, @proposal)
+            end
+            
             should "have a link to remove image" do
-              assert_select 'a[href=?]', asset_path(@proposal.reload.assets.first), :text => 'Remove this!'
+              assert_select 'a[href=?]', asset_path(@proposal.reload.assets.first), :text => 'Delete asset'
             end
         
             context "by clicking the link and accepting" do
-              setup do
-                reload
-                click_link 'Remove this!'
+              setup do                
+                click_link 'Delete asset'
               end
         
               should "have no attachment" do
@@ -183,7 +185,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
         
           setup do
             visit document_proposal_path(@document, @proposal)
-            click_button 'Submit idea'
+            click_button 'Submit'
           end
         
           should_respond_with :success
