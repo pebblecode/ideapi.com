@@ -80,6 +80,7 @@ module DocumentWorkflowHelper
     n.times do 
       DocumentItem.make(:document => document)
     end
+    document.reload
   end
   
   def check_for_questions(document, creative)
