@@ -30,11 +30,11 @@ class AuthorCreateAndEditDocumentTest < ActionController::IntegrationTest
       context "filling in the form" do
         setup do
           fill_in 'document[title]', :with => @document[:title]
-          click_button "Create"
+          click_button "Create"          
         end
         
         should_respond_with :success
-        should_render_template :edit
+        should_render_template :show
         
         should "update the document count" do
           assert_equal 1, Document.count
