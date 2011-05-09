@@ -35,7 +35,8 @@ class DocumentTest < ActiveSupport::TestCase
       end
       
       should "create an entry in the document history" do
-        assert_equal(3, @document.timeline_events(:include_document_items => true).size)
+        # 4 because: document_created, document_updated, document_item_changed, document_updated
+        assert_equal(4, @document.timeline_events(:include_document_items => true).size)
       end
       
       should "create an updated_document entry in the history" do
@@ -43,8 +44,8 @@ class DocumentTest < ActiveSupport::TestCase
         assert_equal("document_updated", @document.timeline_events(:include_document_items => true).last.event_type)
       end
       
-      should "have no document item history because there are no revisions yet" do
-        assert_equal(0, @document_item.timeline_events.size)
+      should "have 1 document item history from the update" do
+        assert_equal(1, @document_item.timeline_events.size)
       end
       
       
