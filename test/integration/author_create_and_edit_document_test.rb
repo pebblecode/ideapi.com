@@ -64,27 +64,6 @@ class AuthorCreateAndEditDocumentTest < ActionController::IntegrationTest
           assert_select "input[type=text][name=?][value=?]", "document[title]", @draft.title
         end
         
-        should "have most important message edit" do
-          assert_select "textarea#document_most_important_message"
-        end
-        
-        context "updating most important message" do
-          setup do
-            @new_message = "boom boom my awesome document innit"
-            fill_in "document[most_important_message]", :with => @new_message
-            click_button "save draft"
-            assert_true(redirect?)        
-            follow_redirect!            
-          end
-
-          should_respond_with :success
-          
-          should "contain new message" do
-            assert_contain(@new_message)
-          end
-          
-        end
-        
       end
         
       context "draft document document" do
@@ -194,18 +173,6 @@ class AuthorCreateAndEditDocumentTest < ActionController::IntegrationTest
         should "have update button in place of update button" do
           assert_select 'input[type=submit][value=?]', 'publish', :count => 0
           assert_select 'input[type=submit][value=?]', 'update'
-        end
-
-        should "update record" do
-          new_message = "changing the published document"
-
-          fill_in "document[most_important_message]", :with => new_message
-          click_button "Update"
-          
-          assert_response :success
-          assert_equal document_path(@published), path
-          assert_contain(new_message)
-          assert_equal(new_message, @published.reload.most_important_message)
         end
         
         should "have not have a delete link" do
