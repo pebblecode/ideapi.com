@@ -58,7 +58,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
             end
            
             should_respond_with :success
-            should_render_template :edit
+            should_render_template :show
             should "should have one proposal" do
               assert_equal 1, Proposal.count
             end
@@ -111,6 +111,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
             @new_title = "Some other title"
             fill_in 'Add a title...', :with => @new_title
             click_button 'Save'
+            follow_redirect!
           end
 
           should "save any changes" do
@@ -130,6 +131,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
             @new_title = "Some other title"
             fill_in 'Add a title...', :with => @new_title
             click_button 'Save'
+            follow_redirect!
           end
         
           should_respond_with :success
@@ -139,7 +141,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
           end
         
           should "redirect to edit page" do
-            assert_equal(edit_document_proposal_path(@document, @proposal), path)
+            assert_equal(document_proposal_path(@document, @proposal), path)
           end
           
         end
@@ -186,6 +188,7 @@ class CreativeResponsesTest < ActionController::IntegrationTest
           setup do
             visit document_proposal_path(@document, @proposal)
             click_button 'Submit'
+            follow_redirect!
           end
         
           should_respond_with :success
