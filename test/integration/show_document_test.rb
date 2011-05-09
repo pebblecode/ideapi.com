@@ -32,7 +32,7 @@ class ShowDocumentTest < ActionController::IntegrationTest
         # TODO: should have edit links for all the sections
         
         should "have delete link" do
-          assert_select 'input#document_submit', :value => "delete document", :count => 1
+          assert_select '#document_delete #document_delete_button', :count => 1
         end
       end
       

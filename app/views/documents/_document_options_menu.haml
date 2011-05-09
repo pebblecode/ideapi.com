@@ -26,7 +26,7 @@
       %li.delete-document
         -form_for current_object, :html => { :method => :delete, :id => 'document_delete' } do |f|
           =hidden_field_tag '_flash[notice]', 'Document deleted', :id => 'document_flash_notice'
-          = submit_tag "delete", :class => 'remove_with_js'
+          = submit_tag "delete", :class => 'remove_with_js', :id => 'document_delete_button'
           = link_to "delete", "javascript:void(0)", :class => 'show_with_js'
   #document-tags
     - form_for(current_object, :html => { :method => :put, :id => 'inline_document_tags_form' }) do |document_form|
