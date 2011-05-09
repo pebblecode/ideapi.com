@@ -50,11 +50,7 @@ class ShowDocumentTest < ActionController::IntegrationTest
 
         should "have the document title" do
           assert_contain(truncate(@published.title, :length => 30))
-        end
-        
-        should "show most important text" do
-          assert_contain @published.most_important_message
-        end
+        end        
         
         context "a document item" do
           setup do
@@ -124,7 +120,8 @@ class ShowDocumentTest < ActionController::IntegrationTest
     context "accessing documents when user isn't a collaborator" do
       setup do
         @document = Document.make(:published, :account => @account)
-        visit document_path(@document)        
+        visit document_path(@document)
+        follow_redirect!     
       end
       
       should_respond_with :not_found
