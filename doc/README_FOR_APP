@@ -190,7 +190,17 @@ Deploy
 
 Note, if it says you require a password, you will need to add your ssh key to the production server.
 
-# Website monitoring
+# Production server
+
+To ssh into production:
+
+    ssh jason@ideapi.com
+
+Firewall rules are in:
+
+    /etc/iptables.test.rules
+
+## Website monitoring
 
 To monitor the site, use:
 
@@ -201,10 +211,6 @@ To monitor the site, use:
 
 Can also check http://status.slicehost.com/ for production.
 
-To ssh into production:
-
-    ssh jason@ideapi.com
-
 # RVM
 
 ideapi uses RVM (https://rvm.beginrescueend.com/) to manage different versions of ruby. 
@@ -214,4 +220,4 @@ The configuration file is stored in .rvmrc
 # Meta
 
 * Hoptoad: https://pebbleit.hoptoadapp.com/projects/14618/errors
-* Pivotal
+* Pivotal: https://www.pivotaltracker.com/projects/91593
