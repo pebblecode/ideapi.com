@@ -30,7 +30,7 @@ namespace :deploy do
   end
   
   desc "invoke the db migration"
-  task:migrate, :roles => :app do
+  task :migrate, :roles => :app do
     send(run_method, "cd #{current_path} && rake db:migrate RAILS_ENV=#{stage} ")     
   end
   
