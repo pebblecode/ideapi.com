@@ -211,6 +211,17 @@ To monitor the site, use:
 
 Can also check http://status.slicehost.com/ for production.
 
+To monitor resque:
+
+* Start resque-web on production
+
+    resque-web -p 8282 config/initializers/load_resque.rb 
+
+* Open up http://ideapi.com:8282/
+If it doesn't load, then check the firewall rules 
+
+* To restart resque workers, kill the processes and restart them (see the Resque section)
+
 # RVM
 
 ideapi uses RVM (https://rvm.beginrescueend.com/) to manage different versions of ruby. 
