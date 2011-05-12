@@ -210,3 +210,8 @@ To ssh into production:
 ideapi uses RVM (https://rvm.beginrescueend.com/) to manage different versions of ruby. 
 
 The configuration file is stored in .rvmrc
+
+# Meta
+
+* Hoptoad: https://pebbleit.hoptoadapp.com/projects/14618/errors
+* Pivotal
