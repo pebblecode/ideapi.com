@@ -42,7 +42,7 @@ Add this to the /etc/apache2/extra/httpd-vhosts.conf file, replacing [ideapi dir
 ideapi makes use of Resque http://github.com/defunkt/resque to queue background jobs. Resque relies on Redis. 
 The Resque README provides instructions on installing Redis.
 
-To ensure that workers do not die (bless them) ideapi also uses monit. The staging and 
+To ensure that workers do not die (bless them) ideapi also uses monit (see monit section). The staging and 
 production servers are configured to keep workers and Redis alive.
 
 On your development box you will need to have Redis and workers running if you want to use Resque and send email.
@@ -227,6 +227,37 @@ If it doesn't load, then check the firewall rules
 ideapi uses RVM (https://rvm.beginrescueend.com/) to manage different versions of ruby. 
 
 The configuration file is stored in .rvmrc
+
+# Monit
+
+Monit (http://mmonit.com/monit/) is used to make sure resque workers are restarted if they are down.
+
+The monit tasks are stored in:
+
+    /etc/monit/conf.d/ideapi.net       # On staging
+    /etc/monit/monit.d/ideapi.monit    # On production
+
+Outputs to log/resque_worker.log if there are projects
+
+To start workers
+
+    sudo /usr/sbin/monit -g ideapi start all      # Staging
+
+To view the status
+
+    sudo /usr/sbin/monit summary
+    sudo /usr/sbin/monit status
+    
+To view the status on staging:
+
+    http://192.168.3.5:2812/
+
+If monit config is changed, you need to reload monit
+
+    sudo /usr/sbin/monit reload
+    # or sudo /etc/init.d/monit restart
+    
+Also see: http://wiki.apu.pebbleit.com/index.php/Monit
 
 # Meta
 
