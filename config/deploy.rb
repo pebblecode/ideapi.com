@@ -7,6 +7,10 @@ set :repository,  "git@apu.pebbleit.com:ideapi.com.git"
 set :use_sudo, false
 set :scm, :git
 set :deploy_via, :copy
+
+# To allow sudo password to be entered
+# from http://www.mail-archive.com/capistrano@googlegroups.com/msg07323.html
+default_run_options[:pty] = true  
  
 # this will make sure that capistrano checks out the submodules if any
 set :git_enable_submodules, 1
@@ -56,7 +60,7 @@ namespace :deploy do
   
   desc "Restart monit for the ideapi group"
   task :restart_monit do    
-    sudo "/usr/sbin/monit -g ideapi restart all"  
+    sudo "/usr/sbin/monit -g ideapi restart all"
   end
 
 end
