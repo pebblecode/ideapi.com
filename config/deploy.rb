@@ -54,9 +54,14 @@ namespace :deploy do
     send(run_method, "cd #{release_path}; rake RAILS_ENV=#{stage} ideapi:build_cache")
   end
   
+  desc "Restart monit for the ideapi group"
+  task :restart_monit do    
+    sudo "/usr/sbin/monit -g ideapi restart all"  
+  end
+
 end
 
-after "deploy:update_code", "deploy:link_config_files"
+after "deploy:update_code", "deploy:link_config_files", "deploy:restart_monit"
 
 
 
