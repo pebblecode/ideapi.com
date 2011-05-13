@@ -250,7 +250,7 @@ To view the status
     
 To view the status on staging:
 
-    http://192.168.3.5:2812/
+    http://monit.apu.pebbleit.com:81/
 
 If monit config is changed, you need to reload monit
 
