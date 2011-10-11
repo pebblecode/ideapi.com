@@ -1,4 +1,6 @@
 require 'capistrano/ext/multistage'
+require 'bundler/capistrano'
+
 set :stages, %w(production staging)
   
 set :user, 'jason'

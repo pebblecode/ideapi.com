@@ -25,6 +25,7 @@ group :staging do
   gem "machinist"
   gem "webrat", "0.7.0"
   gem "cucumber"
+  gem "thin"
 end
 
 group :test do 

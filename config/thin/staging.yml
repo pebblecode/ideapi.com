@@ -1,0 +1,5 @@
+environment: staging
+pid: /var/www/vhosts/pebbleit.com/subdomains/poapp/httpdocs/current/tmp/pids/thin.pid
+socket: /var/www/vhosts/pebbleit.com/subdomains/poapp/httpdocs/current/tmp/sockets/thin.sock
+servers: 1
+daemonize: true

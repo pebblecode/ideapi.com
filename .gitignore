@@ -13,3 +13,6 @@ db/sphinx/**/*
 config/*.sphinx.conf
 public/system/**/*
 capybara-*
+.bundle
+vendor/bundle/ruby
+
