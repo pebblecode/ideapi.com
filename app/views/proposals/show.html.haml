@@ -60,20 +60,7 @@
       %h4 Idea comments
       %ul.comments
         -current_object.comments.each do |comment|
-          %li
-            %div[comment]
-              =small_avatar(comment.user)
-              .speech
-                -if comment.user == current_user or current_object.user == current_user
-                  - form_for comment, :html => {:method => :delete, :class => "delete_comment_form" } do |form|
-                    = form.submit 'delete', :class => 'close-button comment-delete ajaxify', :id => "delete_comment_#{comment.id}_submit"
-                
-                %p
-                  
-                  %strong
-                    = succeed ':' do
-                      =given_name(comment.user)
-                  #{strip_tags(comment.comment)}
+          = render :partial => 'documents/comment', :locals => {:comment => comment}
         %li#new_comment_li
           .comment
             #comment_form.comment_form
