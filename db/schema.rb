@@ -81,11 +81,13 @@ ActiveRecord::Schema.define(:version => 20110120130717) do
     t.text     "body"
     t.integer  "position"
     t.integer  "document_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "template_question_id"
     t.datetime "revised_at"
-    t.boolean  "is_heading",                        :default => false
+    t.boolean  "is_heading",           :default => false
     t.text     "help_message"
-    t.integer  "optional",             :limit => 1
+    t.boolean  "optional"
   end
 
   add_index "document_item_versions", ["document_id"], :name => "index_document_item_versions_on_document_id"
@@ -99,14 +101,15 @@ ActiveRecord::Schema.define(:version => 20110120130717) do
     t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "template_question_id"
     t.integer  "version"
     t.boolean  "is_heading",           :default => false
     t.text     "help_message"
     t.boolean  "optional"
-    t.integer  "template_question_id"
   end
 
   add_index "document_items", ["document_id"], :name => "index_document_items_on_document_id"
+  add_index "document_items", ["template_question_id"], :name => "index_document_items_on_template_question_id"
 
   create_table "documents", :force => true do |t|
     t.string   "title"
