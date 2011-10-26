@@ -14,5 +14,5 @@ config/*.sphinx.conf
 public/system/**/*
 capybara-*
 .bundle
-vendor/bundle/ruby
-
+vendor/bundle
+vendor/.bundle
