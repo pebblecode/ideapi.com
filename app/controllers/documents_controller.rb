@@ -88,7 +88,7 @@ class DocumentsController < ApplicationController
     # This allows filtering of tags on a per account basis
     # For more documentation on acts_as_taggable_on see http://github.com/mbleigh/acts-as-taggable-on
     before(:create, :update) do
-      current_account.tag(current_object, :with => params[:document][:tag_field], :on => :tags)
+      current_account.tag(current_object, :with => params[:document][:tag_field], :on => :tags) if params[:document][:tag_field].present?
     end
 
     after :create do
