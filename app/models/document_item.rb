@@ -136,8 +136,9 @@ class DocumentItem < ActiveRecord::Base
   end
   
   def deliver_notifications
-    recipients = self.document.users.collect{ |user| user.email unless user.pending? }.compact
-    recipients = recipients - [User.current.email] if User.current.present?
+    recipients = self.document.users.reject(&:pending?).map(&:email)
+    # remove current user's email and any nil or empty strings
+    recipients -= [User.current.try(:email), nil, '']
     if self.send_notifications.to_i == 1
       if self.title_changed? or self.body_changed?
         NotificationMailer.deliver_document_section_updated(self.document.id, recipients, User.current.id, [self.id])
