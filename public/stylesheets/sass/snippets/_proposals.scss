@@ -301,3 +301,48 @@ $textfield_width: 627px;
     }
   }
 }
+
+ul.document-ideas{
+  padding-left: 1em;
+  margin-left: 1em;
+  li{
+    list-style: disc outside;
+    a.proposal-title{margin-right: 0.5em;}
+    span{
+      font-size: 90%;
+      color: #aaa;
+      a{ color: #333;}
+    }
+    span.proposal-status{
+      background: #ccc;
+      color: #fff;
+      padding: 1px 3px;
+      @include rounded-corners-all(2px);
+    }
+  }
+}
+.document_item .tags{
+  float: right;
+  font-size: 90%;
+  color: #555;
+  .tag{
+    margin-left: 0.5em;
+  }
+}
+
+.proposals-filter{
+  .filter-link{
+    text-shadow: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 5px;
+    &:hover{ color: #fff - #050505}
+    a{
+      color: white;
+    }
+  }
+  .filter-link{
+    color: #333;
+    &:hover{ color: #fff - #050505}
+  }
+}

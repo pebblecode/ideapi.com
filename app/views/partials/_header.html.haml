@@ -14,4 +14,6 @@
       %li=link_unless_current 'documents', '/documents'
       -if current_user && current_user_can_create_documents?
         %li=link_unless_current 'templates', template_documents_path
+      - if current_account.admin?(current_user)
+        %li= link_unless_current 'ideas', proposals_path
       %li=link_unless_current 'contacts', users_path

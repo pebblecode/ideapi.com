@@ -39,7 +39,6 @@
       = render :partial => 'document_options_menu', :locals => {:object => current_object}
       .clear
         // comment clear
-    -# = render :partial => 'documents/document_partials/most_important_thing'
     #sortable_document_items
       = render :partial => 'documents/document_partials/document_item', :collection => (current_object.document_items)
     = render :partial => 'documents/document_partials/new_section', :locals => { :current_object => @document} if owner?(current_object) and current_object.active?
@@ -55,5 +54,5 @@
 .col_2
   - unless current_object.draft?
     =render :partial => 'update_collaborators'
-    =render :partial => 'responses'    
+    =render :partial => 'responses'
   =render :partial => 'partials/textile_help'

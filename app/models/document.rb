@@ -15,4 +15,9 @@ class Document < ActiveRecord::Base
     raise "Method expects a Hash" unless hash.is_a?(Hash)
     hash.collect{|k,v| item = DocumentItem.find(:first, :conditions => ["id = ? AND body != ?", k, v["body"]]) }.compact
   end
+
+  # BOOL Returns true if this document has any proposals (ideas). False otherwise.
+  def has_proposals?
+    self.proposals.any?
+  end
 end

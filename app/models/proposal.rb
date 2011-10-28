@@ -4,6 +4,7 @@ class Proposal < ActiveRecord::Base
   belongs_to :user
   
   delegate :approver, :to => :document
+  delegate :full_name, :to => :user, :prefix => true, :allow_nil => true
 
   validates_presence_of :title, :long_description
   

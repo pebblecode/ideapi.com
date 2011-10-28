@@ -3,8 +3,8 @@ class ProposalsController < ApplicationController
   
   # needs login for all actions
   before_filter :require_user
-  before_filter :require_authorized_user
-  before_filter :require_active_document, :except => [:show]
+  before_filter :require_authorized_user, :except => [:index]
+  before_filter :require_active_document, :except => [:show, :index]
   
   before_filter :require_document_author_or_proposal_author_if_draft, :only => :show
   before_filter :require_owner, :only => :edit
@@ -15,6 +15,14 @@ class ProposalsController < ApplicationController
     belongs_to :document
     actions :all
     
+    before :index do
+      # Capture filters (all, archived, active)
+      case params[:show]
+        when 'active': @briefs = current_user.documents.active
+        when 'archived': @briefs = current_user.documents.archived
+        else @briefs = current_user.documents
+      end
+    end
     before :new, :create, :edit, :show, :update do
       add_breadcrumb truncate(parent_object.title, :length => 30), document_path(parent_object)
       session[:return_to] = request.request_uri

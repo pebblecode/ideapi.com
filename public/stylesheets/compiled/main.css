@@ -1159,6 +1159,35 @@ ul#notifications li span.notification_action { float: right; }
 /* line 297, ../sass/snippets/_proposals.scss */
 .proposal .proposal_item p.description { width: 36em; padding: 0 0 0 2em; margin: 1px 0 0 0; }
 
+/* line 305, ../sass/snippets/_proposals.scss */
+ul.document-ideas { padding-left: 1em; margin-left: 1em; }
+/* line 308, ../sass/snippets/_proposals.scss */
+ul.document-ideas li { list-style: disc outside; }
+/* line 310, ../sass/snippets/_proposals.scss */
+ul.document-ideas li a.proposal-title { margin-right: 0.5em; }
+/* line 311, ../sass/snippets/_proposals.scss */
+ul.document-ideas li span { font-size: 90%; color: #aaa; }
+/* line 314, ../sass/snippets/_proposals.scss */
+ul.document-ideas li span a { color: #333; }
+/* line 316, ../sass/snippets/_proposals.scss */
+ul.document-ideas li span.proposal-status { background: #ccc; color: #fff; padding: 1px 3px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
+
+/* line 324, ../sass/snippets/_proposals.scss */
+.document_item .tags { float: right; font-size: 90%; color: #555; }
+/* line 328, ../sass/snippets/_proposals.scss */
+.document_item .tags .tag { margin-left: 0.5em; }
+
+/* line 334, ../sass/snippets/_proposals.scss */
+.proposals-filter .filter-link { text-shadow: none; font-weight: bold; text-transform: uppercase; margin-right: 5px; }
+/* line 339, ../sass/snippets/_proposals.scss */
+.proposals-filter .filter-link:hover { color: #fafafa; }
+/* line 340, ../sass/snippets/_proposals.scss */
+.proposals-filter .filter-link a { color: white; }
+/* line 344, ../sass/snippets/_proposals.scss */
+.proposals-filter .filter-link { color: #333; }
+/* line 346, ../sass/snippets/_proposals.scss */
+.proposals-filter .filter-link:hover { color: #fafafa; }
+
 /*lost in translation*/
 /* line 3, ../sass/snippets/_template_documents.scss */
 .document_list .number-bubble { float: right; }

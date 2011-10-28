@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
       documents.resources :user_documents
   end
   
+  map.resources :proposals, :only => [:index]
   map.resources :user_documents
   map.resources :template_documents, :collection => { :sort => :put } 
   map.resources :comments

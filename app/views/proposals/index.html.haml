@@ -1,0 +1,45 @@
+= title 'Documents |'
+=sub_nav do
+  =breadcrumb_list
+#documents.col_1
+  .document_list
+    #content-header
+      %h2 
+        IDEAS
+        .proposals-filter.fright
+          %span.filter-link
+            =link_to_unless_current 'all', proposals_path(:show => 'all') 
+          %span.filter-link
+            = link_to_unless_current 'active', proposals_path(:show => 'active')
+          %span.filter-link
+            = link_to_unless_current 'archived', proposals_path(:show => 'archived')
+    -if @briefs.select(&:has_proposals?).none?
+      .document_item
+        %p
+          = "No #{params[:show] unless params[:show] == 'all'} documents with ideas"
+    -else  
+      - @briefs.select(&:has_proposals?).each do |document|
+        .document_item
+          %h3
+            - if document.draft?
+              %span.flag
+                draft
+            = truncate(document.title, :length => 70)
+            .tags
+              - document.tags_from(current_account).each do |tag|
+                %span.user_context=tag
+          %ul.document-ideas
+            - document.proposals.each do |proposal|
+              %li
+                = link_to truncate(proposal.title, :length => 50), document_proposal_path(document, proposal), :class => 'proposal-title'
+                %span.proposal-status= proposal.state
+                %span.proposal-user= "by #{link_to proposal.user_full_name, proposal.user} #{time_ago_in_words(proposal.created_at)} ago."
+
+        - unless document.active?
+          =render :partial => 'change_state', :locals => { :document => document }
+.col_2.documents
+  .side_box
+    %h2 Help
+    .always-visible-help
+      %p
+        Use browser <em>find</em> to help navigate the page.
