@@ -22,12 +22,13 @@ namespace :deploy do
     run "cd #{release_path} &&  RAILS_ENV=#{stage} bundle exec thin -C config/thin/staging.yml restart"
   end 
 
+  desc "Link in the production database.yml" 
+  task :link_config_files do
+    run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{deploy_to}/#{shared_dir}/config/config.yml #{release_path}/config/config.yml"
+    run "ln -nfs #{deploy_to}/#{shared_dir}/uploads #{release_path}/public/uploads"
+    run "ln -nfs #{deploy_to}/#{shared_dir}/tmp/sockets #{release_path}/tmp/sockets"
+  end
+
 end
 
-namespace :craken do
-  desc "Install craken"
-  task :install, :roles => :cron do
-    set :raketab_rails_env, "staging"
-    run "cd #{current_path} && rake app_name=#{application} deploy_path=#{current_path} RAILS_ENV=#{stage} craken:install"
-  end
-end

@@ -5,7 +5,7 @@ set :stages, %w(production staging)
   
 set :user, 'jason'
 set :keep_releases, 3 
-set :repository,  "git@apu.pebbleit.com:ideapi.com.git"
+set :repository,  "git@github.com:pebblecode/ideapi.com.git"
 set :use_sudo, false
 set :scm, :git
 set :deploy_via, :copy
