@@ -336,13 +336,11 @@ ul.document-ideas{
     font-weight: bold;
     text-transform: uppercase;
     margin-right: 5px;
-    &:hover{ color: #fff - #050505}
+    color: #333;
     a{
       color: white;
+      &.active{ color: #333;}
+      &:hover{ color: #fff - #111}
     }
-  }
-  .filter-link{
-    color: #333;
-    &:hover{ color: #fff - #050505}
   }
 }

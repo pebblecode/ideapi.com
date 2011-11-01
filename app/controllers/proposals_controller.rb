@@ -9,13 +9,13 @@ class ProposalsController < ApplicationController
   before_filter :require_document_author_or_proposal_author_if_draft, :only => :show
   before_filter :require_owner, :only => :edit
   
-  add_breadcrumb 'documents', "/documents"
-  
+  add_breadcrumb 'documents', "/documents", :except => :index
   make_resourceful do
     belongs_to :document
     actions :all
     
     before :index do
+      add_breadcrumb 'ideas', '/proposals'
       # Capture filters (all, archived, active)
       case params[:show]
         when 'active': @briefs = current_user.documents.active
