@@ -760,6 +760,9 @@ color: #eee;*/ background: #b3d335; }
 /* line 458, ../sass/main.scss */
 #footer p a:hover { color: #333333; }
 
+/* line 465, ../sass/main.scss */
+.change_state_form { float: right; }
+
 /* line 1, ../sass/snippets/_feedback.scss */
 #beta_feedback { background: #fefefe; min-width: 980px; width: 100%; }
 /* line 5, ../sass/snippets/_feedback.scss */
