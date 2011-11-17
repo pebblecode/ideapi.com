@@ -1,4 +1,6 @@
 .document_item
+  - unless document.active?
+    =render :partial => 'change_state', :locals => { :document => document }
   %h3
     - if document.draft?
       %span.flag
@@ -8,5 +10,3 @@
         %span.user_context= lbl
     =link_to truncate(document.title, :length => 70), document, :title => document.title
         
-  - unless document.active?
-    =render :partial => 'change_state', :locals => { :document => document }

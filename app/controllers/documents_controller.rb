@@ -14,7 +14,7 @@ class DocumentsController < ApplicationController
   # ensure document is active
   before_filter :require_active_document, :only => [:edit]
 
-  helper_method :completed_documents, :available_templates, :page_title
+  helper_method :completed_documents, :available_templates, :page_title, :recently_completed
   
   add_breadcrumb 'documents', "/documents"
   
@@ -202,6 +202,10 @@ class DocumentsController < ApplicationController
   end
   
   private
+
+  def recently_completed(options = {})
+    @recently_completed = current_user.documents.complete.by_account(current_account, options)
+  end
   
   def completed_documents(options = {})
     @completed_documents ||= current_user.documents.complete.by_account(current_account, options)

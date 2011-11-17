@@ -85,7 +85,7 @@
         Recently Archived
       .contents  
         %ul.completed_documents
-          -completed_documents.each do |document|    
+          - recently_completed({:order => "updated_at DESC", :limit => 3}).each do |document|
             %li
               %p
                 =link_to truncate(document.title, 30), document_path(document)
