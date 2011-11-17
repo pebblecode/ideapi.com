@@ -42,5 +42,31 @@
             %p.edit= link_to 'Edit', edit_user_path(current_object), :class => 'link-as-button'
         
         .clear
+  - if current_account.admin?(current_user)
+    .user-roles
+      %h3 User roles and privileges
+      - form_for current_object, :html => {:id => 'update-user-roles', :method => :put } do |f|
+        = hidden_field_tag 'return_to', user_path(current_object)
+        -if current_account.documents.present?
+          %table.friends#document-privileges
+            %tr
+              %th{:title => "Select whether a user can access a document"}
+                Can Access Document?
+              %th{:title => "Make this user an author on the document"}
+                Author?
+              %th{:title => "Make this user an approver on the document"}
+                Approver?
+            -f.fields_for :user_documents, @user_documents do |f|
+              %tr
+                %td.document-title
+                  =f.hidden_field :document_id, :value => f.object.document.id
+                  =f.check_box :add_document, :checked => current_object.documents.include?(f.object.document)
+                  =f.label :add_document, f.object.document.title
+                %td
+                  =f.check_box :author
+                %td
+                  =f.check_box :approver
+        %p.submit=f.submit 'Update privileges', :class => 'funky-button'
+        
         
 .col_2.profile

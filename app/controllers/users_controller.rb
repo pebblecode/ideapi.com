@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  
-  
   before_filter :require_no_user, :only => :signup
   before_filter :require_user, :except => [:signup, :update]
   before_filter :require_user_unless_pending, :only => :update
@@ -38,9 +36,15 @@ class UsersController < ApplicationController
         current_object.user_documents.build(:document => b, :user => current_object)
       end
     end 
-    before :show do 
+    before :show, :update do
       add_breadcrumb 'contacts', users_path
       add_breadcrumb current_object.screename, :object_path
+        @user_briefs = current_object.user_documents
+      current_account.documents.each do |d|
+        unless current_object.documents.include?(d)
+          @user_briefs << UserDocument.create(:user_id => current_object.id, :document_id => d.id)
+        end
+      end
     end
     
     before :edit do

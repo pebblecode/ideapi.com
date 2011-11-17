@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
 
   # Used on User#show to add a user and permissions simultaenously
   # We reject anything that where all checkboxes are unchecked
-  accepts_nested_attributes_for :user_documents,
-    :reject_if => proc { |attrs| attrs['add_document'] == "0" && attrs['author'] == "0" && attrs['approver'] == "0" } 
+  accepts_nested_attributes_for :user_documents, :update_only => true,
+    :reject_if => proc { |attrs| attrs['add_document'] == "0" && attrs['author'] == "0" && attrs['approver'] == "0" }
   
 
   delegate :draft, :to => :documents

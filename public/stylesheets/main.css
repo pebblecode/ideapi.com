@@ -505,7 +505,7 @@ button.xl { width: 120px; }
 .user_context, .document_list .number-bubble { margin-right: 0; margin-left: 0.5em; float: right; border: 1px solid #c4e446; background: #e6ff68; background: -webkit-gradient(linear, left top, left bottom, from(#e6ff68), to(#d5f557)); background: -moz-linear-gradient(top, #e6ff68, #d5f557); color: #555; }
 
 /* line 10, sass/main.scss */
-body { font-size: 62.5%; font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif; text-align: center; background: #dddddd; }
+body { font-size: 70%; font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif; text-align: center; background: #dddddd; }
 
 /* line 17, sass/main.scss */
 a { text-decoration: none; color: #b3d335; -webkit-transition-property: background-color, color, border-color, opacity; -webkit-transition-duration: 300ms; -moz-transition-property: background-color, color, border-color, opacity; -moz-transition-duration: 300ms; -o-transition-property: background-color, color, border-color, opacity; -o-transition-duration: 300ms; transition-property: background-color, color, border-color, opacity; transition-duration: 300ms; }
