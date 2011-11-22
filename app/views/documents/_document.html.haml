@@ -5,8 +5,9 @@
     - if document.draft?
       %span.flag
         draft
-    - if document.user_documents.for_user(current_user).present? and document.active?
-      - document.user_documents.for_user(current_user).document_role[:label].split(',').each do |lbl|
-        %span.user_context= lbl
+        
+    - if document.tags_from(current_account).any?
+      - document.tags_from(current_account).each do |tag|
+        %span.user_context= tag
     =link_to truncate(document.title, :length => 70), document, :title => document.title
         
