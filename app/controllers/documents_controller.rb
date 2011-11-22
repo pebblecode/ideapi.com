@@ -16,9 +16,9 @@ class DocumentsController < ApplicationController
 
   helper_method :completed_documents, :available_templates, :page_title, :recently_completed
   
-  add_breadcrumb 'documents', "/documents"
+  add_breadcrumb 'briefs', "/briefs"
   
-  add_breadcrumb 'create a new document', :new_object_path, :only => [:new, :create]
+  add_breadcrumb 'create a new brief', :new_object_path, :only => [:new, :create]
   
   def current_objects
     @current_objects ||= current_user.documents.active.by_account(current_account, {:order => "updated_at DESC"}).ordered(nil)
@@ -92,7 +92,7 @@ class DocumentsController < ApplicationController
     end
 
     after :create do
-      flash[:notice] = "Document was successfully created"
+      flash[:notice] = "Brief was successfully created"
     end
     
     before :update do
@@ -100,9 +100,9 @@ class DocumentsController < ApplicationController
     end
     after :update do
       if params[:document].keys.include?("_call_state")
-        flash[:notice] = "Document has been saved and marked as #{current_object.state}."
+        flash[:notice] = "Brief has been saved and marked as #{current_object.state}."
       else
-        flash[:notice] = "Document was successfully edited"
+        flash[:notice] = "Brief was successfully edited"
       end
       
       recipients = current_object.users.collect{ |user| user.email unless user.pending? }.compact - [current_user.email]
@@ -184,9 +184,9 @@ class DocumentsController < ApplicationController
     if params[:id].present?
       document = Document.find(:first, :conditions => {:id => params[:id]})
       if document.present? and document.clean_document!
-        flash[:notice] = "The document was cleared successfully"
+        flash[:notice] = "The brief was cleared successfully"
       else
-        flash[:notice] = "Sorry, the document could not be cleared."
+        flash[:notice] = "Sorry, the brief could not be cleared."
       end
     end
     

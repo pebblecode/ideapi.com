@@ -11,7 +11,7 @@
       %li.page-help
         %a{:href => 'javascript:void(0)', :class => 'toggle-page-help current'}
           %span help
-      %li=link_unless_current 'documents', '/documents'
+      %li=link_unless_current 'briefs', documents_path
       - if current_account.admin?(current_user)
         %li= link_unless_current 'ideas', proposals_path
       -if current_user && current_user_can_create_documents?

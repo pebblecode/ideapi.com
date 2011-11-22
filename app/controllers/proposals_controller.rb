@@ -9,7 +9,7 @@ class ProposalsController < ApplicationController
   before_filter :require_document_author_or_proposal_author_if_draft, :only => :show
   before_filter :require_owner, :only => :edit
   
-  add_breadcrumb 'documents', "/documents", :except => :index
+  add_breadcrumb 'briefs', "/briefs", :except => :index
   make_resourceful do
     belongs_to :document
     actions :all

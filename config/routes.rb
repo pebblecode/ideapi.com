@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.resources :documents, 
+  map.resources :documents, :as => :briefs,
     :collection => { :browse => :get, :completed => :get}, 
     :member => { :delete => :get, :watch => :post, :collaborators => :get, :clean => :post, :update_collaborators => :post} do |documents|
       documents.resources :questions
@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :proposals, :only => [:index]
   map.resources :user_documents
-  map.resources :template_documents, :collection => { :sort => :put } 
+  map.resources :template_documents, :collection => { :sort => :put }, :as => :templates
   map.resources :comments
   map.resources :questions
   map.resources :document_items, :collection => { :sort => :put } 
@@ -63,7 +63,7 @@ ActionController::Routing::Routes.draw do |map|
     }
 
   map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
-  map.documents 'documents', :controller => "documents", :action => "index"
+  map.documents 'briefs', :controller => "documents", :action => "index"
   map.root :controller => "pages", :action => "home"
     
   # static pages
