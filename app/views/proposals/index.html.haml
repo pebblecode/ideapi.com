@@ -31,9 +31,6 @@
                 = link_to truncate(proposal.title, :length => 50), document_proposal_path(document, proposal), :class => 'proposal-title'
                 %span.proposal-status= proposal.state.to_s.humanize.downcase
                 %span.proposal-user= "by #{link_to proposal.user_full_name, proposal.user} #{time_ago_in_words(proposal.created_at)} ago."
-
-        - unless document.active?
-          =render :partial => 'change_state', :locals => { :document => document }
 .col_2.documents
   .side_box
     %h2 Help
