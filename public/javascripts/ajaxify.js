@@ -417,8 +417,7 @@ jQuery.user_links_external = function(){
     };
     
     $("#documents.show .section a.toggle-inline-edit").live('click', function(e){
-      var _parent = $(this).parents('.section');
-      // $(this).siblings('div.editable').toggle('slide', {}, 1000);
+      var _parent = $(this).closest('.section');
       var _edit = _parent.find('div.edit');
       var x = window.pageXOffset;
       var y = window.pageYOffset;
@@ -426,7 +425,8 @@ jQuery.user_links_external = function(){
       _parent.find('div.edit').toggleClass('revealed');
       _parent.find('div.editable').toggle();
       var _textarea = _edit.find('.inline-edit-body');
-      _textarea.css("height", _textarea.get(0).scrollHeight + "px");
+      if(!(_textarea.get(0) == undefined)) { _textarea.css("height", _textarea.get(0).scrollHeight + "px"); }
+      
       
       if($(this).text() == 'edit'){ $(this).text('show'); }
       else{ $(this).text('edit'); }

@@ -13,7 +13,7 @@
               = form.text_field :title, :class => 'inline-edit-title', :id => "document_item_#{document_item.id}_title"
           .field.clearfix
             %p.submit.fright
-              = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-inline-edit' if owner?(current_object) and current_object.active?
+              = link_to 'cancel', 'javascript:void(0)', :class => 'cancel-inline-edit' if owner?(current_object) and current_object.active?
               or
               = form.submit 'submit', :class => 'submit inline-edit-submit', :id => "document_item_#{document_item.id}_submit"
             - form_for document_item, :html => {:method => 'delete', :id => "section_delete_form_#{document_item.id}", :class => "section-delete-form"} do |form|
