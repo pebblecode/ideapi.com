@@ -19,7 +19,7 @@ class ProposalsController < ApplicationController
       # Capture filters (all, archived, active)
       case params[:show]
         when 'active': @briefs = current_user.documents.active
-        when 'archived': @briefs = current_user.documents.archived
+        when 'archived': @briefs = current_user.documents.complete
         else @briefs = current_user.documents
       end
     end
@@ -87,8 +87,6 @@ class ProposalsController < ApplicationController
   def current_document
     parent_object
   end
-
-
 
   def require_document_author_or_proposal_author_if_draft
     if (current_object.draft? and
