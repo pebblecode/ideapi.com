@@ -69,6 +69,7 @@ class UserDocumentsController < ApplicationController
     begin
       @user_document = UserDocument.find(params[:id])
       @document = @user_document.document
+      @user_document.update_attributes(params[:user_document])
       if @user_document.destroy
         respond_to do |format|
           format.html{

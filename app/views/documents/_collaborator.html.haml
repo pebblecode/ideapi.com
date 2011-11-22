@@ -37,6 +37,7 @@
 
       %li.remove
         -form_for user_document, :url => user_document_path(user_document), :html => {:method => :delete, :class => 'submit_with_js delete_user_document', :id => "delete_user_document_#{user_document.id}"} do |delete_form|
+          = delete_form.hidden_field :allow_raise, :value => true
           = delete_form.submit 'remove', :id => "delete_user_document_#{user_document.id}_submit"
           %span Remove
     .clear

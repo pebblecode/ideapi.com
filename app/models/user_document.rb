@@ -6,7 +6,7 @@ class UserDocument < ActiveRecord::Base
   named_scope :authored, :conditions => ['author = true']
   named_scope :collaborating, :conditions => ['author = false']
   
-  attr_accessor :approver, :add_document
+  attr_accessor :approver, :add_document, :allow_raise
   # validates_presence_of :user, :document
   
   after_create :notify_user, :assign_approver
@@ -41,10 +41,18 @@ class UserDocument < ActiveRecord::Base
     document.author?(user)
   end
   
-  # def destroy
-  #   raise "Cannot delete the only author in a document" if (self.document.authors.count == 1 and self.document.author == self.user)
-  #   super
-  # end
+  def destroy
+    if (self.document.authors.count == 1 and self.document.authors.first == self.user)
+      if allow_raise
+        raise "You cannot delete the only author"
+      else
+        self.user = self.document.account.admin
+        save
+      end
+    else
+      super
+    end
+  end
   private
   
   def notify_user
