@@ -769,6 +769,9 @@ color: #eee;*/ background: #b3d335; }
 /* line 473, sass/main.scss */
 span.count { display: inline-block; margin-left: 0.5em; font-size: 90%; }
 
+/* line 478, sass/main.scss */
+.sb-section { margin-bottom: 1em; }
+
 /* line 1, sass/snippets/_feedback.scss */
 #beta_feedback { background: #fefefe; min-width: 980px; width: 100%; }
 /* line 5, sass/snippets/_feedback.scss */
