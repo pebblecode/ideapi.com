@@ -1773,52 +1773,52 @@ ul.actions.active { border-bottom: 1px solid #eeeeee; }
 /* line 515, ../sass/snippets/_documents.scss */
 .document .section { /* This is the "cancel" button when in the edit view. */ }
 /* line 518, ../sass/snippets/_documents.scss */
-.document .section .edit .toggle-inline-edit { display: inline; color: #fff; text-shadow: 1px 1px 1px #888; font-weight: normal; }
+.document .section .edit .toggle-inline-edit { display: inline; font-weight: normal; }
 
 /* For the "most important thing" part, we need to set a different size as the elements inherit the weird font sizes from the box... */
 /*.document .most_important_thing.section{ .toggle-inline-edit{ float: right; font-weight: normal; top: 0.5em; right: 0.5em; opacity: 0; display: block; } &:hover{ .toggle-inline-edit{  opacity: 1; } } 
 }*/
 /* Adding new sections dynamically */
-/* line 548, ../sass/snippets/_documents.scss */
+/* line 547, ../sass/snippets/_documents.scss */
 #add-new-section p { margin: 1em 0; }
-/* line 551, ../sass/snippets/_documents.scss */
+/* line 550, ../sass/snippets/_documents.scss */
 #add-new-section .toggle-add-new-section { padding: 2px 4px; }
 
-/* line 555, ../sass/snippets/_documents.scss */
+/* line 554, ../sass/snippets/_documents.scss */
 #new-section { background-color: #f1f1f1; display: none; border: 1px solid #ddd; padding: 1em; }
-/* line 560, ../sass/snippets/_documents.scss */
+/* line 559, ../sass/snippets/_documents.scss */
 #new-section .field { clear: both; }
-/* line 562, ../sass/snippets/_documents.scss */
+/* line 561, ../sass/snippets/_documents.scss */
 #new-section .field label { display: block; float: none; }
-/* line 566, ../sass/snippets/_documents.scss */
+/* line 565, ../sass/snippets/_documents.scss */
 #new-section .field input.title { padding: 3px 6px; font-size: 1.3em; font-weight: bold; display: block; width: 628px; background: #fafafa; border: 1px solid #ddd; }
-/* line 575, ../sass/snippets/_documents.scss */
+/* line 574, ../sass/snippets/_documents.scss */
 #new-section .field .body { display: block; height: 100px; padding: 0.5em; width: 628px; background: #fafafa; border: 1px solid #ddd; font-size: 1em; }
-/* line 585, ../sass/snippets/_documents.scss */
+/* line 584, ../sass/snippets/_documents.scss */
 #new-section .is_heading { float: right; }
-/* line 587, ../sass/snippets/_documents.scss */
+/* line 586, ../sass/snippets/_documents.scss */
 #new-section .is_heading label { display: inline; font-weight: normal; }
-/* line 592, ../sass/snippets/_documents.scss */
+/* line 591, ../sass/snippets/_documents.scss */
 #new-section .submit { text-align: right; margin-top: 0.5em; }
-/* line 595, ../sass/snippets/_documents.scss */
+/* line 594, ../sass/snippets/_documents.scss */
 #new-section .submit .spinner { display: inline; }
 
 /* Deleting a section */
-/* line 608, ../sass/snippets/_documents.scss */
+/* line 607, ../sass/snippets/_documents.scss */
 span.separator { color: #ccc; font-size: 1em; margin: 0 .5em; }
 
-/* line 614, ../sass/snippets/_documents.scss */
+/* line 613, ../sass/snippets/_documents.scss */
 .notify { float: right; font-size: 9pt; }
-/* line 617, ../sass/snippets/_documents.scss */
+/* line 616, ../sass/snippets/_documents.scss */
 .notify label, .notify input { display: inline; float: none; font-weight: normal; }
-/* line 618, ../sass/snippets/_documents.scss */
+/* line 617, ../sass/snippets/_documents.scss */
 .notify label { width: auto; }
 
-/* line 621, ../sass/snippets/_documents.scss */
+/* line 620, ../sass/snippets/_documents.scss */
 #container #content .col_1 .speech ul { display: block; list-style: disc; margin: 0; padding: 0; list-style-position: inside; }
-/* line 627, ../sass/snippets/_documents.scss */
+/* line 626, ../sass/snippets/_documents.scss */
 #container #content .col_1 .speech ul li { margin: 0 !important; padding: 0; }
-/* line 632, ../sass/snippets/_documents.scss */
+/* line 631, ../sass/snippets/_documents.scss */
 #container #content .col_1 .speech .notify { float: none; display: block; margin-top: .5em; text-align: right; }
 
 /* line 4, ../sass/snippets/_smartbox.scss */
