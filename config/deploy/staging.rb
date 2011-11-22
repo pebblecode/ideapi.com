@@ -1,7 +1,7 @@
 server "apu.pebbleit.com", :app, :web, :db, :primary => true
 set :user, "ideapi"
 set(:deploy_to) { "/var/www/vhosts/ideapi.com/httpdocs" }
-set :branch, "master"
+set :branch, "staging"
 set :deploy_via, :remote_cache
 role :cron, "apu.pebbleit.com"
 
