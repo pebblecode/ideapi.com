@@ -571,7 +571,7 @@ jQuery.fn.document_ready = function() {
     * http://wayofspark.com/projects/smarttextbox/
     * 
     */
-    $('#document_tag_field').smartTextBox({autocompleteUrl : "/tags.json", separator : ",", placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags." });
+    $('#document_tag_field').smartTextBox({autocompleteUrl : "http://surestack.smackaho.st:3000/tags.json", separator : ",", placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags.", autocomplete : true });
 
     /*
     * Hides checkboxes on add user form on User#show

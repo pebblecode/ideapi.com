@@ -1,7 +1,1 @@
-{values:[
--@tags.each_with_index do |tag, i|
-  #{tag.name.to_json}
-  -unless i+1 == @tags.size
-    ,
-]}
-
+= {:values => @tags.collect(&:name)}.to_json

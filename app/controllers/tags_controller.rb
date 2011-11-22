@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
 
-  before_filter :require_user
+
 
   def index
     @tags = current_account.owned_tags
