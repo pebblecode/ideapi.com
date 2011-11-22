@@ -1195,6 +1195,11 @@ ul.document-ideas li span.proposal-status { background: #ccc; color: #fff; paddi
 /* line 342, ../sass/snippets/_proposals.scss */
 .proposals-filter .filter-link a:hover { color: #eeeeee; }
 
+/* line 348, ../sass/snippets/_proposals.scss */
+#proposals .document-ideas { margin-top: 0.5em; }
+/* line 350, ../sass/snippets/_proposals.scss */
+#proposals .document-ideas li { margin-bottom: 0.5em; }
+
 /*lost in translation*/
 /* line 3, ../sass/snippets/_template_documents.scss */
 .document_list .number-bubble { float: right; }
