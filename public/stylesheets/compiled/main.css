@@ -1187,12 +1187,12 @@ ul.document-ideas li span.proposal-status { background: #ccc; color: #fff; paddi
 .document_item .tags .tag { margin-left: 0.5em; }
 
 /* line 334, ../sass/snippets/_proposals.scss */
-.proposals-filter .filter-link { text-shadow: none; font-weight: bold; text-transform: uppercase; margin-right: 5px; color: #333; }
-/* line 340, ../sass/snippets/_proposals.scss */
-.proposals-filter .filter-link a { color: white; }
-/* line 342, ../sass/snippets/_proposals.scss */
+.proposals-filter .filter-link { text-shadow: none; text-transform: capitalize; margin-right: 5px; color: #333; }
+/* line 339, ../sass/snippets/_proposals.scss */
+.proposals-filter .filter-link a { color: white; margin-right: 5px; font-weight: normal; }
+/* line 341, ../sass/snippets/_proposals.scss */
 .proposals-filter .filter-link a.active { color: #333; }
-/* line 343, ../sass/snippets/_proposals.scss */
+/* line 342, ../sass/snippets/_proposals.scss */
 .proposals-filter .filter-link a:hover { color: #eeeeee; }
 
 /*lost in translation*/

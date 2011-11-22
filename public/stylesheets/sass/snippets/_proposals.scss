@@ -333,14 +333,15 @@ ul.document-ideas{
 .proposals-filter{
   .filter-link{
     text-shadow: none;
-    font-weight: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-right: 5px;
     color: #333;
     a{
       color: white;
       &.active{ color: #333;}
       &:hover{ color: #fff - #111}
+      margin-right: 5px;
+      font-weight: normal
     }
   }
 }

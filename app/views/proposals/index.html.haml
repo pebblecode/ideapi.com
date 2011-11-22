@@ -9,8 +9,10 @@
         .proposals-filter.fright
           %span.filter-link
             =link_to_unless_current 'all', proposals_path(:show => 'all'), :class => "#{"active" if params[:show].nil?}"
+            |
           %span.filter-link
             = link_to_unless_current 'active', proposals_path(:show => 'active')
+            |
           %span.filter-link
             = link_to_unless_current 'archived', proposals_path(:show => 'archived')
     -if @briefs.select(&:has_proposals?).none?
