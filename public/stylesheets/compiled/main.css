@@ -769,6 +769,9 @@ color: #eee;*/ background: #b3d335; }
 /* line 473, ../sass/main.scss */
 span.count { display: inline-block; margin-left: 0.5em; font-size: 90%; }
 
+/* line 478, ../sass/main.scss */
+.sb-section { margin-bottom: 1em; }
+
 /* line 1, ../sass/snippets/_feedback.scss */
 #beta_feedback { background: #fefefe; min-width: 980px; width: 100%; }
 /* line 5, ../sass/snippets/_feedback.scss */
@@ -1186,14 +1189,21 @@ ul.document-ideas li span.proposal-status { background: #ccc; color: #fff; paddi
 /* line 328, ../sass/snippets/_proposals.scss */
 .document_item .tags .tag { margin-left: 0.5em; }
 
-/* line 334, ../sass/snippets/_proposals.scss */
+/* line 333, ../sass/snippets/_proposals.scss */
+.proposals-filter { font-size: 0.85em; }
+/* line 335, ../sass/snippets/_proposals.scss */
 .proposals-filter .filter-link { text-shadow: none; text-transform: capitalize; margin-right: 5px; color: #333; }
-/* line 339, ../sass/snippets/_proposals.scss */
+/* line 340, ../sass/snippets/_proposals.scss */
 .proposals-filter .filter-link a { color: white; margin-right: 5px; font-weight: normal; }
-/* line 341, ../sass/snippets/_proposals.scss */
-.proposals-filter .filter-link a.active { color: #333; }
 /* line 342, ../sass/snippets/_proposals.scss */
+.proposals-filter .filter-link a.active { color: #333; }
+/* line 343, ../sass/snippets/_proposals.scss */
 .proposals-filter .filter-link a:hover { color: #eeeeee; }
+
+/* line 349, ../sass/snippets/_proposals.scss */
+#proposals .document-ideas { margin-top: 0.5em; }
+/* line 351, ../sass/snippets/_proposals.scss */
+#proposals .document-ideas li { margin-bottom: 0.5em; }
 
 /*lost in translation*/
 /* line 3, ../sass/snippets/_template_documents.scss */

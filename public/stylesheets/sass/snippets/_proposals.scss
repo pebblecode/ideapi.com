@@ -331,6 +331,7 @@ ul.document-ideas{
 }
 
 .proposals-filter{
+  font-size: 0.85em;
   .filter-link{
     text-shadow: none;
     text-transform: capitalize;
@@ -344,4 +345,8 @@ ul.document-ideas{
       font-weight: normal
     }
   }
+}
+#proposals .document-ideas{
+  margin-top: 0.5em;
+  li{ margin-bottom: 0.5em;}
 }
