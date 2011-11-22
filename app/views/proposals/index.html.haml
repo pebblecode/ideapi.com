@@ -26,7 +26,7 @@
               - document.tags_from(current_account).each do |tag|
                 %span.user_context=tag
           %ul.document-ideas
-            - document.proposals.each do |proposal|
+            - document.proposals.reject(&:draft?).each do |proposal|
               %li
                 = link_to truncate(proposal.title, :length => 50), document_proposal_path(document, proposal), :class => 'proposal-title'
                 %span.proposal-status= proposal.state.to_s.humanize.downcase
