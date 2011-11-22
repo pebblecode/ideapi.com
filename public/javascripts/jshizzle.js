@@ -753,5 +753,11 @@ $(document).ready(function(){
     return false;
   });
   
+  /* Ideas in brief show view - hide toggle */
+  
+  $('.sb-trigger').live('click', function(){
+    $(this).closest('.sb-group').children('.sb-content').toggle();
+  });
+  
 });
 
