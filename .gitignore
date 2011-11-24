@@ -14,3 +14,4 @@ config/*.sphinx.conf
 public/system/**/*
 .rvmrc
 capybara-*
+vendor/.bundle
