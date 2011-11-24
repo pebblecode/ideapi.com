@@ -12,6 +12,8 @@ coverage.data
 db/sphinx/**/*
 config/*.sphinx.conf
 public/system/**/*
+.rvmrc
+.bundle
 capybara-*
 .bundle
 vendor/bundle
