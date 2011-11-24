@@ -1284,7 +1284,7 @@ ul.document-ideas li span.proposal-status { background: #ccc; color: #fff; paddi
 /* line 115, ../sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .speech li { padding: 0; margin: 0; }
 /* line 120, ../sass/partials/_comments_and_activity_stream.scss */
-#container #content .main .document_item .document_item_activity .revision-body { border: 1px dashed #ddd; margin: 0 auto; padding: 0.5em 1em; background: #fcfcfc; }
+#container #content .main .document_item .document_item_activity .revision-body { border: 1px dashed #ddd; margin: 1em auto; padding: 0.5em 1em; background: #fcfcfc; }
 /* line 125, ../sass/partials/_comments_and_activity_stream.scss */
 #container #content .main .document_item .document_item_activity .revision-body .close-button { display: none; }
 /* line 129, ../sass/partials/_comments_and_activity_stream.scss */
