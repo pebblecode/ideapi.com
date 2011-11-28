@@ -93,8 +93,9 @@ class Document < ActiveRecord::Base
   acts_as_commentable  
 
   named_scope :by_account, lambda { |account, options| 
-    options ||= {}
+    options 
     options.merge!({ :conditions => ["documents.account_id = ?", account.id]})
+    
   }
 
   # Tests are whining at this named scope switching to simple ordering for now

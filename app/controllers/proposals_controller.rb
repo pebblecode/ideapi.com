@@ -17,10 +17,10 @@ class ProposalsController < ApplicationController
     before :index do
       add_breadcrumb 'ideas', '/proposals'
       # Capture filters (all, archived, active)
+      @briefs = current_user.documents.by_account(current_account, {})
       case params[:show]
-        when 'active': @briefs = current_user.documents.active
-        when 'archived': @briefs = current_user.documents.complete
-        else @briefs = current_user.documents
+        when 'active': @briefs = @briefs.active
+        when 'archived': @briefs = @briefs.complete
       end
     end
     before :new, :create, :edit, :show, :update do
