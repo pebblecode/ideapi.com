@@ -354,6 +354,34 @@ ActiveRecord::Schema.define(:version => 20110120130717) do
 
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
+  create_table "users_bak", :id => false, :force => true do |t|
+    t.integer  "id",                  :default => 0,  :null => false
+    t.string   "screename"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "last_login_at"
+    t.datetime "last_request_at"
+    t.integer  "invite_count"
+    t.integer  "friends_count",       :default => 0,  :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "state"
+    t.string   "invite_code"
+    t.string   "job_title"
+    t.string   "telephone"
+    t.string   "telephone_ext"
+    t.datetime "current_login_at"
+    t.integer  "invited_by_id"
+    t.string   "perishable_token",    :default => "", :null => false
+    t.text     "user_agent_string"
+  end
+
   create_table "vw_account_owners", :id => false, :force => true do |t|
     t.string   "email"
     t.integer  "id",          :default => 0, :null => false
