@@ -3,7 +3,6 @@ set :user, "ideapi"
 set(:deploy_to) { "/var/www/vhosts/ideapi.com/httpdocs" }
 set :branch, "staging"
 set :deploy_via, :remote_cache
-role :cron, "apu.pebbleit.com"
 
 set :default_environment, {
   'PATH' => "/home/ideapi/.rbenv/shims:/home/ideapi/.rbenv/bin:$PATH"
