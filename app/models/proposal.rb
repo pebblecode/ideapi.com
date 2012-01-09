@@ -17,10 +17,13 @@ class Proposal < ActiveRecord::Base
   
   acts_as_commentable
   
-  
   def users
     return [self.user] if self.draft?
     [self.user, self.approver, self.document.authors].flatten.uniq
+  end
+
+  def belongs_to?(a_user)
+    user == a_user
   end
   
   include Ideapi::Schizo
@@ -134,6 +137,7 @@ class Proposal < ActiveRecord::Base
       approval_states.collect{|state_name,state_object| state_name.to_s }
     end
   end
+
   
   private
   
