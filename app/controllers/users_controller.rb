@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       add_breadcrumb current_object.screename, :object_path
     end
     
-    before :edit do
+    before :edit, :update do
       add_breadcrumb 'contacts', users_path
       add_breadcrumb current_object.screename, :object_path
       add_breadcrumb 'edit', :edit_object_path

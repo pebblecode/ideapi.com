@@ -1,13 +1,13 @@
-= title 'Documents |'
+= title 'Briefs |'
 = page_help do
   .box
     - if current_user_can_create_documents?
       :markdown
-        This page shows you all of your active documents. To create your first document, click the "Create document" button. 
+        This page shows you all of your active briefs. To create your first brief, click the "Create brief" button. 
         Before you can collaborate with others, you’ll need to [add some contacts to your account](/users).
 
-        If you have a number of common document structures, you may also wish to [create templates](/template_documents). 
-        Tagging documents can help you to group documents - you can add multiple tags whilst editing your documents.  
+        If you have a number of common brief structures, you may also wish to [create templates](/template_documents). 
+        Tagging briefs can help you to group briefs - you can add multiple tags whilst editing your briefs.  
 =sub_nav do
   =breadcrumb_list
 #documents.col_1
@@ -40,9 +40,9 @@
   .document_list
     #content-header
       -if current_user_can_create_documents?
-        =link_to 'Create document', new_document_path, :class => 'green-button-link fright'
+        =link_to 'Create brief', new_document_path, :class => 'green-button-link fright'
       %h2 
-        Your active documents
+        Your active briefs
         -if params[:t]
           tagged as "#{params[:t]}"
   
@@ -50,13 +50,13 @@
       .document_item
         %h3 
           -if current_user_can_create_documents?
-            You have no documents - either 
-            =link_to 'create a document', new_document_path
+            You have no briefs - either 
+            =link_to 'create a brief', new_document_path
             using the standard template or 
             =link_to 'create your own specific template', new_template_document_path
             first.
           -else
-            You have no documents. Contact your account owner if you need the ability to create documents
+            You have no briefs. Contact your account owner if you need the ability to create briefs
     -else  
       =render :partial => 'document', :collection => current_objects 
 .col_2.documents
@@ -67,7 +67,7 @@
       .contents
         %ul.tag-list
           %li
-            =link_to "all documents", documents_path
+            =link_to "all briefs", documents_path
           -@tags.each do |tag|
             %li
               =link_to "<span>#{tag.count}</span>#{tag.name}", documents_path(:t => tag.name)
@@ -77,7 +77,7 @@
         Tags
       .contents
         %ul
-          %li Add tags to your documents to allow them to be categorised.
+          %li Add tags to your briefs to allow them to be categorised.
 
   -if completed_documents.present?
     #archived_documents.side_box
@@ -85,9 +85,9 @@
         Recently Archived
       .contents  
         %ul.completed_documents
-          -completed_documents.each do |document|    
+          - recently_completed({:order => "updated_at DESC", :limit => 5}).each do |document|
             %li
               %p
                 =link_to truncate(document.title, 30), document_path(document)
               
-        =link_to 'View all archived documents', completed_documents_path, :class => "action"
+        =link_to 'View all archived briefs', completed_documents_path, :class => "action"

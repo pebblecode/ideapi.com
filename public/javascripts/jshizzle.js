@@ -571,7 +571,7 @@ jQuery.fn.document_ready = function() {
     * http://wayofspark.com/projects/smarttextbox/
     * 
     */
-    $('#document_tag_field').smartTextBox({autocompleteUrl : "/tags.json", separator : ",", placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags." });
+    $('#document_tag_field').smartTextBox({autocompleteUrl : "/tags.json", separator : ",", placeholder: "Type the name of a tag you'd like to use. Use commas to separate multiple tags.", autocomplete : true });
 
     /*
     * Hides checkboxes on add user form on User#show
@@ -751,6 +751,12 @@ $(document).ready(function(){
       parent_box.remove();
     });
     return false;
+  });
+  
+  /* Ideas in brief show view - hide toggle */
+  
+  $('.sb-trigger').live('click', function(){
+    $(this).closest('.sb-group').children('.sb-content').toggle();
   });
   
 });

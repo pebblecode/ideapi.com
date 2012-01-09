@@ -6,13 +6,19 @@
       .show.editable
         %h3=document_item.title
       .edit
-        - form_for document_item, :html => {:id => "section_edit_form_#{document_item.id}", :class => "inlinene-edit-form section-form"} do |form|
+        - form_for document_item, :html => {:id => "section_edit_form_#{document_item.id}", :class => "inline-edit-form section-form"} do |form|
           = hidden_field_tag 'render', 'document_item', :id => "render_di_#{document_item.id}"
-          %h3
-            = form.text_field :title, :class => 'inline-edit-title', :id => "document_item_#{document_item.id}_title"
-            = form.submit 'submit', :class => 'submit inline-edit-submit', :id => "document_item_#{document_item.id}_submit"
-            or 
-            = link_to 'cancel', 'javascript:void(0)', :class => 'toggle-inline-edit' if owner?(current_object) and current_object.active?
+          .field
+            %h3
+              = form.text_field :title, :class => 'inline-edit-title', :id => "document_item_#{document_item.id}_title"
+          .field
+            %p.submit.fright
+              = link_to 'cancel', 'javascript:void(0)', :class => 'cancel-inline-edit' if owner?(current_object) and current_object.active?
+              or
+              = form.submit 'submit', :class => 'submit inline-edit-submit', :id => "document_item_#{document_item.id}_submit"
+        - form_for document_item, :html => {:method => 'delete', :id => "section_delete_form_#{document_item.id}", :class => "section-delete-form"} do |form|
+          = form.submit 'delete', :id => "delete_section_#{document_item.id}_submit", :class => 'delete-section-submit'
+          
     - else
       .show
         %h3
@@ -56,16 +62,16 @@
           -if document_item.body.present?
             :textile
               #{document_item.body.lstrip}
-    - unless @print_mode.present?
-      %ul.actions
-        -if current_object.active? and not document_item.is_heading? and not current_object.draft?
-          %li= link_to comments_tab(document_item), '#', {:class => 'toggle_document_item_activity'}
-        - if owner?(current_object) and current_object.active?
-          - unless current_object.draft? or document_item.is_heading?
-            %li
-              %span.separator
-                |
-          %li= link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
+  - unless @print_mode.present?
+    %ul.actions
+      -if current_object.active? and not document_item.is_heading? and not current_object.draft?
+        %li= link_to comments_tab(document_item), '#', {:class => 'toggle_document_item_activity'}
+      - if owner?(current_object) and current_object.active?
+        - unless current_object.draft? or document_item.is_heading?
+          %li
+            %span.separator
+              |
+        %li= link_to 'edit', 'javascript:void(0)', :class => 'toggle-inline-edit'
       -if current_object.active?
         = render :partial => "documents/activity_stream", :locals => {:document_item => document_item, :current_object => current_object}
     .clear

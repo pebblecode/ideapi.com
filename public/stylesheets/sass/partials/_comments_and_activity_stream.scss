@@ -24,7 +24,7 @@ $speechbox-textarea-width: $speechbox-width - 14;
   
   .speech, .revision-body{
     width: $speechbox-width;
-    margin: 0 auto;
+    margin: 1em auto;
     padding: 1em 1em;
     position: relative;
   }
@@ -100,7 +100,7 @@ $speechbox-textarea-width: $speechbox-width - 14;
     
       // this is an Unordered List
         .document_item_history{
-          margin: 0 auto 0 auto;
+          margin: 0 auto;
           padding: 0;
         }
         li{
@@ -119,7 +119,6 @@ $speechbox-textarea-width: $speechbox-width - 14;
         }
         .revision-body{
           border: 1px dashed #ddd;
-          margin: 0 auto;
           padding: 0.5em 1em;
           background: #fcfcfc;
           .close-button{

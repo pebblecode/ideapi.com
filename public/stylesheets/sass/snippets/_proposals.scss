@@ -331,18 +331,22 @@ ul.document-ideas{
 }
 
 .proposals-filter{
+  font-size: 0.85em;
   .filter-link{
     text-shadow: none;
-    font-weight: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-right: 5px;
-    &:hover{ color: #fff - #050505}
+    color: #333;
     a{
       color: white;
+      &.active{ color: #333;}
+      &:hover{ color: #fff - #111}
+      margin-right: 5px;
+      font-weight: normal
     }
   }
-  .filter-link{
-    color: #333;
-    &:hover{ color: #fff - #050505}
-  }
+}
+#proposals .document-ideas{
+  margin-top: 0.5em;
+  li{ margin-bottom: 0.5em;}
 }

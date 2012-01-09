@@ -462,6 +462,22 @@ form {
   } 
 }
 
+.change_state_form{
+  float: right;
+}
+
+.sb-trigger{
+  color: #333;
+}
+
+span.count{
+  display: inline-block; margin-left: 0.5em;
+  font-size: 90%;
+}
+
+.sb-section{ margin-bottom: 1em;}
+
+
 @import "snippets/feedback";
 @import "snippets/header";
 @import "snippets/subnav";
