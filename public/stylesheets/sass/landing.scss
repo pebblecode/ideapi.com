@@ -120,7 +120,7 @@ $content_bg: #f3f3f3;
 #navigation{
   list-style-position: inside;
   position: absolute;
-  bottom: 0;
+  bottom: 28px;
   right: 0;
   li{
     font-family: "Ubuntu","Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
@@ -162,65 +162,30 @@ $content_bg: #f3f3f3;
   padding: 50px 0;
 }
 
-#intro, #content-heading{
-  position: relative; 
-  
-  .title {
-    font-size: 2em;
-    line-height: 1.3em;
-    text-align: center;
-  }  
-  .subtitle{
-    font-size: 1.3em;
-    line-height: 1em;
-  }
-  
-  @extend  .clearfix;
-  .text{
-    @extend .span-4;
-    font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-    
-    li {
-      clear: both;
-    }
-    
-    h4 {
-      display: block;
-      width: 80px;
-      float: left;
-      clear: left;
-    }
-    p {
-/*      float: right;
-      margin: -3px 0 20px 0;
-      width: 290px;*/
-    } 
-  }
-  #promo-video{
-    @extend .span-6;
-    @extend .last;
-    text-align: right;
-    .inner-container{      
-      @include box_shadow_default;
-  
-      width:500px;
-      padding: 5px;
-      display: inline-block;            
-    }
-  }
-  
-  
-  .signup{
-    @extend .span-4;
+.homepage-header h1{
+  font-size: 3em;
+  line-height: 1.3;
+  text-align: center;
+  color: #b3d335;
+  margin-bottom: 0.6em;
+}
 
-    padding-top: 1em;
+.homepage-copy{ 
+  width: 90%;
+  margin: 0 5%;
+  p{
+    width: 46%;
+    margin: 2em 2%;
+    float: left;
   }
 }
-#intro{
-  padding-bottom: 50px;
-  .title{
-    padding: 0 0 50px 0;
-  }
+
+.code-credit{
+  font-size: 2em;
+  line-height: 1.3;
+  margin-left: 60px;
+  color: #b3d335;
+  margin-top: 52px;
 }
 #content-heading{
   position: relative;

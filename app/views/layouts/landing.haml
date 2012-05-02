@@ -34,10 +34,6 @@
             = link_to image_tag('/images/ideapi-logo-shadow.png'), "http://#{request.domain}/", :class => 'logo'
         
         %ul#navigation.navigation
-          %li=link_unless_current 'overview', "http://#{request.domain}/"
-          %li=link_unless_current 'features', "http://#{request.domain}#{features_path}"
-          %li=link_unless_current 'faq', "http://#{request.domain}#{faq_path}"
-          %li=link_unless_current "who's it for?", "http://#{request.domain}#{who_path}"
           -# %li=link_to 'blog', 'http://blog.ideapi.com'
           - if @usersession.present? and @user.present? 
             %li= link_to 'account', login_path, :class => 'green-button-link login-link'
