@@ -170,6 +170,13 @@ $content_bg: #f3f3f3;
   margin-bottom: 0.6em;
 }
 
+.slideshow{
+  margin: 2em auto;
+  width: 600px;
+  height: 300px;
+  background: red;
+}
+
 .homepage-copy{ 
   width: 90%;
   margin: 0 5%;
@@ -181,11 +188,30 @@ $content_bg: #f3f3f3;
 }
 
 .code-credit{
-  font-size: 2em;
-  line-height: 1.3;
-  margin-left: 60px;
-  color: #b3d335;
-  margin-top: 52px;
+  width: 90%;
+  margin: 0 5%;
+  h2{
+    font-size: 2em;
+    line-height: 1.3;
+    text-align: center;
+    color: #b3d335;
+    margin-top: 52px;
+    a{
+      color: #e74679;
+      cursor: pointer;
+      &:hover{
+        color: #419fda;
+      }  
+    }
+  }
+  p{
+    margin: 1em 0;
+  }
+  .disclaimer{
+    font-size: 0.8em;
+    line-height: 1.3;
+    color: #888;
+  }
 }
 #content-heading{
   position: relative;
@@ -536,8 +562,8 @@ hr.faded{
 /* Footer */
 #footer{
   font-family: 'Ubuntu', "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-  height: 200px;
   padding-top: 25px;
+  height: 50px;
   @extend .clearfix;
   
   .left{
@@ -596,6 +622,7 @@ hr.faded{
   }
   .social{
     margin-bottom: 1em;
+    float: right;
     @extend .clearfix;
     h4{
       @extend .span-2;
@@ -615,6 +642,7 @@ hr.faded{
   }
   .copyright{
     font-size: 0.8em;
+    margin-top: 5px;
     p{
       margin-bottom: 0;
     }
@@ -622,7 +650,11 @@ hr.faded{
     ul{ list-style: none;}
   }
   .quick-links{
-    li{     font-size: 0.8em;display: inline;}
+    margin: 7px 0 0 -10px;
+    li{  
+      font-size: 0.8em;
+      display: inline;
+    }
   }
 }
 
