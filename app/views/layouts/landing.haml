@@ -21,7 +21,7 @@
     /[if IE 8]
       %link{ :href => "/stylesheets/landing-ie8.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
         
-    =javascript_include_tag %w(jquery http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js jquery.easyslider marketing)
+    =javascript_include_tag %w(https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js slides.min.jquery marketing)
   
   - if controller_name == "pages"
   -   @body_class = action_name + "-page page-template"
@@ -34,96 +34,47 @@
             = link_to image_tag('/images/ideapi-logo-shadow.png'), "http://#{request.domain}/", :class => 'logo'
         
         %ul#navigation.navigation
-          %li=link_unless_current 'overview', "http://#{request.domain}/"
-          %li=link_unless_current 'features', "http://#{request.domain}#{features_path}"
-          %li=link_unless_current 'faq', "http://#{request.domain}#{faq_path}"
-          %li=link_unless_current "who's it for?", "http://#{request.domain}#{who_path}"
+          %li= link_to "sign up", "/signup", :class => "green-button-link login-link"          
+
           -# %li=link_to 'blog', 'http://blog.ideapi.com'
           - if @usersession.present? and @user.present? 
             %li= link_to 'account', login_path, :class => 'green-button-link login-link'
           - else
             %li= link_to 'login', login_path, :class => 'green-button-link login-link'
+          
     #content        
       .container  
         =yield
     
     #footer
       .container
-        %ul.left        
-          / - if yield(:custom_footer)
-          /   = yield :custom_footer
-          / - else
-          /   .large-quote
-          /     .quote
-          /       .before
-          /         %img{:src => '/images/icons/lquote.png', :alt=> ""}/
-          /       .content
-          /         :markdown
-          /           …perfect for an organisation like ours working with many different groups and individuals all in different time zones…
-          / 
-          /       .after
-          /         %img{:src => '/images/icons/rquote.png', :alt=> ""}/
-          /     .cite
-          /       %cite Philippa White, Founder &amp; Managing Director, <br/>The International Exchange
-          %li.navigation
-            %h5 Navigate
-            %ul
-              %li=link_unless_current 'Overview', "http://#{request.domain}/"
-              %li=link_unless_current 'Features', "http://#{request.domain}#{features_path}"
-              %li=link_unless_current "Who's it for?", "http://#{request.domain}#{who_path}"
-              - if @usersession.present? and @user.present? 
-                %li= link_to 'Account', login_path
-              - else
-                %li= link_to 'Login', login_path
+        
+        .copyright.clearfix.span-3
+          :markdown
+            &copy;2012 Ideapi Limited
 
-          %li.get-help
-            %h5 Get help
-            %ul
-              %li=link_to "GetSatisfaction", "http://getsatisfaction.com/ideapi"
-              %li=link_unless_current 'FAQ', "http://#{request.domain}#{faq_path}"              
-              %li
-                %a{ :href => "mailto:info[at]pebbleit", :title => "info", :rel => "ideapi.com", :onclick => "this.href='mailto:'+this.getAttribute('title')+'@'+this.getAttribute('rel')" }="Contact"                      
-          %li.learn-more
-            %h5 Learn more
-            %ul
-              /%li=link_to "Buzz", "#"
-              %li=link_to "Twitter", 'http://twitter.com/ideapi'
-              %li=link_to 'Blog', 'http://blog.ideapi.com'
+        .quick-links.span-3
+          %ul 
 
-            %h5 Sign up
-            %ul
-              %li=link_unless_current "Sign up", "http://#{request.domain}#{plans_path}"
-            
-        .right
-          .social.span-1.last
-            %ul.social-links              
-              %li
-                %a{ :href => "http://twitter.com/ideapi/", :title => "follow us on twitter" }
-                  %img{:src => "/images/social/twitter.png", :alt => "twitter", :height => "24"}
-              %li
-                %a{ :href => "http://www.facebook.com/ideapi/", :title => "ideapi @ Facebook" }
-                  %img{:src => "/images/social/facebook.png", :alt => "facebook", :height => "24"}
-              %li
-                %a{ :href => "http://blog.ideapi.com/rss/", :title => "RSS" }
-                  %img{:src => "/images/social/rss.png", :alt => "rss", :height => "24" }
-          .getsatisfaction-icon.span-2
-            :markdown
-              <a href="http://getsatisfaction.com/ideapi"><img src="/images/resources/getsatisfaction2.png" alt="GetSatisfaction" /></a>
-          .getsatisfaction.span-3
-            :markdown
-              Got a question? Need support? Want to give feedback? Visit our [GetSatisfaction community](http://getsatisfaction.com/ideapi), or try our [FAQs](#{faq_path}).
+            %li
+              |
+              %a{ :href => terms_path, :title => "Terms of Service" }Terms of Service
+              
+            %li
+              |
+              %a{ :href => privacy_path, :title => "Privacy Policy" }Privacy Policy
+
+        .social.span-1.last
+          %ul.social-links              
+            %li
+              %a{ :href => "http://twitter.com/ideapi/", :title => "follow us on twitter" }
+                %img{:src => "/images/social/twitter.png", :alt => "twitter", :height => "24"}
+            %li
+              %a{ :href => "http://www.facebook.com/ideapi/", :title => "ideapi @ Facebook" }
+                %img{:src => "/images/social/facebook.png", :alt => "facebook", :height => "24"}
+        
           
-          .copyright.clearfix.span-3
-            :markdown
-              &copy;2011 Ideapi Limited.
-              A [pebble.it](http://pebbleit.com) product.
-          .quick-links.span-3
-            %ul 
-              %li
-                %a{ :href => terms_path, :title => "Terms of Service" }Terms of Service
-                |
-              %li
-                %a{ :href => privacy_path, :title => "Privacy Policy" }Privacy Policy
+          
                 
     :javascript
       var _gaq = _gaq || [];

@@ -16,7 +16,7 @@
       =stylesheet_link_tag 'ie'
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
-    = javascript_include_tag %w(stb facebox jquery.cookie jquery.infieldlabel.min jshizzle ajaxify onload )
+    = javascript_include_tag %w(stb facebox jquery.cookie jquery.infieldlabel.min jshizzle ajaxify onload slides.min.jquery)
     
   %body{:id => body_ids, :class => body_classes}
     #top-bar
@@ -38,8 +38,8 @@
       #footer
         %p
           =link_to image_tag('/images/logos/logo-small.png'), "http://#{request.domain}/"
-          &copy; 2011
-          | 
+          &copy; 2012
+          |
           = link_to "GetSatisfaction", "http://getsatisfaction.com/ideapi"
 
       .clear

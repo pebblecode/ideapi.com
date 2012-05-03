@@ -1,5 +1,11 @@
 
 $(document).ready(function(){
+ 
+
+  $("#slides").slides({
+    play: 2500
+  });
+
   // For debugging: Add grid on logo click
   // turn_on_logo_grid_toggle();
   
