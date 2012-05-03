@@ -19,7 +19,7 @@ To install ideapi from scratch, first clone the source from apu:
         
     # Set up db
     rake db:create    # Required if ideapi db hasn't been created yet
-    rake ideapi:bootstrap
+    rake db:setup
     
     
 Add this to the /etc/apache2/extra/httpd-vhosts.conf file, replacing [ideapi directory] with the relevant value:
@@ -32,8 +32,8 @@ Add this to the /etc/apache2/extra/httpd-vhosts.conf file, replacing [ideapi dir
           AllowOverride All
         </Directory>
         DocumentRoot [ideapi directory]/public
-        ServerName smackaho.st
-        ServerAlias *.smackaho.st
+        ServerName vcap.me
+        ServerAlias *.vcap.me
         RailsEnv development
     </VirtualHost>
     
@@ -82,7 +82,7 @@ To kill a worker, find it using ps aux and use kill eg,
 
 ## Gotchas
 
-### http://smackaho.st/ redirects to 404 page
+### http://vcap.me/ redirects to 404 page
 
 Clear the browser cache. Could occur when you log into ideapi, and then clear out the database. An issue with the cookies.
 
@@ -90,9 +90,9 @@ Clear the browser cache. Could occur when you log into ideapi, and then clear ou
 
 Check config/environments/development.rb variable is the same as the url eg,
 
-  config.action_controller.session = { :domain => ".smackaho.st" }
+  config.action_controller.session = { :domain => ".vcap.me" }
   
-for the *.smackaho.st domain.
+for the *.vcap.me domain.
 
 ### Resque failures on staging/production
 

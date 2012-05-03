@@ -24,5 +24,5 @@ Feature: Allow users to sign up and use ideapi
         Then I should see "Account created"
         And "george@pebbleit.com" should receive an email with subject "Welcome to ideapi!"
         When they open the email with subject "Welcome to ideapi!"
-        Then they should see "http://pebble.smackaho.st" in the email body
+        Then they should see "http://pebble.vcap.me" in the email body
 

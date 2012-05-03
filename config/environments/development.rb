@@ -1,5 +1,5 @@
 # Settings specified here will take precedence over those in config/environment.rb
-APPLICATION_URL = "http://smackaho.st/"
+APPLICATION_URL = "http://vcap.me/"
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development
@@ -13,7 +13,7 @@ config.whiny_nils = true
 config.action_controller.consider_all_requests_local = true
 config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = true
-config.action_controller.session = { :domain => ".smackaho.st" }
+config.action_controller.session = { :domain => ".vcap.me" }
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
