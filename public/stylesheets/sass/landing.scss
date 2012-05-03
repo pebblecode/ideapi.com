@@ -207,31 +207,19 @@ $content_bg: #f3f3f3;
 }
 
 .homepage-copy{ 
-  width: 90%;
-  margin: 0 5%;
-  p{
-    width: 46%;
-    margin: 2em 2%;
-    float: left;
-  }
+  width: 87%;
+  margin: 2em 6.5% ;
 }
 
 .code-credit{
   width: 87%;
-  margin: 0 6.5% 6em;
-  h2{
-    font-size: 2em;
-    line-height: 1.3;
-    text-align: center;
-    color: #b3d335;
-    margin-top: 52px;
-    a{
-      color: #e74679;
-      cursor: pointer;
-      &:hover{
-        color: #419fda;
-      }  
-    }
+  margin: 2em 6.5% 6em;
+  .pebble{
+    color: #e74679;
+    cursor: pointer;
+    &:hover{
+     color: #419fda;
+    }  
   }
   p{
     margin: 1em 0;
