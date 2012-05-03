@@ -21,7 +21,7 @@
     /[if IE 8]
       %link{ :href => "/stylesheets/landing-ie8.css", :rel => "stylesheet", :media => "screen", :type => "text/css" }
         
-    =javascript_include_tag %w(jquery http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js jquery.easyslider marketing slides.min.jquery)
+    =javascript_include_tag %w(https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js slides.min.jquery marketing)
   
   - if controller_name == "pages"
   -   @body_class = action_name + "-page page-template"

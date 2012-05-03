@@ -3,7 +3,7 @@ $(document).ready(function(){
  
 
   $("#slides").slides({
-    play: 500
+    play: 2500
   });
 
   // For debugging: Add grid on logo click
