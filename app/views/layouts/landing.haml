@@ -34,7 +34,7 @@
             = link_to image_tag('/images/ideapi-logo-shadow.png'), "http://#{request.domain}/", :class => 'logo'
         
         %ul#navigation.navigation
-          %li= link_to "Sign Up", "/signup", :class => "green-button-link login-link"          
+          %li= link_to "sign up", "/signup", :class => "green-button-link login-link"          
 
           -# %li=link_to 'blog', 'http://blog.ideapi.com'
           - if @usersession.present? and @user.present? 
