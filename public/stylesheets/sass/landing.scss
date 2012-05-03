@@ -186,14 +186,19 @@ $content_bg: #f3f3f3;
     height: 350px;
     display:block;
   }
-  .pagination{
-    width: 60px;
+  .pagination {
+    width: 62px;
     margin: 0 auto;
     padding-bottom: 2em;
-    a{
+    
+    li {
+      float: left;
+    }
+
+    a {
+      display: block;
       height: 10px;
       width: 10px;
-      float: left;
       margin-left: 10px;
       font-size: 1px;
       @include border_radius(5px);
