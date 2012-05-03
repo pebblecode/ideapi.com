@@ -640,6 +640,7 @@ hr.faded{
   .social{
     margin-bottom: 1em;
     float: right;
+    width: auto;
     @extend .clearfix;
     h4{
       @extend .span-2;
@@ -649,6 +650,9 @@ hr.faded{
       @extend .span-1;
       @extend .last;
       li{ display: inline;}
+    }
+    .social-links{
+      width: auto;
     }
   }
   .getsatisfaction-icon{
@@ -660,6 +664,8 @@ hr.faded{
   .copyright{
     font-size: 0.8em;
     margin-top: 5px;
+    width: auto;
+    margin-right: 14px;
     p{
       margin-bottom: 0;
     }
